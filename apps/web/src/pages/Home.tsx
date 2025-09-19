@@ -1,14 +1,13 @@
 import Card from '../components/Card';
 import { A } from '@solidjs/router';
 import { createResource, For } from 'solid-js';
-import { resourceLabel } from '../services/data';
+import { resourceLabel, loadSearchIndex } from '../services/data';
 import { t } from '../i18n';
 
 const RESOURCES = ['pokemon','move','ability','type'] as const;
 
 async function loadCounts() {
-  const res = await fetch('/data/pokeapi/search-index.json');
-  const all = await res.json();
+  const all = await loadSearchIndex();
   const counts = Object.fromEntries(RESOURCES.map((r) => [r, 0]));
   for (const e of all) if (e.resource in counts) counts[e.resource]++;
   return counts as Record<(typeof RESOURCES)[number], number>;

@@ -2,7 +2,7 @@ import { A, useLocation } from '@solidjs/router';
 import { For, Show, createMemo, createResource, createSignal } from 'solid-js';
 import Card from '../components/Card';
 import Input from '../components/Input';
-import { formatName, loadList, resourceLabel, type ResourceName, loadAliases } from '../services/data';
+import { formatName, loadList, resourceLabel, type ResourceName, loadAliases, loadDataset } from '../services/data';
 import { t } from '../i18n';
 import ResourceTabs from '../components/ResourceTabs';
 
@@ -14,17 +14,13 @@ export default function ResourceList(props: { resource: ResourceName }) {
     const pre = await loadAliases(r as any).catch(()=>({} as any));
     if (pre && Object.keys(pre).length) return pre;
     // Fallback: build from master dataset names[] at runtime
-    try {
-      const data = await fetch(`/data/pokeapi/${r}.json`, { cache: 'no-store' }).then((res)=>res.json());
-      const out: Record<string,string[]> = {};
-      for (const it of data as any[]) {
-        const names = (it.names || []).map((n:any)=>n.name).filter(Boolean);
-        if (names.length) out[String(it.id)] = names;
-      }
-      return out;
-    } catch {
-      return {} as any;
+    const data = await loadDataset(r as any).catch(() => [] as any[]);
+    const out: Record<string, string[]> = {};
+    for (const it of data as any[]) {
+      const names = (it?.names || []).map((n: any) => n.name).filter(Boolean);
+      if (it?.id != null && names.length) out[String(it.id)] = names;
     }
+    return out;
   });
   const [q, setQ] = createSignal('');
   function normalize(s: string) {

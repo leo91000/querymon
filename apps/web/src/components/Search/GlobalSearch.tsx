@@ -1,14 +1,12 @@
 import { For, createEffect, createMemo, createResource, createSignal, onCleanup, onMount } from 'solid-js';
 import { useNavigate } from '@solidjs/router';
-import { resourceLabel, type ResourceName } from '../../services/data';
+import { resourceLabel, type ResourceName, loadSearchIndex } from '../../services/data';
 import { t, getLocale } from '../../i18n';
 
 type Entry = { resource: string; id: number | null; name: string; path: string };
 
 async function loadIndex(loc: string): Promise<Entry[]> {
-  const res = await fetch(`/data/pokeapi/search-index.${loc}.json`, { cache: 'no-store' });
-  if (!res.ok) throw new Error('Failed to load search index');
-  return res.json();
+  return loadSearchIndex(loc as any) as unknown as Entry[];
 }
 
 export default function GlobalSearch() {

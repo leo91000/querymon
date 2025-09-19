@@ -1,6 +1,7 @@
 import { A } from '@solidjs/router';
 import { Show, createMemo, createResource, createSignal, onCleanup, onMount } from 'solid-js';
 import { getLocale } from '../i18n';
+import { loadTypeEntries } from '../services/data';
 
 type Props = {
   id?: number;
@@ -11,17 +12,8 @@ type Props = {
   showLabel?: boolean;
 };
 
-let typesCache: any[] | null = null;
-async function loadTypes(): Promise<any[]> {
-  if (typesCache) return typesCache;
-  const res = await fetch('/data/pokeapi/type.json', { cache: 'no-store' });
-  const data = await res.json();
-  typesCache = data as any[];
-  return typesCache;
-}
-
 export default function TypeBox(props: Props) {
-  const [types] = createResource(loadTypes);
+  const [types] = createResource(loadTypeEntries);
   const locale = () => getLocale() as 'en'|'fr'|'jp';
 
   // Per-type light/dark tones (tailwind v4 class-based dark)
