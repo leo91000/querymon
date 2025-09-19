@@ -61,7 +61,7 @@ export default function PokemonDetail(props: { id: number }) {
           <div class="grid grid-cols-1 md:grid-cols-[1fr_320px]">
             <div class="p-6">
               <div class="flex items-center gap-3">
-                <h2 class="text-2xl font-bold tracking-tight">#{String(props.id).padStart(3, '0')} {formatName(species()?.name)}</h2>
+                <h2 class="text-2xl font-bold tracking-tight"><span class="mr-2 font-jersey text-blue-600 dark:text-blue-400">#{String(props.id).padStart(3, '0')}</span>{formatName(species()?.name)}</h2>
                 <div class="flex gap-2">
                   <For each={types()}>{(tName) => <Badge tone={toneForType(tName)}>{formatName(tName)}</Badge>}</For>
                 </div>
@@ -146,4 +146,3 @@ export default function PokemonDetail(props: { id: number }) {
     </div>
   );
 }
-
