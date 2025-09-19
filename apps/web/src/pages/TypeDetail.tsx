@@ -1,6 +1,6 @@
 import Card from '../components/Card';
 import Badge from '../components/Badge';
-import { For, Show, createMemo, createResource } from 'solid-js';
+import { For, Show, createMemo, createResource, createSignal } from 'solid-js';
 import { formatName, loadItemById, type ResourceName } from '../services/data';
 import { t } from '../i18n';
 
@@ -34,6 +34,13 @@ export default function TypeDetail(props: { id: number }) {
     resist: (dmg().half_damage_from || []).map((x: any) => x.type || x),
     immune: (dmg().no_damage_from || []).map((x: any) => x.type || x),
   }));
+
+  const [showAllMoves, setShowAllMoves] = createSignal(false);
+  const [showAllPokemon, setShowAllPokemon] = createSignal(false);
+  const movesList = createMemo(() => type()?.moves || []);
+  const pokemonList = createMemo(() => type()?.pokemon || []);
+  const visibleMoves = createMemo(() => showAllMoves() ? movesList() : movesList().slice(0, 48));
+  const visiblePokemon = createMemo(() => showAllPokemon() ? pokemonList() : pokemonList().slice(0, 48));
 
   return (
     <Show when={type()} fallback={<div class="text-gray-500">{t('detail.loading')}</div>}>
@@ -74,7 +81,7 @@ export default function TypeDetail(props: { id: number }) {
           <Card>
             <h3 class="mb-3 text-sm font-semibold tracking-wide text-gray-500">Moves</h3>
             <div class="flex flex-wrap gap-2">
-              <For each={(type()?.moves || []).slice(0, 48)}>{(m: any) => {
+              <For each={visibleMoves()}>{(m: any) => {
                 const id = idFromUrl(m.url);
                 return (
                   <a href={id ? `/move/${id}` : '#'} class="rounded-full border border-gray-200 px-3 py-1 text-sm hover:bg-gray-50 dark:border-gray-700 dark:hover:bg-gray-700/50">
@@ -82,8 +89,10 @@ export default function TypeDetail(props: { id: number }) {
                   </a>
                 );
               }}</For>
-              <Show when={(type()?.moves?.length || 0) > 48}>
-                <span class="text-sm text-gray-500">+{(type()!.moves.length - 48)} more</span>
+              <Show when={!showAllMoves() && (movesList()?.length || 0) > 48}>
+                <button type="button" class="rounded-full border border-gray-200 px-3 py-1 text-sm text-gray-600 hover:bg-gray-50 dark:border-gray-700 dark:text-gray-300 dark:hover:bg-gray-700/50" onClick={() => setShowAllMoves(true)}>
+                  +{(movesList().length - 48)} more
+                </button>
               </Show>
             </div>
           </Card>
@@ -91,7 +100,7 @@ export default function TypeDetail(props: { id: number }) {
           <Card>
             <h3 class="mb-3 text-sm font-semibold tracking-wide text-gray-500">Pokémon</h3>
             <div class="flex flex-wrap gap-2">
-              <For each={(type()?.pokemon || []).slice(0, 48)}>{(p: any) => {
+              <For each={visiblePokemon()}>{(p: any) => {
                 const id = idFromUrl(p.pokemon?.url);
                 return (
                   <a href={id ? `/pokemon/${id}` : '#'} class="rounded-full border border-gray-200 px-3 py-1 text-sm hover:bg-gray-50 dark:border-gray-700 dark:hover:bg-gray-700/50">
@@ -99,8 +108,10 @@ export default function TypeDetail(props: { id: number }) {
                   </a>
                 );
               }}</For>
-              <Show when={(type()?.pokemon?.length || 0) > 48}>
-                <span class="text-sm text-gray-500">+{(type()!.pokemon.length - 48)} more</span>
+              <Show when={!showAllPokemon() && (pokemonList()?.length || 0) > 48}>
+                <button type="button" class="rounded-full border border-gray-200 px-3 py-1 text-sm text-gray-600 hover:bg-gray-50 dark:border-gray-700 dark:text-gray-300 dark:hover:bg-gray-700/50" onClick={() => setShowAllPokemon(true)}>
+                  +{(pokemonList().length - 48)} more
+                </button>
               </Show>
             </div>
           </Card>
@@ -127,4 +138,3 @@ function RelRow(props: { label: string; list: any[] }) {
     </div>
   );
 }
-

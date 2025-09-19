@@ -1,6 +1,6 @@
 import Card from '../components/Card';
 import Badge from '../components/Badge';
-import { For, Show, createMemo, createResource } from 'solid-js';
+import { For, Show, createMemo, createResource, createSignal } from 'solid-js';
 import { formatName, loadItemById, type ResourceName } from '../services/data';
 import { t } from '../i18n';
 
@@ -56,6 +56,9 @@ export default function MoveDetail(props: { id: number }) {
   const damageClass = createMemo(() => move()?.damage_class?.name);
   const effectText = createMemo(() => pickEffectText(move(), (localStorage.getItem('locale') as any) || 'en'));
   const flavorText = createMemo(() => pickFlavorText(move(), (localStorage.getItem('locale') as any) || 'en'));
+  const [showAllLearners, setShowAllLearners] = createSignal(false);
+  const learners = createMemo(() => move()?.learned_by_pokemon || []);
+  const visibleLearners = createMemo(() => showAllLearners() ? learners() : learners().slice(0, 24));
 
   return (
     <Show when={move()} fallback={<div class="text-gray-500">{t('detail.loading')}</div>}>
@@ -126,7 +129,7 @@ export default function MoveDetail(props: { id: number }) {
             <Card>
               <h3 class="mb-3 text-sm font-semibold tracking-wide text-gray-500">Learned By</h3>
               <div class="flex flex-wrap gap-2">
-                <For each={(m().learned_by_pokemon || []).slice(0, 24)}>{(p: any) => {
+                <For each={visibleLearners()}>{(p: any) => {
                   const id = idFromUrl(p.url);
                   return (
                     <a href={id ? `/pokemon/${id}` : '#'} class="rounded-full border border-gray-200 px-3 py-1 text-sm hover:bg-gray-50 dark:border-gray-700 dark:hover:bg-gray-700/50">
@@ -134,8 +137,10 @@ export default function MoveDetail(props: { id: number }) {
                     </a>
                   );
                 }}</For>
-                <Show when={(m().learned_by_pokemon?.length || 0) > 24}>
-                  <span class="text-sm text-gray-500">+{(m().learned_by_pokemon.length - 24)} more</span>
+                <Show when={!showAllLearners() && (learners()?.length || 0) > 24}>
+                  <button type="button" class="rounded-full border border-gray-200 px-3 py-1 text-sm text-gray-600 hover:bg-gray-50 dark:border-gray-700 dark:text-gray-300 dark:hover:bg-gray-700/50" onClick={() => setShowAllLearners(true)}>
+                    +{(learners().length - 24)} more
+                  </button>
                 </Show>
               </div>
             </Card>
@@ -163,4 +168,3 @@ function MetaRow(props: { label: string; value: any }) {
     </div>
   );
 }
-
