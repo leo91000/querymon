@@ -1,4 +1,5 @@
 import { createResource } from 'solid-js';
+import { t } from '../i18n';
 
 export type ResourceName = 'pokemon' | 'pokemon-species' | 'move' | 'ability' | 'type' | 'evolution-chain';
 
@@ -29,16 +30,15 @@ export async function loadItemById<T = any>(resource: ResourceName, id: number):
 
 export function resourceLabel(resource: ResourceName): string {
   switch (resource) {
-    case 'pokemon': return 'Pokémon';
-    case 'pokemon-species': return 'Species';
-    case 'move': return 'Moves';
-    case 'ability': return 'Abilities';
-    case 'type': return 'Types';
-    case 'evolution-chain': return 'Evolution Chains';
+    case 'pokemon': return t('resources.pokemon');
+    case 'pokemon-species': return t('resources.pokemon-species');
+    case 'move': return t('resources.move');
+    case 'ability': return t('resources.ability');
+    case 'type': return t('resources.type');
+    case 'evolution-chain': return t('resources.evolution-chain');
   }
 }
 
 export function formatName(name: string): string {
   return String(name || '').replace(/[-_]/g, ' ').replace(/\b\w/g, (m) => m.toUpperCase());
 }
-

@@ -1,5 +1,6 @@
 import { For, createMemo, createResource, createSignal, onCleanup, onMount } from 'solid-js';
 import { useNavigate } from '@solidjs/router';
+import { t } from '../../i18n';
 
 type Entry = { resource: string; id: number | null; name: string; path: string };
 
@@ -37,7 +38,7 @@ export default function GlobalSearch() {
     <div class="relative w-full max-w-xl">
       <input
         type="search"
-        placeholder="Search Pokémon, moves, abilities…"
+        placeholder={t('search.placeholder')}
         class="h-10 w-full rounded-md border border-gray-300 bg-white px-3 text-sm shadow-sm outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20"
         value={q()}
         onInput={(e) => { setQ(e.currentTarget.value); setOpen(true); }}
