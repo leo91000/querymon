@@ -40,7 +40,10 @@ export default function GlobalSearch() {
   function scoreEntry(e: any, term: string): number {
     let s = matchScore(e.name || '', term);
     const aliases = Array.isArray(e.aliases) ? e.aliases : [];
-    for (const a of aliases) s = Math.max(s, matchScore(a, term) + 0.25); // slight boost if alias exact
+    for (const a of aliases) {
+      const ms = matchScore(a, term);
+      if (ms > 0) s = Math.max(s, ms + 0.25); // boost only when alias matches
+    }
     const rw = e.resource === 'type' ? 1.2 : e.resource === 'move' ? 1.1 : e.resource === 'ability' ? 1.05 : 1;
     return s * rw;
   }
