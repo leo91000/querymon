@@ -1,5 +1,6 @@
 import { For, createMemo, createResource, createSignal, onCleanup, onMount } from 'solid-js';
 import { useNavigate } from '@solidjs/router';
+import { resourceLabel, type ResourceName } from '../../services/data';
 import { t } from '../../i18n';
 
 type Entry = { resource: string; id: number | null; name: string; path: string };
@@ -57,7 +58,7 @@ export default function GlobalSearch() {
                   >
                     <span class="truncate">
                       <span class="font-medium">{r.name}</span>
-                      <span class="text-gray-500"> — {r.resource}</span>
+                      <span class="text-gray-500"> — {resourceLabel(r.resource as ResourceName)}</span>
                     </span>
                     {r.id != null && (
                       <span class="text-xs text-gray-400">#{String(r.id)}</span>

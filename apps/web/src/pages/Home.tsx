@@ -4,7 +4,7 @@ import { createResource, For } from 'solid-js';
 import { resourceLabel } from '../services/data';
 import { t } from '../i18n';
 
-const RESOURCES = ['pokemon','pokemon-species','move','ability','type','evolution-chain'] as const;
+const RESOURCES = ['pokemon','move','ability','type','evolution-chain'] as const;
 
 async function loadCounts() {
   const res = await fetch('/data/pokeapi/search-index.json');

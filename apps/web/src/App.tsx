@@ -12,8 +12,7 @@ const App: Component = () => {
         <Route path="/" component={Home} />
         <Route path="pokemon" component={() => <ResourceList resource="pokemon" />} />
         <Route path="pokemon/:id" component={() => <ResourceDetail resource="pokemon" />} />
-        <Route path="pokemon-species" component={() => <ResourceList resource="pokemon-species" />} />
-        <Route path="pokemon-species/:id" component={() => <ResourceDetail resource="pokemon-species" />} />
+        {/** species routes removed; species now served under /pokemon */}
         <Route path="move" component={() => <ResourceList resource="move" />} />
         <Route path="move/:id" component={() => <ResourceDetail resource="move" />} />
         <Route path="ability" component={() => <ResourceList resource="ability" />} />

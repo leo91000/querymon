@@ -4,6 +4,8 @@ import path from 'node:path';
 
 const OUT_DIR = path.resolve(process.cwd(), 'apps/web/public/data/pokeapi');
 const RESOURCES = ['pokemon', 'pokemon-species', 'move', 'ability', 'type', 'evolution-chain'];
+const EXCLUDE_FROM_SEARCH = new Set(['pokemon']);
+const RENAME_IN_SEARCH = { 'pokemon-species': 'pokemon' };
 
 async function exists(p) {
   try { await readdir(path.dirname(p)); return true; } catch { return false; }
@@ -51,7 +53,10 @@ async function build() {
         if (id != null && !idmap[id]) idmap[id] = path.basename(f);
         const name = item.name || (resource === 'evolution-chain' ? item.chain?.species?.name : undefined) || String(id);
         list.push({ id, name });
-        index.push({ resource, id, name, path: `/` + resource + '/' + (id ?? name) });
+        if (!EXCLUDE_FROM_SEARCH.has(resource)) {
+          const r = (RENAME_IN_SEARCH[resource] || resource);
+          index.push({ resource: r, id, name, path: `/${r}/${id ?? name}` });
+        }
       }
     }
     await writeFile(path.join(OUT_DIR, `${resource}.idmap.json`), JSON.stringify(idmap, null, 2));

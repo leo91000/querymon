@@ -14,7 +14,6 @@ export default function Navbar() {
         <GlobalSearch />
         <nav class="hidden gap-4 md:flex">
           <A href="/pokemon" class="text-sm text-gray-700 hover:text-blue-700">{t('nav.pokemon')}</A>
-          <A href="/pokemon-species" class="text-sm text-gray-700 hover:text-blue-700">{t('nav.species')}</A>
           <A href="/move" class="text-sm text-gray-700 hover:text-blue-700">{t('nav.moves')}</A>
           <A href="/ability" class="text-sm text-gray-700 hover:text-blue-700">{t('nav.abilities')}</A>
           <A href="/type" class="text-sm text-gray-700 hover:text-blue-700">{t('nav.types')}</A>

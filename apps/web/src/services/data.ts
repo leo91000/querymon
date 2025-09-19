@@ -9,16 +9,25 @@ export async function fetchJSON<T>(url: string): Promise<T> {
   return res.json();
 }
 
+function normalize(resource: ResourceName): ResourceName {
+  // Alias: UI 'pokemon' uses species data under the hood
+  if (resource === 'pokemon') return 'pokemon-species';
+  return resource;
+}
+
 export async function loadList(resource: ResourceName): Promise<Array<{ id: number; name: string }>> {
-  return fetchJSON(`/data/pokeapi/${resource}.list.json`);
+  const r = normalize(resource);
+  return fetchJSON(`/data/pokeapi/${r}.list.json`);
 }
 
 export async function loadIdMap(resource: ResourceName): Promise<Record<string, string>> {
-  return fetchJSON(`/data/pokeapi/${resource}.idmap.json`);
+  const r = normalize(resource);
+  return fetchJSON(`/data/pokeapi/${r}.idmap.json`);
 }
 
 export async function loadItemById<T = any>(resource: ResourceName, id: number): Promise<T | undefined> {
-  const idmap = await loadIdMap(resource);
+  const r = normalize(resource);
+  const idmap = await loadIdMap(r as ResourceName);
   const file = idmap[String(id)];
   if (!file) return undefined;
   const arr = await fetchJSON<T[]>(`/data/pokeapi/${file}`);

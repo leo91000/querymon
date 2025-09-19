@@ -82,5 +82,26 @@ This file guides agents and contributors working in this repository. It applies 
 - Images have meaningful `alt` text.
 - Sufficient color contrast for text and interactive states.
 
+## Internationalization (i18n)
+- Library: `@solid-primitives/i18n` with `flatten` + `translator(resolveTemplate)`.
+- Locale files live at `apps/web/public/locales/<locale>/common.json`.
+  - Current locales: `en`, `fr`, `jp` (mapped to HTML lang `ja`).
+- Initialization: `initI18n()` runs in `apps/web/src/index.tsx`.
+  - Order: localStorage `locale` → navigator language (`fr*` → `fr`, `ja*` → `jp`) → fallback `en`.
+  - Persists selection in localStorage and updates `<html lang>`.
+- Usage in code:
+  - Import `t` from `apps/web/src/i18n`: `import { t } from '../i18n'` (adjust path).
+  - Replace UI literals with `t('key')` or templated `t('list.filter', { name: 'Pokémon' })`.
+  - Resource labels use `t` via `resourceLabel()` in `apps/web/src/services/data.ts`.
+- Language switcher:
+  - Component: `apps/web/src/components/LanguageSwitcher.tsx` (in Navbar on desktop).
+  - To add a new language, add `public/locales/<code>/common.json` and extend the switcher’s options.
+- Keys & style:
+  - Dot‑separated keys: `section.subsection.name` (e.g., `nav.pokemon`, `search.placeholder`).
+  - Keep values plain strings; use `{placeholder}` for template variables.
+  - Avoid embedding HTML in translations; compose UI elements around translated strings instead.
+- Localized data (future):
+  - PokeAPI exposes localized `names`/`flavor_text_entries` per language. Extend the scraper to build per‑locale search indices (`search-index.<locale>.json`) and prefer localized fields when available.
+
 ## Trademark Notice
 Pokémon and Pokémon character names are trademarks of Nintendo. This project is a fan-made database for educational/demo purposes.
