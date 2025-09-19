@@ -70,21 +70,21 @@ export default function PokemonDetail(props: { id: number }) {
 
               <div class="mt-6 grid grid-cols-2 gap-4 md:grid-cols-3">
                 <div class="rounded-lg border border-gray-200 p-3 text-sm dark:border-gray-700">
-                  <div class="flex items-center gap-2 text-gray-500 dark:text-gray-400"><span class="icon-[ph--scales] text-blue-600 dark:text-blue-400"></span> Weight</div>
+                  <div class="flex items-center gap-2 text-gray-500 dark:text-gray-400"><span class="icon-[ph--scales] text-blue-600 dark:text-blue-400"></span> {t('pokemon.weight')}</div>
                   <div class="text-lg font-semibold">{pokemon() ? kg(pokemon()!.weight) + ' kg' : '—'}</div>
                 </div>
                 <div class="rounded-lg border border-gray-200 p-3 text-sm dark:border-gray-700">
-                  <div class="flex items-center gap-2 text-gray-500 dark:text-gray-400"><span class="icon-[ph--ruler] text-blue-600 dark:text-blue-400"></span> Height</div>
+                  <div class="flex items-center gap-2 text-gray-500 dark:text-gray-400"><span class="icon-[ph--ruler] text-blue-600 dark:text-blue-400"></span> {t('pokemon.height')}</div>
                   <div class="text-lg font-semibold">{pokemon() ? m(pokemon()!.height) + ' m' : '—'}</div>
                 </div>
                 <div class="rounded-lg border border-gray-200 p-3 text-sm dark:border-gray-700">
-                  <div class="flex items-center gap-2 text-gray-500 dark:text-gray-400"><span class="icon-[ph--target] text-blue-600 dark:text-blue-400"></span> Capture rate</div>
+                  <div class="flex items-center gap-2 text-gray-500 dark:text-gray-400"><span class="icon-[ph--target] text-blue-600 dark:text-blue-400"></span> {t('pokemon.captureRate')}</div>
                   <div class="text-lg font-semibold">{species()?.capture_rate ?? '—'}</div>
                 </div>
               </div>
 
               <div class="mt-6">
-                <h3 class="mb-2 text-sm font-semibold tracking-wide text-gray-500">Abilities</h3>
+                <h3 class="mb-2 text-sm font-semibold tracking-wide text-gray-500">{t('pokemon.abilities')}</h3>
                 <div class="flex flex-wrap gap-2">
                   <For each={abilities()}>{(a) => {
                     const id = idFromUrl(a?.url);
@@ -104,7 +104,7 @@ export default function PokemonDetail(props: { id: number }) {
 
         <div class="grid grid-cols-1 gap-6 md:grid-cols-2">
           <Card>
-            <h3 class="mb-3 text-sm font-semibold tracking-wide text-gray-500">Base Stats</h3>
+            <h3 class="mb-3 text-sm font-semibold tracking-wide text-gray-500">{t('pokemon.baseStats')}</h3>
             <div class="space-y-2">
               <For each={stats()}>{(s) => (
                 <div>
@@ -121,22 +121,22 @@ export default function PokemonDetail(props: { id: number }) {
           </Card>
 
           <Card>
-            <h3 class="mb-3 text-sm font-semibold tracking-wide text-gray-500">Biology</h3>
+            <h3 class="mb-3 text-sm font-semibold tracking-wide text-gray-500">{t('pokemon.biology')}</h3>
             <div class="grid grid-cols-2 gap-3 text-sm">
               <div>
-                <div class="text-gray-500 dark:text-gray-400">Habitat</div>
+                <div class="text-gray-500 dark:text-gray-400">{t('pokemon.habitat')}</div>
                 <div class="font-medium">{formatName(species()?.habitat?.name || 'Unknown')}</div>
               </div>
               <div>
-                <div class="text-gray-500 dark:text-gray-400">Growth Rate</div>
+                <div class="text-gray-500 dark:text-gray-400">{t('pokemon.growthRate')}</div>
                 <div class="font-medium">{formatName(species()?.growth_rate?.name || '—')}</div>
               </div>
               <div>
-                <div class="text-gray-500 dark:text-gray-400">Egg Groups</div>
+                <div class="text-gray-500 dark:text-gray-400">{t('pokemon.eggGroups')}</div>
                 <div class="font-medium">{(species()?.egg_groups || []).map((g: any) => formatName(g.name)).join(', ') || '—'}</div>
               </div>
               <div>
-                <div class="text-gray-500 dark:text-gray-400">Shape</div>
+                <div class="text-gray-500 dark:text-gray-400">{t('pokemon.shape')}</div>
                 <div class="font-medium">{formatName(species()?.shape?.name || '—')}</div>
               </div>
             </div>

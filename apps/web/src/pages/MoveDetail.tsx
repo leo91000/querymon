@@ -80,12 +80,12 @@ export default function MoveDetail(props: { id: number }) {
                 </p>
 
                 <div class="mt-6 grid grid-cols-2 gap-4 md:grid-cols-3">
-                  <StatBox label="Power" value={m().power ?? '—'} />
-                  <StatBox label="Accuracy" value={m().accuracy != null ? `${m().accuracy}%` : '—'} />
-                  <StatBox label="PP" value={m().pp ?? '—'} />
-                  <StatBox label="Priority" value={m().priority ?? 0} />
-                  <StatBox label="Target" value={formatName(m().target?.name || '—')} />
-                  <StatBox label="Generation" value={formatName(m().generation?.name || '—')} />
+                  <StatBox label={t('move.power')} value={m().power ?? '—'} />
+                  <StatBox label={t('move.accuracy')} value={m().accuracy != null ? `${m().accuracy}%` : '—'} />
+                  <StatBox label={t('move.pp')} value={m().pp ?? '—'} />
+                  <StatBox label={t('move.priority')} value={m().priority ?? 0} />
+                  <StatBox label={t('move.target')} value={formatName(m().target?.name || '—')} />
+                  <StatBox label={t('move.generation')} value={formatName(m().generation?.name || '—')} />
                 </div>
               </div>
 
@@ -100,20 +100,20 @@ export default function MoveDetail(props: { id: number }) {
 
           <div class="grid grid-cols-1 gap-6 md:grid-cols-2">
             <Card>
-              <h3 class="mb-3 text-sm font-semibold tracking-wide text-gray-500">Meta</h3>
+              <h3 class="mb-3 text-sm font-semibold tracking-wide text-gray-500">{t('move.meta')}</h3>
               <div class="grid grid-cols-2 gap-3 text-sm">
-                <MetaRow label="Ailment" value={formatName(m().meta?.ailment?.name || '—')} />
-                <MetaRow label="Crit rate" value={m().meta?.crit_rate ?? 0} />
-                <MetaRow label="Drain" value={m().meta?.drain ? `${m().meta.drain}%` : '0%'} />
-                <MetaRow label="Healing" value={m().meta?.healing ? `${m().meta.healing}%` : '0%'} />
-                <MetaRow label="Flinch chance" value={(m().meta?.flinch_chance ?? 0) + '%'} />
-                <MetaRow label="Effect chance" value={(m().effect_chance ?? 0) + '%'} />
-                <MetaRow label="Hits" value={m().meta?.min_hits ? `${m().meta.min_hits}-${m().meta?.max_hits ?? m().meta?.min_hits}` : '—'} />
-                <MetaRow label="Turns" value={m().meta?.min_turns ? `${m().meta.min_turns}-${m().meta?.max_turns ?? m().meta?.min_turns}` : '—'} />
+                <MetaRow label={t('move.ailment')} value={formatName(m().meta?.ailment?.name || '—')} />
+                <MetaRow label={t('move.critRate')} value={m().meta?.crit_rate ?? 0} />
+                <MetaRow label={t('move.drain')} value={m().meta?.drain ? `${m().meta.drain}%` : '0%'} />
+                <MetaRow label={t('move.healing')} value={m().meta?.healing ? `${m().meta.healing}%` : '0%'} />
+                <MetaRow label={t('move.flinchChance')} value={(m().meta?.flinch_chance ?? 0) + '%'} />
+                <MetaRow label={t('move.effectChance')} value={(m().effect_chance ?? 0) + '%'} />
+                <MetaRow label={t('move.hits')} value={m().meta?.min_hits ? `${m().meta.min_hits}-${m().meta?.max_hits ?? m().meta?.min_hits}` : '—'} />
+                <MetaRow label={t('move.turns')} value={m().meta?.min_turns ? `${m().meta.min_turns}-${m().meta?.max_turns ?? m().meta?.min_turns}` : '—'} />
               </div>
               <Show when={(m().stat_changes?.length || 0) > 0}>
                 <div class="mt-4">
-                  <div class="mb-1 text-sm font-semibold tracking-wide text-gray-500">Stat changes</div>
+                  <div class="mb-1 text-sm font-semibold tracking-wide text-gray-500">{t('move.statChanges')}</div>
                   <ul class="text-sm">
                     <For each={m().stat_changes}>{(sc: any) => (
                       <li class="flex items-center justify-between border-b border-gray-100 py-1 text-gray-700 last:border-none dark:border-gray-700 dark:text-gray-200">
@@ -127,7 +127,7 @@ export default function MoveDetail(props: { id: number }) {
             </Card>
 
             <Card>
-              <h3 class="mb-3 text-sm font-semibold tracking-wide text-gray-500">Learned By</h3>
+              <h3 class="mb-3 text-sm font-semibold tracking-wide text-gray-500">{t('move.learnedBy')}</h3>
               <div class="flex flex-wrap gap-2">
                 <For each={visibleLearners()}>{(p: any) => {
                   const id = idFromUrl(p.url);
@@ -139,7 +139,7 @@ export default function MoveDetail(props: { id: number }) {
                 }}</For>
                 <Show when={!showAllLearners() && (learners()?.length || 0) > 24}>
                   <button type="button" class="rounded-full border border-gray-200 px-3 py-1 text-sm text-gray-600 hover:bg-gray-50 dark:border-gray-700 dark:text-gray-300 dark:hover:bg-gray-700/50" onClick={() => setShowAllLearners(true)}>
-                    +{(learners().length - 24)} more
+                    +{(learners().length - 24)} {t('common.more')}
                   </button>
                 </Show>
               </div>

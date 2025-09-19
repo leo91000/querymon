@@ -51,7 +51,7 @@ export default function AbilityDetail(props: { id: number }) {
                 <div class="flex flex-wrap items-center gap-3">
                   <h2 class="text-2xl font-bold tracking-tight font-jersey">{formatName(a().name)}</h2>
                   <Badge tone={'blue'}>{formatName(a().generation?.name || '—')}</Badge>
-                  {a().is_main_series === false && <Badge tone={'gray'}>Spin-off</Badge>}
+                  {a().is_main_series === false && <Badge tone={'gray'}>{t('ability.spinoff')}</Badge>}
                 </div>
 
                 <div class="mt-3 space-y-2 text-gray-700 dark:text-gray-200">
@@ -67,8 +67,8 @@ export default function AbilityDetail(props: { id: number }) {
                 </div>
 
                 <div class="mt-6 grid grid-cols-2 gap-4 md:grid-cols-3">
-                  <StatBox label="Introduced in" value={formatName(a().generation?.name || '—')} />
-                  <StatBox label="Main series" value={a().is_main_series ? 'Yes' : 'No'} />
+                  <StatBox label={t('ability.introducedIn')} value={formatName(a().generation?.name || '—')} />
+                  <StatBox label={t('ability.mainSeries')} value={a().is_main_series ? t('common.yes') : t('common.no')} />
                 </div>
               </div>
 
@@ -82,19 +82,19 @@ export default function AbilityDetail(props: { id: number }) {
           </Card>
 
           <Card>
-            <h3 class="mb-3 text-sm font-semibold tracking-wide text-gray-500">Pokémon With This Ability</h3>
+            <h3 class="mb-3 text-sm font-semibold tracking-wide text-gray-500">{t('ability.withAbility')}</h3>
             <div class="flex flex-wrap gap-2">
               <For each={visiblePokemon()}>{(p: any) => {
                 const id = idFromUrl(p.pokemon?.url);
                 return (
                   <a href={id ? `/pokemon/${id}` : '#'} class="rounded-full border border-gray-200 px-3 py-1 text-sm hover:bg-gray-50 dark:border-gray-700 dark:hover:bg-gray-700/50">
-                    {formatName(p.pokemon?.name)}{p.is_hidden ? ' (Hidden)' : ''}
+                    {formatName(p.pokemon?.name)}{p.is_hidden ? ` (${t('ability.hidden')})` : ''}
                   </a>
                 );
               }}</For>
               <Show when={!showAllPokemon() && (abilityPokemon()?.length || 0) > 36}>
                 <button type="button" class="rounded-full border border-gray-200 px-3 py-1 text-sm text-gray-600 hover:bg-gray-50 dark:border-gray-700 dark:text-gray-300 dark:hover:bg-gray-700/50" onClick={() => setShowAllPokemon(true)}>
-                  +{(abilityPokemon().length - 36)} more
+                  +{(abilityPokemon().length - 36)} {t('common.more')}
                 </button>
               </Show>
             </div>
