@@ -25,26 +25,27 @@ export default function TypeBox(props: Props) {
   const locale = () => getLocale() as 'en'|'fr'|'jp';
 
   // Per-type light/dark tones (tailwind v4 class-based dark)
+  // Vibrant dark-mode palette: stronger bg, lighter text, tinted border
   const TONE: Record<string, string> = {
-    normal: 'border-stone-200 bg-stone-100 text-stone-800 dark:border-stone-800 dark:bg-stone-900/30 dark:text-stone-200',
-    fire: 'border-orange-200 bg-orange-100 text-orange-800 dark:border-orange-800 dark:bg-orange-900/30 dark:text-orange-200',
-    water: 'border-blue-200 bg-blue-100 text-blue-800 dark:border-blue-800 dark:bg-blue-900/30 dark:text-blue-200',
-    electric: 'border-yellow-200 bg-yellow-100 text-yellow-800 dark:border-yellow-800 dark:bg-yellow-900/30 dark:text-yellow-200',
-    grass: 'border-green-200 bg-green-100 text-green-800 dark:border-green-800 dark:bg-green-900/30 dark:text-green-200',
-    ice: 'border-sky-200 bg-sky-100 text-sky-800 dark:border-sky-800 dark:bg-sky-900/30 dark:text-sky-200',
-    fighting: 'border-rose-200 bg-rose-100 text-rose-800 dark:border-rose-800 dark:bg-rose-900/30 dark:text-rose-200',
-    poison: 'border-purple-200 bg-purple-100 text-purple-800 dark:border-purple-800 dark:bg-purple-900/30 dark:text-purple-200',
-    ground: 'border-amber-200 bg-amber-100 text-amber-800 dark:border-amber-800 dark:bg-amber-900/30 dark:text-amber-200',
-    flying: 'border-indigo-200 bg-indigo-100 text-indigo-800 dark:border-indigo-800 dark:bg-indigo-900/30 dark:text-indigo-200',
-    psychic: 'border-pink-200 bg-pink-100 text-pink-800 dark:border-pink-800 dark:bg-pink-900/30 dark:text-pink-200',
-    bug: 'border-lime-200 bg-lime-100 text-lime-800 dark:border-lime-800 dark:bg-lime-900/30 dark:text-lime-200',
-    rock: 'border-stone-300 bg-stone-100 text-stone-800 dark:border-stone-800 dark:bg-stone-900/30 dark:text-stone-200',
-    ghost: 'border-violet-200 bg-violet-100 text-violet-800 dark:border-violet-800 dark:bg-violet-900/30 dark:text-violet-200',
-    dragon: 'border-fuchsia-200 bg-fuchsia-100 text-fuchsia-800 dark:border-fuchsia-800 dark:bg-fuchsia-900/30 dark:text-fuchsia-200',
-    dark: 'border-neutral-300 bg-neutral-100 text-neutral-800 dark:border-neutral-700 dark:bg-neutral-900/30 dark:text-neutral-200',
-    steel: 'border-slate-200 bg-slate-100 text-slate-800 dark:border-slate-800 dark:bg-slate-900/30 dark:text-slate-200',
-    fairy: 'border-rose-200 bg-rose-100 text-rose-800 dark:border-rose-800 dark:bg-rose-900/30 dark:text-rose-200',
-    stellar: 'border-teal-200 bg-teal-100 text-teal-800 dark:border-teal-800 dark:bg-teal-900/30 dark:text-teal-200',
+    normal: 'border-stone-200 bg-stone-100 text-stone-800 dark:border-stone-500/60 dark:bg-stone-700/60 dark:text-stone-100',
+    fire: 'border-orange-200 bg-orange-100 text-orange-800 dark:border-orange-500/60 dark:bg-orange-700/60 dark:text-white',
+    water: 'border-blue-200 bg-blue-100 text-blue-800 dark:border-blue-500/60 dark:bg-blue-700/60 dark:text-white',
+    electric: 'border-yellow-200 bg-yellow-100 text-yellow-800 dark:border-yellow-400/70 dark:bg-yellow-600/60 dark:text-black',
+    grass: 'border-green-200 bg-green-100 text-green-800 dark:border-green-500/60 dark:bg-green-700/60 dark:text-white',
+    ice: 'border-sky-200 bg-sky-100 text-sky-800 dark:border-sky-400/70 dark:bg-sky-700/60 dark:text-white',
+    fighting: 'border-rose-200 bg-rose-100 text-rose-800 dark:border-rose-500/60 dark:bg-rose-700/60 dark:text-white',
+    poison: 'border-purple-200 bg-purple-100 text-purple-800 dark:border-purple-500/60 dark:bg-purple-700/60 dark:text-white',
+    ground: 'border-amber-200 bg-amber-100 text-amber-800 dark:border-amber-500/60 dark:bg-amber-700/60 dark:text-black',
+    flying: 'border-indigo-200 bg-indigo-100 text-indigo-800 dark:border-indigo-500/60 dark:bg-indigo-700/60 dark:text-white',
+    psychic: 'border-pink-200 bg-pink-100 text-pink-800 dark:border-pink-500/60 dark:bg-pink-700/60 dark:text-white',
+    bug: 'border-lime-200 bg-lime-100 text-lime-800 dark:border-lime-500/60 dark:bg-lime-700/60 dark:text-black',
+    rock: 'border-stone-300 bg-stone-100 text-stone-800 dark:border-stone-500/60 dark:bg-stone-700/60 dark:text-stone-100',
+    ghost: 'border-violet-200 bg-violet-100 text-violet-800 dark:border-violet-500/60 dark:bg-violet-700/60 dark:text-white',
+    dragon: 'border-fuchsia-200 bg-fuchsia-100 text-fuchsia-800 dark:border-fuchsia-500/60 dark:bg-fuchsia-700/60 dark:text-white',
+    dark: 'border-neutral-300 bg-neutral-100 text-neutral-800 dark:border-neutral-500/60 dark:bg-neutral-700/60 dark:text-neutral-100',
+    steel: 'border-slate-200 bg-slate-100 text-slate-800 dark:border-slate-500/60 dark:bg-slate-700/60 dark:text-slate-100',
+    fairy: 'border-rose-200 bg-rose-100 text-rose-800 dark:border-rose-500/60 dark:bg-rose-700/60 dark:text-white',
+    stellar: 'border-teal-200 bg-teal-100 text-teal-800 dark:border-teal-500/60 dark:bg-teal-700/60 dark:text-white',
   };
 
   const entry = createMemo(() => {
