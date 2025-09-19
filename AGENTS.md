@@ -116,5 +116,15 @@ This file guides agents and contributors working in this repository. It applies 
 - Global: Google Font "Dosis" (set via `--font-sans` and `font-sans` on `<html>`).
 - Accent: Google Font "Jersey 20" available via utility `.font-jersey` (use sparingly for highlights).
 
+## Icons (Iconify + Tailwind v4)
+- Packages (apps/web): `@iconify/tailwind4`, `@iconify/json`.
+- Plugin is registered in `apps/web/src/index.css` via `@plugin "@iconify/tailwind4";`.
+- Usage: add a class `icon-[<collection>--<icon_name>]` on an inline element.
+  - Examples used: `icon-[ph--lightning]`, `icon-[ph--scales]`, `icon-[ph--ruler]`, `icon-[ph--target]`.
+  - Size/color follow text utilities, e.g., `text-2xl text-blue-600 dark:text-blue-400`.
+- Tree‑shaking: only referenced icons are bundled at build time.
+- Accessibility: add `aria-hidden="true"` for decorative icons; provide a nearby text label or `sr-only` text when needed.
+- Adding new icons: pick a name from https://iconify.design/icon-sets/ and use the `collection--name` format.
+
 ## Trademark Notice
 Pokémon and Pokémon character names are trademarks of Nintendo. This project is a fan-made database for educational/demo purposes.

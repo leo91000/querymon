@@ -117,7 +117,7 @@ export default function MoveDetail(props: { id: number }) {
                   <ul class="text-sm">
                     <For each={m().stat_changes}>{(sc: any) => (
                       <li class="flex items-center justify-between border-b border-gray-100 py-1 text-gray-700 last:border-none dark:border-gray-700 dark:text-gray-200">
-                        <span class="capitalize">{formatName(sc.stat?.name)}</span>
+                        <span>{t(`stat.${sc.stat?.name}`)}</span>
                         <span class="font-mono">{sc.change > 0 ? '+' : ''}{sc.change}</span>
                       </li>
                     )}</For>
