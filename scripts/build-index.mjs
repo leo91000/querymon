@@ -47,6 +47,7 @@ async function build() {
   const localizedIndex = Object.fromEntries(LOCALES.map(l => [l, []]));
   const localizedLists = {}; // { `${resource}.${loc}`: [ {id,name} ] }
   const localizedNameMaps = {}; // { `${resource}.${loc}`: {id:name} }
+  const aliasSets = {}; // { routeRes: { id: Set(names across locales) } }
   for (const resource of RESOURCES) {
     const files = await filesFor(resource);
     const idmap = {};
@@ -71,14 +72,19 @@ async function build() {
             localizedLists[key].push({ id, name: locName });
             localizedNameMaps[key][id] = locName;
           }
+          // collect aliases
+          if (!aliasSets[routeRes]) aliasSets[routeRes] = {};
+          if (!aliasSets[routeRes][id]) aliasSets[routeRes][id] = new Set();
+          if (locName) aliasSets[routeRes][id].add(String(locName));
+
           if (!EXCLUDE_FROM_SEARCH.has(resource)) {
             localizedIndex[loc].push({ resource: routeRes, id, name: locName, path: `/${routeRes}/${id}` });
           } else if (resource === 'pokemon-species') {
             // add to search under 'pokemon'
             localizedIndex[loc].push({ resource: 'pokemon', id, name: locName, path: `/pokemon/${id}` });
           }
-        }
       }
+    }
     }
     await writeFile(path.join(OUT_DIR, `${resource}.idmap.json`), JSON.stringify(idmap, null, 2));
     await writeFile(path.join(OUT_DIR, `${resource}.list.json`), JSON.stringify(list, null, 2));
@@ -86,7 +92,10 @@ async function build() {
   }
   // Write per-locale search indexes and lists / name maps
   for (const loc of LOCALES) {
-    const lidx = localizedIndex[loc];
+    const lidx = localizedIndex[loc].map((e) => ({
+      ...e,
+      aliases: Array.from((aliasSets[e.resource]?.[e.id] || new Set())).filter(Boolean),
+    }));
     await writeFile(path.join(OUT_DIR, `search-index.${loc}.json`), JSON.stringify(lidx, null, 2));
   }
   // Default search-index.json -> English
