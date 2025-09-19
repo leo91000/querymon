@@ -30,7 +30,7 @@ export default function TypeBox(props: Props) {
     normal: 'border-stone-200 bg-stone-100 text-stone-800 dark:border-stone-500/60 dark:bg-stone-700/60 dark:text-stone-100',
     fire: 'border-orange-200 bg-orange-100 text-orange-800 dark:border-orange-500/60 dark:bg-orange-700/60 dark:text-white',
     water: 'border-blue-200 bg-blue-100 text-blue-800 dark:border-blue-500/60 dark:bg-blue-700/60 dark:text-white',
-    electric: 'border-yellow-200 bg-yellow-100 text-yellow-800 dark:border-yellow-500/60 dark:bg-yellow-600/80 dark:text-white',
+    electric: 'border-yellow-200 bg-yellow-100 text-yellow-800 dark:border-yellow-400/80 dark:bg-yellow-500/90 dark:text-white',
     grass: 'border-green-200 bg-green-100 text-green-800 dark:border-green-500/60 dark:bg-green-700/60 dark:text-white',
     ice: 'border-sky-200 bg-sky-100 text-sky-800 dark:border-sky-400/70 dark:bg-sky-700/60 dark:text-white',
     fighting: 'border-rose-200 bg-rose-100 text-rose-800 dark:border-rose-500/60 dark:bg-rose-700/60 dark:text-white',
