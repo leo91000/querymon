@@ -21,6 +21,20 @@ function idFromUrl(url?: string | null) { const m = url?.match(/\/(\d+)\/?$/); r
 
 export default function TypeDetail(props: { id: number }) {
   const [data] = createResource(() => props.id, (id) => loadItemById('type' as ResourceName, id));
+  const [allTypes] = createResource(async () => await fetch('/data/pokeapi/type.json', { cache: 'no-store' }).then(r=>r.json()));
+  function localizeType(typeId?: number, fallback?: string) {
+    const loc = getLocale() as 'en'|'fr'|'jp';
+    const lang = { en:'en', fr:'fr', jp:'ja' }[loc] || 'en';
+    const entry = (allTypes()||[]).find((t:any)=>t.id===typeId);
+    const names = entry?.names || [];
+    if (lang==='ja') {
+      const ja = names.find((n:any)=>n.language?.name==='ja')?.name;
+      if (ja) return ja;
+      const jaHrkt = names.find((n:any)=>n.language?.name==='ja-Hrkt')?.name;
+      if (jaHrkt) return jaHrkt;
+    }
+    return names.find((n:any)=>n.language?.name===lang)?.name || fallback || '';
+  }
   const type = createMemo(() => data() as TypeData | undefined);
   const dmg = createMemo(() => type()?.damage_relations || {});
   const localizedTypeName = createMemo(() => {
@@ -144,7 +158,7 @@ function RelRow(props: { label: string; list: any[] }) {
           return (
             <a href={`/type/${id}`}>
               <Badge tone={toneForType(t.name)}>
-                <TypeName id={id} fallback={formatName(t.name)} />
+                {localizeType(id, formatName(t.name))}
               </Badge>
             </a>
           );

@@ -57,7 +57,22 @@ export default function PokemonDetail(props: { id: number }) {
   const [eggGroupNames] = createResource(() => locale(), (loc) => loadNameMap('egg-group' as any, loc as any));
   const [colorNames] = createResource(() => locale(), (loc) => loadNameMap('pokemon-color' as any, loc as any));
   const [abilityNames] = createResource(() => locale(), (loc) => loadNameMap('ability' as any, loc as any));
-  const [typeNames] = createResource(() => locale(), (loc) => loadNameMap('type' as any, loc as any));
+  const [allTypes] = createResource(async () => await fetch('/data/pokeapi/type.json', { cache: 'no-store' }).then(r=>r.json()));
+
+  function localizeTypeName(typeId?: number, fallback?: string) {
+    const want = locale();
+    const lang = { en: 'en', fr: 'fr', jp: 'ja' }[want as 'en'|'fr'|'jp'] || 'en';
+    const entry = (allTypes() || []).find((t:any)=>t.id===typeId);
+    if (!entry) return fallback || '';
+    const names = entry.names || [];
+    if (lang === 'ja') {
+      const ja = names.find((n:any)=>n.language?.name==='ja')?.name;
+      if (ja) return ja;
+      const jaHrkt = names.find((n:any)=>n.language?.name==='ja-Hrkt')?.name;
+      if (jaHrkt) return jaHrkt;
+    }
+    return names.find((n:any)=>n.language?.name===lang)?.name || fallback || '';
+  }
   const [growthRates] = createResource(async () => await fetch('/data/pokeapi/growth-rate.json').then(r=>r.json()));
 
   const localizedName = createMemo(() => {
@@ -85,7 +100,7 @@ export default function PokemonDetail(props: { id: number }) {
                 <div class="flex gap-2">
                   <For each={types()}>{(t) => (
                     <Badge tone={toneForType(t.name)}>
-                      {(() => { const _ = locale(); return (t.id && typeNames()?.[String(t.id)]) || formatName(t.name); })()}
+                      {localizeTypeName(t.id, formatName(t.name))}
                     </Badge>
                   )}</For>
                 </div>
