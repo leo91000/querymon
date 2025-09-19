@@ -2,7 +2,7 @@ import Card from '../components/Card';
 import Badge from '../components/Badge';
 import TypeBox from '../components/TypeBox';
 import { Show, For, createMemo, createResource } from 'solid-js';
-import { formatName, loadItemById, loadActualPokemonById } from '../services/data';
+import { formatName, loadItemById, loadActualPokemonById, loadTypeEntries, loadGrowthRates } from '../services/data';
 import type { ResourceName } from '../services/data';
 import { t, getLocale } from '../i18n';
 import { loadNameMap } from '../services/data';
@@ -79,7 +79,7 @@ export default function PokemonDetail(props: { id: number }) {
   const [eggGroupNames] = createResource(() => locale(), (loc) => loadNameMap('egg-group' as any, loc as any));
   const [colorNames] = createResource(() => locale(), (loc) => loadNameMap('pokemon-color' as any, loc as any));
   const [abilityNames] = createResource(() => locale(), (loc) => loadNameMap('ability' as any, loc as any));
-  const [allTypes] = createResource(() => import('../services/data').then(m => m.loadTypeEntries()));
+  const [allTypes] = createResource(loadTypeEntries);
 
   function localizeTypeName(typeId?: number, fallback?: string) {
     const want = locale();
@@ -110,7 +110,7 @@ export default function PokemonDetail(props: { id: number }) {
       return { id, label, hidden: ab.is_hidden };
     });
   });
-  const [growthRates] = createResource(() => import('../services/data').then(m => m.loadGrowthRates()));
+  const [growthRates] = createResource(loadGrowthRates);
 
   const localizedName = createMemo(() => {
     const names = species()?.names || [];
