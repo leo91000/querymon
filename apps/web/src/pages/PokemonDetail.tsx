@@ -35,12 +35,8 @@ function pickFlavor(species: Species, lang: 'en'|'fr'|'jp') {
 }
 
 export default function PokemonDetail(props: { id: number }) {
-  const speciesR = createResource(() => props.id, (id) => loadItemById('pokemon' as ResourceName, id));
-  // note: loadItemById('pokemon') is aliased to species in services, so we directly load real pokemon too:
-  const actualPokemonR = createResource(() => props.id, (id) => loadActualPokemonById<Pokemon>(id));
-
-  const species = createMemo(() => speciesR[0]());
-  const pokemon = createMemo(() => actualPokemonR[0]() as Pokemon | undefined);
+  const [species] = createResource(() => props.id, (id) => loadItemById('pokemon-species' as ResourceName, id));
+  const [pokemon] = createResource(() => props.id, (id) => loadActualPokemonById<Pokemon>(id));
 
   const types = createMemo(() => (pokemon()?.types || []).map((t: any) => ({ name: t.type?.name, id: idFromUrl(t.type?.url) })));
   const officialArt = createMemo(() => pokemon()?.sprites?.other?.['official-artwork']?.front_default || pokemon()?.sprites?.front_default);
