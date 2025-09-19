@@ -1,7 +1,7 @@
 import Card from '../components/Card';
 import Badge from '../components/Badge';
 import { For, Show, createMemo, createResource, createSignal } from 'solid-js';
-import { formatName, loadItemById, type ResourceName } from '../services/data';
+import { formatName, loadItemById, type ResourceName, loadNameMap } from '../services/data';
 import { t, getLocale } from '../i18n';
 
 type Ability = any;
@@ -40,6 +40,7 @@ export default function AbilityDetail(props: { id: number }) {
   const [showAllPokemon, setShowAllPokemon] = createSignal(false);
   const abilityPokemon = createMemo(() => ability()?.pokemon || []);
   const visiblePokemon = createMemo(() => showAllPokemon() ? abilityPokemon() : abilityPokemon().slice(0, 36));
+  const [pokemonNames] = createResource(() => getLocale(), (loc) => loadNameMap('pokemon', loc as any));
 
   return (
     <Show when={ability()} fallback={<div class="text-gray-500">{t('detail.loading')}</div>}>
@@ -88,7 +89,7 @@ export default function AbilityDetail(props: { id: number }) {
                 const id = idFromUrl(p.pokemon?.url);
                 return (
                   <a href={id ? `/pokemon/${id}` : '#'} class="rounded-full border border-gray-200 px-3 py-1 text-sm hover:bg-gray-50 dark:border-gray-700 dark:hover:bg-gray-700/50">
-                    {formatName(p.pokemon?.name)}{p.is_hidden ? ` (${t('ability.hidden')})` : ''}
+                    {pokemonNames()?.[String(id)] || formatName(p.pokemon?.name)}{p.is_hidden ? ` (${t('ability.hidden')})` : ''}
                   </a>
                 );
               }}</For>
