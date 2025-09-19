@@ -1,5 +1,6 @@
 import Card from '../components/Card';
 import Badge from '../components/Badge';
+import TypeBox from '../components/TypeBox';
 import { For, Show, createMemo, createResource, createSignal } from 'solid-js';
 import { formatName, loadItemById, type ResourceName, loadNameMap } from '../services/data';
 import { t, getLocale } from '../i18n';
