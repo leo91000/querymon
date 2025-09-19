@@ -3,6 +3,7 @@ import { readdir, readFile, writeFile } from 'node:fs/promises';
 import path from 'node:path';
 
 const OUT_DIR = path.resolve(process.cwd(), 'apps/web/public/data/pokeapi');
+const OVERRIDES_DIR = path.resolve(process.cwd(), 'scripts/overrides');
 const RESOURCES = ['pokemon', 'pokemon-species', 'move', 'ability', 'type', 'pokemon-habitat', 'growth-rate', 'egg-group', 'pokemon-shape'];
 const LOCALES = ['en', 'fr', 'jp'];
 const LANG_MAP = { en: 'en', fr: 'fr', jp: 'ja' };
@@ -42,7 +43,17 @@ async function filesFor(resource) {
   }
 }
 
+let OVR = {};
+
 async function build() {
+  // load overrides if present per locale
+  OVR = {};
+  for (const loc of LOCALES) {
+    try {
+      const raw = await readFile(path.join(OVERRIDES_DIR, `overrides.${loc}.json`), 'utf8');
+      OVR[loc] = JSON.parse(raw);
+    } catch { OVR[loc] = {}; }
+  }
   const index = [];
   const localizedIndex = Object.fromEntries(LOCALES.map(l => [l, []]));
   const localizedLists = {}; // { `${resource}.${loc}`: [ {id,name} ] }
@@ -116,6 +127,9 @@ build().catch((e) => { console.error(e); process.exit(1); });
 
 function localizedNameFor(resource, item, loc) {
   const lang = LANG_MAP[loc] || 'en';
+  const id = item.id;
+  const ov = OVR?.[loc]?.[resource]?.[id];
+  if (ov) return ov;
   // resources with names[]
   if (resource === 'pokemon-species' || resource === 'move' || resource === 'ability' || resource === 'type' || resource === 'pokemon-habitat' || resource === 'egg-group' || resource === 'pokemon-shape') {
     const names = item.names || [];
