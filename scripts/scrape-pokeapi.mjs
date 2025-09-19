@@ -25,10 +25,10 @@
     --delay=ms                 Delay between individual requests (default: 50)
     --out=path                 Base output dir for aggregated (default: public/data/pokeapi)
     --raw                      Also write per-item files under data/pokeapi/raw
+    --shard=number             Max items per aggregated JSON file (default: 250)
 */
 
 import { mkdir, writeFile } from 'node:fs/promises';
-import { createWriteStream } from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 
@@ -55,6 +55,7 @@ const CONCURRENCY = args.concurrency ? Math.max(1, Number(args.concurrency)) : 6
 const DELAY = args.delay ? Math.max(0, Number(args.delay)) : 50;
 const OUT_DIR = path.resolve(process.cwd(), args.out ? String(args.out) : 'public/data/pokeapi');
 const RAW = Boolean(args.raw);
+const SHARD = args.shard ? Math.max(0, Number(args.shard)) : 250; // 0 disables sharding
 
 function sleep(ms) { return new Promise(r => setTimeout(r, ms)); }
 
@@ -118,6 +119,30 @@ async function writeJSON(file, data) {
   await writeFile(file, JSON.stringify(data, null, 2), 'utf8');
 }
 
+async function writeAggregated(resource, records) {
+  if (!SHARD || records.length <= SHARD) {
+    const file = path.join(OUT_DIR, `${resource}.json`);
+    await writeJSON(file, records);
+    return { files: [path.relative(process.cwd(), file)] };
+  }
+  const parts = chunk(records, SHARD);
+  const files = [];
+  for (let i = 0; i < parts.length; i++) {
+    const part = parts[i];
+    const file = path.join(OUT_DIR, `${resource}.${String(i + 1).padStart(3, '0')}.json`);
+    await writeJSON(file, part);
+    files.push(path.relative(process.cwd(), file));
+  }
+  const manifest = {
+    resource,
+    count: records.length,
+    shard: SHARD,
+    files: files.map((f) => path.basename(f)),
+  };
+  await writeJSON(path.join(OUT_DIR, `${resource}.manifest.json`), manifest);
+  return { files };
+}
+
 async function scrapeResource(resource) {
   console.log(`\n→ Scraping ${resource} ...`);
   const list = await listAll(resource);
@@ -125,7 +150,6 @@ async function scrapeResource(resource) {
   console.log(`Found ${list.length} entries; fetching ${items.length}.`);
 
   const rawDir = path.resolve(process.cwd(), 'data/pokeapi/raw', resource);
-  const aggFile = path.join(OUT_DIR, `${resource}.json`);
 
   const details = await mapWithConcurrency(items, async (it) => {
     const url = it.url || `${BASE}/${resource}/${it.name}`;
@@ -137,8 +161,8 @@ async function scrapeResource(resource) {
     return data;
   }, CONCURRENCY);
 
-  console.log(`Writing aggregated → ${path.relative(process.cwd(), aggFile)}`);
-  await writeJSON(aggFile, details);
+  const { files } = await writeAggregated(resource, details);
+  console.log(`Writing aggregated → ${files.join(', ')}`);
 }
 
 async function main() {
@@ -147,6 +171,7 @@ async function main() {
   if (LIMIT) console.log(`Limit per resource: ${LIMIT}`);
   console.log(`Concurrency: ${CONCURRENCY}, Delay: ${DELAY}ms`);
   console.log(`Aggregated out: ${path.relative(process.cwd(), OUT_DIR)}`);
+  if (SHARD) console.log(`Shard size: ${SHARD}`);
   if (RAW) console.log(`Raw per-item dumps: data/pokeapi/raw/<resource>/<id>.json`);
 
   await ensureDir(OUT_DIR);
@@ -165,4 +190,3 @@ main().catch((err) => {
   console.error('Scrape failed:', err?.stack || err);
   process.exit(1);
 });
-
