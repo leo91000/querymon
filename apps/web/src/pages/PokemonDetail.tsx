@@ -267,14 +267,7 @@ export default function PokemonDetail(props: { id: number }) {
                 <div class="text-gray-500 dark:text-gray-400">{t('pokemon.color')}</div>
                 <div class="font-medium">{(() => { const id = idFromUrl(species()?.color?.url); return (id && colorNames()?.[String(id)]) || formatName(species()?.color?.name || '—'); })()}</div>
               </div>
-              <div class="col-span-2">
-                <div class="text-gray-500 dark:text-gray-400">{t('pokemon.abilities')}</div>
-                <ol class="mt-1 list-decimal pl-5">
-                  <For each={localizedAbilities()}>{(ab:any) => (
-                    <li class="py-0.5">{ab.label}{ab.hidden ? ` (${t('ability.hidden')})` : ''}</li>
-                  )}</For>
-                </ol>
-              </div>
+              
             </div>
           </Card>
         </div>
