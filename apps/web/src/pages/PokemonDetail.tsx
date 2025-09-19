@@ -3,7 +3,7 @@ import Badge from '../components/Badge';
 import { Show, For, createMemo, createResource } from 'solid-js';
 import { formatName, loadItemById } from '../services/data';
 import type { ResourceName } from '../services/data';
-import { t } from '../i18n';
+import { t, getLocale } from '../i18n';
 
 type Species = any;
 type Pokemon = any;
@@ -53,6 +53,8 @@ export default function PokemonDetail(props: { id: number }) {
   const officialArt = createMemo(() => pokemon()?.sprites?.other?.['official-artwork']?.front_default || pokemon()?.sprites?.front_default);
   const abilities = createMemo(() => (pokemon()?.abilities || []).map((a: any) => a.ability));
   const stats = createMemo(() => (pokemon()?.stats || []).map((s: any) => ({ name: s.stat?.name, base: s.base_stat })));
+  const locale = () => getLocale() as 'en' | 'fr' | 'jp';
+  const flavorText = createMemo(() => pickFlavor(species(), locale()));
 
   return (
     <div class="space-y-6">
@@ -66,7 +68,7 @@ export default function PokemonDetail(props: { id: number }) {
                   <For each={types()}>{(tName) => <Badge tone={toneForType(tName)}>{formatName(tName)}</Badge>}</For>
                 </div>
               </div>
-              <p class="mt-3 max-w-prose text-gray-600 dark:text-gray-300">{pickFlavor(species(), (localStorage.getItem('locale') as any) || 'en')}</p>
+              <p class="mt-3 max-w-prose text-gray-600 dark:text-gray-300">{flavorText()}</p>
 
               <div class="mt-6 grid grid-cols-2 gap-4 md:grid-cols-3">
                 <div class="rounded-lg border border-gray-200 p-3 text-sm dark:border-gray-700">
