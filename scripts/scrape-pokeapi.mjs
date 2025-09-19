@@ -53,7 +53,7 @@ const selected = (args.resources ? String(args.resources).split(',') : RESOURCES
 const LIMIT = args.limit ? Number(args.limit) : undefined;
 const CONCURRENCY = args.concurrency ? Math.max(1, Number(args.concurrency)) : 6;
 const DELAY = args.delay ? Math.max(0, Number(args.delay)) : 50;
-const OUT_DIR = path.resolve(process.cwd(), args.out ? String(args.out) : 'public/data/pokeapi');
+const OUT_DIR = path.resolve(process.cwd(), args.out ? String(args.out) : 'apps/web/public/data/pokeapi');
 const RAW = Boolean(args.raw);
 const SHARD = args.shard ? Math.max(0, Number(args.shard)) : 250; // 0 disables sharding
 
