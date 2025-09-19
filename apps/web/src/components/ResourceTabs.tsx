@@ -9,7 +9,7 @@ export default function ResourceTabs(props: { current: ResourceName }) {
       {RESOURCES.map((r) => (
         <A
           href={`/${r}`}
-          class={`-mb-px rounded-t px-3 py-2 text-sm ${props.current === r ? 'border-b-2 border-blue-600 font-medium text-blue-700 dark:text-blue-400' : 'text-gray-600 hover:text-blue-700 dark:text-gray-300'}`}
+          class={`-mb-px rounded-t px-3 py-2 text-base ${props.current === r ? 'border-b-2 border-blue-600 font-medium text-blue-700 dark:text-blue-400' : 'text-gray-600 hover:text-blue-700 dark:text-gray-300'}`}
         >
           {tabLabel(r)}
         </A>

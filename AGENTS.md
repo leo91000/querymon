@@ -9,21 +9,29 @@ This file guides agents and contributors working in this repository. It applies 
 
 ## Tech Stack
 - SolidJS (TypeScript) + Vite 7
-- Tailwind CSS v4 via `@tailwindcss/vite`
+- Tailwind CSS v4 via `@tailwindcss/vite` (class-based dark mode)
 - Node 18+ recommended
+- Tauri v2 (apps/desktop)
 
-## Dev Workflow
+## Dev Workflow (pnpm workspaces)
 - Install: `pnpm install`
-- Develop: `pnpm dev` then open http://localhost:3000
-- Build: `pnpm build`
-- Preview: `pnpm serve`
+- Web dev: `pnpm dev:web` (http://localhost:5173)
+- Desktop dev (Tauri):
+  - macOS/Windows: `pnpm dev:desktop`
+  - Linux/Wayland: `WEBKIT_DISABLE_DMABUF_RENDERER=1 pnpm dev:desktop`
+- Web build: `pnpm build:web`
+- Desktop build: `pnpm build:desktop`
 
 ## Project Structure
-- `src/components`: UI primitives and composite components
-- `src/data`: Seed data and lightweight fixtures
-- `src/types`: Shared TypeScript types
-- `src/index.tsx`: App bootstrap
-- `src/App.tsx`: Home page with search/filter
+- `apps/web`: Solid + Vite app (public data lives here)
+  - `public/data/pokeapi`: Aggregated JSON data and manifests
+  - `src/components`: UI primitives and composites
+  - `src/pages`: Resource list/detail pages (Pokémon, Move, Ability, Type)
+  - `src/services`: Data loaders (aliasing + helpers)
+  - `src/i18n`: i18n setup (`@solid-primitives/i18n`)
+  - `src/theme`: theme manager (system/light/dark)
+- `apps/desktop`: Tauri v2 shell (loads web dev server or dist)
+- `scripts`: data scraper and index builder
 
 ## Code Style & Patterns
 - Language: TypeScript with `strict` mode; avoid `any` where practical.
@@ -50,15 +58,18 @@ This file guides agents and contributors working in this repository. It applies 
   - Ensure keyboard and screen-reader accessibility.
 
 ## Data & APIs
-- Types in `src/types/pokemon.ts`.
-- Seed data in `src/data/pokemon.ts` (sprites from public PokeAPI repository).
-- If integrating live PokeAPI:
-  - Create `src/services/pokeapi.ts` with typed fetch helpers.
-  - Add basic caching and error handling; avoid exceeding rate limits.
+- Public datasets live under `apps/web/public/data/pokeapi`.
+- Scraper: `scripts/scrape-pokeapi.mjs` (supports sharding) → writes aggregated files.
+- Indexer: `scripts/build-index.mjs` → builds `<resource>.list.json`, `<resource>.idmap.json`, and `search-index.json`.
+- Resource rules:
+  - UI "Pokémon" uses species data under the hood (alias: `pokemon` → `pokemon-species`).
+  - Global search excludes the old `pokemon` dataset and maps species entries to `pokemon` routes.
+  - Evolution is removed from UI and search (data files may remain for reference).
 
 ## Performance
 - Use `<For>` for larger lists and avoid expensive derived computations in render.
 - Use `loading="lazy"` for images and keep sprites small.
+- Lists with large counts expose "+N more" expanders; prefer incremental reveal instead of rendering thousands of items at once.
 
 ## Commits & PRs
 - Commit message format with JIRA ticket:
@@ -84,24 +95,26 @@ This file guides agents and contributors working in this repository. It applies 
 
 ## Internationalization (i18n)
 - Library: `@solid-primitives/i18n` with `flatten` + `translator(resolveTemplate)`.
-- Locale files live at `apps/web/public/locales/<locale>/common.json`.
-  - Current locales: `en`, `fr`, `jp` (mapped to HTML lang `ja`).
-- Initialization: `initI18n()` runs in `apps/web/src/index.tsx`.
-  - Order: localStorage `locale` → navigator language (`fr*` → `fr`, `ja*` → `jp`) → fallback `en`.
-  - Persists selection in localStorage and updates `<html lang>`.
-- Usage in code:
-  - Import `t` from `apps/web/src/i18n`: `import { t } from '../i18n'` (adjust path).
-  - Replace UI literals with `t('key')` or templated `t('list.filter', { name: 'Pokémon' })`.
-  - Resource labels use `t` via `resourceLabel()` in `apps/web/src/services/data.ts`.
-- Language switcher:
-  - Component: `apps/web/src/components/LanguageSwitcher.tsx` (in Navbar on desktop).
-  - To add a new language, add `public/locales/<code>/common.json` and extend the switcher’s options.
-- Keys & style:
-  - Dot‑separated keys: `section.subsection.name` (e.g., `nav.pokemon`, `search.placeholder`).
-  - Keep values plain strings; use `{placeholder}` for template variables.
-  - Avoid embedding HTML in translations; compose UI elements around translated strings instead.
-- Localized data (future):
-  - PokeAPI exposes localized `names`/`flavor_text_entries` per language. Extend the scraper to build per‑locale search indices (`search-index.<locale>.json`) and prefer localized fields when available.
+- Locales: `en`, `fr`, `jp` in `apps/web/public/locales/<locale>/common.json`.
+- Init: `initI18n()` in `apps/web/src/index.tsx`.
+  - Order: localStorage → navigator (`fr*`→`fr`, `ja*`→`jp`) → fallback `en`.
+  - Updates `<html lang>`.
+- Use `t('key')` everywhere for strings; templates like `t('list.filter', { name: 'Pokémon' })`.
+- Language switcher: `apps/web/src/components/LanguageSwitcher.tsx`.
+  - To add languages: add `public/locales/<code>/common.json` and update switcher options.
+- For localized content from PokeAPI, prefer localized fields (future work in scraper/indexer).
+
+## Theme (Light / Dark / System)
+- Manager: `apps/web/src/theme/index.ts` (localStorage key `theme`).
+- Default: `system`. Applies `.dark` class and `data-theme="dark|light"` on `<html>`.
+- Tailwind v4 variant:
+  - `apps/web/src/index.css` sets: `@variant dark (&:where(.dark, .dark *));` (class‑based dark mode).
+- Theme switcher: `apps/web/src/components/ThemeSwitcher.tsx`.
+- Linux/Wayland desktop users may need `WEBKIT_DISABLE_DMABUF_RENDERER=1` when running Tauri dev.
+
+## Fonts
+- Global: Google Font "Dosis" (set via `--font-sans` and `font-sans` on `<html>`).
+- Accent: Google Font "Jersey 20" available via utility `.font-jersey` (use sparingly for highlights).
 
 ## Trademark Notice
 Pokémon and Pokémon character names are trademarks of Nintendo. This project is a fan-made database for educational/demo purposes.
