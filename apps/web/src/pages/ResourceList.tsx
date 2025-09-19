@@ -8,7 +8,24 @@ import ResourceTabs from '../components/ResourceTabs';
 
 export default function ResourceList(props: { resource: ResourceName }) {
   const [items] = createResource(() => props.resource, loadList);
-  const [aliases] = createResource(() => props.resource, async (r) => (['pokemon','move','ability','type'].includes(r) ? loadAliases(r as any) : {}));
+  const [aliases] = createResource(() => props.resource, async (r) => {
+    if (!['pokemon','move','ability','type'].includes(r)) return {} as any;
+    // Try prebuilt aliases first
+    const pre = await loadAliases(r as any).catch(()=>({} as any));
+    if (pre && Object.keys(pre).length) return pre;
+    // Fallback: build from master dataset names[] at runtime
+    try {
+      const data = await fetch(`/data/pokeapi/${r}.json`, { cache: 'no-store' }).then((res)=>res.json());
+      const out: Record<string,string[]> = {};
+      for (const it of data as any[]) {
+        const names = (it.names || []).map((n:any)=>n.name).filter(Boolean);
+        if (names.length) out[String(it.id)] = names;
+      }
+      return out;
+    } catch {
+      return {} as any;
+    }
+  });
   const [q, setQ] = createSignal('');
   function normalize(s: string) {
     return s
