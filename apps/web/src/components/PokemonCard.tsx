@@ -1,4 +1,5 @@
 import Badge from './Badge';
+import TypeBox from './TypeBox';
 import Card from './Card';
 import type { Pokemon, PokemonType } from '../types/pokemon';
 
@@ -50,7 +51,7 @@ export default function PokemonCard(props: { pokemon: Pokemon }) {
         <p class="mt-1 line-clamp-2 text-sm text-gray-600 dark:text-gray-300">{p.description}</p>
         <div class="mt-2 flex flex-wrap gap-2">
           {p.types.map((t) => (
-            <Badge tone={typeTone(t)}>{t}</Badge>
+            <TypeBox name={t} size="sm" link />
           ))}
         </div>
       </div>

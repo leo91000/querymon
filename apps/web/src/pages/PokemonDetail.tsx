@@ -1,5 +1,6 @@
 import Card from '../components/Card';
 import Badge from '../components/Badge';
+import TypeBox from '../components/TypeBox';
 import { Show, For, createMemo, createResource } from 'solid-js';
 import { formatName, loadItemById } from '../services/data';
 import type { ResourceName } from '../services/data';
@@ -140,8 +141,8 @@ export default function PokemonDetail(props: { id: number }) {
               <div class="flex items-center gap-3">
                 <h2 class="text-2xl font-bold tracking-tight"><span class="mr-2 font-jersey text-blue-600 dark:text-blue-400">#{String(props.id).padStart(3, '0')}</span>{localizedName()}</h2>
                 <div class="flex gap-2">
-                  <For each={localizedTypeLabels()}>{(t) => (
-                    <Badge tone={t.tone}>{t.label}</Badge>
+                  <For each={types()}>{(t) => (
+                    <TypeBox id={t.id} name={t.name} size="sm" link />
                   )}</For>
                 </div>
               </div>
