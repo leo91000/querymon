@@ -2,7 +2,7 @@ import Card from '../components/Card';
 import Badge from '../components/Badge';
 import TypeBox from '../components/TypeBox';
 import { For, Show, createMemo, createResource, createSignal } from 'solid-js';
-import { formatName, loadItemById, type ResourceName, loadNameMap } from '../services/data';
+import { formatName, loadItemById, type ResourceName, loadNameMap, loadTypeEntries } from '../services/data';
 import { t, getLocale } from '../i18n';
 
 type TypeData = any;
@@ -22,7 +22,7 @@ function idFromUrl(url?: string | null) { const m = url?.match(/\/(\d+)\/?$/); r
 
 export default function TypeDetail(props: { id: number }) {
   const [data] = createResource(() => props.id, (id) => loadItemById('type' as ResourceName, id));
-  const [allTypes] = createResource(async () => await fetch('/data/pokeapi/type.json', { cache: 'no-store' }).then(r=>r.json()));
+  const [allTypes] = createResource(loadTypeEntries);
   function localizeType(typeId?: number, fallback?: string) {
     const loc = getLocale() as 'en'|'fr'|'jp';
     const lang = { en:'en', fr:'fr', jp:'ja' }[loc] || 'en';

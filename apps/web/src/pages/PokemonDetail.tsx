@@ -2,7 +2,7 @@ import Card from '../components/Card';
 import Badge from '../components/Badge';
 import TypeBox from '../components/TypeBox';
 import { Show, For, createMemo, createResource } from 'solid-js';
-import { formatName, loadItemById } from '../services/data';
+import { formatName, loadItemById, loadActualPokemonById } from '../services/data';
 import type { ResourceName } from '../services/data';
 import { t, getLocale } from '../i18n';
 import { loadNameMap } from '../services/data';
@@ -37,13 +37,7 @@ function pickFlavor(species: Species, lang: 'en'|'fr'|'jp') {
 export default function PokemonDetail(props: { id: number }) {
   const speciesR = createResource(() => props.id, (id) => loadItemById('pokemon' as ResourceName, id));
   // note: loadItemById('pokemon') is aliased to species in services, so we directly load real pokemon too:
-  const actualPokemonR = createResource(() => props.id, async (id) => {
-    const idmap = await fetch('/data/pokeapi/pokemon.idmap.json').then(r=>r.json());
-    const file = idmap[String(id)];
-    if (!file) return undefined;
-    const arr: Pokemon[] = await fetch(`/data/pokeapi/${file}`).then(r=>r.json());
-    return arr.find(p => (p as any).id === id);
-  });
+  const actualPokemonR = createResource(() => props.id, (id) => loadActualPokemonById<Pokemon>(id));
 
   const species = createMemo(() => speciesR[0]());
   const pokemon = createMemo(() => actualPokemonR[0]() as Pokemon | undefined);
@@ -85,7 +79,7 @@ export default function PokemonDetail(props: { id: number }) {
   const [eggGroupNames] = createResource(() => locale(), (loc) => loadNameMap('egg-group' as any, loc as any));
   const [colorNames] = createResource(() => locale(), (loc) => loadNameMap('pokemon-color' as any, loc as any));
   const [abilityNames] = createResource(() => locale(), (loc) => loadNameMap('ability' as any, loc as any));
-  const [allTypes] = createResource(async () => await fetch('/data/pokeapi/type.json', { cache: 'no-store' }).then(r=>r.json()));
+  const [allTypes] = createResource(() => import('../services/data').then(m => m.loadTypeEntries()));
 
   function localizeTypeName(typeId?: number, fallback?: string) {
     const want = locale();
@@ -116,7 +110,7 @@ export default function PokemonDetail(props: { id: number }) {
       return { id, label, hidden: ab.is_hidden };
     });
   });
-  const [growthRates] = createResource(async () => await fetch('/data/pokeapi/growth-rate.json').then(r=>r.json()));
+  const [growthRates] = createResource(() => import('../services/data').then(m => m.loadGrowthRates()));
 
   const localizedName = createMemo(() => {
     const names = species()?.names || [];
