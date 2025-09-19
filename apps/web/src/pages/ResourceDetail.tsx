@@ -3,6 +3,7 @@ import { Show, createResource } from 'solid-js';
 import Card from '../components/Card';
 import JsonViewer from '../components/JsonViewer';
 import { formatName, loadItemById, resourceLabel, type ResourceName } from '../services/data';
+import { t } from '../i18n';
 import ResourceTabs from '../components/ResourceTabs';
 
 export default function ResourceDetail(props: { resource: ResourceName }) {
@@ -17,7 +18,7 @@ export default function ResourceDetail(props: { resource: ResourceName }) {
     <div class="space-y-4">
       <ResourceTabs current={props.resource} />
       <h2 class="text-xl font-semibold">{resourceLabel(props.resource)} #{id()}</h2>
-      <Show when={item()} fallback={<div class="text-gray-500">Loading…</div>}>
+      <Show when={item()} fallback={<div class="text-gray-500">{t('detail.loading')}</div>}>
         {(it) => (
           <Card class="p-4">
             <div class="mb-4 text-lg font-semibold">
@@ -25,7 +26,7 @@ export default function ResourceDetail(props: { resource: ResourceName }) {
                 const v: any = it();
                 if (props.resource === 'evolution-chain') {
                   const base = v?.chain?.species?.name ? formatName(v.chain.species.name) : `ID ${id()}`;
-                  return `${base} — Evolution Chain`;
+                  return `${base} ${t('detail.evolutionChainSuffix')}`;
                 }
                 return formatName(v?.name || `ID ${id()}`);
               })()}

@@ -1,4 +1,5 @@
 import { createSignal, For, Show } from 'solid-js';
+import { t } from '../i18n';
 
 type NodeProps = { keyName?: string; value: any; level?: number };
 
@@ -9,7 +10,7 @@ function Toggle({ open, onClick }: { open: boolean; onClick: () => void }) {
     <button
       onClick={onClick}
       class="inline-flex h-5 w-5 items-center justify-center rounded border border-gray-300 text-xs text-gray-600 hover:bg-gray-50"
-      aria-label={open ? 'Collapse' : 'Expand'}
+      aria-label={open ? t('json.collapse') : t('json.expand')}
     >
       {open ? '−' : '+'}
     </button>
@@ -73,4 +74,3 @@ export default function JsonViewer(props: { value: any }) {
     </div>
   );
 }
-

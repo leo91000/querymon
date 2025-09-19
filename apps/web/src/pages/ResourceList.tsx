@@ -3,6 +3,7 @@ import { For, Show, createMemo, createResource, createSignal } from 'solid-js';
 import Card from '../components/Card';
 import Input from '../components/Input';
 import { formatName, loadList, resourceLabel, type ResourceName } from '../services/data';
+import { t } from '../i18n';
 import ResourceTabs from '../components/ResourceTabs';
 
 export default function ResourceList(props: { resource: ResourceName }) {
@@ -25,7 +26,7 @@ export default function ResourceList(props: { resource: ResourceName }) {
       <div class="flex items-end justify-between gap-4">
         <h2 class="text-xl font-semibold">{resourceLabel(props.resource)}</h2>
         <div class="w-72">
-          <Input id="filter" placeholder={`Filter ${resourceLabel(props.resource)}…`} value={q()} onInput={(e) => setQ(e.currentTarget.value)} />
+          <Input id="filter" placeholder={t('list.filter', { name: resourceLabel(props.resource) })} value={q()} onInput={(e) => setQ(e.currentTarget.value)} />
         </div>
       </div>
       <Card>

@@ -2,6 +2,7 @@ import Card from '../components/Card';
 import { A } from '@solidjs/router';
 import { createResource, For } from 'solid-js';
 import { resourceLabel } from '../services/data';
+import { t } from '../i18n';
 
 const RESOURCES = ['pokemon','pokemon-species','move','ability','type','evolution-chain'] as const;
 
@@ -17,7 +18,7 @@ export default function Home() {
   const [counts] = createResource(loadCounts);
   return (
     <div class="space-y-6">
-      <h2 class="text-xl font-semibold">Browse Resources</h2>
+      <h2 class="text-xl font-semibold">{t('home.browse')}</h2>
       <div class="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
         <For each={RESOURCES as unknown as string[]}>
           {(r) => (
@@ -36,4 +37,3 @@ export default function Home() {
     </div>
   );
 }
-
