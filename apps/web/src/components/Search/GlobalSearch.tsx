@@ -46,7 +46,7 @@ export default function GlobalSearch() {
         onFocus={() => setOpen(true)}
       />
       {open() && results().length > 0 && (
-        <div class="absolute z-20 mt-1 w-full overflow-hidden rounded-md border border-gray-200 bg-white shadow-lg">
+        <div class="absolute z-20 mt-1 w-full overflow-hidden rounded-md border border-gray-200 bg-white shadow-lg dark:border-gray-700 dark:bg-gray-800">
           <ul class="max-h-80 divide-y divide-gray-100 overflow-auto">
             <For each={results()}>
               {(r) => (

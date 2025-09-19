@@ -5,6 +5,7 @@ import 'solid-devtools';
 import { Router } from '@solidjs/router';
 import App from './App';
 import { initI18n } from './i18n';
+import { initTheme } from './theme';
 
 const root = document.getElementById('root');
 
@@ -15,6 +16,7 @@ if (import.meta.env.DEV && !(root instanceof HTMLElement)) {
 }
 
 initI18n();
+initTheme();
 
 render(() => (
   <Router>

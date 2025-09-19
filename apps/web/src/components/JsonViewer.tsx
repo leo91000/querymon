@@ -26,7 +26,7 @@ function Node(props: NodeProps) {
 
   if (Array.isArray(v())) {
     return (
-      <div class={`border-l border-gray-200 ${pad}`}>
+      <div class={`border-l border-gray-200 dark:border-gray-700 ${pad}`}>
         {k() && <div class="mb-1 flex items-center gap-2 text-sm font-semibold text-gray-700"><Toggle open={open()} onClick={() => setOpen(!open())} />{k()}</div>}
         <Show when={open()}>
           <ul class="space-y-1">
@@ -44,7 +44,7 @@ function Node(props: NodeProps) {
   if (isObject(v())) {
     const entries = Object.entries(v() as Record<string, any>);
     return (
-      <div class={`border-l border-gray-200 ${pad}`}>
+      <div class={`border-l border-gray-200 dark:border-gray-700 ${pad}`}>
         {k() && <div class="mb-1 flex items-center gap-2 text-sm font-semibold text-gray-700"><Toggle open={open()} onClick={() => setOpen(!open())} />{k()}</div>}
         <Show when={open()}>
           <div class="space-y-1">
@@ -62,7 +62,7 @@ function Node(props: NodeProps) {
   return (
     <div class={`grid grid-cols-[12rem_1fr] gap-3 ${pad}`}>
       {k() && <div class="truncate text-xs font-medium uppercase tracking-wide text-gray-500">{k()}</div>}
-      <div class="overflow-x-auto rounded bg-gray-50 px-2 py-1 font-mono text-xs text-gray-800">{String(v())}</div>
+      <div class="overflow-x-auto rounded bg-gray-50 px-2 py-1 font-mono text-xs text-gray-800 dark:bg-gray-900 dark:text-gray-200">{String(v())}</div>
     </div>
   );
 }

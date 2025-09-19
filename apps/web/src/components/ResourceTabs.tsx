@@ -5,11 +5,11 @@ const RESOURCES: ResourceName[] = ['pokemon','move','ability','type'];
 
 export default function ResourceTabs(props: { current: ResourceName }) {
   return (
-    <div class="mb-3 flex flex-wrap gap-2 border-b border-gray-200">
+    <div class="mb-3 flex flex-wrap gap-2 border-b border-gray-200 dark:border-gray-800">
       {RESOURCES.map((r) => (
         <A
           href={`/${r}`}
-          class={`-mb-px rounded-t px-3 py-2 text-sm ${props.current === r ? 'border-b-2 border-blue-600 font-medium text-blue-700' : 'text-gray-600 hover:text-blue-700'}`}
+          class={`-mb-px rounded-t px-3 py-2 text-sm ${props.current === r ? 'border-b-2 border-blue-600 font-medium text-blue-700 dark:text-blue-400' : 'text-gray-600 hover:text-blue-700 dark:text-gray-300'}`}
         >
           {tabLabel(r)}
         </A>

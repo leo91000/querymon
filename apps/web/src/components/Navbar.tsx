@@ -1,11 +1,12 @@
 import GlobalSearch from './Search/GlobalSearch';
 import { A } from '@solidjs/router';
 import LanguageSwitcher from './LanguageSwitcher';
+import ThemeSwitcher from './ThemeSwitcher';
 import { t } from '../i18n';
 
 export default function Navbar() {
   return (
-    <header class="sticky top-0 z-10 border-b border-gray-200 bg-white/90 backdrop-blur">
+    <header class="sticky top-0 z-10 border-b border-gray-200 bg-white/90 backdrop-blur dark:border-gray-800 dark:bg-gray-900/90">
       <div class="mx-auto grid max-w-6xl grid-cols-1 gap-3 px-4 py-3 md:grid-cols-[auto_1fr_auto] md:items-center">
         <A href="/" class="flex items-center gap-2">
           <span class="text-xl">⚡️</span>
@@ -18,7 +19,10 @@ export default function Navbar() {
           <A href="/ability" class="text-sm text-gray-700 hover:text-blue-700">{t('nav.abilities')}</A>
           <A href="/type" class="text-sm text-gray-700 hover:text-blue-700">{t('nav.types')}</A>
         </nav>
-        <div class="hidden md:block"><LanguageSwitcher /></div>
+        <div class="hidden items-center gap-2 md:flex">
+          <LanguageSwitcher />
+          <ThemeSwitcher />
+        </div>
       </div>
     </header>
   );
