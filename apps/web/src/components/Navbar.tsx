@@ -13,12 +13,6 @@ export default function Navbar() {
           <h1 class="text-lg font-semibold tracking-tight">QueryMon</h1>
         </A>
         <GlobalSearch />
-        <nav class="hidden gap-4 md:flex">
-          <A href="/pokemon" class="text-base text-gray-700 hover:text-blue-700 dark:text-gray-300 dark:hover:text-blue-400">{t('nav.pokemon')}</A>
-          <A href="/move" class="text-base text-gray-700 hover:text-blue-700 dark:text-gray-300 dark:hover:text-blue-400">{t('nav.moves')}</A>
-          <A href="/ability" class="text-base text-gray-700 hover:text-blue-700 dark:text-gray-300 dark:hover:text-blue-400">{t('nav.abilities')}</A>
-          <A href="/type" class="text-base text-gray-700 hover:text-blue-700 dark:text-gray-300 dark:hover:text-blue-400">{t('nav.types')}</A>
-        </nav>
         <div class="hidden items-center gap-2 md:flex">
           <LanguageSwitcher />
           <ThemeSwitcher />
