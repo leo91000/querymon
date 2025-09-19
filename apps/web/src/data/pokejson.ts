@@ -1,0 +1,243 @@
+// Auto-generated list of JSON imports.
+// Each JSON is imported and re-exported through POKEJSON by basename.
+// NOTE: If new files are added under public/data/pokeapi, re-run this generator.
+import ability_001_json from '../pokeapi/ability.001.json';
+import ability_002_json from '../pokeapi/ability.002.json';
+import ability_idmap_json from '../pokeapi/ability.idmap.json';
+import ability_list_en_json from '../pokeapi/ability.list.en.json';
+import ability_list_fr_json from '../pokeapi/ability.list.fr.json';
+import ability_list_jp_json from '../pokeapi/ability.list.jp.json';
+import ability_list_json from '../pokeapi/ability.list.json';
+import ability_manifest_json from '../pokeapi/ability.manifest.json';
+import aliases_ability_json from '../pokeapi/aliases.ability.json';
+import aliases_move_json from '../pokeapi/aliases.move.json';
+import aliases_pokemon_json from '../pokeapi/aliases.pokemon.json';
+import aliases_type_json from '../pokeapi/aliases.type.json';
+import egg_group_idmap_json from '../pokeapi/egg-group.idmap.json';
+import egg_group_json from '../pokeapi/egg-group.json';
+import egg_group_list_en_json from '../pokeapi/egg-group.list.en.json';
+import egg_group_list_fr_json from '../pokeapi/egg-group.list.fr.json';
+import egg_group_list_jp_json from '../pokeapi/egg-group.list.jp.json';
+import egg_group_list_json from '../pokeapi/egg-group.list.json';
+import evolution_chain_001_json from '../pokeapi/evolution-chain.001.json';
+import evolution_chain_002_json from '../pokeapi/evolution-chain.002.json';
+import evolution_chain_003_json from '../pokeapi/evolution-chain.003.json';
+import evolution_chain_idmap_json from '../pokeapi/evolution-chain.idmap.json';
+import evolution_chain_list_json from '../pokeapi/evolution-chain.list.json';
+import evolution_chain_manifest_json from '../pokeapi/evolution-chain.manifest.json';
+import growth_rate_idmap_json from '../pokeapi/growth-rate.idmap.json';
+import growth_rate_json from '../pokeapi/growth-rate.json';
+import growth_rate_list_en_json from '../pokeapi/growth-rate.list.en.json';
+import growth_rate_list_fr_json from '../pokeapi/growth-rate.list.fr.json';
+import growth_rate_list_jp_json from '../pokeapi/growth-rate.list.jp.json';
+import growth_rate_list_json from '../pokeapi/growth-rate.list.json';
+import move_001_json from '../pokeapi/move.001.json';
+import move_002_json from '../pokeapi/move.002.json';
+import move_003_json from '../pokeapi/move.003.json';
+import move_004_json from '../pokeapi/move.004.json';
+import move_idmap_json from '../pokeapi/move.idmap.json';
+import move_list_en_json from '../pokeapi/move.list.en.json';
+import move_list_fr_json from '../pokeapi/move.list.fr.json';
+import move_list_jp_json from '../pokeapi/move.list.jp.json';
+import move_list_json from '../pokeapi/move.list.json';
+import move_manifest_json from '../pokeapi/move.manifest.json';
+import names_en_ability_json from '../pokeapi/names.en.ability.json';
+import names_en_egg_group_json from '../pokeapi/names.en.egg-group.json';
+import names_en_growth_rate_json from '../pokeapi/names.en.growth-rate.json';
+import names_en_move_json from '../pokeapi/names.en.move.json';
+import names_en_pokemon_color_json from '../pokeapi/names.en.pokemon-color.json';
+import names_en_pokemon_habitat_json from '../pokeapi/names.en.pokemon-habitat.json';
+import names_en_pokemon_json from '../pokeapi/names.en.pokemon.json';
+import names_en_pokemon_shape_json from '../pokeapi/names.en.pokemon-shape.json';
+import names_en_type_json from '../pokeapi/names.en.type.json';
+import names_fr_ability_json from '../pokeapi/names.fr.ability.json';
+import names_fr_egg_group_json from '../pokeapi/names.fr.egg-group.json';
+import names_fr_growth_rate_json from '../pokeapi/names.fr.growth-rate.json';
+import names_fr_move_json from '../pokeapi/names.fr.move.json';
+import names_fr_pokemon_color_json from '../pokeapi/names.fr.pokemon-color.json';
+import names_fr_pokemon_habitat_json from '../pokeapi/names.fr.pokemon-habitat.json';
+import names_fr_pokemon_json from '../pokeapi/names.fr.pokemon.json';
+import names_fr_pokemon_shape_json from '../pokeapi/names.fr.pokemon-shape.json';
+import names_fr_type_json from '../pokeapi/names.fr.type.json';
+import names_jp_ability_json from '../pokeapi/names.jp.ability.json';
+import names_jp_egg_group_json from '../pokeapi/names.jp.egg-group.json';
+import names_jp_growth_rate_json from '../pokeapi/names.jp.growth-rate.json';
+import names_jp_move_json from '../pokeapi/names.jp.move.json';
+import names_jp_pokemon_color_json from '../pokeapi/names.jp.pokemon-color.json';
+import names_jp_pokemon_habitat_json from '../pokeapi/names.jp.pokemon-habitat.json';
+import names_jp_pokemon_json from '../pokeapi/names.jp.pokemon.json';
+import names_jp_pokemon_shape_json from '../pokeapi/names.jp.pokemon-shape.json';
+import names_jp_type_json from '../pokeapi/names.jp.type.json';
+import pokemon_001_json from '../pokeapi/pokemon.001.json';
+import pokemon_002_json from '../pokeapi/pokemon.002.json';
+import pokemon_003_json from '../pokeapi/pokemon.003.json';
+import pokemon_004_json from '../pokeapi/pokemon.004.json';
+import pokemon_005_json from '../pokeapi/pokemon.005.json';
+import pokemon_006_json from '../pokeapi/pokemon.006.json';
+import pokemon_007_json from '../pokeapi/pokemon.007.json';
+import pokemon_color_idmap_json from '../pokeapi/pokemon-color.idmap.json';
+import pokemon_color_json from '../pokeapi/pokemon-color.json';
+import pokemon_color_list_en_json from '../pokeapi/pokemon-color.list.en.json';
+import pokemon_color_list_fr_json from '../pokeapi/pokemon-color.list.fr.json';
+import pokemon_color_list_jp_json from '../pokeapi/pokemon-color.list.jp.json';
+import pokemon_color_list_json from '../pokeapi/pokemon-color.list.json';
+import pokemon_habitat_idmap_json from '../pokeapi/pokemon-habitat.idmap.json';
+import pokemon_habitat_json from '../pokeapi/pokemon-habitat.json';
+import pokemon_habitat_list_en_json from '../pokeapi/pokemon-habitat.list.en.json';
+import pokemon_habitat_list_fr_json from '../pokeapi/pokemon-habitat.list.fr.json';
+import pokemon_habitat_list_jp_json from '../pokeapi/pokemon-habitat.list.jp.json';
+import pokemon_habitat_list_json from '../pokeapi/pokemon-habitat.list.json';
+import pokemon_idmap_json from '../pokeapi/pokemon.idmap.json';
+import pokemon_list_en_json from '../pokeapi/pokemon.list.en.json';
+import pokemon_list_fr_json from '../pokeapi/pokemon.list.fr.json';
+import pokemon_list_jp_json from '../pokeapi/pokemon.list.jp.json';
+import pokemon_list_json from '../pokeapi/pokemon.list.json';
+import pokemon_manifest_json from '../pokeapi/pokemon.manifest.json';
+import pokemon_shape_idmap_json from '../pokeapi/pokemon-shape.idmap.json';
+import pokemon_shape_json from '../pokeapi/pokemon-shape.json';
+import pokemon_shape_list_en_json from '../pokeapi/pokemon-shape.list.en.json';
+import pokemon_shape_list_fr_json from '../pokeapi/pokemon-shape.list.fr.json';
+import pokemon_shape_list_jp_json from '../pokeapi/pokemon-shape.list.jp.json';
+import pokemon_shape_list_json from '../pokeapi/pokemon-shape.list.json';
+import pokemon_species_001_json from '../pokeapi/pokemon-species.001.json';
+import pokemon_species_002_json from '../pokeapi/pokemon-species.002.json';
+import pokemon_species_003_json from '../pokeapi/pokemon-species.003.json';
+import pokemon_species_004_json from '../pokeapi/pokemon-species.004.json';
+import pokemon_species_005_json from '../pokeapi/pokemon-species.005.json';
+import pokemon_species_006_json from '../pokeapi/pokemon-species.006.json';
+import pokemon_species_idmap_json from '../pokeapi/pokemon-species.idmap.json';
+import pokemon_species_list_json from '../pokeapi/pokemon-species.list.json';
+import pokemon_species_manifest_json from '../pokeapi/pokemon-species.manifest.json';
+import search_index_en_json from '../pokeapi/search-index.en.json';
+import search_index_fr_json from '../pokeapi/search-index.fr.json';
+import search_index_jp_json from '../pokeapi/search-index.jp.json';
+import search_index_json from '../pokeapi/search-index.json';
+import type_idmap_json from '../pokeapi/type.idmap.json';
+import type_json from '../pokeapi/type.json';
+import type_list_en_json from '../pokeapi/type.list.en.json';
+import type_list_fr_json from '../pokeapi/type.list.fr.json';
+import type_list_jp_json from '../pokeapi/type.list.jp.json';
+import type_list_json from '../pokeapi/type.list.json';
+
+// Map of basename -> parsed JSON content
+export const POKEJSON: Record<string, any> = {
+  'ability.001.json': ability_001_json,
+  'ability.002.json': ability_002_json,
+  'ability.idmap.json': ability_idmap_json,
+  'ability.list.en.json': ability_list_en_json,
+  'ability.list.fr.json': ability_list_fr_json,
+  'ability.list.jp.json': ability_list_jp_json,
+  'ability.list.json': ability_list_json,
+  'ability.manifest.json': ability_manifest_json,
+  'aliases.ability.json': aliases_ability_json,
+  'aliases.move.json': aliases_move_json,
+  'aliases.pokemon.json': aliases_pokemon_json,
+  'aliases.type.json': aliases_type_json,
+  'egg-group.idmap.json': egg_group_idmap_json,
+  'egg-group.json': egg_group_json,
+  'egg-group.list.en.json': egg_group_list_en_json,
+  'egg-group.list.fr.json': egg_group_list_fr_json,
+  'egg-group.list.jp.json': egg_group_list_jp_json,
+  'egg-group.list.json': egg_group_list_json,
+  'evolution-chain.001.json': evolution_chain_001_json,
+  'evolution-chain.002.json': evolution_chain_002_json,
+  'evolution-chain.003.json': evolution_chain_003_json,
+  'evolution-chain.idmap.json': evolution_chain_idmap_json,
+  'evolution-chain.list.json': evolution_chain_list_json,
+  'evolution-chain.manifest.json': evolution_chain_manifest_json,
+  'growth-rate.idmap.json': growth_rate_idmap_json,
+  'growth-rate.json': growth_rate_json,
+  'growth-rate.list.en.json': growth_rate_list_en_json,
+  'growth-rate.list.fr.json': growth_rate_list_fr_json,
+  'growth-rate.list.jp.json': growth_rate_list_jp_json,
+  'growth-rate.list.json': growth_rate_list_json,
+  'move.001.json': move_001_json,
+  'move.002.json': move_002_json,
+  'move.003.json': move_003_json,
+  'move.004.json': move_004_json,
+  'move.idmap.json': move_idmap_json,
+  'move.list.en.json': move_list_en_json,
+  'move.list.fr.json': move_list_fr_json,
+  'move.list.jp.json': move_list_jp_json,
+  'move.list.json': move_list_json,
+  'move.manifest.json': move_manifest_json,
+  'names.en.ability.json': names_en_ability_json,
+  'names.en.egg-group.json': names_en_egg_group_json,
+  'names.en.growth-rate.json': names_en_growth_rate_json,
+  'names.en.move.json': names_en_move_json,
+  'names.en.pokemon-color.json': names_en_pokemon_color_json,
+  'names.en.pokemon-habitat.json': names_en_pokemon_habitat_json,
+  'names.en.pokemon.json': names_en_pokemon_json,
+  'names.en.pokemon-shape.json': names_en_pokemon_shape_json,
+  'names.en.type.json': names_en_type_json,
+  'names.fr.ability.json': names_fr_ability_json,
+  'names.fr.egg-group.json': names_fr_egg_group_json,
+  'names.fr.growth-rate.json': names_fr_growth_rate_json,
+  'names.fr.move.json': names_fr_move_json,
+  'names.fr.pokemon-color.json': names_fr_pokemon_color_json,
+  'names.fr.pokemon-habitat.json': names_fr_pokemon_habitat_json,
+  'names.fr.pokemon.json': names_fr_pokemon_json,
+  'names.fr.pokemon-shape.json': names_fr_pokemon_shape_json,
+  'names.fr.type.json': names_fr_type_json,
+  'names.jp.ability.json': names_jp_ability_json,
+  'names.jp.egg-group.json': names_jp_egg_group_json,
+  'names.jp.growth-rate.json': names_jp_growth_rate_json,
+  'names.jp.move.json': names_jp_move_json,
+  'names.jp.pokemon-color.json': names_jp_pokemon_color_json,
+  'names.jp.pokemon-habitat.json': names_jp_pokemon_habitat_json,
+  'names.jp.pokemon.json': names_jp_pokemon_json,
+  'names.jp.pokemon-shape.json': names_jp_pokemon_shape_json,
+  'names.jp.type.json': names_jp_type_json,
+  'pokemon.001.json': pokemon_001_json,
+  'pokemon.002.json': pokemon_002_json,
+  'pokemon.003.json': pokemon_003_json,
+  'pokemon.004.json': pokemon_004_json,
+  'pokemon.005.json': pokemon_005_json,
+  'pokemon.006.json': pokemon_006_json,
+  'pokemon.007.json': pokemon_007_json,
+  'pokemon-color.idmap.json': pokemon_color_idmap_json,
+  'pokemon-color.json': pokemon_color_json,
+  'pokemon-color.list.en.json': pokemon_color_list_en_json,
+  'pokemon-color.list.fr.json': pokemon_color_list_fr_json,
+  'pokemon-color.list.jp.json': pokemon_color_list_jp_json,
+  'pokemon-color.list.json': pokemon_color_list_json,
+  'pokemon-habitat.idmap.json': pokemon_habitat_idmap_json,
+  'pokemon-habitat.json': pokemon_habitat_json,
+  'pokemon-habitat.list.en.json': pokemon_habitat_list_en_json,
+  'pokemon-habitat.list.fr.json': pokemon_habitat_list_fr_json,
+  'pokemon-habitat.list.jp.json': pokemon_habitat_list_jp_json,
+  'pokemon-habitat.list.json': pokemon_habitat_list_json,
+  'pokemon.idmap.json': pokemon_idmap_json,
+  'pokemon.list.en.json': pokemon_list_en_json,
+  'pokemon.list.fr.json': pokemon_list_fr_json,
+  'pokemon.list.jp.json': pokemon_list_jp_json,
+  'pokemon.list.json': pokemon_list_json,
+  'pokemon.manifest.json': pokemon_manifest_json,
+  'pokemon-shape.idmap.json': pokemon_shape_idmap_json,
+  'pokemon-shape.json': pokemon_shape_json,
+  'pokemon-shape.list.en.json': pokemon_shape_list_en_json,
+  'pokemon-shape.list.fr.json': pokemon_shape_list_fr_json,
+  'pokemon-shape.list.jp.json': pokemon_shape_list_jp_json,
+  'pokemon-shape.list.json': pokemon_shape_list_json,
+  'pokemon-species.001.json': pokemon_species_001_json,
+  'pokemon-species.002.json': pokemon_species_002_json,
+  'pokemon-species.003.json': pokemon_species_003_json,
+  'pokemon-species.004.json': pokemon_species_004_json,
+  'pokemon-species.005.json': pokemon_species_005_json,
+  'pokemon-species.006.json': pokemon_species_006_json,
+  'pokemon-species.idmap.json': pokemon_species_idmap_json,
+  'pokemon-species.list.json': pokemon_species_list_json,
+  'pokemon-species.manifest.json': pokemon_species_manifest_json,
+  'search-index.en.json': search_index_en_json,
+  'search-index.fr.json': search_index_fr_json,
+  'search-index.jp.json': search_index_jp_json,
+  'search-index.json': search_index_json,
+  'type.idmap.json': type_idmap_json,
+  'type.json': type_json,
+  'type.list.en.json': type_list_en_json,
+  'type.list.fr.json': type_list_fr_json,
+  'type.list.jp.json': type_list_jp_json,
+  'type.list.json': type_list_json,
+};
+
+export type PokeJsonMap = typeof POKEJSON;

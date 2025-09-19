@@ -1,27 +1,16 @@
 import { createResource } from 'solid-js';
 import { t, getLocale, type Locale } from '../i18n';
+import { POKEJSON } from '../data/pokejson';
 
 export type ResourceName = 'pokemon' | 'pokemon-species' | 'move' | 'ability' | 'type';
 
-// Eagerly import all JSON files from public into the bundle for instant access.
-// Vite allows importing JSON; this returns the parsed object at build time.
-const DATA: Record<string, any> = import.meta.glob('../public/data/pokeapi/*.json', {
-  eager: true,
-  import: 'default',
-}) as any;
-
-function key(file: string): string {
-  return `../public/data/pokeapi/${file}`;
+// Accessor helpers over the statically-imported POKEJSON map
+function hasFile(file: string): boolean {
+  return Object.prototype.hasOwnProperty.call(POKEJSON, file);
 }
 
-// Build a filename → key map so we can address files by basename reliably
-const FILE_TO_KEY: Record<string, string> = Object.fromEntries(
-  Object.keys(DATA).map((k) => [k.split('/').pop() as string, k])
-);
-
 async function importJSON<T>(file: string): Promise<T> {
-  const k = FILE_TO_KEY[file] || key(file);
-  if (k in DATA) return DATA[k] as T;
+  if (hasFile(file)) return POKEJSON[file] as T;
   // Fallback to fetch if file not bundled for some reason
   const res = await fetch(`/data/pokeapi/${file}`);
   if (!res.ok) throw new Error(`Missing data file ${file}`);
@@ -40,7 +29,7 @@ export async function loadList(resource: ResourceName): Promise<Array<{ id: numb
   // Prefer localized list if available
   const localizedName = `${resource}.list.${loc}.json`;
   const fallbackName = `${r}.list.json`;
-  if (FILE_TO_KEY[localizedName]) return importJSON(localizedName);
+  if (hasFile(localizedName)) return importJSON(localizedName);
   return importJSON(fallbackName);
 }
 
@@ -86,13 +75,13 @@ export async function loadNameMap(
 ): Promise<Record<string, string>> {
   const locale = loc || (getLocale() as Locale);
   const fname = `names.${locale}.${resource}.json`;
-  if (FILE_TO_KEY[fname]) return importJSON(fname);
+  if (hasFile(fname)) return importJSON(fname);
   return {} as any;
 }
 
 export async function loadAliases(resource: 'pokemon' | 'move' | 'ability' | 'type'): Promise<Record<string, string[]>> {
   const fname = `aliases.${resource}.json`;
-  if (FILE_TO_KEY[fname]) return importJSON(fname);
+  if (hasFile(fname)) return importJSON(fname);
   return {} as any;
 }
 
@@ -122,8 +111,7 @@ export async function loadSearchIndex(loc?: Locale): Promise<any[]> {
 export async function loadDataset(resource: 'pokemon' | 'pokemon-species' | 'move' | 'ability' | 'type'): Promise<any[]> {
   const out: any[] = [];
   const prefix = `${resource}.`;
-  for (const [p, json] of Object.entries(DATA)) {
-    const base = p.split('/').pop() || '';
+  for (const [base, json] of Object.entries(POKEJSON)) {
     if (base.startsWith(prefix)) {
       // numeric shards only: e.g., pokemon.001.json
       const rest = base.slice(prefix.length);
