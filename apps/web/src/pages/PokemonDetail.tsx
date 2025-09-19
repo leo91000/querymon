@@ -160,7 +160,7 @@ export default function PokemonDetail(props: { id: number }) {
                   const hdm = pokemon()?.height ?? 0; const m = (hdm/10).toFixed(1);
                   const totalIn = Math.round((hdm/10) / 0.0254);
                   const ft = Math.floor(totalIn/12); const inches = totalIn - ft*12;
-                  return t('pokemon.heightWithImperial', { m, ft, in: inches });
+                  return fmt(t('pokemon.heightWithImperial') as unknown as string, { m, ft, in: inches });
                 })()}</div>
               </div>
               <div>
@@ -168,7 +168,7 @@ export default function PokemonDetail(props: { id: number }) {
                 <div class="font-medium">{(() => {
                   const hg = pokemon()?.weight ?? 0; const kg = (hg/10).toFixed(1);
                   const lb = (parseFloat(kg)*2.20462).toFixed(1);
-                  return t('pokemon.weightWithImperial', { kg, lb });
+                  return fmt(t('pokemon.weightWithImperial') as unknown as string, { kg, lb });
                 })()}</div>
               </div>
               <div>
@@ -222,3 +222,6 @@ export default function PokemonDetail(props: { id: number }) {
     </div>
   );
 }
+  function fmt(tpl: string, params: Record<string, string | number>): string {
+    return String(tpl).replace(/\{(\w+)\}/g, (_, k) => (params[k] != null ? String(params[k]) : `{${k}}`));
+  }
