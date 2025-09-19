@@ -70,15 +70,15 @@ export default function PokemonDetail(props: { id: number }) {
 
               <div class="mt-6 grid grid-cols-2 gap-4 md:grid-cols-3">
                 <div class="rounded-lg border border-gray-200 p-3 text-sm dark:border-gray-700">
-                  <div class="text-gray-500 dark:text-gray-400">Weight</div>
+                  <div class="flex items-center gap-2 text-gray-500 dark:text-gray-400"><span class="icon-[ph--scales] text-blue-600 dark:text-blue-400"></span> Weight</div>
                   <div class="text-lg font-semibold">{pokemon() ? kg(pokemon()!.weight) + ' kg' : '—'}</div>
                 </div>
                 <div class="rounded-lg border border-gray-200 p-3 text-sm dark:border-gray-700">
-                  <div class="text-gray-500 dark:text-gray-400">Height</div>
+                  <div class="flex items-center gap-2 text-gray-500 dark:text-gray-400"><span class="icon-[ph--ruler] text-blue-600 dark:text-blue-400"></span> Height</div>
                   <div class="text-lg font-semibold">{pokemon() ? m(pokemon()!.height) + ' m' : '—'}</div>
                 </div>
                 <div class="rounded-lg border border-gray-200 p-3 text-sm dark:border-gray-700">
-                  <div class="text-gray-500 dark:text-gray-400">Capture rate</div>
+                  <div class="flex items-center gap-2 text-gray-500 dark:text-gray-400"><span class="icon-[ph--target] text-blue-600 dark:text-blue-400"></span> Capture rate</div>
                   <div class="text-lg font-semibold">{species()?.capture_rate ?? '—'}</div>
                 </div>
               </div>
