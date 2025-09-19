@@ -59,6 +59,7 @@ async function build() {
   const localizedLists = {}; // { `${resource}.${loc}`: [ {id,name} ] }
   const localizedNameMaps = {}; // { `${resource}.${loc}`: {id:name} }
   const aliasSets = {}; // { routeRes: { id: Set(names across locales) } }
+  const aliasMaps = {}; // { routeRes: { id: Set } }
   for (const resource of RESOURCES) {
     const files = await filesFor(resource);
     const idmap = {};
@@ -120,6 +121,17 @@ async function build() {
   for (const key of Object.keys(localizedNameMaps)) {
     const [resource, loc] = key.split('.');
     await writeFile(path.join(OUT_DIR, `names.${loc}.${resource}.json`), JSON.stringify(localizedNameMaps[key], null, 2));
+  }
+
+  // Write alias maps (id -> [all locale names]) for resources we browse
+  for (const routeRes of Object.keys(aliasSets)) {
+    if (['pokemon', 'move', 'ability', 'type'].includes(routeRes)) {
+      const out = {};
+      for (const idStr of Object.keys(aliasSets[routeRes])) {
+        out[idStr] = Array.from(aliasSets[routeRes][idStr]).filter(Boolean);
+      }
+      await writeFile(path.join(OUT_DIR, `aliases.${routeRes}.json`), JSON.stringify(out, null, 2));
+    }
   }
 }
 

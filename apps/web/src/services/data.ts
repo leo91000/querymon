@@ -69,6 +69,17 @@ export async function loadNameMap(
   }
 }
 
+export async function loadAliases(resource: 'pokemon' | 'move' | 'ability' | 'type'): Promise<Record<string, string[]>> {
+  const url = `/data/pokeapi/aliases.${resource}.json`;
+  try {
+    const res = await fetch(url, { cache: 'no-store' });
+    if (!res.ok) return {} as any;
+    return await res.json();
+  } catch {
+    return {} as any;
+  }
+}
+
 export function formatName(name: string): string {
   return String(name || '').replace(/[-_]/g, ' ').replace(/\b\w/g, (m) => m.toUpperCase());
 }
