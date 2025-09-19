@@ -19,8 +19,6 @@ const App: Component = () => {
         <Route path="ability/:id" component={() => <ResourceDetail resource="ability" />} />
         <Route path="type" component={() => <ResourceList resource="type" />} />
         <Route path="type/:id" component={() => <ResourceDetail resource="type" />} />
-        <Route path="evolution-chain" component={() => <ResourceList resource="evolution-chain" />} />
-        <Route path="evolution-chain/:id" component={() => <ResourceDetail resource="evolution-chain" />} />
       </Route>
     </>
   );

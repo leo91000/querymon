@@ -1,7 +1,7 @@
 import { createResource } from 'solid-js';
 import { t } from '../i18n';
 
-export type ResourceName = 'pokemon' | 'pokemon-species' | 'move' | 'ability' | 'type' | 'evolution-chain';
+export type ResourceName = 'pokemon' | 'pokemon-species' | 'move' | 'ability' | 'type';
 
 export async function fetchJSON<T>(url: string): Promise<T> {
   const res = await fetch(url);
@@ -44,7 +44,6 @@ export function resourceLabel(resource: ResourceName): string {
     case 'move': return t('resources.move');
     case 'ability': return t('resources.ability');
     case 'type': return t('resources.type');
-    case 'evolution-chain': return t('resources.evolution-chain');
   }
 }
 

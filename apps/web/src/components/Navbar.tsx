@@ -17,7 +17,6 @@ export default function Navbar() {
           <A href="/move" class="text-sm text-gray-700 hover:text-blue-700">{t('nav.moves')}</A>
           <A href="/ability" class="text-sm text-gray-700 hover:text-blue-700">{t('nav.abilities')}</A>
           <A href="/type" class="text-sm text-gray-700 hover:text-blue-700">{t('nav.types')}</A>
-          <A href="/evolution-chain" class="text-sm text-gray-700 hover:text-blue-700">{t('nav.evolution')}</A>
         </nav>
         <div class="hidden md:block"><LanguageSwitcher /></div>
       </div>
