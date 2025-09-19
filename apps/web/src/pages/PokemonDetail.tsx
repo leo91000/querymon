@@ -73,6 +73,11 @@ export default function PokemonDetail(props: { id: number }) {
     }
     return names.find((n:any)=>n.language?.name===lang)?.name || fallback || '';
   }
+
+  const localizedTypeLabels = createMemo(() => {
+    const _ = locale();
+    return types().map((t) => ({ id: t.id, tone: toneForType(t.name), label: localizeTypeName(t.id, formatName(t.name)) }));
+  });
   const [growthRates] = createResource(async () => await fetch('/data/pokeapi/growth-rate.json').then(r=>r.json()));
 
   const localizedName = createMemo(() => {
@@ -98,10 +103,8 @@ export default function PokemonDetail(props: { id: number }) {
               <div class="flex items-center gap-3">
                 <h2 class="text-2xl font-bold tracking-tight"><span class="mr-2 font-jersey text-blue-600 dark:text-blue-400">#{String(props.id).padStart(3, '0')}</span>{localizedName()}</h2>
                 <div class="flex gap-2">
-                  <For each={types()}>{(t) => (
-                    <Badge tone={toneForType(t.name)}>
-                      {localizeTypeName(t.id, formatName(t.name))}
-                    </Badge>
+                  <For each={localizedTypeLabels()}>{(t) => (
+                    <Badge tone={t.tone}>{t.label}</Badge>
                   )}</For>
                 </div>
               </div>
