@@ -17,13 +17,25 @@ export default function GlobalSearch() {
   const [entries] = createResource(() => getLocale(), (loc) => loadIndex(loc));
   const nav = useNavigate();
 
+  function normalize(s: string) {
+    return s
+      .toLowerCase()
+      .normalize('NFKD')
+      .replace(/[\u0300-\u036f]/g, '')
+      .replace(/\s+/g, ' ')
+      .trim();
+  }
+
   const results = createMemo(() => {
-    const term = q().trim().toLowerCase();
+    const term = normalize(q().trim());
     const list = entries() || [];
     if (!term) return [] as Entry[];
     const out: Entry[] = [];
     for (const e of list) {
-      if (e.name?.toLowerCase().includes(term)) out.push(e);
+      const nameMatch = normalize(e.name || '').includes(term);
+      const aliasMatch = Array.isArray((e as any).aliases)
+        && (e as any).aliases.some((a: string) => normalize(a).includes(term));
+      if (nameMatch || aliasMatch) out.push(e);
       if (out.length >= 12) break;
     }
     return out;
