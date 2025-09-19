@@ -53,6 +53,13 @@ export default function PokemonDetail(props: { id: number }) {
   const stats = createMemo(() => (pokemon()?.stats || []).map((s: any) => ({ name: s.stat?.name, base: s.base_stat })));
   const locale = () => getLocale() as 'en' | 'fr' | 'jp';
   const flavorText = createMemo(() => pickFlavor(species(), locale()));
+  // Locale-aware number formatter
+  const nf = createMemo(() => new Intl.NumberFormat(locale() === 'jp' ? 'ja' : locale()));
+  const num = (n: number | string | undefined | null) => {
+    if (n == null) return '—';
+    const v = typeof n === 'string' ? Number(n) : n;
+    return nf().format(Number.isFinite(v) ? v : Number(n));
+  };
   const [growthRateNames] = createResource(() => locale(), (loc) => loadNameMap('growth-rate' as any, loc as any));
   const [eggGroupNames] = createResource(() => locale(), (loc) => loadNameMap('egg-group' as any, loc as any));
   const [colorNames] = createResource(() => locale(), (loc) => loadNameMap('pokemon-color' as any, loc as any));
@@ -218,7 +225,7 @@ export default function PokemonDetail(props: { id: number }) {
               </div>
               <div>
                 <div class="text-gray-500 dark:text-gray-400">{t('pokemon.baseExp')}</div>
-                <div class="font-medium">{pokemon()?.base_experience ?? '—'}</div>
+                <div class="font-medium">{num(pokemon()?.base_experience)}</div>
               </div>
               <div>
                 <div class="text-gray-500 dark:text-gray-400">{t('pokemon.expAt100')}</div>
@@ -228,7 +235,8 @@ export default function PokemonDetail(props: { id: number }) {
                   const e = g?.levels?.find((l:any)=>l.level===100)?.experience;
                   const grp = gid ? growthRateNames()?.[String(gid)] : undefined;
                   if (e == null) return '—';
-                  return grp ? `${e} (${grp})` : `${e}`;
+                  const val = num(e);
+                  return grp ? `${val} (${grp})` : `${val}`;
                 })()}</div>
               </div>
               <div>
