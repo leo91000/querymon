@@ -78,6 +78,16 @@ export default function PokemonDetail(props: { id: number }) {
     const _ = locale();
     return types().map((t) => ({ id: t.id, tone: toneForType(t.name), label: localizeTypeName(t.id, formatName(t.name)) }));
   });
+
+  const localizedAbilities = createMemo(() => {
+    const _ = locale();
+    const map = abilityNames() || {};
+    return (pokemon()?.abilities || []).map((ab: any) => {
+      const id = idFromUrl(ab.ability?.url);
+      const label = (id && map[String(id)]) || formatName(ab.ability?.name);
+      return { label, hidden: ab.is_hidden };
+    });
+  });
   const [growthRates] = createResource(async () => await fetch('/data/pokeapi/growth-rate.json').then(r=>r.json()));
 
   const localizedName = createMemo(() => {
@@ -197,7 +207,7 @@ export default function PokemonDetail(props: { id: number }) {
               </div>
               <div>
                 <div class="text-gray-500 dark:text-gray-400">{t('pokemon.eggCycles')}</div>
-                <div class="font-medium">{species()?.hatch_counter != null ? `${species()?.hatch_counter} ${t('pokemon.eggCycles')}` : '—'}</div>
+                <div class="font-medium">{species()?.hatch_counter ?? '—'}</div>
               </div>
               <div>
                 <div class="text-gray-500 dark:text-gray-400">{t('pokemon.effortPoints')}</div>
@@ -232,7 +242,9 @@ export default function PokemonDetail(props: { id: number }) {
               <div class="col-span-2">
                 <div class="text-gray-500 dark:text-gray-400">{t('pokemon.abilities')}</div>
                 <ol class="mt-1 list-decimal pl-5">
-                  <For each={pokemon()?.abilities || []}>{(ab:any) => { const id = idFromUrl(ab.ability?.url); const name = (id && abilityNames()?.[String(id)]) || formatName(ab.ability?.name); return <li class="py-0.5">{name}{ab.is_hidden ? ` (${t('ability.hidden')})` : ''}</li>; }}</For>
+                  <For each={localizedAbilities()}>{(ab:any) => (
+                    <li class="py-0.5">{ab.label}{ab.hidden ? ` (${t('ability.hidden')})` : ''}</li>
+                  )}</For>
                 </ol>
               </div>
             </div>
