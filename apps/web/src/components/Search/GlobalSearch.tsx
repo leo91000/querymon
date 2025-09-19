@@ -6,7 +6,7 @@ import { t, getLocale } from '../../i18n';
 type Entry = { resource: string; id: number | null; name: string; path: string };
 
 async function loadIndex(loc: string): Promise<Entry[]> {
-  const res = await fetch(`/data/pokeapi/search-index.${loc}.json`);
+  const res = await fetch(`/data/pokeapi/search-index.${loc}.json`, { cache: 'no-store' });
   if (!res.ok) throw new Error('Failed to load search index');
   return res.json();
 }
