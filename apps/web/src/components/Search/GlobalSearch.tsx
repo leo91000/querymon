@@ -29,19 +29,33 @@ export default function GlobalSearch() {
       .trim();
   }
 
+  function matchScore(text: string, term: string): number {
+    const t = normalize(text);
+    if (t === term) return 3;
+    if (t.startsWith(term)) return 2;
+    if (t.includes(term)) return 1;
+    return 0;
+  }
+
+  function scoreEntry(e: any, term: string): number {
+    let s = matchScore(e.name || '', term);
+    const aliases = Array.isArray(e.aliases) ? e.aliases : [];
+    for (const a of aliases) s = Math.max(s, matchScore(a, term) + 0.25); // slight boost if alias exact
+    const rw = e.resource === 'type' ? 1.2 : e.resource === 'move' ? 1.1 : e.resource === 'ability' ? 1.05 : 1;
+    return s * rw;
+  }
+
   const results = createMemo(() => {
-    const term = normalize(q().trim());
+    const term = normalize(q());
     const list = entries() || [];
     if (!term) return [] as Entry[];
-    const out: Entry[] = [];
+    const scored: Array<{ e: Entry; s: number }> = [];
     for (const e of list) {
-      const nameMatch = normalize(e.name || '').includes(term);
-      const aliasMatch = Array.isArray((e as any).aliases)
-        && (e as any).aliases.some((a: string) => normalize(a).includes(term));
-      if (nameMatch || aliasMatch) out.push(e);
-      if (out.length >= 12) break;
+      const s = scoreEntry(e as any, term);
+      if (s > 0) scored.push({ e, s });
     }
-    return out;
+    scored.sort((a, b) => b.s - a.s || (a.e.name || '').length - (b.e.name || '').length || (a.e.id ?? 0) - (b.e.id ?? 0));
+    return scored.slice(0, 20).map((x) => x.e);
   });
 
   function onKey(e: KeyboardEvent) {
