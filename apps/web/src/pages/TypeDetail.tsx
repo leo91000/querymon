@@ -50,7 +50,7 @@ export default function TypeDetail(props: { id: number }) {
             <div class="grid grid-cols-1 md:grid-cols-[1fr_320px]">
               <div class="p-6">
                 <div class="flex flex-wrap items-center gap-3">
-                  <h2 class="text-2xl font-bold tracking-tight">{formatName(td().name)}</h2>
+                  <h2 class="text-2xl font-bold tracking-tight font-jersey">{formatName(td().name)}</h2>
                   <Badge tone={toneForType(td().name)}>{formatName(td().name)}</Badge>
                 </div>
 

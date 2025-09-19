@@ -5,3 +5,14 @@
 
 /* Improve native form controls and scrollbars when toggling themes */
 :root { color-scheme: light dark; }
+
+/* Google Fonts (see index.html link tags) */
+@layer theme {
+  :root {
+    --font-sans: "Dosis", ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+    --font-jersey: "Jersey 20", ui-sans-serif, system-ui, sans-serif;
+  }
+}
+
+/* Utility for headline accents */
+.font-jersey { font-family: var(--font-jersey); letter-spacing: 0.02em; }
