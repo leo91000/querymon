@@ -24,6 +24,29 @@ export default function TypeBox(props: Props) {
   const [types] = createResource(loadTypes);
   const locale = () => getLocale() as 'en'|'fr'|'jp';
 
+  // Per-type light/dark tones (tailwind v4 class-based dark)
+  const TONE: Record<string, string> = {
+    normal: 'border-stone-200 bg-stone-100 text-stone-800 dark:border-stone-800 dark:bg-stone-900/30 dark:text-stone-200',
+    fire: 'border-orange-200 bg-orange-100 text-orange-800 dark:border-orange-800 dark:bg-orange-900/30 dark:text-orange-200',
+    water: 'border-blue-200 bg-blue-100 text-blue-800 dark:border-blue-800 dark:bg-blue-900/30 dark:text-blue-200',
+    electric: 'border-yellow-200 bg-yellow-100 text-yellow-800 dark:border-yellow-800 dark:bg-yellow-900/30 dark:text-yellow-200',
+    grass: 'border-green-200 bg-green-100 text-green-800 dark:border-green-800 dark:bg-green-900/30 dark:text-green-200',
+    ice: 'border-sky-200 bg-sky-100 text-sky-800 dark:border-sky-800 dark:bg-sky-900/30 dark:text-sky-200',
+    fighting: 'border-rose-200 bg-rose-100 text-rose-800 dark:border-rose-800 dark:bg-rose-900/30 dark:text-rose-200',
+    poison: 'border-purple-200 bg-purple-100 text-purple-800 dark:border-purple-800 dark:bg-purple-900/30 dark:text-purple-200',
+    ground: 'border-amber-200 bg-amber-100 text-amber-800 dark:border-amber-800 dark:bg-amber-900/30 dark:text-amber-200',
+    flying: 'border-indigo-200 bg-indigo-100 text-indigo-800 dark:border-indigo-800 dark:bg-indigo-900/30 dark:text-indigo-200',
+    psychic: 'border-pink-200 bg-pink-100 text-pink-800 dark:border-pink-800 dark:bg-pink-900/30 dark:text-pink-200',
+    bug: 'border-lime-200 bg-lime-100 text-lime-800 dark:border-lime-800 dark:bg-lime-900/30 dark:text-lime-200',
+    rock: 'border-stone-300 bg-stone-100 text-stone-800 dark:border-stone-800 dark:bg-stone-900/30 dark:text-stone-200',
+    ghost: 'border-violet-200 bg-violet-100 text-violet-800 dark:border-violet-800 dark:bg-violet-900/30 dark:text-violet-200',
+    dragon: 'border-fuchsia-200 bg-fuchsia-100 text-fuchsia-800 dark:border-fuchsia-800 dark:bg-fuchsia-900/30 dark:text-fuchsia-200',
+    dark: 'border-neutral-300 bg-neutral-100 text-neutral-800 dark:border-neutral-700 dark:bg-neutral-900/30 dark:text-neutral-200',
+    steel: 'border-slate-200 bg-slate-100 text-slate-800 dark:border-slate-800 dark:bg-slate-900/30 dark:text-slate-200',
+    fairy: 'border-rose-200 bg-rose-100 text-rose-800 dark:border-rose-800 dark:bg-rose-900/30 dark:text-rose-200',
+    stellar: 'border-teal-200 bg-teal-100 text-teal-800 dark:border-teal-800 dark:bg-teal-900/30 dark:text-teal-200',
+  };
+
   const entry = createMemo(() => {
     const list = types() || [];
     if (props.id) return list.find((t: any) => t.id === props.id);
@@ -35,6 +58,8 @@ export default function TypeBox(props: Props) {
     const e = entry();
     return (props.name || e?.name || 'unknown').toLowerCase();
   });
+
+  const toneClass = createMemo(() => TONE[slug()] || 'border-gray-200 bg-white text-gray-800 dark:border-gray-700 dark:bg-gray-800 dark:text-gray-200');
 
   const label = createMemo(() => {
     const e = entry();
@@ -57,7 +82,7 @@ export default function TypeBox(props: Props) {
   const padY = size === 'sm' ? 'py-0.5' : 'py-1';
 
   const content = (
-    <span class={`inline-flex items-center gap-2 rounded-full border border-gray-200 bg-white ${padX} ${padY} ${textSize} dark:border-gray-700 dark:bg-gray-800 ${props.class || ''}`}>
+    <span class={`inline-flex items-center gap-2 rounded-full border ${padX} ${padY} ${textSize} ${toneClass()} ${props.class || ''}`}>
       <img src={`/assets/types/bulba/${slug()}.png`} alt={label()} class={`${iconSize}`} loading="lazy" width={24} height={24} />
       <Show when={props.showLabel !== false}>
         <span class="leading-none">{label()}</span>
@@ -70,4 +95,3 @@ export default function TypeBox(props: Props) {
   }
   return content;
 }
-
