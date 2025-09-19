@@ -3,7 +3,7 @@ import { readdir, readFile, writeFile } from 'node:fs/promises';
 import path from 'node:path';
 
 const OUT_DIR = path.resolve(process.cwd(), 'apps/web/public/data/pokeapi');
-const RESOURCES = ['pokemon', 'pokemon-species', 'move', 'ability', 'type', 'evolution-chain'];
+const RESOURCES = ['pokemon', 'pokemon-species', 'move', 'ability', 'type'];
 const EXCLUDE_FROM_SEARCH = new Set(['pokemon']);
 const RENAME_IN_SEARCH = { 'pokemon-species': 'pokemon' };
 

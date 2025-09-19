@@ -4,13 +4,13 @@ import { createResource, For } from 'solid-js';
 import { resourceLabel } from '../services/data';
 import { t } from '../i18n';
 
-const RESOURCES = ['pokemon','move','ability','type','evolution-chain'] as const;
+const RESOURCES = ['pokemon','move','ability','type'] as const;
 
 async function loadCounts() {
   const res = await fetch('/data/pokeapi/search-index.json');
   const all = await res.json();
   const counts = Object.fromEntries(RESOURCES.map((r) => [r, 0]));
-  for (const e of all) counts[e.resource]++;
+  for (const e of all) if (e.resource in counts) counts[e.resource]++;
   return counts as Record<(typeof RESOURCES)[number], number>;
 }
 
