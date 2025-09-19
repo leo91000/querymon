@@ -1,5 +1,5 @@
 import { A } from '@solidjs/router';
-import { Show, createMemo, createResource } from 'solid-js';
+import { Show, createMemo, createResource, createSignal, onCleanup, onMount } from 'solid-js';
 import { getLocale } from '../i18n';
 
 type Props = {
@@ -61,6 +61,20 @@ export default function TypeBox(props: Props) {
 
   const toneClass = createMemo(() => TONE[slug()] || 'border-gray-200 bg-white text-gray-800 dark:border-gray-700 dark:bg-gray-800 dark:text-gray-200');
 
+  // Track effective theme via data-theme attribute set by theme/init
+  const [theme, setTheme] = createSignal<string>(typeof document !== 'undefined' ? (document.documentElement.getAttribute('data-theme') || 'light') : 'light');
+  onMount(() => {
+    const el = document.documentElement;
+    const obs = new MutationObserver(() => setTheme(el.getAttribute('data-theme') || 'light'));
+    obs.observe(el, { attributes: true, attributeFilter: ['data-theme'] });
+    onCleanup(() => obs.disconnect());
+  });
+
+  const iconSrc = createMemo(() => {
+    const base = theme() === 'light' ? '/assets/types/bulba-dark' : '/assets/types/bulba';
+    return `${base}/${slug()}.png`;
+  });
+
   const label = createMemo(() => {
     const e = entry();
     if (!e) return (props.name || '').charAt(0).toUpperCase() + (props.name || '').slice(1);
@@ -83,7 +97,7 @@ export default function TypeBox(props: Props) {
 
   const content = (
     <span class={`inline-flex items-center gap-2 rounded-full border ${padX} ${padY} ${textSize} ${toneClass()} ${props.class || ''}`}>
-      <img src={`/assets/types/bulba/${slug()}.png`} alt={label()} class={`${iconSize}`} loading="lazy" width={24} height={24} />
+      <img src={iconSrc()} alt={label()} class={`${iconSize}`} loading="lazy" width={24} height={24} />
       <Show when={props.showLabel !== false}>
         <span class="leading-none">{label()}</span>
       </Show>
