@@ -8,7 +8,8 @@
     "dev": "vite",
     "build": "vite build",
     "serve": "vite preview",
-    "scrape": "node scripts/scrape-pokeapi.mjs"
+    "scrape": "node scripts/scrape-pokeapi.mjs && node scripts/build-index.mjs",
+    "index": "node scripts/build-index.mjs"
   },
   "license": "MIT",
   "devDependencies": {
