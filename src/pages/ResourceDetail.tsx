@@ -3,6 +3,7 @@ import { Show, createResource } from 'solid-js';
 import Card from '../components/Card';
 import JsonViewer from '../components/JsonViewer';
 import { formatName, loadItemById, resourceLabel, type ResourceName } from '../services/data';
+import ResourceTabs from '../components/ResourceTabs';
 
 export default function ResourceDetail(props: { resource: ResourceName }) {
   const params = useParams();
@@ -14,6 +15,7 @@ export default function ResourceDetail(props: { resource: ResourceName }) {
 
   return (
     <div class="space-y-4">
+      <ResourceTabs current={props.resource} />
       <h2 class="text-xl font-semibold">{resourceLabel(props.resource)} #{id()}</h2>
       <Show when={item()} fallback={<div class="text-gray-500">Loading…</div>}>
         {(it) => (
@@ -26,4 +28,3 @@ export default function ResourceDetail(props: { resource: ResourceName }) {
     </div>
   );
 }
-

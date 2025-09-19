@@ -3,6 +3,7 @@ import { For, Show, createMemo, createResource, createSignal } from 'solid-js';
 import Card from '../components/Card';
 import Input from '../components/Input';
 import { formatName, loadList, resourceLabel, type ResourceName } from '../services/data';
+import ResourceTabs from '../components/ResourceTabs';
 
 export default function ResourceList(props: { resource: ResourceName }) {
   const [items] = createResource(() => props.resource, loadList);
@@ -20,6 +21,7 @@ export default function ResourceList(props: { resource: ResourceName }) {
 
   return (
     <div class="space-y-4">
+      <ResourceTabs current={props.resource} />
       <div class="flex items-end justify-between gap-4">
         <h2 class="text-xl font-semibold">{resourceLabel(props.resource)}</h2>
         <div class="w-72">
@@ -43,4 +45,3 @@ export default function ResourceList(props: { resource: ResourceName }) {
     </div>
   );
 }
-
