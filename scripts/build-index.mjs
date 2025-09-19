@@ -116,11 +116,30 @@ build().catch((e) => { console.error(e); process.exit(1); });
 
 function localizedNameFor(resource, item, loc) {
   const lang = LANG_MAP[loc] || 'en';
-  // species provides localized names in item.names
-  if (resource === 'pokemon-species' || resource === 'move' || resource === 'ability' || resource === 'type') {
+  // resources with names[]
+  if (resource === 'pokemon-species' || resource === 'move' || resource === 'ability' || resource === 'type' || resource === 'pokemon-habitat' || resource === 'egg-group' || resource === 'pokemon-shape') {
     const names = item.names || [];
+    // prefer ja, then ja-Hrkt for Japanese
+    if (lang === 'ja') {
+      const ja = names.find((n) => n.language?.name === 'ja');
+      if (ja?.name) return ja.name;
+      const jaHrkt = names.find((n) => n.language?.name === 'ja-Hrkt');
+      if (jaHrkt?.name) return jaHrkt.name;
+    }
     const found = names.find((n) => n.language?.name === lang);
     if (found?.name) return found.name;
+  }
+  // growth-rate: use descriptions[] as the localized label
+  if (resource === 'growth-rate') {
+    const descs = item.descriptions || [];
+    if (lang === 'ja') {
+      const ja = descs.find((d) => d.language?.name === 'ja');
+      if (ja?.description) return ja.description;
+      const jaHrkt = descs.find((d) => d.language?.name === 'ja-Hrkt');
+      if (jaHrkt?.description) return jaHrkt.description;
+    }
+    const desc = descs.find((d) => d.language?.name === lang);
+    if (desc?.description) return desc.description;
   }
   return item.name || String(item.id);
 }

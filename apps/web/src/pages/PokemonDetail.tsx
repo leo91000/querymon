@@ -64,7 +64,14 @@ export default function PokemonDetail(props: { id: number }) {
   const localizedName = createMemo(() => {
     const names = species()?.names || [];
     const map = { en: 'en', fr: 'fr', jp: 'ja' } as const;
-    const want = map[(getLocale() as 'en'|'fr'|'jp')] || 'en';
+    const loc = (getLocale() as 'en'|'fr'|'jp');
+    const want = map[loc] || 'en';
+    if (want === 'ja') {
+      const ja = names.find((n: any) => n.language?.name === 'ja')?.name;
+      if (ja) return ja;
+      const jaHrkt = names.find((n: any) => n.language?.name === 'ja-Hrkt')?.name;
+      if (jaHrkt) return jaHrkt;
+    }
     return names.find((n: any) => n.language?.name === want)?.name || species()?.name;
   });
 
