@@ -1,5 +1,6 @@
 import Card from '../components/Card';
 import Badge from '../components/Badge';
+import TypeBox from '../components/TypeBox';
 import { For, Show, createMemo, createResource, createSignal } from 'solid-js';
 import { formatName, loadItemById, type ResourceName, loadNameMap } from '../services/data';
 import { t, getLocale } from '../i18n';
@@ -78,7 +79,7 @@ export default function TypeDetail(props: { id: number }) {
               <div class="p-6">
                 <div class="flex flex-wrap items-center gap-3">
                   <h2 class="text-2xl font-bold tracking-tight font-jersey">{localizedTypeName()}</h2>
-                  <Badge tone={toneForType(td().name)}>{formatName(td().name)}</Badge>
+                  <TypeBox id={td().id} name={td().name} />
                 </div>
 
                 <div class="mt-6 grid grid-cols-1 gap-6 md:grid-cols-2">
@@ -155,13 +156,7 @@ function RelRow(props: { label: string; list: any[] }) {
       <div class="flex flex-wrap gap-2">
         <For each={props.list}>{(t: any) => {
           const id = idFromUrl(t.url);
-          return (
-            <a href={`/type/${id}`}>
-              <Badge tone={toneForType(t.name)}>
-                {localizeType(id, formatName(t.name))}
-              </Badge>
-            </a>
-          );
+          return <TypeBox id={id} name={t.name} link />;
         }}</For>
         <Show when={(props.list?.length || 0) === 0}>
           <span class="text-sm text-gray-400">—</span>

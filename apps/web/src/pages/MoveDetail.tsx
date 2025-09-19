@@ -119,7 +119,7 @@ export default function MoveDetail(props: { id: number }) {
               <div class="p-6">
                 <div class="flex flex-wrap items-center gap-3">
                   <h2 class="text-2xl font-bold tracking-tight font-jersey">{formatName(m().name)}</h2>
-                  <Badge tone={toneForType(typeName())}>{formatName(typeName() || 'Unknown')}</Badge>
+                  <TypeBox name={typeName() || undefined} size="sm" link />
                   {damageClass() && (
                     <Badge tone={CLASS_TONE[damageClass()!] || 'gray'}>{formatName(damageClass()!)}</Badge>
                   )}
