@@ -56,6 +56,13 @@ export default function PokemonDetail(props: { id: number }) {
   const locale = () => getLocale() as 'en' | 'fr' | 'jp';
   const flavorText = createMemo(() => pickFlavor(species(), locale()));
 
+  const localizedName = createMemo(() => {
+    const names = species()?.names || [];
+    const map = { en: 'en', fr: 'fr', jp: 'ja' } as const;
+    const want = map[(getLocale() as 'en'|'fr'|'jp')] || 'en';
+    return names.find((n: any) => n.language?.name === want)?.name || species()?.name;
+  });
+
   return (
     <div class="space-y-6">
       <Show when={species()} fallback={<div class="text-gray-500">{t('detail.loading')}</div>}>
@@ -63,7 +70,7 @@ export default function PokemonDetail(props: { id: number }) {
           <div class="grid grid-cols-1 md:grid-cols-[1fr_320px]">
             <div class="p-6">
               <div class="flex items-center gap-3">
-                <h2 class="text-2xl font-bold tracking-tight"><span class="mr-2 font-jersey text-blue-600 dark:text-blue-400">#{String(props.id).padStart(3, '0')}</span>{formatName(species()?.name)}</h2>
+                <h2 class="text-2xl font-bold tracking-tight"><span class="mr-2 font-jersey text-blue-600 dark:text-blue-400">#{String(props.id).padStart(3, '0')}</span>{localizedName()}</h2>
                 <div class="flex gap-2">
                   <For each={types()}>{(tName) => <Badge tone={toneForType(tName)}>{formatName(tName)}</Badge>}</For>
                 </div>

@@ -1,7 +1,7 @@
 import Card from '../components/Card';
 import Badge from '../components/Badge';
 import { For, Show, createMemo, createResource, createSignal } from 'solid-js';
-import { formatName, loadItemById, type ResourceName } from '../services/data';
+import { formatName, loadItemById, type ResourceName, loadNameMap } from '../services/data';
 import { t, getLocale } from '../i18n';
 
 type Move = any;
@@ -60,6 +60,7 @@ export default function MoveDetail(props: { id: number }) {
   const [showAllLearners, setShowAllLearners] = createSignal(false);
   const learners = createMemo(() => move()?.learned_by_pokemon || []);
   const visibleLearners = createMemo(() => showAllLearners() ? learners() : learners().slice(0, 24));
+  const [pokemonNames] = createResource(() => getLocale(), (loc) => loadNameMap('pokemon', loc as any));
 
   return (
     <Show when={move()} fallback={<div class="text-gray-500">{t('detail.loading')}</div>}>
@@ -134,7 +135,7 @@ export default function MoveDetail(props: { id: number }) {
                   const id = idFromUrl(p.url);
                   return (
                     <a href={id ? `/pokemon/${id}` : '#'} class="rounded-full border border-gray-200 px-3 py-1 text-sm hover:bg-gray-50 dark:border-gray-700 dark:hover:bg-gray-700/50">
-                      {formatName(p.name)}
+                      {pokemonNames()?.[String(id)] || formatName(p.name)}
                     </a>
                   );
                 }}</For>

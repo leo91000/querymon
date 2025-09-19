@@ -1,7 +1,7 @@
 import Card from '../components/Card';
 import Badge from '../components/Badge';
 import { For, Show, createMemo, createResource, createSignal } from 'solid-js';
-import { formatName, loadItemById, type ResourceName } from '../services/data';
+import { formatName, loadItemById, type ResourceName, loadNameMap } from '../services/data';
 import { t } from '../i18n';
 
 type TypeData = any;
@@ -23,6 +23,12 @@ export default function TypeDetail(props: { id: number }) {
   const [data] = createResource(() => props.id, (id) => loadItemById('type' as ResourceName, id));
   const type = createMemo(() => data() as TypeData | undefined);
   const dmg = createMemo(() => type()?.damage_relations || {});
+  const localizedTypeName = createMemo(() => {
+    const names = type()?.names || [];
+    const map = { en: 'en', fr: 'fr', jp: 'ja' } as const;
+    const want = map[(getLocale() as 'en'|'fr'|'jp')] || 'en';
+    return names.find((n: any) => n.language?.name === want)?.name || type()?.name;
+  });
 
   const offense = createMemo(() => ({
     super: (dmg().double_damage_to || []).map((x: any) => x.type || x),
@@ -50,7 +56,7 @@ export default function TypeDetail(props: { id: number }) {
             <div class="grid grid-cols-1 md:grid-cols-[1fr_320px]">
               <div class="p-6">
                 <div class="flex flex-wrap items-center gap-3">
-                  <h2 class="text-2xl font-bold tracking-tight font-jersey">{formatName(td().name)}</h2>
+                  <h2 class="text-2xl font-bold tracking-tight font-jersey">{localizedTypeName()}</h2>
                   <Badge tone={toneForType(td().name)}>{formatName(td().name)}</Badge>
                 </div>
 
@@ -85,7 +91,7 @@ export default function TypeDetail(props: { id: number }) {
                 const id = idFromUrl(m.url);
                 return (
                   <a href={id ? `/move/${id}` : '#'} class="rounded-full border border-gray-200 px-3 py-1 text-sm hover:bg-gray-50 dark:border-gray-700 dark:hover:bg-gray-700/50">
-                    {formatName(m.name)}
+                    <MoveName id={id} fallback={formatName(m.name)} />
                   </a>
                 );
               }}</For>
@@ -104,7 +110,7 @@ export default function TypeDetail(props: { id: number }) {
                 const id = idFromUrl(p.pokemon?.url);
                 return (
                   <a href={id ? `/pokemon/${id}` : '#'} class="rounded-full border border-gray-200 px-3 py-1 text-sm hover:bg-gray-50 dark:border-gray-700 dark:hover:bg-gray-700/50">
-                    {formatName(p.pokemon?.name)}
+                    <PokemonName id={id} fallback={formatName(p.pokemon?.name)} />
                   </a>
                 );
               }}</For>
@@ -137,4 +143,14 @@ function RelRow(props: { label: string; list: any[] }) {
       </div>
     </div>
   );
+}
+
+function PokemonName(props: { id?: number; fallback: string }) {
+  const [names] = createResource(() => getLocale(), (loc) => loadNameMap('pokemon', loc as any));
+  return <>{(props.id && names()?.[String(props.id)]) || props.fallback}</>;
+}
+
+function MoveName(props: { id?: number; fallback: string }) {
+  const [names] = createResource(() => getLocale(), (loc) => loadNameMap('move', loc as any));
+  return <>{(props.id && names()?.[String(props.id)]) || props.fallback}</>;
 }

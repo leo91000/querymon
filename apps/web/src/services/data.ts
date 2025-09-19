@@ -1,5 +1,5 @@
 import { createResource } from 'solid-js';
-import { t } from '../i18n';
+import { t, getLocale, type Locale } from '../i18n';
 
 export type ResourceName = 'pokemon' | 'pokemon-species' | 'move' | 'ability' | 'type';
 
@@ -17,6 +17,13 @@ function normalize(resource: ResourceName): ResourceName {
 
 export async function loadList(resource: ResourceName): Promise<Array<{ id: number; name: string }>> {
   const r = normalize(resource);
+  const loc = getLocale();
+  // Prefer localized list if available
+  const localizedUrl = `/data/pokeapi/${resource}.list.${loc}.json`;
+  try {
+    const res = await fetch(localizedUrl);
+    if (res.ok) return res.json();
+  } catch {}
   return fetchJSON(`/data/pokeapi/${r}.list.json`);
 }
 
@@ -44,6 +51,16 @@ export function resourceLabel(resource: ResourceName): string {
     case 'move': return t('resources.move');
     case 'ability': return t('resources.ability');
     case 'type': return t('resources.type');
+  }
+}
+
+export async function loadNameMap(resource: Exclude<ResourceName, 'pokemon-species'>, loc?: Locale): Promise<Record<string, string>> {
+  const locale = loc || (getLocale() as Locale);
+  const url = `/data/pokeapi/names.${locale}.${resource}.json`;
+  try {
+    return await fetchJSON(url);
+  } catch {
+    return {};
   }
 }
 
