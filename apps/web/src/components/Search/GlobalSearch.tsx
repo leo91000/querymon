@@ -40,7 +40,7 @@ export default function GlobalSearch() {
       <input
         type="search"
         placeholder={t('search.placeholder')}
-        class="h-10 w-full rounded-md border border-gray-300 bg-white px-3 text-sm shadow-sm outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20 dark:border-gray-700 dark:bg-gray-900 dark:text-gray-100"
+        class="h-11 w-full rounded-md border border-gray-300 bg-white px-4 text-base shadow-sm outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20 dark:border-gray-700 dark:bg-gray-900 dark:text-gray-100"
         value={q()}
         onInput={(e) => { setQ(e.currentTarget.value); setOpen(true); }}
         onFocus={() => setOpen(true)}
@@ -54,7 +54,7 @@ export default function GlobalSearch() {
                   <a
                     href={r.path}
                     onClick={(e) => { e.preventDefault(); setOpen(false); nav(r.path); }}
-                    class="flex items-center justify-between gap-2 px-3 py-2 text-sm hover:bg-gray-50 dark:hover:bg-gray-700/50"
+                    class="flex items-center justify-between gap-2 px-3 py-2 text-base hover:bg-gray-50 dark:hover:bg-gray-700/50"
                   >
                     <span class="truncate">
                       <span class="font-medium">{r.name}</span>
