@@ -2,7 +2,7 @@ import Card from '../components/Card';
 import Badge from '../components/Badge';
 import { For, Show, createMemo, createResource, createSignal } from 'solid-js';
 import { formatName, loadItemById, type ResourceName, loadNameMap } from '../services/data';
-import { t } from '../i18n';
+import { t, getLocale } from '../i18n';
 
 type TypeData = any;
 
@@ -139,11 +139,16 @@ function RelRow(props: { label: string; list: any[] }) {
     <div class="mb-3">
       <div class="mb-1 text-xs font-semibold uppercase tracking-wide text-gray-500">{props.label}</div>
       <div class="flex flex-wrap gap-2">
-        <For each={props.list}>{(t: any) => (
-          <a href={`/type/${idFromUrl(t.url)}`}>
-            <Badge tone={toneForType(t.name)}>{formatName(t.name)}</Badge>
-          </a>
-        )}</For>
+        <For each={props.list}>{(t: any) => {
+          const id = idFromUrl(t.url);
+          return (
+            <a href={`/type/${id}`}>
+              <Badge tone={toneForType(t.name)}>
+                <TypeName id={id} fallback={formatName(t.name)} />
+              </Badge>
+            </a>
+          );
+        }}</For>
         <Show when={(props.list?.length || 0) === 0}>
           <span class="text-sm text-gray-400">—</span>
         </Show>
@@ -159,5 +164,10 @@ function PokemonName(props: { id?: number; fallback: string }) {
 
 function MoveName(props: { id?: number; fallback: string }) {
   const [names] = createResource(() => getLocale(), (loc) => loadNameMap('move', loc as any));
+  return <>{(props.id && names()?.[String(props.id)]) || props.fallback}</>;
+}
+
+function TypeName(props: { id?: number; fallback: string }) {
+  const [names] = createResource(() => getLocale(), (loc) => loadNameMap('type', loc as any));
   return <>{(props.id && names()?.[String(props.id)]) || props.fallback}</>;
 }
