@@ -14,7 +14,7 @@ export default function LanguageSwitcher() {
     <label class="flex items-center gap-2 text-sm">
       <span class="sr-only">{t('lang.select')}</span>
       <select
-        class="h-9 rounded-md border border-gray-300 bg-white px-2 text-sm shadow-sm focus:border-blue-500 focus:outline-none"
+        class="h-9 rounded-md border border-gray-300 bg-white px-2 text-sm shadow-sm focus:border-blue-500 focus:outline-none dark:border-gray-700 dark:bg-gray-900 dark:text-gray-100"
         value={current()}
         onChange={(e) => changeLocale(e.currentTarget.value as Locale)}
       >
@@ -25,4 +25,3 @@ export default function LanguageSwitcher() {
     </label>
   );
 }
-
