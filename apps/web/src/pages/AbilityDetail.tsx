@@ -2,7 +2,7 @@ import Card from '../components/Card';
 import Badge from '../components/Badge';
 import { For, Show, createMemo, createResource, createSignal } from 'solid-js';
 import { formatName, loadItemById, type ResourceName } from '../services/data';
-import { t } from '../i18n';
+import { t, getLocale } from '../i18n';
 
 type Ability = any;
 
@@ -34,7 +34,7 @@ export default function AbilityDetail(props: { id: number }) {
   const [data] = createResource(() => props.id, (id) => loadItemById('ability' as ResourceName, id));
 
   const ability = createMemo(() => data() as Ability | undefined);
-  const locale = () => (localStorage.getItem('locale') as any) || 'en';
+  const locale = () => getLocale() as 'en' | 'fr' | 'jp';
   const effects = createMemo(() => pickEffectText(ability(), locale()));
   const flavor = createMemo(() => pickFlavorText(ability(), locale()));
   const [showAllPokemon, setShowAllPokemon] = createSignal(false);

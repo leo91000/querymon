@@ -2,7 +2,7 @@ import Card from '../components/Card';
 import Badge from '../components/Badge';
 import { For, Show, createMemo, createResource, createSignal } from 'solid-js';
 import { formatName, loadItemById, type ResourceName } from '../services/data';
-import { t } from '../i18n';
+import { t, getLocale } from '../i18n';
 
 type Move = any;
 
@@ -54,8 +54,9 @@ export default function MoveDetail(props: { id: number }) {
   const move = createMemo(() => data() as Move | undefined);
   const typeName = createMemo(() => move()?.type?.name);
   const damageClass = createMemo(() => move()?.damage_class?.name);
-  const effectText = createMemo(() => pickEffectText(move(), (localStorage.getItem('locale') as any) || 'en'));
-  const flavorText = createMemo(() => pickFlavorText(move(), (localStorage.getItem('locale') as any) || 'en'));
+  const locale = () => getLocale() as 'en' | 'fr' | 'jp';
+  const effectText = createMemo(() => pickEffectText(move(), locale()));
+  const flavorText = createMemo(() => pickFlavorText(move(), locale()));
   const [showAllLearners, setShowAllLearners] = createSignal(false);
   const learners = createMemo(() => move()?.learned_by_pokemon || []);
   const visibleLearners = createMemo(() => showAllLearners() ? learners() : learners().slice(0, 24));
