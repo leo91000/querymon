@@ -35,11 +35,8 @@ function pickFlavor(species: Species, lang: 'en'|'fr'|'jp') {
 
 export default function PokemonDetail(props: { id: number }) {
   const speciesR = createResource(() => props.id, (id) => loadItemById('pokemon' as ResourceName, id));
-  const pokemonR = createResource(() => props.id, (id) => loadItemById('pokemon' as any as ResourceName, id,));
   // note: loadItemById('pokemon') is aliased to species in services, so we directly load real pokemon too:
-  const actualPokemonR = createResource(async () => {
-    const id = props.id;
-    // manual load from pokemon dataset
+  const actualPokemonR = createResource(() => props.id, async (id) => {
     const idmap = await fetch('/data/pokeapi/pokemon.idmap.json').then(r=>r.json());
     const file = idmap[String(id)];
     if (!file) return undefined;
