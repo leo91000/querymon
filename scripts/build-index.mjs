@@ -4,10 +4,10 @@ import path from 'node:path';
 
 const OUT_DIR = path.resolve(process.cwd(), 'apps/web/public/data/pokeapi');
 const OVERRIDES_DIR = path.resolve(process.cwd(), 'scripts/overrides');
-const RESOURCES = ['pokemon', 'pokemon-species', 'move', 'ability', 'type', 'pokemon-habitat', 'growth-rate', 'egg-group', 'pokemon-shape'];
+const RESOURCES = ['pokemon', 'pokemon-species', 'move', 'ability', 'type', 'pokemon-habitat', 'growth-rate', 'egg-group', 'pokemon-shape', 'pokemon-color'];
 const LOCALES = ['en', 'fr', 'jp'];
 const LANG_MAP = { en: 'en', fr: 'fr', jp: 'ja' };
-const EXCLUDE_FROM_SEARCH = new Set(['pokemon', 'pokemon-habitat', 'growth-rate', 'egg-group', 'pokemon-shape']);
+const EXCLUDE_FROM_SEARCH = new Set(['pokemon', 'pokemon-habitat', 'growth-rate', 'egg-group', 'pokemon-shape', 'pokemon-color']);
 const RENAME_IN_SEARCH = { 'pokemon-species': 'pokemon' };
 
 async function exists(p) {
@@ -131,7 +131,7 @@ function localizedNameFor(resource, item, loc) {
   const ov = OVR?.[loc]?.[resource]?.[id];
   if (ov) return ov;
   // resources with names[]
-  if (resource === 'pokemon-species' || resource === 'move' || resource === 'ability' || resource === 'type' || resource === 'pokemon-habitat' || resource === 'egg-group' || resource === 'pokemon-shape') {
+  if (resource === 'pokemon-species' || resource === 'move' || resource === 'ability' || resource === 'type' || resource === 'pokemon-habitat' || resource === 'egg-group' || resource === 'pokemon-shape' || resource === 'pokemon-color') {
     const names = item.names || [];
     // prefer ja, then ja-Hrkt for Japanese
     if (lang === 'ja') {
