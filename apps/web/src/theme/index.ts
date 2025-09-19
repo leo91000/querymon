@@ -1,4 +1,4 @@
-import { createSignal, onCleanup } from 'solid-js';
+import { createSignal } from 'solid-js';
 
 export type Theme = 'system' | 'light' | 'dark';
 
@@ -11,6 +11,8 @@ function apply(themeValue: Theme) {
   const dark = themeValue === 'dark' || (themeValue === 'system' && !!mq?.matches);
   const root = document.documentElement;
   root.classList.toggle('dark', dark);
+  // Also set data attribute so CSS or third-party libs can hook into it
+  root.setAttribute('data-theme', dark ? 'dark' : 'light');
 }
 
 export function setTheme(next: Theme) {
@@ -29,8 +31,8 @@ export function initTheme() {
   apply(saved);
   if (mq) {
     const listener = () => { if (theme() === 'system') apply('system'); };
+    // Persist listener without relying on Solid lifecycle
     mq.addEventListener?.('change', listener);
-    onCleanup(() => mq.removeEventListener?.('change', listener));
+    // No cleanup needed in SPA lifetime; harmless
   }
 }
-
