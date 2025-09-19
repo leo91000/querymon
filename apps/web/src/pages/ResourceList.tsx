@@ -2,20 +2,33 @@ import { A, useLocation } from '@solidjs/router';
 import { For, Show, createMemo, createResource, createSignal } from 'solid-js';
 import Card from '../components/Card';
 import Input from '../components/Input';
-import { formatName, loadList, resourceLabel, type ResourceName } from '../services/data';
+import { formatName, loadList, resourceLabel, type ResourceName, loadAliases } from '../services/data';
 import { t } from '../i18n';
 import ResourceTabs from '../components/ResourceTabs';
 
 export default function ResourceList(props: { resource: ResourceName }) {
   const [items] = createResource(() => props.resource, loadList);
+  const [aliases] = createResource(() => props.resource, async (r) => (['pokemon','move','ability','type'].includes(r) ? loadAliases(r as any) : {}));
   const [q, setQ] = createSignal('');
+  function normalize(s: string) {
+    return s
+      .toLowerCase()
+      .normalize('NFKD')
+      .replace(/[\u0300-\u036f]/g, '')
+      .replace(/\s+/g, ' ')
+      .trim();
+  }
   const filtered = createMemo(() => {
-    const term = q().trim().toLowerCase();
+    const term = normalize(q());
     const list = items() || [];
     if (!term) return list;
-    const out = [] as typeof list;
+    const map = aliases() || {};
+    const out: typeof list = [] as any;
     for (const it of list) {
-      if (it.name.toLowerCase().includes(term)) out.push(it);
+      const idStr = String((it as any).id);
+      const nameMatch = normalize(it.name).includes(term);
+      const aliasMatch = Array.isArray((map as any)[idStr]) && (map as any)[idStr].some((a: string) => normalize(a).includes(term));
+      if (nameMatch || aliasMatch) out.push(it);
     }
     return out;
   });
