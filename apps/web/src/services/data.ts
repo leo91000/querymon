@@ -54,7 +54,7 @@ export function resourceLabel(resource: ResourceName): string {
   }
 }
 
-export async function loadNameMap(resource: Exclude<ResourceName, 'pokemon-species'>, loc?: Locale): Promise<Record<string, string>> {
+export async function loadNameMap(resource: Exclude<ResourceName, 'pokemon-species'> | 'pokemon-habitat' | 'growth-rate' | 'egg-group' | 'pokemon-shape', loc?: Locale): Promise<Record<string, string>> {
   const locale = loc || (getLocale() as Locale);
   const url = `/data/pokeapi/names.${locale}.${resource}.json`;
   try {

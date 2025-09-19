@@ -4,6 +4,7 @@ import { Show, For, createMemo, createResource } from 'solid-js';
 import { formatName, loadItemById } from '../services/data';
 import type { ResourceName } from '../services/data';
 import { t, getLocale } from '../i18n';
+import { loadNameMap } from '../services/data';
 
 type Species = any;
 type Pokemon = any;
@@ -55,6 +56,10 @@ export default function PokemonDetail(props: { id: number }) {
   const stats = createMemo(() => (pokemon()?.stats || []).map((s: any) => ({ name: s.stat?.name, base: s.base_stat })));
   const locale = () => getLocale() as 'en' | 'fr' | 'jp';
   const flavorText = createMemo(() => pickFlavor(species(), locale()));
+  const [habitatNames] = createResource(() => locale(), (loc) => loadNameMap('pokemon-habitat' as any, loc as any));
+  const [growthRateNames] = createResource(() => locale(), (loc) => loadNameMap('growth-rate' as any, loc as any));
+  const [eggGroupNames] = createResource(() => locale(), (loc) => loadNameMap('egg-group' as any, loc as any));
+  const [shapeNames] = createResource(() => locale(), (loc) => loadNameMap('pokemon-shape' as any, loc as any));
 
   const localizedName = createMemo(() => {
     const names = species()?.names || [];
@@ -134,19 +139,19 @@ export default function PokemonDetail(props: { id: number }) {
             <div class="grid grid-cols-2 gap-3 text-sm">
               <div>
                 <div class="text-gray-500 dark:text-gray-400">{t('pokemon.habitat')}</div>
-                <div class="font-medium">{formatName(species()?.habitat?.name || 'Unknown')}</div>
+                <div class="font-medium">{(() => { const id = idFromUrl(species()?.habitat?.url); return (id && habitatNames()?.[String(id)]) || formatName(species()?.habitat?.name || 'Unknown'); })()}</div>
               </div>
               <div>
                 <div class="text-gray-500 dark:text-gray-400">{t('pokemon.growthRate')}</div>
-                <div class="font-medium">{formatName(species()?.growth_rate?.name || '—')}</div>
+                <div class="font-medium">{(() => { const id = idFromUrl(species()?.growth_rate?.url); return (id && growthRateNames()?.[String(id)]) || formatName(species()?.growth_rate?.name || '—'); })()}</div>
               </div>
               <div>
                 <div class="text-gray-500 dark:text-gray-400">{t('pokemon.eggGroups')}</div>
-                <div class="font-medium">{(species()?.egg_groups || []).map((g: any) => formatName(g.name)).join(', ') || '—'}</div>
+                <div class="font-medium">{(() => { const arr = (species()?.egg_groups || []) as any[]; const names = arr.map(g => { const id = idFromUrl(g.url); return (id && eggGroupNames()?.[String(id)]) || formatName(g.name); }); return names.join(', ') || '—'; })()}</div>
               </div>
               <div>
                 <div class="text-gray-500 dark:text-gray-400">{t('pokemon.shape')}</div>
-                <div class="font-medium">{formatName(species()?.shape?.name || '—')}</div>
+                <div class="font-medium">{(() => { const id = idFromUrl(species()?.shape?.url); return (id && shapeNames()?.[String(id)]) || formatName(species()?.shape?.name || '—'); })()}</div>
               </div>
             </div>
           </Card>
