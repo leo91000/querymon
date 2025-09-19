@@ -102,6 +102,25 @@ async function build() {
     await writeFile(path.join(OUT_DIR, `${resource}.list.json`), JSON.stringify(list, null, 2));
     console.log(`Indexed ${resource}: ${list.length} items`);
   }
+  // Build move -> machine item map
+  try {
+    const machines = await readJSON(path.join(OUT_DIR, 'machine.json'));
+    const moveItem = {};
+    for (const m of machines) {
+      const moveId = idFromUrl(m.move?.url);
+      const itemName = m.item?.name;
+      const machId = m.id || 0;
+      if (moveId && itemName) {
+        const cur = moveItem[moveId];
+        if (!cur || machId > cur.id) moveItem[moveId] = { id: machId, item: itemName };
+      }
+    }
+    const out = {};
+    for (const k of Object.keys(moveItem)) out[k] = moveItem[k].item;
+    await writeFile(path.join(OUT_DIR, 'move-items.json'), JSON.stringify(out, null, 2));
+  } catch (e) {
+    console.warn('Move items map skipped:', e?.message || e);
+  }
   // Write per-locale search indexes and lists / name maps
   for (const loc of LOCALES) {
     const lidx = localizedIndex[loc].map((e) => ({
@@ -136,6 +155,11 @@ async function build() {
 }
 
 build().catch((e) => { console.error(e); process.exit(1); });
+
+function idFromUrl(url) {
+  const m = String(url || '').match(/\/(\d+)\/?$/);
+  return m ? Number(m[1]) : undefined;
+}
 
 function localizedNameFor(resource, item, loc) {
   const lang = LANG_MAP[loc] || 'en';
