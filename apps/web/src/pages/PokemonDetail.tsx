@@ -53,12 +53,32 @@ export default function PokemonDetail(props: { id: number }) {
   const stats = createMemo(() => (pokemon()?.stats || []).map((s: any) => ({ name: s.stat?.name, base: s.base_stat })));
   const locale = () => getLocale() as 'en' | 'fr' | 'jp';
   const flavorText = createMemo(() => pickFlavor(species(), locale()));
-  // Locale-aware number formatter
+  // Locale-aware number formatter (JP uses native units: 億/万)
   const nf = createMemo(() => new Intl.NumberFormat(locale() === 'jp' ? 'ja' : locale()));
+  function formatJaUnits(v: number): string {
+    if (!Number.isFinite(v)) return '—';
+    const units: { unit: number; label: string }[] = [
+      { unit: 1_0000_0000, label: '億' },
+      { unit: 1_0000, label: '万' }
+    ];
+    let n = Math.trunc(v);
+    let out = '';
+    for (const { unit, label } of units) {
+      if (n >= unit) {
+        const q = Math.floor(n / unit);
+        out += `${q}${label}`;
+        n = n % unit;
+      }
+    }
+    if (n > 0 || out === '') out += String(n);
+    return out;
+  }
   const num = (n: number | string | undefined | null) => {
     if (n == null) return '—';
-    const v = typeof n === 'string' ? Number(n) : n;
-    return nf().format(Number.isFinite(v) ? v : Number(n));
+    const v = Number(n);
+    if (!Number.isFinite(v)) return '—';
+    if (locale() === 'jp') return formatJaUnits(v);
+    return nf().format(v);
   };
   const [growthRateNames] = createResource(() => locale(), (loc) => loadNameMap('growth-rate' as any, loc as any));
   const [eggGroupNames] = createResource(() => locale(), (loc) => loadNameMap('egg-group' as any, loc as any));
