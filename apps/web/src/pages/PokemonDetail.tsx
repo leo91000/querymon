@@ -112,7 +112,7 @@ export default function PokemonDetail(props: { id: number }) {
     return (pokemon()?.abilities || []).map((ab: any) => {
       const id = idFromUrl(ab.ability?.url);
       const label = (id && map[String(id)]) || formatName(ab.ability?.name);
-      return { label, hidden: ab.is_hidden };
+      return { id, label, hidden: ab.is_hidden };
     });
   });
   const [growthRates] = createResource(async () => await fetch('/data/pokeapi/growth-rate.json').then(r=>r.json()));
@@ -165,10 +165,11 @@ export default function PokemonDetail(props: { id: number }) {
               <div class="mt-6">
                 <h3 class="mb-2 text-sm font-semibold tracking-wide text-gray-500">{t('pokemon.abilities')}</h3>
                 <div class="flex flex-wrap gap-2">
-                  <For each={abilities()}>{(a) => {
-                    const id = idFromUrl(a?.url);
-                    return <a href={id ? `/ability/${id}` : '#'} class="rounded-full border border-gray-200 px-3 py-1 text-sm hover:bg-gray-50 dark:border-gray-700 dark:hover:bg-gray-700/50">{formatName(a?.name)}</a>;
-                  }}</For>
+                  <For each={localizedAbilities()}>{(ab) => (
+                    <a href={ab.id ? `/ability/${ab.id}` : '#'} class="rounded-full border border-gray-200 px-3 py-1 text-sm hover:bg-gray-50 dark:border-gray-700 dark:hover:bg-gray-700/50">
+                      {ab.label}{ab.hidden ? ` (${t('ability.hidden')})` : ''}
+                    </a>
+                  )}</For>
                 </div>
               </div>
             </div>
