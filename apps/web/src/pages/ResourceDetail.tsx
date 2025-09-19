@@ -5,6 +5,7 @@ import JsonViewer from '../components/JsonViewer';
 import { formatName, loadItemById, resourceLabel, type ResourceName } from '../services/data';
 import { t } from '../i18n';
 import ResourceTabs from '../components/ResourceTabs';
+import MoveDetail from './MoveDetail';
 import PokemonDetail from './PokemonDetail';
 
 export default function ResourceDetail(props: { resource: ResourceName }) {
@@ -20,6 +21,15 @@ export default function ResourceDetail(props: { resource: ResourceName }) {
       <div class="space-y-4">
         <ResourceTabs current={props.resource} />
         <PokemonDetail id={id()} />
+      </div>
+    );
+  }
+
+  if (props.resource === 'move') {
+    return (
+      <div class="space-y-4">
+        <ResourceTabs current={props.resource} />
+        <MoveDetail id={id()} />
       </div>
     );
   }
