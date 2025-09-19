@@ -1,5 +1,5 @@
 {
-  "name": "vite-template-solid",
+  "name": "querymon",
   "version": "0.0.0",
   "description": "",
   "type": "module",
@@ -9,19 +9,13 @@
     "build": "vite build",
     "serve": "vite preview",
     "scrape": "node scripts/scrape-pokeapi.mjs && node scripts/build-index.mjs",
-    "index": "node scripts/build-index.mjs"
+    "index": "node scripts/build-index.mjs",
+    "dev:web": "pnpm --filter @querymon/web dev",
+    "build:web": "pnpm --filter @querymon/web build",
+    "serve:web": "pnpm --filter @querymon/web serve",
+    "dev:desktop": "pnpm --filter @querymon/desktop dev",
+    "build:desktop": "pnpm --filter @querymon/desktop build"
   },
   "license": "MIT",
-  "devDependencies": {
-    "@tailwindcss/vite": "^4.1.13",
-    "solid-devtools": "^0.34.3",
-    "tailwindcss": "^4.1.13",
-    "typescript": "^5.9.2",
-    "vite": "^7.1.4",
-    "vite-plugin-solid": "^2.11.8"
-  },
-  "dependencies": {
-    "solid-js": "^1.9.9",
-    "@solidjs/router": "^0.14.5"
-  }
+  "private": true
 }

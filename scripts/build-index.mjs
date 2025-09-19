@@ -2,7 +2,7 @@
 import { readdir, readFile, writeFile } from 'node:fs/promises';
 import path from 'node:path';
 
-const OUT_DIR = path.resolve(process.cwd(), 'public/data/pokeapi');
+const OUT_DIR = path.resolve(process.cwd(), 'apps/web/public/data/pokeapi');
 const RESOURCES = ['pokemon', 'pokemon-species', 'move', 'ability', 'type', 'evolution-chain'];
 
 async function exists(p) {
@@ -63,4 +63,3 @@ async function build() {
 }
 
 build().catch((e) => { console.error(e); process.exit(1); });
-
