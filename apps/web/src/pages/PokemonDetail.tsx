@@ -83,7 +83,11 @@ export default function PokemonDetail(props: { id: number }) {
               <div class="flex items-center gap-3">
                 <h2 class="text-2xl font-bold tracking-tight"><span class="mr-2 font-jersey text-blue-600 dark:text-blue-400">#{String(props.id).padStart(3, '0')}</span>{localizedName()}</h2>
                 <div class="flex gap-2">
-                  <For each={types()}>{(t) => <Badge tone={toneForType(t.name)}>{(t.id && typeNames()?.[String(t.id)]) || formatName(t.name)}</Badge>}</For>
+                  <For each={types()}>{(t) => (
+                    <Badge tone={toneForType(t.name)}>
+                      {(() => { const _ = locale(); return (t.id && typeNames()?.[String(t.id)]) || formatName(t.name); })()}
+                    </Badge>
+                  )}</For>
                 </div>
               </div>
               <p class="mt-3 max-w-prose text-gray-600 dark:text-gray-300">{flavorText()}</p>
