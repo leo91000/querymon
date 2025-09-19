@@ -109,13 +109,6 @@ export default function MoveDetail(props: { id: number }) {
   const learners = createMemo(() => move()?.learned_by_pokemon || []);
   const visibleLearners = createMemo(() => showAllLearners() ? learners() : learners().slice(0, 24));
   const [pokemonNames] = createResource(() => getLocale(), (loc) => loadNameMap('pokemon', loc as any));
-  const [moveItems] = createResource(async () => await fetch('/data/pokeapi/move-items.json', { cache: 'no-store' }).then(r=>r.json()));
-  const spriteUrl = createMemo(() => {
-    const id = move()?.id;
-    const item = id ? moveItems()?.[String(id)] : undefined;
-    if (!item) return undefined;
-    return `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/${item}.png`;
-  });
 
   return (
     <Show when={move()} fallback={<div class="text-gray-500">{t('detail.loading')}</div>}>
@@ -147,15 +140,9 @@ export default function MoveDetail(props: { id: number }) {
               </div>
 
               <div class="relative flex items-center justify-center p-4">
-                <Show when={spriteUrl()} fallback={
-                  <div class={`flex h-20 w-20 items-center justify-center rounded-full text-white ring-4 ${typeToneBg(typeName())}`}>
-                    <span class={`icon-[${typeIconClass(typeName())}] text-4xl`}></span>
-                  </div>
-                }>
-                  <div class="flex h-24 w-24 items-center justify-center">
-                    <img src={spriteUrl()!} alt={formatName(typeName()||'Move')} class="h-16 w-16 object-contain" loading="lazy" />
-                  </div>
-                </Show>
+                <div class={`flex h-20 w-20 items-center justify-center rounded-full text-white ring-4 ${typeToneBg(typeName())}`}>
+                  <span class={`icon-[${typeIconClass(typeName())}] text-4xl`}></span>
+                </div>
               </div>
             </div>
           </Card>
