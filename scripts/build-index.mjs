@@ -3,10 +3,10 @@ import { readdir, readFile, writeFile } from 'node:fs/promises';
 import path from 'node:path';
 
 const OUT_DIR = path.resolve(process.cwd(), 'apps/web/public/data/pokeapi');
-const RESOURCES = ['pokemon', 'pokemon-species', 'move', 'ability', 'type'];
+const RESOURCES = ['pokemon', 'pokemon-species', 'move', 'ability', 'type', 'pokemon-habitat', 'growth-rate', 'egg-group', 'pokemon-shape'];
 const LOCALES = ['en', 'fr', 'jp'];
 const LANG_MAP = { en: 'en', fr: 'fr', jp: 'ja' };
-const EXCLUDE_FROM_SEARCH = new Set(['pokemon']);
+const EXCLUDE_FROM_SEARCH = new Set(['pokemon', 'pokemon-habitat', 'growth-rate', 'egg-group', 'pokemon-shape']);
 const RENAME_IN_SEARCH = { 'pokemon-species': 'pokemon' };
 
 async function exists(p) {
