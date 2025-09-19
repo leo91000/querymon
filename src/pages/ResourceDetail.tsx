@@ -20,7 +20,16 @@ export default function ResourceDetail(props: { resource: ResourceName }) {
       <Show when={item()} fallback={<div class="text-gray-500">Loading…</div>}>
         {(it) => (
           <Card class="p-4">
-            <div class="mb-4 text-lg font-semibold">{formatName((it() as any).name || `ID ${id()}`)}</div>
+            <div class="mb-4 text-lg font-semibold">
+              {(() => {
+                const v: any = it();
+                if (props.resource === 'evolution-chain') {
+                  const base = v?.chain?.species?.name ? formatName(v.chain.species.name) : `ID ${id()}`;
+                  return `${base} — Evolution Chain`;
+                }
+                return formatName(v?.name || `ID ${id()}`);
+              })()}
+            </div>
             <JsonViewer value={it()} />
           </Card>
         )}
