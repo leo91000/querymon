@@ -4,10 +4,6 @@
   "description": "",
   "type": "module",
   "scripts": {
-    "start": "vite",
-    "dev": "vite",
-    "build": "vite build",
-    "serve": "vite preview",
     "scrape": "node scripts/scrape-pokeapi.mjs && node scripts/build-index.mjs",
     "index": "node scripts/build-index.mjs",
     "dev:web": "pnpm --filter @querymon/web dev",

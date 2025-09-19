@@ -4,10 +4,10 @@
   "identifier": "com.querymon.app",
   "version": "0.1.0",
   "build": {
-    "beforeDevCommand": "pnpm -w --filter @querymon/web dev",
-    "beforeBuildCommand": "pnpm -w --filter @querymon/web build",
+    "beforeDevCommand": { "cwd": "../../web", "script": "pnpm dev" },
+    "beforeBuildCommand": { "cwd": "../../web", "script": "pnpm build" },
     "frontendDist": "../../web/dist",
-    "devUrl": "http://localhost:3000"
+    "devUrl": "http://localhost:5173"
   },
   "app": {
     "windows": [
@@ -18,6 +18,8 @@
         "resizable": true
       }
     ]
+  },
+  "bundle": {
+    "icon": []
   }
 }
-
