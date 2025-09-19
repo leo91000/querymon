@@ -109,7 +109,7 @@ export default function PokemonDetail(props: { id: number }) {
               <For each={stats()}>{(s) => (
                 <div>
                   <div class="flex items-center justify-between text-sm">
-                    <span class="capitalize text-gray-600 dark:text-gray-300">{s.name.replace('-', ' ')}</span>
+                    <span class="text-gray-600 dark:text-gray-300">{t(`stat.${s.name}`)}</span>
                     <span class="font-mono text-xs text-gray-500">{s.base}</span>
                   </div>
                   <div class="mt-1 h-2 w-full overflow-hidden rounded bg-gray-200 dark:bg-gray-700">
