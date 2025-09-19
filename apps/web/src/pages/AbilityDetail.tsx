@@ -1,6 +1,6 @@
 import Card from '../components/Card';
 import Badge from '../components/Badge';
-import { For, Show, createMemo, createResource } from 'solid-js';
+import { For, Show, createMemo, createResource, createSignal } from 'solid-js';
 import { formatName, loadItemById, type ResourceName } from '../services/data';
 import { t } from '../i18n';
 
@@ -37,6 +37,9 @@ export default function AbilityDetail(props: { id: number }) {
   const locale = () => (localStorage.getItem('locale') as any) || 'en';
   const effects = createMemo(() => pickEffectText(ability(), locale()));
   const flavor = createMemo(() => pickFlavorText(ability(), locale()));
+  const [showAllPokemon, setShowAllPokemon] = createSignal(false);
+  const abilityPokemon = createMemo(() => ability()?.pokemon || []);
+  const visiblePokemon = createMemo(() => showAllPokemon() ? abilityPokemon() : abilityPokemon().slice(0, 36));
 
   return (
     <Show when={ability()} fallback={<div class="text-gray-500">{t('detail.loading')}</div>}>
@@ -81,7 +84,7 @@ export default function AbilityDetail(props: { id: number }) {
           <Card>
             <h3 class="mb-3 text-sm font-semibold tracking-wide text-gray-500">Pokémon With This Ability</h3>
             <div class="flex flex-wrap gap-2">
-              <For each={(a().pokemon || []).slice(0, 36)}>{(p: any) => {
+              <For each={visiblePokemon()}>{(p: any) => {
                 const id = idFromUrl(p.pokemon?.url);
                 return (
                   <a href={id ? `/pokemon/${id}` : '#'} class="rounded-full border border-gray-200 px-3 py-1 text-sm hover:bg-gray-50 dark:border-gray-700 dark:hover:bg-gray-700/50">
@@ -89,8 +92,10 @@ export default function AbilityDetail(props: { id: number }) {
                   </a>
                 );
               }}</For>
-              <Show when={(a().pokemon?.length || 0) > 36}>
-                <span class="text-sm text-gray-500">+{(a().pokemon.length - 36)} more</span>
+              <Show when={!showAllPokemon() && (abilityPokemon()?.length || 0) > 36}>
+                <button type="button" class="rounded-full border border-gray-200 px-3 py-1 text-sm text-gray-600 hover:bg-gray-50 dark:border-gray-700 dark:text-gray-300 dark:hover:bg-gray-700/50" onClick={() => setShowAllPokemon(true)}>
+                  +{(abilityPokemon().length - 36)} more
+                </button>
               </Show>
             </div>
           </Card>
@@ -108,4 +113,3 @@ function StatBox(props: { label: string; value: any }) {
     </div>
   );
 }
-
