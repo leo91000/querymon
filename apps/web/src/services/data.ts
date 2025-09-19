@@ -98,6 +98,10 @@ export async function loadGrowthRates(): Promise<any[]> {
   return importJSON('growth-rate.json');
 }
 
+// Synchronous accessors (no awaited import) for static datasets
+export const TYPE_ENTRIES: any[] = POKEJSON['type.json'] as any[];
+export const GROWTH_RATES: any[] = POKEJSON['growth-rate.json'] as any[];
+
 export async function loadSearchIndex(loc?: Locale): Promise<any[]> {
   const locale = loc || (getLocale() as Locale);
   const localized = `search-index.${locale}.json`;
