@@ -1,4 +1,7 @@
 @import 'tailwindcss';
 
+/* Tailwind v4: use class-based dark mode instead of media */
+@variant dark (&:where(.dark, .dark *));
+
 /* Improve native form controls and scrollbars when toggling themes */
 :root { color-scheme: light dark; }

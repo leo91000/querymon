@@ -5,6 +5,7 @@ import JsonViewer from '../components/JsonViewer';
 import { formatName, loadItemById, resourceLabel, type ResourceName } from '../services/data';
 import { t } from '../i18n';
 import ResourceTabs from '../components/ResourceTabs';
+import PokemonDetail from './PokemonDetail';
 
 export default function ResourceDetail(props: { resource: ResourceName }) {
   const params = useParams();
@@ -14,6 +15,15 @@ export default function ResourceDetail(props: { resource: ResourceName }) {
     return data;
   });
 
+  if (props.resource === 'pokemon') {
+    return (
+      <div class="space-y-4">
+        <ResourceTabs current={props.resource} />
+        <PokemonDetail id={id()} />
+      </div>
+    );
+  }
+
   return (
     <div class="space-y-4">
       <ResourceTabs current={props.resource} />
@@ -21,9 +31,7 @@ export default function ResourceDetail(props: { resource: ResourceName }) {
       <Show when={item()} fallback={<div class="text-gray-500">{t('detail.loading')}</div>}>
         {(it) => (
           <Card class="p-4">
-            <div class="mb-4 text-lg font-semibold">
-              {formatName(((it() as any)?.name) || `ID ${id()}`)}
-            </div>
+            <div class="mb-4 text-lg font-semibold">{formatName(((it() as any)?.name) || `ID ${id()}`)}</div>
             <JsonViewer value={it()} />
           </Card>
         )}
