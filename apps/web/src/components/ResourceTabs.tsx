@@ -1,5 +1,6 @@
 import { A } from '@solidjs/router';
 import type { ResourceName } from '../services/data';
+import { t } from '../i18n';
 
 const RESOURCES: ResourceName[] = ['pokemon','move','ability','type'];
 
@@ -20,11 +21,11 @@ export default function ResourceTabs(props: { current: ResourceName }) {
 
 function tabLabel(r: ResourceName): string {
   switch (r) {
-    case 'pokemon': return 'Pokémon';
-    case 'pokemon-species': return 'Species';
-    case 'move': return 'Moves';
-    case 'ability': return 'Abilities';
-    case 'type': return 'Types';
+    case 'pokemon': return t('nav.pokemon');
+    case 'pokemon-species': return t('nav.species');
+    case 'move': return t('nav.moves');
+    case 'ability': return t('nav.abilities');
+    case 'type': return t('nav.types');
     
   }
 }

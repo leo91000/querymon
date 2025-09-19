@@ -56,16 +56,16 @@ export default function TypeDetail(props: { id: number }) {
 
                 <div class="mt-6 grid grid-cols-1 gap-6 md:grid-cols-2">
                   <div>
-                    <h3 class="mb-2 text-sm font-semibold tracking-wide text-gray-500">Offense</h3>
-                    <RelRow label="Super effective vs." list={offense().super} />
-                    <RelRow label="Not very effective vs." list={offense().not} />
-                    <RelRow label="No effect vs." list={offense().none} />
+                    <h3 class="mb-2 text-sm font-semibold tracking-wide text-gray-500">{t('type.offense')}</h3>
+                    <RelRow label={t('type.superEffectiveVs')} list={offense().super} />
+                    <RelRow label={t('type.notVeryEffectiveVs')} list={offense().not} />
+                    <RelRow label={t('type.noEffectVs')} list={offense().none} />
                   </div>
                   <div>
-                    <h3 class="mb-2 text-sm font-semibold tracking-wide text-gray-500">Defense</h3>
-                    <RelRow label="Weak to" list={defense().weak} />
-                    <RelRow label="Resists" list={defense().resist} />
-                    <RelRow label="Immune to" list={defense().immune} />
+                    <h3 class="mb-2 text-sm font-semibold tracking-wide text-gray-500">{t('type.defense')}</h3>
+                    <RelRow label={t('type.weakTo')} list={defense().weak} />
+                    <RelRow label={t('type.resists')} list={defense().resist} />
+                    <RelRow label={t('type.immuneTo')} list={defense().immune} />
                   </div>
                 </div>
               </div>
@@ -79,7 +79,7 @@ export default function TypeDetail(props: { id: number }) {
           </Card>
 
           <Card>
-            <h3 class="mb-3 text-sm font-semibold tracking-wide text-gray-500">Moves</h3>
+            <h3 class="mb-3 text-sm font-semibold tracking-wide text-gray-500">{t('type.moves')}</h3>
             <div class="flex flex-wrap gap-2">
               <For each={visibleMoves()}>{(m: any) => {
                 const id = idFromUrl(m.url);
@@ -91,14 +91,14 @@ export default function TypeDetail(props: { id: number }) {
               }}</For>
               <Show when={!showAllMoves() && (movesList()?.length || 0) > 48}>
                 <button type="button" class="rounded-full border border-gray-200 px-3 py-1 text-sm text-gray-600 hover:bg-gray-50 dark:border-gray-700 dark:text-gray-300 dark:hover:bg-gray-700/50" onClick={() => setShowAllMoves(true)}>
-                  +{(movesList().length - 48)} more
+                  +{(movesList().length - 48)} {t('common.more')}
                 </button>
               </Show>
             </div>
           </Card>
 
           <Card>
-            <h3 class="mb-3 text-sm font-semibold tracking-wide text-gray-500">Pokémon</h3>
+            <h3 class="mb-3 text-sm font-semibold tracking-wide text-gray-500">{t('type.pokemon')}</h3>
             <div class="flex flex-wrap gap-2">
               <For each={visiblePokemon()}>{(p: any) => {
                 const id = idFromUrl(p.pokemon?.url);
@@ -110,7 +110,7 @@ export default function TypeDetail(props: { id: number }) {
               }}</For>
               <Show when={!showAllPokemon() && (pokemonList()?.length || 0) > 48}>
                 <button type="button" class="rounded-full border border-gray-200 px-3 py-1 text-sm text-gray-600 hover:bg-gray-50 dark:border-gray-700 dark:text-gray-300 dark:hover:bg-gray-700/50" onClick={() => setShowAllPokemon(true)}>
-                  +{(pokemonList().length - 48)} more
+                  +{(pokemonList().length - 48)} {t('common.more')}
                 </button>
               </Show>
             </div>
