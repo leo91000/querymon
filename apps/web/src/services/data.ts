@@ -14,8 +14,13 @@ function key(file: string): string {
   return `../public/data/pokeapi/${file}`;
 }
 
+// Build a filename → key map so we can address files by basename reliably
+const FILE_TO_KEY: Record<string, string> = Object.fromEntries(
+  Object.keys(DATA).map((k) => [k.split('/').pop() as string, k])
+);
+
 async function importJSON<T>(file: string): Promise<T> {
-  const k = key(file);
+  const k = FILE_TO_KEY[file] || key(file);
   if (k in DATA) return DATA[k] as T;
   // Fallback to fetch if file not bundled for some reason
   const res = await fetch(`/data/pokeapi/${file}`);
@@ -35,7 +40,7 @@ export async function loadList(resource: ResourceName): Promise<Array<{ id: numb
   // Prefer localized list if available
   const localizedName = `${resource}.list.${loc}.json`;
   const fallbackName = `${r}.list.json`;
-  if (key(localizedName) in DATA) return importJSON(localizedName);
+  if (FILE_TO_KEY[localizedName]) return importJSON(localizedName);
   return importJSON(fallbackName);
 }
 
@@ -81,13 +86,13 @@ export async function loadNameMap(
 ): Promise<Record<string, string>> {
   const locale = loc || (getLocale() as Locale);
   const fname = `names.${locale}.${resource}.json`;
-  if (key(fname) in DATA) return importJSON(fname);
+  if (FILE_TO_KEY[fname]) return importJSON(fname);
   return {} as any;
 }
 
 export async function loadAliases(resource: 'pokemon' | 'move' | 'ability' | 'type'): Promise<Record<string, string[]>> {
   const fname = `aliases.${resource}.json`;
-  if (key(fname) in DATA) return importJSON(fname);
+  if (FILE_TO_KEY[fname]) return importJSON(fname);
   return {} as any;
 }
 
@@ -107,8 +112,11 @@ export async function loadGrowthRates(): Promise<any[]> {
 export async function loadSearchIndex(loc?: Locale): Promise<any[]> {
   const locale = loc || (getLocale() as Locale);
   const localized = `search-index.${locale}.json`;
-  if (key(localized) in DATA) return importJSON(localized);
-  return importJSON('search-index.json');
+  try {
+    return await importJSON(localized);
+  } catch {
+    return importJSON('search-index.json');
+  }
 }
 
 export async function loadDataset(resource: 'pokemon' | 'pokemon-species' | 'move' | 'ability' | 'type'): Promise<any[]> {
