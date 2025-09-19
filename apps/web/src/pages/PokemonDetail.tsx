@@ -47,7 +47,7 @@ export default function PokemonDetail(props: { id: number }) {
   const species = createMemo(() => speciesR[0]());
   const pokemon = createMemo(() => actualPokemonR[0]() as Pokemon | undefined);
 
-  const types = createMemo(() => (pokemon()?.types || []).map((t: any) => t.type?.name));
+  const types = createMemo(() => (pokemon()?.types || []).map((t: any) => ({ name: t.type?.name, id: idFromUrl(t.type?.url) })));
   const officialArt = createMemo(() => pokemon()?.sprites?.other?.['official-artwork']?.front_default || pokemon()?.sprites?.front_default);
   const abilities = createMemo(() => (pokemon()?.abilities || []).map((a: any) => a.ability));
   const stats = createMemo(() => (pokemon()?.stats || []).map((s: any) => ({ name: s.stat?.name, base: s.base_stat })));
@@ -57,6 +57,7 @@ export default function PokemonDetail(props: { id: number }) {
   const [eggGroupNames] = createResource(() => locale(), (loc) => loadNameMap('egg-group' as any, loc as any));
   const [colorNames] = createResource(() => locale(), (loc) => loadNameMap('pokemon-color' as any, loc as any));
   const [abilityNames] = createResource(() => locale(), (loc) => loadNameMap('ability' as any, loc as any));
+  const [typeNames] = createResource(() => locale(), (loc) => loadNameMap('type' as any, loc as any));
   const [growthRates] = createResource(async () => await fetch('/data/pokeapi/growth-rate.json').then(r=>r.json()));
 
   const localizedName = createMemo(() => {
@@ -82,7 +83,7 @@ export default function PokemonDetail(props: { id: number }) {
               <div class="flex items-center gap-3">
                 <h2 class="text-2xl font-bold tracking-tight"><span class="mr-2 font-jersey text-blue-600 dark:text-blue-400">#{String(props.id).padStart(3, '0')}</span>{localizedName()}</h2>
                 <div class="flex gap-2">
-                  <For each={types()}>{(tName) => <Badge tone={toneForType(tName)}>{formatName(tName)}</Badge>}</For>
+                  <For each={types()}>{(t) => <Badge tone={toneForType(t.name)}>{(t.id && typeNames()?.[String(t.id)]) || formatName(t.name)}</Badge>}</For>
                 </div>
               </div>
               <p class="mt-3 max-w-prose text-gray-600 dark:text-gray-300">{flavorText()}</p>
