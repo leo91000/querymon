@@ -23,6 +23,54 @@ function toneForType(name?: string) {
   return TYPE_TONE[k] ?? 'gray';
 }
 
+const TYPE_ICON: Record<string, string> = {
+  normal: 'ph--circle',
+  fire: 'ph--fire',
+  water: 'ph--drop',
+  electric: 'ph--lightning',
+  grass: 'ph--leaf',
+  ice: 'ph--snowflake',
+  fighting: 'ph--fist',
+  poison: 'ph--skull',
+  ground: 'ph--mountains',
+  flying: 'ph--bird',
+  psychic: 'ph--brain',
+  bug: 'ph--bug',
+  rock: 'ph--cube',
+  ghost: 'ph--ghost',
+  dragon: 'ph--dribbble-logo',
+  dark: 'ph--moon',
+  steel: 'ph--gear-six',
+  fairy: 'ph--sparkle'
+};
+
+function typeIconClass(name?: string) {
+  const k = (name || '').toLowerCase();
+  return TYPE_ICON[k] || 'ph--star';
+}
+
+const TONE_BG: Record<string, string> = {
+  gray: 'bg-gray-500 ring-gray-300',
+  orange: 'bg-orange-500 ring-orange-300',
+  blue: 'bg-blue-500 ring-blue-300',
+  yellow: 'bg-yellow-500 ring-yellow-300',
+  green: 'bg-green-500 ring-green-300',
+  sky: 'bg-sky-500 ring-sky-300',
+  rose: 'bg-rose-500 ring-rose-300',
+  purple: 'bg-purple-500 ring-purple-300',
+  amber: 'bg-amber-500 ring-amber-300',
+  indigo: 'bg-indigo-500 ring-indigo-300',
+  pink: 'bg-pink-500 ring-pink-300',
+  lime: 'bg-lime-500 ring-lime-300',
+  violet: 'bg-violet-500 ring-violet-300',
+  fuchsia: 'bg-fuchsia-500 ring-fuchsia-300'
+};
+
+function typeToneBg(name?: string) {
+  const tone = toneForType(name);
+  return TONE_BG[tone] || TONE_BG.gray;
+}
+
 function idFromUrl(url?: string | null) { const m = url?.match(/\/(\d+)\/?$/); return m ? Number(m[1]) : undefined; }
 
 function pickEffectText(move: Move, lang: 'en'|'fr'|'jp') {
@@ -67,7 +115,7 @@ export default function MoveDetail(props: { id: number }) {
       {(m) => (
         <div class="space-y-6">
           <Card class="overflow-hidden p-0">
-            <div class="grid grid-cols-1 md:grid-cols-[1fr_320px]">
+            <div class="grid grid-cols-1 md:grid-cols-[1fr_240px]">
               <div class="p-6">
                 <div class="flex flex-wrap items-center gap-3">
                   <h2 class="text-2xl font-bold tracking-tight font-jersey">{formatName(m().name)}</h2>
@@ -91,10 +139,9 @@ export default function MoveDetail(props: { id: number }) {
                 </div>
               </div>
 
-              <div class="relative flex items-center justify-center bg-gradient-to-br from-gray-50 to-gray-100 p-6 dark:from-gray-800 dark:to-gray-900">
-                <div class="text-center text-sm text-gray-500 dark:text-gray-400">
-                  <div class="text-lg font-semibold">{formatName(typeName() || 'Move')}</div>
-                  <div class="mt-1">{formatName(damageClass() || '—')}</div>
+              <div class="relative flex items-center justify-center p-4">
+                <div class={`flex h-24 w-24 items-center justify-center rounded-full text-white ring-4 ${typeToneBg(typeName())}`}>
+                  <span class={`icon-[${typeIconClass(typeName())}] text-5xl`}></span>
                 </div>
               </div>
             </div>
