@@ -6,6 +6,7 @@ import { formatName, loadItemById, resourceLabel, type ResourceName } from '../s
 import { t } from '../i18n';
 import ResourceTabs from '../components/ResourceTabs';
 import MoveDetail from './MoveDetail';
+import AbilityDetail from './AbilityDetail';
 import PokemonDetail from './PokemonDetail';
 
 export default function ResourceDetail(props: { resource: ResourceName }) {
@@ -30,6 +31,15 @@ export default function ResourceDetail(props: { resource: ResourceName }) {
       <div class="space-y-4">
         <ResourceTabs current={props.resource} />
         <MoveDetail id={id()} />
+      </div>
+    );
+  }
+
+  if (props.resource === 'ability') {
+    return (
+      <div class="space-y-4">
+        <ResourceTabs current={props.resource} />
+        <AbilityDetail id={id()} />
       </div>
     );
   }
