@@ -9,7 +9,7 @@ export default function Navbar() {
     <header class="sticky top-0 z-10 border-b border-gray-200 bg-white/90 backdrop-blur dark:border-gray-800 dark:bg-gray-900/90">
       <div class="mx-auto grid max-w-6xl grid-cols-1 gap-3 px-4 py-3 md:grid-cols-[auto_1fr_auto] md:items-center">
         <A href="/" class="flex items-center gap-2">
-          <span class="text-xl">⚡️</span>
+          <span class="icon-[ph--lightning] text-2xl text-blue-600 dark:text-blue-400"></span>
           <h1 class="text-lg font-semibold tracking-tight">QueryMon</h1>
         </A>
         <GlobalSearch />
