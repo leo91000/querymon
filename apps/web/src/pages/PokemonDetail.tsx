@@ -36,14 +36,18 @@ function pickFlavor(species: Species, lang: 'en'|'fr'|'jp') {
 
 export default function PokemonDetail(props: { id: number }) {
   onMount(() => console.debug('[PokemonDetail] mount id', props.id));
-  const [species] = createResource(() => props.id, (id) => loadItemById('pokemon-species' as ResourceName, id));
+  // Load actual Pokémon first (some ids like 10150 are forms without a species id equal to props.id)
   const [pokemon] = createResource(() => props.id, (id) => loadActualPokemonById<Pokemon>(id));
+  const speciesId = createMemo(() => {
+    const sid = idFromUrl(pokemon()?.species?.url);
+    return sid || props.id;
+  });
+  const [species] = createResource(speciesId, (id) => loadItemById('pokemon-species' as ResourceName, id));
 
   createEffect(() => {
-    // Log when resources resolve to help debug stuck loading
     const s = species();
     const p = pokemon();
-    console.debug('[PokemonDetail] species=', !!s, 'pokemon=', !!p);
+    console.debug('[PokemonDetail] species=', !!s, 'pokemon=', !!p, 'speciesId=', speciesId());
   });
 
   const types = createMemo(() => (pokemon()?.types || []).map((t: any) => ({ name: t.type?.name, id: idFromUrl(t.type?.url) })));
@@ -132,7 +136,7 @@ export default function PokemonDetail(props: { id: number }) {
 
   return (
     <div class="space-y-6">
-      <Show when={species()} fallback={<div class="text-gray-500">{t('detail.loading')}</div>}>
+      <Show when={pokemon() || species()} fallback={<div class="text-gray-500">{t('detail.loading')}</div>}>
         <Card class="overflow-hidden p-0">
           <div class="grid grid-cols-1 md:grid-cols-[1fr_320px]">
             <div class="p-6">
