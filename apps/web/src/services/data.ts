@@ -122,11 +122,14 @@ export async function loadSearchIndex(loc?: Locale): Promise<any[]> {
 }
 
 export async function loadDataset(resource: 'pokemon' | 'pokemon-species' | 'move' | 'ability' | 'type'): Promise<any[]> {
+  // Prefer single aggregated file if present
+  const agg = `${resource}.json`;
+  if (hasFile(agg)) return importJSON(agg);
+  // Fallback: merge shards matching <resource>.<NNN>.json
   const out: any[] = [];
   const prefix = `${resource}.`;
   for (const [base, json] of Object.entries(POKEJSON)) {
     if (base.startsWith(prefix)) {
-      // numeric shards only: e.g., pokemon.001.json
       const rest = base.slice(prefix.length);
       if (/^\d+\.json$/.test(rest)) {
         const arr = json as any[];

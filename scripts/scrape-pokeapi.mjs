@@ -25,7 +25,7 @@
     --delay=ms                 Delay between individual requests (default: 50)
     --out=path                 Base output dir for aggregated (default: public/data/pokeapi)
     --raw                      Also write per-item files under data/pokeapi/raw
-    --shard=number             Max items per aggregated JSON file (default: 250)
+    --shard=number             Max items per aggregated JSON file (default: 0 = off)
 */
 
 import { mkdir, writeFile } from 'node:fs/promises';
@@ -55,7 +55,7 @@ const CONCURRENCY = args.concurrency ? Math.max(1, Number(args.concurrency)) : 6
 const DELAY = args.delay ? Math.max(0, Number(args.delay)) : 50;
 const OUT_DIR = path.resolve(process.cwd(), args.out ? String(args.out) : 'apps/web/public/data/pokeapi');
 const RAW = Boolean(args.raw);
-const SHARD = args.shard ? Math.max(0, Number(args.shard)) : 250; // 0 disables sharding
+const SHARD = args.shard ? Math.max(0, Number(args.shard)) : 0; // default: no sharding
 
 function sleep(ms) { return new Promise(r => setTimeout(r, ms)); }
 
