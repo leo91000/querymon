@@ -1,5 +1,5 @@
 import { A, useLocation } from '@solidjs/router';
-import { For, Show, createMemo, createResource, createSignal } from 'solid-js';
+import { For, Show, createMemo, createResource, createSignal, onCleanup, onMount, createEffect } from 'solid-js';
 import Card from '../components/Card';
 import Input from '../components/Input';
 import { formatName, loadList, resourceLabel, type ResourceName, loadAliases, loadDataset, loadNameMap } from '../services/data';
@@ -116,15 +116,47 @@ function PokemonGrid(props: { items: Array<{ id: number; name: string }> }) {
     })) as Pokemon[];
   });
 
+  // Infinite scroll: reveal 50-by-50 using an intersection observer on a sentinel
+  const PAGE = 50;
+  const [limit, setLimit] = createSignal(PAGE);
+  let sentinel: HTMLDivElement | undefined;
+  let io: IntersectionObserver | undefined;
+
+  const visible = createMemo(() => cards().slice(0, limit()));
+
+  function startObserver() {
+    if (io || !sentinel) return;
+    io = new IntersectionObserver((entries) => {
+      const e = entries[0];
+      if (!e?.isIntersecting) return;
+      // Grow limit until all loaded
+      setLimit((n) => Math.min(cards().length, n + PAGE));
+    }, { rootMargin: '600px 0px' });
+    io.observe(sentinel);
+  }
+  onMount(() => startObserver());
+  onCleanup(() => io?.disconnect());
+
+  // Reset when the filter changes
+  createEffect(() => {
+    void cards();
+    setLimit(PAGE);
+    // re-arm observer in case it was disconnected
+    queueMicrotask(() => { io?.disconnect(); io = undefined; startObserver(); });
+  });
+
   return (
-    <div class="grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5">
-      <For each={cards()}>
-        {(p) => (
-          <A href={`/pokemon/${p.id}`}>
-            <PokemonCard pokemon={p} />
-          </A>
-        )}
-      </For>
-    </div>
+    <>
+      <div class="grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5">
+        <For each={visible()}>
+          {(p, i) => (
+            <A href={`/pokemon/${p.id}`} class="block motion-safe:animate-[fade-in-up_0.35s_ease-out] [animation-delay:calc(var(--i)*15ms)]" style={{ '--i': String(i()) }}>
+              <PokemonCard pokemon={p} />
+            </A>
+          )}
+        </For>
+      </div>
+      <div ref={(el) => (sentinel = el as HTMLDivElement)} class="h-10" />
+    </>
   );
 }
