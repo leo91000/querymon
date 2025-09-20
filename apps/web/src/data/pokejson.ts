@@ -2,6 +2,7 @@
 import ability_001_json from '../pokeapi/ability.001.json';
 import ability_002_json from '../pokeapi/ability.002.json';
 import ability_idmap_json from '../pokeapi/ability.idmap.json';
+import ability_json from '../pokeapi/ability.json';
 import ability_list_en_json from '../pokeapi/ability.list.en.json';
 import ability_list_fr_json from '../pokeapi/ability.list.fr.json';
 import ability_list_jp_json from '../pokeapi/ability.list.jp.json';
@@ -21,6 +22,7 @@ import evolution_chain_001_json from '../pokeapi/evolution-chain.001.json';
 import evolution_chain_002_json from '../pokeapi/evolution-chain.002.json';
 import evolution_chain_003_json from '../pokeapi/evolution-chain.003.json';
 import evolution_chain_idmap_json from '../pokeapi/evolution-chain.idmap.json';
+import evolution_chain_json from '../pokeapi/evolution-chain.json';
 import evolution_chain_list_json from '../pokeapi/evolution-chain.list.json';
 import evolution_chain_manifest_json from '../pokeapi/evolution-chain.manifest.json';
 import growth_rate_idmap_json from '../pokeapi/growth-rate.idmap.json';
@@ -34,6 +36,7 @@ import move_002_json from '../pokeapi/move.002.json';
 import move_003_json from '../pokeapi/move.003.json';
 import move_004_json from '../pokeapi/move.004.json';
 import move_idmap_json from '../pokeapi/move.idmap.json';
+import move_json from '../pokeapi/move.json';
 import move_list_en_json from '../pokeapi/move.list.en.json';
 import move_list_fr_json from '../pokeapi/move.list.fr.json';
 import move_list_jp_json from '../pokeapi/move.list.jp.json';
@@ -91,6 +94,7 @@ import pokemon_species_004_json from '../pokeapi/pokemon-species.004.json';
 import pokemon_species_005_json from '../pokeapi/pokemon-species.005.json';
 import pokemon_species_006_json from '../pokeapi/pokemon-species.006.json';
 import pokemon_species_idmap_json from '../pokeapi/pokemon-species.idmap.json';
+import pokemon_species_json from '../pokeapi/pokemon-species.json';
 import pokemon_species_list_json from '../pokeapi/pokemon-species.list.json';
 import pokemon_species_manifest_json from '../pokeapi/pokemon-species.manifest.json';
 import pokemon_001_json from '../pokeapi/pokemon.001.json';
@@ -121,6 +125,7 @@ export const POKEJSON: Record<string, any> = {
   'ability.001.json': ability_001_json,
   'ability.002.json': ability_002_json,
   'ability.idmap.json': ability_idmap_json,
+  'ability.json': ability_json,
   'ability.list.en.json': ability_list_en_json,
   'ability.list.fr.json': ability_list_fr_json,
   'ability.list.jp.json': ability_list_jp_json,
@@ -140,6 +145,7 @@ export const POKEJSON: Record<string, any> = {
   'evolution-chain.002.json': evolution_chain_002_json,
   'evolution-chain.003.json': evolution_chain_003_json,
   'evolution-chain.idmap.json': evolution_chain_idmap_json,
+  'evolution-chain.json': evolution_chain_json,
   'evolution-chain.list.json': evolution_chain_list_json,
   'evolution-chain.manifest.json': evolution_chain_manifest_json,
   'growth-rate.idmap.json': growth_rate_idmap_json,
@@ -153,6 +159,7 @@ export const POKEJSON: Record<string, any> = {
   'move.003.json': move_003_json,
   'move.004.json': move_004_json,
   'move.idmap.json': move_idmap_json,
+  'move.json': move_json,
   'move.list.en.json': move_list_en_json,
   'move.list.fr.json': move_list_fr_json,
   'move.list.jp.json': move_list_jp_json,
@@ -210,6 +217,7 @@ export const POKEJSON: Record<string, any> = {
   'pokemon-species.005.json': pokemon_species_005_json,
   'pokemon-species.006.json': pokemon_species_006_json,
   'pokemon-species.idmap.json': pokemon_species_idmap_json,
+  'pokemon-species.json': pokemon_species_json,
   'pokemon-species.list.json': pokemon_species_list_json,
   'pokemon-species.manifest.json': pokemon_species_manifest_json,
   'pokemon.001.json': pokemon_001_json,
