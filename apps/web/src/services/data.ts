@@ -42,11 +42,15 @@ export async function loadItemById<T = any>(resource: ResourceName, id: number):
   const r = normalize(resource);
   const idmap = await loadIdMap(r as ResourceName);
   const file = idmap[String(id)];
-  if (!file) return undefined;
+  if (!file) {
+    console.debug('[data] loadItemById: no file for', r, id);
+    return undefined;
+  }
   const arr = await importJSON<T[]>(file);
   for (const item of arr) {
     if ((item as any).id === id) return item;
   }
+  console.debug('[data] loadItemById: not found in', file, 'for id', id);
   return undefined;
 }
 
@@ -54,9 +58,14 @@ export async function loadItemById<T = any>(resource: ResourceName, id: number):
 export async function loadActualPokemonById<T = any>(id: number): Promise<T | undefined> {
   const idmap = await importJSON<Record<string, string>>('pokemon.idmap.json');
   const file = idmap[String(id)];
-  if (!file) return undefined;
+  if (!file) {
+    console.debug('[data] loadActualPokemonById: no file for id', id);
+    return undefined;
+  }
   const arr = await importJSON<T[]>(file);
-  return arr.find((p: any) => p.id === id);
+  const found = arr.find((p: any) => p.id === id);
+  if (!found) console.debug('[data] loadActualPokemonById: not found in', file, 'for id', id);
+  return found;
 }
 
 export function resourceLabel(resource: ResourceName): string {

@@ -1,7 +1,7 @@
 import Card from '../components/Card';
 import Badge from '../components/Badge';
 import TypeBox from '../components/TypeBox';
-import { Show, For, createMemo, createResource } from 'solid-js';
+import { Show, For, createMemo, createResource, onMount, createEffect } from 'solid-js';
 import { formatName, loadItemById, loadActualPokemonById, TYPE_ENTRIES, GROWTH_RATES } from '../services/data';
 import type { ResourceName } from '../services/data';
 import { t, getLocale } from '../i18n';
@@ -35,8 +35,16 @@ function pickFlavor(species: Species, lang: 'en'|'fr'|'jp') {
 }
 
 export default function PokemonDetail(props: { id: number }) {
+  onMount(() => console.debug('[PokemonDetail] mount id', props.id));
   const [species] = createResource(() => props.id, (id) => loadItemById('pokemon-species' as ResourceName, id));
   const [pokemon] = createResource(() => props.id, (id) => loadActualPokemonById<Pokemon>(id));
+
+  createEffect(() => {
+    // Log when resources resolve to help debug stuck loading
+    const s = species();
+    const p = pokemon();
+    console.debug('[PokemonDetail] species=', !!s, 'pokemon=', !!p);
+  });
 
   const types = createMemo(() => (pokemon()?.types || []).map((t: any) => ({ name: t.type?.name, id: idFromUrl(t.type?.url) })));
   const officialArt = createMemo(() => pokemon()?.sprites?.other?.['official-artwork']?.front_default || pokemon()?.sprites?.front_default);
