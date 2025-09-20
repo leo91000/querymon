@@ -5,6 +5,8 @@
   "type": "module",
   "scripts": {
     "scrape": "node scripts/scrape-pokeapi.mjs && node scripts/build-index.mjs",
+    "data:sync": "node scripts/sync-data.mjs",
+    "data:gen": "node scripts/generate-pokejson.mjs",
     "index": "node scripts/build-index.mjs",
     "dev:web": "pnpm --filter @querymon/web dev",
     "build:web": "pnpm --filter @querymon/web build",
