@@ -35,7 +35,7 @@ function typeTone(t: PokemonType): NonNullable<Parameters<typeof Badge>[0]['tone
 export default function PokemonCard(props: { pokemon: Pokemon }) {
   const p = props.pokemon;
   return (
-    <Card class="group flex items-center gap-4 p-4">
+    <Card class="group flex h-full items-center gap-4 p-4">
       <img
         src={p.sprite}
         alt={p.name}
