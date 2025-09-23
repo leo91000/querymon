@@ -234,7 +234,7 @@ export default function PokemonDetail(props: { id: number }) {
               <div>
                 <div class="text-gray-500 dark:text-gray-400">{t('pokemon.effortPoints')}</div>
                 <div class="font-medium">{(() => {
-                  const eps = (pokemon()?.stats||[]).filter((s:any)=>s.effort>0).map((s:any)=>`+${s.effort} ${t(`stat.${s.stat?.name}`)}`);
+                  const eps = (pokemon()?.stats||[]).filter((s:any)=>s.effort>0).map((s:any)=>`+${s.effort} ${t(`stat.${s.name}`)}`);
                   return eps.join(' , ') || '—';
                 })()}</div>
               </div>
