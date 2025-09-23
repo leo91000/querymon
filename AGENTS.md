@@ -8,7 +8,7 @@ This file guides agents and contributors working in this repository. It applies 
 - Prefer clarity over cleverness; small, composable components win.
 
 ## Tech Stack
-- SolidJS (TypeScript) + Vite 7
+- SolidJS (TypeScript) + Vite 7 (SPA)
 - Tailwind CSS v4 via `@tailwindcss/vite` (class-based dark mode)
 - Node 18+ recommended
 - Tauri v2 (apps/desktop)
@@ -23,8 +23,13 @@ This file guides agents and contributors working in this repository. It applies 
 - Desktop build: `pnpm build:desktop`
 
 ## Project Structure
-- `apps/web`: Solid + Vite app (public data lives here)
+- `apps/web`: Solid + Vite app (public data lives here; SPA configured via `vercel.json`)
   - `public/data/pokeapi`: Aggregated JSON data and manifests
+    - Page JSON layout (fetched by pages at runtime):
+      - `pokemon/list.json` → minimal list for the grid: `{ id, name, types, sprite }`
+      - `pokemon/<id>.json` → merged + trimmed Pokémon detail (includes selected `species` fields)
+      - `move/<id>.json`, `ability/<id>.json`, `type/<id>.json` → trimmed records used by detail pages
+    - Legacy aggregated files kept for tooling/fallbacks: `<resource>.json`, `<resource>.<NNN>.json`, `<resource>.manifest.json`
   - `src/components`: UI primitives and composites
   - `src/pages`: Resource list/detail pages (Pokémon, Move, Ability, Type)
   - `src/services`: Data loaders (aliasing + helpers)
@@ -32,6 +37,9 @@ This file guides agents and contributors working in this repository. It applies 
   - `src/theme`: theme manager (system/light/dark)
 - `apps/desktop`: Tauri v2 shell (loads web dev server or dist)
 - `scripts`: data scraper and index builder
+  - `scrape-pokeapi.mjs` → downloads aggregated datasets
+  - `build-index.mjs` → builds search indexes, localized lists, alias maps
+  - `build-pages.mjs` → emits page‑optimized JSON (see layout above)
 
 ## Code Style & Patterns
 - Language: TypeScript with `strict` mode; avoid `any` where practical.
@@ -59,6 +67,9 @@ This file guides agents and contributors working in this repository. It applies 
 
 ## Data & APIs
 - Public datasets live under `apps/web/public/data/pokeapi`.
+- Pages fetch only the JSON they need at runtime; no static JSON imports are bundled.
+- Compression: deployed on Vercel, static assets are served with Brotli/Gzip automatically; no manual gzip step required.
+- Cache/validation: Vercel serves strong ETags and Last‑Modified for static JSON. If explicit cache busting is needed later, add a small `last-updated.json` manifest and append `?v=<buildId>` to fetch URLs (not enabled by default).
 - Scraper: `scripts/scrape-pokeapi.mjs` (supports sharding) → writes aggregated files.
 - Indexer: `scripts/build-index.mjs` → builds `<resource>.list.json`, `<resource>.idmap.json`, and `search-index.json`.
 - Resource rules:
@@ -70,6 +81,7 @@ This file guides agents and contributors working in this repository. It applies 
 - Use `<For>` for larger lists and avoid expensive derived computations in render.
 - Use `loading="lazy"` for images and keep sprites small.
 - Lists with large counts expose "+N more" expanders; prefer incremental reveal instead of rendering thousands of items at once.
+- Data: prefer the page JSON files over legacy aggregates to avoid overfetching.
 
 ## Commits & PRs
 - Commit message format with JIRA ticket:
@@ -82,6 +94,10 @@ This file guides agents and contributors working in this repository. It applies 
   - Title only: `[JIRA-1234] Short description`
   - No body (with GitHub CLI: `--body ""`).
 - Never include tool publicity lines in commits/PRs, e.g. “🤖 Generated with …” or `Co-Authored-By: Claude <noreply@anthropic.com>`.
+
+## Deployment (Vercel)
+- SPA routing is configured via `apps/web/vercel.json` to rewrite all routes to `/` (served by `index.html`).
+- Build command (if project root is repo root): use Vercel’s monorepo settings or set `buildCommand` to `pnpm --filter @querymon/web build` and `outputDirectory` to `apps/web/dist`. If project root is `apps/web`, default `npm run build` is enough.
 
 ## Testing (if added)
 - Use Vitest + `@testing-library/solid`.
