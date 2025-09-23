@@ -2,7 +2,7 @@ import { A, useLocation } from '@solidjs/router';
 import { For, Show, createMemo, createResource, createSignal, onCleanup, onMount, createEffect } from 'solid-js';
 import Card from '../components/Card';
 import Input from '../components/Input';
-import { formatName, loadList, resourceLabel, type ResourceName, loadAliases, loadDataset, loadNameMap } from '../services/data';
+import { formatName, loadList, resourceLabel, type ResourceName, loadAliases, loadNameMap } from '../services/data';
 import { t } from '../i18n';
 import ResourceTabs from '../components/ResourceTabs';
 import PokemonCard from '../components/PokemonCard';
@@ -12,17 +12,9 @@ export default function ResourceList(props: { resource: ResourceName }) {
   const [items] = createResource(() => props.resource, loadList);
   const [aliases] = createResource(() => props.resource, async (r) => {
     if (!['pokemon','move','ability','type'].includes(r)) return {} as any;
-    // Try prebuilt aliases first
+    // Use prebuilt aliases only; no heavy fallbacks
     const pre = await loadAliases(r as any).catch(()=>({} as any));
-    if (pre && Object.keys(pre).length) return pre;
-    // Fallback: build from master dataset names[] at runtime
-    const data = await loadDataset(r as any).catch(() => [] as any[]);
-    const out: Record<string, string[]> = {};
-    for (const it of data as any[]) {
-      const names = (it?.names || []).map((n: any) => n.name).filter(Boolean);
-      if (it?.id != null && names.length) out[String(it.id)] = names;
-    }
-    return out;
+    return pre || ({} as any);
   });
   const [q, setQ] = createSignal('');
   function normalize(s: string) {
@@ -79,30 +71,14 @@ export default function ResourceList(props: { resource: ResourceName }) {
   );
 }
 
-function PokemonGrid(props: { items: Array<{ id: number; name: string }> }) {
-  const [dataset] = createResource(async () => await loadDataset('pokemon'));
-  const byId = createMemo(() => {
-    const out: Record<number, any> = {};
-    for (const p of dataset() || []) out[p.id] = p;
-    return out;
-  });
+function PokemonGrid(props: { items: Array<{ id: number; name: string; types?: string[]; sprite?: string }> }) {
   const [nameMap] = createResource(() => loadNameMap('pokemon'));
 
-  function typesOf(id: number): PokemonType[] {
-    const p = byId()[id];
-    const arr = (p?.types || []) as any[];
-    return arr
-      .map((t) => String(t.type?.name || '').toLowerCase())
+  function typesOf(it: { types?: string[] }): PokemonType[] {
+    return (it.types || [])
+      .map((s) => String(s))
       .map((s) => s.charAt(0).toUpperCase() + s.slice(1))
       .filter(Boolean) as PokemonType[];
-  }
-  function spriteOf(id: number): string {
-    const p = byId()[id];
-    return (
-      p?.sprites?.front_default ||
-      p?.sprites?.other?.['official-artwork']?.front_default ||
-      ''
-    );
   }
 
   const cards = createMemo(() => {
@@ -110,8 +86,8 @@ function PokemonGrid(props: { items: Array<{ id: number; name: string }> }) {
     return (props.items || []).map((it) => ({
       id: it.id,
       name: names[String(it.id)] || formatName(it.name),
-      types: typesOf(it.id),
-      sprite: spriteOf(it.id),
+      types: typesOf(it),
+      sprite: it.sprite || '',
       description: '',
     })) as Pokemon[];
   });

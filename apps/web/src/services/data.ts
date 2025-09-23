@@ -1,72 +1,57 @@
-import { createResource } from 'solid-js';
 import { t, getLocale, type Locale } from '../i18n';
-import { POKEJSON } from '../data/pokejson';
 
 export type ResourceName = 'pokemon' | 'pokemon-species' | 'move' | 'ability' | 'type';
 
-// Accessor helpers over the statically-imported POKEJSON map
-function hasFile(file: string): boolean {
-  return Object.prototype.hasOwnProperty.call(POKEJSON, file);
-}
+const BASE = '/data/pokeapi';
 
-async function importJSON<T>(file: string): Promise<T> {
-  if (hasFile(file)) return POKEJSON[file] as T;
-  // Fallback to fetch if file not bundled for some reason
-  const res = await fetch(`/data/pokeapi/${file}`);
-  if (!res.ok) throw new Error(`Missing data file ${file}`);
+async function fetchJSON<T>(url: string): Promise<T> {
+  const res = await fetch(url);
+  if (!res.ok) throw new Error(`Failed to fetch ${url} (${res.status})`);
   return (await res.json()) as T;
 }
 
-function normalize(resource: ResourceName): ResourceName {
-  // Alias: UI 'pokemon' uses species data under the hood
-  if (resource === 'pokemon') return 'pokemon-species';
-  return resource;
-}
-
-export async function loadList(resource: ResourceName): Promise<Array<{ id: number; name: string }>> {
-  const r = normalize(resource);
+export async function loadList(resource: ResourceName): Promise<Array<{ id: number; name: string } & Record<string, any>>> {
   const loc = getLocale();
-  // Prefer localized list if available
-  const localizedName = `${resource}.list.${loc}.json`;
-  const fallbackName = `${r}.list.json`;
-  if (hasFile(localizedName)) return importJSON(localizedName);
-  return importJSON(fallbackName);
+  // New layout: <resource>/list[.<loc>].json
+  const candidates: string[] = [];
+  candidates.push(`${BASE}/${resource}/list.${loc}.json`);
+  candidates.push(`${BASE}/${resource}/list.json`);
+  // Legacy layout: <resource>.list[.<loc>].json at root
+  candidates.push(`${BASE}/${resource}.list.${loc}.json`);
+  candidates.push(`${BASE}/${resource}.list.json`);
+  for (const url of candidates) {
+    try { return await fetchJSON(url); } catch { /* try next */ }
+  }
+  throw new Error(`Missing list for ${resource}`);
 }
 
 export async function loadIdMap(resource: ResourceName): Promise<Record<string, string>> {
-  const r = normalize(resource);
-  return importJSON(`${r}.idmap.json`);
+  // Legacy use only; still exposed for tools
+  return fetchJSON(`${BASE}/${resource}.idmap.json`);
 }
 
 export async function loadItemById<T = any>(resource: ResourceName, id: number): Promise<T | undefined> {
-  const r = normalize(resource);
-  const idmap = await loadIdMap(r as ResourceName);
-  const file = idmap[String(id)];
-  if (!file) {
-    console.debug('[data] loadItemById: no file for', r, id);
-    return undefined;
+  // New per-item layout first
+  const direct = `${BASE}/${resource}/${id}.json`;
+  try { return await fetchJSON<T>(direct); } catch {}
+  // Special-case: UI pokemon previously aliased to species; try species folder too
+  if (resource === 'pokemon') {
+    try { return await fetchJSON<T>(`${BASE}/pokemon-species/${id}.json`); } catch {}
   }
-  const arr = await importJSON<T[]>(file);
-  for (const item of arr) {
-    if ((item as any).id === id) return item;
-  }
-  console.debug('[data] loadItemById: not found in', file, 'for id', id);
+  // Legacy aggregated fallback: use idmap -> shard -> scan
+  try {
+    const idmap = await fetchJSON<Record<string, string>>(`${BASE}/${resource}.idmap.json`);
+    const file = idmap[String(id)];
+    if (!file) return undefined;
+    const arr = await fetchJSON<T[]>(`${BASE}/${file}`);
+    for (const item of arr) {
+      if ((item as any).id === id) return item;
+    }
+  } catch {}
   return undefined;
 }
 
-// Explicitly load the "real" Pokémon (not species), bypassing normalization
-export async function loadActualPokemonById<T = any>(id: number): Promise<T | undefined> {
-  const idmap = await importJSON<Record<string, string>>('pokemon.idmap.json');
-  const file = idmap[String(id)];
-  if (!file) {
-    console.debug('[data] loadActualPokemonById: no file for id', id);
-    return undefined;
-  }
-  const arr = await importJSON<T[]>(file);
-  const found = arr.find((p: any) => p.id === id);
-  if (!found) console.debug('[data] loadActualPokemonById: not found in', file, 'for id', id);
-  return found;
-}
+// Removed: loadActualPokemonById — detail is now in /pokemon/<id>.json
 
 export function resourceLabel(resource: ResourceName): string {
   switch (resource) {
@@ -83,15 +68,12 @@ export async function loadNameMap(
   loc?: Locale,
 ): Promise<Record<string, string>> {
   const locale = loc || (getLocale() as Locale);
-  const fname = `names.${locale}.${resource}.json`;
-  if (hasFile(fname)) return importJSON(fname);
-  return {} as any;
+  const url = `${BASE}/names.${locale}.${resource}.json`;
+  try { return await fetchJSON(url); } catch { return {} as any; }
 }
 
 export async function loadAliases(resource: 'pokemon' | 'move' | 'ability' | 'type'): Promise<Record<string, string[]>> {
-  const fname = `aliases.${resource}.json`;
-  if (hasFile(fname)) return importJSON(fname);
-  return {} as any;
+  try { return await fetchJSON(`${BASE}/aliases.${resource}.json`); } catch { return {} as any; }
 }
 
 export function formatName(name: string): string {
@@ -99,43 +81,34 @@ export function formatName(name: string): string {
 }
 
 // Convenience loaders for common datasets used across pages
+let typeEntriesPromise: Promise<any[]> | undefined;
 export async function loadTypeEntries(): Promise<any[]> {
-  return importJSON('type.json');
+  if (!typeEntriesPromise) typeEntriesPromise = fetchJSON(`${BASE}/type.json`);
+  return typeEntriesPromise;
 }
 
+let growthRatesPromise: Promise<any[]> | undefined;
 export async function loadGrowthRates(): Promise<any[]> {
-  return importJSON('growth-rate.json');
+  if (!growthRatesPromise) growthRatesPromise = fetchJSON(`${BASE}/growth-rate.json`);
+  return growthRatesPromise;
 }
-
-// Synchronous accessors (no awaited import) for static datasets
-export const TYPE_ENTRIES: any[] = POKEJSON['type.json'] as any[];
-export const GROWTH_RATES: any[] = POKEJSON['growth-rate.json'] as any[];
 
 export async function loadSearchIndex(loc?: Locale): Promise<any[]> {
   const locale = loc || (getLocale() as Locale);
-  const localized = `search-index.${locale}.json`;
-  try {
-    return await importJSON(localized);
-  } catch {
-    return importJSON('search-index.json');
-  }
+  const preferred = `${BASE}/search-index.${locale}.json`;
+  try { return await fetchJSON(preferred); } catch { return fetchJSON(`${BASE}/search-index.json`); }
 }
 
 export async function loadDataset(resource: 'pokemon' | 'pokemon-species' | 'move' | 'ability' | 'type'): Promise<any[]> {
-  // Prefer single aggregated file if present
-  const agg = `${resource}.json`;
-  if (hasFile(agg)) return importJSON(agg);
-  // Fallback: merge shards matching <resource>.<NNN>.json
-  const out: any[] = [];
-  const prefix = `${resource}.`;
-  for (const [base, json] of Object.entries(POKEJSON)) {
-    if (base.startsWith(prefix)) {
-      const rest = base.slice(prefix.length);
-      if (/^\d+\.json$/.test(rest)) {
-        const arr = json as any[];
-        if (Array.isArray(arr)) out.push(...arr);
-      }
+  // Try manifest (sharded) then single aggregated file
+  try {
+    const m = await fetchJSON<{ files: string[] }>(`${BASE}/${resource}.manifest.json`);
+    const out: any[] = [];
+    for (const f of (m?.files || [])) {
+      const arr = await fetchJSON<any[]>(`${BASE}/${f}`);
+      if (Array.isArray(arr)) out.push(...arr);
     }
-  }
-  return out;
+    if (out.length) return out;
+  } catch {}
+  return fetchJSON<any[]>(`${BASE}/${resource}.json`);
 }

@@ -2,13 +2,13 @@ import Card from '../components/Card';
 import Badge from '../components/Badge';
 import TypeBox from '../components/TypeBox';
 import { Show, For, createMemo, createResource, onMount, createEffect } from 'solid-js';
-import { formatName, loadItemById, loadActualPokemonById, TYPE_ENTRIES, GROWTH_RATES } from '../services/data';
+import { formatName, loadItemById, loadTypeEntries, loadGrowthRates } from '../services/data';
 import type { ResourceName } from '../services/data';
 import { t, getLocale } from '../i18n';
 import { loadNameMap } from '../services/data';
 
 type Species = any;
-type Pokemon = any;
+type PageData = any;
 
 const TYPE_TONE: Record<string, NonNullable<Parameters<typeof Badge>[0]['tone']>> = {
   normal: 'gray', fire: 'orange', water: 'blue', electric: 'yellow', grass: 'green', ice: 'sky', fighting: 'rose',
@@ -36,24 +36,14 @@ function pickFlavor(species: Species, lang: 'en'|'fr'|'jp') {
 
 export default function PokemonDetail(props: { id: number }) {
   onMount(() => console.debug('[PokemonDetail] mount id', props.id));
-  // Load actual Pokémon first (some ids like 10150 are forms without a species id equal to props.id)
-  const [pokemon] = createResource(() => props.id, (id) => loadActualPokemonById<Pokemon>(id));
-  const speciesId = createMemo(() => {
-    const sid = idFromUrl(pokemon()?.species?.url);
-    return sid || props.id;
-  });
-  const [species] = createResource(speciesId, (id) => loadItemById('pokemon-species' as ResourceName, id));
+  const [data] = createResource(() => props.id, (id) => loadItemById<PageData>('pokemon' as ResourceName, id));
+  const pokemon = createMemo(() => data());
+  const species = createMemo(() => data()?.species);
 
-  createEffect(() => {
-    const s = species();
-    const p = pokemon();
-    console.debug('[PokemonDetail] species=', !!s, 'pokemon=', !!p, 'speciesId=', speciesId());
-  });
-
-  const types = createMemo(() => (pokemon()?.types || []).map((t: any) => ({ name: t.type?.name, id: idFromUrl(t.type?.url) })));
-  const officialArt = createMemo(() => pokemon()?.sprites?.other?.['official-artwork']?.front_default || pokemon()?.sprites?.front_default);
-  const abilities = createMemo(() => (pokemon()?.abilities || []).map((a: any) => a.ability));
-  const stats = createMemo(() => (pokemon()?.stats || []).map((s: any) => ({ name: s.stat?.name, base: s.base_stat })));
+  const types = createMemo(() => (pokemon()?.types || []).map((t: any) => ({ name: t?.name, id: t?.id })));
+  const officialArt = createMemo(() => pokemon()?.sprites?.official_artwork || pokemon()?.sprites?.front_default);
+  const abilities = createMemo(() => (pokemon()?.abilities || []));
+  const stats = createMemo(() => (pokemon()?.stats || []).map((s: any) => ({ name: s?.name, base: s?.base })));
   const locale = () => getLocale() as 'en' | 'fr' | 'jp';
   const flavorText = createMemo(() => pickFlavor(species(), locale()));
   // Locale-aware number formatter (JP uses native units: 億/万)
@@ -87,7 +77,9 @@ export default function PokemonDetail(props: { id: number }) {
   const [eggGroupNames] = createResource(() => locale(), (loc) => loadNameMap('egg-group' as any, loc as any));
   const [colorNames] = createResource(() => locale(), (loc) => loadNameMap('pokemon-color' as any, loc as any));
   const [abilityNames] = createResource(() => locale(), (loc) => loadNameMap('ability' as any, loc as any));
-  const allTypes = () => TYPE_ENTRIES;
+  const [growthRatesData] = createResource(loadGrowthRates);
+  const [typeEntries] = createResource(loadTypeEntries);
+  const allTypes = () => typeEntries() || [];
 
   function localizeTypeName(typeId?: number, fallback?: string) {
     const want = locale();
@@ -113,12 +105,11 @@ export default function PokemonDetail(props: { id: number }) {
     const _ = locale();
     const map = abilityNames() || {};
     return (pokemon()?.abilities || []).map((ab: any) => {
-      const id = idFromUrl(ab.ability?.url);
-      const label = (id && map[String(id)]) || formatName(ab.ability?.name);
-      return { id, label, hidden: ab.is_hidden };
+      const id = ab?.id;
+      const label = (id && map[String(id)]) || formatName(ab?.name);
+      return { id, label, hidden: ab?.hidden };
     });
   });
-  const growthRates = () => GROWTH_RATES;
 
   const localizedName = createMemo(() => {
     const names = species()?.names || [];
@@ -234,7 +225,7 @@ export default function PokemonDetail(props: { id: number }) {
               </div>
               <div>
                 <div class="text-gray-500 dark:text-gray-400">{t('pokemon.eggGroups')}</div>
-                <div class="font-medium">{(() => { const arr = (species()?.egg_groups || []) as any[]; const names = arr.map(g => { const id = idFromUrl(g.url); return (id && eggGroupNames()?.[String(id)]) || formatName(g.name); }); return names.join(', ') || '—'; })()}</div>
+                <div class="font-medium">{(() => { const arr = (species()?.egg_groups || []) as any[]; const names = arr.map(g => { const id = g?.id; return (id && eggGroupNames()?.[String(id)]) || formatName(g?.name); }); return names.join(', ') || '—'; })()}</div>
               </div>
               <div>
                 <div class="text-gray-500 dark:text-gray-400">{t('pokemon.eggCycles')}</div>
@@ -254,8 +245,8 @@ export default function PokemonDetail(props: { id: number }) {
               <div>
                 <div class="text-gray-500 dark:text-gray-400">{t('pokemon.expAt100')}</div>
                 <div class="font-medium">{(() => {
-                  const gid = idFromUrl(species()?.growth_rate?.url);
-                  const g = (growthRates()||[]).find((x:any)=>x.id===gid);
+                  const gid = species()?.growth_rate?.id;
+                  const g = (growthRatesData()||[]).find((x:any)=>x.id===gid);
                   const e = g?.levels?.find((l:any)=>l.level===100)?.experience;
                   const grp = gid ? growthRateNames()?.[String(gid)] : undefined;
                   if (e == null) return '—';
@@ -269,7 +260,7 @@ export default function PokemonDetail(props: { id: number }) {
               </div>
               <div>
                 <div class="text-gray-500 dark:text-gray-400">{t('pokemon.color')}</div>
-                <div class="font-medium">{(() => { const id = idFromUrl(species()?.color?.url); return (id && colorNames()?.[String(id)]) || formatName(species()?.color?.name || '—'); })()}</div>
+                <div class="font-medium">{(() => { const id = species()?.color?.id; return (id && colorNames()?.[String(id)]) || formatName(species()?.color?.name || '—'); })()}</div>
               </div>
               
             </div>

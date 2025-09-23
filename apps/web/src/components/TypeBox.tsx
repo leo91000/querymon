@@ -1,7 +1,7 @@
 import { A } from '@solidjs/router';
-import { Show, createMemo, createSignal, onCleanup, onMount } from 'solid-js';
+import { Show, createMemo, createSignal, onCleanup, onMount, createResource } from 'solid-js';
 import { getLocale } from '../i18n';
-import { TYPE_ENTRIES } from '../services/data';
+import { loadTypeEntries } from '../services/data';
 
 type Props = {
   id?: number;
@@ -13,7 +13,7 @@ type Props = {
 };
 
 export default function TypeBox(props: Props) {
-  const types = () => TYPE_ENTRIES;
+  const [types] = createResource(loadTypeEntries);
   const locale = () => getLocale() as 'en'|'fr'|'jp';
 
   // Per-type light/dark tones (tailwind v4 class-based dark)
