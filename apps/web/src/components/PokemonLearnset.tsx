@@ -314,8 +314,8 @@ export default function PokemonLearnset(props: PokemonLearnsetProps) {
                   })()}
                   <span
                     aria-hidden="true"
-                    class="ml-2 align-[-2px] text-xs"
-                    classList={{ 'icon-[ph--circle-notch-bold] animate-spin': selected() && (moveDetails as any).loading }}
+                    class="ml-2 inline-block align-[-2px] text-sm icon-[ph--circle-notch-bold] animate-spin"
+                    classList={{ invisible: !(selected() && (moveDetails as any).loading) }}
                   />
                 </button>
               );
