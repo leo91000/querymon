@@ -309,7 +309,7 @@ export default function PokemonDetail(props: { id: number }) {
             <Card>
               <Skeleton class="mb-3 h-4 w-40" />
               <div class="grid grid-cols-2 gap-3 text-sm">
-                <For each={[...Array(8).keys()]}> {() => (
+                <For each={[...Array(8).keys()]}>{() => (
                   <div>
                     <Skeleton class="mb-1 h-3 w-24" />
                     <Skeleton class="h-4 w-32" />
@@ -322,7 +322,7 @@ export default function PokemonDetail(props: { id: number }) {
               <Skeleton class="mb-3 h-4 w-40" />
               <div class="overflow-x-auto">
                 <div class="flex min-w-[260px] items-start justify-center gap-8 pb-2">
-                  <For each={[0,1,2]}> {() => (
+                  <For each={[0,1,2]}>{() => (
                     <div class="flex items-center gap-6">
                       <div class="flex min-w-[180px] flex-col items-center gap-4">
                         <Skeleton class="h-3 w-20" />
