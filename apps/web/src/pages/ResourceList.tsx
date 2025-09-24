@@ -3,13 +3,16 @@ import { For, Show, createMemo, createResource, createSignal, onCleanup, onMount
 import Card from '../components/Card';
 import Input from '../components/Input';
 import { formatName, loadList, resourceLabel, type ResourceName, loadAliases, loadNameMap } from '../services/data';
-import { t } from '../i18n';
+import { t, getLocale } from '../i18n';
 import ResourceTabs from '../components/ResourceTabs';
 import PokemonCard from '../components/PokemonCard';
 import type { Pokemon, PokemonType } from '../types/pokemon';
 
 export default function ResourceList(props: { resource: ResourceName }) {
-  const [items] = createResource(() => props.resource, loadList);
+  const [items] = createResource(
+    () => ({ res: props.resource, loc: getLocale() }),
+    (key) => loadList(key.res as ResourceName),
+  );
   const [aliases] = createResource(() => props.resource, async (r) => {
     if (!['pokemon','move','ability','type'].includes(r)) return {} as any;
     // Use prebuilt aliases only; no heavy fallbacks
