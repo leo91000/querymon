@@ -284,60 +284,6 @@ export default function PokemonDetail(props: { id: number }) {
             </div>
           </div>
         </Card>
-
-        <Show when={hasEvolution()}>
-          <Card>
-            <h3 class="mb-3 text-sm font-semibold tracking-wide text-gray-500">{t('pokemon.evolutions')}</h3>
-            <div class="overflow-x-auto">
-              <div class="flex min-w-[260px] items-start gap-8 pb-2">
-                <For each={evolutionStages()}>
-                  {(stage, idx) => (
-                    <div class="flex items-center gap-6">
-                      <div class="flex min-w-[180px] flex-col items-center gap-4">
-                        <div class="text-xs uppercase tracking-wide text-gray-400 dark:text-gray-500">
-                          {fmt(t('pokemon.evolutionStage'), { stage: idx() + 1 })}
-                        </div>
-                        <div class="flex flex-col items-center gap-4">
-                          <For each={stage}>
-                            {(entry) => {
-                              const hints = summarizeEvolutionDetails(entry.details);
-                              return (
-                                <a
-                                  href={entry.id ? `/pokemon/${entry.id}` : '#'}
-                                  class={`group relative flex w-44 flex-col items-center gap-3 rounded-2xl border border-gray-200/70 bg-white/80 p-4 shadow-sm transition hover:-translate-y-1 hover:shadow-lg dark:border-gray-700/70 dark:bg-gray-800/60 ${entry.isCurrent ? 'border-blue-400/70 ring-2 ring-blue-300/50 shadow-lg dark:ring-blue-500/40' : ''}`}
-                                >
-                                  <div class="relative flex h-28 w-28 items-center justify-center overflow-hidden rounded-full bg-gradient-to-br from-blue-100 via-sky-50 to-white shadow-inner dark:from-blue-500/20 dark:via-gray-800 dark:to-gray-900">
-                                    <Show when={entry.sprite} fallback={<span class="text-sm text-gray-400">{t('detail.loading')}</span>}>
-                                      <img src={entry.sprite} alt={entry.name} class="h-full w-full object-contain transition group-hover:scale-105" loading="lazy" />
-                                    </Show>
-                                  </div>
-                                  <div class={`text-center text-sm font-semibold ${entry.isCurrent ? 'text-blue-600 dark:text-blue-300' : 'text-gray-800 dark:text-gray-100'}`}>
-                                    {entry.name}
-                                  </div>
-                                  <Show when={hints.length > 0}>
-                                    <div class="flex flex-wrap justify-center gap-1">
-                                      <For each={hints}>{(hint) => (
-                                        <span class="rounded-full bg-blue-50 px-2 py-0.5 text-[11px] font-medium text-blue-600 dark:bg-blue-500/20 dark:text-blue-200">{hint}</span>
-                                      )}</For>
-                                    </div>
-                                  </Show>
-                                </a>
-                              );
-                            }}
-                          </For>
-                        </div>
-                      </div>
-                      <Show when={idx() < evolutionStages().length - 1}>
-                        <span class="icon-[ph--arrow-right-bold] hidden text-3xl text-gray-300 dark:text-gray-600 md:block"></span>
-                      </Show>
-                    </div>
-                  )}
-                </For>
-              </div>
-            </div>
-          </Card>
-        </Show>
-
         <div class="grid grid-cols-1 gap-6 md:grid-cols-2">
           <Card>
             <h3 class="mb-3 text-sm font-semibold tracking-wide text-gray-500">{t('pokemon.baseStats')}</h3>
@@ -428,6 +374,59 @@ export default function PokemonDetail(props: { id: number }) {
             </div>
           </Card>
         </div>
+
+        <Show when={hasEvolution()}>
+          <Card>
+            <h3 class="mb-3 text-sm font-semibold tracking-wide text-gray-500">{t('pokemon.evolutions')}</h3>
+            <div class="overflow-x-auto">
+              <div class="flex min-w-[260px] items-start gap-8 pb-2">
+                <For each={evolutionStages()}>
+                  {(stage, idx) => (
+                    <div class="flex items-center gap-6">
+                      <div class="flex min-w-[180px] flex-col items-center gap-4">
+                        <div class="text-xs uppercase tracking-wide text-gray-400 dark:text-gray-500">
+                          {fmt(t('pokemon.evolutionStage'), { stage: idx() + 1 })}
+                        </div>
+                        <div class="flex flex-col items-center gap-4">
+                          <For each={stage}>
+                            {(entry) => {
+                              const hints = summarizeEvolutionDetails(entry.details);
+                              return (
+                                <a
+                                  href={entry.id ? `/pokemon/${entry.id}` : '#'}
+                                  class={`group relative flex w-44 flex-col items-center gap-3 rounded-2xl border border-gray-200/70 bg-white/80 p-4 shadow-sm transition hover:-translate-y-1 hover:shadow-lg dark:border-gray-700/70 dark:bg-gray-800/60 ${entry.isCurrent ? 'border-blue-400/70 ring-2 ring-blue-300/50 shadow-lg dark:ring-blue-500/40' : ''}`}
+                                >
+                                  <div class="relative flex h-28 w-28 items-center justify-center overflow-hidden rounded-full bg-gradient-to-br from-blue-100 via-sky-50 to-white shadow-inner dark:from-blue-500/20 dark:via-gray-800 dark:to-gray-900">
+                                    <Show when={entry.sprite} fallback={<span class="text-sm text-gray-400">{t('detail.loading')}</span>}>
+                                      <img src={entry.sprite} alt={entry.name} class="h-full w-full object-contain transition group-hover:scale-105" loading="lazy" />
+                                    </Show>
+                                  </div>
+                                  <div class={`text-center text-sm font-semibold ${entry.isCurrent ? 'text-blue-600 dark:text-blue-300' : 'text-gray-800 dark:text-gray-100'}`}>
+                                    {entry.name}
+                                  </div>
+                                  <Show when={hints.length > 0}>
+                                    <div class="flex flex-wrap justify-center gap-1">
+                                      <For each={hints}>{(hint) => (
+                                        <span class="rounded-full bg-blue-50 px-2 py-0.5 text-[11px] font-medium text-blue-600 dark:bg-blue-500/20 dark:text-blue-200">{hint}</span>
+                                      )}</For>
+                                    </div>
+                                  </Show>
+                                </a>
+                              );
+                            }}
+                          </For>
+                        </div>
+                      </div>
+                      <Show when={idx() < evolutionStages().length - 1}>
+                        <span class="icon-[ph--arrow-right-bold] hidden text-3xl text-gray-300 dark:text-gray-600 md:block"></span>
+                      </Show>
+                    </div>
+                  )}
+                </For>
+              </div>
+            </div>
+          </Card>
+        </Show>
       </Show>
     </div>
   );
