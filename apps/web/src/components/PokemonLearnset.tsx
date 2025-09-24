@@ -274,8 +274,7 @@ export default function PokemonLearnset(props: PokemonLearnsetProps) {
     if (!gen) return;
     setOpenMethods((prev) => {
       const cur = prev[gen] || {};
-      const willClose = !!cur[method];
-      const next: Partial<Record<MethodKey, boolean>> = willClose ? {} : ({ [method]: true } as any);
+      const next: Partial<Record<MethodKey, boolean>> = { ...cur, [method]: !cur[method] };
       return { ...prev, [gen]: next };
     });
   };
