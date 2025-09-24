@@ -5,7 +5,7 @@
   "type": "module",
   "scripts": {
     "tauri": "tauri",
-    "dev": "tauri dev",
+    "dev": "node ./scripts/dev.mjs",
     "build": "tauri build"
   },
   "devDependencies": {
@@ -15,4 +15,3 @@
     "@tauri-apps/api": "^2.0.3"
   }
 }
-
