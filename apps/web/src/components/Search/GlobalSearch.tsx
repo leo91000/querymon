@@ -3,7 +3,7 @@ import { useNavigate } from '@solidjs/router';
 import { resourceLabel, type ResourceName, loadSearchIndex } from '../../services/data';
 import { t, getLocale } from '../../i18n';
 
-type Entry = { resource: string; id: number | null; name: string; path: string };
+type Entry = { resource: string; id: number | null; name: string; path: string; aliases?: string[] };
 
 async function loadIndex(loc: string): Promise<Entry[]> {
   return loadSearchIndex(loc as any) as unknown as Entry[];
@@ -29,35 +29,52 @@ export default function GlobalSearch() {
       .trim();
   }
 
-  function matchScore(text: string, term: string): number {
+  function matchRank(text: string, term: string): number {
     const t = normalize(text);
-    if (t === term) return 3;
-    if (t.startsWith(term)) return 2;
-    if (t.includes(term)) return 1;
-    return 0;
+    if (!t || !term) return 0;
+    if (t === term) return 3; // exact
+    if (t.startsWith(term)) return 2; // prefix
+    if (t.includes(term)) return 1; // substring
+    return 0; // no match
   }
 
-  function scoreEntry(e: any, term: string): number {
-    let s = matchScore(e.name || '', term);
-    const aliases = Array.isArray(e.aliases) ? e.aliases : [];
-    for (const a of aliases) {
-      const ms = matchScore(a, term);
-      if (ms > 0) s = Math.max(s, ms + 0.25); // boost only when alias matches
+  function resourcePriority(resource: string): number {
+    // Prefer Pokémon over others in ties, then moves, abilities, types
+    switch (resource) {
+      case 'pokemon': return 3;
+      case 'move': return 2;
+      case 'ability': return 1;
+      default: return 0; // type or unknown
     }
-    const rw = e.resource === 'type' ? 1.2 : e.resource === 'move' ? 1.1 : e.resource === 'ability' ? 1.05 : 1;
-    return s * rw;
   }
 
   const results = createMemo(() => {
     const term = normalize(q());
     const list = entries() || [];
     if (!term) return [] as Entry[];
-    const scored: Array<{ e: Entry; s: number }> = [];
-    for (const e of list) {
-      const s = scoreEntry(e as any, term);
-      if (s > 0) scored.push({ e, s });
+    const scored: Array<{ e: Entry; nameRank: number; aliasRank: number; prio: number }> = [];
+    for (const e of list as Entry[]) {
+      const nameRank = matchRank(e.name || '', term);
+      const aliases = Array.isArray(e.aliases) ? e.aliases : [];
+      let aliasRank = 0;
+      for (const a of aliases) aliasRank = Math.max(aliasRank, matchRank(a, term));
+      // Skip entries with no signal at all
+      const signal = Math.max(nameRank, aliasRank);
+      if (signal === 0) continue;
+      scored.push({ e, nameRank, aliasRank, prio: resourcePriority(e.resource) });
     }
-    scored.sort((a, b) => b.s - a.s || (a.e.name || '').length - (b.e.name || '').length || (a.e.id ?? 0) - (b.e.id ?? 0));
+    scored.sort((a, b) =>
+      // 1) Prefer current-locale name matches first
+      b.nameRank - a.nameRank ||
+      // 2) Then consider aliases (cross-locale, nicknames)
+      b.aliasRank - a.aliasRank ||
+      // 3) Prefer Pokémon in ties
+      b.prio - a.prio ||
+      // 4) Prefer lower Pokédex id (classic expectation)
+      (a.e.id ?? Number.MAX_SAFE_INTEGER) - (b.e.id ?? Number.MAX_SAFE_INTEGER) ||
+      // 5) Finally, shorter name is a tiny tiebreaker
+      (a.e.name || '').length - (b.e.name || '').length
+    );
     return scored.slice(0, 20).map((x) => x.e);
   });
 
