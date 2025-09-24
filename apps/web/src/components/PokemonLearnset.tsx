@@ -21,7 +21,7 @@ type LearnsetEntry = {
   accuracy: number | null;
   pp: number | null;
   level: number | null;
-  versionGroup: string;
+  versionGroups: string[]; // merged across version groups within the same generation
 };
 
 const METHOD_MAP: Record<string, MethodKey> = {
@@ -171,7 +171,9 @@ export default function PokemonLearnset(props: PokemonLearnsetProps) {
         const methodMap = generationEntry.methods.get(mappedMethod) ?? new Map<string, LearnsetEntry>();
         generationEntry.methods.set(mappedMethod, methodMap);
 
-        const key = `${vgName}::${moveId ?? localizedName}`;
+        // De-duplicate the same move across version groups inside a generation.
+        // Key by move (id or localized name) within method.
+        const key = `${moveId ?? localizedName}`;
         if (!methodMap.has(key)) {
           methodMap.set(key, {
             moveId,
@@ -182,7 +184,7 @@ export default function PokemonLearnset(props: PokemonLearnsetProps) {
             accuracy: detail?.accuracy ?? null,
             pp: detail?.pp ?? null,
             level: mappedMethod === 'level-up' ? vg?.level_learned_at ?? null : null,
-            versionGroup: vgName,
+            versionGroups: vgName ? [vgName] : [],
           });
         } else {
           const existing = methodMap.get(key)!;
@@ -192,6 +194,7 @@ export default function PokemonLearnset(props: PokemonLearnsetProps) {
               existing.level = level;
             }
           }
+          if (vgName && !existing.versionGroups.includes(vgName)) existing.versionGroups.push(vgName);
         }
       }
     }
@@ -335,7 +338,9 @@ export default function PokemonLearnset(props: PokemonLearnsetProps) {
                                 const damageClassKey = entry.damageClass ? `move.damageClass.${entry.damageClass}` : undefined;
                                 const categoryLabel = damageClassKey ? t(damageClassKey) : '—';
                                 const levelLabel = entry.level != null && entry.level > 0 ? `N.${entry.level}` : t('learnset.levelStart');
-                                const versionLabel = formatName(entry.versionGroup);
+                                const versionLabel = entry.versionGroups && entry.versionGroups.length
+                                  ? entry.versionGroups.map((v) => formatName(v)).join(', ')
+                                  : '—';
                                 return (
                                   <tr class="text-gray-700 dark:text-gray-200">
                                     <td class="px-3 py-2">
