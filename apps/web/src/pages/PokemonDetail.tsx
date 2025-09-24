@@ -279,7 +279,7 @@ export default function PokemonDetail(props: { id: number }) {
                 </div>
                 <div class="rounded-lg border border-gray-200 p-3 text-sm dark:border-gray-700">
                   <div class="flex items-center gap-2 text-gray-500 dark:text-gray-400"><span class="icon-[ph--target] text-blue-600 dark:text-blue-400"></span> {t('pokemon.captureRate')}</div>
-                  <div class="text-lg font-semibold">{species()?.capture_rate ?? '—'}</div>
+                  <div class="text-lg font-semibold">{speciesData()?.capture_rate ?? '—'}</div>
                 </div>
               </div>
 
@@ -297,7 +297,7 @@ export default function PokemonDetail(props: { id: number }) {
 
             <div class="relative flex items-center justify-center bg-gradient-to-br from-gray-50 to-gray-100 p-6 dark:from-gray-800 dark:to-gray-900">
               <Show when={officialArt()} fallback={<div class="h-56 w-56 animate-pulse rounded-lg bg-gray-200 dark:bg-gray-700" />}> 
-                <img src={officialArt()!} alt={species()?.name} class="h-64 w-64 object-contain drop-shadow-[0_8px_12px_rgba(0,0,0,0.25)]" loading="lazy" />
+                <img src={officialArt()!} alt={speciesData()?.name} class="h-64 w-64 object-contain drop-shadow-[0_8px_12px_rgba(0,0,0,0.25)]" loading="lazy" />
               </Show>
             </div>
           </div>
@@ -326,7 +326,7 @@ export default function PokemonDetail(props: { id: number }) {
               <div>
                 <div class="text-gray-500 dark:text-gray-400">{t('pokemon.category')}</div>
                 <div class="font-medium">{(() => {
-                  const gens = species()?.genera || [];
+                  const gens = speciesData()?.genera || [];
                   const map = { en: 'en', fr: 'fr', jp: 'ja' } as const;
                   const want = map[locale()] || 'en';
                   return gens.find((g:any)=>g.language?.name===want)?.genus || gens.find((g:any)=>g.language?.name==='en')?.genus || '—';
