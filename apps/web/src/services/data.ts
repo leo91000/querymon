@@ -40,20 +40,23 @@ export async function loadItemById<T = any>(resource: ResourceName, id: number):
     }
     return item;
   } catch {}
-  // Special-case: UI pokemon previously aliased to species; try species folder too
-  if (resource === 'pokemon') {
-    try { return await fetchJSON<T>(`${BASE}/pokemon-species/${id}.json`); } catch {}
-  }
+
   // Legacy aggregated fallback: use idmap -> shard -> scan
   try {
     const idmap = await fetchJSON<Record<string, string>>(`${BASE}/${resource}.idmap.json`);
     const file = idmap[String(id)];
-    if (!file) return undefined;
-    const arr = await fetchJSON<T[]>(`${BASE}/${file}`);
-    for (const item of arr) {
-      if ((item as any).id === id) return item;
+    if (file) {
+      const arr = await fetchJSON<T[]>(`${BASE}/${file}`);
+      for (const item of arr) {
+        if ((item as any).id === id) return item;
+      }
     }
   } catch {}
+
+  // Special-case: UI pokemon previously aliased to species; try species folder too
+  if (resource === 'pokemon') {
+    try { return await fetchJSON<T>(`${BASE}/pokemon-species/${id}.json`); } catch {}
+  }
   return undefined;
 }
 
