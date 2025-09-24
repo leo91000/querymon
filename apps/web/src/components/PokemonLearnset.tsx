@@ -102,6 +102,7 @@ function idFromUrl(url?: string | null) {
 
 export default function PokemonLearnset(props: PokemonLearnsetProps) {
   const [openGeneration, setOpenGeneration] = createSignal<GenerationSlug | null>(null);
+  const [openMethods, setOpenMethods] = createSignal<Record<string, Partial<Record<MethodKey, boolean>>>>({});
   const moveIdList = createMemo(() => {
     const set = new Set<number>();
     for (const entry of props.moves || []) {
@@ -229,6 +230,31 @@ export default function PokemonLearnset(props: PokemonLearnsetProps) {
             createEffect(recalc);
             createEffect(() => { void moveDetails(); recalc(); });
 
+            // Initialize per-generation method state when opening: default Level-up open
+            createEffect(() => {
+              if (isOpen()) {
+                setOpenMethods((prev) => ({
+                  ...prev,
+                  [section.generation]: {
+                    'level-up': true,
+                    machine: false,
+                    tutor: false,
+                    egg: false,
+                    special: false,
+                    ...(prev[section.generation] || {}),
+                  },
+                }));
+              }
+            });
+
+            const isMethodOpen = (method: MethodKey) => !!openMethods()[section.generation]?.[method];
+            const toggleMethod = (method: MethodKey) => {
+              setOpenMethods((prev) => {
+                const cur = prev[section.generation] || {};
+                return { ...prev, [section.generation]: { ...cur, [method]: !cur[method] } };
+              });
+            };
+
             return (
             <div class="rounded-2xl border border-gray-200 bg-white p-6 shadow-sm dark:border-gray-700 dark:bg-gray-900/60">
               <div class="mb-4 flex items-center justify-between">
@@ -252,12 +278,35 @@ export default function PokemonLearnset(props: PokemonLearnsetProps) {
                 style={{ 'max-height': maxH(), opacity: isOpen() ? 1 : 0 }}
               >
                 <For each={section.entries}>
-                  {(methodSection) => (
+                  {(methodSection) => {
+                    const method = methodSection.method as MethodKey;
+                    const methodOpen = () => isMethodOpen(method);
+                    let methodRef: HTMLDivElement | undefined;
+                    const [mh, setMh] = createSignal('0px');
+                    const recalcM = () => {
+                      if (methodOpen()) queueMicrotask(() => setMh(`${methodRef?.scrollHeight ?? 0}px`));
+                      else setMh('0px');
+                    };
+                    createEffect(recalcM);
+                    return (
                     <div class="space-y-3">
-                      <div class="text-sm font-semibold uppercase tracking-wide text-blue-600 dark:text-blue-300">{t(METHOD_LABEL_KEY[methodSection.method])}</div>
-                      <div class="overflow-x-auto">
-                        <table class="min-w-full divide-y divide-gray-200 text-sm dark:divide-gray-700">
-                          <thead>
+                      <div class="flex items-center justify-between">
+                        <div class="text-sm font-semibold uppercase tracking-wide text-blue-600 dark:text-blue-300">{t(METHOD_LABEL_KEY[method])}</div>
+                        <button
+                          type="button"
+                          onClick={() => toggleMethod(method)}
+                          aria-expanded={methodOpen()}
+                          class="inline-flex items-center gap-2 rounded-full border border-blue-200 px-2 py-0.5 text-[11px] font-semibold uppercase tracking-wide text-blue-600 transition hover:bg-blue-50 dark:border-blue-500/40 dark:text-blue-300 dark:hover:bg-blue-500/10"
+                        >
+                          <span aria-hidden="true" class="icon-[ph--caret-down-bold] text-sm" classList={{ hidden: methodOpen() }} />
+                          <span aria-hidden="true" class="icon-[ph--caret-up-bold] text-sm" classList={{ hidden: !methodOpen() }} />
+                          {methodOpen() ? t('common.hide') : t('common.show')}
+                        </button>
+                      </div>
+                      <div ref={(el) => (methodRef = el as HTMLDivElement)} class="overflow-hidden transition-all duration-300 ease-in-out" style={{ 'max-height': mh(), opacity: methodOpen() ? 1 : 0 }}>
+                        <div class="overflow-x-auto">
+                          <table class="min-w-full divide-y divide-gray-200 text-sm dark:divide-gray-700">
+                            <thead>
                             <tr class="bg-gray-50 text-xs uppercase tracking-wide text-gray-500 dark:bg-gray-800 dark:text-gray-400">
                               <th class="px-3 py-2 text-left">{t('learnset.columns.move')}</th>
                               <th class="px-3 py-2 text-left">{t('learnset.columns.type')}</th>
@@ -307,9 +356,10 @@ export default function PokemonLearnset(props: PokemonLearnsetProps) {
                             </For>
                           </tbody>
                         </table>
+                        </div>
                       </div>
                     </div>
-                  )}
+                  );}}
                 </For>
               </div>
             </div>
