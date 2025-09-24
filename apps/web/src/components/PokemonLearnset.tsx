@@ -217,25 +217,6 @@ export default function PokemonLearnset(props: PokemonLearnsetProps) {
             const isOpen = () => openGeneration() === section.generation;
             const toggle = () => setOpenGeneration(isOpen() ? null : section.generation);
             const contentId = `learnset-${section.generation}`;
-            let contentRef: HTMLDivElement | undefined;
-            const [maxH, setMaxH] = createSignal('0px');
-
-            const recalc = () => {
-              if (isOpen()) {
-                queueMicrotask(() => setMaxH(`${contentRef?.scrollHeight ?? 0}px`));
-              } else {
-                setMaxH('0px');
-              }
-            };
-            createEffect(recalc);
-            createEffect(() => { void moveDetails(); recalc(); });
-            // Recompute container height whenever methods open/close within this generation
-            createEffect(() => {
-              // stringify to create a stable dependency on the per-generation open state
-              const dep = JSON.stringify(openMethods()[section.generation] || {});
-              void dep;
-              recalc();
-            });
 
             // Initialize per-generation method state when opening: default Level-up open
             createEffect(() => {
@@ -258,7 +239,9 @@ export default function PokemonLearnset(props: PokemonLearnsetProps) {
             const toggleMethod = (method: MethodKey) => {
               setOpenMethods((prev) => {
                 const cur = prev[section.generation] || {};
-                return { ...prev, [section.generation]: { ...cur, [method]: !cur[method] } };
+                const willClose = !!cur[method];
+                const next: Partial<Record<MethodKey, boolean>> = willClose ? {} : { [method]: true } as any;
+                return { ...prev, [section.generation]: next };
               });
             };
 
@@ -273,17 +256,14 @@ export default function PokemonLearnset(props: PokemonLearnsetProps) {
                   aria-controls={contentId}
                   class="inline-flex items-center gap-2 rounded-full border border-gray-200 px-3 py-1 text-xs font-semibold uppercase tracking-wide text-gray-500 transition hover:bg-gray-100 dark:border-gray-700 dark:text-gray-300 dark:hover:bg-gray-800"
                 >
+                  <span aria-hidden="true" class="icon-[ph--circle-notch-bold] text-sm animate-spin" classList={{ hidden: !(isOpen() && (moveDetails as any).loading) }} />
                   <span aria-hidden="true" class="icon-[ph--caret-down-bold] text-sm" classList={{ hidden: isOpen() }} />
                   <span aria-hidden="true" class="icon-[ph--caret-up-bold] text-sm" classList={{ hidden: !isOpen() }} />
                   {isOpen() ? t('common.hide') : t('common.show')}
                 </button>
               </div>
-              <div
-                id={contentId}
-                ref={(el) => (contentRef = el as HTMLDivElement)}
-                class="space-y-6 overflow-hidden transition-all duration-300 ease-in-out"
-                style={{ 'max-height': maxH(), opacity: isOpen() ? 1 : 0 }}
-              >
+              <Show when={isOpen()}>
+              <div id={contentId} class="space-y-6">
                 <For each={section.entries}>
                   {(methodSection) => {
                     const method = methodSection.method as MethodKey;
@@ -369,6 +349,7 @@ export default function PokemonLearnset(props: PokemonLearnsetProps) {
                   );}}
                 </For>
               </div>
+              </Show>
             </div>
           );
           }}
