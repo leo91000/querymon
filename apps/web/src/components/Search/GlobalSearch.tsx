@@ -12,8 +12,10 @@ async function loadIndex(loc: string): Promise<Entry[]> {
 export default function GlobalSearch() {
   const [open, setOpen] = createSignal(false);
   const [q, setQ] = createSignal('');
+  const [shortcutLabel, setShortcutLabel] = createSignal('Ctrl K');
   const [entries] = createResource(() => getLocale(), (loc) => loadIndex(loc));
   const nav = useNavigate();
+  let rootRef: HTMLDivElement | undefined;
   let inputRef: HTMLInputElement | undefined;
   let listRef: HTMLUListElement | undefined;
   const [active, setActive] = createSignal(0);
@@ -69,8 +71,25 @@ export default function GlobalSearch() {
     }
     if (e.key === 'Escape') setOpen(false);
   }
-  onMount(() => window.addEventListener('keydown', onKey));
-  onCleanup(() => window.removeEventListener('keydown', onKey));
+  function onPointerDown(e: PointerEvent) {
+    const target = e.target as Node | null;
+    if (!rootRef || !target) return;
+    if (!rootRef.contains(target)) setOpen(false);
+  }
+  onMount(() => {
+    window.addEventListener('keydown', onKey);
+    window.addEventListener('pointerdown', onPointerDown);
+    if (typeof navigator !== 'undefined') {
+      const platform = (navigator as any).userAgentData?.platform || navigator.platform || '';
+      const ua = navigator.userAgent || '';
+      const isApple = /mac|iphone|ipad|ipod/i.test(platform) || /mac os x/i.test(ua);
+      setShortcutLabel(isApple ? '⌘ K' : 'Ctrl K');
+    }
+  });
+  onCleanup(() => {
+    window.removeEventListener('keydown', onKey);
+    window.removeEventListener('pointerdown', onPointerDown);
+  });
 
   // Reset active index when results change
   createEffect(() => {
@@ -85,11 +104,11 @@ export default function GlobalSearch() {
   });
 
   return (
-    <div class="relative w-full max-w-xl">
+    <div ref={(el) => (rootRef = el as HTMLDivElement)} class="relative w-full max-w-xl">
       <input
         type="search"
         placeholder={t('search.placeholder')}
-        class="h-11 w-full rounded-md border border-gray-300 bg-white px-4 text-base shadow-sm outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20 dark:border-gray-700 dark:bg-gray-900 dark:text-gray-100"
+        class="h-11 w-full rounded-md border border-gray-300 bg-white px-4 pr-16 text-base shadow-sm outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20 dark:border-gray-700 dark:bg-gray-900 dark:text-gray-100"
         value={q()}
         ref={(el) => (inputRef = el as HTMLInputElement)}
         onInput={(e) => { setQ(e.currentTarget.value); setOpen(true); }}
@@ -112,6 +131,12 @@ export default function GlobalSearch() {
           }
         }}
       />
+      <span
+        aria-hidden="true"
+        class="pointer-events-none absolute right-3 top-1/2 -translate-y-1/2 select-none rounded border border-gray-200 bg-gray-100 px-2 py-0.5 text-xs font-medium text-gray-500 shadow-sm dark:border-gray-700 dark:bg-gray-800 dark:text-gray-300"
+      >
+        {shortcutLabel()}
+      </span>
       {open() && results().length > 0 && (
         <div class="absolute z-20 mt-1 w-full overflow-hidden rounded-md border border-gray-200 bg-white shadow-lg dark:border-gray-700 dark:bg-gray-800">
           <ul ref={(el) => (listRef = el as HTMLUListElement)} class="max-h-80 divide-y divide-gray-100 overflow-auto dark:divide-gray-700" role="listbox">
