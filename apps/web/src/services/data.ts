@@ -33,7 +33,13 @@ export async function loadIdMap(resource: ResourceName): Promise<Record<string, 
 export async function loadItemById<T = any>(resource: ResourceName, id: number): Promise<T | undefined> {
   // New per-item layout first
   const direct = `${BASE}/${resource}/${id}.json`;
-  try { return await fetchJSON<T>(direct); } catch {}
+  try {
+    const item = await fetchJSON<T>(direct);
+    if (resource === 'pokemon' && item && typeof item === 'object' && !('moves' in (item as any))) {
+      throw new Error('trimmed pokemon payload');
+    }
+    return item;
+  } catch {}
   // Special-case: UI pokemon previously aliased to species; try species folder too
   if (resource === 'pokemon') {
     try { return await fetchJSON<T>(`${BASE}/pokemon-species/${id}.json`); } catch {}
