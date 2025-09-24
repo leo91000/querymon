@@ -249,12 +249,12 @@ export default function PokemonDetail(props: { id: number }) {
       const jaHrkt = names.find((n: any) => n.language?.name === 'ja-Hrkt')?.name;
       if (jaHrkt) return jaHrkt;
     }
-    return names.find((n: any) => n.language?.name === want)?.name || species()?.name;
+    return names.find((n: any) => n.language?.name === want)?.name || speciesData()?.name;
   });
 
   return (
     <div class="space-y-6">
-      <Show when={pokemon() || species()} fallback={<div class="text-gray-500">{t('detail.loading')}</div>}>
+      <Show when={pokemon() || speciesData()} fallback={<div class="text-gray-500">{t('detail.loading')}</div>}>
         <Card class="overflow-hidden p-0">
           <div class="grid grid-cols-1 md:grid-cols-[1fr_320px]">
             <div class="p-6">
