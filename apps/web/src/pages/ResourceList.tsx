@@ -46,7 +46,21 @@ export default function ResourceList(props: { resource: ResourceName }) {
       <div class="flex items-end justify-between gap-4">
         <h2 class="text-xl font-semibold">{resourceLabel(props.resource)}</h2>
         <div class="w-72">
-          <Input id="filter" placeholder={t('list.filter', { name: resourceLabel(props.resource) })} value={q()} onInput={(e) => setQ(e.currentTarget.value)} />
+          {(() => {
+            const ph = (() => {
+              const base = t('list.filter') as unknown as string;
+              const name = resourceLabel(props.resource);
+              return typeof base === 'string' ? base.replace('{name}', name) : name;
+            })();
+            return (
+              <Input
+                id="filter"
+                placeholder={ph}
+                value={q()}
+                onInput={(e) => setQ(e.currentTarget.value)}
+              />
+            );
+          })()}
         </div>
       </div>
       <Show when={props.resource === 'pokemon'} fallback={
