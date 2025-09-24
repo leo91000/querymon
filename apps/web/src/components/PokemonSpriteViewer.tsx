@@ -203,22 +203,24 @@ export default function PokemonSpriteViewer(props: Props) {
         )}</For>
       </div>
 
-      <div class="w-full pt-1">
-        <DropdownSelect
-          id="sprite-gen"
-          value={selectedGen()}
-          options={generationOptions()}
-          srLabel="Sprite generation"
-          onChange={(next) => {
-            const gen = next as GenerationSlug;
-            setSelectedGen(gen);
-            const list = variantsByGen().get(gen) || [];
-            const pick = list.find((v) => v.key === selectedVariant()) || list[0];
-            setSelectedVariant(pick?.key || '');
-          }}
-          align="right"
-        />
-      </div>
+      <Show when={(generationOptions().length > 1)}>
+        <div class="w-full pt-1">
+          <DropdownSelect
+            id="sprite-gen"
+            value={selectedGen()}
+            options={generationOptions()}
+            srLabel="Sprite generation"
+            onChange={(next) => {
+              const gen = next as GenerationSlug;
+              setSelectedGen(gen);
+              const list = variantsByGen().get(gen) || [];
+              const pick = list.find((v) => v.key === selectedVariant()) || list[0];
+              setSelectedVariant(pick?.key || '');
+            }}
+            align="right"
+          />
+        </div>
+      </Show>
     </div>
   );
 }
