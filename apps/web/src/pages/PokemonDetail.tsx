@@ -1,6 +1,7 @@
 import Card from '../components/Card';
 import Badge from '../components/Badge';
 import TypeBox from '../components/TypeBox';
+import PokemonLearnset from '../components/PokemonLearnset';
 import { Show, For, createMemo, createResource, onMount } from 'solid-js';
 import { formatName, loadItemById, loadTypeEntries, loadGrowthRates } from '../services/data';
 import type { ResourceName } from '../services/data';
@@ -78,6 +79,7 @@ export default function PokemonDetail(props: { id: number }) {
   const [eggGroupNames] = createResource(() => locale(), (loc) => loadNameMap('egg-group' as any, loc as any));
   const [colorNames] = createResource(() => locale(), (loc) => loadNameMap('pokemon-color' as any, loc as any));
   const [abilityNames] = createResource(() => locale(), (loc) => loadNameMap('ability' as any, loc as any));
+  const [moveNames] = createResource(() => locale(), (loc) => loadNameMap('move', loc as any));
   const [growthRatesData] = createResource(loadGrowthRates);
   const [typeEntries] = createResource(loadTypeEntries);
   const [pokemonNames] = createResource(() => locale(), (loc) => loadNameMap('pokemon', loc as any));
@@ -428,6 +430,13 @@ export default function PokemonDetail(props: { id: number }) {
             </div>
           </Card>
         </Show>
+
+        <PokemonLearnset
+          pokemonId={props.id}
+          moves={pokemon()?.moves}
+          locale={locale()}
+          moveNames={moveNames()}
+        />
       </Show>
     </div>
   );
