@@ -339,7 +339,11 @@ export default function PokemonLearnset(props: PokemonLearnsetProps) {
                                 const categoryLabel = damageClassKey ? t(damageClassKey) : '—';
                                 const levelLabel = entry.level != null && entry.level > 0 ? `N.${entry.level}` : t('learnset.levelStart');
                                 const versionLabel = entry.versionGroups && entry.versionGroups.length
-                                  ? entry.versionGroups.map((v) => formatName(v)).join(', ')
+                                  ? entry.versionGroups.map((v) => {
+                                      const key = `versionGroupName.${v}`;
+                                      const translated = t(key as any) as string;
+                                      return translated && translated !== key ? translated : formatName(v);
+                                    }).join(', ')
                                   : '—';
                                 return (
                                   <tr class="text-gray-700 dark:text-gray-200">
