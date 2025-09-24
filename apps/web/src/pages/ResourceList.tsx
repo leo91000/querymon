@@ -68,11 +68,14 @@ export default function ResourceList(props: { resource: ResourceName }) {
       </div>
       <Show when={props.resource === 'pokemon'} fallback={
         <Card>
-          <ul class="divide-y divide-gray-100">
+          <ul class="divide-y divide-gray-100 dark:divide-gray-700">
             <For each={filtered()}>
               {(it) => (
                 <li>
-                  <A href={`/${props.resource}/${it.id}`} class="flex items-center justify-between px-3 py-2 hover:bg-gray-50">
+                  <A
+                    href={`/${props.resource}/${it.id}`}
+                    class="flex items-center justify-between px-3 py-2 hover:bg-gray-50 dark:hover:bg-gray-700/60"
+                  >
                     <span class="truncate"><span class="font-medium">{formatName(it.name)}</span> <span class="text-gray-500">#{it.id}</span></span>
                     <span class="text-gray-300">→</span>
                   </A>
