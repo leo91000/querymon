@@ -1,7 +1,7 @@
 import Card from '../components/Card';
 import Badge from '../components/Badge';
 import TypeBox from '../components/TypeBox';
-import { Show, For, createMemo, createResource, onMount, createEffect } from 'solid-js';
+import { Show, For, createMemo, createResource, onMount } from 'solid-js';
 import { formatName, loadItemById, loadTypeEntries, loadGrowthRates } from '../services/data';
 import type { ResourceName } from '../services/data';
 import { t, getLocale } from '../i18n';
@@ -37,6 +37,7 @@ function pickFlavor(species: Species, lang: 'en'|'fr'|'jp') {
 export default function PokemonDetail(props: { id: number }) {
   onMount(() => console.debug('[PokemonDetail] mount id', props.id));
   const [data] = createResource(() => props.id, (id) => loadItemById<PageData>('pokemon' as ResourceName, id));
+  const [speciesFull] = createResource(() => props.id, (id) => loadItemById('pokemon-species' as ResourceName, id));
   const pokemon = createMemo(() => data());
   const species = createMemo(() => data()?.species);
 
@@ -79,7 +80,115 @@ export default function PokemonDetail(props: { id: number }) {
   const [abilityNames] = createResource(() => locale(), (loc) => loadNameMap('ability' as any, loc as any));
   const [growthRatesData] = createResource(loadGrowthRates);
   const [typeEntries] = createResource(loadTypeEntries);
+  const [pokemonNames] = createResource(() => locale(), (loc) => loadNameMap('pokemon', loc as any));
   const allTypes = () => typeEntries() || [];
+
+  const chainId = createMemo(() => {
+    const url = speciesFull()?.evolution_chain?.url;
+    const match = typeof url === 'string' ? url.match(/\/(\d+)\/?$/) : undefined;
+    return match ? Number(match[1]) : undefined;
+  });
+
+  const [evolutionChain] = createResource(chainId, (id) => (id ? loadItemById('evolution-chain' as ResourceName, id) : undefined));
+
+  type EvolutionStageEntry = {
+    id?: number;
+    name: string;
+    sprite: string;
+    isCurrent: boolean;
+    details: any[];
+  };
+
+  function buildEvolutionStages() {
+    const chain = evolutionChain()?.chain;
+    if (!chain) return [] as EvolutionStageEntry[][];
+    const stages: EvolutionStageEntry[][] = [];
+    const namesMap = pokemonNames() || {};
+
+    const visit = (node: any, stageIndex: number) => {
+      const speciesUrl = node?.species?.url as string | undefined;
+      const speciesId = speciesUrl ? idFromUrl(speciesUrl) : undefined;
+      const localizedName = speciesId != null && namesMap[String(speciesId)]
+        ? namesMap[String(speciesId)]
+        : formatName(node?.species?.name || '');
+
+      if (!stages[stageIndex]) stages[stageIndex] = [];
+
+      stages[stageIndex].push({
+        id: speciesId,
+        name: localizedName,
+        sprite: speciesId ? `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${speciesId}.png` : '',
+        isCurrent: speciesId === props.id,
+        details: Array.isArray(node?.evolution_details) ? node.evolution_details : [],
+      });
+
+      for (const child of node?.evolves_to || []) {
+        visit(child, stageIndex + 1);
+      }
+    };
+
+    visit(chain, 0);
+    return stages;
+  }
+
+  const evolutionStages = createMemo(buildEvolutionStages);
+  const hasEvolution = createMemo(() => {
+    const stages = evolutionStages();
+    if (!stages || stages.length === 0) return false;
+    if (stages.length > 1) return true;
+    return (stages[0]?.length || 0) > 1;
+  });
+
+  function summarizeEvolutionDetails(details: any[]): string[] {
+    if (!Array.isArray(details) || details.length === 0) return [];
+    const source = details[0] || {};
+    const labels: string[] = [];
+    if (source.min_level != null) {
+      labels.push(fmt(t('evolution.level'), { level: source.min_level }));
+    }
+    if (source.trigger?.name === 'trade') {
+      labels.push(t('evolution.trade'));
+    }
+    if (source.item?.name) {
+      labels.push(fmt(t('evolution.item'), { item: formatName(source.item.name) }));
+    }
+    if (source.held_item?.name) {
+      labels.push(fmt(t('evolution.heldItem'), { item: formatName(source.held_item.name) }));
+    }
+    if (source.time_of_day) {
+      labels.push(fmt(t('evolution.time'), { time: formatName(source.time_of_day) }));
+    }
+    if (source.location?.name) {
+      labels.push(fmt(t('evolution.location'), { location: formatName(source.location.name) }));
+    }
+    if (source.min_happiness != null) {
+      labels.push(fmt(t('evolution.happiness'), { value: source.min_happiness }));
+    }
+    if (source.min_affection != null) {
+      labels.push(fmt(t('evolution.affection'), { value: source.min_affection }));
+    }
+    if (source.min_beauty != null) {
+      labels.push(fmt(t('evolution.beauty'), { value: source.min_beauty }));
+    }
+    if (source.gender === 1) labels.push(t('evolution.genderFemale'));
+    if (source.gender === 2) labels.push(t('evolution.genderMale'));
+    if (source.known_move?.name) {
+      labels.push(fmt(t('evolution.move'), { move: formatName(source.known_move.name) }));
+    }
+    if (source.known_move_type?.name) {
+      labels.push(fmt(t('evolution.moveType'), { type: formatName(source.known_move_type.name) }));
+    }
+    if (source.trade_species?.name) {
+      labels.push(fmt(t('evolution.tradeFor'), { pokemon: formatName(source.trade_species.name) }));
+    }
+    if (source.needs_overworld_rain) {
+      labels.push(t('evolution.rain'));
+    }
+    if (source.turn_upside_down) {
+      labels.push(t('evolution.turnUpsideDown'));
+    }
+    return labels;
+  }
 
   function localizeTypeName(typeId?: number, fallback?: string) {
     const want = locale();
@@ -175,6 +284,59 @@ export default function PokemonDetail(props: { id: number }) {
             </div>
           </div>
         </Card>
+
+        <Show when={hasEvolution()}>
+          <Card>
+            <h3 class="mb-3 text-sm font-semibold tracking-wide text-gray-500">{t('pokemon.evolutions')}</h3>
+            <div class="overflow-x-auto">
+              <div class="flex min-w-[260px] items-start gap-8 pb-2">
+                <For each={evolutionStages()}>
+                  {(stage, idx) => (
+                    <div class="flex items-center gap-6">
+                      <div class="flex min-w-[180px] flex-col items-center gap-4">
+                        <div class="text-xs uppercase tracking-wide text-gray-400 dark:text-gray-500">
+                          {fmt(t('pokemon.evolutionStage'), { stage: idx() + 1 })}
+                        </div>
+                        <div class="flex flex-col items-center gap-4">
+                          <For each={stage}>
+                            {(entry) => {
+                              const hints = summarizeEvolutionDetails(entry.details);
+                              return (
+                                <a
+                                  href={entry.id ? `/pokemon/${entry.id}` : '#'}
+                                  class={`group relative flex w-44 flex-col items-center gap-3 rounded-2xl border border-gray-200/70 bg-white/80 p-4 shadow-sm transition hover:-translate-y-1 hover:shadow-lg dark:border-gray-700/70 dark:bg-gray-800/60 ${entry.isCurrent ? 'border-blue-400/70 ring-2 ring-blue-300/50 shadow-lg dark:ring-blue-500/40' : ''}`}
+                                >
+                                  <div class="relative flex h-28 w-28 items-center justify-center overflow-hidden rounded-full bg-gradient-to-br from-blue-100 via-sky-50 to-white shadow-inner dark:from-blue-500/20 dark:via-gray-800 dark:to-gray-900">
+                                    <Show when={entry.sprite} fallback={<span class="text-sm text-gray-400">{t('detail.loading')}</span>}>
+                                      <img src={entry.sprite} alt={entry.name} class="h-full w-full object-contain transition group-hover:scale-105" loading="lazy" />
+                                    </Show>
+                                  </div>
+                                  <div class={`text-center text-sm font-semibold ${entry.isCurrent ? 'text-blue-600 dark:text-blue-300' : 'text-gray-800 dark:text-gray-100'}`}>
+                                    {entry.name}
+                                  </div>
+                                  <Show when={hints.length > 0}>
+                                    <div class="flex flex-wrap justify-center gap-1">
+                                      <For each={hints}>{(hint) => (
+                                        <span class="rounded-full bg-blue-50 px-2 py-0.5 text-[11px] font-medium text-blue-600 dark:bg-blue-500/20 dark:text-blue-200">{hint}</span>
+                                      )}</For>
+                                    </div>
+                                  </Show>
+                                </a>
+                              );
+                            }}
+                          </For>
+                        </div>
+                      </div>
+                      <Show when={idx() < evolutionStages().length - 1}>
+                        <span class="icon-[ph--arrow-right-bold] hidden text-3xl text-gray-300 dark:text-gray-600 md:block"></span>
+                      </Show>
+                    </div>
+                  )}
+                </For>
+              </div>
+            </div>
+          </Card>
+        </Show>
 
         <div class="grid grid-cols-1 gap-6 md:grid-cols-2">
           <Card>

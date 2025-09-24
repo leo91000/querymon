@@ -1,6 +1,6 @@
 import { t, getLocale, type Locale } from '../i18n';
 
-export type ResourceName = 'pokemon' | 'pokemon-species' | 'move' | 'ability' | 'type';
+export type ResourceName = 'pokemon' | 'pokemon-species' | 'move' | 'ability' | 'type' | 'evolution-chain';
 
 const BASE = '/data/pokeapi';
 
