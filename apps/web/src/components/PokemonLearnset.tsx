@@ -1,4 +1,4 @@
-import { For, Show, createMemo, createResource, createSignal, createEffect } from 'solid-js';
+import { For, Show, createMemo, createResource, createSignal, createEffect, onMount } from 'solid-js';
 import TypeBox from './TypeBox';
 import { formatName, loadItemById, type ResourceName } from '../services/data';
 import { t } from '../i18n';
@@ -323,6 +323,12 @@ export default function PokemonLearnset(props: PokemonLearnsetProps) {
                     const methodOpen = () => isMethodOpen(method);
                     let methodRef: HTMLDivElement | undefined;
                     const [mh, setMh] = createSignal('0px');
+                    const [animate, setAnimate] = createSignal(false);
+                    onMount(() => {
+                      // Enable transitions after initial mount so default-open panels don't animate.
+                      if (typeof queueMicrotask === 'function') queueMicrotask(() => setAnimate(true));
+                      else setTimeout(() => setAnimate(true), 0);
+                    });
                     const recalcM = () => {
                       if (methodOpen()) queueMicrotask(() => setMh(`${methodRef?.scrollHeight ?? 0}px`));
                       else setMh('0px');
@@ -343,7 +349,11 @@ export default function PokemonLearnset(props: PokemonLearnsetProps) {
                             {methodOpen() ? t('common.hide') : t('common.show')}
                           </button>
                         </div>
-                        <div ref={(el) => (methodRef = el as HTMLDivElement)} class="overflow-hidden transition-all duration-300 ease-in-out" style={{ 'max-height': mh(), opacity: methodOpen() ? 1 : 0 }}>
+                        <div
+                          ref={(el) => (methodRef = el as HTMLDivElement)}
+                          class={`overflow-hidden ${animate() ? 'transition-all duration-300 ease-in-out' : ''}`}
+                          style={{ 'max-height': mh(), opacity: methodOpen() ? 1 : 0 }}
+                        >
                           <div class="overflow-x-auto">
                             <table class="min-w-full divide-y divide-gray-200 text-sm dark:divide-gray-700">
                               <thead>
