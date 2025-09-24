@@ -13,10 +13,12 @@ function pickEffectText(ability: Ability, lang: 'en'|'fr'|'jp') {
   const want = map[lang] || 'en';
   const list = ability?.effect_entries as any[] | undefined;
   if (!list) return { short: undefined, full: undefined };
-  const found = list.find(e => e.language?.name === want) || list.find(e => e.language?.name === 'en');
+  const localized = list.find((e) => e.language?.name === want);
+  const english = list.find((e) => e.language?.name === 'en');
+  const chosen = localized ?? (want === 'en' ? english : undefined);
   return {
-    short: found?.short_effect?.replace(/[\n\f]/g, ' '),
-    full: found?.effect?.replace(/[\n\f]/g, ' '),
+    short: chosen?.short_effect?.replace(/[\n\f]/g, ' '),
+    full: chosen?.effect?.replace(/[\n\f]/g, ' '),
   };
 }
 
@@ -32,6 +34,7 @@ function pickFlavorText(ability: Ability, lang: 'en'|'fr'|'jp') {
 
 export default function AbilityDetail(props: { id: number }) {
   const [data] = createResource(() => props.id, (id) => loadItemById('ability' as ResourceName, id));
+  const [abilityNames] = createResource(() => getLocale(), (loc) => loadNameMap('ability', loc as any));
 
   const ability = createMemo(() => data() as Ability | undefined);
   const locale = () => getLocale() as 'en' | 'fr' | 'jp';
@@ -39,8 +42,54 @@ export default function AbilityDetail(props: { id: number }) {
   const flavor = createMemo(() => pickFlavorText(ability(), locale()));
   const [showAllPokemon, setShowAllPokemon] = createSignal(false);
   const abilityPokemon = createMemo(() => ability()?.pokemon || []);
-  const visiblePokemon = createMemo(() => showAllPokemon() ? abilityPokemon() : abilityPokemon().slice(0, 36));
+  const filteredPokemon = createMemo(() => {
+    const list = abilityPokemon();
+    if (!list.length) return list;
+    const seenBase = new Set<string>();
+    const entries: any[] = [];
+    for (const entry of list) {
+      const name = entry?.pokemon?.name || '';
+      const baseMatch = name.match(/^(.*?)-gmax$/i);
+      const baseSlug = baseMatch ? baseMatch[1] : name;
+      if (seenBase.has(baseSlug)) continue;
+      if (baseMatch) {
+        const merged = { ...entry, pokemon: { ...entry.pokemon, name: baseSlug } };
+        entries.push(merged);
+      } else {
+        entries.push(entry);
+      }
+      seenBase.add(baseSlug);
+    }
+    return entries;
+  });
+  const visiblePokemon = createMemo(() => {
+    const list = filteredPokemon();
+    return showAllPokemon() ? list : list.slice(0, 36);
+  });
   const [pokemonNames] = createResource(() => getLocale(), (loc) => loadNameMap('pokemon', loc as any));
+
+  function translateOr(key: string, fallback: string) {
+    const value = t(key as any) as string;
+    if (!value || value === key) return fallback;
+    return value;
+  }
+
+  const localizedName = createMemo(() => {
+    const id = ability()?.id;
+    const map = abilityNames();
+    if (id != null) {
+      const fromMap = map?.[String(id)];
+      if (fromMap) return fromMap;
+    }
+    const raw = ability()?.name;
+    return raw ? formatName(raw) : '—';
+  });
+
+  const generationLabel = createMemo(() => {
+    const slug = ability()?.generation?.name;
+    if (!slug) return '—';
+    return translateOr(`move.generationName.${slug}`, formatName(slug));
+  });
 
   return (
     <Show when={ability()} fallback={<div class="text-gray-500">{t('detail.loading')}</div>}>
@@ -50,8 +99,8 @@ export default function AbilityDetail(props: { id: number }) {
             <div class="grid grid-cols-1 md:grid-cols-[1fr_320px]">
               <div class="p-6">
                 <div class="flex flex-wrap items-center gap-3">
-                  <h2 class="text-2xl font-bold tracking-tight font-jersey">{formatName(a().name)}</h2>
-                  <Badge tone={'blue'}>{formatName(a().generation?.name || '—')}</Badge>
+                  <h2 class="text-2xl font-bold tracking-tight font-jersey">{localizedName()}</h2>
+                  <Badge tone={'blue'}>{generationLabel()}</Badge>
                   {a().is_main_series === false && <Badge tone={'gray'}>{t('ability.spinoff')}</Badge>}
                 </div>
 
@@ -68,15 +117,15 @@ export default function AbilityDetail(props: { id: number }) {
                 </div>
 
                 <div class="mt-6 grid grid-cols-2 gap-4 md:grid-cols-3">
-                  <StatBox label={t('ability.introducedIn')} value={formatName(a().generation?.name || '—')} />
+                  <StatBox label={t('ability.introducedIn')} value={generationLabel()} />
                   <StatBox label={t('ability.mainSeries')} value={a().is_main_series ? t('common.yes') : t('common.no')} />
                 </div>
               </div>
 
               <div class="relative flex items-center justify-center bg-gradient-to-br from-gray-50 to-gray-100 p-6 text-center text-sm text-gray-500 dark:from-gray-800 dark:to-gray-900 dark:text-gray-400">
                 <div>
-                  <div class="text-lg font-semibold">{formatName(a().name)}</div>
-                  <div class="mt-1">{formatName(a().generation?.name || '—')}</div>
+                  <div class="text-lg font-semibold">{localizedName()}</div>
+                  <div class="mt-1">{generationLabel()}</div>
                 </div>
               </div>
             </div>

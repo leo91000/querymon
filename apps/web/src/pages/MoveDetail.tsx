@@ -79,8 +79,10 @@ function pickEffectText(move: Move, lang: 'en'|'fr'|'jp') {
   const want = map[lang] || 'en';
   const list = move?.effect_entries as any[] | undefined;
   if (!list) return undefined;
-  const found = list.find(e => e.language?.name === want) || list.find(e => e.language?.name === 'en');
-  let txt = found?.short_effect || found?.effect;
+  const found = list.find((e) => e.language?.name === want);
+  if (!found && want !== 'en') return undefined;
+  const fallback = found ?? list.find((e) => e.language?.name === 'en');
+  let txt = fallback?.short_effect || fallback?.effect;
   if (!txt) return undefined;
   const ec = move?.effect_chance ?? move?.meta?.stat_chance ?? move?.meta?.flinch_chance;
   txt = txt.replaceAll('$effect_chance', String(ec ?? '')); // PokeAPI placeholder
@@ -99,6 +101,7 @@ function pickFlavorText(move: Move, lang: 'en'|'fr'|'jp') {
 
 export default function MoveDetail(props: { id: number }) {
   const [data] = createResource(() => props.id, (id) => loadItemById('move' as ResourceName, id));
+  const [moveNames] = createResource(() => getLocale(), (loc) => loadNameMap('move', loc as any));
 
   const move = createMemo(() => data() as Move | undefined);
   const typeName = createMemo(() => move()?.type?.name);
@@ -111,6 +114,47 @@ export default function MoveDetail(props: { id: number }) {
   const visibleLearners = createMemo(() => showAllLearners() ? learners() : learners().slice(0, 24));
   const [pokemonNames] = createResource(() => getLocale(), (loc) => loadNameMap('pokemon', loc as any));
 
+  function translateOr(key: string, fallback: string) {
+    const value = t(key as any) as string;
+    if (!value || value === key) return fallback;
+    return value;
+  }
+
+  const localizedName = createMemo(() => {
+    const id = move()?.id;
+    const map = moveNames();
+    if (id != null) {
+      const fromMap = map?.[String(id)];
+      if (fromMap) return fromMap;
+    }
+    const raw = move()?.name;
+    return raw ? formatName(raw) : '—';
+  });
+
+  const damageClassLabel = createMemo(() => {
+    const slug = damageClass()?.toLowerCase();
+    if (!slug) return undefined;
+    return translateOr(`move.damageClass.${slug}`, formatName(slug));
+  });
+
+  const targetLabel = createMemo(() => {
+    const slug = move()?.target?.name;
+    if (!slug) return '—';
+    return translateOr(`move.target.${slug}`, formatName(slug));
+  });
+
+  const generationLabel = createMemo(() => {
+    const slug = move()?.generation?.name;
+    if (!slug) return '—';
+    return translateOr(`move.generationName.${slug}`, formatName(slug));
+  });
+
+  const ailmentLabel = createMemo(() => {
+    const slug = move()?.meta?.ailment?.name;
+    if (!slug || slug === 'none') return '—';
+    return translateOr(`move.ailmentName.${slug}`, formatName(slug));
+  });
+
   return (
     <Show when={move()} fallback={<div class="text-gray-500">{t('detail.loading')}</div>}>
       {(m) => (
@@ -119,10 +163,10 @@ export default function MoveDetail(props: { id: number }) {
             <div class="grid grid-cols-1 md:grid-cols-[1fr_240px]">
               <div class="p-6">
                 <div class="flex flex-wrap items-center gap-3">
-                  <h2 class="text-2xl font-bold tracking-tight font-jersey">{formatName(m().name)}</h2>
+                  <h2 class="text-2xl font-bold tracking-tight font-jersey">{localizedName()}</h2>
                   <TypeBox name={typeName() || undefined} size="sm" link />
                   {damageClass() && (
-                    <Badge tone={CLASS_TONE[damageClass()!] || 'gray'}>{formatName(damageClass()!)}</Badge>
+                    <Badge tone={CLASS_TONE[damageClass()!] || 'gray'}>{damageClassLabel()}</Badge>
                   )}
                 </div>
 
@@ -135,8 +179,8 @@ export default function MoveDetail(props: { id: number }) {
                   <StatBox label={t('move.accuracy')} value={m().accuracy != null ? `${m().accuracy}%` : '—'} />
                   <StatBox label={t('move.pp')} value={m().pp ?? '—'} />
                   <StatBox label={t('move.priority')} value={m().priority ?? 0} />
-                  <StatBox label={t('move.target')} value={formatName(m().target?.name || '—')} />
-                  <StatBox label={t('move.generation')} value={formatName(m().generation?.name || '—')} />
+                  <StatBox label={t('move.target')} value={targetLabel()} />
+                  <StatBox label={t('move.generation')} value={generationLabel()} />
                 </div>
               </div>
 
@@ -152,7 +196,7 @@ export default function MoveDetail(props: { id: number }) {
             <Card>
               <h3 class="mb-3 text-sm font-semibold tracking-wide text-gray-500">{t('move.meta')}</h3>
               <div class="grid grid-cols-2 gap-3 text-sm">
-                <MetaRow label={t('move.ailment')} value={formatName(m().meta?.ailment?.name || '—')} />
+                <MetaRow label={t('move.ailment')} value={ailmentLabel()} />
                 <MetaRow label={t('move.critRate')} value={m().meta?.crit_rate ?? 0} />
                 <MetaRow label={t('move.drain')} value={m().meta?.drain ? `${m().meta.drain}%` : '0%'} />
                 <MetaRow label={t('move.healing')} value={m().meta?.healing ? `${m().meta.healing}%` : '0%'} />
