@@ -95,6 +95,18 @@ const GENERATION_ORDER: GenerationSlug[] = [
   'generation-ix',
 ];
 
+const GEN_ROMAN: Record<GenerationSlug, string> = {
+  'generation-i': 'I',
+  'generation-ii': 'II',
+  'generation-iii': 'III',
+  'generation-iv': 'IV',
+  'generation-v': 'V',
+  'generation-vi': 'VI',
+  'generation-vii': 'VII',
+  'generation-viii': 'VIII',
+  'generation-ix': 'IX',
+};
+
 function idFromUrl(url?: string | null) {
   const match = url?.match(/\/(\d+)\/?$/);
   return match ? Number(match[1]) : undefined;
@@ -295,7 +307,7 @@ export default function PokemonLearnset(props: PokemonLearnsetProps) {
                   }`}
                   onClick={() => setOpenGeneration(section.generation)}
                 >
-                  {t(`move.generationName.${section.generation}`)}
+                  {t('learnset.genShort' as any, { roman: GEN_ROMAN[section.generation] } as any)}
                   <span
                     aria-hidden="true"
                     class="ml-2 align-[-2px] text-xs"
