@@ -21,6 +21,7 @@ export default function LanguageSwitcher() {
       value={current()}
       options={options()}
       srLabel={t('lang.select')}
+      align="left"
       onChange={(next) => changeLocale(next as Locale)}
     />
   );

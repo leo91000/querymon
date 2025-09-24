@@ -22,6 +22,7 @@ export default function ThemeSwitcher() {
       value={current()}
       options={options()}
       srLabel={t('theme.mode')}
+      align="left"
       onChange={(next) => setTheme(next as Theme)}
     />
   );
