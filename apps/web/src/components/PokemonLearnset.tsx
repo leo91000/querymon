@@ -1,4 +1,5 @@
 import { For, Show, createMemo, createResource, createSignal, createEffect, onMount } from 'solid-js';
+import Card from './Card';
 import TypeBox from './TypeBox';
 import { formatName, loadItemById, type ResourceName } from '../services/data';
 import { t } from '../i18n';
@@ -326,11 +327,11 @@ export default function PokemonLearnset(props: PokemonLearnsetProps) {
         {/* Active generation content */}
         <Show when={currentSection()}>
           {(sec) => (
-            <div
+            <Card
               role="tabpanel"
               id={`panel-${sec().generation}`}
               aria-labelledby={`tab-${sec().generation}`}
-              class="rounded-2xl border border-gray-200 bg-white p-6 shadow-sm dark:border-gray-700 dark:bg-gray-900/60"
+              class="p-6"
             >
               <div class="space-y-6">
                 <For each={sec().entries}>
@@ -438,7 +439,7 @@ export default function PokemonLearnset(props: PokemonLearnsetProps) {
                   }}
                 </For>
               </div>
-            </div>
+            </Card>
           )}
         </Show>
       </div>
