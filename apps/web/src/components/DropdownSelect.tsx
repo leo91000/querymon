@@ -139,7 +139,7 @@ export default function DropdownSelect<T extends string>(props: DropdownSelectPr
       <button
         type="button"
         ref={(el) => (triggerRef = el as HTMLButtonElement)}
-        class="flex h-9 w-full cursor-pointer items-center justify-between gap-2 rounded-md border border-gray-300 bg-white px-3 text-sm shadow-sm outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20 dark:border-gray-700 dark:bg-gray-900 dark:text-gray-100"
+        class="flex h-9 w-full cursor-pointer items-center justify-between gap-2 rounded-md border border-gray-300 bg-white px-3 text-sm text-gray-900 shadow-sm outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20 dark:border-gray-700 dark:bg-gray-900 dark:text-gray-100"
         aria-haspopup="listbox"
         aria-expanded={open()}
         aria-labelledby={`${props.id}-label`}
@@ -186,7 +186,7 @@ export default function DropdownSelect<T extends string>(props: DropdownSelectPr
             id={`${props.id}-list`}
             tabIndex={-1}
             ref={(el) => (listRef = el as HTMLUListElement)}
-            class={`fixed z-[60] overflow-auto rounded-md border border-gray-200 bg-white shadow-lg dark:border-gray-700 dark:bg-gray-800`}
+            class={`fixed z-[60] overflow-auto rounded-md border border-gray-200 bg-white text-gray-900 shadow-lg dark:border-gray-700 dark:bg-gray-800 dark:text-gray-100`}
             style={{
               top: `${coords().top}px`,
               left: `${coords().left}px`,
