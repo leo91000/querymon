@@ -228,65 +228,96 @@ export default function PokemonLearnset(props: PokemonLearnsetProps) {
 
   // Start collapsed: leave openGeneration as null; clicking a header toggles visibility.
 
+  // Default to the first available generation when data arrives
+  createEffect(() => {
+    const sections = learnset();
+    if (!sections.length) return;
+    if (!openGeneration() || !sections.some((s) => s.generation === openGeneration())) {
+      setOpenGeneration(sections[0].generation);
+    }
+  });
+
+  // Ensure Level-up is open by default within the active generation
+  createEffect(() => {
+    const gen = openGeneration();
+    if (!gen) return;
+    setOpenMethods((prev) => ({
+      ...prev,
+      [gen]: {
+        'level-up': true,
+        machine: false,
+        tutor: false,
+        egg: false,
+        special: false,
+        ...(prev[gen] || {}),
+      },
+    }));
+  });
+
+  const currentSection = createMemo(() => learnset().find((s) => s.generation === openGeneration()));
+  const isMethodOpen = (method: MethodKey) => !!openMethods()[openGeneration() || '']?.[method];
+  const toggleMethod = (method: MethodKey) => {
+    const gen = openGeneration();
+    if (!gen) return;
+    setOpenMethods((prev) => {
+      const cur = prev[gen] || {};
+      const willClose = !!cur[method];
+      const next: Partial<Record<MethodKey, boolean>> = willClose ? {} : ({ [method]: true } as any);
+      return { ...prev, [gen]: next };
+    });
+  };
+
   return (
     <Show when={learnset().length > 0}>
-      <div class="space-y-6">
+      <div class="space-y-4">
         <h3 class="text-sm font-semibold tracking-wide text-gray-500 dark:text-gray-300">
           {t('pokemon.learnset')}
         </h3>
-        <For each={learnset()}>
-          {(section) => {
-            const isOpen = () => openGeneration() === section.generation;
-            const toggle = () => setOpenGeneration(isOpen() ? null : section.generation);
-            const contentId = `learnset-${section.generation}`;
 
-            // Initialize per-generation method state when opening: default Level-up open
-            createEffect(() => {
-              if (isOpen()) {
-                setOpenMethods((prev) => ({
-                  ...prev,
-                  [section.generation]: {
-                    'level-up': true,
-                    machine: false,
-                    tutor: false,
-                    egg: false,
-                    special: false,
-                    ...(prev[section.generation] || {}),
-                  },
-                }));
-              }
-            });
-
-            const isMethodOpen = (method: MethodKey) => !!openMethods()[section.generation]?.[method];
-            const toggleMethod = (method: MethodKey) => {
-              setOpenMethods((prev) => {
-                const cur = prev[section.generation] || {};
-                const willClose = !!cur[method];
-                const next: Partial<Record<MethodKey, boolean>> = willClose ? {} : { [method]: true } as any;
-                return { ...prev, [section.generation]: next };
-              });
-            };
-
-            return (
-            <div class="rounded-2xl border border-gray-200 bg-white p-6 shadow-sm dark:border-gray-700 dark:bg-gray-900/60">
-              <div class="mb-4 flex items-center justify-between">
-                <h4 class="text-base font-semibold text-gray-800 dark:text-gray-100">{t(`move.generationName.${section.generation}`)}</h4>
+        {/* Tabs: generations */}
+        <div role="tablist" aria-label="Generations" class="-mb-px flex flex-wrap gap-2 border-b border-gray-200 dark:border-gray-700">
+          <For each={learnset()}>
+            {(section) => {
+              const selected = () => section.generation === openGeneration();
+              const id = `tab-${section.generation}`;
+              const panelId = `panel-${section.generation}`;
+              return (
                 <button
+                  role="tab"
+                  id={id}
+                  aria-controls={panelId}
+                  aria-selected={selected()}
                   type="button"
-                  onClick={toggle}
-                  aria-expanded={isOpen()}
-                  aria-controls={contentId}
-                  class="inline-flex cursor-pointer items-center gap-2 rounded-full border border-gray-200 px-3 py-1 text-xs font-semibold uppercase tracking-wide text-gray-500 transition hover:bg-gray-100 dark:border-gray-700 dark:text-gray-300 dark:hover:bg-gray-800"
+                  class={`cursor-pointer rounded-t-md px-3 py-2 text-sm font-medium transition focus:outline-none ${
+                    selected()
+                      ? 'border-b-2 border-blue-500 text-blue-600 dark:text-blue-300'
+                      : 'text-gray-600 hover:text-gray-800 dark:text-gray-300 dark:hover:text-gray-100'
+                  }`}
+                  onClick={() => setOpenGeneration(section.generation)}
                 >
-                  <span aria-hidden="true" class="icon-[ph--circle-notch-bold] text-sm animate-spin" classList={{ hidden: !(isOpen() && (moveDetails as any).loading) }} />
-                  <span aria-hidden="true" class="icon-[ph--caret-down-bold] text-sm" classList={{ hidden: isOpen() }} />
-                  <span aria-hidden="true" class="icon-[ph--caret-up-bold] text-sm" classList={{ hidden: !isOpen() }} />
-                  {isOpen() ? t('common.hide') : t('common.show')}
+                  {t(`move.generationName.${section.generation}`)}
+                  <span
+                    aria-hidden="true"
+                    class="ml-2 align-[-2px] text-xs"
+                    classList={{ 'icon-[ph--circle-notch-bold] animate-spin': selected() && (moveDetails as any).loading }}
+                  />
                 </button>
-              </div>
-              <Show when={isOpen()}>
-              <div id={contentId} class="space-y-6">
-                <For each={section.entries}>
+              );
+            }}
+          </For>
+        </div>
+
+        {/* Active generation content */}
+        <Show when={currentSection()}>
+          {(sec) => (
+            <div
+              role="tabpanel"
+              id={`panel-${sec().generation}`}
+              aria-labelledby={`tab-${sec().generation}`}
+              class="rounded-2xl border border-gray-200 bg-white p-6 shadow-sm dark:border-gray-700 dark:bg-gray-900/60"
+            >
+              <div class="space-y-6">
+                <For each={sec().entries}>
                   {(methodSection) => {
                     const method = methodSection.method as MethodKey;
                     const methodOpen = () => isMethodOpen(method);
@@ -298,90 +329,91 @@ export default function PokemonLearnset(props: PokemonLearnsetProps) {
                     };
                     createEffect(recalcM);
                     return (
-                    <div class="space-y-3">
-                      <div class="flex items-center justify-between">
-                        <div class="text-sm font-semibold uppercase tracking-wide text-blue-600 dark:text-blue-300">{t(METHOD_LABEL_KEY[method])}</div>
-                        <button
-                          type="button"
-                          onClick={() => toggleMethod(method)}
-                          aria-expanded={methodOpen()}
-                          class="inline-flex cursor-pointer items-center gap-2 rounded-full border border-blue-200 px-2 py-0.5 text-[11px] font-semibold uppercase tracking-wide text-blue-600 transition hover:bg-blue-50 dark:border-blue-500/40 dark:text-blue-300 dark:hover:bg-blue-500/10"
-                        >
-                          <span aria-hidden="true" class="icon-[ph--caret-down-bold] text-sm" classList={{ hidden: methodOpen() }} />
-                          <span aria-hidden="true" class="icon-[ph--caret-up-bold] text-sm" classList={{ hidden: !methodOpen() }} />
-                          {methodOpen() ? t('common.hide') : t('common.show')}
-                        </button>
-                      </div>
-                      <div ref={(el) => (methodRef = el as HTMLDivElement)} class="overflow-hidden transition-all duration-300 ease-in-out" style={{ 'max-height': mh(), opacity: methodOpen() ? 1 : 0 }}>
-                        <div class="overflow-x-auto">
-                          <table class="min-w-full divide-y divide-gray-200 text-sm dark:divide-gray-700">
-                            <thead>
-                            <tr class="bg-gray-50 text-xs uppercase tracking-wide text-gray-500 dark:bg-gray-800 dark:text-gray-400">
-                              <th class="px-3 py-2 text-left">{t('learnset.columns.move')}</th>
-                              <th class="px-3 py-2 text-left">{t('learnset.columns.type')}</th>
-                              <th class="px-3 py-2 text-left">{t('learnset.columns.category')}</th>
-                              <th class="px-3 py-2 text-right">{t('learnset.columns.power')}</th>
-                              <th class="px-3 py-2 text-right">{t('learnset.columns.accuracy')}</th>
-                              <th class="px-3 py-2 text-right">{t('learnset.columns.pp')}</th>
-                              <Show when={methodSection.method === 'level-up'}>
-                                <th class="px-3 py-2 text-right">{t('learnset.columns.level')}</th>
-                              </Show>
-                              <th class="px-3 py-2 text-left">{t('learnset.columns.version')}</th>
-                            </tr>
-                          </thead>
-                          <tbody class="divide-y divide-gray-100 dark:divide-gray-800">
-                            <For each={methodSection.items}>
-                              {(entry) => {
-                                const accuracy = entry.accuracy != null ? `${entry.accuracy}%` : '—';
-                                const power = entry.power != null && entry.power !== 0 ? entry.power : '—';
-                                const pp = entry.pp != null ? entry.pp : '—';
-                                const damageClassKey = entry.damageClass ? `move.damageClass.${entry.damageClass}` : undefined;
-                                const categoryLabel = damageClassKey ? t(damageClassKey) : '—';
-                                const levelLabel = entry.level != null && entry.level > 0 ? `N.${entry.level}` : t('learnset.levelStart');
-                                const versionLabel = entry.versionGroups && entry.versionGroups.length
-                                  ? entry.versionGroups.map((v) => {
-                                      const key = `versionGroupName.${v}`;
-                                      const translated = t(key as any) as string;
-                                      return translated && translated !== key ? translated : formatName(v);
-                                    }).join(', ')
-                                  : '—';
-                                return (
-                                  <tr class="text-gray-700 dark:text-gray-200">
-                                    <td class="px-3 py-2">
-                                      <Show when={entry.moveId} fallback={<span>{entry.name}</span>}>
-                                        <a href={`/move/${entry.moveId}`} class="font-medium text-blue-600 hover:underline dark:text-blue-300">{entry.name}</a>
-                                      </Show>
-                                    </td>
-                                    <td class="px-3 py-2">
-                                      <Show when={entry.typeName} fallback={<span>—</span>}>
-                                        {(typeName) => <TypeBox name={typeName()} size="sm" showLabel />}
-                                      </Show>
-                                    </td>
-                                    <td class="px-3 py-2">{categoryLabel}</td>
-                                    <td class="px-3 py-2 text-right tabular-nums">{power}</td>
-                                    <td class="px-3 py-2 text-right tabular-nums">{accuracy}</td>
-                                    <td class="px-3 py-2 text-right tabular-nums">{pp}</td>
-                                    <Show when={methodSection.method === 'level-up'}>
-                                      <td class="px-3 py-2 text-right tabular-nums">{levelLabel}</td>
-                                    </Show>
-                                    <td class="px-3 py-2 capitalize">{versionLabel}</td>
-                                  </tr>
-                                );
-                              }}
-                            </For>
-                          </tbody>
-                        </table>
+                      <div class="space-y-3">
+                        <div class="flex items-center justify-between">
+                          <div class="text-sm font-semibold uppercase tracking-wide text-blue-600 dark:text-blue-300">{t(METHOD_LABEL_KEY[method])}</div>
+                          <button
+                            type="button"
+                            onClick={() => toggleMethod(method)}
+                            aria-expanded={methodOpen()}
+                            class="inline-flex cursor-pointer items-center gap-2 rounded-full border border-blue-200 px-2 py-0.5 text-[11px] font-semibold uppercase tracking-wide text-blue-600 transition hover:bg-blue-50 dark:border-blue-500/40 dark:text-blue-300 dark:hover:bg-blue-500/10"
+                          >
+                            <span aria-hidden="true" class="icon-[ph--caret-down-bold] text-sm" classList={{ hidden: methodOpen() }} />
+                            <span aria-hidden="true" class="icon-[ph--caret-up-bold] text-sm" classList={{ hidden: !methodOpen() }} />
+                            {methodOpen() ? t('common.hide') : t('common.show')}
+                          </button>
+                        </div>
+                        <div ref={(el) => (methodRef = el as HTMLDivElement)} class="overflow-hidden transition-all duration-300 ease-in-out" style={{ 'max-height': mh(), opacity: methodOpen() ? 1 : 0 }}>
+                          <div class="overflow-x-auto">
+                            <table class="min-w-full divide-y divide-gray-200 text-sm dark:divide-gray-700">
+                              <thead>
+                                <tr class="bg-gray-50 text-xs uppercase tracking-wide text-gray-500 dark:bg-gray-800 dark:text-gray-400">
+                                  <th class="px-3 py-2 text-left">{t('learnset.columns.move')}</th>
+                                  <th class="px-3 py-2 text-left">{t('learnset.columns.type')}</th>
+                                  <th class="px-3 py-2 text-left">{t('learnset.columns.category')}</th>
+                                  <th class="px-3 py-2 text-right">{t('learnset.columns.power')}</th>
+                                  <th class="px-3 py-2 text-right">{t('learnset.columns.accuracy')}</th>
+                                  <th class="px-3 py-2 text-right">{t('learnset.columns.pp')}</th>
+                                  <Show when={methodSection.method === 'level-up'}>
+                                    <th class="px-3 py-2 text-right">{t('learnset.columns.level')}</th>
+                                  </Show>
+                                  <th class="px-3 py-2 text-left">{t('learnset.columns.version')}</th>
+                                </tr>
+                              </thead>
+                              <tbody class="divide-y divide-gray-100 dark:divide-gray-800">
+                                <For each={methodSection.items}>
+                                  {(entry) => {
+                                    const accuracy = entry.accuracy != null ? `${entry.accuracy}%` : '—';
+                                    const power = entry.power != null && entry.power !== 0 ? entry.power : '—';
+                                    const pp = entry.pp != null ? entry.pp : '—';
+                                    const damageClassKey = entry.damageClass ? `move.damageClass.${entry.damageClass}` : undefined;
+                                    const categoryLabel = damageClassKey ? t(damageClassKey) : '—';
+                                    const levelLabel = entry.level != null && entry.level > 0 ? `N.${entry.level}` : t('learnset.levelStart');
+                                    const versionLabel = entry.versionGroups && entry.versionGroups.length
+                                      ? entry.versionGroups
+                                          .map((v) => {
+                                            const key = `versionGroupName.${v}`;
+                                            const translated = t(key as any) as string;
+                                            return translated && translated !== key ? translated : formatName(v);
+                                          })
+                                          .join(', ')
+                                      : '—';
+                                    return (
+                                      <tr class="text-gray-700 dark:text-gray-200">
+                                        <td class="px-3 py-2">
+                                          <Show when={entry.moveId} fallback={<span>{entry.name}</span>}>
+                                            <a href={`/move/${entry.moveId}`} class="font-medium text-blue-600 hover:underline dark:text-blue-300">{entry.name}</a>
+                                          </Show>
+                                        </td>
+                                        <td class="px-3 py-2">
+                                          <Show when={entry.typeName} fallback={<span>—</span>}>
+                                            {(typeName) => <TypeBox name={typeName()} size="sm" showLabel />}
+                                          </Show>
+                                        </td>
+                                        <td class="px-3 py-2">{categoryLabel}</td>
+                                        <td class="px-3 py-2 text-right tabular-nums">{power}</td>
+                                        <td class="px-3 py-2 text-right tabular-nums">{accuracy}</td>
+                                        <td class="px-3 py-2 text-right tabular-nums">{pp}</td>
+                                        <Show when={methodSection.method === 'level-up'}>
+                                          <td class="px-3 py-2 text-right tabular-nums">{levelLabel}</td>
+                                        </Show>
+                                        <td class="px-3 py-2 capitalize">{versionLabel}</td>
+                                      </tr>
+                                    );
+                                  }}
+                                </For>
+                              </tbody>
+                            </table>
+                          </div>
                         </div>
                       </div>
-                    </div>
-                  );}}
+                    );
+                  }}
                 </For>
               </div>
-              </Show>
             </div>
-          );
-          }}
-        </For>
+          )}
+        </Show>
       </div>
     </Show>
   );
