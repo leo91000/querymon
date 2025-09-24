@@ -307,7 +307,11 @@ export default function PokemonLearnset(props: PokemonLearnsetProps) {
                   }`}
                   onClick={() => setOpenGeneration(section.generation)}
                 >
-                  {t('learnset.genShort' as any, { roman: GEN_ROMAN[section.generation] } as any)}
+                  {(() => {
+                    const roman = GEN_ROMAN[section.generation];
+                    const tmpl = t('learnset.genShort' as any) as unknown as string;
+                    return typeof tmpl === 'string' && tmpl.includes('{roman}') ? tmpl.replace('{roman}', roman) : `Gen ${roman}`;
+                  })()}
                   <span
                     aria-hidden="true"
                     class="ml-2 align-[-2px] text-xs"
