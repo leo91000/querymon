@@ -53,7 +53,7 @@ export default function PokemonCard(props: { pokemon: Pokemon }) {
           ))}
         </div>
       </div>
-      <span class="pointer-events-none absolute left-2 top-2">
+      <span class="pointer-events-none absolute left-1 top-1">
         <Badge tone="gray">#{p.id.toString().padStart(3, '0')}</Badge>
       </span>
     </Card>
