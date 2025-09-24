@@ -7,6 +7,7 @@ import { formatName, loadItemById, loadTypeEntries, loadGrowthRates } from '../s
 import type { ResourceName } from '../services/data';
 import { t, getLocale } from '../i18n';
 import { loadNameMap } from '../services/data';
+import Skeleton from '../components/Skeleton';
 
 type Species = any;
 type PageData = any;
@@ -254,7 +255,104 @@ export default function PokemonDetail(props: { id: number }) {
 
   return (
     <div class="space-y-6">
-      <Show when={pokemon() || speciesData()} fallback={<div class="text-gray-500">{t('detail.loading')}</div>}>
+      <Show
+        when={pokemon() || speciesData()}
+        fallback={
+          <>
+            <Card class="overflow-hidden p-0">
+              <div class="grid grid-cols-1 md:grid-cols-[1fr_320px]">
+                <div class="p-6">
+                  <div class="flex items-center gap-3">
+                    <Skeleton class="h-8 w-52" />
+                    <div class="flex gap-2">
+                      <Skeleton class="h-6 w-16 rounded-full" />
+                      <Skeleton class="h-6 w-16 rounded-full" />
+                    </div>
+                  </div>
+                  <div class="mt-3 space-y-2">
+                    <Skeleton class="h-4 w-5/6" />
+                    <Skeleton class="h-4 w-2/3" />
+                    <Skeleton class="h-4 w-4/5" />
+                  </div>
+
+                  <div class="mt-6 grid grid-cols-2 gap-4 md:grid-cols-3">
+                    <div class="rounded-lg border border-gray-200 p-3 text-sm dark:border-gray-700">
+                      <Skeleton class="mb-2 h-3 w-24" />
+                      <Skeleton class="h-5 w-16" />
+                    </div>
+                    <div class="rounded-lg border border-gray-200 p-3 text-sm dark:border-gray-700">
+                      <Skeleton class="mb-2 h-3 w-24" />
+                      <Skeleton class="h-5 w-16" />
+                    </div>
+                    <div class="rounded-lg border border-gray-200 p-3 text-sm dark:border-gray-700">
+                      <Skeleton class="mb-2 h-3 w-28" />
+                      <Skeleton class="h-5 w-20" />
+                    </div>
+                  </div>
+
+                  <div class="mt-6">
+                    <Skeleton class="mb-2 h-3 w-28" />
+                    <div class="flex flex-wrap gap-2">
+                      <Skeleton class="h-6 w-28 rounded-full" />
+                      <Skeleton class="h-6 w-24 rounded-full" />
+                      <Skeleton class="h-6 w-20 rounded-full" />
+                    </div>
+                  </div>
+                </div>
+
+                <div class="flex items-center justify-center p-6">
+                  <Skeleton class="h-40 w-40 rounded-full" />
+                </div>
+              </div>
+            </Card>
+
+            <Card>
+              <Skeleton class="mb-3 h-4 w-40" />
+              <div class="grid grid-cols-2 gap-3 text-sm">
+                <For each={[...Array(8).keys()]}> {() => (
+                  <div>
+                    <Skeleton class="mb-1 h-3 w-24" />
+                    <Skeleton class="h-4 w-32" />
+                  </div>
+                )}</For>
+              </div>
+            </Card>
+
+            <Card>
+              <Skeleton class="mb-3 h-4 w-40" />
+              <div class="overflow-x-auto">
+                <div class="flex min-w-[260px] items-start justify-center gap-8 pb-2">
+                  <For each={[0,1,2]}> {() => (
+                    <div class="flex items-center gap-6">
+                      <div class="flex min-w-[180px] flex-col items-center gap-4">
+                        <Skeleton class="h-3 w-20" />
+                        <div class="flex flex-col items-center gap-4">
+                          <div class="group relative flex w-44 flex-col items-center gap-3 rounded-2xl border border-gray-200/70 bg-white/80 p-4 shadow-sm dark:border-gray-700/70 dark:bg-gray-800/60">
+                            <Skeleton class="h-28 w-28 rounded-full" />
+                            <Skeleton class="h-4 w-28" />
+                            <div class="flex min-h-[1.75rem] flex-wrap items-center justify-center gap-1">
+                              <Skeleton class="h-4 w-16 rounded-full" />
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  )}</For>
+                </div>
+              </div>
+            </Card>
+
+            <Card class="p-6">
+              <Skeleton class="mb-3 h-4 w-28" />
+              <div class="space-y-3">
+                <Skeleton class="h-8 w-64" />
+                <Skeleton class="h-8 w-3/4" />
+                <Skeleton class="h-8 w-5/6" />
+              </div>
+            </Card>
+          </>
+        }
+      >
         <Card class="overflow-hidden p-0">
           <div class="grid grid-cols-1 md:grid-cols-[1fr_320px]">
             <div class="p-6">
