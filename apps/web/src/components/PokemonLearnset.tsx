@@ -205,6 +205,9 @@ export default function PokemonLearnset(props: PokemonLearnsetProps) {
   return (
     <Show when={learnset().length > 0}>
       <div class="space-y-6">
+        <h3 class="text-sm font-semibold tracking-wide text-gray-500 dark:text-gray-300">
+          {t('pokemon.learnset')}
+        </h3>
         <For each={learnset()}>
           {(section) => (
             <div class="rounded-2xl border border-gray-200 bg-white p-6 shadow-sm dark:border-gray-700 dark:bg-gray-900/60">
