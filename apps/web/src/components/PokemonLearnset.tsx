@@ -1,4 +1,4 @@
-import { For, Show, createMemo, createResource } from 'solid-js';
+import { For, Show, createMemo, createResource, createSignal, createEffect } from 'solid-js';
 import TypeBox from './TypeBox';
 import { formatName, loadItemById, type ResourceName } from '../services/data';
 import { t } from '../i18n';
@@ -101,6 +101,7 @@ function idFromUrl(url?: string | null) {
 }
 
 export default function PokemonLearnset(props: PokemonLearnsetProps) {
+  const [openGeneration, setOpenGeneration] = createSignal<GenerationSlug | null>(null);
   const moveIdList = createMemo(() => {
     const set = new Set<number>();
     for (const entry of props.moves || []) {
@@ -202,6 +203,13 @@ export default function PokemonLearnset(props: PokemonLearnsetProps) {
     return generationSections;
   });
 
+  createEffect(() => {
+    const sections = learnset();
+    if (sections.length > 0 && openGeneration() === null) {
+      setOpenGeneration(sections[0].generation);
+    }
+  });
+
   return (
     <Show when={learnset().length > 0}>
       <div class="space-y-6">
@@ -209,11 +217,23 @@ export default function PokemonLearnset(props: PokemonLearnsetProps) {
           {t('pokemon.learnset')}
         </h3>
         <For each={learnset()}>
-          {(section) => (
+          {(section) => {
+            const isOpen = () => openGeneration() === section.generation;
+            const toggle = () => setOpenGeneration(isOpen() ? null : section.generation);
+            return (
             <div class="rounded-2xl border border-gray-200 bg-white p-6 shadow-sm dark:border-gray-700 dark:bg-gray-900/60">
               <div class="mb-4 flex items-center justify-between">
                 <h4 class="text-base font-semibold text-gray-800 dark:text-gray-100">{t(`move.generationName.${section.generation}`)}</h4>
+                <button
+                  type="button"
+                  onClick={toggle}
+                  class="inline-flex items-center gap-2 rounded-full border border-gray-200 px-3 py-1 text-xs font-semibold uppercase tracking-wide text-gray-500 transition hover:bg-gray-100 dark:border-gray-700 dark:text-gray-300 dark:hover:bg-gray-800"
+                >
+                  <span class={`icon-[ph--caret-${isOpen() ? 'up' : 'down'}-bold] text-sm`} aria-hidden="true" />
+                  {isOpen() ? t('common.hide') : t('common.show')}
+                </button>
               </div>
+              <Show when={isOpen()}>
               <div class="space-y-6">
                 <For each={section.entries}>
                   {(methodSection) => (
@@ -276,8 +296,10 @@ export default function PokemonLearnset(props: PokemonLearnsetProps) {
                   )}
                 </For>
               </div>
+              </Show>
             </div>
-          )}
+          );
+          }}
         </For>
       </div>
     </Show>
