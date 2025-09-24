@@ -215,6 +215,20 @@ export default function PokemonLearnset(props: PokemonLearnsetProps) {
           {(section) => {
             const isOpen = () => openGeneration() === section.generation;
             const toggle = () => setOpenGeneration(isOpen() ? null : section.generation);
+            const contentId = `learnset-${section.generation}`;
+            let contentRef: HTMLDivElement | undefined;
+            const [maxH, setMaxH] = createSignal('0px');
+
+            const recalc = () => {
+              if (isOpen()) {
+                queueMicrotask(() => setMaxH(`${contentRef?.scrollHeight ?? 0}px`));
+              } else {
+                setMaxH('0px');
+              }
+            };
+            createEffect(recalc);
+            createEffect(() => { void moveDetails(); recalc(); });
+
             return (
             <div class="rounded-2xl border border-gray-200 bg-white p-6 shadow-sm dark:border-gray-700 dark:bg-gray-900/60">
               <div class="mb-4 flex items-center justify-between">
@@ -222,6 +236,8 @@ export default function PokemonLearnset(props: PokemonLearnsetProps) {
                 <button
                   type="button"
                   onClick={toggle}
+                  aria-expanded={isOpen()}
+                  aria-controls={contentId}
                   class="inline-flex items-center gap-2 rounded-full border border-gray-200 px-3 py-1 text-xs font-semibold uppercase tracking-wide text-gray-500 transition hover:bg-gray-100 dark:border-gray-700 dark:text-gray-300 dark:hover:bg-gray-800"
                 >
                   <span aria-hidden="true" class="icon-[ph--caret-down-bold] text-sm" classList={{ hidden: isOpen() }} />
@@ -229,8 +245,12 @@ export default function PokemonLearnset(props: PokemonLearnsetProps) {
                   {isOpen() ? t('common.hide') : t('common.show')}
                 </button>
               </div>
-              <Show when={isOpen()}>
-              <div class="space-y-6">
+              <div
+                id={contentId}
+                ref={(el) => (contentRef = el as HTMLDivElement)}
+                class="space-y-6 overflow-hidden transition-all duration-300 ease-in-out"
+                style={{ 'max-height': maxH(), opacity: isOpen() ? 1 : 0 }}
+              >
                 <For each={section.entries}>
                   {(methodSection) => (
                     <div class="space-y-3">
@@ -292,7 +312,6 @@ export default function PokemonLearnset(props: PokemonLearnsetProps) {
                   )}
                 </For>
               </div>
-              </Show>
             </div>
           );
           }}
