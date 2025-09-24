@@ -86,7 +86,7 @@ function officialArt(pokemon) {
   );
 }
 
-function trimEntriesByLang(list, langs = ['en', 'fr', 'ja']) {
+function trimEntriesByLang(list, langs = ['en', 'fr', 'ja', 'ja-Hrkt']) {
   if (!Array.isArray(list)) return [];
   const set = new Set(langs);
   const out = [];
@@ -105,7 +105,7 @@ function trimEntriesByLang(list, langs = ['en', 'fr', 'ja']) {
 
 function trimGenera(list) {
   if (!Array.isArray(list)) return [];
-  const langs = new Set(['en', 'fr', 'ja']);
+  const langs = new Set(['en', 'fr', 'ja', 'ja-Hrkt']);
   const out = [];
   for (const g of list) {
     const ln = g?.language?.name;

@@ -68,6 +68,7 @@ This file guides agents and contributors working in this repository. It applies 
 ## Data & APIs
 - Public datasets live under `apps/web/public/data/pokeapi`.
 - Pages fetch only the JSON they need at runtime; no static JSON imports are bundled.
+- Do not call PokeAPI from the app at runtime. If data is missing or needs to be added/changed, extend the scraper/build steps, regenerate assets, and ship them with the app. Runtime network calls to `https://pokeapi.co/api/v2/...` are not allowed in the UI.
 - Compression: deployed on Vercel, static assets are served with Brotli/Gzip automatically; no manual gzip step required.
 - Cache/validation: Vercel serves strong ETags and Last‑Modified for static JSON. If explicit cache busting is needed later, add a small `last-updated.json` manifest and append `?v=<buildId>` to fetch URLs (not enabled by default).
 - Scraper: `scripts/scrape-pokeapi.mjs` (supports sharding) → writes aggregated files.

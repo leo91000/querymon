@@ -38,31 +38,6 @@ function findLocalFlavor(species: Species, lang: 'en'|'fr'|'jp'): { text?: strin
   return { text: en?.flavor_text ? String(en.flavor_text).replace(/[\n\f]/g, ' ') : undefined, hasWanted: false };
 }
 
-async function fetchRemoteFlavor(id: number, lang: 'en'|'fr'|'jp'): Promise<string | undefined> {
-  try {
-    const cacheKey = `flavor.${id}.${lang}`;
-    const cached = localStorage.getItem(cacheKey);
-    if (cached) return cached;
-  } catch {}
-  const url = `https://pokeapi.co/api/v2/pokemon-species/${id}/`;
-  try {
-    const res = await fetch(url);
-    if (!res.ok) return undefined;
-    const json = await res.json();
-    const list: any[] = json?.flavor_text_entries || [];
-    const wanted = lang === 'jp' ? ['ja', 'ja-Hrkt'] : [lang];
-    const found = list.find((e) => wanted.includes(e?.language?.name));
-    const txt = (found?.flavor_text || '').replace(/[\n\f]/g, ' ');
-    if (txt) {
-      try { localStorage.setItem(`flavor.${id}.${lang}`, txt); } catch {}
-      return txt;
-    }
-    return undefined;
-  } catch {
-    return undefined;
-  }
-}
-
 export default function PokemonDetail(props: { id: number }) {
   onMount(() => console.debug('[PokemonDetail] mount id', props.id));
   const [data] = createResource(() => props.id, (id) => loadItemById<PageData>('pokemon' as ResourceName, id));
@@ -90,15 +65,7 @@ export default function PokemonDetail(props: { id: number }) {
   const stats = createMemo(() => (pokemon()?.stats || []).map((s: any) => ({ name: s?.stat?.name || s?.name, base: s?.base_stat ?? s?.base, effort: s?.effort })));
   const locale = () => getLocale() as 'en' | 'fr' | 'jp';
   const localFlavor = createMemo(() => findLocalFlavor(speciesData(), locale()));
-  const [remoteFlavor] = createResource(
-    () => {
-      const loc = locale();
-      // Fetch only if we don't have the wanted language locally and loc isn't 'en'
-      return localFlavor()?.hasWanted || loc === 'en' ? null : { id: props.id, loc };
-    },
-    (key) => fetchRemoteFlavor(key!.id, key!.loc as 'en'|'fr'|'jp'),
-  );
-  const flavorText = createMemo(() => remoteFlavor() || localFlavor()?.text);
+  const flavorText = createMemo(() => localFlavor()?.text);
   // Locale-aware number formatter (JP uses native units: 億/万)
   const nf = createMemo(() => new Intl.NumberFormat(locale() === 'jp' ? 'ja' : locale()));
   function formatJaUnits(v: number): string {
