@@ -8,6 +8,7 @@ import type { ResourceName } from '../services/data';
 import { t, getLocale } from '../i18n';
 import { loadNameMap } from '../services/data';
 import Skeleton from '../components/Skeleton';
+import PokemonSpriteViewer from '../components/PokemonSpriteViewer';
 
 type Species = any;
 type PageData = any;
