@@ -83,7 +83,7 @@ export default function DropdownSelect<T extends string>(props: DropdownSelectPr
       <button
         type="button"
         ref={(el) => (triggerRef = el as HTMLButtonElement)}
-        class="flex h-9 w-full cursor-pointer items-center gap-2 rounded-md border border-gray-300 bg-white px-3 text-sm shadow-sm outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20 dark:border-gray-700 dark:bg-gray-900 dark:text-gray-100"
+        class="flex h-9 w-full cursor-pointer items-center justify-between gap-2 rounded-md border border-gray-300 bg-white px-3 text-sm shadow-sm outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20 dark:border-gray-700 dark:bg-gray-900 dark:text-gray-100"
         aria-haspopup="listbox"
         aria-expanded={open()}
         aria-labelledby={`${props.id}-label`}
@@ -113,10 +113,12 @@ export default function DropdownSelect<T extends string>(props: DropdownSelectPr
           }
         }}
       >
-        <Show when={currentOption()?.icon}>
-          <span aria-hidden="true" class={`text-lg ${currentOption()?.icon ?? ''}`} />
-        </Show>
-        <span>{currentOption()?.label ?? ''}</span>
+        <span class="flex min-w-0 items-center gap-2">
+          <Show when={currentOption()?.icon}>
+            <span aria-hidden="true" class={`text-lg ${currentOption()?.icon ?? ''}`} />
+          </Show>
+          <span class="truncate">{currentOption()?.label ?? ''}</span>
+        </span>
         <span aria-hidden="true" class="icon-[ph--caret-down] text-base text-gray-500 dark:text-gray-300" />
       </button>
       <Show when={open() && props.options.length > 0}>

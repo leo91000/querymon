@@ -1,4 +1,4 @@
-import { Show, createEffect, createMemo, createSignal, onMount } from 'solid-js';
+import { Show, For, createEffect, createMemo, createSignal, onMount } from 'solid-js';
 import DropdownSelect from './DropdownSelect';
 import { t } from '../i18n';
 
@@ -181,23 +181,6 @@ export default function PokemonSpriteViewer(props: Props) {
 
   return (
     <div class="flex w-full flex-col items-center gap-3">
-      <div class="w-full">
-        <DropdownSelect
-          id="sprite-gen"
-          value={selectedGen()}
-          options={generationOptions()}
-          srLabel="Sprite generation"
-          onChange={(next) => {
-            const gen = next as GenerationSlug;
-            setSelectedGen(gen);
-            const list = variantsByGen().get(gen) || [];
-            const pick = list.find((v) => v.key === selectedVariant()) || list[0];
-            setSelectedVariant(pick?.key || '');
-          }}
-          align="right"
-        />
-      </div>
-
       <div class="relative flex h-48 w-48 items-center justify-center overflow-hidden rounded-full bg-gradient-to-br from-blue-100 via-sky-50 to-white shadow-inner dark:from-blue-500/20 dark:via-gray-800 dark:to-gray-900">
         <Show when={currentUrl()} fallback={<span class="text-sm text-gray-400">{t('detail.loading')}</span>}>
           <img src={currentUrl()} alt={props.name} class="h-full w-full object-contain" loading="lazy" />
@@ -219,7 +202,23 @@ export default function PokemonSpriteViewer(props: Props) {
           </button>
         )}</For>
       </div>
+
+      <div class="w-full pt-1">
+        <DropdownSelect
+          id="sprite-gen"
+          value={selectedGen()}
+          options={generationOptions()}
+          srLabel="Sprite generation"
+          onChange={(next) => {
+            const gen = next as GenerationSlug;
+            setSelectedGen(gen);
+            const list = variantsByGen().get(gen) || [];
+            const pick = list.find((v) => v.key === selectedVariant()) || list[0];
+            setSelectedVariant(pick?.key || '');
+          }}
+          align="right"
+        />
+      </div>
     </div>
   );
 }
-
