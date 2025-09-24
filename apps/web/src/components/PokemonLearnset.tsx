@@ -103,37 +103,56 @@ function idFromUrl(url?: string | null) {
 export default function PokemonLearnset(props: PokemonLearnsetProps) {
   const [openGeneration, setOpenGeneration] = createSignal<GenerationSlug | null>(null);
   const [openMethods, setOpenMethods] = createSignal<Record<string, Partial<Record<MethodKey, boolean>>>>({});
-  const moveIdList = createMemo(() => {
-    const set = new Set<number>();
+
+  // Pre-compute move ids grouped by generation so we can fetch lazily per generation
+  const idsByGeneration = createMemo(() => {
+    const map = new Map<GenerationSlug, Set<number>>();
     for (const entry of props.moves || []) {
-      const id = idFromUrl(entry?.move?.url);
-      if (id != null) set.add(id);
+      const moveId = idFromUrl(entry?.move?.url);
+      if (moveId == null) continue;
+      for (const vg of entry?.version_group_details || []) {
+        const vgName = vg?.version_group?.name;
+        const info = vgName ? VERSION_GROUP_TO_GENERATION[vgName] : undefined;
+        if (!info) continue;
+        const set = map.get(info.generation) ?? new Set<number>();
+        set.add(moveId);
+        map.set(info.generation, set);
+      }
     }
-    return Array.from(set).sort((a, b) => a - b);
+    return map;
   });
 
-  const [moveDetails] = createResource(moveIdList, async (ids) => {
-    const results = await Promise.all(
-      ids.map(async (id) => {
-        const detail = await loadItemById('move' as ResourceName, id);
-        return [id, detail] as const;
-      })
-    );
-    return new Map(results);
+  // Cache move details across generations (so reopening is instant)
+  const detailCache = new Map<number, any>();
+
+  const [moveDetails] = createResource(openGeneration, async (gen) => {
+    if (!gen) return new Map(detailCache);
+    const idsForGen = Array.from(idsByGeneration().get(gen) ?? []);
+    const missing = idsForGen.filter((id) => !detailCache.has(id));
+    if (missing.length > 0) {
+      const results = await Promise.all(
+        missing.map(async (id) => {
+          const detail = await loadItemById('move' as ResourceName, id);
+          return [id, detail] as const;
+        })
+      );
+      for (const [id, detail] of results) detailCache.set(id, detail);
+    }
+    return new Map(detailCache);
   });
 
   const learnset = createMemo(() => {
     const moves = props.moves || [];
-    const details = moveDetails();
-    if (!moves.length || !details) return [] as Array<{ generation: GenerationSlug; entries: Array<{ method: MethodKey; items: LearnsetEntry[] }>; order: number }>;
+    const details = moveDetails(); // may be partially filled; OK
+    if (!moves.length) return [] as Array<{ generation: GenerationSlug; entries: Array<{ method: MethodKey; items: LearnsetEntry[] }>; order: number }>;
 
     const genMap = new Map<GenerationSlug, { order: number; methods: Map<MethodKey, Map<string, LearnsetEntry>> }>();
 
     for (const move of moves) {
       const moveId = idFromUrl(move?.move?.url);
-        const detail = moveId != null ? details.get(moveId) : undefined;
-        const moveSlug = typeof move?.move?.name === 'string' ? move.move.name : '';
-        const localizedName = moveId != null ? props.moveNames?.[String(moveId)] ?? formatName(moveSlug) : formatName(moveSlug);
+      const detail = moveId != null ? details?.get(moveId) : undefined;
+      const moveSlug = typeof move?.move?.name === 'string' ? move.move.name : '';
+      const localizedName = moveId != null ? props.moveNames?.[String(moveId)] ?? formatName(moveSlug) : formatName(moveSlug);
 
       for (const vg of move?.version_group_details || []) {
         const mappedMethod = METHOD_MAP[vg?.move_learn_method?.name];
