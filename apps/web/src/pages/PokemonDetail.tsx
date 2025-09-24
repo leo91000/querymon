@@ -404,12 +404,12 @@ export default function PokemonDetail(props: { id: number }) {
                                   <div class={`text-center text-sm font-semibold ${entry.isCurrent ? 'text-blue-600 dark:text-blue-300' : 'text-gray-800 dark:text-gray-100'}`}>
                                     {entry.name}
                                   </div>
-                                  <div class="flex min-h-[1.75rem] flex-wrap justify-center gap-1">
+                                  <div class="flex min-h-[1.75rem] flex-wrap items-center justify-center gap-1">
                                     <For each={hints}>{(hint) => (
-                                      <span class="rounded-full bg-blue-50 px-2 py-0.5 text-[11px] font-medium text-blue-600 dark:bg-blue-500/20 dark:text-blue-200">{hint}</span>
+                                      <span class="inline-flex items-center rounded-full bg-blue-50 px-2 py-0.5 text-[11px] font-medium text-blue-600 dark:bg-blue-500/20 dark:text-blue-200">{hint}</span>
                                     )}</For>
                                     <Show when={hints.length === 0}>
-                                      <span class="invisible rounded-full bg-blue-50 px-2 py-0.5 text-[11px] font-medium">placeholder</span>
+                                      <span class="invisible inline-flex items-center rounded-full bg-blue-50 px-2 py-0.5 text-[11px] font-medium">placeholder</span>
                                     </Show>
                                   </div>
                                 </a>
