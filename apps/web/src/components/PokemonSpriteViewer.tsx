@@ -181,7 +181,7 @@ export default function PokemonSpriteViewer(props: Props) {
 
   return (
     <div class="flex w-full flex-col items-center gap-3">
-      <div class="relative flex h-48 w-48 items-center justify-center overflow-hidden rounded-full bg-gradient-to-br from-blue-100 via-sky-50 to-white shadow-inner dark:from-blue-500/20 dark:via-gray-800 dark:to-gray-900">
+      <div class="relative flex h-48 w-48 items-center justify-center overflow-hidden rounded-xl bg-gradient-to-br from-blue-100 via-sky-50 to-white shadow-inner dark:from-blue-500/20 dark:via-gray-800 dark:to-gray-900">
         <Show when={currentUrl()} fallback={<span class="text-sm text-gray-400">{t('detail.loading')}</span>}>
           <img src={currentUrl()} alt={props.name} class="h-full w-full object-contain" loading="lazy" />
         </Show>
