@@ -1,0 +1,1274 @@
+{
+  "id": 914,
+  "name": "Palmaval",
+  "sprites": {
+    "front_default": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/914.png",
+    "front_shiny": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/shiny/914.png",
+    "official_artwork": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/914.png",
+    "dream_world": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/dream-world/914.svg",
+    "home_default": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/914.png",
+    "home_shiny": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/shiny/914.png",
+    "versions": {}
+  },
+  "types": [
+    {
+      "id": 11,
+      "name": "water"
+    },
+    {
+      "id": 2,
+      "name": "fighting"
+    }
+  ],
+  "abilities": [
+    {
+      "id": 67,
+      "name": "torrent",
+      "hidden": false
+    },
+    {
+      "id": 153,
+      "name": "moxie",
+      "hidden": true
+    }
+  ],
+  "stats": [
+    {
+      "name": "hp",
+      "base": 85,
+      "effort": 0
+    },
+    {
+      "name": "attack",
+      "base": 120,
+      "effort": 3
+    },
+    {
+      "name": "defense",
+      "base": 80,
+      "effort": 0
+    },
+    {
+      "name": "special-attack",
+      "base": 85,
+      "effort": 0
+    },
+    {
+      "name": "special-defense",
+      "base": 75,
+      "effort": 0
+    },
+    {
+      "name": "speed",
+      "base": 85,
+      "effort": 0
+    }
+  ],
+  "weight": 619,
+  "height": 18,
+  "base_experience": 265,
+  "species": {
+    "capture_rate": 45,
+    "hatch_counter": 20,
+    "gender_rate": 1,
+    "growth_rate": {
+      "id": 4,
+      "name": "medium-slow"
+    },
+    "egg_groups": [
+      {
+        "id": 4,
+        "name": "Aérien"
+      },
+      {
+        "id": 2,
+        "name": "Aquatique 1"
+      }
+    ],
+    "color": {
+      "id": 2,
+      "name": "Bleu"
+    },
+    "genus": "Danseur"
+  },
+  "evolutions": [
+    [
+      {
+        "id": 912,
+        "name": "Coiffeton",
+        "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/912.png",
+        "isCurrent": false,
+        "details": []
+      }
+    ],
+    [
+      {
+        "id": 913,
+        "name": "Canarbello",
+        "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/913.png",
+        "isCurrent": false,
+        "details": [
+          {
+            "gender": null,
+            "held_item": null,
+            "item": null,
+            "known_move": null,
+            "known_move_type": null,
+            "location": null,
+            "min_affection": null,
+            "min_beauty": null,
+            "min_happiness": null,
+            "min_level": 16,
+            "needs_overworld_rain": false,
+            "party_species": null,
+            "party_type": null,
+            "relative_physical_stats": null,
+            "time_of_day": "",
+            "trade_species": null,
+            "trigger": {
+              "name": "level-up",
+              "url": "https://pokeapi.co/api/v2/evolution-trigger/1/"
+            },
+            "turn_upside_down": false
+          }
+        ]
+      }
+    ],
+    [
+      {
+        "id": 914,
+        "name": "Palmaval",
+        "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/914.png",
+        "isCurrent": true,
+        "details": [
+          {
+            "gender": null,
+            "held_item": null,
+            "item": null,
+            "known_move": null,
+            "known_move_type": null,
+            "location": null,
+            "min_affection": null,
+            "min_beauty": null,
+            "min_happiness": null,
+            "min_level": 36,
+            "needs_overworld_rain": false,
+            "party_species": null,
+            "party_type": null,
+            "relative_physical_stats": null,
+            "time_of_day": "",
+            "trade_species": null,
+            "trigger": {
+              "name": "level-up",
+              "url": "https://pokeapi.co/api/v2/evolution-trigger/1/"
+            },
+            "turn_upside_down": false
+          }
+        ]
+      }
+    ]
+  ],
+  "learnsets": [
+    {
+      "generation": "generation-ix",
+      "order": 21,
+      "entries": [
+        {
+          "method": "egg",
+          "items": [
+            {
+              "move": {
+                "id": 68,
+                "name": "Riposte"
+              },
+              "type": "fighting",
+              "category": "physical",
+              "power": null,
+              "accuracy": 100,
+              "pp": 20,
+              "level": null,
+              "versionGroups": [
+                "scarlet-violet"
+              ]
+            }
+          ]
+        },
+        {
+          "method": "level-up",
+          "items": [
+            {
+              "move": {
+                "id": 872,
+                "name": "aqua-step"
+              },
+              "type": "water",
+              "category": "physical",
+              "power": 80,
+              "accuracy": 100,
+              "pp": 10,
+              "level": 0,
+              "versionGroups": [
+                "scarlet-violet"
+              ]
+            },
+            {
+              "move": {
+                "id": 458,
+                "name": "Coup Double"
+              },
+              "type": "normal",
+              "category": "physical",
+              "power": 35,
+              "accuracy": 90,
+              "pp": 10,
+              "level": 1,
+              "versionGroups": [
+                "scarlet-violet"
+              ]
+            },
+            {
+              "move": {
+                "id": 1,
+                "name": "Écras’Face"
+              },
+              "type": "normal",
+              "category": "physical",
+              "power": 40,
+              "accuracy": 100,
+              "pp": 35,
+              "level": 1,
+              "versionGroups": [
+                "scarlet-violet"
+              ]
+            },
+            {
+              "move": {
+                "id": 55,
+                "name": "Pistolet à O"
+              },
+              "type": "water",
+              "category": "special",
+              "power": 40,
+              "accuracy": 100,
+              "pp": 25,
+              "level": 1,
+              "versionGroups": [
+                "scarlet-violet"
+              ]
+            },
+            {
+              "move": {
+                "id": 45,
+                "name": "Rugissement"
+              },
+              "type": "normal",
+              "category": "status",
+              "power": null,
+              "accuracy": 100,
+              "pp": 40,
+              "level": 1,
+              "versionGroups": [
+                "scarlet-violet"
+              ]
+            },
+            {
+              "move": {
+                "id": 526,
+                "name": "Rengorgement"
+              },
+              "type": "normal",
+              "category": "status",
+              "power": null,
+              "accuracy": null,
+              "pp": 30,
+              "level": 7,
+              "versionGroups": [
+                "scarlet-violet"
+              ]
+            },
+            {
+              "move": {
+                "id": 17,
+                "name": "Cru-Ailes"
+              },
+              "type": "flying",
+              "category": "physical",
+              "power": 60,
+              "accuracy": 100,
+              "pp": 35,
+              "level": 10,
+              "versionGroups": [
+                "scarlet-violet"
+              ]
+            },
+            {
+              "move": {
+                "id": 453,
+                "name": "Aqua-Jet"
+              },
+              "type": "water",
+              "category": "physical",
+              "power": 40,
+              "accuracy": 100,
+              "pp": 20,
+              "level": 13,
+              "versionGroups": [
+                "scarlet-violet"
+              ]
+            },
+            {
+              "move": {
+                "id": 490,
+                "name": "Balayette"
+              },
+              "type": "fighting",
+              "category": "physical",
+              "power": 65,
+              "accuracy": 100,
+              "pp": 20,
+              "level": 17,
+              "versionGroups": [
+                "scarlet-violet"
+              ]
+            },
+            {
+              "move": {
+                "id": 352,
+                "name": "Vibraqua"
+              },
+              "type": "water",
+              "category": "special",
+              "power": 60,
+              "accuracy": 100,
+              "pp": 20,
+              "level": 17,
+              "versionGroups": [
+                "scarlet-violet"
+              ]
+            },
+            {
+              "move": {
+                "id": 895,
+                "name": "aqua-cutter"
+              },
+              "type": "water",
+              "category": "physical",
+              "power": 70,
+              "accuracy": 100,
+              "pp": 20,
+              "level": 21,
+              "versionGroups": [
+                "scarlet-violet"
+              ]
+            },
+            {
+              "move": {
+                "id": 403,
+                "name": "Lame d’Air"
+              },
+              "type": "flying",
+              "category": "special",
+              "power": 75,
+              "accuracy": 95,
+              "pp": 15,
+              "level": 27,
+              "versionGroups": [
+                "scarlet-violet"
+              ]
+            },
+            {
+              "move": {
+                "id": 116,
+                "name": "Puissance"
+              },
+              "type": "normal",
+              "category": "status",
+              "power": null,
+              "accuracy": null,
+              "pp": 30,
+              "level": 32,
+              "versionGroups": [
+                "scarlet-violet"
+              ]
+            },
+            {
+              "move": {
+                "id": 25,
+                "name": "Ultimawashi"
+              },
+              "type": "normal",
+              "category": "physical",
+              "power": 120,
+              "accuracy": 75,
+              "pp": 5,
+              "level": 38,
+              "versionGroups": [
+                "scarlet-violet"
+              ]
+            },
+            {
+              "move": {
+                "id": 512,
+                "name": "Acrobatie"
+              },
+              "type": "flying",
+              "category": "physical",
+              "power": 55,
+              "accuracy": 100,
+              "pp": 15,
+              "level": 43,
+              "versionGroups": [
+                "scarlet-violet"
+              ]
+            },
+            {
+              "move": {
+                "id": 710,
+                "name": "Aqua-Brèche"
+              },
+              "type": "water",
+              "category": "physical",
+              "power": 85,
+              "accuracy": 100,
+              "pp": 10,
+              "level": 47,
+              "versionGroups": [
+                "scarlet-violet"
+              ]
+            },
+            {
+              "move": {
+                "id": 297,
+                "name": "Danse Plumes"
+              },
+              "type": "flying",
+              "category": "status",
+              "power": null,
+              "accuracy": 100,
+              "pp": 15,
+              "level": 52,
+              "versionGroups": [
+                "scarlet-violet"
+              ]
+            },
+            {
+              "move": {
+                "id": 370,
+                "name": "Close Combat"
+              },
+              "type": "fighting",
+              "category": "physical",
+              "power": 120,
+              "accuracy": 100,
+              "pp": 5,
+              "level": 58,
+              "versionGroups": [
+                "scarlet-violet"
+              ]
+            },
+            {
+              "move": {
+                "id": 834,
+                "name": "wave-crash"
+              },
+              "type": "water",
+              "category": "physical",
+              "power": 120,
+              "accuracy": 100,
+              "pp": 10,
+              "level": 64,
+              "versionGroups": [
+                "scarlet-violet"
+              ]
+            }
+          ]
+        },
+        {
+          "method": "machine",
+          "items": [
+            {
+              "move": {
+                "id": 182,
+                "name": "Abri"
+              },
+              "type": "normal",
+              "category": "status",
+              "power": null,
+              "accuracy": null,
+              "pp": 10,
+              "level": null,
+              "versionGroups": [
+                "scarlet-violet"
+              ]
+            },
+            {
+              "move": {
+                "id": 512,
+                "name": "Acrobatie"
+              },
+              "type": "flying",
+              "category": "physical",
+              "power": 55,
+              "accuracy": 100,
+              "pp": 15,
+              "level": null,
+              "versionGroups": [
+                "scarlet-violet"
+              ]
+            },
+            {
+              "move": {
+                "id": 332,
+                "name": "Aéropique"
+              },
+              "type": "flying",
+              "category": "physical",
+              "power": 60,
+              "accuracy": null,
+              "pp": 20,
+              "level": null,
+              "versionGroups": [
+                "scarlet-violet"
+              ]
+            },
+            {
+              "move": {
+                "id": 518,
+                "name": "Aire d’Eau"
+              },
+              "type": "water",
+              "category": "special",
+              "power": 80,
+              "accuracy": 100,
+              "pp": 10,
+              "level": null,
+              "versionGroups": [
+                "scarlet-violet"
+              ]
+            },
+            {
+              "move": {
+                "id": 710,
+                "name": "Aqua-Brèche"
+              },
+              "type": "water",
+              "category": "physical",
+              "power": 85,
+              "accuracy": 100,
+              "pp": 10,
+              "level": null,
+              "versionGroups": [
+                "scarlet-violet"
+              ]
+            },
+            {
+              "move": {
+                "id": 67,
+                "name": "Balayage"
+              },
+              "type": "fighting",
+              "category": "physical",
+              "power": null,
+              "accuracy": 100,
+              "pp": 20,
+              "level": null,
+              "versionGroups": [
+                "scarlet-violet"
+              ]
+            },
+            {
+              "move": {
+                "id": 490,
+                "name": "Balayette"
+              },
+              "type": "fighting",
+              "category": "physical",
+              "power": 65,
+              "accuracy": 100,
+              "pp": 20,
+              "level": null,
+              "versionGroups": [
+                "scarlet-violet"
+              ]
+            },
+            {
+              "move": {
+                "id": 36,
+                "name": "Bélier"
+              },
+              "type": "normal",
+              "category": "physical",
+              "power": 90,
+              "accuracy": 85,
+              "pp": 20,
+              "level": null,
+              "versionGroups": [
+                "scarlet-violet"
+              ]
+            },
+            {
+              "move": {
+                "id": 214,
+                "name": "Blabla Dodo"
+              },
+              "type": "normal",
+              "category": "status",
+              "power": null,
+              "accuracy": null,
+              "pp": 10,
+              "level": null,
+              "versionGroups": [
+                "scarlet-violet"
+              ]
+            },
+            {
+              "move": {
+                "id": 244,
+                "name": "Boost"
+              },
+              "type": "normal",
+              "category": "status",
+              "power": null,
+              "accuracy": null,
+              "pp": 10,
+              "level": null,
+              "versionGroups": [
+                "scarlet-violet"
+              ]
+            },
+            {
+              "move": {
+                "id": 280,
+                "name": "Casse-Brique"
+              },
+              "type": "fighting",
+              "category": "physical",
+              "power": 75,
+              "accuracy": 100,
+              "pp": 15,
+              "level": null,
+              "versionGroups": [
+                "scarlet-violet"
+              ]
+            },
+            {
+              "move": {
+                "id": 581,
+                "name": "Champ Brumeux"
+              },
+              "type": "fairy",
+              "category": "status",
+              "power": null,
+              "accuracy": null,
+              "pp": 10,
+              "level": null,
+              "versionGroups": [
+                "scarlet-violet"
+              ]
+            },
+            {
+              "move": {
+                "id": 886,
+                "name": "chilling-water"
+              },
+              "type": "water",
+              "category": "special",
+              "power": 50,
+              "accuracy": 100,
+              "pp": 20,
+              "level": null,
+              "versionGroups": [
+                "scarlet-violet"
+              ]
+            },
+            {
+              "move": {
+                "id": 164,
+                "name": "Clonage"
+              },
+              "type": "normal",
+              "category": "status",
+              "power": null,
+              "accuracy": null,
+              "pp": 10,
+              "level": null,
+              "versionGroups": [
+                "scarlet-violet"
+              ]
+            },
+            {
+              "move": {
+                "id": 370,
+                "name": "Close Combat"
+              },
+              "type": "fighting",
+              "category": "physical",
+              "power": 120,
+              "accuracy": 100,
+              "pp": 5,
+              "level": null,
+              "versionGroups": [
+                "scarlet-violet"
+              ]
+            },
+            {
+              "move": {
+                "id": 811,
+                "name": "Coaching"
+              },
+              "type": "fighting",
+              "category": "status",
+              "power": null,
+              "accuracy": null,
+              "pp": 10,
+              "level": null,
+              "versionGroups": [
+                "scarlet-violet"
+              ]
+            },
+            {
+              "move": {
+                "id": 179,
+                "name": "Contre"
+              },
+              "type": "fighting",
+              "category": "physical",
+              "power": null,
+              "accuracy": 100,
+              "pp": 15,
+              "level": null,
+              "versionGroups": [
+                "scarlet-violet"
+              ]
+            },
+            {
+              "move": {
+                "id": 270,
+                "name": "Coup d’Main"
+              },
+              "type": "normal",
+              "category": "status",
+              "power": null,
+              "accuracy": null,
+              "pp": 20,
+              "level": null,
+              "versionGroups": [
+                "scarlet-violet"
+              ]
+            },
+            {
+              "move": {
+                "id": 14,
+                "name": "Danse Lames"
+              },
+              "type": "normal",
+              "category": "status",
+              "power": null,
+              "accuracy": null,
+              "pp": 20,
+              "level": null,
+              "versionGroups": [
+                "scarlet-violet"
+              ]
+            },
+            {
+              "move": {
+                "id": 240,
+                "name": "Danse Pluie"
+              },
+              "type": "water",
+              "category": "status",
+              "power": null,
+              "accuracy": null,
+              "pp": 5,
+              "level": null,
+              "versionGroups": [
+                "scarlet-violet"
+              ]
+            },
+            {
+              "move": {
+                "id": 297,
+                "name": "Danse Plumes"
+              },
+              "type": "flying",
+              "category": "status",
+              "power": null,
+              "accuracy": 100,
+              "pp": 15,
+              "level": null,
+              "versionGroups": [
+                "scarlet-violet"
+              ]
+            },
+            {
+              "move": {
+                "id": 374,
+                "name": "Dégommage"
+              },
+              "type": "dark",
+              "category": "physical",
+              "power": null,
+              "accuracy": 100,
+              "pp": 10,
+              "level": null,
+              "versionGroups": [
+                "scarlet-violet"
+              ]
+            },
+            {
+              "move": {
+                "id": 369,
+                "name": "Demi-Tour"
+              },
+              "type": "bug",
+              "category": "physical",
+              "power": 70,
+              "accuracy": 100,
+              "pp": 20,
+              "level": null,
+              "versionGroups": [
+                "scarlet-violet"
+              ]
+            },
+            {
+              "move": {
+                "id": 812,
+                "name": "Eau Revoir"
+              },
+              "type": "water",
+              "category": "physical",
+              "power": 60,
+              "accuracy": 100,
+              "pp": 20,
+              "level": null,
+              "versionGroups": [
+                "scarlet-violet"
+              ]
+            },
+            {
+              "move": {
+                "id": 283,
+                "name": "Effort"
+              },
+              "type": "normal",
+              "category": "physical",
+              "power": null,
+              "accuracy": 100,
+              "pp": 5,
+              "level": null,
+              "versionGroups": [
+                "scarlet-violet"
+              ]
+            },
+            {
+              "move": {
+                "id": 227,
+                "name": "Encore"
+              },
+              "type": "normal",
+              "category": "status",
+              "power": null,
+              "accuracy": 100,
+              "pp": 5,
+              "level": null,
+              "versionGroups": [
+                "scarlet-violet"
+              ]
+            },
+            {
+              "move": {
+                "id": 263,
+                "name": "Façade"
+              },
+              "type": "normal",
+              "category": "physical",
+              "power": 70,
+              "accuracy": 100,
+              "pp": 20,
+              "level": null,
+              "versionGroups": [
+                "scarlet-violet"
+              ]
+            },
+            {
+              "move": {
+                "id": 416,
+                "name": "Giga Impact"
+              },
+              "type": "normal",
+              "category": "physical",
+              "power": 150,
+              "accuracy": 90,
+              "pp": 5,
+              "level": null,
+              "versionGroups": [
+                "scarlet-violet"
+              ]
+            },
+            {
+              "move": {
+                "id": 339,
+                "name": "Gonflette"
+              },
+              "type": "fighting",
+              "category": "status",
+              "power": null,
+              "accuracy": null,
+              "pp": 20,
+              "level": null,
+              "versionGroups": [
+                "scarlet-violet"
+              ]
+            },
+            {
+              "move": {
+                "id": 97,
+                "name": "Hâte"
+              },
+              "type": "psychic",
+              "category": "status",
+              "power": null,
+              "accuracy": null,
+              "pp": 30,
+              "level": null,
+              "versionGroups": [
+                "scarlet-violet"
+              ]
+            },
+            {
+              "move": {
+                "id": 308,
+                "name": "Hydroblast"
+              },
+              "type": "water",
+              "category": "special",
+              "power": 150,
+              "accuracy": 90,
+              "pp": 5,
+              "level": null,
+              "versionGroups": [
+                "scarlet-violet"
+              ]
+            },
+            {
+              "move": {
+                "id": 56,
+                "name": "Hydrocanon"
+              },
+              "type": "water",
+              "category": "special",
+              "power": 110,
+              "accuracy": 80,
+              "pp": 5,
+              "level": null,
+              "versionGroups": [
+                "scarlet-violet"
+              ]
+            },
+            {
+              "move": {
+                "id": 861,
+                "name": "ice-spinner"
+              },
+              "type": "ice",
+              "category": "physical",
+              "power": 80,
+              "accuracy": 100,
+              "pp": 15,
+              "level": null,
+              "versionGroups": [
+                "scarlet-violet"
+              ]
+            },
+            {
+              "move": {
+                "id": 403,
+                "name": "Lame d’Air"
+              },
+              "type": "flying",
+              "category": "special",
+              "power": 75,
+              "accuracy": 95,
+              "pp": 15,
+              "level": null,
+              "versionGroups": [
+                "scarlet-violet"
+              ]
+            },
+            {
+              "move": {
+                "id": 129,
+                "name": "Météores"
+              },
+              "type": "normal",
+              "category": "special",
+              "power": 60,
+              "accuracy": null,
+              "pp": 20,
+              "level": null,
+              "versionGroups": [
+                "scarlet-violet"
+              ]
+            },
+            {
+              "move": {
+                "id": 918,
+                "name": "Prio-Parade"
+              },
+              "type": "fighting",
+              "category": "physical",
+              "power": 65,
+              "accuracy": 100,
+              "pp": 15,
+              "level": null,
+              "versionGroups": [
+                "scarlet-violet"
+              ]
+            },
+            {
+              "move": {
+                "id": 269,
+                "name": "Provoc"
+              },
+              "type": "dark",
+              "category": "status",
+              "power": null,
+              "accuracy": 100,
+              "pp": 20,
+              "level": null,
+              "versionGroups": [
+                "scarlet-violet"
+              ]
+            },
+            {
+              "move": {
+                "id": 413,
+                "name": "Rapace"
+              },
+              "type": "flying",
+              "category": "physical",
+              "power": 120,
+              "accuracy": 100,
+              "pp": 15,
+              "level": null,
+              "versionGroups": [
+                "scarlet-violet"
+              ]
+            },
+            {
+              "move": {
+                "id": 226,
+                "name": "Relais"
+              },
+              "type": "normal",
+              "category": "status",
+              "power": null,
+              "accuracy": null,
+              "pp": 40,
+              "level": null,
+              "versionGroups": [
+                "scarlet-violet"
+              ]
+            },
+            {
+              "move": {
+                "id": 156,
+                "name": "Repos"
+              },
+              "type": "psychic",
+              "category": "status",
+              "power": null,
+              "accuracy": null,
+              "pp": 5,
+              "level": null,
+              "versionGroups": [
+                "scarlet-violet"
+              ]
+            },
+            {
+              "move": {
+                "id": 282,
+                "name": "Sabotage"
+              },
+              "type": "dark",
+              "category": "physical",
+              "power": 65,
+              "accuracy": 100,
+              "pp": 20,
+              "level": null,
+              "versionGroups": [
+                "scarlet-violet"
+              ]
+            },
+            {
+              "move": {
+                "id": 250,
+                "name": "Siphon"
+              },
+              "type": "water",
+              "category": "special",
+              "power": 35,
+              "accuracy": 85,
+              "pp": 15,
+              "level": null,
+              "versionGroups": [
+                "scarlet-violet"
+              ]
+            },
+            {
+              "move": {
+                "id": 57,
+                "name": "Surf"
+              },
+              "type": "water",
+              "category": "special",
+              "power": 90,
+              "accuracy": 100,
+              "pp": 15,
+              "level": null,
+              "versionGroups": [
+                "scarlet-violet"
+              ]
+            },
+            {
+              "move": {
+                "id": 203,
+                "name": "Ténacité"
+              },
+              "type": "normal",
+              "category": "status",
+              "power": null,
+              "accuracy": null,
+              "pp": 10,
+              "level": null,
+              "versionGroups": [
+                "scarlet-violet"
+              ]
+            },
+            {
+              "move": {
+                "id": 851,
+                "name": "tera-blast"
+              },
+              "type": "normal",
+              "category": "special",
+              "power": 80,
+              "accuracy": 100,
+              "pp": 10,
+              "level": null,
+              "versionGroups": [
+                "scarlet-violet"
+              ]
+            },
+            {
+              "move": {
+                "id": 314,
+                "name": "Tranch’Air"
+              },
+              "type": "flying",
+              "category": "special",
+              "power": 60,
+              "accuracy": 95,
+              "pp": 25,
+              "level": null,
+              "versionGroups": [
+                "scarlet-violet"
+              ]
+            },
+            {
+              "move": {
+                "id": 813,
+                "name": "Triple Axel"
+              },
+              "type": "ice",
+              "category": "physical",
+              "power": 20,
+              "accuracy": 90,
+              "pp": 10,
+              "level": null,
+              "versionGroups": [
+                "scarlet-violet"
+              ]
+            },
+            {
+              "move": {
+                "id": 63,
+                "name": "Ultralaser"
+              },
+              "type": "normal",
+              "category": "special",
+              "power": 150,
+              "accuracy": 90,
+              "pp": 5,
+              "level": null,
+              "versionGroups": [
+                "scarlet-violet"
+              ]
+            },
+            {
+              "move": {
+                "id": 196,
+                "name": "Vent Glace"
+              },
+              "type": "ice",
+              "category": "special",
+              "power": 55,
+              "accuracy": 95,
+              "pp": 15,
+              "level": null,
+              "versionGroups": [
+                "scarlet-violet"
+              ]
+            },
+            {
+              "move": {
+                "id": 542,
+                "name": "Vent Violent"
+              },
+              "type": "flying",
+              "category": "special",
+              "power": 110,
+              "accuracy": 70,
+              "pp": 10,
+              "level": null,
+              "versionGroups": [
+                "scarlet-violet"
+              ]
+            },
+            {
+              "move": {
+                "id": 352,
+                "name": "Vibraqua"
+              },
+              "type": "water",
+              "category": "special",
+              "power": 60,
+              "accuracy": 100,
+              "pp": 20,
+              "level": null,
+              "versionGroups": [
+                "scarlet-violet"
+              ]
+            },
+            {
+              "move": {
+                "id": 574,
+                "name": "Voix Enjôleuse"
+              },
+              "type": "fairy",
+              "category": "special",
+              "power": 40,
+              "accuracy": null,
+              "pp": 15,
+              "level": null,
+              "versionGroups": [
+                "scarlet-violet"
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

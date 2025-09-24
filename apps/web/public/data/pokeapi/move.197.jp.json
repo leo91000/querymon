@@ -1,0 +1,936 @@
+{
+  "id": 197,
+  "name": "みきり",
+  "type": {
+    "id": 2,
+    "name": "fighting"
+  },
+  "damage_class": {
+    "name": "status"
+  },
+  "power": null,
+  "accuracy": null,
+  "pp": 5,
+  "priority": 4,
+  "target": {
+    "name": "user"
+  },
+  "generation": {
+    "name": "generation-ii"
+  },
+  "effect_entries": [
+    {
+      "effect": "No moves will hit the user for the remainder of this turn.  If the user is last to act this turn, this move will fail.  If the user successfully used detect, endure, protect, quick guard, or wide guard on the last turn, this move has a 50% chance to fail.  lock on, mind reader, and no guard provide a (100 – accuracy)% chance for moves to break through this move.  This does not apply to one-hit KO moves (fissure, guillotine, horn drill, and sheer cold); those are always blocked by this move.  thunder during rain dance and blizzard during hail have a 30% chance to break through this move.  The following effects are not prevented by this move:  * acupressure from an ally * curse’s curse effect * Delayed damage from doom desire and future sight; however, these moves will be prevented if they are used this turn * feint, which will also end this move’s protection after it hits * imprison * perish song * shadow force * Moves that merely copy the user, such as transform or psych up  This move cannot be selected by assist or metronome.",
+      "language": {
+        "name": "en",
+        "url": "https://pokeapi.co/api/v2/language/9/"
+      },
+      "short_effect": "Prevents any moves from hitting the user this turn."
+    }
+  ],
+  "flavor_text_entries": [
+    {
+      "flavor_text": "Evades attack that turn. It may fail.",
+      "language": {
+        "name": "en",
+        "url": "https://pokeapi.co/api/v2/language/9/"
+      },
+      "version_group": {
+        "name": "gold-silver",
+        "url": "https://pokeapi.co/api/v2/version-group/3/"
+      }
+    },
+    {
+      "flavor_text": "Evades attack that turn. It may fail.",
+      "language": {
+        "name": "en",
+        "url": "https://pokeapi.co/api/v2/language/9/"
+      },
+      "version_group": {
+        "name": "crystal",
+        "url": "https://pokeapi.co/api/v2/version-group/4/"
+      }
+    },
+    {
+      "flavor_text": "Evades attack, but may fail if used in succession.",
+      "language": {
+        "name": "en",
+        "url": "https://pokeapi.co/api/v2/language/9/"
+      },
+      "version_group": {
+        "name": "ruby-sapphire",
+        "url": "https://pokeapi.co/api/v2/version-group/5/"
+      }
+    },
+    {
+      "flavor_text": "Evades attack, but may fail if used in succession.",
+      "language": {
+        "name": "en",
+        "url": "https://pokeapi.co/api/v2/language/9/"
+      },
+      "version_group": {
+        "name": "emerald",
+        "url": "https://pokeapi.co/api/v2/version-group/6/"
+      }
+    },
+    {
+      "flavor_text": "Enables the user to evade all attacks. It may fail if used in succession.",
+      "language": {
+        "name": "en",
+        "url": "https://pokeapi.co/api/v2/language/9/"
+      },
+      "version_group": {
+        "name": "firered-leafgreen",
+        "url": "https://pokeapi.co/api/v2/version-group/7/"
+      }
+    },
+    {
+      "flavor_text": "It enables the user to evade all attacks. Its chance of failing rises if it is used in succession.",
+      "language": {
+        "name": "en",
+        "url": "https://pokeapi.co/api/v2/language/9/"
+      },
+      "version_group": {
+        "name": "diamond-pearl",
+        "url": "https://pokeapi.co/api/v2/version-group/8/"
+      }
+    },
+    {
+      "flavor_text": "It enables the user to evade all attacks. Its chance of failing rises if it is used in succession.",
+      "language": {
+        "name": "en",
+        "url": "https://pokeapi.co/api/v2/language/9/"
+      },
+      "version_group": {
+        "name": "platinum",
+        "url": "https://pokeapi.co/api/v2/version-group/9/"
+      }
+    },
+    {
+      "flavor_text": "It enables the user to evade all attacks. Its chance of failing rises if it is used in succession.",
+      "language": {
+        "name": "en",
+        "url": "https://pokeapi.co/api/v2/language/9/"
+      },
+      "version_group": {
+        "name": "heartgold-soulsilver",
+        "url": "https://pokeapi.co/api/v2/version-group/10/"
+      }
+    },
+    {
+      "flavor_text": "It enables the user to evade all attacks. Its chance of failing rises if it is used in succession.",
+      "language": {
+        "name": "en",
+        "url": "https://pokeapi.co/api/v2/language/9/"
+      },
+      "version_group": {
+        "name": "black-white",
+        "url": "https://pokeapi.co/api/v2/version-group/11/"
+      }
+    },
+    {
+      "flavor_text": "It enables the user to evade all attacks. Its chance of failing rises if it is used in succession.",
+      "language": {
+        "name": "en",
+        "url": "https://pokeapi.co/api/v2/language/9/"
+      },
+      "version_group": {
+        "name": "black-2-white-2",
+        "url": "https://pokeapi.co/api/v2/version-group/14/"
+      }
+    },
+    {
+      "flavor_text": "Enables the user to evade all attacks. Its chance of failing rises if it is used in succession.",
+      "language": {
+        "name": "en",
+        "url": "https://pokeapi.co/api/v2/language/9/"
+      },
+      "version_group": {
+        "name": "x-y",
+        "url": "https://pokeapi.co/api/v2/version-group/15/"
+      }
+    },
+    {
+      "flavor_text": "相手の　攻撃を まったく　受けない。 連続で　だすと　失敗しやすい。",
+      "language": {
+        "name": "ja",
+        "url": "https://pokeapi.co/api/v2/language/11/"
+      },
+      "version_group": {
+        "name": "x-y",
+        "url": "https://pokeapi.co/api/v2/version-group/15/"
+      }
+    },
+    {
+      "flavor_text": "Enables the user to evade all attacks. Its chance of failing rises if it is used in succession.",
+      "language": {
+        "name": "en",
+        "url": "https://pokeapi.co/api/v2/language/9/"
+      },
+      "version_group": {
+        "name": "omega-ruby-alpha-sapphire",
+        "url": "https://pokeapi.co/api/v2/version-group/16/"
+      }
+    },
+    {
+      "flavor_text": "相手の　攻撃を まったく　受けない。 連続で　だすと　失敗しやすい。",
+      "language": {
+        "name": "ja",
+        "url": "https://pokeapi.co/api/v2/language/11/"
+      },
+      "version_group": {
+        "name": "omega-ruby-alpha-sapphire",
+        "url": "https://pokeapi.co/api/v2/version-group/16/"
+      }
+    },
+    {
+      "flavor_text": "Enables the user to evade all attacks. Its chance of failing rises if it is used in succession.",
+      "language": {
+        "name": "en",
+        "url": "https://pokeapi.co/api/v2/language/9/"
+      },
+      "version_group": {
+        "name": "sun-moon",
+        "url": "https://pokeapi.co/api/v2/version-group/17/"
+      }
+    },
+    {
+      "flavor_text": "相手の　攻撃を まったく　受けない。 連続で　だすと　失敗しやすい。",
+      "language": {
+        "name": "ja",
+        "url": "https://pokeapi.co/api/v2/language/11/"
+      },
+      "version_group": {
+        "name": "sun-moon",
+        "url": "https://pokeapi.co/api/v2/version-group/17/"
+      }
+    },
+    {
+      "flavor_text": "Enables the user to evade all attacks. Its chance of failing rises if it is used in succession.",
+      "language": {
+        "name": "en",
+        "url": "https://pokeapi.co/api/v2/language/9/"
+      },
+      "version_group": {
+        "name": "ultra-sun-ultra-moon",
+        "url": "https://pokeapi.co/api/v2/version-group/18/"
+      }
+    },
+    {
+      "flavor_text": "相手の　攻撃を まったく　受けない。 連続で　だすと　失敗しやすい。",
+      "language": {
+        "name": "ja",
+        "url": "https://pokeapi.co/api/v2/language/11/"
+      },
+      "version_group": {
+        "name": "ultra-sun-ultra-moon",
+        "url": "https://pokeapi.co/api/v2/version-group/18/"
+      }
+    },
+    {
+      "flavor_text": "Enables the user to evade all attacks. Its chance of failing rises if it is used in succession.",
+      "language": {
+        "name": "en",
+        "url": "https://pokeapi.co/api/v2/language/9/"
+      },
+      "version_group": {
+        "name": "lets-go-pikachu-lets-go-eevee",
+        "url": "https://pokeapi.co/api/v2/version-group/19/"
+      }
+    },
+    {
+      "flavor_text": "相手の　攻撃を まったく　受けない。 連続で　だすと　失敗しやすい。",
+      "language": {
+        "name": "ja",
+        "url": "https://pokeapi.co/api/v2/language/11/"
+      },
+      "version_group": {
+        "name": "lets-go-pikachu-lets-go-eevee",
+        "url": "https://pokeapi.co/api/v2/version-group/19/"
+      }
+    },
+    {
+      "flavor_text": "This move enables the user to protect itself from all attacks. Its chance of failing rises if it is used in succession.",
+      "language": {
+        "name": "en",
+        "url": "https://pokeapi.co/api/v2/language/9/"
+      },
+      "version_group": {
+        "name": "sword-shield",
+        "url": "https://pokeapi.co/api/v2/version-group/20/"
+      }
+    },
+    {
+      "flavor_text": "相手の　攻撃を まったく　受けない。 連続で　だすと　失敗しやすい。",
+      "language": {
+        "name": "ja",
+        "url": "https://pokeapi.co/api/v2/language/11/"
+      },
+      "version_group": {
+        "name": "sword-shield",
+        "url": "https://pokeapi.co/api/v2/version-group/20/"
+      }
+    },
+    {
+      "flavor_text": "This move enables the user to protect itself from all attacks. Its chance of failing rises if it is used in succession.",
+      "language": {
+        "name": "en",
+        "url": "https://pokeapi.co/api/v2/language/9/"
+      },
+      "version_group": {
+        "name": "legends-arceus",
+        "url": "https://pokeapi.co/api/v2/version-group/24/"
+      }
+    },
+    {
+      "flavor_text": "This move enables the user to protect itself from all attacks. Its chance of failing rises if it is used in succession.",
+      "language": {
+        "name": "en",
+        "url": "https://pokeapi.co/api/v2/language/9/"
+      },
+      "version_group": {
+        "name": "scarlet-violet",
+        "url": "https://pokeapi.co/api/v2/version-group/25/"
+      }
+    }
+  ],
+  "stat_changes": [],
+  "learned_by_pokemon": [
+    {
+      "id": 16,
+      "name": "ポッポ"
+    },
+    {
+      "id": 17,
+      "name": "ピジョン"
+    },
+    {
+      "id": 18,
+      "name": "ピジョット"
+    },
+    {
+      "id": 21,
+      "name": "オニスズメ"
+    },
+    {
+      "id": 22,
+      "name": "オニドリル"
+    },
+    {
+      "id": 25,
+      "name": "ピカチュウ"
+    },
+    {
+      "id": 26,
+      "name": "ライチュウ"
+    },
+    {
+      "id": 27,
+      "name": "サンド"
+    },
+    {
+      "id": 28,
+      "name": "サンドパン"
+    },
+    {
+      "id": 29,
+      "name": "ニドラン♀"
+    },
+    {
+      "id": 30,
+      "name": "ニドリーナ"
+    },
+    {
+      "id": 31,
+      "name": "ニドクイン"
+    },
+    {
+      "id": 32,
+      "name": "ニドラン♂"
+    },
+    {
+      "id": 33,
+      "name": "ニドリーノ"
+    },
+    {
+      "id": 34,
+      "name": "ニドキング"
+    },
+    {
+      "id": 35,
+      "name": "ピッピ"
+    },
+    {
+      "id": 36,
+      "name": "ピクシー"
+    },
+    {
+      "id": 39,
+      "name": "プリン"
+    },
+    {
+      "id": 40,
+      "name": "プクリン"
+    },
+    {
+      "id": 41,
+      "name": "ズバット"
+    },
+    {
+      "id": 42,
+      "name": "ゴルバット"
+    },
+    {
+      "id": 52,
+      "name": "ニャース"
+    },
+    {
+      "id": 53,
+      "name": "ペルシアン"
+    },
+    {
+      "id": 56,
+      "name": "マンキー"
+    },
+    {
+      "id": 57,
+      "name": "オコリザル"
+    },
+    {
+      "id": 61,
+      "name": "ニョロゾ"
+    },
+    {
+      "id": 62,
+      "name": "ニョロボン"
+    },
+    {
+      "id": 66,
+      "name": "ワンリキー"
+    },
+    {
+      "id": 67,
+      "name": "ゴーリキー"
+    },
+    {
+      "id": 68,
+      "name": "カイリキー"
+    },
+    {
+      "id": 83,
+      "name": "カモネギ"
+    },
+    {
+      "id": 104,
+      "name": "カラカラ"
+    },
+    {
+      "id": 105,
+      "name": "ガラガラ"
+    },
+    {
+      "id": 106,
+      "name": "サワムラー"
+    },
+    {
+      "id": 107,
+      "name": "エビワラー"
+    },
+    {
+      "id": 123,
+      "name": "ストライク"
+    },
+    {
+      "id": 125,
+      "name": "エレブー"
+    },
+    {
+      "id": 126,
+      "name": "ブーバー"
+    },
+    {
+      "id": 133,
+      "name": "イーブイ"
+    },
+    {
+      "id": 134,
+      "name": "シャワーズ"
+    },
+    {
+      "id": 135,
+      "name": "サンダース"
+    },
+    {
+      "id": 136,
+      "name": "ブースター"
+    },
+    {
+      "id": 142,
+      "name": "プテラ"
+    },
+    {
+      "id": 144,
+      "name": "フリーザー"
+    },
+    {
+      "id": 145,
+      "name": "サンダー"
+    },
+    {
+      "id": 146,
+      "name": "ファイヤー"
+    },
+    {
+      "id": 147,
+      "name": "ミニリュウ"
+    },
+    {
+      "id": 148,
+      "name": "ハクリュー"
+    },
+    {
+      "id": 149,
+      "name": "カイリュー"
+    },
+    {
+      "id": 150,
+      "name": "ミュウツー"
+    },
+    {
+      "id": 151,
+      "name": "ミュウ"
+    },
+    {
+      "id": 152,
+      "name": "チコリータ"
+    },
+    {
+      "id": 153,
+      "name": "ベイリーフ"
+    },
+    {
+      "id": 154,
+      "name": "メガニウム"
+    },
+    {
+      "id": 155,
+      "name": "ヒノアラシ"
+    },
+    {
+      "id": 156,
+      "name": "マグマラシ"
+    },
+    {
+      "id": 157,
+      "name": "バクフーン"
+    },
+    {
+      "id": 158,
+      "name": "ワニノコ"
+    },
+    {
+      "id": 159,
+      "name": "アリゲイツ"
+    },
+    {
+      "id": 160,
+      "name": "オーダイル"
+    },
+    {
+      "id": 161,
+      "name": "オタチ"
+    },
+    {
+      "id": 162,
+      "name": "オオタチ"
+    },
+    {
+      "id": 163,
+      "name": "ホーホー"
+    },
+    {
+      "id": 164,
+      "name": "ヨルノズク"
+    },
+    {
+      "id": 169,
+      "name": "クロバット"
+    },
+    {
+      "id": 172,
+      "name": "ピチュー"
+    },
+    {
+      "id": 173,
+      "name": "ピィ"
+    },
+    {
+      "id": 174,
+      "name": "ププリン"
+    },
+    {
+      "id": 175,
+      "name": "トゲピー"
+    },
+    {
+      "id": 176,
+      "name": "トゲチック"
+    },
+    {
+      "id": 177,
+      "name": "ネイティ"
+    },
+    {
+      "id": 178,
+      "name": "ネイティオ"
+    },
+    {
+      "id": 186,
+      "name": "ニョロトノ"
+    },
+    {
+      "id": 190,
+      "name": "エイパム"
+    },
+    {
+      "id": 193,
+      "name": "ヤンヤンマ"
+    },
+    {
+      "id": 196,
+      "name": "エーフィ"
+    },
+    {
+      "id": 197,
+      "name": "ブラッキー"
+    },
+    {
+      "id": 198,
+      "name": "ヤミカラス"
+    },
+    {
+      "id": 207,
+      "name": "グライガー"
+    },
+    {
+      "id": 209,
+      "name": "ブルー"
+    },
+    {
+      "id": 210,
+      "name": "グランブル"
+    },
+    {
+      "id": 212,
+      "name": "ハッサム"
+    },
+    {
+      "id": 214,
+      "name": "ヘラクロス"
+    },
+    {
+      "id": 215,
+      "name": "ニューラ"
+    },
+    {
+      "id": 220,
+      "name": "ウリムー"
+    },
+    {
+      "id": 221,
+      "name": "イノムー"
+    },
+    {
+      "id": 225,
+      "name": "デリバード"
+    },
+    {
+      "id": 227,
+      "name": "エアームド"
+    },
+    {
+      "id": 228,
+      "name": "デルビル"
+    },
+    {
+      "id": 229,
+      "name": "ヘルガー"
+    },
+    {
+      "id": 234,
+      "name": "オドシシ"
+    },
+    {
+      "id": 236,
+      "name": "バルキー"
+    },
+    {
+      "id": 237,
+      "name": "カポエラー"
+    },
+    {
+      "id": 239,
+      "name": "エレキッド"
+    },
+    {
+      "id": 240,
+      "name": "ブビィ"
+    },
+    {
+      "id": 243,
+      "name": "ライコウ"
+    },
+    {
+      "id": 244,
+      "name": "エンテイ"
+    },
+    {
+      "id": 245,
+      "name": "スイクン"
+    },
+    {
+      "id": 246,
+      "name": "ヨーギラス"
+    },
+    {
+      "id": 247,
+      "name": "サナギラス"
+    },
+    {
+      "id": 248,
+      "name": "バンギラス"
+    },
+    {
+      "id": 249,
+      "name": "ルギア"
+    },
+    {
+      "id": 250,
+      "name": "ホウオウ"
+    },
+    {
+      "id": 251,
+      "name": "セレビィ"
+    },
+    {
+      "id": 252,
+      "name": "キモリ"
+    },
+    {
+      "id": 253,
+      "name": "ジュプトル"
+    },
+    {
+      "id": 254,
+      "name": "ジュカイン"
+    },
+    {
+      "id": 255,
+      "name": "アチャモ"
+    },
+    {
+      "id": 256,
+      "name": "ワカシャモ"
+    },
+    {
+      "id": 257,
+      "name": "バシャーモ"
+    },
+    {
+      "id": 296,
+      "name": "マクノシタ"
+    },
+    {
+      "id": 297,
+      "name": "ハリテヤマ"
+    },
+    {
+      "id": 302,
+      "name": "ヤミラミ"
+    },
+    {
+      "id": 307,
+      "name": "アサナン"
+    },
+    {
+      "id": 308,
+      "name": "チャーレム"
+    },
+    {
+      "id": 335,
+      "name": "ザングース"
+    },
+    {
+      "id": 352,
+      "name": "カクレオン"
+    },
+    {
+      "id": 359,
+      "name": "アブソル"
+    },
+    {
+      "id": 396,
+      "name": "ムックル"
+    },
+    {
+      "id": 447,
+      "name": "リオル"
+    },
+    {
+      "id": 448,
+      "name": "ルカリオ"
+    },
+    {
+      "id": 469,
+      "name": "メガヤンマ"
+    },
+    {
+      "id": 482,
+      "name": "アグノム"
+    },
+    {
+      "id": 501,
+      "name": "ミジュマル"
+    },
+    {
+      "id": 502,
+      "name": "フタチマル"
+    },
+    {
+      "id": 503,
+      "name": "ダイケンキ"
+    },
+    {
+      "id": 504,
+      "name": "ミネズミ"
+    },
+    {
+      "id": 505,
+      "name": "ミルホッグ"
+    },
+    {
+      "id": 519,
+      "name": "マメパト"
+    },
+    {
+      "id": 520,
+      "name": "ハトーボー"
+    },
+    {
+      "id": 521,
+      "name": "ケンホロウ"
+    },
+    {
+      "id": 532,
+      "name": "ドッコラー"
+    },
+    {
+      "id": 533,
+      "name": "ドテッコツ"
+    },
+    {
+      "id": 534,
+      "name": "ローブシン"
+    },
+    {
+      "id": 559,
+      "name": "ズルッグ"
+    },
+    {
+      "id": 560,
+      "name": "ズルズキン"
+    },
+    {
+      "id": 570,
+      "name": "ゾロア"
+    },
+    {
+      "id": 619,
+      "name": "コジョフー"
+    },
+    {
+      "id": 620,
+      "name": "コジョンド"
+    },
+    {
+      "id": 701,
+      "name": "ルチャブル"
+    },
+    {
+      "id": 798,
+      "name": "カミツルギ"
+    },
+    {
+      "id": 852,
+      "name": "タタッコ"
+    },
+    {
+      "id": 853,
+      "name": "オトスパス"
+    },
+    {
+      "id": 865,
+      "name": "ネギガナイト"
+    },
+    {
+      "id": 891,
+      "name": "ダクマ"
+    },
+    {
+      "id": 892,
+      "name": "ウーラオス"
+    },
+    {
+      "id": 912,
+      "name": "クワッス"
+    },
+    {
+      "id": 920,
+      "name": "エクスレッグ"
+    },
+    {
+      "id": 973,
+      "name": "カラミンゴ"
+    },
+    {
+      "id": 992,
+      "name": "テツノカイナ"
+    },
+    {
+      "id": 10054,
+      "name": "チャーレム"
+    },
+    {
+      "id": 10057,
+      "name": "アブソル"
+    },
+    {
+      "id": 10059,
+      "name": "ルカリオ"
+    },
+    {
+      "id": 10065,
+      "name": "ジュカイン"
+    },
+    {
+      "id": 10066,
+      "name": "ヤミラミ"
+    },
+    {
+      "id": 10166,
+      "name": "カモネギ"
+    },
+    {
+      "id": 10170,
+      "name": "サンダー"
+    },
+    {
+      "id": 10191,
+      "name": "ウーラオス"
+    },
+    {
+      "id": 10238,
+      "name": "ゾロア"
+    }
+  ]
+}

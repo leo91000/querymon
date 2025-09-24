@@ -1,0 +1,3133 @@
+{
+  "id": 683,
+  "name": "Cocotine",
+  "sprites": {
+    "front_default": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/683.png",
+    "front_shiny": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/shiny/683.png",
+    "official_artwork": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/683.png",
+    "dream_world": null,
+    "home_default": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/683.png",
+    "home_shiny": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/shiny/683.png",
+    "versions": {
+      "generation-v": {
+        "front_default": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/683.png",
+        "back_default": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/back/683.png",
+        "front_shiny": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/shiny/683.png",
+        "back_shiny": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/back/shiny/683.png"
+      },
+      "generation-vi": {
+        "front_default": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-vi/omegaruby-alphasapphire/683.png",
+        "front_shiny": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-vi/omegaruby-alphasapphire/shiny/683.png"
+      },
+      "generation-vii": {
+        "front_default": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-vii/icons/683.png",
+        "front_shiny": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-vii/ultra-sun-ultra-moon/shiny/683.png"
+      },
+      "generation-viii": {
+        "front_default": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-viii/icons/683.png"
+      }
+    }
+  },
+  "types": [
+    {
+      "id": 18,
+      "name": "fairy"
+    }
+  ],
+  "abilities": [
+    {
+      "id": 131,
+      "name": "healer",
+      "hidden": false
+    },
+    {
+      "id": 165,
+      "name": "aroma-veil",
+      "hidden": true
+    }
+  ],
+  "stats": [
+    {
+      "name": "hp",
+      "base": 101,
+      "effort": 2
+    },
+    {
+      "name": "attack",
+      "base": 72,
+      "effort": 0
+    },
+    {
+      "name": "defense",
+      "base": 72,
+      "effort": 0
+    },
+    {
+      "name": "special-attack",
+      "base": 99,
+      "effort": 0
+    },
+    {
+      "name": "special-defense",
+      "base": 89,
+      "effort": 0
+    },
+    {
+      "name": "speed",
+      "base": 29,
+      "effort": 0
+    }
+  ],
+  "weight": 155,
+  "height": 8,
+  "base_experience": 162,
+  "species": {
+    "capture_rate": 140,
+    "hatch_counter": 20,
+    "gender_rate": 4,
+    "growth_rate": {
+      "id": 2,
+      "name": "medium"
+    },
+    "egg_groups": [
+      {
+        "id": 6,
+        "name": "Féerique"
+      }
+    ],
+    "color": {
+      "id": 6,
+      "name": "Rose"
+    },
+    "genus": "Pokémon Parfum",
+    "flavor_text": "Ce Pokémon est capable d’émettre toutes sortes d’odeurs pour incommoder son adversaire et augmenter ses chances de gagner."
+  },
+  "evolutions": [
+    [
+      {
+        "id": 682,
+        "name": "Fluvetin",
+        "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/682.png",
+        "isCurrent": false,
+        "details": []
+      }
+    ],
+    [
+      {
+        "id": 683,
+        "name": "Cocotine",
+        "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/683.png",
+        "isCurrent": true,
+        "details": [
+          {
+            "gender": null,
+            "held_item": {
+              "name": "sachet",
+              "url": "https://pokeapi.co/api/v2/item/687/"
+            },
+            "item": null,
+            "known_move": null,
+            "known_move_type": null,
+            "location": null,
+            "min_affection": null,
+            "min_beauty": null,
+            "min_happiness": null,
+            "min_level": null,
+            "needs_overworld_rain": false,
+            "party_species": null,
+            "party_type": null,
+            "relative_physical_stats": null,
+            "time_of_day": "",
+            "trade_species": null,
+            "trigger": {
+              "name": "trade",
+              "url": "https://pokeapi.co/api/v2/evolution-trigger/2/"
+            },
+            "turn_upside_down": false
+          }
+        ]
+      }
+    ]
+  ],
+  "learnsets": [
+    {
+      "generation": "generation-vi",
+      "order": 13,
+      "entries": [
+        {
+          "method": "level-up",
+          "items": [
+            {
+              "move": {
+                "id": 597,
+                "name": "Brume Capiteuse"
+              },
+              "type": "fairy",
+              "category": "status",
+              "power": null,
+              "accuracy": null,
+              "pp": 20,
+              "level": 1,
+              "versionGroups": [
+                "x-y",
+                "omega-ruby-alpha-sapphire"
+              ]
+            },
+            {
+              "move": {
+                "id": 230,
+                "name": "Doux Parfum"
+              },
+              "type": "normal",
+              "category": "status",
+              "power": null,
+              "accuracy": 100,
+              "pp": 20,
+              "level": 1,
+              "versionGroups": [
+                "x-y",
+                "omega-ruby-alpha-sapphire"
+              ]
+            },
+            {
+              "move": {
+                "id": 584,
+                "name": "Vent Féérique"
+              },
+              "type": "fairy",
+              "category": "special",
+              "power": 40,
+              "accuracy": 100,
+              "pp": 30,
+              "level": 1,
+              "versionGroups": [
+                "x-y",
+                "omega-ruby-alpha-sapphire"
+              ]
+            },
+            {
+              "move": {
+                "id": 505,
+                "name": "Vibra Soin"
+              },
+              "type": "psychic",
+              "category": "status",
+              "power": null,
+              "accuracy": null,
+              "pp": 10,
+              "level": 1,
+              "versionGroups": [
+                "x-y",
+                "omega-ruby-alpha-sapphire"
+              ]
+            },
+            {
+              "move": {
+                "id": 186,
+                "name": "Doux Baiser"
+              },
+              "type": "fairy",
+              "category": "status",
+              "power": null,
+              "accuracy": 75,
+              "pp": 10,
+              "level": 6,
+              "versionGroups": [
+                "x-y",
+                "omega-ruby-alpha-sapphire"
+              ]
+            },
+            {
+              "move": {
+                "id": 316,
+                "name": "Flair"
+              },
+              "type": "normal",
+              "category": "status",
+              "power": null,
+              "accuracy": null,
+              "pp": 40,
+              "level": 8,
+              "versionGroups": [
+                "x-y",
+                "omega-ruby-alpha-sapphire"
+              ]
+            },
+            {
+              "move": {
+                "id": 497,
+                "name": "Écho"
+              },
+              "type": "normal",
+              "category": "special",
+              "power": 40,
+              "accuracy": 100,
+              "pp": 15,
+              "level": 13,
+              "versionGroups": [
+                "x-y",
+                "omega-ruby-alpha-sapphire"
+              ]
+            },
+            {
+              "move": {
+                "id": 347,
+                "name": "Plénitude"
+              },
+              "type": "psychic",
+              "category": "status",
+              "power": null,
+              "accuracy": null,
+              "pp": 20,
+              "level": 17,
+              "versionGroups": [
+                "x-y",
+                "omega-ruby-alpha-sapphire"
+              ]
+            },
+            {
+              "move": {
+                "id": 577,
+                "name": "Vampibaiser"
+              },
+              "type": "fairy",
+              "category": "special",
+              "power": 50,
+              "accuracy": 100,
+              "pp": 10,
+              "level": 21,
+              "versionGroups": [
+                "x-y",
+                "omega-ruby-alpha-sapphire"
+              ]
+            },
+            {
+              "move": {
+                "id": 312,
+                "name": "Aromathérapie"
+              },
+              "type": "grass",
+              "category": "status",
+              "power": null,
+              "accuracy": null,
+              "pp": 5,
+              "level": 25,
+              "versionGroups": [
+                "x-y",
+                "omega-ruby-alpha-sapphire"
+              ]
+            },
+            {
+              "move": {
+                "id": 213,
+                "name": "Attraction"
+              },
+              "type": "normal",
+              "category": "status",
+              "power": null,
+              "accuracy": 100,
+              "pp": 15,
+              "level": 29,
+              "versionGroups": [
+                "x-y",
+                "omega-ruby-alpha-sapphire"
+              ]
+            },
+            {
+              "move": {
+                "id": 585,
+                "name": "Pouvoir Lunaire"
+              },
+              "type": "fairy",
+              "category": "special",
+              "power": 95,
+              "accuracy": 100,
+              "pp": 15,
+              "level": 31,
+              "versionGroups": [
+                "x-y",
+                "omega-ruby-alpha-sapphire"
+              ]
+            },
+            {
+              "move": {
+                "id": 204,
+                "name": "Charme"
+              },
+              "type": "fairy",
+              "category": "status",
+              "power": null,
+              "accuracy": 100,
+              "pp": 20,
+              "level": 35,
+              "versionGroups": [
+                "x-y",
+                "omega-ruby-alpha-sapphire"
+              ]
+            },
+            {
+              "move": {
+                "id": 175,
+                "name": "Gigotage"
+              },
+              "type": "normal",
+              "category": "physical",
+              "power": null,
+              "accuracy": 100,
+              "pp": 15,
+              "level": 38,
+              "versionGroups": [
+                "x-y",
+                "omega-ruby-alpha-sapphire"
+              ]
+            },
+            {
+              "move": {
+                "id": 581,
+                "name": "Champ Brumeux"
+              },
+              "type": "fairy",
+              "category": "status",
+              "power": null,
+              "accuracy": null,
+              "pp": 10,
+              "level": 42,
+              "versionGroups": [
+                "x-y",
+                "omega-ruby-alpha-sapphire"
+              ]
+            },
+            {
+              "move": {
+                "id": 285,
+                "name": "Échange"
+              },
+              "type": "psychic",
+              "category": "status",
+              "power": null,
+              "accuracy": null,
+              "pp": 10,
+              "level": 44,
+              "versionGroups": [
+                "x-y",
+                "omega-ruby-alpha-sapphire"
+              ]
+            },
+            {
+              "move": {
+                "id": 94,
+                "name": "Psyko"
+              },
+              "type": "psychic",
+              "category": "special",
+              "power": 90,
+              "accuracy": 100,
+              "pp": 10,
+              "level": 48,
+              "versionGroups": [
+                "x-y",
+                "omega-ruby-alpha-sapphire"
+              ]
+            },
+            {
+              "move": {
+                "id": 574,
+                "name": "Voix Enjôleuse"
+              },
+              "type": "fairy",
+              "category": "special",
+              "power": 40,
+              "accuracy": null,
+              "pp": 15,
+              "level": 53,
+              "versionGroups": [
+                "x-y",
+                "omega-ruby-alpha-sapphire"
+              ]
+            },
+            {
+              "move": {
+                "id": 115,
+                "name": "Protection"
+              },
+              "type": "psychic",
+              "category": "status",
+              "power": null,
+              "accuracy": null,
+              "pp": 20,
+              "level": 57,
+              "versionGroups": [
+                "x-y",
+                "omega-ruby-alpha-sapphire"
+              ]
+            },
+            {
+              "move": {
+                "id": 244,
+                "name": "Boost"
+              },
+              "type": "normal",
+              "category": "status",
+              "power": null,
+              "accuracy": null,
+              "pp": 10,
+              "level": 64,
+              "versionGroups": [
+                "x-y",
+                "omega-ruby-alpha-sapphire"
+              ]
+            }
+          ]
+        },
+        {
+          "method": "machine",
+          "items": [
+            {
+              "move": {
+                "id": 182,
+                "name": "Abri"
+              },
+              "type": "normal",
+              "category": "status",
+              "power": null,
+              "accuracy": null,
+              "pp": 10,
+              "level": null,
+              "versionGroups": [
+                "x-y",
+                "omega-ruby-alpha-sapphire"
+              ]
+            },
+            {
+              "move": {
+                "id": 213,
+                "name": "Attraction"
+              },
+              "type": "normal",
+              "category": "status",
+              "power": null,
+              "accuracy": 100,
+              "pp": 15,
+              "level": null,
+              "versionGroups": [
+                "x-y",
+                "omega-ruby-alpha-sapphire"
+              ]
+            },
+            {
+              "move": {
+                "id": 214,
+                "name": "Blabla Dodo"
+              },
+              "type": "normal",
+              "category": "status",
+              "power": null,
+              "accuracy": null,
+              "pp": 10,
+              "level": null,
+              "versionGroups": [
+                "x-y",
+                "omega-ruby-alpha-sapphire"
+              ]
+            },
+            {
+              "move": {
+                "id": 244,
+                "name": "Boost"
+              },
+              "type": "normal",
+              "category": "status",
+              "power": null,
+              "accuracy": null,
+              "pp": 10,
+              "level": null,
+              "versionGroups": [
+                "x-y",
+                "omega-ruby-alpha-sapphire"
+              ]
+            },
+            {
+              "move": {
+                "id": 496,
+                "name": "Chant Canon"
+              },
+              "type": "normal",
+              "category": "special",
+              "power": 60,
+              "accuracy": 100,
+              "pp": 15,
+              "level": null,
+              "versionGroups": [
+                "x-y",
+                "omega-ruby-alpha-sapphire"
+              ]
+            },
+            {
+              "move": {
+                "id": 473,
+                "name": "Choc Psy"
+              },
+              "type": "psychic",
+              "category": "special",
+              "power": 80,
+              "accuracy": 100,
+              "pp": 10,
+              "level": null,
+              "versionGroups": [
+                "x-y",
+                "omega-ruby-alpha-sapphire"
+              ]
+            },
+            {
+              "move": {
+                "id": 164,
+                "name": "Clonage"
+              },
+              "type": "normal",
+              "category": "status",
+              "power": null,
+              "accuracy": null,
+              "pp": 10,
+              "level": null,
+              "versionGroups": [
+                "x-y",
+                "omega-ruby-alpha-sapphire"
+              ]
+            },
+            {
+              "move": {
+                "id": 590,
+                "name": "Confidence"
+              },
+              "type": "normal",
+              "category": "status",
+              "power": null,
+              "accuracy": null,
+              "pp": 20,
+              "level": null,
+              "versionGroups": [
+                "x-y",
+                "omega-ruby-alpha-sapphire"
+              ]
+            },
+            {
+              "move": {
+                "id": 240,
+                "name": "Danse Pluie"
+              },
+              "type": "water",
+              "category": "status",
+              "power": null,
+              "accuracy": null,
+              "pp": 5,
+              "level": null,
+              "versionGroups": [
+                "x-y",
+                "omega-ruby-alpha-sapphire"
+              ]
+            },
+            {
+              "move": {
+                "id": 138,
+                "name": "Dévorêve"
+              },
+              "type": "psychic",
+              "category": "special",
+              "power": 100,
+              "accuracy": 100,
+              "pp": 15,
+              "level": null,
+              "versionGroups": [
+                "x-y",
+                "omega-ruby-alpha-sapphire"
+              ]
+            },
+            {
+              "move": {
+                "id": 433,
+                "name": "Distorsion"
+              },
+              "type": "psychic",
+              "category": "status",
+              "power": null,
+              "accuracy": null,
+              "pp": 5,
+              "level": null,
+              "versionGroups": [
+                "x-y",
+                "omega-ruby-alpha-sapphire"
+              ]
+            },
+            {
+              "move": {
+                "id": 497,
+                "name": "Écho"
+              },
+              "type": "normal",
+              "category": "special",
+              "power": 40,
+              "accuracy": 100,
+              "pp": 15,
+              "level": null,
+              "versionGroups": [
+                "x-y",
+                "omega-ruby-alpha-sapphire"
+              ]
+            },
+            {
+              "move": {
+                "id": 605,
+                "name": "Éclat Magique"
+              },
+              "type": "fairy",
+              "category": "special",
+              "power": 80,
+              "accuracy": 100,
+              "pp": 10,
+              "level": null,
+              "versionGroups": [
+                "x-y",
+                "omega-ruby-alpha-sapphire"
+              ]
+            },
+            {
+              "move": {
+                "id": 412,
+                "name": "Éco-Sphère"
+              },
+              "type": "grass",
+              "category": "special",
+              "power": 90,
+              "accuracy": 100,
+              "pp": 10,
+              "level": null,
+              "versionGroups": [
+                "x-y",
+                "omega-ruby-alpha-sapphire"
+              ]
+            },
+            {
+              "move": {
+                "id": 263,
+                "name": "Façade"
+              },
+              "type": "normal",
+              "category": "physical",
+              "power": 70,
+              "accuracy": 100,
+              "pp": 20,
+              "level": null,
+              "versionGroups": [
+                "x-y",
+                "omega-ruby-alpha-sapphire"
+              ]
+            },
+            {
+              "move": {
+                "id": 87,
+                "name": "Fatal-Foudre"
+              },
+              "type": "electric",
+              "category": "special",
+              "power": 110,
+              "accuracy": 70,
+              "pp": 10,
+              "level": null,
+              "versionGroups": [
+                "x-y",
+                "omega-ruby-alpha-sapphire"
+              ]
+            },
+            {
+              "move": {
+                "id": 148,
+                "name": "Flash"
+              },
+              "type": "normal",
+              "category": "status",
+              "power": null,
+              "accuracy": 100,
+              "pp": 20,
+              "level": null,
+              "versionGroups": [
+                "x-y",
+                "omega-ruby-alpha-sapphire"
+              ]
+            },
+            {
+              "move": {
+                "id": 290,
+                "name": "Force Cachée"
+              },
+              "type": "normal",
+              "category": "physical",
+              "power": 70,
+              "accuracy": 100,
+              "pp": 20,
+              "level": null,
+              "versionGroups": [
+                "omega-ruby-alpha-sapphire"
+              ]
+            },
+            {
+              "move": {
+                "id": 218,
+                "name": "Frustration"
+              },
+              "type": "normal",
+              "category": "physical",
+              "power": null,
+              "accuracy": 100,
+              "pp": 20,
+              "level": null,
+              "versionGroups": [
+                "x-y",
+                "omega-ruby-alpha-sapphire"
+              ]
+            },
+            {
+              "move": {
+                "id": 416,
+                "name": "Giga Impact"
+              },
+              "type": "normal",
+              "category": "physical",
+              "power": 150,
+              "accuracy": 90,
+              "pp": 5,
+              "level": null,
+              "versionGroups": [
+                "x-y",
+                "omega-ruby-alpha-sapphire"
+              ]
+            },
+            {
+              "move": {
+                "id": 360,
+                "name": "Gyroballe"
+              },
+              "type": "steel",
+              "category": "physical",
+              "power": null,
+              "accuracy": 100,
+              "pp": 5,
+              "level": null,
+              "versionGroups": [
+                "x-y",
+                "omega-ruby-alpha-sapphire"
+              ]
+            },
+            {
+              "move": {
+                "id": 430,
+                "name": "Luminocanon"
+              },
+              "type": "steel",
+              "category": "special",
+              "power": 80,
+              "accuracy": 100,
+              "pp": 10,
+              "level": null,
+              "versionGroups": [
+                "x-y",
+                "omega-ruby-alpha-sapphire"
+              ]
+            },
+            {
+              "move": {
+                "id": 113,
+                "name": "Mur Lumière"
+              },
+              "type": "psychic",
+              "category": "status",
+              "power": null,
+              "accuracy": null,
+              "pp": 30,
+              "level": null,
+              "versionGroups": [
+                "x-y",
+                "omega-ruby-alpha-sapphire"
+              ]
+            },
+            {
+              "move": {
+                "id": 347,
+                "name": "Plénitude"
+              },
+              "type": "psychic",
+              "category": "status",
+              "power": null,
+              "accuracy": null,
+              "pp": 20,
+              "level": null,
+              "versionGroups": [
+                "x-y",
+                "omega-ruby-alpha-sapphire"
+              ]
+            },
+            {
+              "move": {
+                "id": 115,
+                "name": "Protection"
+              },
+              "type": "psychic",
+              "category": "status",
+              "power": null,
+              "accuracy": null,
+              "pp": 20,
+              "level": null,
+              "versionGroups": [
+                "x-y",
+                "omega-ruby-alpha-sapphire"
+              ]
+            },
+            {
+              "move": {
+                "id": 94,
+                "name": "Psyko"
+              },
+              "type": "psychic",
+              "category": "special",
+              "power": 90,
+              "accuracy": 100,
+              "pp": 10,
+              "level": null,
+              "versionGroups": [
+                "x-y",
+                "omega-ruby-alpha-sapphire"
+              ]
+            },
+            {
+              "move": {
+                "id": 237,
+                "name": "Puissance Cachée"
+              },
+              "type": "normal",
+              "category": "special",
+              "power": 60,
+              "accuracy": 100,
+              "pp": 15,
+              "level": null,
+              "versionGroups": [
+                "x-y",
+                "omega-ruby-alpha-sapphire"
+              ]
+            },
+            {
+              "move": {
+                "id": 451,
+                "name": "Rayon Chargé"
+              },
+              "type": "electric",
+              "category": "special",
+              "power": 50,
+              "accuracy": 90,
+              "pp": 10,
+              "level": null,
+              "versionGroups": [
+                "x-y",
+                "omega-ruby-alpha-sapphire"
+              ]
+            },
+            {
+              "move": {
+                "id": 104,
+                "name": "Reflet"
+              },
+              "type": "normal",
+              "category": "status",
+              "power": null,
+              "accuracy": null,
+              "pp": 15,
+              "level": null,
+              "versionGroups": [
+                "x-y",
+                "omega-ruby-alpha-sapphire"
+              ]
+            },
+            {
+              "move": {
+                "id": 156,
+                "name": "Repos"
+              },
+              "type": "psychic",
+              "category": "status",
+              "power": null,
+              "accuracy": null,
+              "pp": 5,
+              "level": null,
+              "versionGroups": [
+                "x-y",
+                "omega-ruby-alpha-sapphire"
+              ]
+            },
+            {
+              "move": {
+                "id": 216,
+                "name": "Retour"
+              },
+              "type": "normal",
+              "category": "physical",
+              "power": null,
+              "accuracy": 100,
+              "pp": 20,
+              "level": null,
+              "versionGroups": [
+                "x-y",
+                "omega-ruby-alpha-sapphire"
+              ]
+            },
+            {
+              "move": {
+                "id": 85,
+                "name": "Tonnerre"
+              },
+              "type": "electric",
+              "category": "special",
+              "power": 90,
+              "accuracy": 100,
+              "pp": 15,
+              "level": null,
+              "versionGroups": [
+                "x-y",
+                "omega-ruby-alpha-sapphire"
+              ]
+            },
+            {
+              "move": {
+                "id": 259,
+                "name": "Tourmente"
+              },
+              "type": "dark",
+              "category": "status",
+              "power": null,
+              "accuracy": 100,
+              "pp": 15,
+              "level": null,
+              "versionGroups": [
+                "x-y",
+                "omega-ruby-alpha-sapphire"
+              ]
+            },
+            {
+              "move": {
+                "id": 92,
+                "name": "Toxik"
+              },
+              "type": "poison",
+              "category": "status",
+              "power": null,
+              "accuracy": 90,
+              "pp": 10,
+              "level": null,
+              "versionGroups": [
+                "x-y",
+                "omega-ruby-alpha-sapphire"
+              ]
+            },
+            {
+              "move": {
+                "id": 63,
+                "name": "Ultralaser"
+              },
+              "type": "normal",
+              "category": "special",
+              "power": 150,
+              "accuracy": 90,
+              "pp": 5,
+              "level": null,
+              "versionGroups": [
+                "x-y",
+                "omega-ruby-alpha-sapphire"
+              ]
+            },
+            {
+              "move": {
+                "id": 207,
+                "name": "Vantardise"
+              },
+              "type": "normal",
+              "category": "status",
+              "power": null,
+              "accuracy": 85,
+              "pp": 15,
+              "level": null,
+              "versionGroups": [
+                "x-y",
+                "omega-ruby-alpha-sapphire"
+              ]
+            },
+            {
+              "move": {
+                "id": 241,
+                "name": "Zénith"
+              },
+              "type": "fire",
+              "category": "status",
+              "power": null,
+              "accuracy": null,
+              "pp": 5,
+              "level": null,
+              "versionGroups": [
+                "x-y",
+                "omega-ruby-alpha-sapphire"
+              ]
+            }
+          ]
+        },
+        {
+          "method": "tutor",
+          "items": [
+            {
+              "move": {
+                "id": 495,
+                "name": "Après Vous"
+              },
+              "type": "normal",
+              "category": "status",
+              "power": null,
+              "accuracy": null,
+              "pp": 15,
+              "level": null,
+              "versionGroups": [
+                "omega-ruby-alpha-sapphire"
+              ]
+            },
+            {
+              "move": {
+                "id": 270,
+                "name": "Coup d’Main"
+              },
+              "type": "normal",
+              "category": "status",
+              "power": null,
+              "accuracy": null,
+              "pp": 20,
+              "level": null,
+              "versionGroups": [
+                "omega-ruby-alpha-sapphire"
+              ]
+            },
+            {
+              "move": {
+                "id": 285,
+                "name": "Échange"
+              },
+              "type": "psychic",
+              "category": "status",
+              "power": null,
+              "accuracy": null,
+              "pp": 10,
+              "level": null,
+              "versionGroups": [
+                "omega-ruby-alpha-sapphire"
+              ]
+            },
+            {
+              "move": {
+                "id": 283,
+                "name": "Effort"
+              },
+              "type": "normal",
+              "category": "physical",
+              "power": null,
+              "accuracy": 100,
+              "pp": 5,
+              "level": null,
+              "versionGroups": [
+                "omega-ruby-alpha-sapphire"
+              ]
+            },
+            {
+              "move": {
+                "id": 215,
+                "name": "Glas de Soin"
+              },
+              "type": "normal",
+              "category": "status",
+              "power": null,
+              "accuracy": null,
+              "pp": 5,
+              "level": null,
+              "versionGroups": [
+                "omega-ruby-alpha-sapphire"
+              ]
+            },
+            {
+              "move": {
+                "id": 343,
+                "name": "Implore"
+              },
+              "type": "normal",
+              "category": "physical",
+              "power": 60,
+              "accuracy": 100,
+              "pp": 25,
+              "level": null,
+              "versionGroups": [
+                "omega-ruby-alpha-sapphire"
+              ]
+            },
+            {
+              "move": {
+                "id": 277,
+                "name": "Reflet Magik"
+              },
+              "type": "psychic",
+              "category": "status",
+              "power": null,
+              "accuracy": null,
+              "pp": 15,
+              "level": null,
+              "versionGroups": [
+                "omega-ruby-alpha-sapphire"
+              ]
+            },
+            {
+              "move": {
+                "id": 173,
+                "name": "Ronflement"
+              },
+              "type": "normal",
+              "category": "special",
+              "power": 50,
+              "accuracy": 100,
+              "pp": 15,
+              "level": null,
+              "versionGroups": [
+                "omega-ruby-alpha-sapphire"
+              ]
+            },
+            {
+              "move": {
+                "id": 409,
+                "name": "Vampi-Poing"
+              },
+              "type": "fighting",
+              "category": "physical",
+              "power": 75,
+              "accuracy": 100,
+              "pp": 10,
+              "level": null,
+              "versionGroups": [
+                "omega-ruby-alpha-sapphire"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "generation": "generation-vii",
+      "order": 15,
+      "entries": [
+        {
+          "method": "level-up",
+          "items": [
+            {
+              "move": {
+                "id": 597,
+                "name": "Brume Capiteuse"
+              },
+              "type": "fairy",
+              "category": "status",
+              "power": null,
+              "accuracy": null,
+              "pp": 20,
+              "level": 1,
+              "versionGroups": [
+                "sun-moon",
+                "ultra-sun-ultra-moon"
+              ]
+            },
+            {
+              "move": {
+                "id": 186,
+                "name": "Doux Baiser"
+              },
+              "type": "fairy",
+              "category": "status",
+              "power": null,
+              "accuracy": 75,
+              "pp": 10,
+              "level": 1,
+              "versionGroups": [
+                "sun-moon",
+                "ultra-sun-ultra-moon"
+              ]
+            },
+            {
+              "move": {
+                "id": 230,
+                "name": "Doux Parfum"
+              },
+              "type": "normal",
+              "category": "status",
+              "power": null,
+              "accuracy": 100,
+              "pp": 20,
+              "level": 1,
+              "versionGroups": [
+                "sun-moon",
+                "ultra-sun-ultra-moon"
+              ]
+            },
+            {
+              "move": {
+                "id": 316,
+                "name": "Flair"
+              },
+              "type": "normal",
+              "category": "status",
+              "power": null,
+              "accuracy": null,
+              "pp": 40,
+              "level": 1,
+              "versionGroups": [
+                "sun-moon",
+                "ultra-sun-ultra-moon"
+              ]
+            },
+            {
+              "move": {
+                "id": 584,
+                "name": "Vent Féérique"
+              },
+              "type": "fairy",
+              "category": "special",
+              "power": 40,
+              "accuracy": 100,
+              "pp": 30,
+              "level": 1,
+              "versionGroups": [
+                "sun-moon",
+                "ultra-sun-ultra-moon"
+              ]
+            },
+            {
+              "move": {
+                "id": 505,
+                "name": "Vibra Soin"
+              },
+              "type": "psychic",
+              "category": "status",
+              "power": null,
+              "accuracy": null,
+              "pp": 10,
+              "level": 1,
+              "versionGroups": [
+                "sun-moon",
+                "ultra-sun-ultra-moon"
+              ]
+            },
+            {
+              "move": {
+                "id": 497,
+                "name": "Écho"
+              },
+              "type": "normal",
+              "category": "special",
+              "power": 40,
+              "accuracy": 100,
+              "pp": 15,
+              "level": 13,
+              "versionGroups": [
+                "sun-moon",
+                "ultra-sun-ultra-moon"
+              ]
+            },
+            {
+              "move": {
+                "id": 347,
+                "name": "Plénitude"
+              },
+              "type": "psychic",
+              "category": "status",
+              "power": null,
+              "accuracy": null,
+              "pp": 20,
+              "level": 17,
+              "versionGroups": [
+                "sun-moon",
+                "ultra-sun-ultra-moon"
+              ]
+            },
+            {
+              "move": {
+                "id": 577,
+                "name": "Vampibaiser"
+              },
+              "type": "fairy",
+              "category": "special",
+              "power": 50,
+              "accuracy": 100,
+              "pp": 10,
+              "level": 21,
+              "versionGroups": [
+                "sun-moon",
+                "ultra-sun-ultra-moon"
+              ]
+            },
+            {
+              "move": {
+                "id": 312,
+                "name": "Aromathérapie"
+              },
+              "type": "grass",
+              "category": "status",
+              "power": null,
+              "accuracy": null,
+              "pp": 5,
+              "level": 25,
+              "versionGroups": [
+                "sun-moon",
+                "ultra-sun-ultra-moon"
+              ]
+            },
+            {
+              "move": {
+                "id": 213,
+                "name": "Attraction"
+              },
+              "type": "normal",
+              "category": "status",
+              "power": null,
+              "accuracy": 100,
+              "pp": 15,
+              "level": 29,
+              "versionGroups": [
+                "sun-moon",
+                "ultra-sun-ultra-moon"
+              ]
+            },
+            {
+              "move": {
+                "id": 585,
+                "name": "Pouvoir Lunaire"
+              },
+              "type": "fairy",
+              "category": "special",
+              "power": 95,
+              "accuracy": 100,
+              "pp": 15,
+              "level": 31,
+              "versionGroups": [
+                "sun-moon",
+                "ultra-sun-ultra-moon"
+              ]
+            },
+            {
+              "move": {
+                "id": 204,
+                "name": "Charme"
+              },
+              "type": "fairy",
+              "category": "status",
+              "power": null,
+              "accuracy": 100,
+              "pp": 20,
+              "level": 35,
+              "versionGroups": [
+                "sun-moon",
+                "ultra-sun-ultra-moon"
+              ]
+            },
+            {
+              "move": {
+                "id": 175,
+                "name": "Gigotage"
+              },
+              "type": "normal",
+              "category": "physical",
+              "power": null,
+              "accuracy": 100,
+              "pp": 15,
+              "level": 38,
+              "versionGroups": [
+                "sun-moon",
+                "ultra-sun-ultra-moon"
+              ]
+            },
+            {
+              "move": {
+                "id": 581,
+                "name": "Champ Brumeux"
+              },
+              "type": "fairy",
+              "category": "status",
+              "power": null,
+              "accuracy": null,
+              "pp": 10,
+              "level": 42,
+              "versionGroups": [
+                "sun-moon",
+                "ultra-sun-ultra-moon"
+              ]
+            },
+            {
+              "move": {
+                "id": 285,
+                "name": "Échange"
+              },
+              "type": "psychic",
+              "category": "status",
+              "power": null,
+              "accuracy": null,
+              "pp": 10,
+              "level": 44,
+              "versionGroups": [
+                "sun-moon",
+                "ultra-sun-ultra-moon"
+              ]
+            },
+            {
+              "move": {
+                "id": 94,
+                "name": "Psyko"
+              },
+              "type": "psychic",
+              "category": "special",
+              "power": 90,
+              "accuracy": 100,
+              "pp": 10,
+              "level": 48,
+              "versionGroups": [
+                "sun-moon",
+                "ultra-sun-ultra-moon"
+              ]
+            },
+            {
+              "move": {
+                "id": 574,
+                "name": "Voix Enjôleuse"
+              },
+              "type": "fairy",
+              "category": "special",
+              "power": 40,
+              "accuracy": null,
+              "pp": 15,
+              "level": 53,
+              "versionGroups": [
+                "sun-moon",
+                "ultra-sun-ultra-moon"
+              ]
+            },
+            {
+              "move": {
+                "id": 115,
+                "name": "Protection"
+              },
+              "type": "psychic",
+              "category": "status",
+              "power": null,
+              "accuracy": null,
+              "pp": 20,
+              "level": 57,
+              "versionGroups": [
+                "sun-moon",
+                "ultra-sun-ultra-moon"
+              ]
+            },
+            {
+              "move": {
+                "id": 244,
+                "name": "Boost"
+              },
+              "type": "normal",
+              "category": "status",
+              "power": null,
+              "accuracy": null,
+              "pp": 10,
+              "level": 64,
+              "versionGroups": [
+                "sun-moon",
+                "ultra-sun-ultra-moon"
+              ]
+            }
+          ]
+        },
+        {
+          "method": "machine",
+          "items": [
+            {
+              "move": {
+                "id": 182,
+                "name": "Abri"
+              },
+              "type": "normal",
+              "category": "status",
+              "power": null,
+              "accuracy": null,
+              "pp": 10,
+              "level": null,
+              "versionGroups": [
+                "sun-moon",
+                "ultra-sun-ultra-moon"
+              ]
+            },
+            {
+              "move": {
+                "id": 213,
+                "name": "Attraction"
+              },
+              "type": "normal",
+              "category": "status",
+              "power": null,
+              "accuracy": 100,
+              "pp": 15,
+              "level": null,
+              "versionGroups": [
+                "sun-moon",
+                "ultra-sun-ultra-moon"
+              ]
+            },
+            {
+              "move": {
+                "id": 214,
+                "name": "Blabla Dodo"
+              },
+              "type": "normal",
+              "category": "status",
+              "power": null,
+              "accuracy": null,
+              "pp": 10,
+              "level": null,
+              "versionGroups": [
+                "sun-moon",
+                "ultra-sun-ultra-moon"
+              ]
+            },
+            {
+              "move": {
+                "id": 244,
+                "name": "Boost"
+              },
+              "type": "normal",
+              "category": "status",
+              "power": null,
+              "accuracy": null,
+              "pp": 10,
+              "level": null,
+              "versionGroups": [
+                "sun-moon",
+                "ultra-sun-ultra-moon"
+              ]
+            },
+            {
+              "move": {
+                "id": 496,
+                "name": "Chant Canon"
+              },
+              "type": "normal",
+              "category": "special",
+              "power": 60,
+              "accuracy": 100,
+              "pp": 15,
+              "level": null,
+              "versionGroups": [
+                "sun-moon",
+                "ultra-sun-ultra-moon"
+              ]
+            },
+            {
+              "move": {
+                "id": 473,
+                "name": "Choc Psy"
+              },
+              "type": "psychic",
+              "category": "special",
+              "power": 80,
+              "accuracy": 100,
+              "pp": 10,
+              "level": null,
+              "versionGroups": [
+                "sun-moon",
+                "ultra-sun-ultra-moon"
+              ]
+            },
+            {
+              "move": {
+                "id": 164,
+                "name": "Clonage"
+              },
+              "type": "normal",
+              "category": "status",
+              "power": null,
+              "accuracy": null,
+              "pp": 10,
+              "level": null,
+              "versionGroups": [
+                "sun-moon",
+                "ultra-sun-ultra-moon"
+              ]
+            },
+            {
+              "move": {
+                "id": 590,
+                "name": "Confidence"
+              },
+              "type": "normal",
+              "category": "status",
+              "power": null,
+              "accuracy": null,
+              "pp": 20,
+              "level": null,
+              "versionGroups": [
+                "sun-moon",
+                "ultra-sun-ultra-moon"
+              ]
+            },
+            {
+              "move": {
+                "id": 240,
+                "name": "Danse Pluie"
+              },
+              "type": "water",
+              "category": "status",
+              "power": null,
+              "accuracy": null,
+              "pp": 5,
+              "level": null,
+              "versionGroups": [
+                "sun-moon",
+                "ultra-sun-ultra-moon"
+              ]
+            },
+            {
+              "move": {
+                "id": 138,
+                "name": "Dévorêve"
+              },
+              "type": "psychic",
+              "category": "special",
+              "power": 100,
+              "accuracy": 100,
+              "pp": 15,
+              "level": null,
+              "versionGroups": [
+                "sun-moon",
+                "ultra-sun-ultra-moon"
+              ]
+            },
+            {
+              "move": {
+                "id": 433,
+                "name": "Distorsion"
+              },
+              "type": "psychic",
+              "category": "status",
+              "power": null,
+              "accuracy": null,
+              "pp": 5,
+              "level": null,
+              "versionGroups": [
+                "sun-moon",
+                "ultra-sun-ultra-moon"
+              ]
+            },
+            {
+              "move": {
+                "id": 497,
+                "name": "Écho"
+              },
+              "type": "normal",
+              "category": "special",
+              "power": 40,
+              "accuracy": 100,
+              "pp": 15,
+              "level": null,
+              "versionGroups": [
+                "sun-moon",
+                "ultra-sun-ultra-moon"
+              ]
+            },
+            {
+              "move": {
+                "id": 605,
+                "name": "Éclat Magique"
+              },
+              "type": "fairy",
+              "category": "special",
+              "power": 80,
+              "accuracy": 100,
+              "pp": 10,
+              "level": null,
+              "versionGroups": [
+                "sun-moon",
+                "ultra-sun-ultra-moon"
+              ]
+            },
+            {
+              "move": {
+                "id": 412,
+                "name": "Éco-Sphère"
+              },
+              "type": "grass",
+              "category": "special",
+              "power": 90,
+              "accuracy": 100,
+              "pp": 10,
+              "level": null,
+              "versionGroups": [
+                "sun-moon",
+                "ultra-sun-ultra-moon"
+              ]
+            },
+            {
+              "move": {
+                "id": 263,
+                "name": "Façade"
+              },
+              "type": "normal",
+              "category": "physical",
+              "power": 70,
+              "accuracy": 100,
+              "pp": 20,
+              "level": null,
+              "versionGroups": [
+                "sun-moon",
+                "ultra-sun-ultra-moon"
+              ]
+            },
+            {
+              "move": {
+                "id": 87,
+                "name": "Fatal-Foudre"
+              },
+              "type": "electric",
+              "category": "special",
+              "power": 110,
+              "accuracy": 70,
+              "pp": 10,
+              "level": null,
+              "versionGroups": [
+                "sun-moon",
+                "ultra-sun-ultra-moon"
+              ]
+            },
+            {
+              "move": {
+                "id": 218,
+                "name": "Frustration"
+              },
+              "type": "normal",
+              "category": "physical",
+              "power": null,
+              "accuracy": 100,
+              "pp": 20,
+              "level": null,
+              "versionGroups": [
+                "sun-moon",
+                "ultra-sun-ultra-moon"
+              ]
+            },
+            {
+              "move": {
+                "id": 416,
+                "name": "Giga Impact"
+              },
+              "type": "normal",
+              "category": "physical",
+              "power": 150,
+              "accuracy": 90,
+              "pp": 5,
+              "level": null,
+              "versionGroups": [
+                "sun-moon",
+                "ultra-sun-ultra-moon"
+              ]
+            },
+            {
+              "move": {
+                "id": 360,
+                "name": "Gyroballe"
+              },
+              "type": "steel",
+              "category": "physical",
+              "power": null,
+              "accuracy": 100,
+              "pp": 5,
+              "level": null,
+              "versionGroups": [
+                "sun-moon",
+                "ultra-sun-ultra-moon"
+              ]
+            },
+            {
+              "move": {
+                "id": 430,
+                "name": "Luminocanon"
+              },
+              "type": "steel",
+              "category": "special",
+              "power": 80,
+              "accuracy": 100,
+              "pp": 10,
+              "level": null,
+              "versionGroups": [
+                "sun-moon",
+                "ultra-sun-ultra-moon"
+              ]
+            },
+            {
+              "move": {
+                "id": 113,
+                "name": "Mur Lumière"
+              },
+              "type": "psychic",
+              "category": "status",
+              "power": null,
+              "accuracy": null,
+              "pp": 30,
+              "level": null,
+              "versionGroups": [
+                "sun-moon",
+                "ultra-sun-ultra-moon"
+              ]
+            },
+            {
+              "move": {
+                "id": 347,
+                "name": "Plénitude"
+              },
+              "type": "psychic",
+              "category": "status",
+              "power": null,
+              "accuracy": null,
+              "pp": 20,
+              "level": null,
+              "versionGroups": [
+                "sun-moon",
+                "ultra-sun-ultra-moon"
+              ]
+            },
+            {
+              "move": {
+                "id": 115,
+                "name": "Protection"
+              },
+              "type": "psychic",
+              "category": "status",
+              "power": null,
+              "accuracy": null,
+              "pp": 20,
+              "level": null,
+              "versionGroups": [
+                "sun-moon",
+                "ultra-sun-ultra-moon"
+              ]
+            },
+            {
+              "move": {
+                "id": 94,
+                "name": "Psyko"
+              },
+              "type": "psychic",
+              "category": "special",
+              "power": 90,
+              "accuracy": 100,
+              "pp": 10,
+              "level": null,
+              "versionGroups": [
+                "sun-moon",
+                "ultra-sun-ultra-moon"
+              ]
+            },
+            {
+              "move": {
+                "id": 237,
+                "name": "Puissance Cachée"
+              },
+              "type": "normal",
+              "category": "special",
+              "power": 60,
+              "accuracy": 100,
+              "pp": 15,
+              "level": null,
+              "versionGroups": [
+                "sun-moon",
+                "ultra-sun-ultra-moon"
+              ]
+            },
+            {
+              "move": {
+                "id": 451,
+                "name": "Rayon Chargé"
+              },
+              "type": "electric",
+              "category": "special",
+              "power": 50,
+              "accuracy": 90,
+              "pp": 10,
+              "level": null,
+              "versionGroups": [
+                "sun-moon",
+                "ultra-sun-ultra-moon"
+              ]
+            },
+            {
+              "move": {
+                "id": 104,
+                "name": "Reflet"
+              },
+              "type": "normal",
+              "category": "status",
+              "power": null,
+              "accuracy": null,
+              "pp": 15,
+              "level": null,
+              "versionGroups": [
+                "sun-moon",
+                "ultra-sun-ultra-moon"
+              ]
+            },
+            {
+              "move": {
+                "id": 156,
+                "name": "Repos"
+              },
+              "type": "psychic",
+              "category": "status",
+              "power": null,
+              "accuracy": null,
+              "pp": 5,
+              "level": null,
+              "versionGroups": [
+                "sun-moon",
+                "ultra-sun-ultra-moon"
+              ]
+            },
+            {
+              "move": {
+                "id": 216,
+                "name": "Retour"
+              },
+              "type": "normal",
+              "category": "physical",
+              "power": null,
+              "accuracy": 100,
+              "pp": 20,
+              "level": null,
+              "versionGroups": [
+                "sun-moon",
+                "ultra-sun-ultra-moon"
+              ]
+            },
+            {
+              "move": {
+                "id": 85,
+                "name": "Tonnerre"
+              },
+              "type": "electric",
+              "category": "special",
+              "power": 90,
+              "accuracy": 100,
+              "pp": 15,
+              "level": null,
+              "versionGroups": [
+                "sun-moon",
+                "ultra-sun-ultra-moon"
+              ]
+            },
+            {
+              "move": {
+                "id": 259,
+                "name": "Tourmente"
+              },
+              "type": "dark",
+              "category": "status",
+              "power": null,
+              "accuracy": 100,
+              "pp": 15,
+              "level": null,
+              "versionGroups": [
+                "sun-moon",
+                "ultra-sun-ultra-moon"
+              ]
+            },
+            {
+              "move": {
+                "id": 92,
+                "name": "Toxik"
+              },
+              "type": "poison",
+              "category": "status",
+              "power": null,
+              "accuracy": 90,
+              "pp": 10,
+              "level": null,
+              "versionGroups": [
+                "sun-moon",
+                "ultra-sun-ultra-moon"
+              ]
+            },
+            {
+              "move": {
+                "id": 63,
+                "name": "Ultralaser"
+              },
+              "type": "normal",
+              "category": "special",
+              "power": 150,
+              "accuracy": 90,
+              "pp": 5,
+              "level": null,
+              "versionGroups": [
+                "sun-moon",
+                "ultra-sun-ultra-moon"
+              ]
+            },
+            {
+              "move": {
+                "id": 207,
+                "name": "Vantardise"
+              },
+              "type": "normal",
+              "category": "status",
+              "power": null,
+              "accuracy": 85,
+              "pp": 15,
+              "level": null,
+              "versionGroups": [
+                "sun-moon",
+                "ultra-sun-ultra-moon"
+              ]
+            },
+            {
+              "move": {
+                "id": 241,
+                "name": "Zénith"
+              },
+              "type": "fire",
+              "category": "status",
+              "power": null,
+              "accuracy": null,
+              "pp": 5,
+              "level": null,
+              "versionGroups": [
+                "sun-moon",
+                "ultra-sun-ultra-moon"
+              ]
+            }
+          ]
+        },
+        {
+          "method": "tutor",
+          "items": [
+            {
+              "move": {
+                "id": 495,
+                "name": "Après Vous"
+              },
+              "type": "normal",
+              "category": "status",
+              "power": null,
+              "accuracy": null,
+              "pp": 15,
+              "level": null,
+              "versionGroups": [
+                "ultra-sun-ultra-moon"
+              ]
+            },
+            {
+              "move": {
+                "id": 270,
+                "name": "Coup d’Main"
+              },
+              "type": "normal",
+              "category": "status",
+              "power": null,
+              "accuracy": null,
+              "pp": 20,
+              "level": null,
+              "versionGroups": [
+                "ultra-sun-ultra-moon"
+              ]
+            },
+            {
+              "move": {
+                "id": 285,
+                "name": "Échange"
+              },
+              "type": "psychic",
+              "category": "status",
+              "power": null,
+              "accuracy": null,
+              "pp": 10,
+              "level": null,
+              "versionGroups": [
+                "ultra-sun-ultra-moon"
+              ]
+            },
+            {
+              "move": {
+                "id": 283,
+                "name": "Effort"
+              },
+              "type": "normal",
+              "category": "physical",
+              "power": null,
+              "accuracy": 100,
+              "pp": 5,
+              "level": null,
+              "versionGroups": [
+                "ultra-sun-ultra-moon"
+              ]
+            },
+            {
+              "move": {
+                "id": 215,
+                "name": "Glas de Soin"
+              },
+              "type": "normal",
+              "category": "status",
+              "power": null,
+              "accuracy": null,
+              "pp": 5,
+              "level": null,
+              "versionGroups": [
+                "ultra-sun-ultra-moon"
+              ]
+            },
+            {
+              "move": {
+                "id": 343,
+                "name": "Implore"
+              },
+              "type": "normal",
+              "category": "physical",
+              "power": 60,
+              "accuracy": 100,
+              "pp": 25,
+              "level": null,
+              "versionGroups": [
+                "ultra-sun-ultra-moon"
+              ]
+            },
+            {
+              "move": {
+                "id": 502,
+                "name": "Interversion"
+              },
+              "type": "psychic",
+              "category": "status",
+              "power": null,
+              "accuracy": null,
+              "pp": 15,
+              "level": null,
+              "versionGroups": [
+                "ultra-sun-ultra-moon"
+              ]
+            },
+            {
+              "move": {
+                "id": 477,
+                "name": "Lévikinésie"
+              },
+              "type": "psychic",
+              "category": "status",
+              "power": null,
+              "accuracy": null,
+              "pp": 15,
+              "level": null,
+              "versionGroups": [
+                "ultra-sun-ultra-moon"
+              ]
+            },
+            {
+              "move": {
+                "id": 277,
+                "name": "Reflet Magik"
+              },
+              "type": "psychic",
+              "category": "status",
+              "power": null,
+              "accuracy": null,
+              "pp": 15,
+              "level": null,
+              "versionGroups": [
+                "ultra-sun-ultra-moon"
+              ]
+            },
+            {
+              "move": {
+                "id": 173,
+                "name": "Ronflement"
+              },
+              "type": "normal",
+              "category": "special",
+              "power": 50,
+              "accuracy": 100,
+              "pp": 15,
+              "level": null,
+              "versionGroups": [
+                "ultra-sun-ultra-moon"
+              ]
+            },
+            {
+              "move": {
+                "id": 409,
+                "name": "Vampi-Poing"
+              },
+              "type": "fighting",
+              "category": "physical",
+              "power": 75,
+              "accuracy": 100,
+              "pp": 10,
+              "level": null,
+              "versionGroups": [
+                "ultra-sun-ultra-moon"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "generation": "generation-viii",
+      "order": 18,
+      "entries": [
+        {
+          "method": "level-up",
+          "items": [
+            {
+              "move": {
+                "id": 597,
+                "name": "Brume Capiteuse"
+              },
+              "type": "fairy",
+              "category": "status",
+              "power": null,
+              "accuracy": null,
+              "pp": 20,
+              "level": 1,
+              "versionGroups": [
+                "sword-shield"
+              ]
+            },
+            {
+              "move": {
+                "id": 186,
+                "name": "Doux Baiser"
+              },
+              "type": "fairy",
+              "category": "status",
+              "power": null,
+              "accuracy": 75,
+              "pp": 10,
+              "level": 1,
+              "versionGroups": [
+                "sword-shield"
+              ]
+            },
+            {
+              "move": {
+                "id": 230,
+                "name": "Doux Parfum"
+              },
+              "type": "normal",
+              "category": "status",
+              "power": null,
+              "accuracy": 100,
+              "pp": 20,
+              "level": 1,
+              "versionGroups": [
+                "sword-shield"
+              ]
+            },
+            {
+              "move": {
+                "id": 497,
+                "name": "Écho"
+              },
+              "type": "normal",
+              "category": "special",
+              "power": 40,
+              "accuracy": 100,
+              "pp": 15,
+              "level": 1,
+              "versionGroups": [
+                "sword-shield"
+              ]
+            },
+            {
+              "move": {
+                "id": 584,
+                "name": "Vent Féérique"
+              },
+              "type": "fairy",
+              "category": "special",
+              "power": 40,
+              "accuracy": 100,
+              "pp": 30,
+              "level": 1,
+              "versionGroups": [
+                "sword-shield"
+              ]
+            },
+            {
+              "move": {
+                "id": 505,
+                "name": "Vibra Soin"
+              },
+              "type": "psychic",
+              "category": "status",
+              "power": null,
+              "accuracy": null,
+              "pp": 10,
+              "level": 1,
+              "versionGroups": [
+                "sword-shield"
+              ]
+            },
+            {
+              "move": {
+                "id": 574,
+                "name": "Voix Enjôleuse"
+              },
+              "type": "fairy",
+              "category": "special",
+              "power": 40,
+              "accuracy": null,
+              "pp": 15,
+              "level": 9,
+              "versionGroups": [
+                "sword-shield"
+              ]
+            },
+            {
+              "move": {
+                "id": 312,
+                "name": "Aromathérapie"
+              },
+              "type": "grass",
+              "category": "status",
+              "power": null,
+              "accuracy": null,
+              "pp": 5,
+              "level": 12,
+              "versionGroups": [
+                "sword-shield"
+              ]
+            },
+            {
+              "move": {
+                "id": 577,
+                "name": "Vampibaiser"
+              },
+              "type": "fairy",
+              "category": "special",
+              "power": 50,
+              "accuracy": 100,
+              "pp": 10,
+              "level": 15,
+              "versionGroups": [
+                "sword-shield"
+              ]
+            },
+            {
+              "move": {
+                "id": 213,
+                "name": "Attraction"
+              },
+              "type": "normal",
+              "category": "status",
+              "power": null,
+              "accuracy": 100,
+              "pp": 15,
+              "level": 18,
+              "versionGroups": [
+                "sword-shield"
+              ]
+            },
+            {
+              "move": {
+                "id": 175,
+                "name": "Gigotage"
+              },
+              "type": "normal",
+              "category": "physical",
+              "power": null,
+              "accuracy": 100,
+              "pp": 15,
+              "level": 21,
+              "versionGroups": [
+                "sword-shield"
+              ]
+            },
+            {
+              "move": {
+                "id": 581,
+                "name": "Champ Brumeux"
+              },
+              "type": "fairy",
+              "category": "status",
+              "power": null,
+              "accuracy": null,
+              "pp": 10,
+              "level": 24,
+              "versionGroups": [
+                "sword-shield"
+              ]
+            },
+            {
+              "move": {
+                "id": 94,
+                "name": "Psyko"
+              },
+              "type": "psychic",
+              "category": "special",
+              "power": 90,
+              "accuracy": 100,
+              "pp": 10,
+              "level": 27,
+              "versionGroups": [
+                "sword-shield"
+              ]
+            },
+            {
+              "move": {
+                "id": 204,
+                "name": "Charme"
+              },
+              "type": "fairy",
+              "category": "status",
+              "power": null,
+              "accuracy": 100,
+              "pp": 20,
+              "level": 30,
+              "versionGroups": [
+                "sword-shield"
+              ]
+            },
+            {
+              "move": {
+                "id": 347,
+                "name": "Plénitude"
+              },
+              "type": "psychic",
+              "category": "status",
+              "power": null,
+              "accuracy": null,
+              "pp": 20,
+              "level": 33,
+              "versionGroups": [
+                "sword-shield"
+              ]
+            },
+            {
+              "move": {
+                "id": 585,
+                "name": "Pouvoir Lunaire"
+              },
+              "type": "fairy",
+              "category": "special",
+              "power": 95,
+              "accuracy": 100,
+              "pp": 15,
+              "level": 36,
+              "versionGroups": [
+                "sword-shield"
+              ]
+            },
+            {
+              "move": {
+                "id": 285,
+                "name": "Échange"
+              },
+              "type": "psychic",
+              "category": "status",
+              "power": null,
+              "accuracy": null,
+              "pp": 10,
+              "level": 39,
+              "versionGroups": [
+                "sword-shield"
+              ]
+            },
+            {
+              "move": {
+                "id": 244,
+                "name": "Boost"
+              },
+              "type": "normal",
+              "category": "status",
+              "power": null,
+              "accuracy": null,
+              "pp": 10,
+              "level": 42,
+              "versionGroups": [
+                "sword-shield"
+              ]
+            }
+          ]
+        },
+        {
+          "method": "machine",
+          "items": [
+            {
+              "move": {
+                "id": 182,
+                "name": "Abri"
+              },
+              "type": "normal",
+              "category": "status",
+              "power": null,
+              "accuracy": null,
+              "pp": 10,
+              "level": null,
+              "versionGroups": [
+                "sword-shield"
+              ]
+            },
+            {
+              "move": {
+                "id": 213,
+                "name": "Attraction"
+              },
+              "type": "normal",
+              "category": "status",
+              "power": null,
+              "accuracy": 100,
+              "pp": 15,
+              "level": null,
+              "versionGroups": [
+                "sword-shield"
+              ]
+            },
+            {
+              "move": {
+                "id": 214,
+                "name": "Blabla Dodo"
+              },
+              "type": "normal",
+              "category": "status",
+              "power": null,
+              "accuracy": null,
+              "pp": 10,
+              "level": null,
+              "versionGroups": [
+                "sword-shield"
+              ]
+            },
+            {
+              "move": {
+                "id": 581,
+                "name": "Champ Brumeux"
+              },
+              "type": "fairy",
+              "category": "status",
+              "power": null,
+              "accuracy": null,
+              "pp": 10,
+              "level": null,
+              "versionGroups": [
+                "sword-shield"
+              ]
+            },
+            {
+              "move": {
+                "id": 496,
+                "name": "Chant Canon"
+              },
+              "type": "normal",
+              "category": "special",
+              "power": 60,
+              "accuracy": 100,
+              "pp": 15,
+              "level": null,
+              "versionGroups": [
+                "sword-shield"
+              ]
+            },
+            {
+              "move": {
+                "id": 204,
+                "name": "Charme"
+              },
+              "type": "fairy",
+              "category": "status",
+              "power": null,
+              "accuracy": 100,
+              "pp": 20,
+              "level": null,
+              "versionGroups": [
+                "sword-shield"
+              ]
+            },
+            {
+              "move": {
+                "id": 473,
+                "name": "Choc Psy"
+              },
+              "type": "psychic",
+              "category": "special",
+              "power": 80,
+              "accuracy": 100,
+              "pp": 10,
+              "level": null,
+              "versionGroups": [
+                "sword-shield"
+              ]
+            },
+            {
+              "move": {
+                "id": 164,
+                "name": "Clonage"
+              },
+              "type": "normal",
+              "category": "status",
+              "power": null,
+              "accuracy": null,
+              "pp": 10,
+              "level": null,
+              "versionGroups": [
+                "sword-shield"
+              ]
+            },
+            {
+              "move": {
+                "id": 270,
+                "name": "Coup d’Main"
+              },
+              "type": "normal",
+              "category": "status",
+              "power": null,
+              "accuracy": null,
+              "pp": 20,
+              "level": null,
+              "versionGroups": [
+                "sword-shield"
+              ]
+            },
+            {
+              "move": {
+                "id": 313,
+                "name": "Croco Larme"
+              },
+              "type": "dark",
+              "category": "status",
+              "power": null,
+              "accuracy": 100,
+              "pp": 20,
+              "level": null,
+              "versionGroups": [
+                "sword-shield"
+              ]
+            },
+            {
+              "move": {
+                "id": 240,
+                "name": "Danse Pluie"
+              },
+              "type": "water",
+              "category": "status",
+              "power": null,
+              "accuracy": null,
+              "pp": 5,
+              "level": null,
+              "versionGroups": [
+                "sword-shield"
+              ]
+            },
+            {
+              "move": {
+                "id": 433,
+                "name": "Distorsion"
+              },
+              "type": "psychic",
+              "category": "status",
+              "power": null,
+              "accuracy": null,
+              "pp": 5,
+              "level": null,
+              "versionGroups": [
+                "sword-shield"
+              ]
+            },
+            {
+              "move": {
+                "id": 285,
+                "name": "Échange"
+              },
+              "type": "psychic",
+              "category": "status",
+              "power": null,
+              "accuracy": null,
+              "pp": 10,
+              "level": null,
+              "versionGroups": [
+                "sword-shield"
+              ]
+            },
+            {
+              "move": {
+                "id": 605,
+                "name": "Éclat Magique"
+              },
+              "type": "fairy",
+              "category": "special",
+              "power": 80,
+              "accuracy": 100,
+              "pp": 10,
+              "level": null,
+              "versionGroups": [
+                "sword-shield"
+              ]
+            },
+            {
+              "move": {
+                "id": 412,
+                "name": "Éco-Sphère"
+              },
+              "type": "grass",
+              "category": "special",
+              "power": 90,
+              "accuracy": 100,
+              "pp": 10,
+              "level": null,
+              "versionGroups": [
+                "sword-shield"
+              ]
+            },
+            {
+              "move": {
+                "id": 227,
+                "name": "Encore"
+              },
+              "type": "normal",
+              "category": "status",
+              "power": null,
+              "accuracy": 100,
+              "pp": 5,
+              "level": null,
+              "versionGroups": [
+                "sword-shield"
+              ]
+            },
+            {
+              "move": {
+                "id": 263,
+                "name": "Façade"
+              },
+              "type": "normal",
+              "category": "physical",
+              "power": 70,
+              "accuracy": 100,
+              "pp": 20,
+              "level": null,
+              "versionGroups": [
+                "sword-shield"
+              ]
+            },
+            {
+              "move": {
+                "id": 87,
+                "name": "Fatal-Foudre"
+              },
+              "type": "electric",
+              "category": "special",
+              "power": 110,
+              "accuracy": 70,
+              "pp": 10,
+              "level": null,
+              "versionGroups": [
+                "sword-shield"
+              ]
+            },
+            {
+              "move": {
+                "id": 416,
+                "name": "Giga Impact"
+              },
+              "type": "normal",
+              "category": "physical",
+              "power": 150,
+              "accuracy": 90,
+              "pp": 5,
+              "level": null,
+              "versionGroups": [
+                "sword-shield"
+              ]
+            },
+            {
+              "move": {
+                "id": 360,
+                "name": "Gyroballe"
+              },
+              "type": "steel",
+              "category": "physical",
+              "power": null,
+              "accuracy": 100,
+              "pp": 5,
+              "level": null,
+              "versionGroups": [
+                "sword-shield"
+              ]
+            },
+            {
+              "move": {
+                "id": 502,
+                "name": "Interversion"
+              },
+              "type": "psychic",
+              "category": "status",
+              "power": null,
+              "accuracy": null,
+              "pp": 15,
+              "level": null,
+              "versionGroups": [
+                "sword-shield"
+              ]
+            },
+            {
+              "move": {
+                "id": 430,
+                "name": "Luminocanon"
+              },
+              "type": "steel",
+              "category": "special",
+              "power": 80,
+              "accuracy": 100,
+              "pp": 10,
+              "level": null,
+              "versionGroups": [
+                "sword-shield"
+              ]
+            },
+            {
+              "move": {
+                "id": 417,
+                "name": "Machination"
+              },
+              "type": "dark",
+              "category": "status",
+              "power": null,
+              "accuracy": null,
+              "pp": 20,
+              "level": null,
+              "versionGroups": [
+                "sword-shield"
+              ]
+            },
+            {
+              "move": {
+                "id": 118,
+                "name": "Métronome"
+              },
+              "type": "normal",
+              "category": "status",
+              "power": null,
+              "accuracy": null,
+              "pp": 10,
+              "level": null,
+              "versionGroups": [
+                "sword-shield"
+              ]
+            },
+            {
+              "move": {
+                "id": 113,
+                "name": "Mur Lumière"
+              },
+              "type": "psychic",
+              "category": "status",
+              "power": null,
+              "accuracy": null,
+              "pp": 30,
+              "level": null,
+              "versionGroups": [
+                "sword-shield"
+              ]
+            },
+            {
+              "move": {
+                "id": 347,
+                "name": "Plénitude"
+              },
+              "type": "psychic",
+              "category": "status",
+              "power": null,
+              "accuracy": null,
+              "pp": 20,
+              "level": null,
+              "versionGroups": [
+                "sword-shield"
+              ]
+            },
+            {
+              "move": {
+                "id": 115,
+                "name": "Protection"
+              },
+              "type": "psychic",
+              "category": "status",
+              "power": null,
+              "accuracy": null,
+              "pp": 20,
+              "level": null,
+              "versionGroups": [
+                "sword-shield"
+              ]
+            },
+            {
+              "move": {
+                "id": 94,
+                "name": "Psyko"
+              },
+              "type": "psychic",
+              "category": "special",
+              "power": 90,
+              "accuracy": 100,
+              "pp": 10,
+              "level": null,
+              "versionGroups": [
+                "sword-shield"
+              ]
+            },
+            {
+              "move": {
+                "id": 156,
+                "name": "Repos"
+              },
+              "type": "psychic",
+              "category": "status",
+              "power": null,
+              "accuracy": null,
+              "pp": 5,
+              "level": null,
+              "versionGroups": [
+                "sword-shield"
+              ]
+            },
+            {
+              "move": {
+                "id": 173,
+                "name": "Ronflement"
+              },
+              "type": "normal",
+              "category": "special",
+              "power": 50,
+              "accuracy": 100,
+              "pp": 15,
+              "level": null,
+              "versionGroups": [
+                "sword-shield"
+              ]
+            },
+            {
+              "move": {
+                "id": 203,
+                "name": "Ténacité"
+              },
+              "type": "normal",
+              "category": "status",
+              "power": null,
+              "accuracy": null,
+              "pp": 10,
+              "level": null,
+              "versionGroups": [
+                "sword-shield"
+              ]
+            },
+            {
+              "move": {
+                "id": 85,
+                "name": "Tonnerre"
+              },
+              "type": "electric",
+              "category": "special",
+              "power": 90,
+              "accuracy": 100,
+              "pp": 15,
+              "level": null,
+              "versionGroups": [
+                "sword-shield"
+              ]
+            },
+            {
+              "move": {
+                "id": 63,
+                "name": "Ultralaser"
+              },
+              "type": "normal",
+              "category": "special",
+              "power": 150,
+              "accuracy": 90,
+              "pp": 5,
+              "level": null,
+              "versionGroups": [
+                "sword-shield"
+              ]
+            },
+            {
+              "move": {
+                "id": 409,
+                "name": "Vampi-Poing"
+              },
+              "type": "fighting",
+              "category": "physical",
+              "power": 75,
+              "accuracy": 100,
+              "pp": 10,
+              "level": null,
+              "versionGroups": [
+                "sword-shield"
+              ]
+            },
+            {
+              "move": {
+                "id": 577,
+                "name": "Vampibaiser"
+              },
+              "type": "fairy",
+              "category": "special",
+              "power": 50,
+              "accuracy": 100,
+              "pp": 10,
+              "level": null,
+              "versionGroups": [
+                "sword-shield"
+              ]
+            },
+            {
+              "move": {
+                "id": 241,
+                "name": "Zénith"
+              },
+              "type": "fire",
+              "category": "status",
+              "power": null,
+              "accuracy": null,
+              "pp": 5,
+              "level": null,
+              "versionGroups": [
+                "sword-shield"
+              ]
+            }
+          ]
+        },
+        {
+          "method": "tutor",
+          "items": [
+            {
+              "move": {
+                "id": 802,
+                "name": "Explo-Brume"
+              },
+              "type": "fairy",
+              "category": "special",
+              "power": 100,
+              "accuracy": 100,
+              "pp": 5,
+              "level": null,
+              "versionGroups": [
+                "sword-shield"
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

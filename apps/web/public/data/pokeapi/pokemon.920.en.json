@@ -1,0 +1,1008 @@
+{
+  "id": 920,
+  "name": "Lokix",
+  "sprites": {
+    "front_default": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/920.png",
+    "front_shiny": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/shiny/920.png",
+    "official_artwork": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/920.png",
+    "dream_world": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/dream-world/920.svg",
+    "home_default": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/920.png",
+    "home_shiny": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/shiny/920.png",
+    "versions": {}
+  },
+  "types": [
+    {
+      "id": 7,
+      "name": "bug"
+    },
+    {
+      "id": 17,
+      "name": "dark"
+    }
+  ],
+  "abilities": [
+    {
+      "id": 68,
+      "name": "swarm",
+      "hidden": false
+    },
+    {
+      "id": 110,
+      "name": "tinted-lens",
+      "hidden": true
+    }
+  ],
+  "stats": [
+    {
+      "name": "hp",
+      "base": 71,
+      "effort": 0
+    },
+    {
+      "name": "attack",
+      "base": 102,
+      "effort": 2
+    },
+    {
+      "name": "defense",
+      "base": 78,
+      "effort": 0
+    },
+    {
+      "name": "special-attack",
+      "base": 52,
+      "effort": 0
+    },
+    {
+      "name": "special-defense",
+      "base": 55,
+      "effort": 0
+    },
+    {
+      "name": "speed",
+      "base": 92,
+      "effort": 0
+    }
+  ],
+  "weight": 175,
+  "height": 10,
+  "base_experience": 158,
+  "species": {
+    "capture_rate": 30,
+    "hatch_counter": 20,
+    "gender_rate": 4,
+    "growth_rate": {
+      "id": 2,
+      "name": "medium"
+    },
+    "egg_groups": [
+      {
+        "id": 3,
+        "name": "Bug"
+      }
+    ],
+    "color": {
+      "id": 4,
+      "name": "Gray"
+    },
+    "genus": "Grasshopper Pokémon",
+    "flavor_text": "When it decides to fight all out, it stands on its previously folded legs to enter Showdown Mode. It neutralizes its enemies in short order."
+  },
+  "evolutions": [
+    [
+      {
+        "id": 919,
+        "name": "Nymble",
+        "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/919.png",
+        "isCurrent": false,
+        "details": []
+      }
+    ],
+    [
+      {
+        "id": 920,
+        "name": "Lokix",
+        "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/920.png",
+        "isCurrent": true,
+        "details": [
+          {
+            "gender": null,
+            "held_item": null,
+            "item": null,
+            "known_move": null,
+            "known_move_type": null,
+            "location": null,
+            "min_affection": null,
+            "min_beauty": null,
+            "min_happiness": null,
+            "min_level": 24,
+            "needs_overworld_rain": false,
+            "party_species": null,
+            "party_type": null,
+            "relative_physical_stats": null,
+            "time_of_day": "",
+            "trade_species": null,
+            "trigger": {
+              "name": "level-up",
+              "url": "https://pokeapi.co/api/v2/evolution-trigger/1/"
+            },
+            "turn_upside_down": false
+          }
+        ]
+      }
+    ]
+  ],
+  "learnsets": [
+    {
+      "generation": "generation-ix",
+      "order": 21,
+      "entries": [
+        {
+          "method": "level-up",
+          "items": [
+            {
+              "move": {
+                "id": 679,
+                "name": "Lunge"
+              },
+              "type": "bug",
+              "category": "physical",
+              "power": 80,
+              "accuracy": 100,
+              "pp": 15,
+              "level": 0,
+              "versionGroups": [
+                "scarlet-violet"
+              ]
+            },
+            {
+              "move": {
+                "id": 197,
+                "name": "Detect"
+              },
+              "type": "fighting",
+              "category": "status",
+              "power": null,
+              "accuracy": null,
+              "pp": 5,
+              "level": 1,
+              "versionGroups": [
+                "scarlet-violet"
+              ]
+            },
+            {
+              "move": {
+                "id": 43,
+                "name": "Leer"
+              },
+              "type": "normal",
+              "category": "status",
+              "power": null,
+              "accuracy": 100,
+              "pp": 30,
+              "level": 1,
+              "versionGroups": [
+                "scarlet-violet"
+              ]
+            },
+            {
+              "move": {
+                "id": 67,
+                "name": "Low Kick"
+              },
+              "type": "fighting",
+              "category": "physical",
+              "power": null,
+              "accuracy": 100,
+              "pp": 20,
+              "level": 1,
+              "versionGroups": [
+                "scarlet-violet"
+              ]
+            },
+            {
+              "move": {
+                "id": 33,
+                "name": "Tackle"
+              },
+              "type": "normal",
+              "category": "physical",
+              "power": 40,
+              "accuracy": 100,
+              "pp": 35,
+              "level": 1,
+              "versionGroups": [
+                "scarlet-violet"
+              ]
+            },
+            {
+              "move": {
+                "id": 522,
+                "name": "Struggle Bug"
+              },
+              "type": "bug",
+              "category": "special",
+              "power": 50,
+              "accuracy": 100,
+              "pp": 20,
+              "level": 4,
+              "versionGroups": [
+                "scarlet-violet"
+              ]
+            },
+            {
+              "move": {
+                "id": 310,
+                "name": "Astonish"
+              },
+              "type": "ghost",
+              "category": "physical",
+              "power": 30,
+              "accuracy": 100,
+              "pp": 15,
+              "level": 6,
+              "versionGroups": [
+                "scarlet-violet"
+              ]
+            },
+            {
+              "move": {
+                "id": 372,
+                "name": "Assurance"
+              },
+              "type": "dark",
+              "category": "physical",
+              "power": 60,
+              "accuracy": 100,
+              "pp": 10,
+              "level": 9,
+              "versionGroups": [
+                "scarlet-violet"
+              ]
+            },
+            {
+              "move": {
+                "id": 24,
+                "name": "Double Kick"
+              },
+              "type": "fighting",
+              "category": "physical",
+              "power": 30,
+              "accuracy": 100,
+              "pp": 30,
+              "level": 11,
+              "versionGroups": [
+                "scarlet-violet"
+              ]
+            },
+            {
+              "move": {
+                "id": 103,
+                "name": "Screech"
+              },
+              "type": "normal",
+              "category": "status",
+              "power": null,
+              "accuracy": 85,
+              "pp": 40,
+              "level": 14,
+              "versionGroups": [
+                "scarlet-violet"
+              ]
+            },
+            {
+              "move": {
+                "id": 203,
+                "name": "Endure"
+              },
+              "type": "normal",
+              "category": "status",
+              "power": null,
+              "accuracy": null,
+              "pp": 10,
+              "level": 18,
+              "versionGroups": [
+                "scarlet-violet"
+              ]
+            },
+            {
+              "move": {
+                "id": 450,
+                "name": "Bug Bite"
+              },
+              "type": "bug",
+              "category": "physical",
+              "power": 60,
+              "accuracy": 100,
+              "pp": 20,
+              "level": 22,
+              "versionGroups": [
+                "scarlet-violet"
+              ]
+            },
+            {
+              "move": {
+                "id": 364,
+                "name": "Feint"
+              },
+              "type": "normal",
+              "category": "physical",
+              "power": 30,
+              "accuracy": 100,
+              "pp": 10,
+              "level": 28,
+              "versionGroups": [
+                "scarlet-violet"
+              ]
+            },
+            {
+              "move": {
+                "id": 97,
+                "name": "Agility"
+              },
+              "type": "psychic",
+              "category": "status",
+              "power": null,
+              "accuracy": null,
+              "pp": 30,
+              "level": 32,
+              "versionGroups": [
+                "scarlet-violet"
+              ]
+            },
+            {
+              "move": {
+                "id": 675,
+                "name": "Throat Chop"
+              },
+              "type": "dark",
+              "category": "physical",
+              "power": 80,
+              "accuracy": 100,
+              "pp": 15,
+              "level": 36,
+              "versionGroups": [
+                "scarlet-violet"
+              ]
+            },
+            {
+              "move": {
+                "id": 389,
+                "name": "Sucker Punch"
+              },
+              "type": "dark",
+              "category": "physical",
+              "power": 70,
+              "accuracy": 100,
+              "pp": 5,
+              "level": 40,
+              "versionGroups": [
+                "scarlet-violet"
+              ]
+            },
+            {
+              "move": {
+                "id": 660,
+                "name": "First Impression"
+              },
+              "type": "bug",
+              "category": "physical",
+              "power": 90,
+              "accuracy": 100,
+              "pp": 10,
+              "level": 44,
+              "versionGroups": [
+                "scarlet-violet"
+              ]
+            },
+            {
+              "move": {
+                "id": 340,
+                "name": "Bounce"
+              },
+              "type": "flying",
+              "category": "physical",
+              "power": 85,
+              "accuracy": 85,
+              "pp": 5,
+              "level": 48,
+              "versionGroups": [
+                "scarlet-violet"
+              ]
+            },
+            {
+              "move": {
+                "id": 853,
+                "name": "Axe Kick"
+              },
+              "type": "fighting",
+              "category": "physical",
+              "power": 120,
+              "accuracy": 90,
+              "pp": 10,
+              "level": 53,
+              "versionGroups": [
+                "scarlet-violet"
+              ]
+            }
+          ]
+        },
+        {
+          "method": "machine",
+          "items": [
+            {
+              "move": {
+                "id": 332,
+                "name": "Aerial Ace"
+              },
+              "type": "flying",
+              "category": "physical",
+              "power": 60,
+              "accuracy": null,
+              "pp": 20,
+              "level": null,
+              "versionGroups": [
+                "scarlet-violet"
+              ]
+            },
+            {
+              "move": {
+                "id": 97,
+                "name": "Agility"
+              },
+              "type": "psychic",
+              "category": "status",
+              "power": null,
+              "accuracy": null,
+              "pp": 30,
+              "level": null,
+              "versionGroups": [
+                "scarlet-violet"
+              ]
+            },
+            {
+              "move": {
+                "id": 280,
+                "name": "Brick Break"
+              },
+              "type": "fighting",
+              "category": "physical",
+              "power": 75,
+              "accuracy": 100,
+              "pp": 15,
+              "level": null,
+              "versionGroups": [
+                "scarlet-violet"
+              ]
+            },
+            {
+              "move": {
+                "id": 450,
+                "name": "Bug Bite"
+              },
+              "type": "bug",
+              "category": "physical",
+              "power": 60,
+              "accuracy": 100,
+              "pp": 20,
+              "level": null,
+              "versionGroups": [
+                "scarlet-violet"
+              ]
+            },
+            {
+              "move": {
+                "id": 405,
+                "name": "Bug Buzz"
+              },
+              "type": "bug",
+              "category": "special",
+              "power": 90,
+              "accuracy": 100,
+              "pp": 10,
+              "level": null,
+              "versionGroups": [
+                "scarlet-violet"
+              ]
+            },
+            {
+              "move": {
+                "id": 399,
+                "name": "Dark Pulse"
+              },
+              "type": "dark",
+              "category": "special",
+              "power": 80,
+              "accuracy": 100,
+              "pp": 15,
+              "level": null,
+              "versionGroups": [
+                "scarlet-violet"
+              ]
+            },
+            {
+              "move": {
+                "id": 38,
+                "name": "Double-Edge"
+              },
+              "type": "normal",
+              "category": "physical",
+              "power": 120,
+              "accuracy": 100,
+              "pp": 15,
+              "level": null,
+              "versionGroups": [
+                "scarlet-violet"
+              ]
+            },
+            {
+              "move": {
+                "id": 203,
+                "name": "Endure"
+              },
+              "type": "normal",
+              "category": "status",
+              "power": null,
+              "accuracy": null,
+              "pp": 10,
+              "level": null,
+              "versionGroups": [
+                "scarlet-violet"
+              ]
+            },
+            {
+              "move": {
+                "id": 263,
+                "name": "Facade"
+              },
+              "type": "normal",
+              "category": "physical",
+              "power": 70,
+              "accuracy": 100,
+              "pp": 20,
+              "level": null,
+              "versionGroups": [
+                "scarlet-violet"
+              ]
+            },
+            {
+              "move": {
+                "id": 374,
+                "name": "Fling"
+              },
+              "type": "dark",
+              "category": "physical",
+              "power": null,
+              "accuracy": 100,
+              "pp": 10,
+              "level": null,
+              "versionGroups": [
+                "scarlet-violet"
+              ]
+            },
+            {
+              "move": {
+                "id": 416,
+                "name": "Giga Impact"
+              },
+              "type": "normal",
+              "category": "physical",
+              "power": 150,
+              "accuracy": 90,
+              "pp": 5,
+              "level": null,
+              "versionGroups": [
+                "scarlet-violet"
+              ]
+            },
+            {
+              "move": {
+                "id": 282,
+                "name": "Knock Off"
+              },
+              "type": "dark",
+              "category": "physical",
+              "power": 65,
+              "accuracy": 100,
+              "pp": 20,
+              "level": null,
+              "versionGroups": [
+                "scarlet-violet"
+              ]
+            },
+            {
+              "move": {
+                "id": 808,
+                "name": "Lash Out"
+              },
+              "type": "dark",
+              "category": "physical",
+              "power": 75,
+              "accuracy": 100,
+              "pp": 5,
+              "level": null,
+              "versionGroups": [
+                "scarlet-violet"
+              ]
+            },
+            {
+              "move": {
+                "id": 141,
+                "name": "Leech Life"
+              },
+              "type": "bug",
+              "category": "physical",
+              "power": 80,
+              "accuracy": 100,
+              "pp": 10,
+              "level": null,
+              "versionGroups": [
+                "scarlet-violet"
+              ]
+            },
+            {
+              "move": {
+                "id": 67,
+                "name": "Low Kick"
+              },
+              "type": "fighting",
+              "category": "physical",
+              "power": null,
+              "accuracy": 100,
+              "pp": 20,
+              "level": null,
+              "versionGroups": [
+                "scarlet-violet"
+              ]
+            },
+            {
+              "move": {
+                "id": 490,
+                "name": "Low Sweep"
+              },
+              "type": "fighting",
+              "category": "physical",
+              "power": 65,
+              "accuracy": 100,
+              "pp": 20,
+              "level": null,
+              "versionGroups": [
+                "scarlet-violet"
+              ]
+            },
+            {
+              "move": {
+                "id": 679,
+                "name": "Lunge"
+              },
+              "type": "bug",
+              "category": "physical",
+              "power": 80,
+              "accuracy": 100,
+              "pp": 15,
+              "level": null,
+              "versionGroups": [
+                "scarlet-violet"
+              ]
+            },
+            {
+              "move": {
+                "id": 884,
+                "name": "Pounce"
+              },
+              "type": "bug",
+              "category": "physical",
+              "power": 50,
+              "accuracy": 100,
+              "pp": 20,
+              "level": null,
+              "versionGroups": [
+                "scarlet-violet"
+              ]
+            },
+            {
+              "move": {
+                "id": 182,
+                "name": "Protect"
+              },
+              "type": "normal",
+              "category": "status",
+              "power": null,
+              "accuracy": null,
+              "pp": 10,
+              "level": null,
+              "versionGroups": [
+                "scarlet-violet"
+              ]
+            },
+            {
+              "move": {
+                "id": 240,
+                "name": "Rain Dance"
+              },
+              "type": "water",
+              "category": "status",
+              "power": null,
+              "accuracy": null,
+              "pp": 5,
+              "level": null,
+              "versionGroups": [
+                "scarlet-violet"
+              ]
+            },
+            {
+              "move": {
+                "id": 156,
+                "name": "Rest"
+              },
+              "type": "psychic",
+              "category": "status",
+              "power": null,
+              "accuracy": null,
+              "pp": 5,
+              "level": null,
+              "versionGroups": [
+                "scarlet-violet"
+              ]
+            },
+            {
+              "move": {
+                "id": 179,
+                "name": "Reversal"
+              },
+              "type": "fighting",
+              "category": "physical",
+              "power": null,
+              "accuracy": 100,
+              "pp": 15,
+              "level": null,
+              "versionGroups": [
+                "scarlet-violet"
+              ]
+            },
+            {
+              "move": {
+                "id": 184,
+                "name": "Scary Face"
+              },
+              "type": "normal",
+              "category": "status",
+              "power": null,
+              "accuracy": 100,
+              "pp": 10,
+              "level": null,
+              "versionGroups": [
+                "scarlet-violet"
+              ]
+            },
+            {
+              "move": {
+                "id": 806,
+                "name": "Skitter Smack"
+              },
+              "type": "bug",
+              "category": "physical",
+              "power": 70,
+              "accuracy": 90,
+              "pp": 10,
+              "level": null,
+              "versionGroups": [
+                "scarlet-violet"
+              ]
+            },
+            {
+              "move": {
+                "id": 214,
+                "name": "Sleep Talk"
+              },
+              "type": "normal",
+              "category": "status",
+              "power": null,
+              "accuracy": null,
+              "pp": 10,
+              "level": null,
+              "versionGroups": [
+                "scarlet-violet"
+              ]
+            },
+            {
+              "move": {
+                "id": 180,
+                "name": "Spite"
+              },
+              "type": "ghost",
+              "category": "status",
+              "power": null,
+              "accuracy": 100,
+              "pp": 10,
+              "level": null,
+              "versionGroups": [
+                "scarlet-violet"
+              ]
+            },
+            {
+              "move": {
+                "id": 522,
+                "name": "Struggle Bug"
+              },
+              "type": "bug",
+              "category": "special",
+              "power": 50,
+              "accuracy": 100,
+              "pp": 20,
+              "level": null,
+              "versionGroups": [
+                "scarlet-violet"
+              ]
+            },
+            {
+              "move": {
+                "id": 164,
+                "name": "Substitute"
+              },
+              "type": "normal",
+              "category": "status",
+              "power": null,
+              "accuracy": null,
+              "pp": 10,
+              "level": null,
+              "versionGroups": [
+                "scarlet-violet"
+              ]
+            },
+            {
+              "move": {
+                "id": 241,
+                "name": "Sunny Day"
+              },
+              "type": "fire",
+              "category": "status",
+              "power": null,
+              "accuracy": null,
+              "pp": 5,
+              "level": null,
+              "versionGroups": [
+                "scarlet-violet"
+              ]
+            },
+            {
+              "move": {
+                "id": 14,
+                "name": "Swords Dance"
+              },
+              "type": "normal",
+              "category": "status",
+              "power": null,
+              "accuracy": null,
+              "pp": 20,
+              "level": null,
+              "versionGroups": [
+                "scarlet-violet"
+              ]
+            },
+            {
+              "move": {
+                "id": 36,
+                "name": "Take Down"
+              },
+              "type": "normal",
+              "category": "physical",
+              "power": 90,
+              "accuracy": 85,
+              "pp": 20,
+              "level": null,
+              "versionGroups": [
+                "scarlet-violet"
+              ]
+            },
+            {
+              "move": {
+                "id": 269,
+                "name": "Taunt"
+              },
+              "type": "dark",
+              "category": "status",
+              "power": null,
+              "accuracy": 100,
+              "pp": 20,
+              "level": null,
+              "versionGroups": [
+                "scarlet-violet"
+              ]
+            },
+            {
+              "move": {
+                "id": 851,
+                "name": "Tera Blast"
+              },
+              "type": "normal",
+              "category": "special",
+              "power": 80,
+              "accuracy": 100,
+              "pp": 10,
+              "level": null,
+              "versionGroups": [
+                "scarlet-violet"
+              ]
+            },
+            {
+              "move": {
+                "id": 168,
+                "name": "Thief"
+              },
+              "type": "dark",
+              "category": "physical",
+              "power": 60,
+              "accuracy": 100,
+              "pp": 25,
+              "level": null,
+              "versionGroups": [
+                "scarlet-violet"
+              ]
+            },
+            {
+              "move": {
+                "id": 675,
+                "name": "Throat Chop"
+              },
+              "type": "dark",
+              "category": "physical",
+              "power": 80,
+              "accuracy": 100,
+              "pp": 15,
+              "level": null,
+              "versionGroups": [
+                "scarlet-violet"
+              ]
+            },
+            {
+              "move": {
+                "id": 885,
+                "name": "Trailblaze"
+              },
+              "type": "grass",
+              "category": "physical",
+              "power": 50,
+              "accuracy": 100,
+              "pp": 20,
+              "level": null,
+              "versionGroups": [
+                "scarlet-violet"
+              ]
+            },
+            {
+              "move": {
+                "id": 369,
+                "name": "U-turn"
+              },
+              "type": "bug",
+              "category": "physical",
+              "power": 70,
+              "accuracy": 100,
+              "pp": 20,
+              "level": null,
+              "versionGroups": [
+                "scarlet-violet"
+              ]
+            },
+            {
+              "move": {
+                "id": 404,
+                "name": "X-Scissor"
+              },
+              "type": "bug",
+              "category": "physical",
+              "power": 80,
+              "accuracy": 100,
+              "pp": 15,
+              "level": null,
+              "versionGroups": [
+                "scarlet-violet"
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,964 @@
+{
+  "id": 828,
+  "name": "Roublenard",
+  "sprites": {
+    "front_default": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/828.png",
+    "front_shiny": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/shiny/828.png",
+    "official_artwork": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/828.png",
+    "dream_world": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/dream-world/828.svg",
+    "home_default": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/828.png",
+    "home_shiny": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/shiny/828.png",
+    "versions": {
+      "generation-v": {
+        "front_default": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/828.png",
+        "back_default": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/back/828.png",
+        "front_shiny": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/shiny/828.png",
+        "back_shiny": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/back/shiny/828.png"
+      },
+      "generation-viii": {
+        "front_default": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-viii/icons/828.png"
+      }
+    }
+  },
+  "types": [
+    {
+      "id": 17,
+      "name": "dark"
+    }
+  ],
+  "abilities": [
+    {
+      "id": 50,
+      "name": "run-away",
+      "hidden": false
+    },
+    {
+      "id": 84,
+      "name": "unburden",
+      "hidden": false
+    },
+    {
+      "id": 198,
+      "name": "stakeout",
+      "hidden": true
+    }
+  ],
+  "stats": [
+    {
+      "name": "hp",
+      "base": 70,
+      "effort": 0
+    },
+    {
+      "name": "attack",
+      "base": 58,
+      "effort": 0
+    },
+    {
+      "name": "defense",
+      "base": 58,
+      "effort": 0
+    },
+    {
+      "name": "special-attack",
+      "base": 87,
+      "effort": 0
+    },
+    {
+      "name": "special-defense",
+      "base": 92,
+      "effort": 2
+    },
+    {
+      "name": "speed",
+      "base": 90,
+      "effort": 0
+    }
+  ],
+  "weight": 199,
+  "height": 12,
+  "base_experience": 159,
+  "species": {
+    "capture_rate": 127,
+    "hatch_counter": 15,
+    "gender_rate": 4,
+    "growth_rate": {
+      "id": 3,
+      "name": "fast"
+    },
+    "egg_groups": [
+      {
+        "id": 5,
+        "name": "Terrestre"
+      }
+    ],
+    "color": {
+      "id": 3,
+      "name": "Brun"
+    },
+    "genus": "Pokémon Renard",
+    "flavor_text": "Il marque sa victime pour la suivre à l’odeur. Sitôt qu’elle est distraite, il s’empresse de lui voler ses biens."
+  },
+  "evolutions": [
+    [
+      {
+        "id": 827,
+        "name": "Goupilou",
+        "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/827.png",
+        "isCurrent": false,
+        "details": []
+      }
+    ],
+    [
+      {
+        "id": 828,
+        "name": "Roublenard",
+        "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/828.png",
+        "isCurrent": true,
+        "details": [
+          {
+            "gender": null,
+            "held_item": null,
+            "item": null,
+            "known_move": null,
+            "known_move_type": null,
+            "location": null,
+            "min_affection": null,
+            "min_beauty": null,
+            "min_happiness": null,
+            "min_level": 18,
+            "needs_overworld_rain": false,
+            "party_species": null,
+            "party_type": null,
+            "relative_physical_stats": null,
+            "time_of_day": "",
+            "trade_species": null,
+            "trigger": {
+              "name": "level-up",
+              "url": "https://pokeapi.co/api/v2/evolution-trigger/1/"
+            },
+            "turn_upside_down": false
+          }
+        ]
+      }
+    ]
+  ],
+  "learnsets": [
+    {
+      "generation": "generation-viii",
+      "order": 18,
+      "entries": [
+        {
+          "method": "level-up",
+          "items": [
+            {
+              "move": {
+                "id": 468,
+                "name": "Aiguisage"
+              },
+              "type": "dark",
+              "category": "status",
+              "power": null,
+              "accuracy": null,
+              "pp": 15,
+              "level": 1,
+              "versionGroups": [
+                "sword-shield"
+              ]
+            },
+            {
+              "move": {
+                "id": 251,
+                "name": "Baston"
+              },
+              "type": "dark",
+              "category": "physical",
+              "power": null,
+              "accuracy": 100,
+              "pp": 10,
+              "level": 1,
+              "versionGroups": [
+                "sword-shield"
+              ]
+            },
+            {
+              "move": {
+                "id": 168,
+                "name": "Larcin"
+              },
+              "type": "dark",
+              "category": "physical",
+              "power": 60,
+              "accuracy": 100,
+              "pp": 25,
+              "level": 1,
+              "versionGroups": [
+                "sword-shield"
+              ]
+            },
+            {
+              "move": {
+                "id": 39,
+                "name": "Mimi-Queue"
+              },
+              "type": "normal",
+              "category": "status",
+              "power": null,
+              "accuracy": 100,
+              "pp": 30,
+              "level": 1,
+              "versionGroups": [
+                "sword-shield"
+              ]
+            },
+            {
+              "move": {
+                "id": 98,
+                "name": "Vive-Attaque"
+              },
+              "type": "normal",
+              "category": "physical",
+              "power": 40,
+              "accuracy": 100,
+              "pp": 30,
+              "level": 1,
+              "versionGroups": [
+                "sword-shield"
+              ]
+            },
+            {
+              "move": {
+                "id": 555,
+                "name": "Aboiement"
+              },
+              "type": "dark",
+              "category": "special",
+              "power": 55,
+              "accuracy": 95,
+              "pp": 15,
+              "level": 12,
+              "versionGroups": [
+                "sword-shield"
+              ]
+            },
+            {
+              "move": {
+                "id": 372,
+                "name": "Assurance"
+              },
+              "type": "dark",
+              "category": "physical",
+              "power": 60,
+              "accuracy": 100,
+              "pp": 10,
+              "level": 16,
+              "versionGroups": [
+                "sword-shield"
+              ]
+            },
+            {
+              "move": {
+                "id": 417,
+                "name": "Machination"
+              },
+              "type": "dark",
+              "category": "status",
+              "power": null,
+              "accuracy": null,
+              "pp": 20,
+              "level": 22,
+              "versionGroups": [
+                "sword-shield"
+              ]
+            },
+            {
+              "move": {
+                "id": 389,
+                "name": "Coup Bas"
+              },
+              "type": "dark",
+              "category": "physical",
+              "power": 70,
+              "accuracy": 100,
+              "pp": 5,
+              "level": 28,
+              "versionGroups": [
+                "sword-shield"
+              ]
+            },
+            {
+              "move": {
+                "id": 400,
+                "name": "Tranche-Nuit"
+              },
+              "type": "dark",
+              "category": "physical",
+              "power": 70,
+              "accuracy": 100,
+              "pp": 15,
+              "level": 34,
+              "versionGroups": [
+                "sword-shield"
+              ]
+            },
+            {
+              "move": {
+                "id": 541,
+                "name": "Plumo-Queue"
+              },
+              "type": "normal",
+              "category": "physical",
+              "power": 25,
+              "accuracy": 85,
+              "pp": 10,
+              "level": 40,
+              "versionGroups": [
+                "sword-shield"
+              ]
+            },
+            {
+              "move": {
+                "id": 492,
+                "name": "Tricherie"
+              },
+              "type": "dark",
+              "category": "physical",
+              "power": 95,
+              "accuracy": 100,
+              "pp": 15,
+              "level": 46,
+              "versionGroups": [
+                "sword-shield"
+              ]
+            },
+            {
+              "move": {
+                "id": 575,
+                "name": "Dernier Mot"
+              },
+              "type": "dark",
+              "category": "status",
+              "power": null,
+              "accuracy": 100,
+              "pp": 20,
+              "level": 52,
+              "versionGroups": [
+                "sword-shield"
+              ]
+            }
+          ]
+        },
+        {
+          "method": "machine",
+          "items": [
+            {
+              "move": {
+                "id": 555,
+                "name": "Aboiement"
+              },
+              "type": "dark",
+              "category": "special",
+              "power": 55,
+              "accuracy": 95,
+              "pp": 15,
+              "level": null,
+              "versionGroups": [
+                "sword-shield"
+              ]
+            },
+            {
+              "move": {
+                "id": 182,
+                "name": "Abri"
+              },
+              "type": "normal",
+              "category": "status",
+              "power": null,
+              "accuracy": null,
+              "pp": 10,
+              "level": null,
+              "versionGroups": [
+                "sword-shield"
+              ]
+            },
+            {
+              "move": {
+                "id": 512,
+                "name": "Acrobatie"
+              },
+              "type": "flying",
+              "category": "physical",
+              "power": 55,
+              "accuracy": 100,
+              "pp": 15,
+              "level": null,
+              "versionGroups": [
+                "sword-shield"
+              ]
+            },
+            {
+              "move": {
+                "id": 372,
+                "name": "Assurance"
+              },
+              "type": "dark",
+              "category": "physical",
+              "power": 60,
+              "accuracy": 100,
+              "pp": 10,
+              "level": null,
+              "versionGroups": [
+                "sword-shield"
+              ]
+            },
+            {
+              "move": {
+                "id": 213,
+                "name": "Attraction"
+              },
+              "type": "normal",
+              "category": "status",
+              "power": null,
+              "accuracy": 100,
+              "pp": 15,
+              "level": null,
+              "versionGroups": [
+                "sword-shield"
+              ]
+            },
+            {
+              "move": {
+                "id": 247,
+                "name": "Ball’Ombre"
+              },
+              "type": "ghost",
+              "category": "special",
+              "power": 80,
+              "accuracy": 100,
+              "pp": 15,
+              "level": null,
+              "versionGroups": [
+                "sword-shield"
+              ]
+            },
+            {
+              "move": {
+                "id": 251,
+                "name": "Baston"
+              },
+              "type": "dark",
+              "category": "physical",
+              "power": null,
+              "accuracy": 100,
+              "pp": 10,
+              "level": null,
+              "versionGroups": [
+                "sword-shield"
+              ]
+            },
+            {
+              "move": {
+                "id": 214,
+                "name": "Blabla Dodo"
+              },
+              "type": "normal",
+              "category": "status",
+              "power": null,
+              "accuracy": null,
+              "pp": 10,
+              "level": null,
+              "versionGroups": [
+                "sword-shield"
+              ]
+            },
+            {
+              "move": {
+                "id": 583,
+                "name": "Câlinerie"
+              },
+              "type": "fairy",
+              "category": "physical",
+              "power": 90,
+              "accuracy": 90,
+              "pp": 10,
+              "level": null,
+              "versionGroups": [
+                "sword-shield"
+              ]
+            },
+            {
+              "move": {
+                "id": 496,
+                "name": "Chant Canon"
+              },
+              "type": "normal",
+              "category": "special",
+              "power": 60,
+              "accuracy": 100,
+              "pp": 15,
+              "level": null,
+              "versionGroups": [
+                "sword-shield"
+              ]
+            },
+            {
+              "move": {
+                "id": 164,
+                "name": "Clonage"
+              },
+              "type": "normal",
+              "category": "status",
+              "power": null,
+              "accuracy": null,
+              "pp": 10,
+              "level": null,
+              "versionGroups": [
+                "sword-shield"
+              ]
+            },
+            {
+              "move": {
+                "id": 313,
+                "name": "Croco Larme"
+              },
+              "type": "dark",
+              "category": "status",
+              "power": null,
+              "accuracy": 100,
+              "pp": 20,
+              "level": null,
+              "versionGroups": [
+                "sword-shield"
+              ]
+            },
+            {
+              "move": {
+                "id": 422,
+                "name": "Crocs Éclair"
+              },
+              "type": "electric",
+              "category": "physical",
+              "power": 65,
+              "accuracy": 95,
+              "pp": 15,
+              "level": null,
+              "versionGroups": [
+                "sword-shield"
+              ]
+            },
+            {
+              "move": {
+                "id": 424,
+                "name": "Crocs Feu"
+              },
+              "type": "fire",
+              "category": "physical",
+              "power": 65,
+              "accuracy": 95,
+              "pp": 15,
+              "level": null,
+              "versionGroups": [
+                "sword-shield"
+              ]
+            },
+            {
+              "move": {
+                "id": 423,
+                "name": "Crocs Givre"
+              },
+              "type": "ice",
+              "category": "physical",
+              "power": 65,
+              "accuracy": 95,
+              "pp": 15,
+              "level": null,
+              "versionGroups": [
+                "sword-shield"
+              ]
+            },
+            {
+              "move": {
+                "id": 369,
+                "name": "Demi-Tour"
+              },
+              "type": "bug",
+              "category": "physical",
+              "power": 70,
+              "accuracy": 100,
+              "pp": 20,
+              "level": null,
+              "versionGroups": [
+                "sword-shield"
+              ]
+            },
+            {
+              "move": {
+                "id": 263,
+                "name": "Façade"
+              },
+              "type": "normal",
+              "category": "physical",
+              "power": 70,
+              "accuracy": 100,
+              "pp": 20,
+              "level": null,
+              "versionGroups": [
+                "sword-shield"
+              ]
+            },
+            {
+              "move": {
+                "id": 416,
+                "name": "Giga Impact"
+              },
+              "type": "normal",
+              "category": "physical",
+              "power": 150,
+              "accuracy": 90,
+              "pp": 5,
+              "level": null,
+              "versionGroups": [
+                "sword-shield"
+              ]
+            },
+            {
+              "move": {
+                "id": 421,
+                "name": "Griffe Ombre"
+              },
+              "type": "ghost",
+              "category": "physical",
+              "power": 70,
+              "accuracy": 100,
+              "pp": 15,
+              "level": null,
+              "versionGroups": [
+                "sword-shield"
+              ]
+            },
+            {
+              "move": {
+                "id": 103,
+                "name": "Grincement"
+              },
+              "type": "normal",
+              "category": "status",
+              "power": null,
+              "accuracy": 85,
+              "pp": 40,
+              "level": null,
+              "versionGroups": [
+                "sword-shield"
+              ]
+            },
+            {
+              "move": {
+                "id": 97,
+                "name": "Hâte"
+              },
+              "type": "psychic",
+              "category": "status",
+              "power": null,
+              "accuracy": null,
+              "pp": 30,
+              "level": null,
+              "versionGroups": [
+                "sword-shield"
+              ]
+            },
+            {
+              "move": {
+                "id": 168,
+                "name": "Larcin"
+              },
+              "type": "dark",
+              "category": "physical",
+              "power": 60,
+              "accuracy": 100,
+              "pp": 25,
+              "level": null,
+              "versionGroups": [
+                "sword-shield"
+              ]
+            },
+            {
+              "move": {
+                "id": 417,
+                "name": "Machination"
+              },
+              "type": "dark",
+              "category": "status",
+              "power": null,
+              "accuracy": null,
+              "pp": 20,
+              "level": null,
+              "versionGroups": [
+                "sword-shield"
+              ]
+            },
+            {
+              "move": {
+                "id": 242,
+                "name": "Mâchouille"
+              },
+              "type": "dark",
+              "category": "physical",
+              "power": 80,
+              "accuracy": 100,
+              "pp": 15,
+              "level": null,
+              "versionGroups": [
+                "sword-shield"
+              ]
+            },
+            {
+              "move": {
+                "id": 129,
+                "name": "Météores"
+              },
+              "type": "normal",
+              "category": "special",
+              "power": 60,
+              "accuracy": null,
+              "pp": 20,
+              "level": null,
+              "versionGroups": [
+                "sword-shield"
+              ]
+            },
+            {
+              "move": {
+                "id": 447,
+                "name": "Nœud Herbe"
+              },
+              "type": "grass",
+              "category": "special",
+              "power": null,
+              "accuracy": 100,
+              "pp": 20,
+              "level": null,
+              "versionGroups": [
+                "sword-shield"
+              ]
+            },
+            {
+              "move": {
+                "id": 541,
+                "name": "Plumo-Queue"
+              },
+              "type": "normal",
+              "category": "physical",
+              "power": 25,
+              "accuracy": 85,
+              "pp": 10,
+              "level": null,
+              "versionGroups": [
+                "sword-shield"
+              ]
+            },
+            {
+              "move": {
+                "id": 269,
+                "name": "Provoc"
+              },
+              "type": "dark",
+              "category": "status",
+              "power": null,
+              "accuracy": 100,
+              "pp": 20,
+              "level": null,
+              "versionGroups": [
+                "sword-shield"
+              ]
+            },
+            {
+              "move": {
+                "id": 94,
+                "name": "Psyko"
+              },
+              "type": "psychic",
+              "category": "special",
+              "power": 90,
+              "accuracy": 100,
+              "pp": 10,
+              "level": null,
+              "versionGroups": [
+                "sword-shield"
+              ]
+            },
+            {
+              "move": {
+                "id": 226,
+                "name": "Relais"
+              },
+              "type": "normal",
+              "category": "status",
+              "power": null,
+              "accuracy": null,
+              "pp": 40,
+              "level": null,
+              "versionGroups": [
+                "sword-shield"
+              ]
+            },
+            {
+              "move": {
+                "id": 156,
+                "name": "Repos"
+              },
+              "type": "psychic",
+              "category": "status",
+              "power": null,
+              "accuracy": null,
+              "pp": 5,
+              "level": null,
+              "versionGroups": [
+                "sword-shield"
+              ]
+            },
+            {
+              "move": {
+                "id": 173,
+                "name": "Ronflement"
+              },
+              "type": "normal",
+              "category": "special",
+              "power": 50,
+              "accuracy": 100,
+              "pp": 15,
+              "level": null,
+              "versionGroups": [
+                "sword-shield"
+              ]
+            },
+            {
+              "move": {
+                "id": 203,
+                "name": "Ténacité"
+              },
+              "type": "normal",
+              "category": "status",
+              "power": null,
+              "accuracy": null,
+              "pp": 10,
+              "level": null,
+              "versionGroups": [
+                "sword-shield"
+              ]
+            },
+            {
+              "move": {
+                "id": 341,
+                "name": "Tir de Boue"
+              },
+              "type": "ground",
+              "category": "special",
+              "power": 55,
+              "accuracy": 95,
+              "pp": 15,
+              "level": null,
+              "versionGroups": [
+                "sword-shield"
+              ]
+            },
+            {
+              "move": {
+                "id": 492,
+                "name": "Tricherie"
+              },
+              "type": "dark",
+              "category": "physical",
+              "power": 95,
+              "accuracy": 100,
+              "pp": 15,
+              "level": null,
+              "versionGroups": [
+                "sword-shield"
+              ]
+            },
+            {
+              "move": {
+                "id": 91,
+                "name": "Tunnel"
+              },
+              "type": "ground",
+              "category": "physical",
+              "power": 80,
+              "accuracy": 100,
+              "pp": 10,
+              "level": null,
+              "versionGroups": [
+                "sword-shield"
+              ]
+            },
+            {
+              "move": {
+                "id": 63,
+                "name": "Ultralaser"
+              },
+              "type": "normal",
+              "category": "special",
+              "power": 150,
+              "accuracy": 90,
+              "pp": 5,
+              "level": null,
+              "versionGroups": [
+                "sword-shield"
+              ]
+            },
+            {
+              "move": {
+                "id": 399,
+                "name": "Vibrobscur"
+              },
+              "type": "dark",
+              "category": "special",
+              "power": 80,
+              "accuracy": 100,
+              "pp": 15,
+              "level": null,
+              "versionGroups": [
+                "sword-shield"
+              ]
+            }
+          ]
+        },
+        {
+          "method": "tutor",
+          "items": [
+            {
+              "move": {
+                "id": 808,
+                "name": "Cent Rancunes"
+              },
+              "type": "dark",
+              "category": "physical",
+              "power": 75,
+              "accuracy": 100,
+              "pp": 5,
+              "level": null,
+              "versionGroups": [
+                "sword-shield"
+              ]
+            },
+            {
+              "move": {
+                "id": 807,
+                "name": "Feu Envieux"
+              },
+              "type": "fire",
+              "category": "special",
+              "power": 70,
+              "accuracy": 100,
+              "pp": 5,
+              "level": null,
+              "versionGroups": [
+                "sword-shield"
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

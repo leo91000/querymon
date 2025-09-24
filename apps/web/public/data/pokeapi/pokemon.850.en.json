@@ -1,0 +1,763 @@
+{
+  "id": 850,
+  "name": "Sizzlipede",
+  "sprites": {
+    "front_default": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/850.png",
+    "front_shiny": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/shiny/850.png",
+    "official_artwork": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/850.png",
+    "dream_world": null,
+    "home_default": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/850.png",
+    "home_shiny": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/shiny/850.png",
+    "versions": {
+      "generation-v": {
+        "front_default": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/850.png",
+        "back_default": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/back/850.png",
+        "front_shiny": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/shiny/850.png",
+        "back_shiny": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/back/shiny/850.png"
+      },
+      "generation-viii": {
+        "front_default": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-viii/icons/850.png"
+      }
+    }
+  },
+  "types": [
+    {
+      "id": 10,
+      "name": "fire"
+    },
+    {
+      "id": 7,
+      "name": "bug"
+    }
+  ],
+  "abilities": [
+    {
+      "id": 18,
+      "name": "flash-fire",
+      "hidden": false
+    },
+    {
+      "id": 73,
+      "name": "white-smoke",
+      "hidden": false
+    },
+    {
+      "id": 49,
+      "name": "flame-body",
+      "hidden": true
+    }
+  ],
+  "stats": [
+    {
+      "name": "hp",
+      "base": 50,
+      "effort": 0
+    },
+    {
+      "name": "attack",
+      "base": 65,
+      "effort": 1
+    },
+    {
+      "name": "defense",
+      "base": 45,
+      "effort": 0
+    },
+    {
+      "name": "special-attack",
+      "base": 50,
+      "effort": 0
+    },
+    {
+      "name": "special-defense",
+      "base": 50,
+      "effort": 0
+    },
+    {
+      "name": "speed",
+      "base": 45,
+      "effort": 0
+    }
+  ],
+  "weight": 10,
+  "height": 7,
+  "base_experience": 61,
+  "species": {
+    "capture_rate": 190,
+    "hatch_counter": 20,
+    "gender_rate": 4,
+    "growth_rate": {
+      "id": 2,
+      "name": "medium"
+    },
+    "egg_groups": [
+      {
+        "id": 3,
+        "name": "Bug"
+      }
+    ],
+    "color": {
+      "id": 8,
+      "name": "Red"
+    },
+    "genus": "Radiator Pokémon",
+    "flavor_text": "It stores flammable gas in its body and uses it to generate heat. The yellow sections on its belly get particularly hot."
+  },
+  "evolutions": [
+    [
+      {
+        "id": 850,
+        "name": "Sizzlipede",
+        "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/850.png",
+        "isCurrent": true,
+        "details": []
+      }
+    ],
+    [
+      {
+        "id": 851,
+        "name": "Centiskorch",
+        "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/851.png",
+        "isCurrent": false,
+        "details": [
+          {
+            "gender": null,
+            "held_item": null,
+            "item": null,
+            "known_move": null,
+            "known_move_type": null,
+            "location": null,
+            "min_affection": null,
+            "min_beauty": null,
+            "min_happiness": null,
+            "min_level": 28,
+            "needs_overworld_rain": false,
+            "party_species": null,
+            "party_type": null,
+            "relative_physical_stats": null,
+            "time_of_day": "",
+            "trade_species": null,
+            "trigger": {
+              "name": "level-up",
+              "url": "https://pokeapi.co/api/v2/evolution-trigger/1/"
+            },
+            "turn_upside_down": false
+          }
+        ]
+      }
+    ]
+  ],
+  "learnsets": [
+    {
+      "generation": "generation-viii",
+      "order": 18,
+      "entries": [
+        {
+          "method": "egg",
+          "items": [
+            {
+              "move": {
+                "id": 111,
+                "name": "Defense Curl"
+              },
+              "type": "normal",
+              "category": "status",
+              "power": null,
+              "accuracy": null,
+              "pp": 40,
+              "level": null,
+              "versionGroups": [
+                "sword-shield"
+              ]
+            },
+            {
+              "move": {
+                "id": 282,
+                "name": "Knock Off"
+              },
+              "type": "dark",
+              "category": "physical",
+              "power": 65,
+              "accuracy": 100,
+              "pp": 20,
+              "level": null,
+              "versionGroups": [
+                "sword-shield"
+              ]
+            },
+            {
+              "move": {
+                "id": 205,
+                "name": "Rollout"
+              },
+              "type": "rock",
+              "category": "physical",
+              "power": 30,
+              "accuracy": 90,
+              "pp": 20,
+              "level": null,
+              "versionGroups": [
+                "sword-shield"
+              ]
+            },
+            {
+              "move": {
+                "id": 522,
+                "name": "Struggle Bug"
+              },
+              "type": "bug",
+              "category": "special",
+              "power": 50,
+              "accuracy": 100,
+              "pp": 20,
+              "level": null,
+              "versionGroups": [
+                "sword-shield"
+              ]
+            }
+          ]
+        },
+        {
+          "method": "level-up",
+          "items": [
+            {
+              "move": {
+                "id": 52,
+                "name": "Ember"
+              },
+              "type": "fire",
+              "category": "special",
+              "power": 40,
+              "accuracy": 100,
+              "pp": 25,
+              "level": 1,
+              "versionGroups": [
+                "sword-shield"
+              ]
+            },
+            {
+              "move": {
+                "id": 108,
+                "name": "Smokescreen"
+              },
+              "type": "normal",
+              "category": "status",
+              "power": null,
+              "accuracy": 100,
+              "pp": 20,
+              "level": 1,
+              "versionGroups": [
+                "sword-shield"
+              ]
+            },
+            {
+              "move": {
+                "id": 35,
+                "name": "Wrap"
+              },
+              "type": "normal",
+              "category": "physical",
+              "power": 15,
+              "accuracy": 90,
+              "pp": 20,
+              "level": 5,
+              "versionGroups": [
+                "sword-shield"
+              ]
+            },
+            {
+              "move": {
+                "id": 44,
+                "name": "Bite"
+              },
+              "type": "dark",
+              "category": "physical",
+              "power": 60,
+              "accuracy": 100,
+              "pp": 25,
+              "level": 10,
+              "versionGroups": [
+                "sword-shield"
+              ]
+            },
+            {
+              "move": {
+                "id": 172,
+                "name": "Flame Wheel"
+              },
+              "type": "fire",
+              "category": "physical",
+              "power": 60,
+              "accuracy": 100,
+              "pp": 25,
+              "level": 15,
+              "versionGroups": [
+                "sword-shield"
+              ]
+            },
+            {
+              "move": {
+                "id": 450,
+                "name": "Bug Bite"
+              },
+              "type": "bug",
+              "category": "physical",
+              "power": 60,
+              "accuracy": 100,
+              "pp": 20,
+              "level": 20,
+              "versionGroups": [
+                "sword-shield"
+              ]
+            },
+            {
+              "move": {
+                "id": 489,
+                "name": "Coil"
+              },
+              "type": "poison",
+              "category": "status",
+              "power": null,
+              "accuracy": null,
+              "pp": 20,
+              "level": 25,
+              "versionGroups": [
+                "sword-shield"
+              ]
+            },
+            {
+              "move": {
+                "id": 21,
+                "name": "Slam"
+              },
+              "type": "normal",
+              "category": "physical",
+              "power": 80,
+              "accuracy": 75,
+              "pp": 20,
+              "level": 30,
+              "versionGroups": [
+                "sword-shield"
+              ]
+            },
+            {
+              "move": {
+                "id": 83,
+                "name": "Fire Spin"
+              },
+              "type": "fire",
+              "category": "special",
+              "power": 35,
+              "accuracy": 85,
+              "pp": 15,
+              "level": 35,
+              "versionGroups": [
+                "sword-shield"
+              ]
+            },
+            {
+              "move": {
+                "id": 242,
+                "name": "Crunch"
+              },
+              "type": "dark",
+              "category": "physical",
+              "power": 80,
+              "accuracy": 100,
+              "pp": 15,
+              "level": 40,
+              "versionGroups": [
+                "sword-shield"
+              ]
+            },
+            {
+              "move": {
+                "id": 680,
+                "name": "Fire Lash"
+              },
+              "type": "fire",
+              "category": "physical",
+              "power": 80,
+              "accuracy": 100,
+              "pp": 15,
+              "level": 45,
+              "versionGroups": [
+                "sword-shield"
+              ]
+            },
+            {
+              "move": {
+                "id": 679,
+                "name": "Lunge"
+              },
+              "type": "bug",
+              "category": "physical",
+              "power": 80,
+              "accuracy": 100,
+              "pp": 15,
+              "level": 50,
+              "versionGroups": [
+                "sword-shield"
+              ]
+            },
+            {
+              "move": {
+                "id": 682,
+                "name": "Burn Up"
+              },
+              "type": "fire",
+              "category": "special",
+              "power": 130,
+              "accuracy": 100,
+              "pp": 5,
+              "level": 55,
+              "versionGroups": [
+                "sword-shield"
+              ]
+            }
+          ]
+        },
+        {
+          "method": "machine",
+          "items": [
+            {
+              "move": {
+                "id": 213,
+                "name": "Attract"
+              },
+              "type": "normal",
+              "category": "status",
+              "power": null,
+              "accuracy": 100,
+              "pp": 15,
+              "level": null,
+              "versionGroups": [
+                "sword-shield"
+              ]
+            },
+            {
+              "move": {
+                "id": 693,
+                "name": "Brutal Swing"
+              },
+              "type": "dark",
+              "category": "physical",
+              "power": 60,
+              "accuracy": 100,
+              "pp": 20,
+              "level": null,
+              "versionGroups": [
+                "sword-shield"
+              ]
+            },
+            {
+              "move": {
+                "id": 405,
+                "name": "Bug Buzz"
+              },
+              "type": "bug",
+              "category": "special",
+              "power": 90,
+              "accuracy": 100,
+              "pp": 10,
+              "level": null,
+              "versionGroups": [
+                "sword-shield"
+              ]
+            },
+            {
+              "move": {
+                "id": 242,
+                "name": "Crunch"
+              },
+              "type": "dark",
+              "category": "physical",
+              "power": 80,
+              "accuracy": 100,
+              "pp": 15,
+              "level": null,
+              "versionGroups": [
+                "sword-shield"
+              ]
+            },
+            {
+              "move": {
+                "id": 203,
+                "name": "Endure"
+              },
+              "type": "normal",
+              "category": "status",
+              "power": null,
+              "accuracy": null,
+              "pp": 10,
+              "level": null,
+              "versionGroups": [
+                "sword-shield"
+              ]
+            },
+            {
+              "move": {
+                "id": 263,
+                "name": "Facade"
+              },
+              "type": "normal",
+              "category": "physical",
+              "power": 70,
+              "accuracy": 100,
+              "pp": 20,
+              "level": null,
+              "versionGroups": [
+                "sword-shield"
+              ]
+            },
+            {
+              "move": {
+                "id": 83,
+                "name": "Fire Spin"
+              },
+              "type": "fire",
+              "category": "special",
+              "power": 35,
+              "accuracy": 85,
+              "pp": 15,
+              "level": null,
+              "versionGroups": [
+                "sword-shield"
+              ]
+            },
+            {
+              "move": {
+                "id": 535,
+                "name": "Heat Crash"
+              },
+              "type": "fire",
+              "category": "physical",
+              "power": null,
+              "accuracy": 100,
+              "pp": 10,
+              "level": null,
+              "versionGroups": [
+                "sword-shield"
+              ]
+            },
+            {
+              "move": {
+                "id": 257,
+                "name": "Heat Wave"
+              },
+              "type": "fire",
+              "category": "special",
+              "power": 95,
+              "accuracy": 90,
+              "pp": 10,
+              "level": null,
+              "versionGroups": [
+                "sword-shield"
+              ]
+            },
+            {
+              "move": {
+                "id": 141,
+                "name": "Leech Life"
+              },
+              "type": "bug",
+              "category": "physical",
+              "power": 80,
+              "accuracy": 100,
+              "pp": 10,
+              "level": null,
+              "versionGroups": [
+                "sword-shield"
+              ]
+            },
+            {
+              "move": {
+                "id": 438,
+                "name": "Power Whip"
+              },
+              "type": "grass",
+              "category": "physical",
+              "power": 120,
+              "accuracy": 85,
+              "pp": 10,
+              "level": null,
+              "versionGroups": [
+                "sword-shield"
+              ]
+            },
+            {
+              "move": {
+                "id": 182,
+                "name": "Protect"
+              },
+              "type": "normal",
+              "category": "status",
+              "power": null,
+              "accuracy": null,
+              "pp": 10,
+              "level": null,
+              "versionGroups": [
+                "sword-shield"
+              ]
+            },
+            {
+              "move": {
+                "id": 156,
+                "name": "Rest"
+              },
+              "type": "psychic",
+              "category": "status",
+              "power": null,
+              "accuracy": null,
+              "pp": 5,
+              "level": null,
+              "versionGroups": [
+                "sword-shield"
+              ]
+            },
+            {
+              "move": {
+                "id": 496,
+                "name": "Round"
+              },
+              "type": "normal",
+              "category": "special",
+              "power": 60,
+              "accuracy": 100,
+              "pp": 15,
+              "level": null,
+              "versionGroups": [
+                "sword-shield"
+              ]
+            },
+            {
+              "move": {
+                "id": 503,
+                "name": "Scald"
+              },
+              "type": "water",
+              "category": "special",
+              "power": 80,
+              "accuracy": 100,
+              "pp": 15,
+              "level": null,
+              "versionGroups": [
+                "sword-shield"
+              ]
+            },
+            {
+              "move": {
+                "id": 214,
+                "name": "Sleep Talk"
+              },
+              "type": "normal",
+              "category": "status",
+              "power": null,
+              "accuracy": null,
+              "pp": 10,
+              "level": null,
+              "versionGroups": [
+                "sword-shield"
+              ]
+            },
+            {
+              "move": {
+                "id": 173,
+                "name": "Snore"
+              },
+              "type": "normal",
+              "category": "special",
+              "power": 50,
+              "accuracy": 100,
+              "pp": 15,
+              "level": null,
+              "versionGroups": [
+                "sword-shield"
+              ]
+            },
+            {
+              "move": {
+                "id": 164,
+                "name": "Substitute"
+              },
+              "type": "normal",
+              "category": "status",
+              "power": null,
+              "accuracy": null,
+              "pp": 10,
+              "level": null,
+              "versionGroups": [
+                "sword-shield"
+              ]
+            },
+            {
+              "move": {
+                "id": 241,
+                "name": "Sunny Day"
+              },
+              "type": "fire",
+              "category": "status",
+              "power": null,
+              "accuracy": null,
+              "pp": 5,
+              "level": null,
+              "versionGroups": [
+                "sword-shield"
+              ]
+            },
+            {
+              "move": {
+                "id": 474,
+                "name": "Venoshock"
+              },
+              "type": "poison",
+              "category": "special",
+              "power": 65,
+              "accuracy": 100,
+              "pp": 10,
+              "level": null,
+              "versionGroups": [
+                "sword-shield"
+              ]
+            }
+          ]
+        },
+        {
+          "method": "tutor",
+          "items": [
+            {
+              "move": {
+                "id": 815,
+                "name": "Scorching Sands"
+              },
+              "type": "ground",
+              "category": "special",
+              "power": 70,
+              "accuracy": 100,
+              "pp": 10,
+              "level": null,
+              "versionGroups": [
+                "sword-shield"
+              ]
+            },
+            {
+              "move": {
+                "id": 806,
+                "name": "Skitter Smack"
+              },
+              "type": "bug",
+              "category": "physical",
+              "power": 70,
+              "accuracy": 90,
+              "pp": 10,
+              "level": null,
+              "versionGroups": [
+                "sword-shield"
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

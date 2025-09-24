@@ -1,0 +1,993 @@
+{
+  "id": 970,
+  "name": "Glimmora",
+  "sprites": {
+    "front_default": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/970.png",
+    "front_shiny": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/shiny/970.png",
+    "official_artwork": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/970.png",
+    "dream_world": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/dream-world/970.svg",
+    "home_default": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/970.png",
+    "home_shiny": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/shiny/970.png",
+    "versions": {}
+  },
+  "types": [
+    {
+      "id": 6,
+      "name": "rock"
+    },
+    {
+      "id": 4,
+      "name": "poison"
+    }
+  ],
+  "abilities": [
+    {
+      "id": 295,
+      "name": "toxic-debris",
+      "hidden": false
+    },
+    {
+      "id": 212,
+      "name": "corrosion",
+      "hidden": true
+    }
+  ],
+  "stats": [
+    {
+      "name": "hp",
+      "base": 83,
+      "effort": 0
+    },
+    {
+      "name": "attack",
+      "base": 55,
+      "effort": 0
+    },
+    {
+      "name": "defense",
+      "base": 90,
+      "effort": 0
+    },
+    {
+      "name": "special-attack",
+      "base": 130,
+      "effort": 2
+    },
+    {
+      "name": "special-defense",
+      "base": 81,
+      "effort": 0
+    },
+    {
+      "name": "speed",
+      "base": 86,
+      "effort": 0
+    }
+  ],
+  "weight": 450,
+  "height": 15,
+  "base_experience": 184,
+  "species": {
+    "capture_rate": 25,
+    "hatch_counter": 30,
+    "gender_rate": 4,
+    "growth_rate": {
+      "id": 4,
+      "name": "medium-slow"
+    },
+    "egg_groups": [
+      {
+        "id": 10,
+        "name": "Mineral"
+      }
+    ],
+    "color": {
+      "id": 2,
+      "name": "Blue"
+    },
+    "genus": "Ore Pokémon",
+    "flavor_text": "When this Pokémon detects danger, it will open up its crystalline petals and fire beams from its conical body."
+  },
+  "evolutions": [
+    [
+      {
+        "id": 969,
+        "name": "Glimmet",
+        "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/969.png",
+        "isCurrent": false,
+        "details": []
+      }
+    ],
+    [
+      {
+        "id": 970,
+        "name": "Glimmora",
+        "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/970.png",
+        "isCurrent": true,
+        "details": [
+          {
+            "gender": null,
+            "held_item": null,
+            "item": null,
+            "known_move": null,
+            "known_move_type": null,
+            "location": null,
+            "min_affection": null,
+            "min_beauty": null,
+            "min_happiness": null,
+            "min_level": 35,
+            "needs_overworld_rain": false,
+            "party_species": null,
+            "party_type": null,
+            "relative_physical_stats": null,
+            "time_of_day": "",
+            "trade_species": null,
+            "trigger": {
+              "name": "level-up",
+              "url": "https://pokeapi.co/api/v2/evolution-trigger/1/"
+            },
+            "turn_upside_down": false
+          }
+        ]
+      }
+    ]
+  ],
+  "learnsets": [
+    {
+      "generation": "generation-ix",
+      "order": 21,
+      "entries": [
+        {
+          "method": "level-up",
+          "items": [
+            {
+              "move": {
+                "id": 866,
+                "name": "Mortal Spin"
+              },
+              "type": "poison",
+              "category": "physical",
+              "power": 30,
+              "accuracy": 100,
+              "pp": 15,
+              "level": 0,
+              "versionGroups": [
+                "scarlet-violet"
+              ]
+            },
+            {
+              "move": {
+                "id": 106,
+                "name": "Harden"
+              },
+              "type": "normal",
+              "category": "status",
+              "power": null,
+              "accuracy": null,
+              "pp": 30,
+              "level": 1,
+              "versionGroups": [
+                "scarlet-violet"
+              ]
+            },
+            {
+              "move": {
+                "id": 88,
+                "name": "Rock Throw"
+              },
+              "type": "rock",
+              "category": "physical",
+              "power": 50,
+              "accuracy": 90,
+              "pp": 15,
+              "level": 1,
+              "versionGroups": [
+                "scarlet-violet"
+              ]
+            },
+            {
+              "move": {
+                "id": 479,
+                "name": "Smack Down"
+              },
+              "type": "rock",
+              "category": "physical",
+              "power": 50,
+              "accuracy": 100,
+              "pp": 15,
+              "level": 1,
+              "versionGroups": [
+                "scarlet-violet"
+              ]
+            },
+            {
+              "move": {
+                "id": 596,
+                "name": "Spiky Shield"
+              },
+              "type": "grass",
+              "category": "status",
+              "power": null,
+              "accuracy": null,
+              "pp": 10,
+              "level": 1,
+              "versionGroups": [
+                "scarlet-violet"
+              ]
+            },
+            {
+              "move": {
+                "id": 390,
+                "name": "Toxic Spikes"
+              },
+              "type": "poison",
+              "category": "status",
+              "power": null,
+              "accuracy": null,
+              "pp": 20,
+              "level": 1,
+              "versionGroups": [
+                "scarlet-violet"
+              ]
+            },
+            {
+              "move": {
+                "id": 491,
+                "name": "Acid Spray"
+              },
+              "type": "poison",
+              "category": "special",
+              "power": 40,
+              "accuracy": 100,
+              "pp": 20,
+              "level": 7,
+              "versionGroups": [
+                "scarlet-violet"
+              ]
+            },
+            {
+              "move": {
+                "id": 246,
+                "name": "Ancient Power"
+              },
+              "type": "rock",
+              "category": "special",
+              "power": 60,
+              "accuracy": 100,
+              "pp": 5,
+              "level": 11,
+              "versionGroups": [
+                "scarlet-violet"
+              ]
+            },
+            {
+              "move": {
+                "id": 397,
+                "name": "Rock Polish"
+              },
+              "type": "rock",
+              "category": "status",
+              "power": null,
+              "accuracy": null,
+              "pp": 20,
+              "level": 15,
+              "versionGroups": [
+                "scarlet-violet"
+              ]
+            },
+            {
+              "move": {
+                "id": 446,
+                "name": "Stealth Rock"
+              },
+              "type": "rock",
+              "category": "status",
+              "power": null,
+              "accuracy": null,
+              "pp": 20,
+              "level": 18,
+              "versionGroups": [
+                "scarlet-violet"
+              ]
+            },
+            {
+              "move": {
+                "id": 474,
+                "name": "Venoshock"
+              },
+              "type": "poison",
+              "category": "special",
+              "power": 65,
+              "accuracy": 100,
+              "pp": 10,
+              "level": 22,
+              "versionGroups": [
+                "scarlet-violet"
+              ]
+            },
+            {
+              "move": {
+                "id": 201,
+                "name": "Sandstorm"
+              },
+              "type": "rock",
+              "category": "status",
+              "power": null,
+              "accuracy": null,
+              "pp": 10,
+              "level": 26,
+              "versionGroups": [
+                "scarlet-violet"
+              ]
+            },
+            {
+              "move": {
+                "id": 120,
+                "name": "Self-Destruct"
+              },
+              "type": "normal",
+              "category": "physical",
+              "power": 200,
+              "accuracy": 100,
+              "pp": 5,
+              "level": 29,
+              "versionGroups": [
+                "scarlet-violet"
+              ]
+            },
+            {
+              "move": {
+                "id": 157,
+                "name": "Rock Slide"
+              },
+              "type": "rock",
+              "category": "physical",
+              "power": 75,
+              "accuracy": 90,
+              "pp": 10,
+              "level": 33,
+              "versionGroups": [
+                "scarlet-violet"
+              ]
+            },
+            {
+              "move": {
+                "id": 408,
+                "name": "Power Gem"
+              },
+              "type": "rock",
+              "category": "special",
+              "power": 80,
+              "accuracy": 100,
+              "pp": 20,
+              "level": 39,
+              "versionGroups": [
+                "scarlet-violet"
+              ]
+            },
+            {
+              "move": {
+                "id": 151,
+                "name": "Acid Armor"
+              },
+              "type": "poison",
+              "category": "status",
+              "power": null,
+              "accuracy": null,
+              "pp": 20,
+              "level": 44,
+              "versionGroups": [
+                "scarlet-violet"
+              ]
+            },
+            {
+              "move": {
+                "id": 482,
+                "name": "Sludge Wave"
+              },
+              "type": "poison",
+              "category": "special",
+              "power": 95,
+              "accuracy": 100,
+              "pp": 10,
+              "level": 50,
+              "versionGroups": [
+                "scarlet-violet"
+              ]
+            }
+          ]
+        },
+        {
+          "method": "machine",
+          "items": [
+            {
+              "move": {
+                "id": 491,
+                "name": "Acid Spray"
+              },
+              "type": "poison",
+              "category": "special",
+              "power": 40,
+              "accuracy": 100,
+              "pp": 20,
+              "level": null,
+              "versionGroups": [
+                "scarlet-violet"
+              ]
+            },
+            {
+              "move": {
+                "id": 109,
+                "name": "Confuse Ray"
+              },
+              "type": "ghost",
+              "category": "status",
+              "power": null,
+              "accuracy": 100,
+              "pp": 10,
+              "level": null,
+              "versionGroups": [
+                "scarlet-violet"
+              ]
+            },
+            {
+              "move": {
+                "id": 605,
+                "name": "Dazzling Gleam"
+              },
+              "type": "fairy",
+              "category": "special",
+              "power": 80,
+              "accuracy": 100,
+              "pp": 10,
+              "level": null,
+              "versionGroups": [
+                "scarlet-violet"
+              ]
+            },
+            {
+              "move": {
+                "id": 414,
+                "name": "Earth Power"
+              },
+              "type": "ground",
+              "category": "special",
+              "power": 90,
+              "accuracy": 100,
+              "pp": 10,
+              "level": null,
+              "versionGroups": [
+                "scarlet-violet"
+              ]
+            },
+            {
+              "move": {
+                "id": 203,
+                "name": "Endure"
+              },
+              "type": "normal",
+              "category": "status",
+              "power": null,
+              "accuracy": null,
+              "pp": 10,
+              "level": null,
+              "versionGroups": [
+                "scarlet-violet"
+              ]
+            },
+            {
+              "move": {
+                "id": 412,
+                "name": "Energy Ball"
+              },
+              "type": "grass",
+              "category": "special",
+              "power": 90,
+              "accuracy": 100,
+              "pp": 10,
+              "level": null,
+              "versionGroups": [
+                "scarlet-violet"
+              ]
+            },
+            {
+              "move": {
+                "id": 263,
+                "name": "Facade"
+              },
+              "type": "normal",
+              "category": "physical",
+              "power": 70,
+              "accuracy": 100,
+              "pp": 20,
+              "level": null,
+              "versionGroups": [
+                "scarlet-violet"
+              ]
+            },
+            {
+              "move": {
+                "id": 430,
+                "name": "Flash Cannon"
+              },
+              "type": "steel",
+              "category": "special",
+              "power": 80,
+              "accuracy": 100,
+              "pp": 10,
+              "level": null,
+              "versionGroups": [
+                "scarlet-violet"
+              ]
+            },
+            {
+              "move": {
+                "id": 416,
+                "name": "Giga Impact"
+              },
+              "type": "normal",
+              "category": "physical",
+              "power": 150,
+              "accuracy": 90,
+              "pp": 5,
+              "level": null,
+              "versionGroups": [
+                "scarlet-violet"
+              ]
+            },
+            {
+              "move": {
+                "id": 441,
+                "name": "Gunk Shot"
+              },
+              "type": "poison",
+              "category": "physical",
+              "power": 120,
+              "accuracy": 80,
+              "pp": 5,
+              "level": null,
+              "versionGroups": [
+                "scarlet-violet"
+              ]
+            },
+            {
+              "move": {
+                "id": 63,
+                "name": "Hyper Beam"
+              },
+              "type": "normal",
+              "category": "special",
+              "power": 150,
+              "accuracy": 90,
+              "pp": 5,
+              "level": null,
+              "versionGroups": [
+                "scarlet-violet"
+              ]
+            },
+            {
+              "move": {
+                "id": 334,
+                "name": "Iron Defense"
+              },
+              "type": "steel",
+              "category": "status",
+              "power": null,
+              "accuracy": null,
+              "pp": 15,
+              "level": null,
+              "versionGroups": [
+                "scarlet-violet"
+              ]
+            },
+            {
+              "move": {
+                "id": 113,
+                "name": "Light Screen"
+              },
+              "type": "psychic",
+              "category": "status",
+              "power": null,
+              "accuracy": null,
+              "pp": 30,
+              "level": null,
+              "versionGroups": [
+                "scarlet-violet"
+              ]
+            },
+            {
+              "move": {
+                "id": 800,
+                "name": "Meteor Beam"
+              },
+              "type": "rock",
+              "category": "special",
+              "power": 120,
+              "accuracy": 90,
+              "pp": 10,
+              "level": null,
+              "versionGroups": [
+                "scarlet-violet"
+              ]
+            },
+            {
+              "move": {
+                "id": 341,
+                "name": "Mud Shot"
+              },
+              "type": "ground",
+              "category": "special",
+              "power": 55,
+              "accuracy": 95,
+              "pp": 15,
+              "level": null,
+              "versionGroups": [
+                "scarlet-violet"
+              ]
+            },
+            {
+              "move": {
+                "id": 408,
+                "name": "Power Gem"
+              },
+              "type": "rock",
+              "category": "special",
+              "power": 80,
+              "accuracy": 100,
+              "pp": 20,
+              "level": null,
+              "versionGroups": [
+                "scarlet-violet"
+              ]
+            },
+            {
+              "move": {
+                "id": 182,
+                "name": "Protect"
+              },
+              "type": "normal",
+              "category": "status",
+              "power": null,
+              "accuracy": null,
+              "pp": 10,
+              "level": null,
+              "versionGroups": [
+                "scarlet-violet"
+              ]
+            },
+            {
+              "move": {
+                "id": 240,
+                "name": "Rain Dance"
+              },
+              "type": "water",
+              "category": "status",
+              "power": null,
+              "accuracy": null,
+              "pp": 5,
+              "level": null,
+              "versionGroups": [
+                "scarlet-violet"
+              ]
+            },
+            {
+              "move": {
+                "id": 115,
+                "name": "Reflect"
+              },
+              "type": "psychic",
+              "category": "status",
+              "power": null,
+              "accuracy": null,
+              "pp": 20,
+              "level": null,
+              "versionGroups": [
+                "scarlet-violet"
+              ]
+            },
+            {
+              "move": {
+                "id": 156,
+                "name": "Rest"
+              },
+              "type": "psychic",
+              "category": "status",
+              "power": null,
+              "accuracy": null,
+              "pp": 5,
+              "level": null,
+              "versionGroups": [
+                "scarlet-violet"
+              ]
+            },
+            {
+              "move": {
+                "id": 350,
+                "name": "Rock Blast"
+              },
+              "type": "rock",
+              "category": "physical",
+              "power": 25,
+              "accuracy": 90,
+              "pp": 10,
+              "level": null,
+              "versionGroups": [
+                "scarlet-violet"
+              ]
+            },
+            {
+              "move": {
+                "id": 157,
+                "name": "Rock Slide"
+              },
+              "type": "rock",
+              "category": "physical",
+              "power": 75,
+              "accuracy": 90,
+              "pp": 10,
+              "level": null,
+              "versionGroups": [
+                "scarlet-violet"
+              ]
+            },
+            {
+              "move": {
+                "id": 317,
+                "name": "Rock Tomb"
+              },
+              "type": "rock",
+              "category": "physical",
+              "power": 60,
+              "accuracy": 95,
+              "pp": 15,
+              "level": null,
+              "versionGroups": [
+                "scarlet-violet"
+              ]
+            },
+            {
+              "move": {
+                "id": 328,
+                "name": "Sand Tomb"
+              },
+              "type": "ground",
+              "category": "physical",
+              "power": 35,
+              "accuracy": 85,
+              "pp": 15,
+              "level": null,
+              "versionGroups": [
+                "scarlet-violet"
+              ]
+            },
+            {
+              "move": {
+                "id": 201,
+                "name": "Sandstorm"
+              },
+              "type": "rock",
+              "category": "status",
+              "power": null,
+              "accuracy": null,
+              "pp": 10,
+              "level": null,
+              "versionGroups": [
+                "scarlet-violet"
+              ]
+            },
+            {
+              "move": {
+                "id": 214,
+                "name": "Sleep Talk"
+              },
+              "type": "normal",
+              "category": "status",
+              "power": null,
+              "accuracy": null,
+              "pp": 10,
+              "level": null,
+              "versionGroups": [
+                "scarlet-violet"
+              ]
+            },
+            {
+              "move": {
+                "id": 188,
+                "name": "Sludge Bomb"
+              },
+              "type": "poison",
+              "category": "special",
+              "power": 90,
+              "accuracy": 100,
+              "pp": 10,
+              "level": null,
+              "versionGroups": [
+                "scarlet-violet"
+              ]
+            },
+            {
+              "move": {
+                "id": 482,
+                "name": "Sludge Wave"
+              },
+              "type": "poison",
+              "category": "special",
+              "power": 95,
+              "accuracy": 100,
+              "pp": 10,
+              "level": null,
+              "versionGroups": [
+                "scarlet-violet"
+              ]
+            },
+            {
+              "move": {
+                "id": 479,
+                "name": "Smack Down"
+              },
+              "type": "rock",
+              "category": "physical",
+              "power": 50,
+              "accuracy": 100,
+              "pp": 15,
+              "level": null,
+              "versionGroups": [
+                "scarlet-violet"
+              ]
+            },
+            {
+              "move": {
+                "id": 76,
+                "name": "Solar Beam"
+              },
+              "type": "grass",
+              "category": "special",
+              "power": 120,
+              "accuracy": 100,
+              "pp": 10,
+              "level": null,
+              "versionGroups": [
+                "scarlet-violet"
+              ]
+            },
+            {
+              "move": {
+                "id": 191,
+                "name": "Spikes"
+              },
+              "type": "ground",
+              "category": "status",
+              "power": null,
+              "accuracy": null,
+              "pp": 20,
+              "level": null,
+              "versionGroups": [
+                "scarlet-violet"
+              ]
+            },
+            {
+              "move": {
+                "id": 446,
+                "name": "Stealth Rock"
+              },
+              "type": "rock",
+              "category": "status",
+              "power": null,
+              "accuracy": null,
+              "pp": 20,
+              "level": null,
+              "versionGroups": [
+                "scarlet-violet"
+              ]
+            },
+            {
+              "move": {
+                "id": 444,
+                "name": "Stone Edge"
+              },
+              "type": "rock",
+              "category": "physical",
+              "power": 100,
+              "accuracy": 80,
+              "pp": 5,
+              "level": null,
+              "versionGroups": [
+                "scarlet-violet"
+              ]
+            },
+            {
+              "move": {
+                "id": 164,
+                "name": "Substitute"
+              },
+              "type": "normal",
+              "category": "status",
+              "power": null,
+              "accuracy": null,
+              "pp": 10,
+              "level": null,
+              "versionGroups": [
+                "scarlet-violet"
+              ]
+            },
+            {
+              "move": {
+                "id": 241,
+                "name": "Sunny Day"
+              },
+              "type": "fire",
+              "category": "status",
+              "power": null,
+              "accuracy": null,
+              "pp": 5,
+              "level": null,
+              "versionGroups": [
+                "scarlet-violet"
+              ]
+            },
+            {
+              "move": {
+                "id": 851,
+                "name": "Tera Blast"
+              },
+              "type": "normal",
+              "category": "special",
+              "power": 80,
+              "accuracy": 100,
+              "pp": 10,
+              "level": null,
+              "versionGroups": [
+                "scarlet-violet"
+              ]
+            },
+            {
+              "move": {
+                "id": 92,
+                "name": "Toxic"
+              },
+              "type": "poison",
+              "category": "status",
+              "power": null,
+              "accuracy": 90,
+              "pp": 10,
+              "level": null,
+              "versionGroups": [
+                "scarlet-violet"
+              ]
+            },
+            {
+              "move": {
+                "id": 390,
+                "name": "Toxic Spikes"
+              },
+              "type": "poison",
+              "category": "status",
+              "power": null,
+              "accuracy": null,
+              "pp": 20,
+              "level": null,
+              "versionGroups": [
+                "scarlet-violet"
+              ]
+            },
+            {
+              "move": {
+                "id": 474,
+                "name": "Venoshock"
+              },
+              "type": "poison",
+              "category": "special",
+              "power": 65,
+              "accuracy": 100,
+              "pp": 10,
+              "level": null,
+              "versionGroups": [
+                "scarlet-violet"
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

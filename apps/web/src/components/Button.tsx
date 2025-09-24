@@ -8,7 +8,7 @@ interface ButtonProps extends JSX.ButtonHTMLAttributes<HTMLButtonElement> {
   size?: Size;
 }
 
-const base = 'inline-flex items-center justify-center rounded-md font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed';
+const base = 'inline-flex items-center justify-center rounded-md font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 cursor-pointer disabled:opacity-50 disabled:cursor-not-allowed';
 
 const variants: Record<Variant, string> = {
   primary: 'bg-blue-600 text-white hover:bg-blue-700 focus-visible:ring-blue-600',
@@ -27,4 +27,3 @@ export default function Button(props: ButtonProps) {
   const cls = `${base} ${variants[variant]} ${sizes[size]}${className ? ` ${className}` : ''}`;
   return <button class={cls} {...rest} />;
 }
-

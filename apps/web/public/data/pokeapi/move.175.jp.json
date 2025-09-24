@@ -1,0 +1,956 @@
+{
+  "id": 175,
+  "name": "じたばた",
+  "type": {
+    "id": 1,
+    "name": "normal"
+  },
+  "damage_class": {
+    "name": "physical"
+  },
+  "power": null,
+  "accuracy": 100,
+  "pp": 15,
+  "priority": 0,
+  "target": {
+    "name": "selected-pokemon"
+  },
+  "generation": {
+    "name": "generation-ii"
+  },
+  "effect_entries": [
+    {
+      "effect": "Inflicts regular damage.  Power varies inversely with the user’s proportional remaining HP.  64 * current HP / max HP | Power -----------------------: | ----:  0– 1                    |  200  2– 5                    |  150  6–12                    |  100 13–21                    |   80 22–42                    |   40 43–64                    |   20 ",
+      "language": {
+        "name": "en",
+        "url": "https://pokeapi.co/api/v2/language/9/"
+      },
+      "short_effect": "Inflicts more damage when the user has less HP remaining, with a maximum of 200 power."
+    }
+  ],
+  "flavor_text_entries": [
+    {
+      "flavor_text": "Stronger if the user's HP is low.",
+      "language": {
+        "name": "en",
+        "url": "https://pokeapi.co/api/v2/language/9/"
+      },
+      "version_group": {
+        "name": "gold-silver",
+        "url": "https://pokeapi.co/api/v2/version-group/3/"
+      }
+    },
+    {
+      "flavor_text": "Stronger if the user's HP is low.",
+      "language": {
+        "name": "en",
+        "url": "https://pokeapi.co/api/v2/language/9/"
+      },
+      "version_group": {
+        "name": "crystal",
+        "url": "https://pokeapi.co/api/v2/version-group/4/"
+      }
+    },
+    {
+      "flavor_text": "Inflicts more damage when the user’s HP is down.",
+      "language": {
+        "name": "en",
+        "url": "https://pokeapi.co/api/v2/language/9/"
+      },
+      "version_group": {
+        "name": "ruby-sapphire",
+        "url": "https://pokeapi.co/api/v2/version-group/5/"
+      }
+    },
+    {
+      "flavor_text": "Inflicts more damage when the user’s HP is down.",
+      "language": {
+        "name": "en",
+        "url": "https://pokeapi.co/api/v2/language/9/"
+      },
+      "version_group": {
+        "name": "emerald",
+        "url": "https://pokeapi.co/api/v2/version-group/6/"
+      }
+    },
+    {
+      "flavor_text": "A desperate attack that becomes more powerful the less HP the user has.",
+      "language": {
+        "name": "en",
+        "url": "https://pokeapi.co/api/v2/language/9/"
+      },
+      "version_group": {
+        "name": "firered-leafgreen",
+        "url": "https://pokeapi.co/api/v2/version-group/7/"
+      }
+    },
+    {
+      "flavor_text": "The user flails about aimlessly to attack. It becomes more powerful the less HP the user has.",
+      "language": {
+        "name": "en",
+        "url": "https://pokeapi.co/api/v2/language/9/"
+      },
+      "version_group": {
+        "name": "diamond-pearl",
+        "url": "https://pokeapi.co/api/v2/version-group/8/"
+      }
+    },
+    {
+      "flavor_text": "The user flails about aimlessly to attack. It becomes more powerful the less HP the user has.",
+      "language": {
+        "name": "en",
+        "url": "https://pokeapi.co/api/v2/language/9/"
+      },
+      "version_group": {
+        "name": "platinum",
+        "url": "https://pokeapi.co/api/v2/version-group/9/"
+      }
+    },
+    {
+      "flavor_text": "The user flails about aimlessly to attack. It becomes more powerful the less HP the user has.",
+      "language": {
+        "name": "en",
+        "url": "https://pokeapi.co/api/v2/language/9/"
+      },
+      "version_group": {
+        "name": "heartgold-soulsilver",
+        "url": "https://pokeapi.co/api/v2/version-group/10/"
+      }
+    },
+    {
+      "flavor_text": "The user flails about aimlessly to attack. It becomes more powerful the less HP the user has.",
+      "language": {
+        "name": "en",
+        "url": "https://pokeapi.co/api/v2/language/9/"
+      },
+      "version_group": {
+        "name": "black-white",
+        "url": "https://pokeapi.co/api/v2/version-group/11/"
+      }
+    },
+    {
+      "flavor_text": "The user flails about aimlessly to attack. It becomes more powerful the less HP the user has.",
+      "language": {
+        "name": "en",
+        "url": "https://pokeapi.co/api/v2/language/9/"
+      },
+      "version_group": {
+        "name": "black-2-white-2",
+        "url": "https://pokeapi.co/api/v2/version-group/14/"
+      }
+    },
+    {
+      "flavor_text": "The user flails about aimlessly to attack. The less HP the user has, the greater the move’s power.",
+      "language": {
+        "name": "en",
+        "url": "https://pokeapi.co/api/v2/language/9/"
+      },
+      "version_group": {
+        "name": "x-y",
+        "url": "https://pokeapi.co/api/v2/version-group/15/"
+      }
+    },
+    {
+      "flavor_text": "じたばた　暴れて　攻撃する。 自分の　ＨＰが　少ないほど 技の　威力は　あがる。",
+      "language": {
+        "name": "ja",
+        "url": "https://pokeapi.co/api/v2/language/11/"
+      },
+      "version_group": {
+        "name": "x-y",
+        "url": "https://pokeapi.co/api/v2/version-group/15/"
+      }
+    },
+    {
+      "flavor_text": "The user flails about aimlessly to attack. The less HP the user has, the greater the move’s power.",
+      "language": {
+        "name": "en",
+        "url": "https://pokeapi.co/api/v2/language/9/"
+      },
+      "version_group": {
+        "name": "omega-ruby-alpha-sapphire",
+        "url": "https://pokeapi.co/api/v2/version-group/16/"
+      }
+    },
+    {
+      "flavor_text": "じたばた　暴れて　攻撃する。 自分の　ＨＰが　少ないほど 技の　威力は　あがる。",
+      "language": {
+        "name": "ja",
+        "url": "https://pokeapi.co/api/v2/language/11/"
+      },
+      "version_group": {
+        "name": "omega-ruby-alpha-sapphire",
+        "url": "https://pokeapi.co/api/v2/version-group/16/"
+      }
+    },
+    {
+      "flavor_text": "The user flails about aimlessly to attack. The less HP the user has, the greater the move’s power.",
+      "language": {
+        "name": "en",
+        "url": "https://pokeapi.co/api/v2/language/9/"
+      },
+      "version_group": {
+        "name": "sun-moon",
+        "url": "https://pokeapi.co/api/v2/version-group/17/"
+      }
+    },
+    {
+      "flavor_text": "じたばた　暴れて　攻撃する。 自分の　ＨＰが　少ないほど 技の　威力は　あがる。",
+      "language": {
+        "name": "ja",
+        "url": "https://pokeapi.co/api/v2/language/11/"
+      },
+      "version_group": {
+        "name": "sun-moon",
+        "url": "https://pokeapi.co/api/v2/version-group/17/"
+      }
+    },
+    {
+      "flavor_text": "The user flails about aimlessly to attack. The less HP the user has, the greater the move’s power.",
+      "language": {
+        "name": "en",
+        "url": "https://pokeapi.co/api/v2/language/9/"
+      },
+      "version_group": {
+        "name": "ultra-sun-ultra-moon",
+        "url": "https://pokeapi.co/api/v2/version-group/18/"
+      }
+    },
+    {
+      "flavor_text": "じたばた　暴れて　攻撃する。 自分の　ＨＰが　少ないほど 技の　威力は　あがる。",
+      "language": {
+        "name": "ja",
+        "url": "https://pokeapi.co/api/v2/language/11/"
+      },
+      "version_group": {
+        "name": "ultra-sun-ultra-moon",
+        "url": "https://pokeapi.co/api/v2/version-group/18/"
+      }
+    },
+    {
+      "flavor_text": "The user flails about aimlessly to attack. The less HP the user has, the greater the move’s power.",
+      "language": {
+        "name": "en",
+        "url": "https://pokeapi.co/api/v2/language/9/"
+      },
+      "version_group": {
+        "name": "lets-go-pikachu-lets-go-eevee",
+        "url": "https://pokeapi.co/api/v2/version-group/19/"
+      }
+    },
+    {
+      "flavor_text": "じたばた　暴れて　攻撃する。 自分の　ＨＰが　少ないほど 技の　威力は　あがる。",
+      "language": {
+        "name": "ja",
+        "url": "https://pokeapi.co/api/v2/language/11/"
+      },
+      "version_group": {
+        "name": "lets-go-pikachu-lets-go-eevee",
+        "url": "https://pokeapi.co/api/v2/version-group/19/"
+      }
+    },
+    {
+      "flavor_text": "The user flails about aimlessly to attack. The less HP the user has, the greater the move’s power.",
+      "language": {
+        "name": "en",
+        "url": "https://pokeapi.co/api/v2/language/9/"
+      },
+      "version_group": {
+        "name": "sword-shield",
+        "url": "https://pokeapi.co/api/v2/version-group/20/"
+      }
+    },
+    {
+      "flavor_text": "じたばた　暴れて　攻撃する。 自分の　ＨＰが　少ないほど 技の　威力は　あがる。",
+      "language": {
+        "name": "ja",
+        "url": "https://pokeapi.co/api/v2/language/11/"
+      },
+      "version_group": {
+        "name": "sword-shield",
+        "url": "https://pokeapi.co/api/v2/version-group/20/"
+      }
+    },
+    {
+      "flavor_text": "The user flails about aimlessly to attack. The less HP the user has, the greater the move's power.",
+      "language": {
+        "name": "en",
+        "url": "https://pokeapi.co/api/v2/language/9/"
+      },
+      "version_group": {
+        "name": "legends-arceus",
+        "url": "https://pokeapi.co/api/v2/version-group/24/"
+      }
+    },
+    {
+      "flavor_text": "The user flails about aimlessly to attack. The less HP the user has, the greater the move's power.",
+      "language": {
+        "name": "en",
+        "url": "https://pokeapi.co/api/v2/language/9/"
+      },
+      "version_group": {
+        "name": "scarlet-violet",
+        "url": "https://pokeapi.co/api/v2/version-group/25/"
+      }
+    }
+  ],
+  "stat_changes": [],
+  "learned_by_pokemon": [
+    {
+      "id": 7,
+      "name": "ゼニガメ"
+    },
+    {
+      "id": 8,
+      "name": "カメール"
+    },
+    {
+      "id": 9,
+      "name": "カメックス"
+    },
+    {
+      "id": 27,
+      "name": "サンド"
+    },
+    {
+      "id": 28,
+      "name": "サンドパン"
+    },
+    {
+      "id": 37,
+      "name": "ロコン"
+    },
+    {
+      "id": 38,
+      "name": "キュウコン"
+    },
+    {
+      "id": 43,
+      "name": "ナゾノクサ"
+    },
+    {
+      "id": 44,
+      "name": "クサイハナ"
+    },
+    {
+      "id": 45,
+      "name": "ラフレシア"
+    },
+    {
+      "id": 46,
+      "name": "パラス"
+    },
+    {
+      "id": 52,
+      "name": "ニャース"
+    },
+    {
+      "id": 74,
+      "name": "イシツブテ"
+    },
+    {
+      "id": 75,
+      "name": "ゴローン"
+    },
+    {
+      "id": 76,
+      "name": "ゴローニャ"
+    },
+    {
+      "id": 83,
+      "name": "カモネギ"
+    },
+    {
+      "id": 84,
+      "name": "ドードー"
+    },
+    {
+      "id": 85,
+      "name": "ドードリオ"
+    },
+    {
+      "id": 95,
+      "name": "イワーク"
+    },
+    {
+      "id": 98,
+      "name": "クラブ"
+    },
+    {
+      "id": 99,
+      "name": "キングラー"
+    },
+    {
+      "id": 114,
+      "name": "モンジャラ"
+    },
+    {
+      "id": 116,
+      "name": "タッツー"
+    },
+    {
+      "id": 117,
+      "name": "シードラ"
+    },
+    {
+      "id": 118,
+      "name": "トサキント"
+    },
+    {
+      "id": 119,
+      "name": "アズマオウ"
+    },
+    {
+      "id": 127,
+      "name": "カイロス"
+    },
+    {
+      "id": 129,
+      "name": "コイキング"
+    },
+    {
+      "id": 130,
+      "name": "ギャラドス"
+    },
+    {
+      "id": 133,
+      "name": "イーブイ"
+    },
+    {
+      "id": 140,
+      "name": "カブト"
+    },
+    {
+      "id": 143,
+      "name": "カビゴン"
+    },
+    {
+      "id": 152,
+      "name": "チコリータ"
+    },
+    {
+      "id": 153,
+      "name": "ベイリーフ"
+    },
+    {
+      "id": 154,
+      "name": "メガニウム"
+    },
+    {
+      "id": 158,
+      "name": "ワニノコ"
+    },
+    {
+      "id": 159,
+      "name": "アリゲイツ"
+    },
+    {
+      "id": 160,
+      "name": "オーダイル"
+    },
+    {
+      "id": 170,
+      "name": "チョンチー"
+    },
+    {
+      "id": 171,
+      "name": "ランターン"
+    },
+    {
+      "id": 172,
+      "name": "ピチュー"
+    },
+    {
+      "id": 182,
+      "name": "キレイハナ"
+    },
+    {
+      "id": 185,
+      "name": "ウソッキー"
+    },
+    {
+      "id": 204,
+      "name": "クヌギダマ"
+    },
+    {
+      "id": 206,
+      "name": "ノコッチ"
+    },
+    {
+      "id": 211,
+      "name": "ハリーセン"
+    },
+    {
+      "id": 214,
+      "name": "ヘラクロス"
+    },
+    {
+      "id": 220,
+      "name": "ウリムー"
+    },
+    {
+      "id": 221,
+      "name": "イノムー"
+    },
+    {
+      "id": 222,
+      "name": "サニーゴ"
+    },
+    {
+      "id": 223,
+      "name": "テッポウオ"
+    },
+    {
+      "id": 230,
+      "name": "キングドラ"
+    },
+    {
+      "id": 231,
+      "name": "ゴマゾウ"
+    },
+    {
+      "id": 232,
+      "name": "ドンファン"
+    },
+    {
+      "id": 263,
+      "name": "ジグザグマ"
+    },
+    {
+      "id": 264,
+      "name": "マッスグマ"
+    },
+    {
+      "id": 270,
+      "name": "ハスボー"
+    },
+    {
+      "id": 271,
+      "name": "ハスブレロ"
+    },
+    {
+      "id": 272,
+      "name": "ルンパッパ"
+    },
+    {
+      "id": 287,
+      "name": "ナマケロ"
+    },
+    {
+      "id": 288,
+      "name": "ヤルキモノ"
+    },
+    {
+      "id": 289,
+      "name": "ケッキング"
+    },
+    {
+      "id": 290,
+      "name": "ツチニン"
+    },
+    {
+      "id": 324,
+      "name": "コータス"
+    },
+    {
+      "id": 327,
+      "name": "パッチール"
+    },
+    {
+      "id": 328,
+      "name": "ナックラー"
+    },
+    {
+      "id": 329,
+      "name": "ビブラーバ"
+    },
+    {
+      "id": 330,
+      "name": "フライゴン"
+    },
+    {
+      "id": 335,
+      "name": "ザングース"
+    },
+    {
+      "id": 339,
+      "name": "ドジョッチ"
+    },
+    {
+      "id": 349,
+      "name": "ヒンバス"
+    },
+    {
+      "id": 350,
+      "name": "ミロカロス"
+    },
+    {
+      "id": 369,
+      "name": "ジーランス"
+    },
+    {
+      "id": 370,
+      "name": "ラブカス"
+    },
+    {
+      "id": 393,
+      "name": "ポッチャマ"
+    },
+    {
+      "id": 413,
+      "name": "ミノマダム"
+    },
+    {
+      "id": 417,
+      "name": "パチリス"
+    },
+    {
+      "id": 427,
+      "name": "ミミロル"
+    },
+    {
+      "id": 431,
+      "name": "ニャルマー"
+    },
+    {
+      "id": 438,
+      "name": "ウソハチ"
+    },
+    {
+      "id": 446,
+      "name": "ゴンベ"
+    },
+    {
+      "id": 456,
+      "name": "ケイコウオ"
+    },
+    {
+      "id": 457,
+      "name": "ネオラント"
+    },
+    {
+      "id": 473,
+      "name": "マンムー"
+    },
+    {
+      "id": 480,
+      "name": "ユクシー"
+    },
+    {
+      "id": 504,
+      "name": "ミネズミ"
+    },
+    {
+      "id": 535,
+      "name": "オタマロ"
+    },
+    {
+      "id": 536,
+      "name": "ガマガル"
+    },
+    {
+      "id": 537,
+      "name": "ガマゲロゲ"
+    },
+    {
+      "id": 540,
+      "name": "クルミル"
+    },
+    {
+      "id": 541,
+      "name": "クルマユ"
+    },
+    {
+      "id": 550,
+      "name": "バスラオ"
+    },
+    {
+      "id": 557,
+      "name": "イシズマイ"
+    },
+    {
+      "id": 558,
+      "name": "イワパレス"
+    },
+    {
+      "id": 564,
+      "name": "プロトーガ"
+    },
+    {
+      "id": 572,
+      "name": "チラーミィ"
+    },
+    {
+      "id": 573,
+      "name": "チラチーノ"
+    },
+    {
+      "id": 588,
+      "name": "カブルモ"
+    },
+    {
+      "id": 589,
+      "name": "シュバルゴ"
+    },
+    {
+      "id": 613,
+      "name": "クマシュン"
+    },
+    {
+      "id": 614,
+      "name": "ツンベアー"
+    },
+    {
+      "id": 618,
+      "name": "マッギョ"
+    },
+    {
+      "id": 632,
+      "name": "アイアント"
+    },
+    {
+      "id": 659,
+      "name": "ホルビー"
+    },
+    {
+      "id": 660,
+      "name": "ホルード"
+    },
+    {
+      "id": 661,
+      "name": "ヤヤコマ"
+    },
+    {
+      "id": 662,
+      "name": "ヒノヤコマ"
+    },
+    {
+      "id": 663,
+      "name": "ファイアロー"
+    },
+    {
+      "id": 682,
+      "name": "シュシュプ"
+    },
+    {
+      "id": 683,
+      "name": "フレフワン"
+    },
+    {
+      "id": 692,
+      "name": "ウデッポウ"
+    },
+    {
+      "id": 693,
+      "name": "ブロスター"
+    },
+    {
+      "id": 703,
+      "name": "メレシー"
+    },
+    {
+      "id": 704,
+      "name": "ヌメラ"
+    },
+    {
+      "id": 705,
+      "name": "ヌメイル"
+    },
+    {
+      "id": 706,
+      "name": "ヌメルゴン"
+    },
+    {
+      "id": 719,
+      "name": "ディアンシー"
+    },
+    {
+      "id": 759,
+      "name": "ヌイコグマ"
+    },
+    {
+      "id": 760,
+      "name": "キテルグマ"
+    },
+    {
+      "id": 761,
+      "name": "アマカジ"
+    },
+    {
+      "id": 762,
+      "name": "アママイコ"
+    },
+    {
+      "id": 763,
+      "name": "アマージョ"
+    },
+    {
+      "id": 775,
+      "name": "ネッコアラ"
+    },
+    {
+      "id": 776,
+      "name": "バクガメス"
+    },
+    {
+      "id": 777,
+      "name": "トゲデマル"
+    },
+    {
+      "id": 848,
+      "name": "エレズン"
+    },
+    {
+      "id": 849,
+      "name": "ストリンダー"
+    },
+    {
+      "id": 902,
+      "name": "イダイトウ"
+    },
+    {
+      "id": 928,
+      "name": "ミニーブ"
+    },
+    {
+      "id": 929,
+      "name": "オリーニョ"
+    },
+    {
+      "id": 930,
+      "name": "オリーヴァ"
+    },
+    {
+      "id": 938,
+      "name": "ズピカ"
+    },
+    {
+      "id": 939,
+      "name": "ハラバリー"
+    },
+    {
+      "id": 950,
+      "name": "ガケガニ"
+    },
+    {
+      "id": 974,
+      "name": "アルクジラ"
+    },
+    {
+      "id": 975,
+      "name": "ハルクジラ"
+    },
+    {
+      "id": 977,
+      "name": "ヘイラッシャ"
+    },
+    {
+      "id": 982,
+      "name": "ノココッチ"
+    },
+    {
+      "id": 10004,
+      "name": "ミノマダム"
+    },
+    {
+      "id": 10005,
+      "name": "ミノマダム"
+    },
+    {
+      "id": 10016,
+      "name": "バスラオ"
+    },
+    {
+      "id": 10040,
+      "name": "カイロス"
+    },
+    {
+      "id": 10047,
+      "name": "ヘラクロス"
+    },
+    {
+      "id": 10075,
+      "name": "ディアンシー"
+    },
+    {
+      "id": 10096,
+      "name": "ピカチュウ"
+    },
+    {
+      "id": 10101,
+      "name": "サンド"
+    },
+    {
+      "id": 10102,
+      "name": "サンドパン"
+    },
+    {
+      "id": 10103,
+      "name": "ロコン"
+    },
+    {
+      "id": 10104,
+      "name": "キュウコン"
+    },
+    {
+      "id": 10107,
+      "name": "ニャース"
+    },
+    {
+      "id": 10109,
+      "name": "イシツブテ"
+    },
+    {
+      "id": 10110,
+      "name": "ゴローン"
+    },
+    {
+      "id": 10111,
+      "name": "ゴローニャ"
+    },
+    {
+      "id": 10154,
+      "name": "トゲデマル"
+    },
+    {
+      "id": 10161,
+      "name": "ニャース"
+    },
+    {
+      "id": 10166,
+      "name": "カモネギ"
+    },
+    {
+      "id": 10180,
+      "name": "マッギョ"
+    },
+    {
+      "id": 10184,
+      "name": "ストリンダー"
+    },
+    {
+      "id": 10234,
+      "name": "ハリーセン"
+    },
+    {
+      "id": 10241,
+      "name": "ヌメイル"
+    },
+    {
+      "id": 10242,
+      "name": "ヌメルゴン"
+    },
+    {
+      "id": 10247,
+      "name": "バスラオ"
+    },
+    {
+      "id": 10248,
+      "name": "イダイトウ"
+    },
+    {
+      "id": 10255,
+      "name": "ノココッチ"
+    }
+  ]
+}

@@ -1,0 +1,1121 @@
+{
+  "id": 826,
+  "name": "イオルブ",
+  "sprites": {
+    "front_default": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/826.png",
+    "front_shiny": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/shiny/826.png",
+    "official_artwork": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/826.png",
+    "dream_world": null,
+    "home_default": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/826.png",
+    "home_shiny": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/shiny/826.png",
+    "versions": {
+      "generation-v": {
+        "front_default": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/826.png",
+        "back_default": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/back/826.png",
+        "front_shiny": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/shiny/826.png",
+        "back_shiny": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/back/shiny/826.png"
+      },
+      "generation-viii": {
+        "front_default": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-viii/icons/826.png"
+      }
+    }
+  },
+  "types": [
+    {
+      "id": 7,
+      "name": "bug"
+    },
+    {
+      "id": 14,
+      "name": "psychic"
+    }
+  ],
+  "abilities": [
+    {
+      "id": 68,
+      "name": "swarm",
+      "hidden": false
+    },
+    {
+      "id": 119,
+      "name": "frisk",
+      "hidden": false
+    },
+    {
+      "id": 140,
+      "name": "telepathy",
+      "hidden": true
+    }
+  ],
+  "stats": [
+    {
+      "name": "hp",
+      "base": 60,
+      "effort": 0
+    },
+    {
+      "name": "attack",
+      "base": 45,
+      "effort": 0
+    },
+    {
+      "name": "defense",
+      "base": 110,
+      "effort": 0
+    },
+    {
+      "name": "special-attack",
+      "base": 80,
+      "effort": 0
+    },
+    {
+      "name": "special-defense",
+      "base": 120,
+      "effort": 3
+    },
+    {
+      "name": "speed",
+      "base": 90,
+      "effort": 0
+    }
+  ],
+  "weight": 408,
+  "height": 4,
+  "base_experience": 253,
+  "species": {
+    "capture_rate": 45,
+    "hatch_counter": 15,
+    "gender_rate": 4,
+    "growth_rate": {
+      "id": 2,
+      "name": "medium"
+    },
+    "egg_groups": [
+      {
+        "id": 3,
+        "name": "むし"
+      }
+    ],
+    "color": {
+      "id": 8,
+      "name": "赤色"
+    },
+    "genus": "ななほしポケモン",
+    "flavor_text": "賢い　ポケモンとして　有名。 大きな　脳みそは　強力な サイコパワーを　もつ　証し。"
+  },
+  "evolutions": [
+    [
+      {
+        "id": 824,
+        "name": "サッチムシ",
+        "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/824.png",
+        "isCurrent": false,
+        "details": []
+      }
+    ],
+    [
+      {
+        "id": 825,
+        "name": "レドームシ",
+        "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/825.png",
+        "isCurrent": false,
+        "details": [
+          {
+            "gender": null,
+            "held_item": null,
+            "item": null,
+            "known_move": null,
+            "known_move_type": null,
+            "location": null,
+            "min_affection": null,
+            "min_beauty": null,
+            "min_happiness": null,
+            "min_level": 10,
+            "needs_overworld_rain": false,
+            "party_species": null,
+            "party_type": null,
+            "relative_physical_stats": null,
+            "time_of_day": "",
+            "trade_species": null,
+            "trigger": {
+              "name": "level-up",
+              "url": "https://pokeapi.co/api/v2/evolution-trigger/1/"
+            },
+            "turn_upside_down": false
+          }
+        ]
+      }
+    ],
+    [
+      {
+        "id": 826,
+        "name": "イオルブ",
+        "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/826.png",
+        "isCurrent": true,
+        "details": [
+          {
+            "gender": null,
+            "held_item": null,
+            "item": null,
+            "known_move": null,
+            "known_move_type": null,
+            "location": null,
+            "min_affection": null,
+            "min_beauty": null,
+            "min_happiness": null,
+            "min_level": 30,
+            "needs_overworld_rain": false,
+            "party_species": null,
+            "party_type": null,
+            "relative_physical_stats": null,
+            "time_of_day": "",
+            "trade_species": null,
+            "trigger": {
+              "name": "level-up",
+              "url": "https://pokeapi.co/api/v2/evolution-trigger/1/"
+            },
+            "turn_upside_down": false
+          }
+        ]
+      }
+    ]
+  ],
+  "learnsets": [
+    {
+      "generation": "generation-viii",
+      "order": 18,
+      "entries": [
+        {
+          "method": "level-up",
+          "items": [
+            {
+              "move": {
+                "id": 93,
+                "name": "ねんりき"
+              },
+              "type": "psychic",
+              "category": "special",
+              "power": 50,
+              "accuracy": 100,
+              "pp": 25,
+              "level": 1,
+              "versionGroups": [
+                "sword-shield"
+              ]
+            },
+            {
+              "move": {
+                "id": 113,
+                "name": "ひかりのかべ"
+              },
+              "type": "psychic",
+              "category": "status",
+              "power": null,
+              "accuracy": null,
+              "pp": 30,
+              "level": 1,
+              "versionGroups": [
+                "sword-shield"
+              ]
+            },
+            {
+              "move": {
+                "id": 522,
+                "name": "むしのていこう"
+              },
+              "type": "bug",
+              "category": "special",
+              "power": 50,
+              "accuracy": 100,
+              "pp": 20,
+              "level": 1,
+              "versionGroups": [
+                "sword-shield"
+              ]
+            },
+            {
+              "move": {
+                "id": 115,
+                "name": "リフレクター"
+              },
+              "type": "psychic",
+              "category": "status",
+              "power": null,
+              "accuracy": null,
+              "pp": 20,
+              "level": 1,
+              "versionGroups": [
+                "sword-shield"
+              ]
+            },
+            {
+              "move": {
+                "id": 109,
+                "name": "あやしいひかり"
+              },
+              "type": "ghost",
+              "category": "status",
+              "power": null,
+              "accuracy": 100,
+              "pp": 10,
+              "level": 4,
+              "versionGroups": [
+                "sword-shield"
+              ]
+            },
+            {
+              "move": {
+                "id": 277,
+                "name": "マジックコート"
+              },
+              "type": "psychic",
+              "category": "status",
+              "power": null,
+              "accuracy": null,
+              "pp": 15,
+              "level": 8,
+              "versionGroups": [
+                "sword-shield"
+              ]
+            },
+            {
+              "move": {
+                "id": 97,
+                "name": "こうそくいどう"
+              },
+              "type": "psychic",
+              "category": "status",
+              "power": null,
+              "accuracy": null,
+              "pp": 30,
+              "level": 12,
+              "versionGroups": [
+                "sword-shield"
+              ]
+            },
+            {
+              "move": {
+                "id": 60,
+                "name": "サイケこうせん"
+              },
+              "type": "psychic",
+              "category": "special",
+              "power": 65,
+              "accuracy": 100,
+              "pp": 20,
+              "level": 16,
+              "versionGroups": [
+                "sword-shield"
+              ]
+            },
+            {
+              "move": {
+                "id": 95,
+                "name": "さいみんじゅつ"
+              },
+              "type": "psychic",
+              "category": "status",
+              "power": null,
+              "accuracy": 60,
+              "pp": 20,
+              "level": 20,
+              "versionGroups": [
+                "sword-shield"
+              ]
+            },
+            {
+              "move": {
+                "id": 502,
+                "name": "サイドチェンジ"
+              },
+              "type": "psychic",
+              "category": "status",
+              "power": null,
+              "accuracy": null,
+              "pp": 15,
+              "level": 24,
+              "versionGroups": [
+                "sword-shield"
+              ]
+            },
+            {
+              "move": {
+                "id": 405,
+                "name": "むしのさざめき"
+              },
+              "type": "bug",
+              "category": "special",
+              "power": 90,
+              "accuracy": 100,
+              "pp": 10,
+              "level": 28,
+              "versionGroups": [
+                "sword-shield"
+              ]
+            },
+            {
+              "move": {
+                "id": 243,
+                "name": "ミラーコート"
+              },
+              "type": "psychic",
+              "category": "special",
+              "power": null,
+              "accuracy": 100,
+              "pp": 20,
+              "level": 32,
+              "versionGroups": [
+                "sword-shield"
+              ]
+            },
+            {
+              "move": {
+                "id": 94,
+                "name": "サイコキネシス"
+              },
+              "type": "psychic",
+              "category": "special",
+              "power": 90,
+              "accuracy": 100,
+              "pp": 10,
+              "level": 36,
+              "versionGroups": [
+                "sword-shield"
+              ]
+            },
+            {
+              "move": {
+                "id": 495,
+                "name": "おさきにどうぞ"
+              },
+              "type": "normal",
+              "category": "status",
+              "power": null,
+              "accuracy": null,
+              "pp": 15,
+              "level": 40,
+              "versionGroups": [
+                "sword-shield"
+              ]
+            },
+            {
+              "move": {
+                "id": 347,
+                "name": "めいそう"
+              },
+              "type": "psychic",
+              "category": "status",
+              "power": null,
+              "accuracy": null,
+              "pp": 20,
+              "level": 44,
+              "versionGroups": [
+                "sword-shield"
+              ]
+            },
+            {
+              "move": {
+                "id": 678,
+                "name": "サイコフィールド"
+              },
+              "type": "psychic",
+              "category": "status",
+              "power": null,
+              "accuracy": null,
+              "pp": 10,
+              "level": 48,
+              "versionGroups": [
+                "sword-shield"
+              ]
+            }
+          ]
+        },
+        {
+          "method": "machine",
+          "items": [
+            {
+              "move": {
+                "id": 500,
+                "name": "アシストパワー"
+              },
+              "type": "psychic",
+              "category": "special",
+              "power": 20,
+              "accuracy": 100,
+              "pp": 10,
+              "level": null,
+              "versionGroups": [
+                "sword-shield"
+              ]
+            },
+            {
+              "move": {
+                "id": 173,
+                "name": "いびき"
+              },
+              "type": "normal",
+              "category": "special",
+              "power": 50,
+              "accuracy": 100,
+              "pp": 15,
+              "level": null,
+              "versionGroups": [
+                "sword-shield"
+              ]
+            },
+            {
+              "move": {
+                "id": 412,
+                "name": "エナジーボール"
+              },
+              "type": "grass",
+              "category": "special",
+              "power": 90,
+              "accuracy": 100,
+              "pp": 10,
+              "level": null,
+              "versionGroups": [
+                "sword-shield"
+              ]
+            },
+            {
+              "move": {
+                "id": 385,
+                "name": "ガードスワップ"
+              },
+              "type": "psychic",
+              "category": "status",
+              "power": null,
+              "accuracy": null,
+              "pp": 10,
+              "level": null,
+              "versionGroups": [
+                "sword-shield"
+              ]
+            },
+            {
+              "move": {
+                "id": 263,
+                "name": "からげんき"
+              },
+              "type": "normal",
+              "category": "physical",
+              "power": 70,
+              "accuracy": 100,
+              "pp": 20,
+              "level": null,
+              "versionGroups": [
+                "sword-shield"
+              ]
+            },
+            {
+              "move": {
+                "id": 416,
+                "name": "ギガインパクト"
+              },
+              "type": "normal",
+              "category": "physical",
+              "power": 150,
+              "accuracy": 90,
+              "pp": 5,
+              "level": null,
+              "versionGroups": [
+                "sword-shield"
+              ]
+            },
+            {
+              "move": {
+                "id": 202,
+                "name": "ギガドレイン"
+              },
+              "type": "grass",
+              "category": "special",
+              "power": 75,
+              "accuracy": 100,
+              "pp": 10,
+              "level": null,
+              "versionGroups": [
+                "sword-shield"
+              ]
+            },
+            {
+              "move": {
+                "id": 141,
+                "name": "きゅうけつ"
+              },
+              "type": "bug",
+              "category": "physical",
+              "power": 80,
+              "accuracy": 100,
+              "pp": 10,
+              "level": null,
+              "versionGroups": [
+                "sword-shield"
+              ]
+            },
+            {
+              "move": {
+                "id": 97,
+                "name": "こうそくいどう"
+              },
+              "type": "psychic",
+              "category": "status",
+              "power": null,
+              "accuracy": null,
+              "pp": 30,
+              "level": null,
+              "versionGroups": [
+                "sword-shield"
+              ]
+            },
+            {
+              "move": {
+                "id": 203,
+                "name": "こらえる"
+              },
+              "type": "normal",
+              "category": "status",
+              "power": null,
+              "accuracy": null,
+              "pp": 10,
+              "level": null,
+              "versionGroups": [
+                "sword-shield"
+              ]
+            },
+            {
+              "move": {
+                "id": 427,
+                "name": "サイコカッター"
+              },
+              "type": "psychic",
+              "category": "physical",
+              "power": 70,
+              "accuracy": 100,
+              "pp": 20,
+              "level": null,
+              "versionGroups": [
+                "sword-shield"
+              ]
+            },
+            {
+              "move": {
+                "id": 94,
+                "name": "サイコキネシス"
+              },
+              "type": "psychic",
+              "category": "special",
+              "power": 90,
+              "accuracy": 100,
+              "pp": 10,
+              "level": null,
+              "versionGroups": [
+                "sword-shield"
+              ]
+            },
+            {
+              "move": {
+                "id": 473,
+                "name": "サイコショック"
+              },
+              "type": "psychic",
+              "category": "special",
+              "power": 80,
+              "accuracy": 100,
+              "pp": 10,
+              "level": null,
+              "versionGroups": [
+                "sword-shield"
+              ]
+            },
+            {
+              "move": {
+                "id": 678,
+                "name": "サイコフィールド"
+              },
+              "type": "psychic",
+              "category": "status",
+              "power": null,
+              "accuracy": null,
+              "pp": 10,
+              "level": null,
+              "versionGroups": [
+                "sword-shield"
+              ]
+            },
+            {
+              "move": {
+                "id": 502,
+                "name": "サイドチェンジ"
+              },
+              "type": "psychic",
+              "category": "status",
+              "power": null,
+              "accuracy": null,
+              "pp": 15,
+              "level": null,
+              "versionGroups": [
+                "sword-shield"
+              ]
+            },
+            {
+              "move": {
+                "id": 371,
+                "name": "しっぺがえし"
+              },
+              "type": "dark",
+              "category": "physical",
+              "power": 50,
+              "accuracy": 100,
+              "pp": 10,
+              "level": null,
+              "versionGroups": [
+                "sword-shield"
+              ]
+            },
+            {
+              "move": {
+                "id": 428,
+                "name": "しねんのずつき"
+              },
+              "type": "psychic",
+              "category": "physical",
+              "power": 80,
+              "accuracy": 90,
+              "pp": 15,
+              "level": null,
+              "versionGroups": [
+                "sword-shield"
+              ]
+            },
+            {
+              "move": {
+                "id": 247,
+                "name": "シャドーボール"
+              },
+              "type": "ghost",
+              "category": "special",
+              "power": 80,
+              "accuracy": 100,
+              "pp": 15,
+              "level": null,
+              "versionGroups": [
+                "sword-shield"
+              ]
+            },
+            {
+              "move": {
+                "id": 219,
+                "name": "しんぴのまもり"
+              },
+              "type": "normal",
+              "category": "status",
+              "power": null,
+              "accuracy": null,
+              "pp": 25,
+              "level": null,
+              "versionGroups": [
+                "sword-shield"
+              ]
+            },
+            {
+              "move": {
+                "id": 285,
+                "name": "スキルスワップ"
+              },
+              "type": "psychic",
+              "category": "status",
+              "power": null,
+              "accuracy": null,
+              "pp": 10,
+              "level": null,
+              "versionGroups": [
+                "sword-shield"
+              ]
+            },
+            {
+              "move": {
+                "id": 76,
+                "name": "ソーラービーム"
+              },
+              "type": "grass",
+              "category": "special",
+              "power": 120,
+              "accuracy": 100,
+              "pp": 10,
+              "level": null,
+              "versionGroups": [
+                "sword-shield"
+              ]
+            },
+            {
+              "move": {
+                "id": 270,
+                "name": "てだすけ"
+              },
+              "type": "normal",
+              "category": "status",
+              "power": null,
+              "accuracy": null,
+              "pp": 20,
+              "level": null,
+              "versionGroups": [
+                "sword-shield"
+              ]
+            },
+            {
+              "move": {
+                "id": 334,
+                "name": "てっぺき"
+              },
+              "type": "steel",
+              "category": "status",
+              "power": null,
+              "accuracy": null,
+              "pp": 15,
+              "level": null,
+              "versionGroups": [
+                "sword-shield"
+              ]
+            },
+            {
+              "move": {
+                "id": 271,
+                "name": "トリック"
+              },
+              "type": "psychic",
+              "category": "status",
+              "power": null,
+              "accuracy": 100,
+              "pp": 10,
+              "level": null,
+              "versionGroups": [
+                "sword-shield"
+              ]
+            },
+            {
+              "move": {
+                "id": 433,
+                "name": "トリックルーム"
+              },
+              "type": "psychic",
+              "category": "status",
+              "power": null,
+              "accuracy": null,
+              "pp": 5,
+              "level": null,
+              "versionGroups": [
+                "sword-shield"
+              ]
+            },
+            {
+              "move": {
+                "id": 369,
+                "name": "とんぼがえり"
+              },
+              "type": "bug",
+              "category": "physical",
+              "power": 70,
+              "accuracy": 100,
+              "pp": 20,
+              "level": null,
+              "versionGroups": [
+                "sword-shield"
+              ]
+            },
+            {
+              "move": {
+                "id": 214,
+                "name": "ねごと"
+              },
+              "type": "normal",
+              "category": "status",
+              "power": null,
+              "accuracy": null,
+              "pp": 10,
+              "level": null,
+              "versionGroups": [
+                "sword-shield"
+              ]
+            },
+            {
+              "move": {
+                "id": 156,
+                "name": "ねむる"
+              },
+              "type": "psychic",
+              "category": "status",
+              "power": null,
+              "accuracy": null,
+              "pp": 5,
+              "level": null,
+              "versionGroups": [
+                "sword-shield"
+              ]
+            },
+            {
+              "move": {
+                "id": 63,
+                "name": "はかいこうせん"
+              },
+              "type": "normal",
+              "category": "special",
+              "power": 150,
+              "accuracy": 90,
+              "pp": 5,
+              "level": null,
+              "versionGroups": [
+                "sword-shield"
+              ]
+            },
+            {
+              "move": {
+                "id": 226,
+                "name": "バトンタッチ"
+              },
+              "type": "normal",
+              "category": "status",
+              "power": null,
+              "accuracy": null,
+              "pp": 40,
+              "level": null,
+              "versionGroups": [
+                "sword-shield"
+              ]
+            },
+            {
+              "move": {
+                "id": 384,
+                "name": "パワースワップ"
+              },
+              "type": "psychic",
+              "category": "status",
+              "power": null,
+              "accuracy": null,
+              "pp": 10,
+              "level": null,
+              "versionGroups": [
+                "sword-shield"
+              ]
+            },
+            {
+              "move": {
+                "id": 113,
+                "name": "ひかりのかべ"
+              },
+              "type": "psychic",
+              "category": "status",
+              "power": null,
+              "accuracy": null,
+              "pp": 30,
+              "level": null,
+              "versionGroups": [
+                "sword-shield"
+              ]
+            },
+            {
+              "move": {
+                "id": 286,
+                "name": "ふういん"
+              },
+              "type": "psychic",
+              "category": "status",
+              "power": null,
+              "accuracy": null,
+              "pp": 10,
+              "level": null,
+              "versionGroups": [
+                "sword-shield"
+              ]
+            },
+            {
+              "move": {
+                "id": 776,
+                "name": "ボディプレス"
+              },
+              "type": "fighting",
+              "category": "physical",
+              "power": 80,
+              "accuracy": 100,
+              "pp": 10,
+              "level": null,
+              "versionGroups": [
+                "sword-shield"
+              ]
+            },
+            {
+              "move": {
+                "id": 478,
+                "name": "マジックルーム"
+              },
+              "type": "psychic",
+              "category": "status",
+              "power": null,
+              "accuracy": null,
+              "pp": 10,
+              "level": null,
+              "versionGroups": [
+                "sword-shield"
+              ]
+            },
+            {
+              "move": {
+                "id": 182,
+                "name": "まもる"
+              },
+              "type": "normal",
+              "category": "status",
+              "power": null,
+              "accuracy": null,
+              "pp": 10,
+              "level": null,
+              "versionGroups": [
+                "sword-shield"
+              ]
+            },
+            {
+              "move": {
+                "id": 164,
+                "name": "みがわり"
+              },
+              "type": "normal",
+              "category": "status",
+              "power": null,
+              "accuracy": null,
+              "pp": 10,
+              "level": null,
+              "versionGroups": [
+                "sword-shield"
+              ]
+            },
+            {
+              "move": {
+                "id": 248,
+                "name": "みらいよち"
+              },
+              "type": "psychic",
+              "category": "special",
+              "power": 120,
+              "accuracy": 100,
+              "pp": 10,
+              "level": null,
+              "versionGroups": [
+                "sword-shield"
+              ]
+            },
+            {
+              "move": {
+                "id": 405,
+                "name": "むしのさざめき"
+              },
+              "type": "bug",
+              "category": "special",
+              "power": 90,
+              "accuracy": 100,
+              "pp": 10,
+              "level": null,
+              "versionGroups": [
+                "sword-shield"
+              ]
+            },
+            {
+              "move": {
+                "id": 347,
+                "name": "めいそう"
+              },
+              "type": "psychic",
+              "category": "status",
+              "power": null,
+              "accuracy": null,
+              "pp": 20,
+              "level": null,
+              "versionGroups": [
+                "sword-shield"
+              ]
+            },
+            {
+              "move": {
+                "id": 213,
+                "name": "メロメロ"
+              },
+              "type": "normal",
+              "category": "status",
+              "power": null,
+              "accuracy": 100,
+              "pp": 15,
+              "level": null,
+              "versionGroups": [
+                "sword-shield"
+              ]
+            },
+            {
+              "move": {
+                "id": 115,
+                "name": "リフレクター"
+              },
+              "type": "psychic",
+              "category": "status",
+              "power": null,
+              "accuracy": null,
+              "pp": 20,
+              "level": null,
+              "versionGroups": [
+                "sword-shield"
+              ]
+            },
+            {
+              "move": {
+                "id": 496,
+                "name": "りんしょう"
+              },
+              "type": "normal",
+              "category": "special",
+              "power": 60,
+              "accuracy": 100,
+              "pp": 15,
+              "level": null,
+              "versionGroups": [
+                "sword-shield"
+              ]
+            },
+            {
+              "move": {
+                "id": 472,
+                "name": "ワンダールーム"
+              },
+              "type": "psychic",
+              "category": "status",
+              "power": null,
+              "accuracy": null,
+              "pp": 10,
+              "level": null,
+              "versionGroups": [
+                "sword-shield"
+              ]
+            }
+          ]
+        },
+        {
+          "method": "tutor",
+          "items": [
+            {
+              "move": {
+                "id": 797,
+                "name": "ワイドフォース"
+              },
+              "type": "psychic",
+              "category": "special",
+              "power": 80,
+              "accuracy": 100,
+              "pp": 10,
+              "level": null,
+              "versionGroups": [
+                "sword-shield"
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

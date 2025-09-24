@@ -1,0 +1,4041 @@
+{
+  "id": 689,
+  "name": "ガメノデス",
+  "sprites": {
+    "front_default": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/689.png",
+    "front_shiny": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/shiny/689.png",
+    "official_artwork": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/689.png",
+    "dream_world": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/dream-world/689.svg",
+    "home_default": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/689.png",
+    "home_shiny": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/shiny/689.png",
+    "versions": {
+      "generation-v": {
+        "front_default": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/689.png",
+        "front_shiny": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/shiny/689.png"
+      },
+      "generation-vi": {
+        "front_default": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-vi/omegaruby-alphasapphire/689.png",
+        "front_shiny": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-vi/omegaruby-alphasapphire/shiny/689.png"
+      },
+      "generation-vii": {
+        "front_default": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-vii/icons/689.png",
+        "front_shiny": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-vii/ultra-sun-ultra-moon/shiny/689.png"
+      },
+      "generation-viii": {
+        "front_default": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-viii/icons/689.png"
+      }
+    }
+  },
+  "types": [
+    {
+      "id": 6,
+      "name": "rock"
+    },
+    {
+      "id": 11,
+      "name": "water"
+    }
+  ],
+  "abilities": [
+    {
+      "id": 181,
+      "name": "tough-claws",
+      "hidden": false
+    },
+    {
+      "id": 97,
+      "name": "sniper",
+      "hidden": false
+    },
+    {
+      "id": 124,
+      "name": "pickpocket",
+      "hidden": true
+    }
+  ],
+  "stats": [
+    {
+      "name": "hp",
+      "base": 72,
+      "effort": 0
+    },
+    {
+      "name": "attack",
+      "base": 105,
+      "effort": 2
+    },
+    {
+      "name": "defense",
+      "base": 115,
+      "effort": 0
+    },
+    {
+      "name": "special-attack",
+      "base": 54,
+      "effort": 0
+    },
+    {
+      "name": "special-defense",
+      "base": 86,
+      "effort": 0
+    },
+    {
+      "name": "speed",
+      "base": 68,
+      "effort": 0
+    }
+  ],
+  "weight": 960,
+  "height": 13,
+  "base_experience": 175,
+  "species": {
+    "capture_rate": 45,
+    "hatch_counter": 20,
+    "gender_rate": 4,
+    "growth_rate": {
+      "id": 2,
+      "name": "medium"
+    },
+    "egg_groups": [
+      {
+        "id": 9,
+        "name": "すいちゅう３"
+      }
+    ],
+    "color": {
+      "id": 3,
+      "name": "茶色"
+    },
+    "genus": "しゅうごうポケモン",
+    "flavor_text": "進化のとき　２匹の　カメテテが ７匹に　分裂した　ポケモン。 ７匹分の　パワーで　戦う。"
+  },
+  "evolutions": [
+    [
+      {
+        "id": 688,
+        "name": "カメテテ",
+        "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/688.png",
+        "isCurrent": false,
+        "details": []
+      }
+    ],
+    [
+      {
+        "id": 689,
+        "name": "ガメノデス",
+        "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/689.png",
+        "isCurrent": true,
+        "details": [
+          {
+            "gender": null,
+            "held_item": null,
+            "item": null,
+            "known_move": null,
+            "known_move_type": null,
+            "location": null,
+            "min_affection": null,
+            "min_beauty": null,
+            "min_happiness": null,
+            "min_level": 39,
+            "needs_overworld_rain": false,
+            "party_species": null,
+            "party_type": null,
+            "relative_physical_stats": null,
+            "time_of_day": "",
+            "trade_species": null,
+            "trigger": {
+              "name": "level-up",
+              "url": "https://pokeapi.co/api/v2/evolution-trigger/1/"
+            },
+            "turn_upside_down": false
+          }
+        ]
+      }
+    ]
+  ],
+  "learnsets": [
+    {
+      "generation": "generation-vi",
+      "order": 13,
+      "entries": [
+        {
+          "method": "level-up",
+          "items": [
+            {
+              "move": {
+                "id": 504,
+                "name": "からをやぶる"
+              },
+              "type": "normal",
+              "category": "status",
+              "power": null,
+              "accuracy": null,
+              "pp": 15,
+              "level": 1,
+              "versionGroups": [
+                "x-y",
+                "omega-ruby-alpha-sapphire"
+              ]
+            },
+            {
+              "move": {
+                "id": 444,
+                "name": "ストーンエッジ"
+              },
+              "type": "rock",
+              "category": "physical",
+              "power": 100,
+              "accuracy": 80,
+              "pp": 5,
+              "level": 1,
+              "versionGroups": [
+                "x-y",
+                "omega-ruby-alpha-sapphire"
+              ]
+            },
+            {
+              "move": {
+                "id": 28,
+                "name": "すなかけ"
+              },
+              "type": "ground",
+              "category": "status",
+              "power": null,
+              "accuracy": 100,
+              "pp": 15,
+              "level": 1,
+              "versionGroups": [
+                "x-y",
+                "omega-ruby-alpha-sapphire"
+              ]
+            },
+            {
+              "move": {
+                "id": 10,
+                "name": "ひっかく"
+              },
+              "type": "normal",
+              "category": "physical",
+              "power": 40,
+              "accuracy": 100,
+              "pp": 35,
+              "level": 1,
+              "versionGroups": [
+                "x-y",
+                "omega-ruby-alpha-sapphire"
+              ]
+            },
+            {
+              "move": {
+                "id": 130,
+                "name": "ロケットずつき"
+              },
+              "type": "normal",
+              "category": "physical",
+              "power": 130,
+              "accuracy": 100,
+              "pp": 10,
+              "level": 1,
+              "versionGroups": [
+                "x-y",
+                "omega-ruby-alpha-sapphire"
+              ]
+            },
+            {
+              "move": {
+                "id": 55,
+                "name": "みずでっぽう"
+              },
+              "type": "water",
+              "category": "special",
+              "power": 40,
+              "accuracy": 100,
+              "pp": 25,
+              "level": 4,
+              "versionGroups": [
+                "x-y",
+                "omega-ruby-alpha-sapphire"
+              ]
+            },
+            {
+              "move": {
+                "id": 110,
+                "name": "からにこもる"
+              },
+              "type": "water",
+              "category": "status",
+              "power": null,
+              "accuracy": null,
+              "pp": 40,
+              "level": 7,
+              "versionGroups": [
+                "x-y",
+                "omega-ruby-alpha-sapphire"
+              ]
+            },
+            {
+              "move": {
+                "id": 154,
+                "name": "みだれひっかき"
+              },
+              "type": "normal",
+              "category": "physical",
+              "power": 18,
+              "accuracy": 80,
+              "pp": 15,
+              "level": 10,
+              "versionGroups": [
+                "x-y",
+                "omega-ruby-alpha-sapphire"
+              ]
+            },
+            {
+              "move": {
+                "id": 163,
+                "name": "きりさく"
+              },
+              "type": "normal",
+              "category": "physical",
+              "power": 70,
+              "accuracy": 100,
+              "pp": 20,
+              "level": 13,
+              "versionGroups": [
+                "x-y",
+                "omega-ruby-alpha-sapphire"
+              ]
+            },
+            {
+              "move": {
+                "id": 189,
+                "name": "どろかけ"
+              },
+              "type": "ground",
+              "category": "special",
+              "power": 20,
+              "accuracy": 100,
+              "pp": 10,
+              "level": 18,
+              "versionGroups": [
+                "x-y",
+                "omega-ruby-alpha-sapphire"
+              ]
+            },
+            {
+              "move": {
+                "id": 128,
+                "name": "からではさむ"
+              },
+              "type": "water",
+              "category": "physical",
+              "power": 35,
+              "accuracy": 85,
+              "pp": 15,
+              "level": 20,
+              "versionGroups": [
+                "x-y",
+                "omega-ruby-alpha-sapphire"
+              ]
+            },
+            {
+              "move": {
+                "id": 397,
+                "name": "ロックカット"
+              },
+              "type": "rock",
+              "category": "status",
+              "power": null,
+              "accuracy": null,
+              "pp": 20,
+              "level": 24,
+              "versionGroups": [
+                "x-y",
+                "omega-ruby-alpha-sapphire"
+              ]
+            },
+            {
+              "move": {
+                "id": 246,
+                "name": "げんしのちから"
+              },
+              "type": "rock",
+              "category": "special",
+              "power": 60,
+              "accuracy": 100,
+              "pp": 5,
+              "level": 28,
+              "versionGroups": [
+                "x-y",
+                "omega-ruby-alpha-sapphire"
+              ]
+            },
+            {
+              "move": {
+                "id": 468,
+                "name": "つめとぎ"
+              },
+              "type": "dark",
+              "category": "status",
+              "power": null,
+              "accuracy": null,
+              "pp": 15,
+              "level": 32,
+              "versionGroups": [
+                "x-y",
+                "omega-ruby-alpha-sapphire"
+              ]
+            },
+            {
+              "move": {
+                "id": 210,
+                "name": "れんぞくぎり"
+              },
+              "type": "bug",
+              "category": "physical",
+              "power": 40,
+              "accuracy": 95,
+              "pp": 20,
+              "level": 37,
+              "versionGroups": [
+                "x-y",
+                "omega-ruby-alpha-sapphire"
+              ]
+            },
+            {
+              "move": {
+                "id": 400,
+                "name": "つじぎり"
+              },
+              "type": "dark",
+              "category": "physical",
+              "power": 70,
+              "accuracy": 100,
+              "pp": 15,
+              "level": 44,
+              "versionGroups": [
+                "x-y",
+                "omega-ruby-alpha-sapphire"
+              ]
+            },
+            {
+              "move": {
+                "id": 534,
+                "name": "シェルブレード"
+              },
+              "type": "water",
+              "category": "physical",
+              "power": 75,
+              "accuracy": 95,
+              "pp": 10,
+              "level": 48,
+              "versionGroups": [
+                "x-y",
+                "omega-ruby-alpha-sapphire"
+              ]
+            },
+            {
+              "move": {
+                "id": 238,
+                "name": "クロスチョップ"
+              },
+              "type": "fighting",
+              "category": "physical",
+              "power": 100,
+              "accuracy": 80,
+              "pp": 5,
+              "level": 55,
+              "versionGroups": [
+                "x-y",
+                "omega-ruby-alpha-sapphire"
+              ]
+            }
+          ]
+        },
+        {
+          "method": "machine",
+          "items": [
+            {
+              "move": {
+                "id": 91,
+                "name": "あなをほる"
+              },
+              "type": "ground",
+              "category": "physical",
+              "power": 80,
+              "accuracy": 100,
+              "pp": 10,
+              "level": null,
+              "versionGroups": [
+                "x-y",
+                "omega-ruby-alpha-sapphire"
+              ]
+            },
+            {
+              "move": {
+                "id": 240,
+                "name": "あまごい"
+              },
+              "type": "water",
+              "category": "status",
+              "power": null,
+              "accuracy": null,
+              "pp": 5,
+              "level": null,
+              "versionGroups": [
+                "x-y",
+                "omega-ruby-alpha-sapphire"
+              ]
+            },
+            {
+              "move": {
+                "id": 15,
+                "name": "いあいぎり"
+              },
+              "type": "normal",
+              "category": "physical",
+              "power": 50,
+              "accuracy": 95,
+              "pp": 30,
+              "level": null,
+              "versionGroups": [
+                "x-y",
+                "omega-ruby-alpha-sapphire"
+              ]
+            },
+            {
+              "move": {
+                "id": 259,
+                "name": "いちゃもん"
+              },
+              "type": "dark",
+              "category": "status",
+              "power": null,
+              "accuracy": 100,
+              "pp": 15,
+              "level": null,
+              "versionGroups": [
+                "x-y",
+                "omega-ruby-alpha-sapphire"
+              ]
+            },
+            {
+              "move": {
+                "id": 207,
+                "name": "いばる"
+              },
+              "type": "normal",
+              "category": "status",
+              "power": null,
+              "accuracy": 85,
+              "pp": 15,
+              "level": null,
+              "versionGroups": [
+                "x-y",
+                "omega-ruby-alpha-sapphire"
+              ]
+            },
+            {
+              "move": {
+                "id": 249,
+                "name": "いわくだき"
+              },
+              "type": "fighting",
+              "category": "physical",
+              "power": 40,
+              "accuracy": 100,
+              "pp": 15,
+              "level": null,
+              "versionGroups": [
+                "x-y",
+                "omega-ruby-alpha-sapphire"
+              ]
+            },
+            {
+              "move": {
+                "id": 157,
+                "name": "いわなだれ"
+              },
+              "type": "rock",
+              "category": "physical",
+              "power": 75,
+              "accuracy": 90,
+              "pp": 10,
+              "level": null,
+              "versionGroups": [
+                "x-y",
+                "omega-ruby-alpha-sapphire"
+              ]
+            },
+            {
+              "move": {
+                "id": 479,
+                "name": "うちおとす"
+              },
+              "type": "rock",
+              "category": "physical",
+              "power": 50,
+              "accuracy": 100,
+              "pp": 15,
+              "level": null,
+              "versionGroups": [
+                "x-y",
+                "omega-ruby-alpha-sapphire"
+              ]
+            },
+            {
+              "move": {
+                "id": 216,
+                "name": "おんがえし"
+              },
+              "type": "normal",
+              "category": "physical",
+              "power": null,
+              "accuracy": 100,
+              "pp": 20,
+              "level": null,
+              "versionGroups": [
+                "x-y",
+                "omega-ruby-alpha-sapphire"
+              ]
+            },
+            {
+              "move": {
+                "id": 70,
+                "name": "かいりき"
+              },
+              "type": "normal",
+              "category": "physical",
+              "power": 80,
+              "accuracy": 100,
+              "pp": 15,
+              "level": null,
+              "versionGroups": [
+                "x-y",
+                "omega-ruby-alpha-sapphire"
+              ]
+            },
+            {
+              "move": {
+                "id": 104,
+                "name": "かげぶんしん"
+              },
+              "type": "normal",
+              "category": "status",
+              "power": null,
+              "accuracy": null,
+              "pp": 15,
+              "level": null,
+              "versionGroups": [
+                "x-y",
+                "omega-ruby-alpha-sapphire"
+              ]
+            },
+            {
+              "move": {
+                "id": 263,
+                "name": "からげんき"
+              },
+              "type": "normal",
+              "category": "physical",
+              "power": 70,
+              "accuracy": 100,
+              "pp": 20,
+              "level": null,
+              "versionGroups": [
+                "x-y",
+                "omega-ruby-alpha-sapphire"
+              ]
+            },
+            {
+              "move": {
+                "id": 280,
+                "name": "かわらわり"
+              },
+              "type": "fighting",
+              "category": "physical",
+              "power": 75,
+              "accuracy": 100,
+              "pp": 15,
+              "level": null,
+              "versionGroups": [
+                "x-y",
+                "omega-ruby-alpha-sapphire"
+              ]
+            },
+            {
+              "move": {
+                "id": 317,
+                "name": "がんせきふうじ"
+              },
+              "type": "rock",
+              "category": "physical",
+              "power": 60,
+              "accuracy": 95,
+              "pp": 15,
+              "level": null,
+              "versionGroups": [
+                "x-y",
+                "omega-ruby-alpha-sapphire"
+              ]
+            },
+            {
+              "move": {
+                "id": 411,
+                "name": "きあいだま"
+              },
+              "type": "fighting",
+              "category": "special",
+              "power": 120,
+              "accuracy": 70,
+              "pp": 5,
+              "level": null,
+              "versionGroups": [
+                "x-y",
+                "omega-ruby-alpha-sapphire"
+              ]
+            },
+            {
+              "move": {
+                "id": 416,
+                "name": "ギガインパクト"
+              },
+              "type": "normal",
+              "category": "physical",
+              "power": 150,
+              "accuracy": 90,
+              "pp": 5,
+              "level": null,
+              "versionGroups": [
+                "x-y",
+                "omega-ruby-alpha-sapphire"
+              ]
+            },
+            {
+              "move": {
+                "id": 447,
+                "name": "くさむすび"
+              },
+              "type": "grass",
+              "category": "special",
+              "power": null,
+              "accuracy": 100,
+              "pp": 20,
+              "level": null,
+              "versionGroups": [
+                "x-y",
+                "omega-ruby-alpha-sapphire"
+              ]
+            },
+            {
+              "move": {
+                "id": 612,
+                "name": "グロウパンチ"
+              },
+              "type": "fighting",
+              "category": "physical",
+              "power": 40,
+              "accuracy": 100,
+              "pp": 20,
+              "level": null,
+              "versionGroups": [
+                "x-y",
+                "omega-ruby-alpha-sapphire"
+              ]
+            },
+            {
+              "move": {
+                "id": 373,
+                "name": "さしおさえ"
+              },
+              "type": "dark",
+              "category": "status",
+              "power": null,
+              "accuracy": 100,
+              "pp": 15,
+              "level": null,
+              "versionGroups": [
+                "x-y",
+                "omega-ruby-alpha-sapphire"
+              ]
+            },
+            {
+              "move": {
+                "id": 404,
+                "name": "シザークロス"
+              },
+              "type": "bug",
+              "category": "physical",
+              "power": 80,
+              "accuracy": 100,
+              "pp": 15,
+              "level": null,
+              "versionGroups": [
+                "x-y",
+                "omega-ruby-alpha-sapphire"
+              ]
+            },
+            {
+              "move": {
+                "id": 89,
+                "name": "じしん"
+              },
+              "type": "ground",
+              "category": "physical",
+              "power": 100,
+              "accuracy": 100,
+              "pp": 10,
+              "level": null,
+              "versionGroups": [
+                "x-y",
+                "omega-ruby-alpha-sapphire"
+              ]
+            },
+            {
+              "move": {
+                "id": 267,
+                "name": "しぜんのちから"
+              },
+              "type": "normal",
+              "category": "status",
+              "power": null,
+              "accuracy": null,
+              "pp": 20,
+              "level": null,
+              "versionGroups": [
+                "x-y",
+                "omega-ruby-alpha-sapphire"
+              ]
+            },
+            {
+              "move": {
+                "id": 371,
+                "name": "しっぺがえし"
+              },
+              "type": "dark",
+              "category": "physical",
+              "power": 50,
+              "accuracy": 100,
+              "pp": 10,
+              "level": null,
+              "versionGroups": [
+                "x-y",
+                "omega-ruby-alpha-sapphire"
+              ]
+            },
+            {
+              "move": {
+                "id": 523,
+                "name": "じならし"
+              },
+              "type": "ground",
+              "category": "physical",
+              "power": 60,
+              "accuracy": 100,
+              "pp": 20,
+              "level": null,
+              "versionGroups": [
+                "x-y",
+                "omega-ruby-alpha-sapphire"
+              ]
+            },
+            {
+              "move": {
+                "id": 421,
+                "name": "シャドークロー"
+              },
+              "type": "ghost",
+              "category": "physical",
+              "power": 70,
+              "accuracy": 100,
+              "pp": 15,
+              "level": null,
+              "versionGroups": [
+                "x-y",
+                "omega-ruby-alpha-sapphire"
+              ]
+            },
+            {
+              "move": {
+                "id": 219,
+                "name": "しんぴのまもり"
+              },
+              "type": "normal",
+              "category": "status",
+              "power": null,
+              "accuracy": null,
+              "pp": 25,
+              "level": null,
+              "versionGroups": [
+                "x-y",
+                "omega-ruby-alpha-sapphire"
+              ]
+            },
+            {
+              "move": {
+                "id": 444,
+                "name": "ストーンエッジ"
+              },
+              "type": "rock",
+              "category": "physical",
+              "power": 100,
+              "accuracy": 80,
+              "pp": 5,
+              "level": null,
+              "versionGroups": [
+                "x-y",
+                "omega-ruby-alpha-sapphire"
+              ]
+            },
+            {
+              "move": {
+                "id": 201,
+                "name": "すなあらし"
+              },
+              "type": "rock",
+              "category": "status",
+              "power": null,
+              "accuracy": null,
+              "pp": 10,
+              "level": null,
+              "versionGroups": [
+                "x-y",
+                "omega-ruby-alpha-sapphire"
+              ]
+            },
+            {
+              "move": {
+                "id": 269,
+                "name": "ちょうはつ"
+              },
+              "type": "dark",
+              "category": "status",
+              "power": null,
+              "accuracy": 100,
+              "pp": 20,
+              "level": null,
+              "versionGroups": [
+                "x-y",
+                "omega-ruby-alpha-sapphire"
+              ]
+            },
+            {
+              "move": {
+                "id": 332,
+                "name": "つばめがえし"
+              },
+              "type": "flying",
+              "category": "physical",
+              "power": 60,
+              "accuracy": null,
+              "pp": 20,
+              "level": null,
+              "versionGroups": [
+                "x-y",
+                "omega-ruby-alpha-sapphire"
+              ]
+            },
+            {
+              "move": {
+                "id": 468,
+                "name": "つめとぎ"
+              },
+              "type": "dark",
+              "category": "status",
+              "power": null,
+              "accuracy": null,
+              "pp": 15,
+              "level": null,
+              "versionGroups": [
+                "x-y",
+                "omega-ruby-alpha-sapphire"
+              ]
+            },
+            {
+              "move": {
+                "id": 14,
+                "name": "つるぎのまい"
+              },
+              "type": "normal",
+              "category": "status",
+              "power": null,
+              "accuracy": null,
+              "pp": 20,
+              "level": null,
+              "versionGroups": [
+                "x-y",
+                "omega-ruby-alpha-sapphire"
+              ]
+            },
+            {
+              "move": {
+                "id": 398,
+                "name": "どくづき"
+              },
+              "type": "poison",
+              "category": "physical",
+              "power": 80,
+              "accuracy": 100,
+              "pp": 20,
+              "level": null,
+              "versionGroups": [
+                "x-y",
+                "omega-ruby-alpha-sapphire"
+              ]
+            },
+            {
+              "move": {
+                "id": 92,
+                "name": "どくどく"
+              },
+              "type": "poison",
+              "category": "status",
+              "power": null,
+              "accuracy": 90,
+              "pp": 10,
+              "level": null,
+              "versionGroups": [
+                "x-y",
+                "omega-ruby-alpha-sapphire"
+              ]
+            },
+            {
+              "move": {
+                "id": 337,
+                "name": "ドラゴンクロー"
+              },
+              "type": "dragon",
+              "category": "physical",
+              "power": 80,
+              "accuracy": 100,
+              "pp": 15,
+              "level": null,
+              "versionGroups": [
+                "x-y",
+                "omega-ruby-alpha-sapphire"
+              ]
+            },
+            {
+              "move": {
+                "id": 168,
+                "name": "どろぼう"
+              },
+              "type": "dark",
+              "category": "physical",
+              "power": 60,
+              "accuracy": 100,
+              "pp": 25,
+              "level": null,
+              "versionGroups": [
+                "x-y",
+                "omega-ruby-alpha-sapphire"
+              ]
+            },
+            {
+              "move": {
+                "id": 590,
+                "name": "ないしょばなし"
+              },
+              "type": "normal",
+              "category": "status",
+              "power": null,
+              "accuracy": null,
+              "pp": 20,
+              "level": null,
+              "versionGroups": [
+                "x-y",
+                "omega-ruby-alpha-sapphire"
+              ]
+            },
+            {
+              "move": {
+                "id": 374,
+                "name": "なげつける"
+              },
+              "type": "dark",
+              "category": "physical",
+              "power": null,
+              "accuracy": 100,
+              "pp": 10,
+              "level": null,
+              "versionGroups": [
+                "x-y",
+                "omega-ruby-alpha-sapphire"
+              ]
+            },
+            {
+              "move": {
+                "id": 57,
+                "name": "なみのり"
+              },
+              "type": "water",
+              "category": "special",
+              "power": 90,
+              "accuracy": 100,
+              "pp": 15,
+              "level": null,
+              "versionGroups": [
+                "x-y",
+                "omega-ruby-alpha-sapphire"
+              ]
+            },
+            {
+              "move": {
+                "id": 214,
+                "name": "ねごと"
+              },
+              "type": "normal",
+              "category": "status",
+              "power": null,
+              "accuracy": null,
+              "pp": 10,
+              "level": null,
+              "versionGroups": [
+                "x-y",
+                "omega-ruby-alpha-sapphire"
+              ]
+            },
+            {
+              "move": {
+                "id": 503,
+                "name": "ねっとう"
+              },
+              "type": "water",
+              "category": "special",
+              "power": 80,
+              "accuracy": 100,
+              "pp": 15,
+              "level": null,
+              "versionGroups": [
+                "x-y",
+                "omega-ruby-alpha-sapphire"
+              ]
+            },
+            {
+              "move": {
+                "id": 156,
+                "name": "ねむる"
+              },
+              "type": "psychic",
+              "category": "status",
+              "power": null,
+              "accuracy": null,
+              "pp": 5,
+              "level": null,
+              "versionGroups": [
+                "x-y",
+                "omega-ruby-alpha-sapphire"
+              ]
+            },
+            {
+              "move": {
+                "id": 63,
+                "name": "はかいこうせん"
+              },
+              "type": "normal",
+              "category": "special",
+              "power": 150,
+              "accuracy": 90,
+              "pp": 5,
+              "level": null,
+              "versionGroups": [
+                "x-y",
+                "omega-ruby-alpha-sapphire"
+              ]
+            },
+            {
+              "move": {
+                "id": 290,
+                "name": "ひみつのちから"
+              },
+              "type": "normal",
+              "category": "physical",
+              "power": 70,
+              "accuracy": 100,
+              "pp": 20,
+              "level": null,
+              "versionGroups": [
+                "omega-ruby-alpha-sapphire"
+              ]
+            },
+            {
+              "move": {
+                "id": 339,
+                "name": "ビルドアップ"
+              },
+              "type": "fighting",
+              "category": "status",
+              "power": null,
+              "accuracy": null,
+              "pp": 20,
+              "level": null,
+              "versionGroups": [
+                "x-y",
+                "omega-ruby-alpha-sapphire"
+              ]
+            },
+            {
+              "move": {
+                "id": 59,
+                "name": "ふぶき"
+              },
+              "type": "ice",
+              "category": "special",
+              "power": 110,
+              "accuracy": 70,
+              "pp": 5,
+              "level": null,
+              "versionGroups": [
+                "x-y",
+                "omega-ruby-alpha-sapphire"
+              ]
+            },
+            {
+              "move": {
+                "id": 482,
+                "name": "ヘドロウェーブ"
+              },
+              "type": "poison",
+              "category": "special",
+              "power": 95,
+              "accuracy": 100,
+              "pp": 10,
+              "level": null,
+              "versionGroups": [
+                "x-y",
+                "omega-ruby-alpha-sapphire"
+              ]
+            },
+            {
+              "move": {
+                "id": 188,
+                "name": "ヘドロばくだん"
+              },
+              "type": "poison",
+              "category": "special",
+              "power": 90,
+              "accuracy": 100,
+              "pp": 10,
+              "level": null,
+              "versionGroups": [
+                "x-y",
+                "omega-ruby-alpha-sapphire"
+              ]
+            },
+            {
+              "move": {
+                "id": 611,
+                "name": "まとわりつく"
+              },
+              "type": "bug",
+              "category": "special",
+              "power": 20,
+              "accuracy": 100,
+              "pp": 20,
+              "level": null,
+              "versionGroups": [
+                "x-y",
+                "omega-ruby-alpha-sapphire"
+              ]
+            },
+            {
+              "move": {
+                "id": 182,
+                "name": "まもる"
+              },
+              "type": "normal",
+              "category": "status",
+              "power": null,
+              "accuracy": null,
+              "pp": 10,
+              "level": null,
+              "versionGroups": [
+                "x-y",
+                "omega-ruby-alpha-sapphire"
+              ]
+            },
+            {
+              "move": {
+                "id": 164,
+                "name": "みがわり"
+              },
+              "type": "normal",
+              "category": "status",
+              "power": null,
+              "accuracy": null,
+              "pp": 10,
+              "level": null,
+              "versionGroups": [
+                "x-y",
+                "omega-ruby-alpha-sapphire"
+              ]
+            },
+            {
+              "move": {
+                "id": 206,
+                "name": "みねうち"
+              },
+              "type": "normal",
+              "category": "physical",
+              "power": 40,
+              "accuracy": 100,
+              "pp": 40,
+              "level": null,
+              "versionGroups": [
+                "x-y",
+                "omega-ruby-alpha-sapphire"
+              ]
+            },
+            {
+              "move": {
+                "id": 237,
+                "name": "めざめるパワー"
+              },
+              "type": "normal",
+              "category": "special",
+              "power": 60,
+              "accuracy": 100,
+              "pp": 15,
+              "level": null,
+              "versionGroups": [
+                "x-y",
+                "omega-ruby-alpha-sapphire"
+              ]
+            },
+            {
+              "move": {
+                "id": 213,
+                "name": "メロメロ"
+              },
+              "type": "normal",
+              "category": "status",
+              "power": null,
+              "accuracy": 100,
+              "pp": 15,
+              "level": null,
+              "versionGroups": [
+                "x-y",
+                "omega-ruby-alpha-sapphire"
+              ]
+            },
+            {
+              "move": {
+                "id": 218,
+                "name": "やつあたり"
+              },
+              "type": "normal",
+              "category": "physical",
+              "power": null,
+              "accuracy": 100,
+              "pp": 20,
+              "level": null,
+              "versionGroups": [
+                "x-y",
+                "omega-ruby-alpha-sapphire"
+              ]
+            },
+            {
+              "move": {
+                "id": 496,
+                "name": "りんしょう"
+              },
+              "type": "normal",
+              "category": "special",
+              "power": 60,
+              "accuracy": 100,
+              "pp": 15,
+              "level": null,
+              "versionGroups": [
+                "x-y",
+                "omega-ruby-alpha-sapphire"
+              ]
+            },
+            {
+              "move": {
+                "id": 58,
+                "name": "れいとうビーム"
+              },
+              "type": "ice",
+              "category": "special",
+              "power": 90,
+              "accuracy": 100,
+              "pp": 10,
+              "level": null,
+              "versionGroups": [
+                "x-y",
+                "omega-ruby-alpha-sapphire"
+              ]
+            },
+            {
+              "move": {
+                "id": 397,
+                "name": "ロックカット"
+              },
+              "type": "rock",
+              "category": "status",
+              "power": null,
+              "accuracy": null,
+              "pp": 20,
+              "level": null,
+              "versionGroups": [
+                "x-y",
+                "omega-ruby-alpha-sapphire"
+              ]
+            }
+          ]
+        },
+        {
+          "method": "tutor",
+          "items": [
+            {
+              "move": {
+                "id": 173,
+                "name": "いびき"
+              },
+              "type": "normal",
+              "category": "special",
+              "power": 50,
+              "accuracy": 100,
+              "pp": 15,
+              "level": null,
+              "versionGroups": [
+                "omega-ruby-alpha-sapphire"
+              ]
+            },
+            {
+              "move": {
+                "id": 283,
+                "name": "がむしゃら"
+              },
+              "type": "normal",
+              "category": "physical",
+              "power": null,
+              "accuracy": 100,
+              "pp": 5,
+              "level": null,
+              "versionGroups": [
+                "omega-ruby-alpha-sapphire"
+              ]
+            },
+            {
+              "move": {
+                "id": 67,
+                "name": "けたぐり"
+              },
+              "type": "fighting",
+              "category": "physical",
+              "power": null,
+              "accuracy": 100,
+              "pp": 20,
+              "level": null,
+              "versionGroups": [
+                "omega-ruby-alpha-sapphire"
+              ]
+            },
+            {
+              "move": {
+                "id": 196,
+                "name": "こごえるかぜ"
+              },
+              "type": "ice",
+              "category": "special",
+              "power": 55,
+              "accuracy": 95,
+              "pp": 15,
+              "level": null,
+              "versionGroups": [
+                "omega-ruby-alpha-sapphire"
+              ]
+            },
+            {
+              "move": {
+                "id": 446,
+                "name": "ステルスロック"
+              },
+              "type": "rock",
+              "category": "status",
+              "power": null,
+              "accuracy": null,
+              "pp": 20,
+              "level": null,
+              "versionGroups": [
+                "omega-ruby-alpha-sapphire"
+              ]
+            },
+            {
+              "move": {
+                "id": 414,
+                "name": "だいちのちから"
+              },
+              "type": "ground",
+              "category": "special",
+              "power": 90,
+              "accuracy": 100,
+              "pp": 10,
+              "level": null,
+              "versionGroups": [
+                "omega-ruby-alpha-sapphire"
+              ]
+            },
+            {
+              "move": {
+                "id": 530,
+                "name": "ダブルチョップ"
+              },
+              "type": "dragon",
+              "category": "physical",
+              "power": 40,
+              "accuracy": 90,
+              "pp": 15,
+              "level": null,
+              "versionGroups": [
+                "omega-ruby-alpha-sapphire"
+              ]
+            },
+            {
+              "move": {
+                "id": 270,
+                "name": "てだすけ"
+              },
+              "type": "normal",
+              "category": "status",
+              "power": null,
+              "accuracy": null,
+              "pp": 20,
+              "level": null,
+              "versionGroups": [
+                "omega-ruby-alpha-sapphire"
+              ]
+            },
+            {
+              "move": {
+                "id": 334,
+                "name": "てっぺき"
+              },
+              "type": "steel",
+              "category": "status",
+              "power": null,
+              "accuracy": null,
+              "pp": 15,
+              "level": null,
+              "versionGroups": [
+                "omega-ruby-alpha-sapphire"
+              ]
+            },
+            {
+              "move": {
+                "id": 276,
+                "name": "ばかぢから"
+              },
+              "type": "fighting",
+              "category": "physical",
+              "power": 120,
+              "accuracy": 100,
+              "pp": 5,
+              "level": null,
+              "versionGroups": [
+                "omega-ruby-alpha-sapphire"
+              ]
+            },
+            {
+              "move": {
+                "id": 352,
+                "name": "みずのはどう"
+              },
+              "type": "water",
+              "category": "special",
+              "power": 60,
+              "accuracy": 100,
+              "pp": 20,
+              "level": null,
+              "versionGroups": [
+                "omega-ruby-alpha-sapphire"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "generation": "generation-vii",
+      "order": 15,
+      "entries": [
+        {
+          "method": "level-up",
+          "items": [
+            {
+              "move": {
+                "id": 504,
+                "name": "からをやぶる"
+              },
+              "type": "normal",
+              "category": "status",
+              "power": null,
+              "accuracy": null,
+              "pp": 15,
+              "level": 1,
+              "versionGroups": [
+                "sun-moon",
+                "ultra-sun-ultra-moon"
+              ]
+            },
+            {
+              "move": {
+                "id": 444,
+                "name": "ストーンエッジ"
+              },
+              "type": "rock",
+              "category": "physical",
+              "power": 100,
+              "accuracy": 80,
+              "pp": 5,
+              "level": 1,
+              "versionGroups": [
+                "sun-moon",
+                "ultra-sun-ultra-moon"
+              ]
+            },
+            {
+              "move": {
+                "id": 28,
+                "name": "すなかけ"
+              },
+              "type": "ground",
+              "category": "status",
+              "power": null,
+              "accuracy": 100,
+              "pp": 15,
+              "level": 1,
+              "versionGroups": [
+                "sun-moon",
+                "ultra-sun-ultra-moon"
+              ]
+            },
+            {
+              "move": {
+                "id": 10,
+                "name": "ひっかく"
+              },
+              "type": "normal",
+              "category": "physical",
+              "power": 40,
+              "accuracy": 100,
+              "pp": 35,
+              "level": 1,
+              "versionGroups": [
+                "sun-moon",
+                "ultra-sun-ultra-moon"
+              ]
+            },
+            {
+              "move": {
+                "id": 55,
+                "name": "みずでっぽう"
+              },
+              "type": "water",
+              "category": "special",
+              "power": 40,
+              "accuracy": 100,
+              "pp": 25,
+              "level": 1,
+              "versionGroups": [
+                "sun-moon",
+                "ultra-sun-ultra-moon"
+              ]
+            },
+            {
+              "move": {
+                "id": 130,
+                "name": "ロケットずつき"
+              },
+              "type": "normal",
+              "category": "physical",
+              "power": 130,
+              "accuracy": 100,
+              "pp": 10,
+              "level": 1,
+              "versionGroups": [
+                "sun-moon",
+                "ultra-sun-ultra-moon"
+              ]
+            },
+            {
+              "move": {
+                "id": 110,
+                "name": "からにこもる"
+              },
+              "type": "water",
+              "category": "status",
+              "power": null,
+              "accuracy": null,
+              "pp": 40,
+              "level": 7,
+              "versionGroups": [
+                "sun-moon",
+                "ultra-sun-ultra-moon"
+              ]
+            },
+            {
+              "move": {
+                "id": 154,
+                "name": "みだれひっかき"
+              },
+              "type": "normal",
+              "category": "physical",
+              "power": 18,
+              "accuracy": 80,
+              "pp": 15,
+              "level": 10,
+              "versionGroups": [
+                "sun-moon",
+                "ultra-sun-ultra-moon"
+              ]
+            },
+            {
+              "move": {
+                "id": 163,
+                "name": "きりさく"
+              },
+              "type": "normal",
+              "category": "physical",
+              "power": 70,
+              "accuracy": 100,
+              "pp": 20,
+              "level": 13,
+              "versionGroups": [
+                "sun-moon",
+                "ultra-sun-ultra-moon"
+              ]
+            },
+            {
+              "move": {
+                "id": 189,
+                "name": "どろかけ"
+              },
+              "type": "ground",
+              "category": "special",
+              "power": 20,
+              "accuracy": 100,
+              "pp": 10,
+              "level": 18,
+              "versionGroups": [
+                "sun-moon",
+                "ultra-sun-ultra-moon"
+              ]
+            },
+            {
+              "move": {
+                "id": 128,
+                "name": "からではさむ"
+              },
+              "type": "water",
+              "category": "physical",
+              "power": 35,
+              "accuracy": 85,
+              "pp": 15,
+              "level": 20,
+              "versionGroups": [
+                "sun-moon",
+                "ultra-sun-ultra-moon"
+              ]
+            },
+            {
+              "move": {
+                "id": 397,
+                "name": "ロックカット"
+              },
+              "type": "rock",
+              "category": "status",
+              "power": null,
+              "accuracy": null,
+              "pp": 20,
+              "level": 24,
+              "versionGroups": [
+                "sun-moon",
+                "ultra-sun-ultra-moon"
+              ]
+            },
+            {
+              "move": {
+                "id": 246,
+                "name": "げんしのちから"
+              },
+              "type": "rock",
+              "category": "special",
+              "power": 60,
+              "accuracy": 100,
+              "pp": 5,
+              "level": 28,
+              "versionGroups": [
+                "sun-moon",
+                "ultra-sun-ultra-moon"
+              ]
+            },
+            {
+              "move": {
+                "id": 468,
+                "name": "つめとぎ"
+              },
+              "type": "dark",
+              "category": "status",
+              "power": null,
+              "accuracy": null,
+              "pp": 15,
+              "level": 32,
+              "versionGroups": [
+                "sun-moon",
+                "ultra-sun-ultra-moon"
+              ]
+            },
+            {
+              "move": {
+                "id": 210,
+                "name": "れんぞくぎり"
+              },
+              "type": "bug",
+              "category": "physical",
+              "power": 40,
+              "accuracy": 95,
+              "pp": 20,
+              "level": 37,
+              "versionGroups": [
+                "sun-moon",
+                "ultra-sun-ultra-moon"
+              ]
+            },
+            {
+              "move": {
+                "id": 400,
+                "name": "つじぎり"
+              },
+              "type": "dark",
+              "category": "physical",
+              "power": 70,
+              "accuracy": 100,
+              "pp": 15,
+              "level": 44,
+              "versionGroups": [
+                "sun-moon",
+                "ultra-sun-ultra-moon"
+              ]
+            },
+            {
+              "move": {
+                "id": 534,
+                "name": "シェルブレード"
+              },
+              "type": "water",
+              "category": "physical",
+              "power": 75,
+              "accuracy": 95,
+              "pp": 10,
+              "level": 48,
+              "versionGroups": [
+                "sun-moon",
+                "ultra-sun-ultra-moon"
+              ]
+            },
+            {
+              "move": {
+                "id": 238,
+                "name": "クロスチョップ"
+              },
+              "type": "fighting",
+              "category": "physical",
+              "power": 100,
+              "accuracy": 80,
+              "pp": 5,
+              "level": 55,
+              "versionGroups": [
+                "sun-moon",
+                "ultra-sun-ultra-moon"
+              ]
+            }
+          ]
+        },
+        {
+          "method": "machine",
+          "items": [
+            {
+              "move": {
+                "id": 240,
+                "name": "あまごい"
+              },
+              "type": "water",
+              "category": "status",
+              "power": null,
+              "accuracy": null,
+              "pp": 5,
+              "level": null,
+              "versionGroups": [
+                "sun-moon",
+                "ultra-sun-ultra-moon"
+              ]
+            },
+            {
+              "move": {
+                "id": 259,
+                "name": "いちゃもん"
+              },
+              "type": "dark",
+              "category": "status",
+              "power": null,
+              "accuracy": 100,
+              "pp": 15,
+              "level": null,
+              "versionGroups": [
+                "sun-moon",
+                "ultra-sun-ultra-moon"
+              ]
+            },
+            {
+              "move": {
+                "id": 207,
+                "name": "いばる"
+              },
+              "type": "normal",
+              "category": "status",
+              "power": null,
+              "accuracy": 85,
+              "pp": 15,
+              "level": null,
+              "versionGroups": [
+                "sun-moon",
+                "ultra-sun-ultra-moon"
+              ]
+            },
+            {
+              "move": {
+                "id": 157,
+                "name": "いわなだれ"
+              },
+              "type": "rock",
+              "category": "physical",
+              "power": 75,
+              "accuracy": 90,
+              "pp": 10,
+              "level": null,
+              "versionGroups": [
+                "sun-moon",
+                "ultra-sun-ultra-moon"
+              ]
+            },
+            {
+              "move": {
+                "id": 479,
+                "name": "うちおとす"
+              },
+              "type": "rock",
+              "category": "physical",
+              "power": 50,
+              "accuracy": 100,
+              "pp": 15,
+              "level": null,
+              "versionGroups": [
+                "sun-moon",
+                "ultra-sun-ultra-moon"
+              ]
+            },
+            {
+              "move": {
+                "id": 216,
+                "name": "おんがえし"
+              },
+              "type": "normal",
+              "category": "physical",
+              "power": null,
+              "accuracy": 100,
+              "pp": 20,
+              "level": null,
+              "versionGroups": [
+                "sun-moon",
+                "ultra-sun-ultra-moon"
+              ]
+            },
+            {
+              "move": {
+                "id": 104,
+                "name": "かげぶんしん"
+              },
+              "type": "normal",
+              "category": "status",
+              "power": null,
+              "accuracy": null,
+              "pp": 15,
+              "level": null,
+              "versionGroups": [
+                "sun-moon",
+                "ultra-sun-ultra-moon"
+              ]
+            },
+            {
+              "move": {
+                "id": 263,
+                "name": "からげんき"
+              },
+              "type": "normal",
+              "category": "physical",
+              "power": 70,
+              "accuracy": 100,
+              "pp": 20,
+              "level": null,
+              "versionGroups": [
+                "sun-moon",
+                "ultra-sun-ultra-moon"
+              ]
+            },
+            {
+              "move": {
+                "id": 280,
+                "name": "かわらわり"
+              },
+              "type": "fighting",
+              "category": "physical",
+              "power": 75,
+              "accuracy": 100,
+              "pp": 15,
+              "level": null,
+              "versionGroups": [
+                "sun-moon",
+                "ultra-sun-ultra-moon"
+              ]
+            },
+            {
+              "move": {
+                "id": 317,
+                "name": "がんせきふうじ"
+              },
+              "type": "rock",
+              "category": "physical",
+              "power": 60,
+              "accuracy": 95,
+              "pp": 15,
+              "level": null,
+              "versionGroups": [
+                "sun-moon",
+                "ultra-sun-ultra-moon"
+              ]
+            },
+            {
+              "move": {
+                "id": 411,
+                "name": "きあいだま"
+              },
+              "type": "fighting",
+              "category": "special",
+              "power": 120,
+              "accuracy": 70,
+              "pp": 5,
+              "level": null,
+              "versionGroups": [
+                "sun-moon",
+                "ultra-sun-ultra-moon"
+              ]
+            },
+            {
+              "move": {
+                "id": 416,
+                "name": "ギガインパクト"
+              },
+              "type": "normal",
+              "category": "physical",
+              "power": 150,
+              "accuracy": 90,
+              "pp": 5,
+              "level": null,
+              "versionGroups": [
+                "sun-moon",
+                "ultra-sun-ultra-moon"
+              ]
+            },
+            {
+              "move": {
+                "id": 447,
+                "name": "くさむすび"
+              },
+              "type": "grass",
+              "category": "special",
+              "power": null,
+              "accuracy": 100,
+              "pp": 20,
+              "level": null,
+              "versionGroups": [
+                "sun-moon",
+                "ultra-sun-ultra-moon"
+              ]
+            },
+            {
+              "move": {
+                "id": 373,
+                "name": "さしおさえ"
+              },
+              "type": "dark",
+              "category": "status",
+              "power": null,
+              "accuracy": 100,
+              "pp": 15,
+              "level": null,
+              "versionGroups": [
+                "sun-moon",
+                "ultra-sun-ultra-moon"
+              ]
+            },
+            {
+              "move": {
+                "id": 404,
+                "name": "シザークロス"
+              },
+              "type": "bug",
+              "category": "physical",
+              "power": 80,
+              "accuracy": 100,
+              "pp": 15,
+              "level": null,
+              "versionGroups": [
+                "sun-moon",
+                "ultra-sun-ultra-moon"
+              ]
+            },
+            {
+              "move": {
+                "id": 89,
+                "name": "じしん"
+              },
+              "type": "ground",
+              "category": "physical",
+              "power": 100,
+              "accuracy": 100,
+              "pp": 10,
+              "level": null,
+              "versionGroups": [
+                "sun-moon",
+                "ultra-sun-ultra-moon"
+              ]
+            },
+            {
+              "move": {
+                "id": 267,
+                "name": "しぜんのちから"
+              },
+              "type": "normal",
+              "category": "status",
+              "power": null,
+              "accuracy": null,
+              "pp": 20,
+              "level": null,
+              "versionGroups": [
+                "sun-moon",
+                "ultra-sun-ultra-moon"
+              ]
+            },
+            {
+              "move": {
+                "id": 371,
+                "name": "しっぺがえし"
+              },
+              "type": "dark",
+              "category": "physical",
+              "power": 50,
+              "accuracy": 100,
+              "pp": 10,
+              "level": null,
+              "versionGroups": [
+                "sun-moon",
+                "ultra-sun-ultra-moon"
+              ]
+            },
+            {
+              "move": {
+                "id": 523,
+                "name": "じならし"
+              },
+              "type": "ground",
+              "category": "physical",
+              "power": 60,
+              "accuracy": 100,
+              "pp": 20,
+              "level": null,
+              "versionGroups": [
+                "sun-moon",
+                "ultra-sun-ultra-moon"
+              ]
+            },
+            {
+              "move": {
+                "id": 421,
+                "name": "シャドークロー"
+              },
+              "type": "ghost",
+              "category": "physical",
+              "power": 70,
+              "accuracy": 100,
+              "pp": 15,
+              "level": null,
+              "versionGroups": [
+                "sun-moon",
+                "ultra-sun-ultra-moon"
+              ]
+            },
+            {
+              "move": {
+                "id": 219,
+                "name": "しんぴのまもり"
+              },
+              "type": "normal",
+              "category": "status",
+              "power": null,
+              "accuracy": null,
+              "pp": 25,
+              "level": null,
+              "versionGroups": [
+                "sun-moon",
+                "ultra-sun-ultra-moon"
+              ]
+            },
+            {
+              "move": {
+                "id": 444,
+                "name": "ストーンエッジ"
+              },
+              "type": "rock",
+              "category": "physical",
+              "power": 100,
+              "accuracy": 80,
+              "pp": 5,
+              "level": null,
+              "versionGroups": [
+                "sun-moon",
+                "ultra-sun-ultra-moon"
+              ]
+            },
+            {
+              "move": {
+                "id": 201,
+                "name": "すなあらし"
+              },
+              "type": "rock",
+              "category": "status",
+              "power": null,
+              "accuracy": null,
+              "pp": 10,
+              "level": null,
+              "versionGroups": [
+                "sun-moon",
+                "ultra-sun-ultra-moon"
+              ]
+            },
+            {
+              "move": {
+                "id": 269,
+                "name": "ちょうはつ"
+              },
+              "type": "dark",
+              "category": "status",
+              "power": null,
+              "accuracy": 100,
+              "pp": 20,
+              "level": null,
+              "versionGroups": [
+                "sun-moon",
+                "ultra-sun-ultra-moon"
+              ]
+            },
+            {
+              "move": {
+                "id": 332,
+                "name": "つばめがえし"
+              },
+              "type": "flying",
+              "category": "physical",
+              "power": 60,
+              "accuracy": null,
+              "pp": 20,
+              "level": null,
+              "versionGroups": [
+                "sun-moon",
+                "ultra-sun-ultra-moon"
+              ]
+            },
+            {
+              "move": {
+                "id": 14,
+                "name": "つるぎのまい"
+              },
+              "type": "normal",
+              "category": "status",
+              "power": null,
+              "accuracy": null,
+              "pp": 20,
+              "level": null,
+              "versionGroups": [
+                "sun-moon",
+                "ultra-sun-ultra-moon"
+              ]
+            },
+            {
+              "move": {
+                "id": 398,
+                "name": "どくづき"
+              },
+              "type": "poison",
+              "category": "physical",
+              "power": 80,
+              "accuracy": 100,
+              "pp": 20,
+              "level": null,
+              "versionGroups": [
+                "sun-moon",
+                "ultra-sun-ultra-moon"
+              ]
+            },
+            {
+              "move": {
+                "id": 92,
+                "name": "どくどく"
+              },
+              "type": "poison",
+              "category": "status",
+              "power": null,
+              "accuracy": 90,
+              "pp": 10,
+              "level": null,
+              "versionGroups": [
+                "sun-moon",
+                "ultra-sun-ultra-moon"
+              ]
+            },
+            {
+              "move": {
+                "id": 337,
+                "name": "ドラゴンクロー"
+              },
+              "type": "dragon",
+              "category": "physical",
+              "power": 80,
+              "accuracy": 100,
+              "pp": 15,
+              "level": null,
+              "versionGroups": [
+                "sun-moon",
+                "ultra-sun-ultra-moon"
+              ]
+            },
+            {
+              "move": {
+                "id": 168,
+                "name": "どろぼう"
+              },
+              "type": "dark",
+              "category": "physical",
+              "power": 60,
+              "accuracy": 100,
+              "pp": 25,
+              "level": null,
+              "versionGroups": [
+                "sun-moon",
+                "ultra-sun-ultra-moon"
+              ]
+            },
+            {
+              "move": {
+                "id": 590,
+                "name": "ないしょばなし"
+              },
+              "type": "normal",
+              "category": "status",
+              "power": null,
+              "accuracy": null,
+              "pp": 20,
+              "level": null,
+              "versionGroups": [
+                "sun-moon",
+                "ultra-sun-ultra-moon"
+              ]
+            },
+            {
+              "move": {
+                "id": 374,
+                "name": "なげつける"
+              },
+              "type": "dark",
+              "category": "physical",
+              "power": null,
+              "accuracy": 100,
+              "pp": 10,
+              "level": null,
+              "versionGroups": [
+                "sun-moon",
+                "ultra-sun-ultra-moon"
+              ]
+            },
+            {
+              "move": {
+                "id": 57,
+                "name": "なみのり"
+              },
+              "type": "water",
+              "category": "special",
+              "power": 90,
+              "accuracy": 100,
+              "pp": 15,
+              "level": null,
+              "versionGroups": [
+                "sun-moon",
+                "ultra-sun-ultra-moon"
+              ]
+            },
+            {
+              "move": {
+                "id": 214,
+                "name": "ねごと"
+              },
+              "type": "normal",
+              "category": "status",
+              "power": null,
+              "accuracy": null,
+              "pp": 10,
+              "level": null,
+              "versionGroups": [
+                "sun-moon",
+                "ultra-sun-ultra-moon"
+              ]
+            },
+            {
+              "move": {
+                "id": 503,
+                "name": "ねっとう"
+              },
+              "type": "water",
+              "category": "special",
+              "power": 80,
+              "accuracy": 100,
+              "pp": 15,
+              "level": null,
+              "versionGroups": [
+                "sun-moon",
+                "ultra-sun-ultra-moon"
+              ]
+            },
+            {
+              "move": {
+                "id": 156,
+                "name": "ねむる"
+              },
+              "type": "psychic",
+              "category": "status",
+              "power": null,
+              "accuracy": null,
+              "pp": 5,
+              "level": null,
+              "versionGroups": [
+                "sun-moon",
+                "ultra-sun-ultra-moon"
+              ]
+            },
+            {
+              "move": {
+                "id": 63,
+                "name": "はかいこうせん"
+              },
+              "type": "normal",
+              "category": "special",
+              "power": 150,
+              "accuracy": 90,
+              "pp": 5,
+              "level": null,
+              "versionGroups": [
+                "sun-moon",
+                "ultra-sun-ultra-moon"
+              ]
+            },
+            {
+              "move": {
+                "id": 339,
+                "name": "ビルドアップ"
+              },
+              "type": "fighting",
+              "category": "status",
+              "power": null,
+              "accuracy": null,
+              "pp": 20,
+              "level": null,
+              "versionGroups": [
+                "sun-moon",
+                "ultra-sun-ultra-moon"
+              ]
+            },
+            {
+              "move": {
+                "id": 59,
+                "name": "ふぶき"
+              },
+              "type": "ice",
+              "category": "special",
+              "power": 110,
+              "accuracy": 70,
+              "pp": 5,
+              "level": null,
+              "versionGroups": [
+                "sun-moon",
+                "ultra-sun-ultra-moon"
+              ]
+            },
+            {
+              "move": {
+                "id": 693,
+                "name": "ぶんまわす"
+              },
+              "type": "dark",
+              "category": "physical",
+              "power": 60,
+              "accuracy": 100,
+              "pp": 20,
+              "level": null,
+              "versionGroups": [
+                "sun-moon",
+                "ultra-sun-ultra-moon"
+              ]
+            },
+            {
+              "move": {
+                "id": 482,
+                "name": "ヘドロウェーブ"
+              },
+              "type": "poison",
+              "category": "special",
+              "power": 95,
+              "accuracy": 100,
+              "pp": 10,
+              "level": null,
+              "versionGroups": [
+                "sun-moon",
+                "ultra-sun-ultra-moon"
+              ]
+            },
+            {
+              "move": {
+                "id": 188,
+                "name": "ヘドロばくだん"
+              },
+              "type": "poison",
+              "category": "special",
+              "power": 90,
+              "accuracy": 100,
+              "pp": 10,
+              "level": null,
+              "versionGroups": [
+                "sun-moon",
+                "ultra-sun-ultra-moon"
+              ]
+            },
+            {
+              "move": {
+                "id": 611,
+                "name": "まとわりつく"
+              },
+              "type": "bug",
+              "category": "special",
+              "power": 20,
+              "accuracy": 100,
+              "pp": 20,
+              "level": null,
+              "versionGroups": [
+                "sun-moon",
+                "ultra-sun-ultra-moon"
+              ]
+            },
+            {
+              "move": {
+                "id": 182,
+                "name": "まもる"
+              },
+              "type": "normal",
+              "category": "status",
+              "power": null,
+              "accuracy": null,
+              "pp": 10,
+              "level": null,
+              "versionGroups": [
+                "sun-moon",
+                "ultra-sun-ultra-moon"
+              ]
+            },
+            {
+              "move": {
+                "id": 164,
+                "name": "みがわり"
+              },
+              "type": "normal",
+              "category": "status",
+              "power": null,
+              "accuracy": null,
+              "pp": 10,
+              "level": null,
+              "versionGroups": [
+                "sun-moon",
+                "ultra-sun-ultra-moon"
+              ]
+            },
+            {
+              "move": {
+                "id": 206,
+                "name": "みねうち"
+              },
+              "type": "normal",
+              "category": "physical",
+              "power": 40,
+              "accuracy": 100,
+              "pp": 40,
+              "level": null,
+              "versionGroups": [
+                "sun-moon",
+                "ultra-sun-ultra-moon"
+              ]
+            },
+            {
+              "move": {
+                "id": 237,
+                "name": "めざめるパワー"
+              },
+              "type": "normal",
+              "category": "special",
+              "power": 60,
+              "accuracy": 100,
+              "pp": 15,
+              "level": null,
+              "versionGroups": [
+                "sun-moon",
+                "ultra-sun-ultra-moon"
+              ]
+            },
+            {
+              "move": {
+                "id": 213,
+                "name": "メロメロ"
+              },
+              "type": "normal",
+              "category": "status",
+              "power": null,
+              "accuracy": 100,
+              "pp": 15,
+              "level": null,
+              "versionGroups": [
+                "sun-moon",
+                "ultra-sun-ultra-moon"
+              ]
+            },
+            {
+              "move": {
+                "id": 218,
+                "name": "やつあたり"
+              },
+              "type": "normal",
+              "category": "physical",
+              "power": null,
+              "accuracy": 100,
+              "pp": 20,
+              "level": null,
+              "versionGroups": [
+                "sun-moon",
+                "ultra-sun-ultra-moon"
+              ]
+            },
+            {
+              "move": {
+                "id": 496,
+                "name": "りんしょう"
+              },
+              "type": "normal",
+              "category": "special",
+              "power": 60,
+              "accuracy": 100,
+              "pp": 15,
+              "level": null,
+              "versionGroups": [
+                "sun-moon",
+                "ultra-sun-ultra-moon"
+              ]
+            },
+            {
+              "move": {
+                "id": 58,
+                "name": "れいとうビーム"
+              },
+              "type": "ice",
+              "category": "special",
+              "power": 90,
+              "accuracy": 100,
+              "pp": 10,
+              "level": null,
+              "versionGroups": [
+                "sun-moon",
+                "ultra-sun-ultra-moon"
+              ]
+            },
+            {
+              "move": {
+                "id": 397,
+                "name": "ロックカット"
+              },
+              "type": "rock",
+              "category": "status",
+              "power": null,
+              "accuracy": null,
+              "pp": 20,
+              "level": null,
+              "versionGroups": [
+                "sun-moon",
+                "ultra-sun-ultra-moon"
+              ]
+            }
+          ]
+        },
+        {
+          "method": "tutor",
+          "items": [
+            {
+              "move": {
+                "id": 710,
+                "name": "アクアブレイク"
+              },
+              "type": "water",
+              "category": "physical",
+              "power": 85,
+              "accuracy": 100,
+              "pp": 10,
+              "level": null,
+              "versionGroups": [
+                "ultra-sun-ultra-moon"
+              ]
+            },
+            {
+              "move": {
+                "id": 173,
+                "name": "いびき"
+              },
+              "type": "normal",
+              "category": "special",
+              "power": 50,
+              "accuracy": 100,
+              "pp": 15,
+              "level": null,
+              "versionGroups": [
+                "ultra-sun-ultra-moon"
+              ]
+            },
+            {
+              "move": {
+                "id": 283,
+                "name": "がむしゃら"
+              },
+              "type": "normal",
+              "category": "physical",
+              "power": null,
+              "accuracy": 100,
+              "pp": 5,
+              "level": null,
+              "versionGroups": [
+                "ultra-sun-ultra-moon"
+              ]
+            },
+            {
+              "move": {
+                "id": 67,
+                "name": "けたぐり"
+              },
+              "type": "fighting",
+              "category": "physical",
+              "power": null,
+              "accuracy": 100,
+              "pp": 20,
+              "level": null,
+              "versionGroups": [
+                "ultra-sun-ultra-moon"
+              ]
+            },
+            {
+              "move": {
+                "id": 196,
+                "name": "こごえるかぜ"
+              },
+              "type": "ice",
+              "category": "special",
+              "power": 55,
+              "accuracy": 95,
+              "pp": 15,
+              "level": null,
+              "versionGroups": [
+                "ultra-sun-ultra-moon"
+              ]
+            },
+            {
+              "move": {
+                "id": 446,
+                "name": "ステルスロック"
+              },
+              "type": "rock",
+              "category": "status",
+              "power": null,
+              "accuracy": null,
+              "pp": 20,
+              "level": null,
+              "versionGroups": [
+                "ultra-sun-ultra-moon"
+              ]
+            },
+            {
+              "move": {
+                "id": 414,
+                "name": "だいちのちから"
+              },
+              "type": "ground",
+              "category": "special",
+              "power": 90,
+              "accuracy": 100,
+              "pp": 10,
+              "level": null,
+              "versionGroups": [
+                "ultra-sun-ultra-moon"
+              ]
+            },
+            {
+              "move": {
+                "id": 530,
+                "name": "ダブルチョップ"
+              },
+              "type": "dragon",
+              "category": "physical",
+              "power": 40,
+              "accuracy": 90,
+              "pp": 15,
+              "level": null,
+              "versionGroups": [
+                "ultra-sun-ultra-moon"
+              ]
+            },
+            {
+              "move": {
+                "id": 270,
+                "name": "てだすけ"
+              },
+              "type": "normal",
+              "category": "status",
+              "power": null,
+              "accuracy": null,
+              "pp": 20,
+              "level": null,
+              "versionGroups": [
+                "ultra-sun-ultra-moon"
+              ]
+            },
+            {
+              "move": {
+                "id": 334,
+                "name": "てっぺき"
+              },
+              "type": "steel",
+              "category": "status",
+              "power": null,
+              "accuracy": null,
+              "pp": 15,
+              "level": null,
+              "versionGroups": [
+                "ultra-sun-ultra-moon"
+              ]
+            },
+            {
+              "move": {
+                "id": 673,
+                "name": "とぎすます"
+              },
+              "type": "normal",
+              "category": "status",
+              "power": null,
+              "accuracy": null,
+              "pp": 30,
+              "level": null,
+              "versionGroups": [
+                "ultra-sun-ultra-moon"
+              ]
+            },
+            {
+              "move": {
+                "id": 276,
+                "name": "ばかぢから"
+              },
+              "type": "fighting",
+              "category": "physical",
+              "power": 120,
+              "accuracy": 100,
+              "pp": 5,
+              "level": null,
+              "versionGroups": [
+                "ultra-sun-ultra-moon"
+              ]
+            },
+            {
+              "move": {
+                "id": 352,
+                "name": "みずのはどう"
+              },
+              "type": "water",
+              "category": "special",
+              "power": 60,
+              "accuracy": 100,
+              "pp": 20,
+              "level": null,
+              "versionGroups": [
+                "ultra-sun-ultra-moon"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "generation": "generation-viii",
+      "order": 18,
+      "entries": [
+        {
+          "method": "level-up",
+          "items": [
+            {
+              "move": {
+                "id": 110,
+                "name": "からにこもる"
+              },
+              "type": "water",
+              "category": "status",
+              "power": null,
+              "accuracy": null,
+              "pp": 40,
+              "level": 1,
+              "versionGroups": [
+                "sword-shield"
+              ]
+            },
+            {
+              "move": {
+                "id": 189,
+                "name": "どろかけ"
+              },
+              "type": "ground",
+              "category": "special",
+              "power": 20,
+              "accuracy": 100,
+              "pp": 10,
+              "level": 1,
+              "versionGroups": [
+                "sword-shield"
+              ]
+            },
+            {
+              "move": {
+                "id": 10,
+                "name": "ひっかく"
+              },
+              "type": "normal",
+              "category": "physical",
+              "power": 40,
+              "accuracy": 100,
+              "pp": 35,
+              "level": 1,
+              "versionGroups": [
+                "sword-shield"
+              ]
+            },
+            {
+              "move": {
+                "id": 55,
+                "name": "みずでっぽう"
+              },
+              "type": "water",
+              "category": "special",
+              "power": 40,
+              "accuracy": 100,
+              "pp": 25,
+              "level": 1,
+              "versionGroups": [
+                "sword-shield"
+              ]
+            },
+            {
+              "move": {
+                "id": 130,
+                "name": "ロケットずつき"
+              },
+              "type": "normal",
+              "category": "physical",
+              "power": 130,
+              "accuracy": 100,
+              "pp": 10,
+              "level": 1,
+              "versionGroups": [
+                "sword-shield"
+              ]
+            },
+            {
+              "move": {
+                "id": 210,
+                "name": "れんぞくぎり"
+              },
+              "type": "bug",
+              "category": "physical",
+              "power": 40,
+              "accuracy": 95,
+              "pp": 20,
+              "level": 12,
+              "versionGroups": [
+                "sword-shield"
+              ]
+            },
+            {
+              "move": {
+                "id": 154,
+                "name": "みだれひっかき"
+              },
+              "type": "normal",
+              "category": "physical",
+              "power": 18,
+              "accuracy": 80,
+              "pp": 15,
+              "level": 16,
+              "versionGroups": [
+                "sword-shield"
+              ]
+            },
+            {
+              "move": {
+                "id": 246,
+                "name": "げんしのちから"
+              },
+              "type": "rock",
+              "category": "special",
+              "power": 60,
+              "accuracy": 100,
+              "pp": 5,
+              "level": 20,
+              "versionGroups": [
+                "sword-shield"
+              ]
+            },
+            {
+              "move": {
+                "id": 397,
+                "name": "ロックカット"
+              },
+              "type": "rock",
+              "category": "status",
+              "power": null,
+              "accuracy": null,
+              "pp": 20,
+              "level": 24,
+              "versionGroups": [
+                "sword-shield"
+              ]
+            },
+            {
+              "move": {
+                "id": 163,
+                "name": "きりさく"
+              },
+              "type": "normal",
+              "category": "physical",
+              "power": 70,
+              "accuracy": 100,
+              "pp": 20,
+              "level": 28,
+              "versionGroups": [
+                "sword-shield"
+              ]
+            },
+            {
+              "move": {
+                "id": 468,
+                "name": "つめとぎ"
+              },
+              "type": "dark",
+              "category": "status",
+              "power": null,
+              "accuracy": null,
+              "pp": 15,
+              "level": 32,
+              "versionGroups": [
+                "sword-shield"
+              ]
+            },
+            {
+              "move": {
+                "id": 534,
+                "name": "シェルブレード"
+              },
+              "type": "water",
+              "category": "physical",
+              "power": 75,
+              "accuracy": 95,
+              "pp": 10,
+              "level": 36,
+              "versionGroups": [
+                "sword-shield"
+              ]
+            },
+            {
+              "move": {
+                "id": 504,
+                "name": "からをやぶる"
+              },
+              "type": "normal",
+              "category": "status",
+              "power": null,
+              "accuracy": null,
+              "pp": 15,
+              "level": 42,
+              "versionGroups": [
+                "sword-shield"
+              ]
+            },
+            {
+              "move": {
+                "id": 238,
+                "name": "クロスチョップ"
+              },
+              "type": "fighting",
+              "category": "physical",
+              "power": 100,
+              "accuracy": 80,
+              "pp": 5,
+              "level": 48,
+              "versionGroups": [
+                "sword-shield"
+              ]
+            },
+            {
+              "move": {
+                "id": 444,
+                "name": "ストーンエッジ"
+              },
+              "type": "rock",
+              "category": "physical",
+              "power": 100,
+              "accuracy": 80,
+              "pp": 5,
+              "level": 54,
+              "versionGroups": [
+                "sword-shield"
+              ]
+            }
+          ]
+        },
+        {
+          "method": "machine",
+          "items": [
+            {
+              "move": {
+                "id": 710,
+                "name": "アクアブレイク"
+              },
+              "type": "water",
+              "category": "physical",
+              "power": 85,
+              "accuracy": 100,
+              "pp": 10,
+              "level": null,
+              "versionGroups": [
+                "sword-shield"
+              ]
+            },
+            {
+              "move": {
+                "id": 91,
+                "name": "あなをほる"
+              },
+              "type": "ground",
+              "category": "physical",
+              "power": 80,
+              "accuracy": 100,
+              "pp": 10,
+              "level": null,
+              "versionGroups": [
+                "sword-shield"
+              ]
+            },
+            {
+              "move": {
+                "id": 240,
+                "name": "あまごい"
+              },
+              "type": "water",
+              "category": "status",
+              "power": null,
+              "accuracy": null,
+              "pp": 5,
+              "level": null,
+              "versionGroups": [
+                "sword-shield"
+              ]
+            },
+            {
+              "move": {
+                "id": 173,
+                "name": "いびき"
+              },
+              "type": "normal",
+              "category": "special",
+              "power": 50,
+              "accuracy": 100,
+              "pp": 15,
+              "level": null,
+              "versionGroups": [
+                "sword-shield"
+              ]
+            },
+            {
+              "move": {
+                "id": 103,
+                "name": "いやなおと"
+              },
+              "type": "normal",
+              "category": "status",
+              "power": null,
+              "accuracy": 85,
+              "pp": 40,
+              "level": null,
+              "versionGroups": [
+                "sword-shield"
+              ]
+            },
+            {
+              "move": {
+                "id": 157,
+                "name": "いわなだれ"
+              },
+              "type": "rock",
+              "category": "physical",
+              "power": 75,
+              "accuracy": 90,
+              "pp": 10,
+              "level": null,
+              "versionGroups": [
+                "sword-shield"
+              ]
+            },
+            {
+              "move": {
+                "id": 250,
+                "name": "うずしお"
+              },
+              "type": "water",
+              "category": "special",
+              "power": 35,
+              "accuracy": 85,
+              "pp": 15,
+              "level": null,
+              "versionGroups": [
+                "sword-shield"
+              ]
+            },
+            {
+              "move": {
+                "id": 263,
+                "name": "からげんき"
+              },
+              "type": "normal",
+              "category": "physical",
+              "power": 70,
+              "accuracy": 100,
+              "pp": 20,
+              "level": null,
+              "versionGroups": [
+                "sword-shield"
+              ]
+            },
+            {
+              "move": {
+                "id": 280,
+                "name": "かわらわり"
+              },
+              "type": "fighting",
+              "category": "physical",
+              "power": 75,
+              "accuracy": 100,
+              "pp": 15,
+              "level": null,
+              "versionGroups": [
+                "sword-shield"
+              ]
+            },
+            {
+              "move": {
+                "id": 317,
+                "name": "がんせきふうじ"
+              },
+              "type": "rock",
+              "category": "physical",
+              "power": 60,
+              "accuracy": 95,
+              "pp": 15,
+              "level": null,
+              "versionGroups": [
+                "sword-shield"
+              ]
+            },
+            {
+              "move": {
+                "id": 411,
+                "name": "きあいだま"
+              },
+              "type": "fighting",
+              "category": "special",
+              "power": 120,
+              "accuracy": 70,
+              "pp": 5,
+              "level": null,
+              "versionGroups": [
+                "sword-shield"
+              ]
+            },
+            {
+              "move": {
+                "id": 416,
+                "name": "ギガインパクト"
+              },
+              "type": "normal",
+              "category": "physical",
+              "power": 150,
+              "accuracy": 90,
+              "pp": 5,
+              "level": null,
+              "versionGroups": [
+                "sword-shield"
+              ]
+            },
+            {
+              "move": {
+                "id": 447,
+                "name": "くさむすび"
+              },
+              "type": "grass",
+              "category": "special",
+              "power": null,
+              "accuracy": 100,
+              "pp": 20,
+              "level": null,
+              "versionGroups": [
+                "sword-shield"
+              ]
+            },
+            {
+              "move": {
+                "id": 67,
+                "name": "けたぐり"
+              },
+              "type": "fighting",
+              "category": "physical",
+              "power": null,
+              "accuracy": 100,
+              "pp": 20,
+              "level": null,
+              "versionGroups": [
+                "sword-shield"
+              ]
+            },
+            {
+              "move": {
+                "id": 196,
+                "name": "こごえるかぜ"
+              },
+              "type": "ice",
+              "category": "special",
+              "power": 55,
+              "accuracy": 95,
+              "pp": 15,
+              "level": null,
+              "versionGroups": [
+                "sword-shield"
+              ]
+            },
+            {
+              "move": {
+                "id": 203,
+                "name": "こらえる"
+              },
+              "type": "normal",
+              "category": "status",
+              "power": null,
+              "accuracy": null,
+              "pp": 10,
+              "level": null,
+              "versionGroups": [
+                "sword-shield"
+              ]
+            },
+            {
+              "move": {
+                "id": 253,
+                "name": "さわぐ"
+              },
+              "type": "normal",
+              "category": "special",
+              "power": 90,
+              "accuracy": 100,
+              "pp": 10,
+              "level": null,
+              "versionGroups": [
+                "sword-shield"
+              ]
+            },
+            {
+              "move": {
+                "id": 534,
+                "name": "シェルブレード"
+              },
+              "type": "water",
+              "category": "physical",
+              "power": 75,
+              "accuracy": 95,
+              "pp": 10,
+              "level": null,
+              "versionGroups": [
+                "sword-shield"
+              ]
+            },
+            {
+              "move": {
+                "id": 404,
+                "name": "シザークロス"
+              },
+              "type": "bug",
+              "category": "physical",
+              "power": 80,
+              "accuracy": 100,
+              "pp": 15,
+              "level": null,
+              "versionGroups": [
+                "sword-shield"
+              ]
+            },
+            {
+              "move": {
+                "id": 89,
+                "name": "じしん"
+              },
+              "type": "ground",
+              "category": "physical",
+              "power": 100,
+              "accuracy": 100,
+              "pp": 10,
+              "level": null,
+              "versionGroups": [
+                "sword-shield"
+              ]
+            },
+            {
+              "move": {
+                "id": 371,
+                "name": "しっぺがえし"
+              },
+              "type": "dark",
+              "category": "physical",
+              "power": 50,
+              "accuracy": 100,
+              "pp": 10,
+              "level": null,
+              "versionGroups": [
+                "sword-shield"
+              ]
+            },
+            {
+              "move": {
+                "id": 523,
+                "name": "じならし"
+              },
+              "type": "ground",
+              "category": "physical",
+              "power": 60,
+              "accuracy": 100,
+              "pp": 20,
+              "level": null,
+              "versionGroups": [
+                "sword-shield"
+              ]
+            },
+            {
+              "move": {
+                "id": 421,
+                "name": "シャドークロー"
+              },
+              "type": "ghost",
+              "category": "physical",
+              "power": 70,
+              "accuracy": 100,
+              "pp": 15,
+              "level": null,
+              "versionGroups": [
+                "sword-shield"
+              ]
+            },
+            {
+              "move": {
+                "id": 219,
+                "name": "しんぴのまもり"
+              },
+              "type": "normal",
+              "category": "status",
+              "power": null,
+              "accuracy": null,
+              "pp": 25,
+              "level": null,
+              "versionGroups": [
+                "sword-shield"
+              ]
+            },
+            {
+              "move": {
+                "id": 446,
+                "name": "ステルスロック"
+              },
+              "type": "rock",
+              "category": "status",
+              "power": null,
+              "accuracy": null,
+              "pp": 20,
+              "level": null,
+              "versionGroups": [
+                "sword-shield"
+              ]
+            },
+            {
+              "move": {
+                "id": 444,
+                "name": "ストーンエッジ"
+              },
+              "type": "rock",
+              "category": "physical",
+              "power": 100,
+              "accuracy": 80,
+              "pp": 5,
+              "level": null,
+              "versionGroups": [
+                "sword-shield"
+              ]
+            },
+            {
+              "move": {
+                "id": 201,
+                "name": "すなあらし"
+              },
+              "type": "rock",
+              "category": "status",
+              "power": null,
+              "accuracy": null,
+              "pp": 10,
+              "level": null,
+              "versionGroups": [
+                "sword-shield"
+              ]
+            },
+            {
+              "move": {
+                "id": 414,
+                "name": "だいちのちから"
+              },
+              "type": "ground",
+              "category": "special",
+              "power": 90,
+              "accuracy": 100,
+              "pp": 10,
+              "level": null,
+              "versionGroups": [
+                "sword-shield"
+              ]
+            },
+            {
+              "move": {
+                "id": 291,
+                "name": "ダイビング"
+              },
+              "type": "water",
+              "category": "physical",
+              "power": 80,
+              "accuracy": 100,
+              "pp": 10,
+              "level": null,
+              "versionGroups": [
+                "sword-shield"
+              ]
+            },
+            {
+              "move": {
+                "id": 330,
+                "name": "だくりゅう"
+              },
+              "type": "water",
+              "category": "special",
+              "power": 90,
+              "accuracy": 85,
+              "pp": 10,
+              "level": null,
+              "versionGroups": [
+                "sword-shield"
+              ]
+            },
+            {
+              "move": {
+                "id": 372,
+                "name": "ダメおし"
+              },
+              "type": "dark",
+              "category": "physical",
+              "power": 60,
+              "accuracy": 100,
+              "pp": 10,
+              "level": null,
+              "versionGroups": [
+                "sword-shield"
+              ]
+            },
+            {
+              "move": {
+                "id": 269,
+                "name": "ちょうはつ"
+              },
+              "type": "dark",
+              "category": "status",
+              "power": null,
+              "accuracy": 100,
+              "pp": 20,
+              "level": null,
+              "versionGroups": [
+                "sword-shield"
+              ]
+            },
+            {
+              "move": {
+                "id": 14,
+                "name": "つるぎのまい"
+              },
+              "type": "normal",
+              "category": "status",
+              "power": null,
+              "accuracy": null,
+              "pp": 20,
+              "level": null,
+              "versionGroups": [
+                "sword-shield"
+              ]
+            },
+            {
+              "move": {
+                "id": 270,
+                "name": "てだすけ"
+              },
+              "type": "normal",
+              "category": "status",
+              "power": null,
+              "accuracy": null,
+              "pp": 20,
+              "level": null,
+              "versionGroups": [
+                "sword-shield"
+              ]
+            },
+            {
+              "move": {
+                "id": 334,
+                "name": "てっぺき"
+              },
+              "type": "steel",
+              "category": "status",
+              "power": null,
+              "accuracy": null,
+              "pp": 15,
+              "level": null,
+              "versionGroups": [
+                "sword-shield"
+              ]
+            },
+            {
+              "move": {
+                "id": 398,
+                "name": "どくづき"
+              },
+              "type": "poison",
+              "category": "physical",
+              "power": 80,
+              "accuracy": 100,
+              "pp": 20,
+              "level": null,
+              "versionGroups": [
+                "sword-shield"
+              ]
+            },
+            {
+              "move": {
+                "id": 337,
+                "name": "ドラゴンクロー"
+              },
+              "type": "dragon",
+              "category": "physical",
+              "power": 80,
+              "accuracy": 100,
+              "pp": 15,
+              "level": null,
+              "versionGroups": [
+                "sword-shield"
+              ]
+            },
+            {
+              "move": {
+                "id": 168,
+                "name": "どろぼう"
+              },
+              "type": "dark",
+              "category": "physical",
+              "power": 60,
+              "accuracy": 100,
+              "pp": 25,
+              "level": null,
+              "versionGroups": [
+                "sword-shield"
+              ]
+            },
+            {
+              "move": {
+                "id": 374,
+                "name": "なげつける"
+              },
+              "type": "dark",
+              "category": "physical",
+              "power": null,
+              "accuracy": 100,
+              "pp": 10,
+              "level": null,
+              "versionGroups": [
+                "sword-shield"
+              ]
+            },
+            {
+              "move": {
+                "id": 57,
+                "name": "なみのり"
+              },
+              "type": "water",
+              "category": "special",
+              "power": 90,
+              "accuracy": 100,
+              "pp": 15,
+              "level": null,
+              "versionGroups": [
+                "sword-shield"
+              ]
+            },
+            {
+              "move": {
+                "id": 214,
+                "name": "ねごと"
+              },
+              "type": "normal",
+              "category": "status",
+              "power": null,
+              "accuracy": null,
+              "pp": 10,
+              "level": null,
+              "versionGroups": [
+                "sword-shield"
+              ]
+            },
+            {
+              "move": {
+                "id": 503,
+                "name": "ねっとう"
+              },
+              "type": "water",
+              "category": "special",
+              "power": 80,
+              "accuracy": 100,
+              "pp": 15,
+              "level": null,
+              "versionGroups": [
+                "sword-shield"
+              ]
+            },
+            {
+              "move": {
+                "id": 156,
+                "name": "ねむる"
+              },
+              "type": "psychic",
+              "category": "status",
+              "power": null,
+              "accuracy": null,
+              "pp": 5,
+              "level": null,
+              "versionGroups": [
+                "sword-shield"
+              ]
+            },
+            {
+              "move": {
+                "id": 63,
+                "name": "はかいこうせん"
+              },
+              "type": "normal",
+              "category": "special",
+              "power": 150,
+              "accuracy": 90,
+              "pp": 5,
+              "level": null,
+              "versionGroups": [
+                "sword-shield"
+              ]
+            },
+            {
+              "move": {
+                "id": 276,
+                "name": "ばかぢから"
+              },
+              "type": "fighting",
+              "category": "physical",
+              "power": 120,
+              "accuracy": 100,
+              "pp": 5,
+              "level": null,
+              "versionGroups": [
+                "sword-shield"
+              ]
+            },
+            {
+              "move": {
+                "id": 339,
+                "name": "ビルドアップ"
+              },
+              "type": "fighting",
+              "category": "status",
+              "power": null,
+              "accuracy": null,
+              "pp": 20,
+              "level": null,
+              "versionGroups": [
+                "sword-shield"
+              ]
+            },
+            {
+              "move": {
+                "id": 251,
+                "name": "ふくろだたき"
+              },
+              "type": "dark",
+              "category": "physical",
+              "power": null,
+              "accuracy": 100,
+              "pp": 10,
+              "level": null,
+              "versionGroups": [
+                "sword-shield"
+              ]
+            },
+            {
+              "move": {
+                "id": 59,
+                "name": "ふぶき"
+              },
+              "type": "ice",
+              "category": "special",
+              "power": 110,
+              "accuracy": 70,
+              "pp": 5,
+              "level": null,
+              "versionGroups": [
+                "sword-shield"
+              ]
+            },
+            {
+              "move": {
+                "id": 693,
+                "name": "ぶんまわす"
+              },
+              "type": "dark",
+              "category": "physical",
+              "power": 60,
+              "accuracy": 100,
+              "pp": 20,
+              "level": null,
+              "versionGroups": [
+                "sword-shield"
+              ]
+            },
+            {
+              "move": {
+                "id": 482,
+                "name": "ヘドロウェーブ"
+              },
+              "type": "poison",
+              "category": "special",
+              "power": 95,
+              "accuracy": 100,
+              "pp": 10,
+              "level": null,
+              "versionGroups": [
+                "sword-shield"
+              ]
+            },
+            {
+              "move": {
+                "id": 188,
+                "name": "ヘドロばくだん"
+              },
+              "type": "poison",
+              "category": "special",
+              "power": 90,
+              "accuracy": 100,
+              "pp": 10,
+              "level": null,
+              "versionGroups": [
+                "sword-shield"
+              ]
+            },
+            {
+              "move": {
+                "id": 341,
+                "name": "マッドショット"
+              },
+              "type": "ground",
+              "category": "special",
+              "power": 55,
+              "accuracy": 95,
+              "pp": 15,
+              "level": null,
+              "versionGroups": [
+                "sword-shield"
+              ]
+            },
+            {
+              "move": {
+                "id": 182,
+                "name": "まもる"
+              },
+              "type": "normal",
+              "category": "status",
+              "power": null,
+              "accuracy": null,
+              "pp": 10,
+              "level": null,
+              "versionGroups": [
+                "sword-shield"
+              ]
+            },
+            {
+              "move": {
+                "id": 164,
+                "name": "みがわり"
+              },
+              "type": "normal",
+              "category": "status",
+              "power": null,
+              "accuracy": null,
+              "pp": 10,
+              "level": null,
+              "versionGroups": [
+                "sword-shield"
+              ]
+            },
+            {
+              "move": {
+                "id": 206,
+                "name": "みねうち"
+              },
+              "type": "normal",
+              "category": "physical",
+              "power": 40,
+              "accuracy": 100,
+              "pp": 40,
+              "level": null,
+              "versionGroups": [
+                "sword-shield"
+              ]
+            },
+            {
+              "move": {
+                "id": 213,
+                "name": "メロメロ"
+              },
+              "type": "normal",
+              "category": "status",
+              "power": null,
+              "accuracy": 100,
+              "pp": 15,
+              "level": null,
+              "versionGroups": [
+                "sword-shield"
+              ]
+            },
+            {
+              "move": {
+                "id": 496,
+                "name": "りんしょう"
+              },
+              "type": "normal",
+              "category": "special",
+              "power": 60,
+              "accuracy": 100,
+              "pp": 15,
+              "level": null,
+              "versionGroups": [
+                "sword-shield"
+              ]
+            },
+            {
+              "move": {
+                "id": 58,
+                "name": "れいとうビーム"
+              },
+              "type": "ice",
+              "category": "special",
+              "power": 90,
+              "accuracy": 100,
+              "pp": 10,
+              "level": null,
+              "versionGroups": [
+                "sword-shield"
+              ]
+            },
+            {
+              "move": {
+                "id": 350,
+                "name": "ロックブラスト"
+              },
+              "type": "rock",
+              "category": "physical",
+              "power": 25,
+              "accuracy": 90,
+              "pp": 10,
+              "level": null,
+              "versionGroups": [
+                "sword-shield"
+              ]
+            }
+          ]
+        },
+        {
+          "method": "tutor",
+          "items": [
+            {
+              "move": {
+                "id": 800,
+                "name": "メテオビーム"
+              },
+              "type": "rock",
+              "category": "special",
+              "power": 120,
+              "accuracy": 90,
+              "pp": 10,
+              "level": null,
+              "versionGroups": [
+                "sword-shield"
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

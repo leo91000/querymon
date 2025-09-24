@@ -1,0 +1,1765 @@
+{
+  "id": 820,
+  "name": "Rongrigou",
+  "sprites": {
+    "front_default": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/820.png",
+    "front_shiny": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/shiny/820.png",
+    "official_artwork": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/820.png",
+    "dream_world": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/dream-world/820.svg",
+    "home_default": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/820.png",
+    "home_shiny": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/shiny/820.png",
+    "versions": {
+      "generation-v": {
+        "front_default": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/820.png",
+        "back_default": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/back/820.png",
+        "front_shiny": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/shiny/820.png",
+        "back_shiny": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/back/shiny/820.png"
+      },
+      "generation-viii": {
+        "front_default": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-viii/icons/820.png"
+      }
+    }
+  },
+  "types": [
+    {
+      "id": 1,
+      "name": "normal"
+    }
+  ],
+  "abilities": [
+    {
+      "id": 167,
+      "name": "cheek-pouch",
+      "hidden": false
+    },
+    {
+      "id": 82,
+      "name": "gluttony",
+      "hidden": true
+    }
+  ],
+  "stats": [
+    {
+      "name": "hp",
+      "base": 120,
+      "effort": 2
+    },
+    {
+      "name": "attack",
+      "base": 95,
+      "effort": 0
+    },
+    {
+      "name": "defense",
+      "base": 95,
+      "effort": 0
+    },
+    {
+      "name": "special-attack",
+      "base": 55,
+      "effort": 0
+    },
+    {
+      "name": "special-defense",
+      "base": 75,
+      "effort": 0
+    },
+    {
+      "name": "speed",
+      "base": 20,
+      "effort": 0
+    }
+  ],
+  "weight": 60,
+  "height": 6,
+  "base_experience": 161,
+  "species": {
+    "capture_rate": 90,
+    "hatch_counter": 20,
+    "gender_rate": 4,
+    "growth_rate": {
+      "id": 2,
+      "name": "medium"
+    },
+    "egg_groups": [
+      {
+        "id": 5,
+        "name": "Terrestre"
+      }
+    ],
+    "color": {
+      "id": 3,
+      "name": "Brun"
+    },
+    "genus": "Pokémon Goulu",
+    "flavor_text": "Il amasse tellement de Baies dans sa queue qu’elles tombent les unes après les autres, mais il est si étourdi qu’il ne s’en rend pas compte."
+  },
+  "evolutions": [
+    [
+      {
+        "id": 819,
+        "name": "Rongourmand",
+        "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/819.png",
+        "isCurrent": false,
+        "details": []
+      }
+    ],
+    [
+      {
+        "id": 820,
+        "name": "Rongrigou",
+        "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/820.png",
+        "isCurrent": true,
+        "details": [
+          {
+            "gender": null,
+            "held_item": null,
+            "item": null,
+            "known_move": null,
+            "known_move_type": null,
+            "location": null,
+            "min_affection": null,
+            "min_beauty": null,
+            "min_happiness": null,
+            "min_level": 24,
+            "needs_overworld_rain": false,
+            "party_species": null,
+            "party_type": null,
+            "relative_physical_stats": null,
+            "time_of_day": "",
+            "trade_species": null,
+            "trigger": {
+              "name": "level-up",
+              "url": "https://pokeapi.co/api/v2/evolution-trigger/1/"
+            },
+            "turn_upside_down": false
+          }
+        ]
+      }
+    ]
+  ],
+  "learnsets": [
+    {
+      "generation": "generation-viii",
+      "order": 18,
+      "entries": [
+        {
+          "method": "level-up",
+          "items": [
+            {
+              "move": {
+                "id": 33,
+                "name": "Charge"
+              },
+              "type": "normal",
+              "category": "physical",
+              "power": 40,
+              "accuracy": 100,
+              "pp": 35,
+              "level": 1,
+              "versionGroups": [
+                "sword-shield"
+              ]
+            },
+            {
+              "move": {
+                "id": 747,
+                "name": "Garde-à-Joues"
+              },
+              "type": "normal",
+              "category": "status",
+              "power": null,
+              "accuracy": null,
+              "pp": 10,
+              "level": 1,
+              "versionGroups": [
+                "sword-shield"
+              ]
+            },
+            {
+              "move": {
+                "id": 343,
+                "name": "Implore"
+              },
+              "type": "normal",
+              "category": "physical",
+              "power": 60,
+              "accuracy": 100,
+              "pp": 25,
+              "level": 1,
+              "versionGroups": [
+                "sword-shield"
+              ]
+            },
+            {
+              "move": {
+                "id": 39,
+                "name": "Mimi-Queue"
+              },
+              "type": "normal",
+              "category": "status",
+              "power": null,
+              "accuracy": 100,
+              "pp": 30,
+              "level": 1,
+              "versionGroups": [
+                "sword-shield"
+              ]
+            },
+            {
+              "move": {
+                "id": 44,
+                "name": "Morsure"
+              },
+              "type": "dark",
+              "category": "physical",
+              "power": 60,
+              "accuracy": 100,
+              "pp": 25,
+              "level": 1,
+              "versionGroups": [
+                "sword-shield"
+              ]
+            },
+            {
+              "move": {
+                "id": 256,
+                "name": "Avale"
+              },
+              "type": "normal",
+              "category": "status",
+              "power": null,
+              "accuracy": null,
+              "pp": 10,
+              "level": 15,
+              "versionGroups": [
+                "sword-shield"
+              ]
+            },
+            {
+              "move": {
+                "id": 255,
+                "name": "Relâche"
+              },
+              "type": "normal",
+              "category": "special",
+              "power": null,
+              "accuracy": 100,
+              "pp": 10,
+              "level": 15,
+              "versionGroups": [
+                "sword-shield"
+              ]
+            },
+            {
+              "move": {
+                "id": 254,
+                "name": "Stockage"
+              },
+              "type": "normal",
+              "category": "status",
+              "power": null,
+              "accuracy": null,
+              "pp": 20,
+              "level": 15,
+              "versionGroups": [
+                "sword-shield"
+              ]
+            },
+            {
+              "move": {
+                "id": 34,
+                "name": "Plaquage"
+              },
+              "type": "normal",
+              "category": "physical",
+              "power": 85,
+              "accuracy": 100,
+              "pp": 15,
+              "level": 20,
+              "versionGroups": [
+                "sword-shield"
+              ]
+            },
+            {
+              "move": {
+                "id": 156,
+                "name": "Repos"
+              },
+              "type": "psychic",
+              "category": "status",
+              "power": null,
+              "accuracy": null,
+              "pp": 5,
+              "level": 27,
+              "versionGroups": [
+                "sword-shield"
+              ]
+            },
+            {
+              "move": {
+                "id": 68,
+                "name": "Riposte"
+              },
+              "type": "fighting",
+              "category": "physical",
+              "power": null,
+              "accuracy": 100,
+              "pp": 20,
+              "level": 34,
+              "versionGroups": [
+                "sword-shield"
+              ]
+            },
+            {
+              "move": {
+                "id": 331,
+                "name": "Balle Graine"
+              },
+              "type": "grass",
+              "category": "physical",
+              "power": 25,
+              "accuracy": 100,
+              "pp": 30,
+              "level": 41,
+              "versionGroups": [
+                "sword-shield"
+              ]
+            },
+            {
+              "move": {
+                "id": 162,
+                "name": "Croc Fatal"
+              },
+              "type": "normal",
+              "category": "physical",
+              "power": null,
+              "accuracy": 90,
+              "pp": 10,
+              "level": 48,
+              "versionGroups": [
+                "sword-shield"
+              ]
+            },
+            {
+              "move": {
+                "id": 562,
+                "name": "Éructation"
+              },
+              "type": "poison",
+              "category": "special",
+              "power": 120,
+              "accuracy": 90,
+              "pp": 10,
+              "level": 55,
+              "versionGroups": [
+                "sword-shield"
+              ]
+            }
+          ]
+        },
+        {
+          "method": "machine",
+          "items": [
+            {
+              "move": {
+                "id": 182,
+                "name": "Abri"
+              },
+              "type": "normal",
+              "category": "status",
+              "power": null,
+              "accuracy": null,
+              "pp": 10,
+              "level": null,
+              "versionGroups": [
+                "sword-shield"
+              ]
+            },
+            {
+              "move": {
+                "id": 133,
+                "name": "Amnésie"
+              },
+              "type": "psychic",
+              "category": "status",
+              "power": null,
+              "accuracy": null,
+              "pp": 20,
+              "level": null,
+              "versionGroups": [
+                "sword-shield"
+              ]
+            },
+            {
+              "move": {
+                "id": 372,
+                "name": "Assurance"
+              },
+              "type": "dark",
+              "category": "physical",
+              "power": 60,
+              "accuracy": 100,
+              "pp": 10,
+              "level": null,
+              "versionGroups": [
+                "sword-shield"
+              ]
+            },
+            {
+              "move": {
+                "id": 213,
+                "name": "Attraction"
+              },
+              "type": "normal",
+              "category": "status",
+              "power": null,
+              "accuracy": 100,
+              "pp": 15,
+              "level": null,
+              "versionGroups": [
+                "sword-shield"
+              ]
+            },
+            {
+              "move": {
+                "id": 331,
+                "name": "Balle Graine"
+              },
+              "type": "grass",
+              "category": "physical",
+              "power": 25,
+              "accuracy": 100,
+              "pp": 30,
+              "level": null,
+              "versionGroups": [
+                "sword-shield"
+              ]
+            },
+            {
+              "move": {
+                "id": 776,
+                "name": "Big Splash"
+              },
+              "type": "fighting",
+              "category": "physical",
+              "power": 80,
+              "accuracy": 100,
+              "pp": 10,
+              "level": null,
+              "versionGroups": [
+                "sword-shield"
+              ]
+            },
+            {
+              "move": {
+                "id": 214,
+                "name": "Blabla Dodo"
+              },
+              "type": "normal",
+              "category": "status",
+              "power": null,
+              "accuracy": null,
+              "pp": 10,
+              "level": null,
+              "versionGroups": [
+                "sword-shield"
+              ]
+            },
+            {
+              "move": {
+                "id": 253,
+                "name": "Brouhaha"
+              },
+              "type": "normal",
+              "category": "special",
+              "power": 90,
+              "accuracy": 100,
+              "pp": 10,
+              "level": null,
+              "versionGroups": [
+                "sword-shield"
+              ]
+            },
+            {
+              "move": {
+                "id": 402,
+                "name": "Canon Graine"
+              },
+              "type": "grass",
+              "category": "physical",
+              "power": 80,
+              "accuracy": 100,
+              "pp": 15,
+              "level": null,
+              "versionGroups": [
+                "sword-shield"
+              ]
+            },
+            {
+              "move": {
+                "id": 693,
+                "name": "Centrifugifle"
+              },
+              "type": "dark",
+              "category": "physical",
+              "power": 60,
+              "accuracy": 100,
+              "pp": 20,
+              "level": null,
+              "versionGroups": [
+                "sword-shield"
+              ]
+            },
+            {
+              "move": {
+                "id": 496,
+                "name": "Chant Canon"
+              },
+              "type": "normal",
+              "category": "special",
+              "power": 60,
+              "accuracy": 100,
+              "pp": 15,
+              "level": null,
+              "versionGroups": [
+                "sword-shield"
+              ]
+            },
+            {
+              "move": {
+                "id": 164,
+                "name": "Clonage"
+              },
+              "type": "normal",
+              "category": "status",
+              "power": null,
+              "accuracy": null,
+              "pp": 10,
+              "level": null,
+              "versionGroups": [
+                "sword-shield"
+              ]
+            },
+            {
+              "move": {
+                "id": 422,
+                "name": "Crocs Éclair"
+              },
+              "type": "electric",
+              "category": "physical",
+              "power": 65,
+              "accuracy": 95,
+              "pp": 15,
+              "level": null,
+              "versionGroups": [
+                "sword-shield"
+              ]
+            },
+            {
+              "move": {
+                "id": 424,
+                "name": "Crocs Feu"
+              },
+              "type": "fire",
+              "category": "physical",
+              "power": 65,
+              "accuracy": 95,
+              "pp": 15,
+              "level": null,
+              "versionGroups": [
+                "sword-shield"
+              ]
+            },
+            {
+              "move": {
+                "id": 423,
+                "name": "Crocs Givre"
+              },
+              "type": "ice",
+              "category": "physical",
+              "power": 65,
+              "accuracy": 95,
+              "pp": 15,
+              "level": null,
+              "versionGroups": [
+                "sword-shield"
+              ]
+            },
+            {
+              "move": {
+                "id": 14,
+                "name": "Danse Lames"
+              },
+              "type": "normal",
+              "category": "status",
+              "power": null,
+              "accuracy": null,
+              "pp": 20,
+              "level": null,
+              "versionGroups": [
+                "sword-shield"
+              ]
+            },
+            {
+              "move": {
+                "id": 374,
+                "name": "Dégommage"
+              },
+              "type": "dark",
+              "category": "physical",
+              "power": null,
+              "accuracy": 100,
+              "pp": 10,
+              "level": null,
+              "versionGroups": [
+                "sword-shield"
+              ]
+            },
+            {
+              "move": {
+                "id": 528,
+                "name": "Éclair Fou"
+              },
+              "type": "electric",
+              "category": "physical",
+              "power": 90,
+              "accuracy": 100,
+              "pp": 15,
+              "level": null,
+              "versionGroups": [
+                "sword-shield"
+              ]
+            },
+            {
+              "move": {
+                "id": 263,
+                "name": "Façade"
+              },
+              "type": "normal",
+              "category": "physical",
+              "power": 70,
+              "accuracy": 100,
+              "pp": 20,
+              "level": null,
+              "versionGroups": [
+                "sword-shield"
+              ]
+            },
+            {
+              "move": {
+                "id": 416,
+                "name": "Giga Impact"
+              },
+              "type": "normal",
+              "category": "physical",
+              "power": 150,
+              "accuracy": 90,
+              "pp": 5,
+              "level": null,
+              "versionGroups": [
+                "sword-shield"
+              ]
+            },
+            {
+              "move": {
+                "id": 360,
+                "name": "Gyroballe"
+              },
+              "type": "steel",
+              "category": "physical",
+              "power": null,
+              "accuracy": 100,
+              "pp": 5,
+              "level": null,
+              "versionGroups": [
+                "sword-shield"
+              ]
+            },
+            {
+              "move": {
+                "id": 168,
+                "name": "Larcin"
+              },
+              "type": "dark",
+              "category": "physical",
+              "power": 60,
+              "accuracy": 100,
+              "pp": 25,
+              "level": null,
+              "versionGroups": [
+                "sword-shield"
+              ]
+            },
+            {
+              "move": {
+                "id": 242,
+                "name": "Mâchouille"
+              },
+              "type": "dark",
+              "category": "physical",
+              "power": 80,
+              "accuracy": 100,
+              "pp": 15,
+              "level": null,
+              "versionGroups": [
+                "sword-shield"
+              ]
+            },
+            {
+              "move": {
+                "id": 304,
+                "name": "Mégaphone"
+              },
+              "type": "normal",
+              "category": "special",
+              "power": 90,
+              "accuracy": 100,
+              "pp": 10,
+              "level": null,
+              "versionGroups": [
+                "sword-shield"
+              ]
+            },
+            {
+              "move": {
+                "id": 34,
+                "name": "Plaquage"
+              },
+              "type": "normal",
+              "category": "physical",
+              "power": 85,
+              "accuracy": 100,
+              "pp": 15,
+              "level": null,
+              "versionGroups": [
+                "sword-shield"
+              ]
+            },
+            {
+              "move": {
+                "id": 541,
+                "name": "Plumo-Queue"
+              },
+              "type": "normal",
+              "category": "physical",
+              "power": 25,
+              "accuracy": 85,
+              "pp": 10,
+              "level": null,
+              "versionGroups": [
+                "sword-shield"
+              ]
+            },
+            {
+              "move": {
+                "id": 706,
+                "name": "Psycho-Croc"
+              },
+              "type": "psychic",
+              "category": "physical",
+              "power": 85,
+              "accuracy": 100,
+              "pp": 10,
+              "level": null,
+              "versionGroups": [
+                "sword-shield"
+              ]
+            },
+            {
+              "move": {
+                "id": 231,
+                "name": "Queue de Fer"
+              },
+              "type": "steel",
+              "category": "physical",
+              "power": 100,
+              "accuracy": 75,
+              "pp": 15,
+              "level": null,
+              "versionGroups": [
+                "sword-shield"
+              ]
+            },
+            {
+              "move": {
+                "id": 156,
+                "name": "Repos"
+              },
+              "type": "psychic",
+              "category": "status",
+              "power": null,
+              "accuracy": null,
+              "pp": 5,
+              "level": null,
+              "versionGroups": [
+                "sword-shield"
+              ]
+            },
+            {
+              "move": {
+                "id": 371,
+                "name": "Représailles"
+              },
+              "type": "dark",
+              "category": "physical",
+              "power": 50,
+              "accuracy": 100,
+              "pp": 10,
+              "level": null,
+              "versionGroups": [
+                "sword-shield"
+              ]
+            },
+            {
+              "move": {
+                "id": 173,
+                "name": "Ronflement"
+              },
+              "type": "normal",
+              "category": "special",
+              "power": 50,
+              "accuracy": 100,
+              "pp": 15,
+              "level": null,
+              "versionGroups": [
+                "sword-shield"
+              ]
+            },
+            {
+              "move": {
+                "id": 89,
+                "name": "Séisme"
+              },
+              "type": "ground",
+              "category": "physical",
+              "power": 100,
+              "accuracy": 100,
+              "pp": 10,
+              "level": null,
+              "versionGroups": [
+                "sword-shield"
+              ]
+            },
+            {
+              "move": {
+                "id": 276,
+                "name": "Surpuissance"
+              },
+              "type": "fighting",
+              "category": "physical",
+              "power": 120,
+              "accuracy": 100,
+              "pp": 5,
+              "level": null,
+              "versionGroups": [
+                "sword-shield"
+              ]
+            },
+            {
+              "move": {
+                "id": 203,
+                "name": "Ténacité"
+              },
+              "type": "normal",
+              "category": "status",
+              "power": null,
+              "accuracy": null,
+              "pp": 10,
+              "level": null,
+              "versionGroups": [
+                "sword-shield"
+              ]
+            },
+            {
+              "move": {
+                "id": 341,
+                "name": "Tir de Boue"
+              },
+              "type": "ground",
+              "category": "special",
+              "power": 55,
+              "accuracy": 95,
+              "pp": 15,
+              "level": null,
+              "versionGroups": [
+                "sword-shield"
+              ]
+            },
+            {
+              "move": {
+                "id": 707,
+                "name": "Trépignement"
+              },
+              "type": "ground",
+              "category": "physical",
+              "power": 75,
+              "accuracy": 100,
+              "pp": 10,
+              "level": null,
+              "versionGroups": [
+                "sword-shield"
+              ]
+            },
+            {
+              "move": {
+                "id": 91,
+                "name": "Tunnel"
+              },
+              "type": "ground",
+              "category": "physical",
+              "power": 80,
+              "accuracy": 100,
+              "pp": 10,
+              "level": null,
+              "versionGroups": [
+                "sword-shield"
+              ]
+            },
+            {
+              "move": {
+                "id": 63,
+                "name": "Ultralaser"
+              },
+              "type": "normal",
+              "category": "special",
+              "power": 150,
+              "accuracy": 90,
+              "pp": 5,
+              "level": null,
+              "versionGroups": [
+                "sword-shield"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "generation": "generation-ix",
+      "order": 21,
+      "entries": [
+        {
+          "method": "level-up",
+          "items": [
+            {
+              "move": {
+                "id": 343,
+                "name": "Implore"
+              },
+              "type": "normal",
+              "category": "physical",
+              "power": 60,
+              "accuracy": 100,
+              "pp": 25,
+              "level": 0,
+              "versionGroups": [
+                "scarlet-violet"
+              ]
+            },
+            {
+              "move": {
+                "id": 33,
+                "name": "Charge"
+              },
+              "type": "normal",
+              "category": "physical",
+              "power": 40,
+              "accuracy": 100,
+              "pp": 35,
+              "level": 1,
+              "versionGroups": [
+                "scarlet-violet"
+              ]
+            },
+            {
+              "move": {
+                "id": 747,
+                "name": "Garde-à-Joues"
+              },
+              "type": "normal",
+              "category": "status",
+              "power": null,
+              "accuracy": null,
+              "pp": 10,
+              "level": 1,
+              "versionGroups": [
+                "scarlet-violet"
+              ]
+            },
+            {
+              "move": {
+                "id": 39,
+                "name": "Mimi-Queue"
+              },
+              "type": "normal",
+              "category": "status",
+              "power": null,
+              "accuracy": 100,
+              "pp": 30,
+              "level": 1,
+              "versionGroups": [
+                "scarlet-violet"
+              ]
+            },
+            {
+              "move": {
+                "id": 44,
+                "name": "Morsure"
+              },
+              "type": "dark",
+              "category": "physical",
+              "power": 60,
+              "accuracy": 100,
+              "pp": 25,
+              "level": 1,
+              "versionGroups": [
+                "scarlet-violet"
+              ]
+            },
+            {
+              "move": {
+                "id": 256,
+                "name": "Avale"
+              },
+              "type": "normal",
+              "category": "status",
+              "power": null,
+              "accuracy": null,
+              "pp": 10,
+              "level": 15,
+              "versionGroups": [
+                "scarlet-violet"
+              ]
+            },
+            {
+              "move": {
+                "id": 255,
+                "name": "Relâche"
+              },
+              "type": "normal",
+              "category": "special",
+              "power": null,
+              "accuracy": 100,
+              "pp": 10,
+              "level": 15,
+              "versionGroups": [
+                "scarlet-violet"
+              ]
+            },
+            {
+              "move": {
+                "id": 254,
+                "name": "Stockage"
+              },
+              "type": "normal",
+              "category": "status",
+              "power": null,
+              "accuracy": null,
+              "pp": 20,
+              "level": 15,
+              "versionGroups": [
+                "scarlet-violet"
+              ]
+            },
+            {
+              "move": {
+                "id": 34,
+                "name": "Plaquage"
+              },
+              "type": "normal",
+              "category": "physical",
+              "power": 85,
+              "accuracy": 100,
+              "pp": 15,
+              "level": 20,
+              "versionGroups": [
+                "scarlet-violet"
+              ]
+            },
+            {
+              "move": {
+                "id": 156,
+                "name": "Repos"
+              },
+              "type": "psychic",
+              "category": "status",
+              "power": null,
+              "accuracy": null,
+              "pp": 5,
+              "level": 27,
+              "versionGroups": [
+                "scarlet-violet"
+              ]
+            },
+            {
+              "move": {
+                "id": 68,
+                "name": "Riposte"
+              },
+              "type": "fighting",
+              "category": "physical",
+              "power": null,
+              "accuracy": 100,
+              "pp": 20,
+              "level": 34,
+              "versionGroups": [
+                "scarlet-violet"
+              ]
+            },
+            {
+              "move": {
+                "id": 331,
+                "name": "Balle Graine"
+              },
+              "type": "grass",
+              "category": "physical",
+              "power": 25,
+              "accuracy": 100,
+              "pp": 30,
+              "level": 41,
+              "versionGroups": [
+                "scarlet-violet"
+              ]
+            },
+            {
+              "move": {
+                "id": 162,
+                "name": "Croc Fatal"
+              },
+              "type": "normal",
+              "category": "physical",
+              "power": null,
+              "accuracy": 90,
+              "pp": 10,
+              "level": 48,
+              "versionGroups": [
+                "scarlet-violet"
+              ]
+            },
+            {
+              "move": {
+                "id": 562,
+                "name": "Éructation"
+              },
+              "type": "poison",
+              "category": "special",
+              "power": 120,
+              "accuracy": 90,
+              "pp": 10,
+              "level": 55,
+              "versionGroups": [
+                "scarlet-violet"
+              ]
+            }
+          ]
+        },
+        {
+          "method": "machine",
+          "items": [
+            {
+              "move": {
+                "id": 182,
+                "name": "Abri"
+              },
+              "type": "normal",
+              "category": "status",
+              "power": null,
+              "accuracy": null,
+              "pp": 10,
+              "level": null,
+              "versionGroups": [
+                "scarlet-violet"
+              ]
+            },
+            {
+              "move": {
+                "id": 133,
+                "name": "Amnésie"
+              },
+              "type": "psychic",
+              "category": "status",
+              "power": null,
+              "accuracy": null,
+              "pp": 20,
+              "level": null,
+              "versionGroups": [
+                "scarlet-violet"
+              ]
+            },
+            {
+              "move": {
+                "id": 331,
+                "name": "Balle Graine"
+              },
+              "type": "grass",
+              "category": "physical",
+              "power": 25,
+              "accuracy": 100,
+              "pp": 30,
+              "level": null,
+              "versionGroups": [
+                "scarlet-violet"
+              ]
+            },
+            {
+              "move": {
+                "id": 36,
+                "name": "Bélier"
+              },
+              "type": "normal",
+              "category": "physical",
+              "power": 90,
+              "accuracy": 85,
+              "pp": 20,
+              "level": null,
+              "versionGroups": [
+                "scarlet-violet"
+              ]
+            },
+            {
+              "move": {
+                "id": 776,
+                "name": "Big Splash"
+              },
+              "type": "fighting",
+              "category": "physical",
+              "power": 80,
+              "accuracy": 100,
+              "pp": 10,
+              "level": null,
+              "versionGroups": [
+                "scarlet-violet"
+              ]
+            },
+            {
+              "move": {
+                "id": 214,
+                "name": "Blabla Dodo"
+              },
+              "type": "normal",
+              "category": "status",
+              "power": null,
+              "accuracy": null,
+              "pp": 10,
+              "level": null,
+              "versionGroups": [
+                "scarlet-violet"
+              ]
+            },
+            {
+              "move": {
+                "id": 402,
+                "name": "Canon Graine"
+              },
+              "type": "grass",
+              "category": "physical",
+              "power": 80,
+              "accuracy": 100,
+              "pp": 15,
+              "level": null,
+              "versionGroups": [
+                "scarlet-violet"
+              ]
+            },
+            {
+              "move": {
+                "id": 667,
+                "name": "Cavalerie Lourde"
+              },
+              "type": "ground",
+              "category": "physical",
+              "power": 95,
+              "accuracy": 95,
+              "pp": 10,
+              "level": null,
+              "versionGroups": [
+                "scarlet-violet"
+              ]
+            },
+            {
+              "move": {
+                "id": 164,
+                "name": "Clonage"
+              },
+              "type": "normal",
+              "category": "status",
+              "power": null,
+              "accuracy": null,
+              "pp": 10,
+              "level": null,
+              "versionGroups": [
+                "scarlet-violet"
+              ]
+            },
+            {
+              "move": {
+                "id": 189,
+                "name": "Coud’Boue"
+              },
+              "type": "ground",
+              "category": "special",
+              "power": 20,
+              "accuracy": 100,
+              "pp": 10,
+              "level": null,
+              "versionGroups": [
+                "scarlet-violet"
+              ]
+            },
+            {
+              "move": {
+                "id": 162,
+                "name": "Croc Fatal"
+              },
+              "type": "normal",
+              "category": "physical",
+              "power": null,
+              "accuracy": 90,
+              "pp": 10,
+              "level": null,
+              "versionGroups": [
+                "scarlet-violet"
+              ]
+            },
+            {
+              "move": {
+                "id": 422,
+                "name": "Crocs Éclair"
+              },
+              "type": "electric",
+              "category": "physical",
+              "power": 65,
+              "accuracy": 95,
+              "pp": 15,
+              "level": null,
+              "versionGroups": [
+                "scarlet-violet"
+              ]
+            },
+            {
+              "move": {
+                "id": 424,
+                "name": "Crocs Feu"
+              },
+              "type": "fire",
+              "category": "physical",
+              "power": 65,
+              "accuracy": 95,
+              "pp": 15,
+              "level": null,
+              "versionGroups": [
+                "scarlet-violet"
+              ]
+            },
+            {
+              "move": {
+                "id": 423,
+                "name": "Crocs Givre"
+              },
+              "type": "ice",
+              "category": "physical",
+              "power": 65,
+              "accuracy": 95,
+              "pp": 15,
+              "level": null,
+              "versionGroups": [
+                "scarlet-violet"
+              ]
+            },
+            {
+              "move": {
+                "id": 38,
+                "name": "Damoclès"
+              },
+              "type": "normal",
+              "category": "physical",
+              "power": 120,
+              "accuracy": 100,
+              "pp": 15,
+              "level": null,
+              "versionGroups": [
+                "scarlet-violet"
+              ]
+            },
+            {
+              "move": {
+                "id": 14,
+                "name": "Danse Lames"
+              },
+              "type": "normal",
+              "category": "status",
+              "power": null,
+              "accuracy": null,
+              "pp": 20,
+              "level": null,
+              "versionGroups": [
+                "scarlet-violet"
+              ]
+            },
+            {
+              "move": {
+                "id": 240,
+                "name": "Danse Pluie"
+              },
+              "type": "water",
+              "category": "status",
+              "power": null,
+              "accuracy": null,
+              "pp": 5,
+              "level": null,
+              "versionGroups": [
+                "scarlet-violet"
+              ]
+            },
+            {
+              "move": {
+                "id": 374,
+                "name": "Dégommage"
+              },
+              "type": "dark",
+              "category": "physical",
+              "power": null,
+              "accuracy": 100,
+              "pp": 10,
+              "level": null,
+              "versionGroups": [
+                "scarlet-violet"
+              ]
+            },
+            {
+              "move": {
+                "id": 528,
+                "name": "Éclair Fou"
+              },
+              "type": "electric",
+              "category": "physical",
+              "power": 90,
+              "accuracy": 100,
+              "pp": 15,
+              "level": null,
+              "versionGroups": [
+                "scarlet-violet"
+              ]
+            },
+            {
+              "move": {
+                "id": 283,
+                "name": "Effort"
+              },
+              "type": "normal",
+              "category": "physical",
+              "power": null,
+              "accuracy": 100,
+              "pp": 5,
+              "level": null,
+              "versionGroups": [
+                "scarlet-violet"
+              ]
+            },
+            {
+              "move": {
+                "id": 263,
+                "name": "Façade"
+              },
+              "type": "normal",
+              "category": "physical",
+              "power": 70,
+              "accuracy": 100,
+              "pp": 20,
+              "level": null,
+              "versionGroups": [
+                "scarlet-violet"
+              ]
+            },
+            {
+              "move": {
+                "id": 416,
+                "name": "Giga Impact"
+              },
+              "type": "normal",
+              "category": "physical",
+              "power": 150,
+              "accuracy": 90,
+              "pp": 5,
+              "level": null,
+              "versionGroups": [
+                "scarlet-violet"
+              ]
+            },
+            {
+              "move": {
+                "id": 360,
+                "name": "Gyroballe"
+              },
+              "type": "steel",
+              "category": "physical",
+              "power": null,
+              "accuracy": 100,
+              "pp": 5,
+              "level": null,
+              "versionGroups": [
+                "scarlet-violet"
+              ]
+            },
+            {
+              "move": {
+                "id": 168,
+                "name": "Larcin"
+              },
+              "type": "dark",
+              "category": "physical",
+              "power": 60,
+              "accuracy": 100,
+              "pp": 25,
+              "level": null,
+              "versionGroups": [
+                "scarlet-violet"
+              ]
+            },
+            {
+              "move": {
+                "id": 242,
+                "name": "Mâchouille"
+              },
+              "type": "dark",
+              "category": "physical",
+              "power": 80,
+              "accuracy": 100,
+              "pp": 15,
+              "level": null,
+              "versionGroups": [
+                "scarlet-violet"
+              ]
+            },
+            {
+              "move": {
+                "id": 174,
+                "name": "Malédiction"
+              },
+              "type": "ghost",
+              "category": "status",
+              "power": null,
+              "accuracy": null,
+              "pp": 10,
+              "level": null,
+              "versionGroups": [
+                "scarlet-violet"
+              ]
+            },
+            {
+              "move": {
+                "id": 304,
+                "name": "Mégaphone"
+              },
+              "type": "normal",
+              "category": "special",
+              "power": 90,
+              "accuracy": 100,
+              "pp": 10,
+              "level": null,
+              "versionGroups": [
+                "scarlet-violet"
+              ]
+            },
+            {
+              "move": {
+                "id": 523,
+                "name": "Piétisol"
+              },
+              "type": "ground",
+              "category": "physical",
+              "power": 60,
+              "accuracy": 100,
+              "pp": 20,
+              "level": null,
+              "versionGroups": [
+                "scarlet-violet"
+              ]
+            },
+            {
+              "move": {
+                "id": 34,
+                "name": "Plaquage"
+              },
+              "type": "normal",
+              "category": "physical",
+              "power": 85,
+              "accuracy": 100,
+              "pp": 15,
+              "level": null,
+              "versionGroups": [
+                "scarlet-violet"
+              ]
+            },
+            {
+              "move": {
+                "id": 706,
+                "name": "Psycho-Croc"
+              },
+              "type": "psychic",
+              "category": "physical",
+              "power": 85,
+              "accuracy": 100,
+              "pp": 10,
+              "level": null,
+              "versionGroups": [
+                "scarlet-violet"
+              ]
+            },
+            {
+              "move": {
+                "id": 156,
+                "name": "Repos"
+              },
+              "type": "psychic",
+              "category": "status",
+              "power": null,
+              "accuracy": null,
+              "pp": 5,
+              "level": null,
+              "versionGroups": [
+                "scarlet-violet"
+              ]
+            },
+            {
+              "move": {
+                "id": 282,
+                "name": "Sabotage"
+              },
+              "type": "dark",
+              "category": "physical",
+              "power": 65,
+              "accuracy": 100,
+              "pp": 20,
+              "level": null,
+              "versionGroups": [
+                "scarlet-violet"
+              ]
+            },
+            {
+              "move": {
+                "id": 89,
+                "name": "Séisme"
+              },
+              "type": "ground",
+              "category": "physical",
+              "power": 100,
+              "accuracy": 100,
+              "pp": 10,
+              "level": null,
+              "versionGroups": [
+                "scarlet-violet"
+              ]
+            },
+            {
+              "move": {
+                "id": 203,
+                "name": "Ténacité"
+              },
+              "type": "normal",
+              "category": "status",
+              "power": null,
+              "accuracy": null,
+              "pp": 10,
+              "level": null,
+              "versionGroups": [
+                "scarlet-violet"
+              ]
+            },
+            {
+              "move": {
+                "id": 851,
+                "name": "tera-blast"
+              },
+              "type": "normal",
+              "category": "special",
+              "power": 80,
+              "accuracy": 100,
+              "pp": 10,
+              "level": null,
+              "versionGroups": [
+                "scarlet-violet"
+              ]
+            },
+            {
+              "move": {
+                "id": 341,
+                "name": "Tir de Boue"
+              },
+              "type": "ground",
+              "category": "special",
+              "power": 55,
+              "accuracy": 95,
+              "pp": 15,
+              "level": null,
+              "versionGroups": [
+                "scarlet-violet"
+              ]
+            },
+            {
+              "move": {
+                "id": 707,
+                "name": "Trépignement"
+              },
+              "type": "ground",
+              "category": "physical",
+              "power": 75,
+              "accuracy": 100,
+              "pp": 10,
+              "level": null,
+              "versionGroups": [
+                "scarlet-violet"
+              ]
+            },
+            {
+              "move": {
+                "id": 91,
+                "name": "Tunnel"
+              },
+              "type": "ground",
+              "category": "physical",
+              "power": 80,
+              "accuracy": 100,
+              "pp": 10,
+              "level": null,
+              "versionGroups": [
+                "scarlet-violet"
+              ]
+            },
+            {
+              "move": {
+                "id": 63,
+                "name": "Ultralaser"
+              },
+              "type": "normal",
+              "category": "special",
+              "power": 150,
+              "accuracy": 90,
+              "pp": 5,
+              "level": null,
+              "versionGroups": [
+                "scarlet-violet"
+              ]
+            },
+            {
+              "move": {
+                "id": 241,
+                "name": "Zénith"
+              },
+              "type": "fire",
+              "category": "status",
+              "power": null,
+              "accuracy": null,
+              "pp": 5,
+              "level": null,
+              "versionGroups": [
+                "scarlet-violet"
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

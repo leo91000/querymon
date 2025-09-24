@@ -2,7 +2,7 @@ import Card from '../components/Card';
 import Badge from '../components/Badge';
 import TypeBox from '../components/TypeBox';
 import { For, Show, createMemo, createResource, createSignal } from 'solid-js';
-import { formatName, loadItemById, type ResourceName, loadNameMap } from '../services/data';
+import { formatName, loadItemById, type ResourceName, loadList } from '../services/data';
 import { t, getLocale } from '../i18n';
 
 type Move = any;
@@ -100,8 +100,10 @@ function pickFlavorText(move: Move, lang: 'en'|'fr'|'jp') {
 }
 
 export default function MoveDetail(props: { id: number }) {
-  const [data] = createResource(() => props.id, (id) => loadItemById('move' as ResourceName, id));
-  const [moveNames] = createResource(() => getLocale(), (loc) => loadNameMap('move', loc as any));
+  const [data] = createResource(
+    () => ({ id: props.id, loc: getLocale() }),
+    (key) => loadItemById('move' as ResourceName, key.id)
+  );
 
   const move = createMemo(() => data() as Move | undefined);
   const typeName = createMemo(() => move()?.type?.name);
@@ -112,7 +114,14 @@ export default function MoveDetail(props: { id: number }) {
   const [showAllLearners, setShowAllLearners] = createSignal(false);
   const learners = createMemo(() => move()?.learned_by_pokemon || []);
   const visibleLearners = createMemo(() => showAllLearners() ? learners() : learners().slice(0, 24));
-  const [pokemonNames] = createResource(() => getLocale(), (loc) => loadNameMap('pokemon', loc as any));
+  // Localized Pokémon names for learners
+  const [pokemonList] = createResource(() => getLocale(), () => loadList('pokemon' as any));
+  const pokemonNameMap = createMemo(() => {
+    const list = pokemonList() || [];
+    const map: Record<string, string> = {};
+    for (const p of list) map[String(p.id)] = p.name;
+    return map;
+  });
 
   function translateOr(key: string, fallback: string) {
     const value = t(key as any) as string;
@@ -120,16 +129,7 @@ export default function MoveDetail(props: { id: number }) {
     return value;
   }
 
-  const localizedName = createMemo(() => {
-    const id = move()?.id;
-    const map = moveNames();
-    if (id != null) {
-      const fromMap = map?.[String(id)];
-      if (fromMap) return fromMap;
-    }
-    const raw = move()?.name;
-    return raw ? formatName(raw) : '—';
-  });
+  const localizedName = createMemo(() => move()?.name ? String(move()?.name) : '—');
 
   const damageClassLabel = createMemo(() => {
     const slug = damageClass()?.toLowerCase();
@@ -224,10 +224,16 @@ export default function MoveDetail(props: { id: number }) {
               <h3 class="mb-3 text-sm font-semibold tracking-wide text-gray-500">{t('move.learnedBy')}</h3>
               <div class="flex flex-wrap gap-2">
                 <For each={visibleLearners()}>{(p: any) => {
-                  const id = idFromUrl(p.url);
+                  const id = (typeof p?.id === 'number' ? p.id : idFromUrl(p?.url));
                   return (
                     <a href={id ? `/pokemon/${id}` : '#'} class="rounded-full border border-gray-200 px-3 py-1 text-sm hover:bg-gray-50 dark:border-gray-700 dark:hover:bg-gray-700/50">
-                      {pokemonNames()?.[String(id)] || formatName(p.name)}
+                      {() => {
+                        // Recompute on locale or list updates to avoid a one-step lag
+                        const map = pokemonNameMap();
+                        const fromList = id != null ? map[String(id)] : undefined;
+                        const fromMove = p?.name ? String(p.name) : undefined;
+                        return fromList || fromMove || '—';
+                      }}
                     </a>
                   );
                 }}</For>

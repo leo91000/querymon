@@ -1,0 +1,913 @@
+{
+  "id": 360,
+  "name": "ジャイロボール",
+  "type": {
+    "id": 9,
+    "name": "steel"
+  },
+  "damage_class": {
+    "name": "physical"
+  },
+  "power": null,
+  "accuracy": 100,
+  "pp": 5,
+  "priority": 0,
+  "target": {
+    "name": "selected-pokemon"
+  },
+  "generation": {
+    "name": "generation-iv"
+  },
+  "effect_entries": [
+    {
+      "effect": "Inflicts regular damage.  Power increases with the target’s current Speed compared to the user, given by `1 + 25 * target Speed / user Speed`, capped at 150.",
+      "language": {
+        "name": "en",
+        "url": "https://pokeapi.co/api/v2/language/9/"
+      },
+      "short_effect": "Power raises when the user has lower Speed, up to a maximum of 150."
+    }
+  ],
+  "flavor_text_entries": [
+    {
+      "flavor_text": "The user tackles the foe with a high-speed spin. The slower the user, the greater the damage.",
+      "language": {
+        "name": "en",
+        "url": "https://pokeapi.co/api/v2/language/9/"
+      },
+      "version_group": {
+        "name": "diamond-pearl",
+        "url": "https://pokeapi.co/api/v2/version-group/8/"
+      }
+    },
+    {
+      "flavor_text": "The user tackles the foe with a high-speed spin. The slower the user, the greater the damage.",
+      "language": {
+        "name": "en",
+        "url": "https://pokeapi.co/api/v2/language/9/"
+      },
+      "version_group": {
+        "name": "platinum",
+        "url": "https://pokeapi.co/api/v2/version-group/9/"
+      }
+    },
+    {
+      "flavor_text": "The user tackles the foe with a high-speed spin. The slower the user, the greater the damage.",
+      "language": {
+        "name": "en",
+        "url": "https://pokeapi.co/api/v2/language/9/"
+      },
+      "version_group": {
+        "name": "heartgold-soulsilver",
+        "url": "https://pokeapi.co/api/v2/version-group/10/"
+      }
+    },
+    {
+      "flavor_text": "The user tackles the target with a high-speed spin. The slower the user, the greater the damage.",
+      "language": {
+        "name": "en",
+        "url": "https://pokeapi.co/api/v2/language/9/"
+      },
+      "version_group": {
+        "name": "black-white",
+        "url": "https://pokeapi.co/api/v2/version-group/11/"
+      }
+    },
+    {
+      "flavor_text": "The user tackles the target with a high-speed spin. The slower the user, the greater the damage.",
+      "language": {
+        "name": "en",
+        "url": "https://pokeapi.co/api/v2/language/9/"
+      },
+      "version_group": {
+        "name": "black-2-white-2",
+        "url": "https://pokeapi.co/api/v2/version-group/14/"
+      }
+    },
+    {
+      "flavor_text": "The user tackles the target with a high-speed spin. The slower the user compared to the target, the greater the move’s power.",
+      "language": {
+        "name": "en",
+        "url": "https://pokeapi.co/api/v2/language/9/"
+      },
+      "version_group": {
+        "name": "x-y",
+        "url": "https://pokeapi.co/api/v2/version-group/15/"
+      }
+    },
+    {
+      "flavor_text": "体を　高速に　回転させて 体当たりする。相手より　素早さが 低いほど　強い。",
+      "language": {
+        "name": "ja",
+        "url": "https://pokeapi.co/api/v2/language/11/"
+      },
+      "version_group": {
+        "name": "x-y",
+        "url": "https://pokeapi.co/api/v2/version-group/15/"
+      }
+    },
+    {
+      "flavor_text": "The user tackles the target with a high-speed spin. The slower the user compared to the target, the greater the move’s power.",
+      "language": {
+        "name": "en",
+        "url": "https://pokeapi.co/api/v2/language/9/"
+      },
+      "version_group": {
+        "name": "omega-ruby-alpha-sapphire",
+        "url": "https://pokeapi.co/api/v2/version-group/16/"
+      }
+    },
+    {
+      "flavor_text": "体を　高速に　回転させて 体当たりする。相手より　素早さが 低いほど　強い。",
+      "language": {
+        "name": "ja",
+        "url": "https://pokeapi.co/api/v2/language/11/"
+      },
+      "version_group": {
+        "name": "omega-ruby-alpha-sapphire",
+        "url": "https://pokeapi.co/api/v2/version-group/16/"
+      }
+    },
+    {
+      "flavor_text": "The user tackles the target with a high-speed spin. The slower the user compared to the target, the greater the move’s power.",
+      "language": {
+        "name": "en",
+        "url": "https://pokeapi.co/api/v2/language/9/"
+      },
+      "version_group": {
+        "name": "sun-moon",
+        "url": "https://pokeapi.co/api/v2/version-group/17/"
+      }
+    },
+    {
+      "flavor_text": "体を　高速に　回転させて 体当たりする。相手より　素早さが 低いほど　強い。",
+      "language": {
+        "name": "ja",
+        "url": "https://pokeapi.co/api/v2/language/11/"
+      },
+      "version_group": {
+        "name": "sun-moon",
+        "url": "https://pokeapi.co/api/v2/version-group/17/"
+      }
+    },
+    {
+      "flavor_text": "The user tackles the target with a high-speed spin. The slower the user compared to the target, the greater the move’s power.",
+      "language": {
+        "name": "en",
+        "url": "https://pokeapi.co/api/v2/language/9/"
+      },
+      "version_group": {
+        "name": "ultra-sun-ultra-moon",
+        "url": "https://pokeapi.co/api/v2/version-group/18/"
+      }
+    },
+    {
+      "flavor_text": "体を　高速に　回転させて 体当たりする。相手より　素早さが 低いほど　強い。",
+      "language": {
+        "name": "ja",
+        "url": "https://pokeapi.co/api/v2/language/11/"
+      },
+      "version_group": {
+        "name": "ultra-sun-ultra-moon",
+        "url": "https://pokeapi.co/api/v2/version-group/18/"
+      }
+    },
+    {
+      "flavor_text": "The user tackles the target with a high-speed spin. The slower the user compared to the target, the greater the move’s power.",
+      "language": {
+        "name": "en",
+        "url": "https://pokeapi.co/api/v2/language/9/"
+      },
+      "version_group": {
+        "name": "lets-go-pikachu-lets-go-eevee",
+        "url": "https://pokeapi.co/api/v2/version-group/19/"
+      }
+    },
+    {
+      "flavor_text": "体を　高速に　回転させて 体当たりする。相手より　素早さが 低いほど　強い。",
+      "language": {
+        "name": "ja",
+        "url": "https://pokeapi.co/api/v2/language/11/"
+      },
+      "version_group": {
+        "name": "lets-go-pikachu-lets-go-eevee",
+        "url": "https://pokeapi.co/api/v2/version-group/19/"
+      }
+    },
+    {
+      "flavor_text": "The user tackles the target with a high-speed spin. The slower the user compared to the target, the greater the move’s power.",
+      "language": {
+        "name": "en",
+        "url": "https://pokeapi.co/api/v2/language/9/"
+      },
+      "version_group": {
+        "name": "sword-shield",
+        "url": "https://pokeapi.co/api/v2/version-group/20/"
+      }
+    },
+    {
+      "flavor_text": "体を　高速に　回転させて 体当たりする。相手より　素早さが 低いほど　強い。",
+      "language": {
+        "name": "ja",
+        "url": "https://pokeapi.co/api/v2/language/11/"
+      },
+      "version_group": {
+        "name": "sword-shield",
+        "url": "https://pokeapi.co/api/v2/version-group/20/"
+      }
+    },
+    {
+      "flavor_text": "The user tackles the target with a high-speed spin. The slower the user compared to the target, the greater the move's power.",
+      "language": {
+        "name": "en",
+        "url": "https://pokeapi.co/api/v2/language/9/"
+      },
+      "version_group": {
+        "name": "legends-arceus",
+        "url": "https://pokeapi.co/api/v2/version-group/24/"
+      }
+    },
+    {
+      "flavor_text": "The user tackles the target with a high-speed spin. The slower the user is than the target, the greater the move's power.",
+      "language": {
+        "name": "en",
+        "url": "https://pokeapi.co/api/v2/language/9/"
+      },
+      "version_group": {
+        "name": "scarlet-violet",
+        "url": "https://pokeapi.co/api/v2/version-group/25/"
+      }
+    }
+  ],
+  "stat_changes": [],
+  "learned_by_pokemon": [
+    {
+      "id": 7,
+      "name": "ゼニガメ"
+    },
+    {
+      "id": 8,
+      "name": "カメール"
+    },
+    {
+      "id": 9,
+      "name": "カメックス"
+    },
+    {
+      "id": 27,
+      "name": "サンド"
+    },
+    {
+      "id": 28,
+      "name": "サンドパン"
+    },
+    {
+      "id": 39,
+      "name": "プリン"
+    },
+    {
+      "id": 40,
+      "name": "プクリン"
+    },
+    {
+      "id": 74,
+      "name": "イシツブテ"
+    },
+    {
+      "id": 75,
+      "name": "ゴローン"
+    },
+    {
+      "id": 76,
+      "name": "ゴローニャ"
+    },
+    {
+      "id": 81,
+      "name": "コイル"
+    },
+    {
+      "id": 82,
+      "name": "レアコイル"
+    },
+    {
+      "id": 95,
+      "name": "イワーク"
+    },
+    {
+      "id": 100,
+      "name": "ビリリダマ"
+    },
+    {
+      "id": 101,
+      "name": "マルマイン"
+    },
+    {
+      "id": 109,
+      "name": "ドガース"
+    },
+    {
+      "id": 110,
+      "name": "マタドガス"
+    },
+    {
+      "id": 120,
+      "name": "ヒトデマン"
+    },
+    {
+      "id": 121,
+      "name": "スターミー"
+    },
+    {
+      "id": 138,
+      "name": "オムナイト"
+    },
+    {
+      "id": 139,
+      "name": "オムスター"
+    },
+    {
+      "id": 151,
+      "name": "ミュウ"
+    },
+    {
+      "id": 157,
+      "name": "バクフーン"
+    },
+    {
+      "id": 204,
+      "name": "クヌギダマ"
+    },
+    {
+      "id": 205,
+      "name": "フォレトス"
+    },
+    {
+      "id": 206,
+      "name": "ノコッチ"
+    },
+    {
+      "id": 208,
+      "name": "ハガネール"
+    },
+    {
+      "id": 211,
+      "name": "ハリーセン"
+    },
+    {
+      "id": 213,
+      "name": "ツボツボ"
+    },
+    {
+      "id": 219,
+      "name": "マグカルゴ"
+    },
+    {
+      "id": 232,
+      "name": "ドンファン"
+    },
+    {
+      "id": 237,
+      "name": "カポエラー"
+    },
+    {
+      "id": 241,
+      "name": "ミルタンク"
+    },
+    {
+      "id": 302,
+      "name": "ヤミラミ"
+    },
+    {
+      "id": 324,
+      "name": "コータス"
+    },
+    {
+      "id": 337,
+      "name": "ルナトーン"
+    },
+    {
+      "id": 338,
+      "name": "ソルロック"
+    },
+    {
+      "id": 343,
+      "name": "ヤジロン"
+    },
+    {
+      "id": 344,
+      "name": "ネンドール"
+    },
+    {
+      "id": 362,
+      "name": "オニゴーリ"
+    },
+    {
+      "id": 375,
+      "name": "メタング"
+    },
+    {
+      "id": 376,
+      "name": "メタグロス"
+    },
+    {
+      "id": 384,
+      "name": "レックウザ"
+    },
+    {
+      "id": 425,
+      "name": "フワンテ"
+    },
+    {
+      "id": 426,
+      "name": "フワライド"
+    },
+    {
+      "id": 436,
+      "name": "ドーミラー"
+    },
+    {
+      "id": 437,
+      "name": "ドータクン"
+    },
+    {
+      "id": 462,
+      "name": "ジバコイル"
+    },
+    {
+      "id": 463,
+      "name": "ベロベルト"
+    },
+    {
+      "id": 498,
+      "name": "ポカブ"
+    },
+    {
+      "id": 499,
+      "name": "チャオブー"
+    },
+    {
+      "id": 500,
+      "name": "エンブオー"
+    },
+    {
+      "id": 517,
+      "name": "ムンナ"
+    },
+    {
+      "id": 518,
+      "name": "ムシャーナ"
+    },
+    {
+      "id": 527,
+      "name": "コロモリ"
+    },
+    {
+      "id": 528,
+      "name": "ココロモリ"
+    },
+    {
+      "id": 543,
+      "name": "フシデ"
+    },
+    {
+      "id": 544,
+      "name": "ホイーガ"
+    },
+    {
+      "id": 545,
+      "name": "ペンドラー"
+    },
+    {
+      "id": 554,
+      "name": "ダルマッカ"
+    },
+    {
+      "id": 555,
+      "name": "ヒヒダルマ"
+    },
+    {
+      "id": 577,
+      "name": "ユニラン"
+    },
+    {
+      "id": 578,
+      "name": "ダブラン"
+    },
+    {
+      "id": 579,
+      "name": "ランクルス"
+    },
+    {
+      "id": 597,
+      "name": "テッシード"
+    },
+    {
+      "id": 598,
+      "name": "ナットレイ"
+    },
+    {
+      "id": 622,
+      "name": "ゴビット"
+    },
+    {
+      "id": 623,
+      "name": "ゴルーグ"
+    },
+    {
+      "id": 650,
+      "name": "ハリマロン"
+    },
+    {
+      "id": 651,
+      "name": "ハリボーグ"
+    },
+    {
+      "id": 652,
+      "name": "ブリガロン"
+    },
+    {
+      "id": 679,
+      "name": "ヒトツキ"
+    },
+    {
+      "id": 680,
+      "name": "ニダンギル"
+    },
+    {
+      "id": 681,
+      "name": "ギルガルド"
+    },
+    {
+      "id": 682,
+      "name": "シュシュプ"
+    },
+    {
+      "id": 683,
+      "name": "フレフワン"
+    },
+    {
+      "id": 703,
+      "name": "メレシー"
+    },
+    {
+      "id": 710,
+      "name": "バケッチャ"
+    },
+    {
+      "id": 711,
+      "name": "パンプジン"
+    },
+    {
+      "id": 712,
+      "name": "カチコール"
+    },
+    {
+      "id": 713,
+      "name": "クレベース"
+    },
+    {
+      "id": 719,
+      "name": "ディアンシー"
+    },
+    {
+      "id": 721,
+      "name": "ボルケニオン"
+    },
+    {
+      "id": 766,
+      "name": "ナゲツケサル"
+    },
+    {
+      "id": 774,
+      "name": "メテノ"
+    },
+    {
+      "id": 777,
+      "name": "トゲデマル"
+    },
+    {
+      "id": 781,
+      "name": "ダダリン"
+    },
+    {
+      "id": 791,
+      "name": "ソルガレオ"
+    },
+    {
+      "id": 794,
+      "name": "マッシブーン"
+    },
+    {
+      "id": 797,
+      "name": "テッカグヤ"
+    },
+    {
+      "id": 799,
+      "name": "アクジキング"
+    },
+    {
+      "id": 800,
+      "name": "ネクロズマ"
+    },
+    {
+      "id": 801,
+      "name": "マギアナ"
+    },
+    {
+      "id": 805,
+      "name": "ツンデツンデ"
+    },
+    {
+      "id": 808,
+      "name": "メルタン"
+    },
+    {
+      "id": 809,
+      "name": "メルメタル"
+    },
+    {
+      "id": 819,
+      "name": "ホシガリス"
+    },
+    {
+      "id": 820,
+      "name": "ヨクバリス"
+    },
+    {
+      "id": 837,
+      "name": "タンドン"
+    },
+    {
+      "id": 838,
+      "name": "トロッゴン"
+    },
+    {
+      "id": 839,
+      "name": "セキタンザン"
+    },
+    {
+      "id": 842,
+      "name": "タルップル"
+    },
+    {
+      "id": 863,
+      "name": "ニャイキング"
+    },
+    {
+      "id": 884,
+      "name": "ジュラルドン"
+    },
+    {
+      "id": 904,
+      "name": "ハリーマン"
+    },
+    {
+      "id": 965,
+      "name": "ブロロン"
+    },
+    {
+      "id": 966,
+      "name": "ブロロローム"
+    },
+    {
+      "id": 982,
+      "name": "ノココッチ"
+    },
+    {
+      "id": 985,
+      "name": "サケブシッポ"
+    },
+    {
+      "id": 990,
+      "name": "テツノワダチ"
+    },
+    {
+      "id": 1011,
+      "name": "カミッチュ"
+    },
+    {
+      "id": 1018,
+      "name": "ブリジュラス"
+    },
+    {
+      "id": 1019,
+      "name": "カミツオロチ"
+    },
+    {
+      "id": 1024,
+      "name": "テラパゴス"
+    },
+    {
+      "id": 10005,
+      "name": "ミノマダム"
+    },
+    {
+      "id": 10017,
+      "name": "ヒヒダルマ"
+    },
+    {
+      "id": 10026,
+      "name": "ギルガルド"
+    },
+    {
+      "id": 10027,
+      "name": "バケッチャ"
+    },
+    {
+      "id": 10028,
+      "name": "バケッチャ"
+    },
+    {
+      "id": 10029,
+      "name": "バケッチャ"
+    },
+    {
+      "id": 10030,
+      "name": "パンプジン"
+    },
+    {
+      "id": 10031,
+      "name": "パンプジン"
+    },
+    {
+      "id": 10032,
+      "name": "パンプジン"
+    },
+    {
+      "id": 10036,
+      "name": "カメックス"
+    },
+    {
+      "id": 10072,
+      "name": "ハガネール"
+    },
+    {
+      "id": 10074,
+      "name": "オニゴーリ"
+    },
+    {
+      "id": 10075,
+      "name": "ディアンシー"
+    },
+    {
+      "id": 10076,
+      "name": "メタグロス"
+    },
+    {
+      "id": 10079,
+      "name": "レックウザ"
+    },
+    {
+      "id": 10101,
+      "name": "サンド"
+    },
+    {
+      "id": 10102,
+      "name": "サンドパン"
+    },
+    {
+      "id": 10109,
+      "name": "イシツブテ"
+    },
+    {
+      "id": 10110,
+      "name": "ゴローン"
+    },
+    {
+      "id": 10111,
+      "name": "ゴローニャ"
+    },
+    {
+      "id": 10130,
+      "name": "メテノ"
+    },
+    {
+      "id": 10131,
+      "name": "メテノ"
+    },
+    {
+      "id": 10132,
+      "name": "メテノ"
+    },
+    {
+      "id": 10133,
+      "name": "メテノ"
+    },
+    {
+      "id": 10134,
+      "name": "メテノ"
+    },
+    {
+      "id": 10135,
+      "name": "メテノ"
+    },
+    {
+      "id": 10136,
+      "name": "メテノ"
+    },
+    {
+      "id": 10137,
+      "name": "メテノ"
+    },
+    {
+      "id": 10138,
+      "name": "メテノ"
+    },
+    {
+      "id": 10139,
+      "name": "メテノ"
+    },
+    {
+      "id": 10140,
+      "name": "メテノ"
+    },
+    {
+      "id": 10141,
+      "name": "メテノ"
+    },
+    {
+      "id": 10142,
+      "name": "メテノ"
+    },
+    {
+      "id": 10147,
+      "name": "マギアナ"
+    },
+    {
+      "id": 10154,
+      "name": "トゲデマル"
+    },
+    {
+      "id": 10155,
+      "name": "ネクロズマ"
+    },
+    {
+      "id": 10156,
+      "name": "ネクロズマ"
+    },
+    {
+      "id": 10157,
+      "name": "ネクロズマ"
+    },
+    {
+      "id": 10161,
+      "name": "ニャース"
+    },
+    {
+      "id": 10167,
+      "name": "マタドガス"
+    },
+    {
+      "id": 10176,
+      "name": "ダルマッカ"
+    },
+    {
+      "id": 10177,
+      "name": "ヒヒダルマ"
+    },
+    {
+      "id": 10178,
+      "name": "ヒヒダルマ"
+    },
+    {
+      "id": 10231,
+      "name": "ビリリダマ"
+    },
+    {
+      "id": 10232,
+      "name": "マルマイン"
+    },
+    {
+      "id": 10233,
+      "name": "バクフーン"
+    },
+    {
+      "id": 10234,
+      "name": "ハリーセン"
+    },
+    {
+      "id": 10241,
+      "name": "ヌメイル"
+    },
+    {
+      "id": 10242,
+      "name": "ヌメルゴン"
+    },
+    {
+      "id": 10243,
+      "name": "クレベース"
+    },
+    {
+      "id": 10255,
+      "name": "ノココッチ"
+    },
+    {
+      "id": 10276,
+      "name": "テラパゴス"
+    },
+    {
+      "id": 10277,
+      "name": "テラパゴス"
+    }
+  ]
+}

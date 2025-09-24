@@ -1,0 +1,947 @@
+{
+  "id": 197,
+  "name": "Détection",
+  "type": {
+    "id": 2,
+    "name": "fighting"
+  },
+  "damage_class": {
+    "name": "status"
+  },
+  "power": null,
+  "accuracy": null,
+  "pp": 5,
+  "priority": 4,
+  "target": {
+    "name": "user"
+  },
+  "generation": {
+    "name": "generation-ii"
+  },
+  "effect_entries": [
+    {
+      "effect": "No moves will hit the user for the remainder of this turn.  If the user is last to act this turn, this move will fail.  If the user successfully used detect, endure, protect, quick guard, or wide guard on the last turn, this move has a 50% chance to fail.  lock on, mind reader, and no guard provide a (100 – accuracy)% chance for moves to break through this move.  This does not apply to one-hit KO moves (fissure, guillotine, horn drill, and sheer cold); those are always blocked by this move.  thunder during rain dance and blizzard during hail have a 30% chance to break through this move.  The following effects are not prevented by this move:  * acupressure from an ally * curse’s curse effect * Delayed damage from doom desire and future sight; however, these moves will be prevented if they are used this turn * feint, which will also end this move’s protection after it hits * imprison * perish song * shadow force * Moves that merely copy the user, such as transform or psych up  This move cannot be selected by assist or metronome.",
+      "language": {
+        "name": "en",
+        "url": "https://pokeapi.co/api/v2/language/9/"
+      },
+      "short_effect": "Prevents any moves from hitting the user this turn."
+    }
+  ],
+  "flavor_text_entries": [
+    {
+      "flavor_text": "Evades attack that turn. It may fail.",
+      "language": {
+        "name": "en",
+        "url": "https://pokeapi.co/api/v2/language/9/"
+      },
+      "version_group": {
+        "name": "gold-silver",
+        "url": "https://pokeapi.co/api/v2/version-group/3/"
+      }
+    },
+    {
+      "flavor_text": "Evades attack that turn. It may fail.",
+      "language": {
+        "name": "en",
+        "url": "https://pokeapi.co/api/v2/language/9/"
+      },
+      "version_group": {
+        "name": "crystal",
+        "url": "https://pokeapi.co/api/v2/version-group/4/"
+      }
+    },
+    {
+      "flavor_text": "Evades attack, but may fail if used in succession.",
+      "language": {
+        "name": "en",
+        "url": "https://pokeapi.co/api/v2/language/9/"
+      },
+      "version_group": {
+        "name": "ruby-sapphire",
+        "url": "https://pokeapi.co/api/v2/version-group/5/"
+      }
+    },
+    {
+      "flavor_text": "Evades attack, but may fail if used in succession.",
+      "language": {
+        "name": "en",
+        "url": "https://pokeapi.co/api/v2/language/9/"
+      },
+      "version_group": {
+        "name": "emerald",
+        "url": "https://pokeapi.co/api/v2/version-group/6/"
+      }
+    },
+    {
+      "flavor_text": "Enables the user to evade all attacks. It may fail if used in succession.",
+      "language": {
+        "name": "en",
+        "url": "https://pokeapi.co/api/v2/language/9/"
+      },
+      "version_group": {
+        "name": "firered-leafgreen",
+        "url": "https://pokeapi.co/api/v2/version-group/7/"
+      }
+    },
+    {
+      "flavor_text": "It enables the user to evade all attacks. Its chance of failing rises if it is used in succession.",
+      "language": {
+        "name": "en",
+        "url": "https://pokeapi.co/api/v2/language/9/"
+      },
+      "version_group": {
+        "name": "diamond-pearl",
+        "url": "https://pokeapi.co/api/v2/version-group/8/"
+      }
+    },
+    {
+      "flavor_text": "It enables the user to evade all attacks. Its chance of failing rises if it is used in succession.",
+      "language": {
+        "name": "en",
+        "url": "https://pokeapi.co/api/v2/language/9/"
+      },
+      "version_group": {
+        "name": "platinum",
+        "url": "https://pokeapi.co/api/v2/version-group/9/"
+      }
+    },
+    {
+      "flavor_text": "It enables the user to evade all attacks. Its chance of failing rises if it is used in succession.",
+      "language": {
+        "name": "en",
+        "url": "https://pokeapi.co/api/v2/language/9/"
+      },
+      "version_group": {
+        "name": "heartgold-soulsilver",
+        "url": "https://pokeapi.co/api/v2/version-group/10/"
+      }
+    },
+    {
+      "flavor_text": "Le lanceur esquive toutes les attaques. Plus la capacité est utilisée de fois à la suite, plus elle risque d’échouer.",
+      "language": {
+        "name": "fr",
+        "url": "https://pokeapi.co/api/v2/language/5/"
+      },
+      "version_group": {
+        "name": "black-white",
+        "url": "https://pokeapi.co/api/v2/version-group/11/"
+      }
+    },
+    {
+      "flavor_text": "It enables the user to evade all attacks. Its chance of failing rises if it is used in succession.",
+      "language": {
+        "name": "en",
+        "url": "https://pokeapi.co/api/v2/language/9/"
+      },
+      "version_group": {
+        "name": "black-white",
+        "url": "https://pokeapi.co/api/v2/version-group/11/"
+      }
+    },
+    {
+      "flavor_text": "It enables the user to evade all attacks. Its chance of failing rises if it is used in succession.",
+      "language": {
+        "name": "en",
+        "url": "https://pokeapi.co/api/v2/language/9/"
+      },
+      "version_group": {
+        "name": "black-2-white-2",
+        "url": "https://pokeapi.co/api/v2/version-group/14/"
+      }
+    },
+    {
+      "flavor_text": "Le lanceur esquive toutes les attaques. Le risque d’échec augmente lorsque la capacité est utilisée plusieurs fois de suite.",
+      "language": {
+        "name": "fr",
+        "url": "https://pokeapi.co/api/v2/language/5/"
+      },
+      "version_group": {
+        "name": "x-y",
+        "url": "https://pokeapi.co/api/v2/version-group/15/"
+      }
+    },
+    {
+      "flavor_text": "Enables the user to evade all attacks. Its chance of failing rises if it is used in succession.",
+      "language": {
+        "name": "en",
+        "url": "https://pokeapi.co/api/v2/language/9/"
+      },
+      "version_group": {
+        "name": "x-y",
+        "url": "https://pokeapi.co/api/v2/version-group/15/"
+      }
+    },
+    {
+      "flavor_text": "Le lanceur esquive toutes les attaques. Le risque d’échec augmente lorsque la capacité est utilisée plusieurs fois de suite.",
+      "language": {
+        "name": "fr",
+        "url": "https://pokeapi.co/api/v2/language/5/"
+      },
+      "version_group": {
+        "name": "omega-ruby-alpha-sapphire",
+        "url": "https://pokeapi.co/api/v2/version-group/16/"
+      }
+    },
+    {
+      "flavor_text": "Enables the user to evade all attacks. Its chance of failing rises if it is used in succession.",
+      "language": {
+        "name": "en",
+        "url": "https://pokeapi.co/api/v2/language/9/"
+      },
+      "version_group": {
+        "name": "omega-ruby-alpha-sapphire",
+        "url": "https://pokeapi.co/api/v2/version-group/16/"
+      }
+    },
+    {
+      "flavor_text": "Le lanceur esquive toutes les attaques. Le risque d’échec augmente lorsque la capacité est utilisée plusieurs fois de suite.",
+      "language": {
+        "name": "fr",
+        "url": "https://pokeapi.co/api/v2/language/5/"
+      },
+      "version_group": {
+        "name": "sun-moon",
+        "url": "https://pokeapi.co/api/v2/version-group/17/"
+      }
+    },
+    {
+      "flavor_text": "Enables the user to evade all attacks. Its chance of failing rises if it is used in succession.",
+      "language": {
+        "name": "en",
+        "url": "https://pokeapi.co/api/v2/language/9/"
+      },
+      "version_group": {
+        "name": "sun-moon",
+        "url": "https://pokeapi.co/api/v2/version-group/17/"
+      }
+    },
+    {
+      "flavor_text": "Le lanceur esquive toutes les attaques. Le risque d’échec augmente lorsque la capacité est utilisée plusieurs fois de suite.",
+      "language": {
+        "name": "fr",
+        "url": "https://pokeapi.co/api/v2/language/5/"
+      },
+      "version_group": {
+        "name": "ultra-sun-ultra-moon",
+        "url": "https://pokeapi.co/api/v2/version-group/18/"
+      }
+    },
+    {
+      "flavor_text": "Enables the user to evade all attacks. Its chance of failing rises if it is used in succession.",
+      "language": {
+        "name": "en",
+        "url": "https://pokeapi.co/api/v2/language/9/"
+      },
+      "version_group": {
+        "name": "ultra-sun-ultra-moon",
+        "url": "https://pokeapi.co/api/v2/version-group/18/"
+      }
+    },
+    {
+      "flavor_text": "Le lanceur esquive toutes les attaques. Le risque d’échec augmente lorsque la capacité est utilisée plusieurs fois de suite.",
+      "language": {
+        "name": "fr",
+        "url": "https://pokeapi.co/api/v2/language/5/"
+      },
+      "version_group": {
+        "name": "lets-go-pikachu-lets-go-eevee",
+        "url": "https://pokeapi.co/api/v2/version-group/19/"
+      }
+    },
+    {
+      "flavor_text": "Enables the user to evade all attacks. Its chance of failing rises if it is used in succession.",
+      "language": {
+        "name": "en",
+        "url": "https://pokeapi.co/api/v2/language/9/"
+      },
+      "version_group": {
+        "name": "lets-go-pikachu-lets-go-eevee",
+        "url": "https://pokeapi.co/api/v2/version-group/19/"
+      }
+    },
+    {
+      "flavor_text": "Le lanceur se protège de toutes les attaques. Peut échouer si utilisée plusieurs fois de suite.",
+      "language": {
+        "name": "fr",
+        "url": "https://pokeapi.co/api/v2/language/5/"
+      },
+      "version_group": {
+        "name": "sword-shield",
+        "url": "https://pokeapi.co/api/v2/version-group/20/"
+      }
+    },
+    {
+      "flavor_text": "This move enables the user to protect itself from all attacks. Its chance of failing rises if it is used in succession.",
+      "language": {
+        "name": "en",
+        "url": "https://pokeapi.co/api/v2/language/9/"
+      },
+      "version_group": {
+        "name": "sword-shield",
+        "url": "https://pokeapi.co/api/v2/version-group/20/"
+      }
+    },
+    {
+      "flavor_text": "This move enables the user to protect itself from all attacks. Its chance of failing rises if it is used in succession.",
+      "language": {
+        "name": "en",
+        "url": "https://pokeapi.co/api/v2/language/9/"
+      },
+      "version_group": {
+        "name": "legends-arceus",
+        "url": "https://pokeapi.co/api/v2/version-group/24/"
+      }
+    },
+    {
+      "flavor_text": "This move enables the user to protect itself from all attacks. Its chance of failing rises if it is used in succession.",
+      "language": {
+        "name": "en",
+        "url": "https://pokeapi.co/api/v2/language/9/"
+      },
+      "version_group": {
+        "name": "scarlet-violet",
+        "url": "https://pokeapi.co/api/v2/version-group/25/"
+      }
+    }
+  ],
+  "stat_changes": [],
+  "learned_by_pokemon": [
+    {
+      "id": 16,
+      "name": "Roucool"
+    },
+    {
+      "id": 17,
+      "name": "Roucoups"
+    },
+    {
+      "id": 18,
+      "name": "Roucarnage"
+    },
+    {
+      "id": 21,
+      "name": "Piafabec"
+    },
+    {
+      "id": 22,
+      "name": "Rapasdepic"
+    },
+    {
+      "id": 25,
+      "name": "Pikachu"
+    },
+    {
+      "id": 26,
+      "name": "Raichu"
+    },
+    {
+      "id": 27,
+      "name": "Sabelette"
+    },
+    {
+      "id": 28,
+      "name": "Sablaireau"
+    },
+    {
+      "id": 29,
+      "name": "Nidoran♀"
+    },
+    {
+      "id": 30,
+      "name": "Nidorina"
+    },
+    {
+      "id": 31,
+      "name": "Nidoqueen"
+    },
+    {
+      "id": 32,
+      "name": "Nidoran♂"
+    },
+    {
+      "id": 33,
+      "name": "Nidorino"
+    },
+    {
+      "id": 34,
+      "name": "Nidoking"
+    },
+    {
+      "id": 35,
+      "name": "Mélofée"
+    },
+    {
+      "id": 36,
+      "name": "Mélodelfe"
+    },
+    {
+      "id": 39,
+      "name": "Rondoudou"
+    },
+    {
+      "id": 40,
+      "name": "Grodoudou"
+    },
+    {
+      "id": 41,
+      "name": "Nosferapti"
+    },
+    {
+      "id": 42,
+      "name": "Nosferalto"
+    },
+    {
+      "id": 52,
+      "name": "Miaouss"
+    },
+    {
+      "id": 53,
+      "name": "Persian"
+    },
+    {
+      "id": 56,
+      "name": "Férosinge"
+    },
+    {
+      "id": 57,
+      "name": "Colossinge"
+    },
+    {
+      "id": 61,
+      "name": "Têtarte"
+    },
+    {
+      "id": 62,
+      "name": "Tartard"
+    },
+    {
+      "id": 66,
+      "name": "Machoc"
+    },
+    {
+      "id": 67,
+      "name": "Machopeur"
+    },
+    {
+      "id": 68,
+      "name": "Mackogneur"
+    },
+    {
+      "id": 83,
+      "name": "Canarticho"
+    },
+    {
+      "id": 104,
+      "name": "Osselait"
+    },
+    {
+      "id": 105,
+      "name": "Ossatueur"
+    },
+    {
+      "id": 106,
+      "name": "Kicklee"
+    },
+    {
+      "id": 107,
+      "name": "Tygnon"
+    },
+    {
+      "id": 123,
+      "name": "Insécateur"
+    },
+    {
+      "id": 125,
+      "name": "Élektek"
+    },
+    {
+      "id": 126,
+      "name": "Magmar"
+    },
+    {
+      "id": 133,
+      "name": "Évoli"
+    },
+    {
+      "id": 134,
+      "name": "Aquali"
+    },
+    {
+      "id": 135,
+      "name": "Voltali"
+    },
+    {
+      "id": 136,
+      "name": "Pyroli"
+    },
+    {
+      "id": 142,
+      "name": "Ptéra"
+    },
+    {
+      "id": 144,
+      "name": "Artikodin"
+    },
+    {
+      "id": 145,
+      "name": "Électhor"
+    },
+    {
+      "id": 146,
+      "name": "Sulfura"
+    },
+    {
+      "id": 147,
+      "name": "Minidraco"
+    },
+    {
+      "id": 148,
+      "name": "Draco"
+    },
+    {
+      "id": 149,
+      "name": "Dracolosse"
+    },
+    {
+      "id": 150,
+      "name": "Mewtwo"
+    },
+    {
+      "id": 151,
+      "name": "Mew"
+    },
+    {
+      "id": 152,
+      "name": "Germignon"
+    },
+    {
+      "id": 153,
+      "name": "Macronium"
+    },
+    {
+      "id": 154,
+      "name": "Méganium"
+    },
+    {
+      "id": 155,
+      "name": "Héricendre"
+    },
+    {
+      "id": 156,
+      "name": "Feurisson"
+    },
+    {
+      "id": 157,
+      "name": "Typhlosion"
+    },
+    {
+      "id": 158,
+      "name": "Kaiminus"
+    },
+    {
+      "id": 159,
+      "name": "Crocrodil"
+    },
+    {
+      "id": 160,
+      "name": "Aligatueur"
+    },
+    {
+      "id": 161,
+      "name": "Fouinette"
+    },
+    {
+      "id": 162,
+      "name": "Fouinar"
+    },
+    {
+      "id": 163,
+      "name": "Hoothoot"
+    },
+    {
+      "id": 164,
+      "name": "Noarfang"
+    },
+    {
+      "id": 169,
+      "name": "Nostenfer"
+    },
+    {
+      "id": 172,
+      "name": "Pichu"
+    },
+    {
+      "id": 173,
+      "name": "Mélo"
+    },
+    {
+      "id": 174,
+      "name": "Toudoudou"
+    },
+    {
+      "id": 175,
+      "name": "Togepi"
+    },
+    {
+      "id": 176,
+      "name": "Togetic"
+    },
+    {
+      "id": 177,
+      "name": "Natu"
+    },
+    {
+      "id": 178,
+      "name": "Xatu"
+    },
+    {
+      "id": 186,
+      "name": "Tarpaud"
+    },
+    {
+      "id": 190,
+      "name": "Capumain"
+    },
+    {
+      "id": 193,
+      "name": "Yanma"
+    },
+    {
+      "id": 196,
+      "name": "Mentali"
+    },
+    {
+      "id": 197,
+      "name": "Noctali"
+    },
+    {
+      "id": 198,
+      "name": "Cornèbre"
+    },
+    {
+      "id": 207,
+      "name": "Scorplane"
+    },
+    {
+      "id": 209,
+      "name": "Snubbull"
+    },
+    {
+      "id": 210,
+      "name": "Granbull"
+    },
+    {
+      "id": 212,
+      "name": "Cizayox"
+    },
+    {
+      "id": 214,
+      "name": "Scarhino"
+    },
+    {
+      "id": 215,
+      "name": "Farfuret"
+    },
+    {
+      "id": 220,
+      "name": "Marcacrin"
+    },
+    {
+      "id": 221,
+      "name": "Cochignon"
+    },
+    {
+      "id": 225,
+      "name": "Cadoizo"
+    },
+    {
+      "id": 227,
+      "name": "Airmure"
+    },
+    {
+      "id": 228,
+      "name": "Malosse"
+    },
+    {
+      "id": 229,
+      "name": "Démolosse"
+    },
+    {
+      "id": 234,
+      "name": "Cerfrousse"
+    },
+    {
+      "id": 236,
+      "name": "Debugant"
+    },
+    {
+      "id": 237,
+      "name": "Kapoera"
+    },
+    {
+      "id": 239,
+      "name": "Élekid"
+    },
+    {
+      "id": 240,
+      "name": "Magby"
+    },
+    {
+      "id": 243,
+      "name": "Raikou"
+    },
+    {
+      "id": 244,
+      "name": "Entei"
+    },
+    {
+      "id": 245,
+      "name": "Suicune"
+    },
+    {
+      "id": 246,
+      "name": "Embrylex"
+    },
+    {
+      "id": 247,
+      "name": "Ymphect"
+    },
+    {
+      "id": 248,
+      "name": "Tyranocif"
+    },
+    {
+      "id": 249,
+      "name": "Lugia"
+    },
+    {
+      "id": 250,
+      "name": "Ho-Oh"
+    },
+    {
+      "id": 251,
+      "name": "Celebi"
+    },
+    {
+      "id": 252,
+      "name": "Arcko"
+    },
+    {
+      "id": 253,
+      "name": "Massko"
+    },
+    {
+      "id": 254,
+      "name": "Jungko"
+    },
+    {
+      "id": 255,
+      "name": "Poussifeu"
+    },
+    {
+      "id": 256,
+      "name": "Galifeu"
+    },
+    {
+      "id": 257,
+      "name": "Braségali"
+    },
+    {
+      "id": 296,
+      "name": "Makuhita"
+    },
+    {
+      "id": 297,
+      "name": "Hariyama"
+    },
+    {
+      "id": 302,
+      "name": "Ténéfix"
+    },
+    {
+      "id": 307,
+      "name": "Méditikka"
+    },
+    {
+      "id": 308,
+      "name": "Charmina"
+    },
+    {
+      "id": 335,
+      "name": "Mangriff"
+    },
+    {
+      "id": 352,
+      "name": "Kecleon"
+    },
+    {
+      "id": 359,
+      "name": "Absol"
+    },
+    {
+      "id": 396,
+      "name": "Étourmi"
+    },
+    {
+      "id": 447,
+      "name": "Riolu"
+    },
+    {
+      "id": 448,
+      "name": "Lucario"
+    },
+    {
+      "id": 469,
+      "name": "Yanmega"
+    },
+    {
+      "id": 482,
+      "name": "Créfadet"
+    },
+    {
+      "id": 501,
+      "name": "Moustillon"
+    },
+    {
+      "id": 502,
+      "name": "Mateloutre"
+    },
+    {
+      "id": 503,
+      "name": "Clamiral"
+    },
+    {
+      "id": 504,
+      "name": "Ratentif"
+    },
+    {
+      "id": 505,
+      "name": "Miradar"
+    },
+    {
+      "id": 519,
+      "name": "Poichigeon"
+    },
+    {
+      "id": 520,
+      "name": "Colombeau"
+    },
+    {
+      "id": 521,
+      "name": "Déflaisan"
+    },
+    {
+      "id": 532,
+      "name": "Charpenti"
+    },
+    {
+      "id": 533,
+      "name": "Ouvrifier"
+    },
+    {
+      "id": 534,
+      "name": "Bétochef"
+    },
+    {
+      "id": 559,
+      "name": "Baggiguane"
+    },
+    {
+      "id": 560,
+      "name": "Baggaïd"
+    },
+    {
+      "id": 570,
+      "name": "Zorua"
+    },
+    {
+      "id": 619,
+      "name": "Kungfouine"
+    },
+    {
+      "id": 620,
+      "name": "Shaofouine"
+    },
+    {
+      "id": 701,
+      "name": "Brutalibré"
+    },
+    {
+      "id": 798,
+      "name": "Katagami"
+    },
+    {
+      "id": 852,
+      "name": "Poulpaf"
+    },
+    {
+      "id": 853,
+      "name": "Krakos"
+    },
+    {
+      "id": 865,
+      "name": "Palarticho"
+    },
+    {
+      "id": 891,
+      "name": "Wushours"
+    },
+    {
+      "id": 892,
+      "name": "Shifours"
+    },
+    {
+      "id": 912,
+      "name": "Coiffeton"
+    },
+    {
+      "id": 920,
+      "name": "Gambex"
+    },
+    {
+      "id": 973,
+      "name": "Flamenroule"
+    },
+    {
+      "id": 992,
+      "name": "Paume-de-Fer"
+    },
+    {
+      "id": 10054,
+      "name": "Charmina"
+    },
+    {
+      "id": 10057,
+      "name": "Absol"
+    },
+    {
+      "id": 10059,
+      "name": "Lucario"
+    },
+    {
+      "id": 10065,
+      "name": "Jungko"
+    },
+    {
+      "id": 10066,
+      "name": "Ténéfix"
+    },
+    {
+      "id": 10166,
+      "name": "Canarticho"
+    },
+    {
+      "id": 10170,
+      "name": "Électhor"
+    },
+    {
+      "id": 10191,
+      "name": "Shifours"
+    },
+    {
+      "id": 10238,
+      "name": "Zorua"
+    }
+  ]
+}

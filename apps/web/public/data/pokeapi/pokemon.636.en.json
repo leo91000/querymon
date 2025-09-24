@@ -1,0 +1,4396 @@
+{
+  "id": 636,
+  "name": "Larvesta",
+  "sprites": {
+    "front_default": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/636.png",
+    "front_shiny": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/shiny/636.png",
+    "official_artwork": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/636.png",
+    "dream_world": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/dream-world/636.svg",
+    "home_default": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/636.png",
+    "home_shiny": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/shiny/636.png",
+    "versions": {
+      "generation-v": {
+        "front_default": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/636.png",
+        "back_default": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/back/636.png",
+        "front_shiny": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/shiny/636.png",
+        "back_shiny": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/back/shiny/636.png"
+      },
+      "generation-vi": {
+        "front_default": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-vi/omegaruby-alphasapphire/636.png",
+        "front_shiny": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-vi/omegaruby-alphasapphire/shiny/636.png"
+      },
+      "generation-vii": {
+        "front_default": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-vii/icons/636.png",
+        "front_shiny": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-vii/ultra-sun-ultra-moon/shiny/636.png"
+      },
+      "generation-viii": {
+        "front_default": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-viii/icons/636.png"
+      }
+    }
+  },
+  "types": [
+    {
+      "id": 7,
+      "name": "bug"
+    },
+    {
+      "id": 10,
+      "name": "fire"
+    }
+  ],
+  "abilities": [
+    {
+      "id": 49,
+      "name": "flame-body",
+      "hidden": false
+    },
+    {
+      "id": 68,
+      "name": "swarm",
+      "hidden": true
+    }
+  ],
+  "stats": [
+    {
+      "name": "hp",
+      "base": 55,
+      "effort": 0
+    },
+    {
+      "name": "attack",
+      "base": 85,
+      "effort": 1
+    },
+    {
+      "name": "defense",
+      "base": 55,
+      "effort": 0
+    },
+    {
+      "name": "special-attack",
+      "base": 50,
+      "effort": 0
+    },
+    {
+      "name": "special-defense",
+      "base": 55,
+      "effort": 0
+    },
+    {
+      "name": "speed",
+      "base": 60,
+      "effort": 0
+    }
+  ],
+  "weight": 288,
+  "height": 11,
+  "base_experience": 72,
+  "species": {
+    "capture_rate": 45,
+    "hatch_counter": 40,
+    "gender_rate": 4,
+    "growth_rate": {
+      "id": 1,
+      "name": "slow"
+    },
+    "egg_groups": [
+      {
+        "id": 3,
+        "name": "Bug"
+      }
+    ],
+    "color": {
+      "id": 9,
+      "name": "White"
+    },
+    "genus": "Torch Pokémon",
+    "flavor_text": "This Pokémon was believed to have been born from the sun. When it evolves, its entire body is engulfed in flames."
+  },
+  "evolutions": [
+    [
+      {
+        "id": 636,
+        "name": "Larvesta",
+        "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/636.png",
+        "isCurrent": true,
+        "details": []
+      }
+    ],
+    [
+      {
+        "id": 637,
+        "name": "Volcarona",
+        "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/637.png",
+        "isCurrent": false,
+        "details": [
+          {
+            "gender": null,
+            "held_item": null,
+            "item": null,
+            "known_move": null,
+            "known_move_type": null,
+            "location": null,
+            "min_affection": null,
+            "min_beauty": null,
+            "min_happiness": null,
+            "min_level": 59,
+            "needs_overworld_rain": false,
+            "party_species": null,
+            "party_type": null,
+            "relative_physical_stats": null,
+            "time_of_day": "",
+            "trade_species": null,
+            "trigger": {
+              "name": "level-up",
+              "url": "https://pokeapi.co/api/v2/evolution-trigger/1/"
+            },
+            "turn_upside_down": false
+          }
+        ]
+      }
+    ]
+  ],
+  "learnsets": [
+    {
+      "generation": "generation-v",
+      "order": 11,
+      "entries": [
+        {
+          "method": "egg",
+          "items": [
+            {
+              "move": {
+                "id": 203,
+                "name": "Endure"
+              },
+              "type": "normal",
+              "category": "status",
+              "power": null,
+              "accuracy": null,
+              "pp": 10,
+              "level": null,
+              "versionGroups": [
+                "black-white",
+                "black-2-white-2"
+              ]
+            },
+            {
+              "move": {
+                "id": 193,
+                "name": "Foresight"
+              },
+              "type": "normal",
+              "category": "status",
+              "power": null,
+              "accuracy": null,
+              "pp": 40,
+              "level": null,
+              "versionGroups": [
+                "black-white",
+                "black-2-white-2"
+              ]
+            },
+            {
+              "move": {
+                "id": 106,
+                "name": "Harden"
+              },
+              "type": "normal",
+              "category": "status",
+              "power": null,
+              "accuracy": null,
+              "pp": 30,
+              "level": null,
+              "versionGroups": [
+                "black-white",
+                "black-2-white-2"
+              ]
+            },
+            {
+              "move": {
+                "id": 393,
+                "name": "Magnet Rise"
+              },
+              "type": "electric",
+              "category": "status",
+              "power": null,
+              "accuracy": null,
+              "pp": 10,
+              "level": null,
+              "versionGroups": [
+                "black-white",
+                "black-2-white-2"
+              ]
+            },
+            {
+              "move": {
+                "id": 234,
+                "name": "Morning Sun"
+              },
+              "type": "normal",
+              "category": "status",
+              "power": null,
+              "accuracy": null,
+              "pp": 5,
+              "level": null,
+              "versionGroups": [
+                "black-white",
+                "black-2-white-2"
+              ]
+            },
+            {
+              "move": {
+                "id": 81,
+                "name": "String Shot"
+              },
+              "type": "bug",
+              "category": "status",
+              "power": null,
+              "accuracy": 95,
+              "pp": 40,
+              "level": null,
+              "versionGroups": [
+                "black-white",
+                "black-2-white-2"
+              ]
+            },
+            {
+              "move": {
+                "id": 428,
+                "name": "Zen Headbutt"
+              },
+              "type": "psychic",
+              "category": "physical",
+              "power": 80,
+              "accuracy": 90,
+              "pp": 15,
+              "level": null,
+              "versionGroups": [
+                "black-white",
+                "black-2-white-2"
+              ]
+            }
+          ]
+        },
+        {
+          "method": "level-up",
+          "items": [
+            {
+              "move": {
+                "id": 52,
+                "name": "Ember"
+              },
+              "type": "fire",
+              "category": "special",
+              "power": 40,
+              "accuracy": 100,
+              "pp": 25,
+              "level": 1,
+              "versionGroups": [
+                "black-white",
+                "black-2-white-2"
+              ]
+            },
+            {
+              "move": {
+                "id": 81,
+                "name": "String Shot"
+              },
+              "type": "bug",
+              "category": "status",
+              "power": null,
+              "accuracy": 95,
+              "pp": 40,
+              "level": 1,
+              "versionGroups": [
+                "black-white",
+                "black-2-white-2"
+              ]
+            },
+            {
+              "move": {
+                "id": 141,
+                "name": "Leech Life"
+              },
+              "type": "bug",
+              "category": "physical",
+              "power": 80,
+              "accuracy": 100,
+              "pp": 10,
+              "level": 10,
+              "versionGroups": [
+                "black-white",
+                "black-2-white-2"
+              ]
+            },
+            {
+              "move": {
+                "id": 36,
+                "name": "Take Down"
+              },
+              "type": "normal",
+              "category": "physical",
+              "power": 90,
+              "accuracy": 85,
+              "pp": 20,
+              "level": 20,
+              "versionGroups": [
+                "black-white",
+                "black-2-white-2"
+              ]
+            },
+            {
+              "move": {
+                "id": 488,
+                "name": "Flame Charge"
+              },
+              "type": "fire",
+              "category": "physical",
+              "power": 50,
+              "accuracy": 100,
+              "pp": 20,
+              "level": 30,
+              "versionGroups": [
+                "black-white",
+                "black-2-white-2"
+              ]
+            },
+            {
+              "move": {
+                "id": 450,
+                "name": "Bug Bite"
+              },
+              "type": "bug",
+              "category": "physical",
+              "power": 60,
+              "accuracy": 100,
+              "pp": 20,
+              "level": 40,
+              "versionGroups": [
+                "black-white",
+                "black-2-white-2"
+              ]
+            },
+            {
+              "move": {
+                "id": 38,
+                "name": "Double-Edge"
+              },
+              "type": "normal",
+              "category": "physical",
+              "power": 120,
+              "accuracy": 100,
+              "pp": 15,
+              "level": 50,
+              "versionGroups": [
+                "black-white",
+                "black-2-white-2"
+              ]
+            },
+            {
+              "move": {
+                "id": 172,
+                "name": "Flame Wheel"
+              },
+              "type": "fire",
+              "category": "physical",
+              "power": 60,
+              "accuracy": 100,
+              "pp": 25,
+              "level": 60,
+              "versionGroups": [
+                "black-white",
+                "black-2-white-2"
+              ]
+            },
+            {
+              "move": {
+                "id": 405,
+                "name": "Bug Buzz"
+              },
+              "type": "bug",
+              "category": "special",
+              "power": 90,
+              "accuracy": 100,
+              "pp": 10,
+              "level": 70,
+              "versionGroups": [
+                "black-white",
+                "black-2-white-2"
+              ]
+            },
+            {
+              "move": {
+                "id": 133,
+                "name": "Amnesia"
+              },
+              "type": "psychic",
+              "category": "status",
+              "power": null,
+              "accuracy": null,
+              "pp": 20,
+              "level": 80,
+              "versionGroups": [
+                "black-white",
+                "black-2-white-2"
+              ]
+            },
+            {
+              "move": {
+                "id": 37,
+                "name": "Thrash"
+              },
+              "type": "normal",
+              "category": "physical",
+              "power": 120,
+              "accuracy": 100,
+              "pp": 10,
+              "level": 90,
+              "versionGroups": [
+                "black-white",
+                "black-2-white-2"
+              ]
+            },
+            {
+              "move": {
+                "id": 394,
+                "name": "Flare Blitz"
+              },
+              "type": "fire",
+              "category": "physical",
+              "power": 120,
+              "accuracy": 100,
+              "pp": 15,
+              "level": 100,
+              "versionGroups": [
+                "black-white",
+                "black-2-white-2"
+              ]
+            }
+          ]
+        },
+        {
+          "method": "machine",
+          "items": [
+            {
+              "move": {
+                "id": 512,
+                "name": "Acrobatics"
+              },
+              "type": "flying",
+              "category": "physical",
+              "power": 55,
+              "accuracy": 100,
+              "pp": 15,
+              "level": null,
+              "versionGroups": [
+                "black-white",
+                "black-2-white-2"
+              ]
+            },
+            {
+              "move": {
+                "id": 347,
+                "name": "Calm Mind"
+              },
+              "type": "psychic",
+              "category": "status",
+              "power": null,
+              "accuracy": null,
+              "pp": 20,
+              "level": null,
+              "versionGroups": [
+                "black-white",
+                "black-2-white-2"
+              ]
+            },
+            {
+              "move": {
+                "id": 104,
+                "name": "Double Team"
+              },
+              "type": "normal",
+              "category": "status",
+              "power": null,
+              "accuracy": null,
+              "pp": 15,
+              "level": null,
+              "versionGroups": [
+                "black-white",
+                "black-2-white-2"
+              ]
+            },
+            {
+              "move": {
+                "id": 263,
+                "name": "Facade"
+              },
+              "type": "normal",
+              "category": "physical",
+              "power": 70,
+              "accuracy": 100,
+              "pp": 20,
+              "level": null,
+              "versionGroups": [
+                "black-white",
+                "black-2-white-2"
+              ]
+            },
+            {
+              "move": {
+                "id": 126,
+                "name": "Fire Blast"
+              },
+              "type": "fire",
+              "category": "special",
+              "power": 110,
+              "accuracy": 85,
+              "pp": 5,
+              "level": null,
+              "versionGroups": [
+                "black-white",
+                "black-2-white-2"
+              ]
+            },
+            {
+              "move": {
+                "id": 488,
+                "name": "Flame Charge"
+              },
+              "type": "fire",
+              "category": "physical",
+              "power": 50,
+              "accuracy": 100,
+              "pp": 20,
+              "level": null,
+              "versionGroups": [
+                "black-white",
+                "black-2-white-2"
+              ]
+            },
+            {
+              "move": {
+                "id": 53,
+                "name": "Flamethrower"
+              },
+              "type": "fire",
+              "category": "special",
+              "power": 90,
+              "accuracy": 100,
+              "pp": 15,
+              "level": null,
+              "versionGroups": [
+                "black-white",
+                "black-2-white-2"
+              ]
+            },
+            {
+              "move": {
+                "id": 218,
+                "name": "Frustration"
+              },
+              "type": "normal",
+              "category": "physical",
+              "power": null,
+              "accuracy": 100,
+              "pp": 20,
+              "level": null,
+              "versionGroups": [
+                "black-white",
+                "black-2-white-2"
+              ]
+            },
+            {
+              "move": {
+                "id": 237,
+                "name": "Hidden Power"
+              },
+              "type": "normal",
+              "category": "special",
+              "power": 60,
+              "accuracy": 100,
+              "pp": 15,
+              "level": null,
+              "versionGroups": [
+                "black-white",
+                "black-2-white-2"
+              ]
+            },
+            {
+              "move": {
+                "id": 510,
+                "name": "Incinerate"
+              },
+              "type": "fire",
+              "category": "special",
+              "power": 60,
+              "accuracy": 100,
+              "pp": 15,
+              "level": null,
+              "versionGroups": [
+                "black-white",
+                "black-2-white-2"
+              ]
+            },
+            {
+              "move": {
+                "id": 113,
+                "name": "Light Screen"
+              },
+              "type": "psychic",
+              "category": "status",
+              "power": null,
+              "accuracy": null,
+              "pp": 30,
+              "level": null,
+              "versionGroups": [
+                "black-white",
+                "black-2-white-2"
+              ]
+            },
+            {
+              "move": {
+                "id": 315,
+                "name": "Overheat"
+              },
+              "type": "fire",
+              "category": "special",
+              "power": 130,
+              "accuracy": 90,
+              "pp": 5,
+              "level": null,
+              "versionGroups": [
+                "black-white",
+                "black-2-white-2"
+              ]
+            },
+            {
+              "move": {
+                "id": 182,
+                "name": "Protect"
+              },
+              "type": "normal",
+              "category": "status",
+              "power": null,
+              "accuracy": null,
+              "pp": 10,
+              "level": null,
+              "versionGroups": [
+                "black-white",
+                "black-2-white-2"
+              ]
+            },
+            {
+              "move": {
+                "id": 94,
+                "name": "Psychic"
+              },
+              "type": "psychic",
+              "category": "special",
+              "power": 90,
+              "accuracy": 100,
+              "pp": 10,
+              "level": null,
+              "versionGroups": [
+                "black-white",
+                "black-2-white-2"
+              ]
+            },
+            {
+              "move": {
+                "id": 156,
+                "name": "Rest"
+              },
+              "type": "psychic",
+              "category": "status",
+              "power": null,
+              "accuracy": null,
+              "pp": 5,
+              "level": null,
+              "versionGroups": [
+                "black-white",
+                "black-2-white-2"
+              ]
+            },
+            {
+              "move": {
+                "id": 216,
+                "name": "Return"
+              },
+              "type": "normal",
+              "category": "physical",
+              "power": null,
+              "accuracy": 100,
+              "pp": 20,
+              "level": null,
+              "versionGroups": [
+                "black-white",
+                "black-2-white-2"
+              ]
+            },
+            {
+              "move": {
+                "id": 496,
+                "name": "Round"
+              },
+              "type": "normal",
+              "category": "special",
+              "power": 60,
+              "accuracy": 100,
+              "pp": 15,
+              "level": null,
+              "versionGroups": [
+                "black-white",
+                "black-2-white-2"
+              ]
+            },
+            {
+              "move": {
+                "id": 219,
+                "name": "Safeguard"
+              },
+              "type": "normal",
+              "category": "status",
+              "power": null,
+              "accuracy": null,
+              "pp": 25,
+              "level": null,
+              "versionGroups": [
+                "black-white",
+                "black-2-white-2"
+              ]
+            },
+            {
+              "move": {
+                "id": 76,
+                "name": "Solar Beam"
+              },
+              "type": "grass",
+              "category": "special",
+              "power": 120,
+              "accuracy": 100,
+              "pp": 10,
+              "level": null,
+              "versionGroups": [
+                "black-white",
+                "black-2-white-2"
+              ]
+            },
+            {
+              "move": {
+                "id": 522,
+                "name": "Struggle Bug"
+              },
+              "type": "bug",
+              "category": "special",
+              "power": 50,
+              "accuracy": 100,
+              "pp": 20,
+              "level": null,
+              "versionGroups": [
+                "black-white",
+                "black-2-white-2"
+              ]
+            },
+            {
+              "move": {
+                "id": 164,
+                "name": "Substitute"
+              },
+              "type": "normal",
+              "category": "status",
+              "power": null,
+              "accuracy": null,
+              "pp": 10,
+              "level": null,
+              "versionGroups": [
+                "black-white",
+                "black-2-white-2"
+              ]
+            },
+            {
+              "move": {
+                "id": 241,
+                "name": "Sunny Day"
+              },
+              "type": "fire",
+              "category": "status",
+              "power": null,
+              "accuracy": null,
+              "pp": 5,
+              "level": null,
+              "versionGroups": [
+                "black-white",
+                "black-2-white-2"
+              ]
+            },
+            {
+              "move": {
+                "id": 207,
+                "name": "Swagger"
+              },
+              "type": "normal",
+              "category": "status",
+              "power": null,
+              "accuracy": 85,
+              "pp": 15,
+              "level": null,
+              "versionGroups": [
+                "black-white",
+                "black-2-white-2"
+              ]
+            },
+            {
+              "move": {
+                "id": 92,
+                "name": "Toxic"
+              },
+              "type": "poison",
+              "category": "status",
+              "power": null,
+              "accuracy": 90,
+              "pp": 10,
+              "level": null,
+              "versionGroups": [
+                "black-white",
+                "black-2-white-2"
+              ]
+            },
+            {
+              "move": {
+                "id": 369,
+                "name": "U-turn"
+              },
+              "type": "bug",
+              "category": "physical",
+              "power": 70,
+              "accuracy": 100,
+              "pp": 20,
+              "level": null,
+              "versionGroups": [
+                "black-white",
+                "black-2-white-2"
+              ]
+            },
+            {
+              "move": {
+                "id": 528,
+                "name": "Wild Charge"
+              },
+              "type": "electric",
+              "category": "physical",
+              "power": 90,
+              "accuracy": 100,
+              "pp": 15,
+              "level": null,
+              "versionGroups": [
+                "black-white",
+                "black-2-white-2"
+              ]
+            },
+            {
+              "move": {
+                "id": 261,
+                "name": "Will-O-Wisp"
+              },
+              "type": "fire",
+              "category": "status",
+              "power": null,
+              "accuracy": 85,
+              "pp": 15,
+              "level": null,
+              "versionGroups": [
+                "black-white",
+                "black-2-white-2"
+              ]
+            }
+          ]
+        },
+        {
+          "method": "tutor",
+          "items": [
+            {
+              "move": {
+                "id": 450,
+                "name": "Bug Bite"
+              },
+              "type": "bug",
+              "category": "physical",
+              "power": 60,
+              "accuracy": 100,
+              "pp": 20,
+              "level": null,
+              "versionGroups": [
+                "black-2-white-2"
+              ]
+            },
+            {
+              "move": {
+                "id": 202,
+                "name": "Giga Drain"
+              },
+              "type": "grass",
+              "category": "special",
+              "power": 75,
+              "accuracy": 100,
+              "pp": 10,
+              "level": null,
+              "versionGroups": [
+                "black-2-white-2"
+              ]
+            },
+            {
+              "move": {
+                "id": 257,
+                "name": "Heat Wave"
+              },
+              "type": "fire",
+              "category": "special",
+              "power": 95,
+              "accuracy": 90,
+              "pp": 10,
+              "level": null,
+              "versionGroups": [
+                "black-2-white-2"
+              ]
+            },
+            {
+              "move": {
+                "id": 393,
+                "name": "Magnet Rise"
+              },
+              "type": "electric",
+              "category": "status",
+              "power": null,
+              "accuracy": null,
+              "pp": 10,
+              "level": null,
+              "versionGroups": [
+                "black-2-white-2"
+              ]
+            },
+            {
+              "move": {
+                "id": 324,
+                "name": "Signal Beam"
+              },
+              "type": "bug",
+              "category": "special",
+              "power": 75,
+              "accuracy": 100,
+              "pp": 15,
+              "level": null,
+              "versionGroups": [
+                "black-2-white-2"
+              ]
+            },
+            {
+              "move": {
+                "id": 214,
+                "name": "Sleep Talk"
+              },
+              "type": "normal",
+              "category": "status",
+              "power": null,
+              "accuracy": null,
+              "pp": 10,
+              "level": null,
+              "versionGroups": [
+                "black-2-white-2"
+              ]
+            },
+            {
+              "move": {
+                "id": 173,
+                "name": "Snore"
+              },
+              "type": "normal",
+              "category": "special",
+              "power": 50,
+              "accuracy": 100,
+              "pp": 15,
+              "level": null,
+              "versionGroups": [
+                "black-2-white-2"
+              ]
+            },
+            {
+              "move": {
+                "id": 428,
+                "name": "Zen Headbutt"
+              },
+              "type": "psychic",
+              "category": "physical",
+              "power": 80,
+              "accuracy": 90,
+              "pp": 15,
+              "level": null,
+              "versionGroups": [
+                "black-2-white-2"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "generation": "generation-vi",
+      "order": 13,
+      "entries": [
+        {
+          "method": "egg",
+          "items": [
+            {
+              "move": {
+                "id": 203,
+                "name": "Endure"
+              },
+              "type": "normal",
+              "category": "status",
+              "power": null,
+              "accuracy": null,
+              "pp": 10,
+              "level": null,
+              "versionGroups": [
+                "x-y",
+                "omega-ruby-alpha-sapphire"
+              ]
+            },
+            {
+              "move": {
+                "id": 193,
+                "name": "Foresight"
+              },
+              "type": "normal",
+              "category": "status",
+              "power": null,
+              "accuracy": null,
+              "pp": 40,
+              "level": null,
+              "versionGroups": [
+                "x-y",
+                "omega-ruby-alpha-sapphire"
+              ]
+            },
+            {
+              "move": {
+                "id": 106,
+                "name": "Harden"
+              },
+              "type": "normal",
+              "category": "status",
+              "power": null,
+              "accuracy": null,
+              "pp": 30,
+              "level": null,
+              "versionGroups": [
+                "x-y",
+                "omega-ruby-alpha-sapphire"
+              ]
+            },
+            {
+              "move": {
+                "id": 393,
+                "name": "Magnet Rise"
+              },
+              "type": "electric",
+              "category": "status",
+              "power": null,
+              "accuracy": null,
+              "pp": 10,
+              "level": null,
+              "versionGroups": [
+                "x-y",
+                "omega-ruby-alpha-sapphire"
+              ]
+            },
+            {
+              "move": {
+                "id": 234,
+                "name": "Morning Sun"
+              },
+              "type": "normal",
+              "category": "status",
+              "power": null,
+              "accuracy": null,
+              "pp": 5,
+              "level": null,
+              "versionGroups": [
+                "x-y",
+                "omega-ruby-alpha-sapphire"
+              ]
+            },
+            {
+              "move": {
+                "id": 81,
+                "name": "String Shot"
+              },
+              "type": "bug",
+              "category": "status",
+              "power": null,
+              "accuracy": 95,
+              "pp": 40,
+              "level": null,
+              "versionGroups": [
+                "x-y",
+                "omega-ruby-alpha-sapphire"
+              ]
+            },
+            {
+              "move": {
+                "id": 428,
+                "name": "Zen Headbutt"
+              },
+              "type": "psychic",
+              "category": "physical",
+              "power": 80,
+              "accuracy": 90,
+              "pp": 15,
+              "level": null,
+              "versionGroups": [
+                "x-y",
+                "omega-ruby-alpha-sapphire"
+              ]
+            }
+          ]
+        },
+        {
+          "method": "level-up",
+          "items": [
+            {
+              "move": {
+                "id": 52,
+                "name": "Ember"
+              },
+              "type": "fire",
+              "category": "special",
+              "power": 40,
+              "accuracy": 100,
+              "pp": 25,
+              "level": 1,
+              "versionGroups": [
+                "x-y",
+                "omega-ruby-alpha-sapphire"
+              ]
+            },
+            {
+              "move": {
+                "id": 81,
+                "name": "String Shot"
+              },
+              "type": "bug",
+              "category": "status",
+              "power": null,
+              "accuracy": 95,
+              "pp": 40,
+              "level": 1,
+              "versionGroups": [
+                "x-y",
+                "omega-ruby-alpha-sapphire"
+              ]
+            },
+            {
+              "move": {
+                "id": 141,
+                "name": "Leech Life"
+              },
+              "type": "bug",
+              "category": "physical",
+              "power": 80,
+              "accuracy": 100,
+              "pp": 10,
+              "level": 10,
+              "versionGroups": [
+                "x-y",
+                "omega-ruby-alpha-sapphire"
+              ]
+            },
+            {
+              "move": {
+                "id": 36,
+                "name": "Take Down"
+              },
+              "type": "normal",
+              "category": "physical",
+              "power": 90,
+              "accuracy": 85,
+              "pp": 20,
+              "level": 20,
+              "versionGroups": [
+                "x-y",
+                "omega-ruby-alpha-sapphire"
+              ]
+            },
+            {
+              "move": {
+                "id": 488,
+                "name": "Flame Charge"
+              },
+              "type": "fire",
+              "category": "physical",
+              "power": 50,
+              "accuracy": 100,
+              "pp": 20,
+              "level": 30,
+              "versionGroups": [
+                "x-y",
+                "omega-ruby-alpha-sapphire"
+              ]
+            },
+            {
+              "move": {
+                "id": 450,
+                "name": "Bug Bite"
+              },
+              "type": "bug",
+              "category": "physical",
+              "power": 60,
+              "accuracy": 100,
+              "pp": 20,
+              "level": 40,
+              "versionGroups": [
+                "x-y",
+                "omega-ruby-alpha-sapphire"
+              ]
+            },
+            {
+              "move": {
+                "id": 38,
+                "name": "Double-Edge"
+              },
+              "type": "normal",
+              "category": "physical",
+              "power": 120,
+              "accuracy": 100,
+              "pp": 15,
+              "level": 50,
+              "versionGroups": [
+                "x-y",
+                "omega-ruby-alpha-sapphire"
+              ]
+            },
+            {
+              "move": {
+                "id": 172,
+                "name": "Flame Wheel"
+              },
+              "type": "fire",
+              "category": "physical",
+              "power": 60,
+              "accuracy": 100,
+              "pp": 25,
+              "level": 60,
+              "versionGroups": [
+                "x-y",
+                "omega-ruby-alpha-sapphire"
+              ]
+            },
+            {
+              "move": {
+                "id": 405,
+                "name": "Bug Buzz"
+              },
+              "type": "bug",
+              "category": "special",
+              "power": 90,
+              "accuracy": 100,
+              "pp": 10,
+              "level": 70,
+              "versionGroups": [
+                "x-y",
+                "omega-ruby-alpha-sapphire"
+              ]
+            },
+            {
+              "move": {
+                "id": 133,
+                "name": "Amnesia"
+              },
+              "type": "psychic",
+              "category": "status",
+              "power": null,
+              "accuracy": null,
+              "pp": 20,
+              "level": 80,
+              "versionGroups": [
+                "x-y",
+                "omega-ruby-alpha-sapphire"
+              ]
+            },
+            {
+              "move": {
+                "id": 37,
+                "name": "Thrash"
+              },
+              "type": "normal",
+              "category": "physical",
+              "power": 120,
+              "accuracy": 100,
+              "pp": 10,
+              "level": 90,
+              "versionGroups": [
+                "x-y",
+                "omega-ruby-alpha-sapphire"
+              ]
+            },
+            {
+              "move": {
+                "id": 394,
+                "name": "Flare Blitz"
+              },
+              "type": "fire",
+              "category": "physical",
+              "power": 120,
+              "accuracy": 100,
+              "pp": 15,
+              "level": 100,
+              "versionGroups": [
+                "x-y",
+                "omega-ruby-alpha-sapphire"
+              ]
+            }
+          ]
+        },
+        {
+          "method": "machine",
+          "items": [
+            {
+              "move": {
+                "id": 512,
+                "name": "Acrobatics"
+              },
+              "type": "flying",
+              "category": "physical",
+              "power": 55,
+              "accuracy": 100,
+              "pp": 15,
+              "level": null,
+              "versionGroups": [
+                "x-y",
+                "omega-ruby-alpha-sapphire"
+              ]
+            },
+            {
+              "move": {
+                "id": 347,
+                "name": "Calm Mind"
+              },
+              "type": "psychic",
+              "category": "status",
+              "power": null,
+              "accuracy": null,
+              "pp": 20,
+              "level": null,
+              "versionGroups": [
+                "x-y",
+                "omega-ruby-alpha-sapphire"
+              ]
+            },
+            {
+              "move": {
+                "id": 590,
+                "name": "Confide"
+              },
+              "type": "normal",
+              "category": "status",
+              "power": null,
+              "accuracy": null,
+              "pp": 20,
+              "level": null,
+              "versionGroups": [
+                "x-y",
+                "omega-ruby-alpha-sapphire"
+              ]
+            },
+            {
+              "move": {
+                "id": 104,
+                "name": "Double Team"
+              },
+              "type": "normal",
+              "category": "status",
+              "power": null,
+              "accuracy": null,
+              "pp": 15,
+              "level": null,
+              "versionGroups": [
+                "x-y",
+                "omega-ruby-alpha-sapphire"
+              ]
+            },
+            {
+              "move": {
+                "id": 263,
+                "name": "Facade"
+              },
+              "type": "normal",
+              "category": "physical",
+              "power": 70,
+              "accuracy": 100,
+              "pp": 20,
+              "level": null,
+              "versionGroups": [
+                "x-y",
+                "omega-ruby-alpha-sapphire"
+              ]
+            },
+            {
+              "move": {
+                "id": 126,
+                "name": "Fire Blast"
+              },
+              "type": "fire",
+              "category": "special",
+              "power": 110,
+              "accuracy": 85,
+              "pp": 5,
+              "level": null,
+              "versionGroups": [
+                "x-y",
+                "omega-ruby-alpha-sapphire"
+              ]
+            },
+            {
+              "move": {
+                "id": 488,
+                "name": "Flame Charge"
+              },
+              "type": "fire",
+              "category": "physical",
+              "power": 50,
+              "accuracy": 100,
+              "pp": 20,
+              "level": null,
+              "versionGroups": [
+                "x-y",
+                "omega-ruby-alpha-sapphire"
+              ]
+            },
+            {
+              "move": {
+                "id": 53,
+                "name": "Flamethrower"
+              },
+              "type": "fire",
+              "category": "special",
+              "power": 90,
+              "accuracy": 100,
+              "pp": 15,
+              "level": null,
+              "versionGroups": [
+                "x-y",
+                "omega-ruby-alpha-sapphire"
+              ]
+            },
+            {
+              "move": {
+                "id": 218,
+                "name": "Frustration"
+              },
+              "type": "normal",
+              "category": "physical",
+              "power": null,
+              "accuracy": 100,
+              "pp": 20,
+              "level": null,
+              "versionGroups": [
+                "x-y",
+                "omega-ruby-alpha-sapphire"
+              ]
+            },
+            {
+              "move": {
+                "id": 237,
+                "name": "Hidden Power"
+              },
+              "type": "normal",
+              "category": "special",
+              "power": 60,
+              "accuracy": 100,
+              "pp": 15,
+              "level": null,
+              "versionGroups": [
+                "x-y",
+                "omega-ruby-alpha-sapphire"
+              ]
+            },
+            {
+              "move": {
+                "id": 510,
+                "name": "Incinerate"
+              },
+              "type": "fire",
+              "category": "special",
+              "power": 60,
+              "accuracy": 100,
+              "pp": 15,
+              "level": null,
+              "versionGroups": [
+                "x-y",
+                "omega-ruby-alpha-sapphire"
+              ]
+            },
+            {
+              "move": {
+                "id": 113,
+                "name": "Light Screen"
+              },
+              "type": "psychic",
+              "category": "status",
+              "power": null,
+              "accuracy": null,
+              "pp": 30,
+              "level": null,
+              "versionGroups": [
+                "x-y",
+                "omega-ruby-alpha-sapphire"
+              ]
+            },
+            {
+              "move": {
+                "id": 315,
+                "name": "Overheat"
+              },
+              "type": "fire",
+              "category": "special",
+              "power": 130,
+              "accuracy": 90,
+              "pp": 5,
+              "level": null,
+              "versionGroups": [
+                "x-y",
+                "omega-ruby-alpha-sapphire"
+              ]
+            },
+            {
+              "move": {
+                "id": 182,
+                "name": "Protect"
+              },
+              "type": "normal",
+              "category": "status",
+              "power": null,
+              "accuracy": null,
+              "pp": 10,
+              "level": null,
+              "versionGroups": [
+                "x-y",
+                "omega-ruby-alpha-sapphire"
+              ]
+            },
+            {
+              "move": {
+                "id": 94,
+                "name": "Psychic"
+              },
+              "type": "psychic",
+              "category": "special",
+              "power": 90,
+              "accuracy": 100,
+              "pp": 10,
+              "level": null,
+              "versionGroups": [
+                "x-y",
+                "omega-ruby-alpha-sapphire"
+              ]
+            },
+            {
+              "move": {
+                "id": 156,
+                "name": "Rest"
+              },
+              "type": "psychic",
+              "category": "status",
+              "power": null,
+              "accuracy": null,
+              "pp": 5,
+              "level": null,
+              "versionGroups": [
+                "x-y",
+                "omega-ruby-alpha-sapphire"
+              ]
+            },
+            {
+              "move": {
+                "id": 216,
+                "name": "Return"
+              },
+              "type": "normal",
+              "category": "physical",
+              "power": null,
+              "accuracy": 100,
+              "pp": 20,
+              "level": null,
+              "versionGroups": [
+                "x-y",
+                "omega-ruby-alpha-sapphire"
+              ]
+            },
+            {
+              "move": {
+                "id": 496,
+                "name": "Round"
+              },
+              "type": "normal",
+              "category": "special",
+              "power": 60,
+              "accuracy": 100,
+              "pp": 15,
+              "level": null,
+              "versionGroups": [
+                "x-y",
+                "omega-ruby-alpha-sapphire"
+              ]
+            },
+            {
+              "move": {
+                "id": 219,
+                "name": "Safeguard"
+              },
+              "type": "normal",
+              "category": "status",
+              "power": null,
+              "accuracy": null,
+              "pp": 25,
+              "level": null,
+              "versionGroups": [
+                "x-y",
+                "omega-ruby-alpha-sapphire"
+              ]
+            },
+            {
+              "move": {
+                "id": 290,
+                "name": "Secret Power"
+              },
+              "type": "normal",
+              "category": "physical",
+              "power": 70,
+              "accuracy": 100,
+              "pp": 20,
+              "level": null,
+              "versionGroups": [
+                "omega-ruby-alpha-sapphire"
+              ]
+            },
+            {
+              "move": {
+                "id": 214,
+                "name": "Sleep Talk"
+              },
+              "type": "normal",
+              "category": "status",
+              "power": null,
+              "accuracy": null,
+              "pp": 10,
+              "level": null,
+              "versionGroups": [
+                "x-y",
+                "omega-ruby-alpha-sapphire"
+              ]
+            },
+            {
+              "move": {
+                "id": 76,
+                "name": "Solar Beam"
+              },
+              "type": "grass",
+              "category": "special",
+              "power": 120,
+              "accuracy": 100,
+              "pp": 10,
+              "level": null,
+              "versionGroups": [
+                "x-y",
+                "omega-ruby-alpha-sapphire"
+              ]
+            },
+            {
+              "move": {
+                "id": 522,
+                "name": "Struggle Bug"
+              },
+              "type": "bug",
+              "category": "special",
+              "power": 50,
+              "accuracy": 100,
+              "pp": 20,
+              "level": null,
+              "versionGroups": [
+                "x-y",
+                "omega-ruby-alpha-sapphire"
+              ]
+            },
+            {
+              "move": {
+                "id": 164,
+                "name": "Substitute"
+              },
+              "type": "normal",
+              "category": "status",
+              "power": null,
+              "accuracy": null,
+              "pp": 10,
+              "level": null,
+              "versionGroups": [
+                "x-y",
+                "omega-ruby-alpha-sapphire"
+              ]
+            },
+            {
+              "move": {
+                "id": 241,
+                "name": "Sunny Day"
+              },
+              "type": "fire",
+              "category": "status",
+              "power": null,
+              "accuracy": null,
+              "pp": 5,
+              "level": null,
+              "versionGroups": [
+                "x-y",
+                "omega-ruby-alpha-sapphire"
+              ]
+            },
+            {
+              "move": {
+                "id": 207,
+                "name": "Swagger"
+              },
+              "type": "normal",
+              "category": "status",
+              "power": null,
+              "accuracy": 85,
+              "pp": 15,
+              "level": null,
+              "versionGroups": [
+                "x-y",
+                "omega-ruby-alpha-sapphire"
+              ]
+            },
+            {
+              "move": {
+                "id": 92,
+                "name": "Toxic"
+              },
+              "type": "poison",
+              "category": "status",
+              "power": null,
+              "accuracy": 90,
+              "pp": 10,
+              "level": null,
+              "versionGroups": [
+                "x-y",
+                "omega-ruby-alpha-sapphire"
+              ]
+            },
+            {
+              "move": {
+                "id": 369,
+                "name": "U-turn"
+              },
+              "type": "bug",
+              "category": "physical",
+              "power": 70,
+              "accuracy": 100,
+              "pp": 20,
+              "level": null,
+              "versionGroups": [
+                "x-y",
+                "omega-ruby-alpha-sapphire"
+              ]
+            },
+            {
+              "move": {
+                "id": 528,
+                "name": "Wild Charge"
+              },
+              "type": "electric",
+              "category": "physical",
+              "power": 90,
+              "accuracy": 100,
+              "pp": 15,
+              "level": null,
+              "versionGroups": [
+                "x-y",
+                "omega-ruby-alpha-sapphire"
+              ]
+            },
+            {
+              "move": {
+                "id": 261,
+                "name": "Will-O-Wisp"
+              },
+              "type": "fire",
+              "category": "status",
+              "power": null,
+              "accuracy": 85,
+              "pp": 15,
+              "level": null,
+              "versionGroups": [
+                "x-y",
+                "omega-ruby-alpha-sapphire"
+              ]
+            }
+          ]
+        },
+        {
+          "method": "tutor",
+          "items": [
+            {
+              "move": {
+                "id": 450,
+                "name": "Bug Bite"
+              },
+              "type": "bug",
+              "category": "physical",
+              "power": 60,
+              "accuracy": 100,
+              "pp": 20,
+              "level": null,
+              "versionGroups": [
+                "omega-ruby-alpha-sapphire"
+              ]
+            },
+            {
+              "move": {
+                "id": 202,
+                "name": "Giga Drain"
+              },
+              "type": "grass",
+              "category": "special",
+              "power": 75,
+              "accuracy": 100,
+              "pp": 10,
+              "level": null,
+              "versionGroups": [
+                "omega-ruby-alpha-sapphire"
+              ]
+            },
+            {
+              "move": {
+                "id": 257,
+                "name": "Heat Wave"
+              },
+              "type": "fire",
+              "category": "special",
+              "power": 95,
+              "accuracy": 90,
+              "pp": 10,
+              "level": null,
+              "versionGroups": [
+                "omega-ruby-alpha-sapphire"
+              ]
+            },
+            {
+              "move": {
+                "id": 393,
+                "name": "Magnet Rise"
+              },
+              "type": "electric",
+              "category": "status",
+              "power": null,
+              "accuracy": null,
+              "pp": 10,
+              "level": null,
+              "versionGroups": [
+                "omega-ruby-alpha-sapphire"
+              ]
+            },
+            {
+              "move": {
+                "id": 324,
+                "name": "Signal Beam"
+              },
+              "type": "bug",
+              "category": "special",
+              "power": 75,
+              "accuracy": 100,
+              "pp": 15,
+              "level": null,
+              "versionGroups": [
+                "omega-ruby-alpha-sapphire"
+              ]
+            },
+            {
+              "move": {
+                "id": 173,
+                "name": "Snore"
+              },
+              "type": "normal",
+              "category": "special",
+              "power": 50,
+              "accuracy": 100,
+              "pp": 15,
+              "level": null,
+              "versionGroups": [
+                "omega-ruby-alpha-sapphire"
+              ]
+            },
+            {
+              "move": {
+                "id": 428,
+                "name": "Zen Headbutt"
+              },
+              "type": "psychic",
+              "category": "physical",
+              "power": 80,
+              "accuracy": 90,
+              "pp": 15,
+              "level": null,
+              "versionGroups": [
+                "omega-ruby-alpha-sapphire"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "generation": "generation-vii",
+      "order": 15,
+      "entries": [
+        {
+          "method": "egg",
+          "items": [
+            {
+              "move": {
+                "id": 203,
+                "name": "Endure"
+              },
+              "type": "normal",
+              "category": "status",
+              "power": null,
+              "accuracy": null,
+              "pp": 10,
+              "level": null,
+              "versionGroups": [
+                "sun-moon",
+                "ultra-sun-ultra-moon"
+              ]
+            },
+            {
+              "move": {
+                "id": 193,
+                "name": "Foresight"
+              },
+              "type": "normal",
+              "category": "status",
+              "power": null,
+              "accuracy": null,
+              "pp": 40,
+              "level": null,
+              "versionGroups": [
+                "sun-moon",
+                "ultra-sun-ultra-moon"
+              ]
+            },
+            {
+              "move": {
+                "id": 106,
+                "name": "Harden"
+              },
+              "type": "normal",
+              "category": "status",
+              "power": null,
+              "accuracy": null,
+              "pp": 30,
+              "level": null,
+              "versionGroups": [
+                "sun-moon",
+                "ultra-sun-ultra-moon"
+              ]
+            },
+            {
+              "move": {
+                "id": 393,
+                "name": "Magnet Rise"
+              },
+              "type": "electric",
+              "category": "status",
+              "power": null,
+              "accuracy": null,
+              "pp": 10,
+              "level": null,
+              "versionGroups": [
+                "sun-moon",
+                "ultra-sun-ultra-moon"
+              ]
+            },
+            {
+              "move": {
+                "id": 234,
+                "name": "Morning Sun"
+              },
+              "type": "normal",
+              "category": "status",
+              "power": null,
+              "accuracy": null,
+              "pp": 5,
+              "level": null,
+              "versionGroups": [
+                "sun-moon",
+                "ultra-sun-ultra-moon"
+              ]
+            },
+            {
+              "move": {
+                "id": 81,
+                "name": "String Shot"
+              },
+              "type": "bug",
+              "category": "status",
+              "power": null,
+              "accuracy": 95,
+              "pp": 40,
+              "level": null,
+              "versionGroups": [
+                "sun-moon",
+                "ultra-sun-ultra-moon"
+              ]
+            },
+            {
+              "move": {
+                "id": 428,
+                "name": "Zen Headbutt"
+              },
+              "type": "psychic",
+              "category": "physical",
+              "power": 80,
+              "accuracy": 90,
+              "pp": 15,
+              "level": null,
+              "versionGroups": [
+                "sun-moon",
+                "ultra-sun-ultra-moon"
+              ]
+            }
+          ]
+        },
+        {
+          "method": "level-up",
+          "items": [
+            {
+              "move": {
+                "id": 52,
+                "name": "Ember"
+              },
+              "type": "fire",
+              "category": "special",
+              "power": 40,
+              "accuracy": 100,
+              "pp": 25,
+              "level": 1,
+              "versionGroups": [
+                "sun-moon",
+                "ultra-sun-ultra-moon"
+              ]
+            },
+            {
+              "move": {
+                "id": 81,
+                "name": "String Shot"
+              },
+              "type": "bug",
+              "category": "status",
+              "power": null,
+              "accuracy": 95,
+              "pp": 40,
+              "level": 1,
+              "versionGroups": [
+                "sun-moon",
+                "ultra-sun-ultra-moon"
+              ]
+            },
+            {
+              "move": {
+                "id": 71,
+                "name": "Absorb"
+              },
+              "type": "grass",
+              "category": "special",
+              "power": 20,
+              "accuracy": 100,
+              "pp": 25,
+              "level": 10,
+              "versionGroups": [
+                "sun-moon",
+                "ultra-sun-ultra-moon"
+              ]
+            },
+            {
+              "move": {
+                "id": 36,
+                "name": "Take Down"
+              },
+              "type": "normal",
+              "category": "physical",
+              "power": 90,
+              "accuracy": 85,
+              "pp": 20,
+              "level": 20,
+              "versionGroups": [
+                "sun-moon",
+                "ultra-sun-ultra-moon"
+              ]
+            },
+            {
+              "move": {
+                "id": 488,
+                "name": "Flame Charge"
+              },
+              "type": "fire",
+              "category": "physical",
+              "power": 50,
+              "accuracy": 100,
+              "pp": 20,
+              "level": 30,
+              "versionGroups": [
+                "sun-moon",
+                "ultra-sun-ultra-moon"
+              ]
+            },
+            {
+              "move": {
+                "id": 450,
+                "name": "Bug Bite"
+              },
+              "type": "bug",
+              "category": "physical",
+              "power": 60,
+              "accuracy": 100,
+              "pp": 20,
+              "level": 40,
+              "versionGroups": [
+                "sun-moon",
+                "ultra-sun-ultra-moon"
+              ]
+            },
+            {
+              "move": {
+                "id": 38,
+                "name": "Double-Edge"
+              },
+              "type": "normal",
+              "category": "physical",
+              "power": 120,
+              "accuracy": 100,
+              "pp": 15,
+              "level": 50,
+              "versionGroups": [
+                "sun-moon",
+                "ultra-sun-ultra-moon"
+              ]
+            },
+            {
+              "move": {
+                "id": 172,
+                "name": "Flame Wheel"
+              },
+              "type": "fire",
+              "category": "physical",
+              "power": 60,
+              "accuracy": 100,
+              "pp": 25,
+              "level": 60,
+              "versionGroups": [
+                "sun-moon",
+                "ultra-sun-ultra-moon"
+              ]
+            },
+            {
+              "move": {
+                "id": 405,
+                "name": "Bug Buzz"
+              },
+              "type": "bug",
+              "category": "special",
+              "power": 90,
+              "accuracy": 100,
+              "pp": 10,
+              "level": 70,
+              "versionGroups": [
+                "sun-moon",
+                "ultra-sun-ultra-moon"
+              ]
+            },
+            {
+              "move": {
+                "id": 133,
+                "name": "Amnesia"
+              },
+              "type": "psychic",
+              "category": "status",
+              "power": null,
+              "accuracy": null,
+              "pp": 20,
+              "level": 80,
+              "versionGroups": [
+                "sun-moon",
+                "ultra-sun-ultra-moon"
+              ]
+            },
+            {
+              "move": {
+                "id": 37,
+                "name": "Thrash"
+              },
+              "type": "normal",
+              "category": "physical",
+              "power": 120,
+              "accuracy": 100,
+              "pp": 10,
+              "level": 90,
+              "versionGroups": [
+                "sun-moon",
+                "ultra-sun-ultra-moon"
+              ]
+            },
+            {
+              "move": {
+                "id": 394,
+                "name": "Flare Blitz"
+              },
+              "type": "fire",
+              "category": "physical",
+              "power": 120,
+              "accuracy": 100,
+              "pp": 15,
+              "level": 100,
+              "versionGroups": [
+                "sun-moon",
+                "ultra-sun-ultra-moon"
+              ]
+            }
+          ]
+        },
+        {
+          "method": "machine",
+          "items": [
+            {
+              "move": {
+                "id": 512,
+                "name": "Acrobatics"
+              },
+              "type": "flying",
+              "category": "physical",
+              "power": 55,
+              "accuracy": 100,
+              "pp": 15,
+              "level": null,
+              "versionGroups": [
+                "sun-moon",
+                "ultra-sun-ultra-moon"
+              ]
+            },
+            {
+              "move": {
+                "id": 347,
+                "name": "Calm Mind"
+              },
+              "type": "psychic",
+              "category": "status",
+              "power": null,
+              "accuracy": null,
+              "pp": 20,
+              "level": null,
+              "versionGroups": [
+                "sun-moon",
+                "ultra-sun-ultra-moon"
+              ]
+            },
+            {
+              "move": {
+                "id": 590,
+                "name": "Confide"
+              },
+              "type": "normal",
+              "category": "status",
+              "power": null,
+              "accuracy": null,
+              "pp": 20,
+              "level": null,
+              "versionGroups": [
+                "sun-moon",
+                "ultra-sun-ultra-moon"
+              ]
+            },
+            {
+              "move": {
+                "id": 104,
+                "name": "Double Team"
+              },
+              "type": "normal",
+              "category": "status",
+              "power": null,
+              "accuracy": null,
+              "pp": 15,
+              "level": null,
+              "versionGroups": [
+                "sun-moon",
+                "ultra-sun-ultra-moon"
+              ]
+            },
+            {
+              "move": {
+                "id": 263,
+                "name": "Facade"
+              },
+              "type": "normal",
+              "category": "physical",
+              "power": 70,
+              "accuracy": 100,
+              "pp": 20,
+              "level": null,
+              "versionGroups": [
+                "sun-moon",
+                "ultra-sun-ultra-moon"
+              ]
+            },
+            {
+              "move": {
+                "id": 126,
+                "name": "Fire Blast"
+              },
+              "type": "fire",
+              "category": "special",
+              "power": 110,
+              "accuracy": 85,
+              "pp": 5,
+              "level": null,
+              "versionGroups": [
+                "sun-moon",
+                "ultra-sun-ultra-moon"
+              ]
+            },
+            {
+              "move": {
+                "id": 488,
+                "name": "Flame Charge"
+              },
+              "type": "fire",
+              "category": "physical",
+              "power": 50,
+              "accuracy": 100,
+              "pp": 20,
+              "level": null,
+              "versionGroups": [
+                "sun-moon",
+                "ultra-sun-ultra-moon"
+              ]
+            },
+            {
+              "move": {
+                "id": 53,
+                "name": "Flamethrower"
+              },
+              "type": "fire",
+              "category": "special",
+              "power": 90,
+              "accuracy": 100,
+              "pp": 15,
+              "level": null,
+              "versionGroups": [
+                "sun-moon",
+                "ultra-sun-ultra-moon"
+              ]
+            },
+            {
+              "move": {
+                "id": 218,
+                "name": "Frustration"
+              },
+              "type": "normal",
+              "category": "physical",
+              "power": null,
+              "accuracy": 100,
+              "pp": 20,
+              "level": null,
+              "versionGroups": [
+                "sun-moon",
+                "ultra-sun-ultra-moon"
+              ]
+            },
+            {
+              "move": {
+                "id": 237,
+                "name": "Hidden Power"
+              },
+              "type": "normal",
+              "category": "special",
+              "power": 60,
+              "accuracy": 100,
+              "pp": 15,
+              "level": null,
+              "versionGroups": [
+                "sun-moon",
+                "ultra-sun-ultra-moon"
+              ]
+            },
+            {
+              "move": {
+                "id": 141,
+                "name": "Leech Life"
+              },
+              "type": "bug",
+              "category": "physical",
+              "power": 80,
+              "accuracy": 100,
+              "pp": 10,
+              "level": null,
+              "versionGroups": [
+                "sun-moon",
+                "ultra-sun-ultra-moon"
+              ]
+            },
+            {
+              "move": {
+                "id": 113,
+                "name": "Light Screen"
+              },
+              "type": "psychic",
+              "category": "status",
+              "power": null,
+              "accuracy": null,
+              "pp": 30,
+              "level": null,
+              "versionGroups": [
+                "sun-moon",
+                "ultra-sun-ultra-moon"
+              ]
+            },
+            {
+              "move": {
+                "id": 315,
+                "name": "Overheat"
+              },
+              "type": "fire",
+              "category": "special",
+              "power": 130,
+              "accuracy": 90,
+              "pp": 5,
+              "level": null,
+              "versionGroups": [
+                "sun-moon",
+                "ultra-sun-ultra-moon"
+              ]
+            },
+            {
+              "move": {
+                "id": 182,
+                "name": "Protect"
+              },
+              "type": "normal",
+              "category": "status",
+              "power": null,
+              "accuracy": null,
+              "pp": 10,
+              "level": null,
+              "versionGroups": [
+                "sun-moon",
+                "ultra-sun-ultra-moon"
+              ]
+            },
+            {
+              "move": {
+                "id": 94,
+                "name": "Psychic"
+              },
+              "type": "psychic",
+              "category": "special",
+              "power": 90,
+              "accuracy": 100,
+              "pp": 10,
+              "level": null,
+              "versionGroups": [
+                "sun-moon",
+                "ultra-sun-ultra-moon"
+              ]
+            },
+            {
+              "move": {
+                "id": 156,
+                "name": "Rest"
+              },
+              "type": "psychic",
+              "category": "status",
+              "power": null,
+              "accuracy": null,
+              "pp": 5,
+              "level": null,
+              "versionGroups": [
+                "sun-moon",
+                "ultra-sun-ultra-moon"
+              ]
+            },
+            {
+              "move": {
+                "id": 216,
+                "name": "Return"
+              },
+              "type": "normal",
+              "category": "physical",
+              "power": null,
+              "accuracy": 100,
+              "pp": 20,
+              "level": null,
+              "versionGroups": [
+                "sun-moon",
+                "ultra-sun-ultra-moon"
+              ]
+            },
+            {
+              "move": {
+                "id": 496,
+                "name": "Round"
+              },
+              "type": "normal",
+              "category": "special",
+              "power": 60,
+              "accuracy": 100,
+              "pp": 15,
+              "level": null,
+              "versionGroups": [
+                "sun-moon",
+                "ultra-sun-ultra-moon"
+              ]
+            },
+            {
+              "move": {
+                "id": 219,
+                "name": "Safeguard"
+              },
+              "type": "normal",
+              "category": "status",
+              "power": null,
+              "accuracy": null,
+              "pp": 25,
+              "level": null,
+              "versionGroups": [
+                "sun-moon",
+                "ultra-sun-ultra-moon"
+              ]
+            },
+            {
+              "move": {
+                "id": 214,
+                "name": "Sleep Talk"
+              },
+              "type": "normal",
+              "category": "status",
+              "power": null,
+              "accuracy": null,
+              "pp": 10,
+              "level": null,
+              "versionGroups": [
+                "sun-moon",
+                "ultra-sun-ultra-moon"
+              ]
+            },
+            {
+              "move": {
+                "id": 76,
+                "name": "Solar Beam"
+              },
+              "type": "grass",
+              "category": "special",
+              "power": 120,
+              "accuracy": 100,
+              "pp": 10,
+              "level": null,
+              "versionGroups": [
+                "sun-moon",
+                "ultra-sun-ultra-moon"
+              ]
+            },
+            {
+              "move": {
+                "id": 164,
+                "name": "Substitute"
+              },
+              "type": "normal",
+              "category": "status",
+              "power": null,
+              "accuracy": null,
+              "pp": 10,
+              "level": null,
+              "versionGroups": [
+                "sun-moon",
+                "ultra-sun-ultra-moon"
+              ]
+            },
+            {
+              "move": {
+                "id": 241,
+                "name": "Sunny Day"
+              },
+              "type": "fire",
+              "category": "status",
+              "power": null,
+              "accuracy": null,
+              "pp": 5,
+              "level": null,
+              "versionGroups": [
+                "sun-moon",
+                "ultra-sun-ultra-moon"
+              ]
+            },
+            {
+              "move": {
+                "id": 207,
+                "name": "Swagger"
+              },
+              "type": "normal",
+              "category": "status",
+              "power": null,
+              "accuracy": 85,
+              "pp": 15,
+              "level": null,
+              "versionGroups": [
+                "sun-moon",
+                "ultra-sun-ultra-moon"
+              ]
+            },
+            {
+              "move": {
+                "id": 92,
+                "name": "Toxic"
+              },
+              "type": "poison",
+              "category": "status",
+              "power": null,
+              "accuracy": 90,
+              "pp": 10,
+              "level": null,
+              "versionGroups": [
+                "sun-moon",
+                "ultra-sun-ultra-moon"
+              ]
+            },
+            {
+              "move": {
+                "id": 369,
+                "name": "U-turn"
+              },
+              "type": "bug",
+              "category": "physical",
+              "power": 70,
+              "accuracy": 100,
+              "pp": 20,
+              "level": null,
+              "versionGroups": [
+                "sun-moon",
+                "ultra-sun-ultra-moon"
+              ]
+            },
+            {
+              "move": {
+                "id": 528,
+                "name": "Wild Charge"
+              },
+              "type": "electric",
+              "category": "physical",
+              "power": 90,
+              "accuracy": 100,
+              "pp": 15,
+              "level": null,
+              "versionGroups": [
+                "sun-moon",
+                "ultra-sun-ultra-moon"
+              ]
+            },
+            {
+              "move": {
+                "id": 261,
+                "name": "Will-O-Wisp"
+              },
+              "type": "fire",
+              "category": "status",
+              "power": null,
+              "accuracy": 85,
+              "pp": 15,
+              "level": null,
+              "versionGroups": [
+                "sun-moon",
+                "ultra-sun-ultra-moon"
+              ]
+            }
+          ]
+        },
+        {
+          "method": "tutor",
+          "items": [
+            {
+              "move": {
+                "id": 450,
+                "name": "Bug Bite"
+              },
+              "type": "bug",
+              "category": "physical",
+              "power": 60,
+              "accuracy": 100,
+              "pp": 20,
+              "level": null,
+              "versionGroups": [
+                "ultra-sun-ultra-moon"
+              ]
+            },
+            {
+              "move": {
+                "id": 202,
+                "name": "Giga Drain"
+              },
+              "type": "grass",
+              "category": "special",
+              "power": 75,
+              "accuracy": 100,
+              "pp": 10,
+              "level": null,
+              "versionGroups": [
+                "ultra-sun-ultra-moon"
+              ]
+            },
+            {
+              "move": {
+                "id": 257,
+                "name": "Heat Wave"
+              },
+              "type": "fire",
+              "category": "special",
+              "power": 95,
+              "accuracy": 90,
+              "pp": 10,
+              "level": null,
+              "versionGroups": [
+                "ultra-sun-ultra-moon"
+              ]
+            },
+            {
+              "move": {
+                "id": 393,
+                "name": "Magnet Rise"
+              },
+              "type": "electric",
+              "category": "status",
+              "power": null,
+              "accuracy": null,
+              "pp": 10,
+              "level": null,
+              "versionGroups": [
+                "ultra-sun-ultra-moon"
+              ]
+            },
+            {
+              "move": {
+                "id": 324,
+                "name": "Signal Beam"
+              },
+              "type": "bug",
+              "category": "special",
+              "power": 75,
+              "accuracy": 100,
+              "pp": 15,
+              "level": null,
+              "versionGroups": [
+                "ultra-sun-ultra-moon"
+              ]
+            },
+            {
+              "move": {
+                "id": 173,
+                "name": "Snore"
+              },
+              "type": "normal",
+              "category": "special",
+              "power": 50,
+              "accuracy": 100,
+              "pp": 15,
+              "level": null,
+              "versionGroups": [
+                "ultra-sun-ultra-moon"
+              ]
+            },
+            {
+              "move": {
+                "id": 428,
+                "name": "Zen Headbutt"
+              },
+              "type": "psychic",
+              "category": "physical",
+              "power": 80,
+              "accuracy": 90,
+              "pp": 15,
+              "level": null,
+              "versionGroups": [
+                "ultra-sun-ultra-moon"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "generation": "generation-viii",
+      "order": 18,
+      "entries": [
+        {
+          "method": "egg",
+          "items": [
+            {
+              "move": {
+                "id": 71,
+                "name": "Absorb"
+              },
+              "type": "grass",
+              "category": "special",
+              "power": 20,
+              "accuracy": 100,
+              "pp": 25,
+              "level": null,
+              "versionGroups": [
+                "sword-shield"
+              ]
+            },
+            {
+              "move": {
+                "id": 106,
+                "name": "Harden"
+              },
+              "type": "normal",
+              "category": "status",
+              "power": null,
+              "accuracy": null,
+              "pp": 30,
+              "level": null,
+              "versionGroups": [
+                "sword-shield"
+              ]
+            },
+            {
+              "move": {
+                "id": 37,
+                "name": "Thrash"
+              },
+              "type": "normal",
+              "category": "physical",
+              "power": 120,
+              "accuracy": 100,
+              "pp": 10,
+              "level": null,
+              "versionGroups": [
+                "sword-shield"
+              ]
+            }
+          ]
+        },
+        {
+          "method": "level-up",
+          "items": [
+            {
+              "move": {
+                "id": 52,
+                "name": "Ember"
+              },
+              "type": "fire",
+              "category": "special",
+              "power": 40,
+              "accuracy": 100,
+              "pp": 25,
+              "level": 1,
+              "versionGroups": [
+                "sword-shield"
+              ]
+            },
+            {
+              "move": {
+                "id": 81,
+                "name": "String Shot"
+              },
+              "type": "bug",
+              "category": "status",
+              "power": null,
+              "accuracy": 95,
+              "pp": 40,
+              "level": 1,
+              "versionGroups": [
+                "sword-shield"
+              ]
+            },
+            {
+              "move": {
+                "id": 488,
+                "name": "Flame Charge"
+              },
+              "type": "fire",
+              "category": "physical",
+              "power": 50,
+              "accuracy": 100,
+              "pp": 20,
+              "level": 6,
+              "versionGroups": [
+                "sword-shield"
+              ]
+            },
+            {
+              "move": {
+                "id": 522,
+                "name": "Struggle Bug"
+              },
+              "type": "bug",
+              "category": "special",
+              "power": 50,
+              "accuracy": 100,
+              "pp": 20,
+              "level": 12,
+              "versionGroups": [
+                "sword-shield"
+              ]
+            },
+            {
+              "move": {
+                "id": 172,
+                "name": "Flame Wheel"
+              },
+              "type": "fire",
+              "category": "physical",
+              "power": 60,
+              "accuracy": 100,
+              "pp": 25,
+              "level": 18,
+              "versionGroups": [
+                "sword-shield"
+              ]
+            },
+            {
+              "move": {
+                "id": 450,
+                "name": "Bug Bite"
+              },
+              "type": "bug",
+              "category": "physical",
+              "power": 60,
+              "accuracy": 100,
+              "pp": 20,
+              "level": 24,
+              "versionGroups": [
+                "sword-shield"
+              ]
+            },
+            {
+              "move": {
+                "id": 103,
+                "name": "Screech"
+              },
+              "type": "normal",
+              "category": "status",
+              "power": null,
+              "accuracy": 85,
+              "pp": 40,
+              "level": 30,
+              "versionGroups": [
+                "sword-shield"
+              ]
+            },
+            {
+              "move": {
+                "id": 141,
+                "name": "Leech Life"
+              },
+              "type": "bug",
+              "category": "physical",
+              "power": 80,
+              "accuracy": 100,
+              "pp": 10,
+              "level": 36,
+              "versionGroups": [
+                "sword-shield"
+              ]
+            },
+            {
+              "move": {
+                "id": 405,
+                "name": "Bug Buzz"
+              },
+              "type": "bug",
+              "category": "special",
+              "power": 90,
+              "accuracy": 100,
+              "pp": 10,
+              "level": 42,
+              "versionGroups": [
+                "sword-shield"
+              ]
+            },
+            {
+              "move": {
+                "id": 36,
+                "name": "Take Down"
+              },
+              "type": "normal",
+              "category": "physical",
+              "power": 90,
+              "accuracy": 85,
+              "pp": 20,
+              "level": 48,
+              "versionGroups": [
+                "sword-shield"
+              ]
+            },
+            {
+              "move": {
+                "id": 133,
+                "name": "Amnesia"
+              },
+              "type": "psychic",
+              "category": "status",
+              "power": null,
+              "accuracy": null,
+              "pp": 20,
+              "level": 54,
+              "versionGroups": [
+                "sword-shield"
+              ]
+            },
+            {
+              "move": {
+                "id": 38,
+                "name": "Double-Edge"
+              },
+              "type": "normal",
+              "category": "physical",
+              "power": 120,
+              "accuracy": 100,
+              "pp": 15,
+              "level": 60,
+              "versionGroups": [
+                "sword-shield"
+              ]
+            },
+            {
+              "move": {
+                "id": 394,
+                "name": "Flare Blitz"
+              },
+              "type": "fire",
+              "category": "physical",
+              "power": 120,
+              "accuracy": 100,
+              "pp": 15,
+              "level": 66,
+              "versionGroups": [
+                "sword-shield"
+              ]
+            }
+          ]
+        },
+        {
+          "method": "machine",
+          "items": [
+            {
+              "move": {
+                "id": 512,
+                "name": "Acrobatics"
+              },
+              "type": "flying",
+              "category": "physical",
+              "power": 55,
+              "accuracy": 100,
+              "pp": 15,
+              "level": null,
+              "versionGroups": [
+                "sword-shield"
+              ]
+            },
+            {
+              "move": {
+                "id": 133,
+                "name": "Amnesia"
+              },
+              "type": "psychic",
+              "category": "status",
+              "power": null,
+              "accuracy": null,
+              "pp": 20,
+              "level": null,
+              "versionGroups": [
+                "sword-shield"
+              ]
+            },
+            {
+              "move": {
+                "id": 213,
+                "name": "Attract"
+              },
+              "type": "normal",
+              "category": "status",
+              "power": null,
+              "accuracy": 100,
+              "pp": 15,
+              "level": null,
+              "versionGroups": [
+                "sword-shield"
+              ]
+            },
+            {
+              "move": {
+                "id": 405,
+                "name": "Bug Buzz"
+              },
+              "type": "bug",
+              "category": "special",
+              "power": 90,
+              "accuracy": 100,
+              "pp": 10,
+              "level": null,
+              "versionGroups": [
+                "sword-shield"
+              ]
+            },
+            {
+              "move": {
+                "id": 347,
+                "name": "Calm Mind"
+              },
+              "type": "psychic",
+              "category": "status",
+              "power": null,
+              "accuracy": null,
+              "pp": 20,
+              "level": null,
+              "versionGroups": [
+                "sword-shield"
+              ]
+            },
+            {
+              "move": {
+                "id": 203,
+                "name": "Endure"
+              },
+              "type": "normal",
+              "category": "status",
+              "power": null,
+              "accuracy": null,
+              "pp": 10,
+              "level": null,
+              "versionGroups": [
+                "sword-shield"
+              ]
+            },
+            {
+              "move": {
+                "id": 263,
+                "name": "Facade"
+              },
+              "type": "normal",
+              "category": "physical",
+              "power": 70,
+              "accuracy": 100,
+              "pp": 20,
+              "level": null,
+              "versionGroups": [
+                "sword-shield"
+              ]
+            },
+            {
+              "move": {
+                "id": 126,
+                "name": "Fire Blast"
+              },
+              "type": "fire",
+              "category": "special",
+              "power": 110,
+              "accuracy": 85,
+              "pp": 5,
+              "level": null,
+              "versionGroups": [
+                "sword-shield"
+              ]
+            },
+            {
+              "move": {
+                "id": 53,
+                "name": "Flamethrower"
+              },
+              "type": "fire",
+              "category": "special",
+              "power": 90,
+              "accuracy": 100,
+              "pp": 15,
+              "level": null,
+              "versionGroups": [
+                "sword-shield"
+              ]
+            },
+            {
+              "move": {
+                "id": 394,
+                "name": "Flare Blitz"
+              },
+              "type": "fire",
+              "category": "physical",
+              "power": 120,
+              "accuracy": 100,
+              "pp": 15,
+              "level": null,
+              "versionGroups": [
+                "sword-shield"
+              ]
+            },
+            {
+              "move": {
+                "id": 202,
+                "name": "Giga Drain"
+              },
+              "type": "grass",
+              "category": "special",
+              "power": 75,
+              "accuracy": 100,
+              "pp": 10,
+              "level": null,
+              "versionGroups": [
+                "sword-shield"
+              ]
+            },
+            {
+              "move": {
+                "id": 257,
+                "name": "Heat Wave"
+              },
+              "type": "fire",
+              "category": "special",
+              "power": 95,
+              "accuracy": 90,
+              "pp": 10,
+              "level": null,
+              "versionGroups": [
+                "sword-shield"
+              ]
+            },
+            {
+              "move": {
+                "id": 141,
+                "name": "Leech Life"
+              },
+              "type": "bug",
+              "category": "physical",
+              "power": 80,
+              "accuracy": 100,
+              "pp": 10,
+              "level": null,
+              "versionGroups": [
+                "sword-shield"
+              ]
+            },
+            {
+              "move": {
+                "id": 113,
+                "name": "Light Screen"
+              },
+              "type": "psychic",
+              "category": "status",
+              "power": null,
+              "accuracy": null,
+              "pp": 30,
+              "level": null,
+              "versionGroups": [
+                "sword-shield"
+              ]
+            },
+            {
+              "move": {
+                "id": 315,
+                "name": "Overheat"
+              },
+              "type": "fire",
+              "category": "special",
+              "power": 130,
+              "accuracy": 90,
+              "pp": 5,
+              "level": null,
+              "versionGroups": [
+                "sword-shield"
+              ]
+            },
+            {
+              "move": {
+                "id": 182,
+                "name": "Protect"
+              },
+              "type": "normal",
+              "category": "status",
+              "power": null,
+              "accuracy": null,
+              "pp": 10,
+              "level": null,
+              "versionGroups": [
+                "sword-shield"
+              ]
+            },
+            {
+              "move": {
+                "id": 94,
+                "name": "Psychic"
+              },
+              "type": "psychic",
+              "category": "special",
+              "power": 90,
+              "accuracy": 100,
+              "pp": 10,
+              "level": null,
+              "versionGroups": [
+                "sword-shield"
+              ]
+            },
+            {
+              "move": {
+                "id": 156,
+                "name": "Rest"
+              },
+              "type": "psychic",
+              "category": "status",
+              "power": null,
+              "accuracy": null,
+              "pp": 5,
+              "level": null,
+              "versionGroups": [
+                "sword-shield"
+              ]
+            },
+            {
+              "move": {
+                "id": 496,
+                "name": "Round"
+              },
+              "type": "normal",
+              "category": "special",
+              "power": 60,
+              "accuracy": 100,
+              "pp": 15,
+              "level": null,
+              "versionGroups": [
+                "sword-shield"
+              ]
+            },
+            {
+              "move": {
+                "id": 219,
+                "name": "Safeguard"
+              },
+              "type": "normal",
+              "category": "status",
+              "power": null,
+              "accuracy": null,
+              "pp": 25,
+              "level": null,
+              "versionGroups": [
+                "sword-shield"
+              ]
+            },
+            {
+              "move": {
+                "id": 103,
+                "name": "Screech"
+              },
+              "type": "normal",
+              "category": "status",
+              "power": null,
+              "accuracy": 85,
+              "pp": 40,
+              "level": null,
+              "versionGroups": [
+                "sword-shield"
+              ]
+            },
+            {
+              "move": {
+                "id": 214,
+                "name": "Sleep Talk"
+              },
+              "type": "normal",
+              "category": "status",
+              "power": null,
+              "accuracy": null,
+              "pp": 10,
+              "level": null,
+              "versionGroups": [
+                "sword-shield"
+              ]
+            },
+            {
+              "move": {
+                "id": 173,
+                "name": "Snore"
+              },
+              "type": "normal",
+              "category": "special",
+              "power": 50,
+              "accuracy": 100,
+              "pp": 15,
+              "level": null,
+              "versionGroups": [
+                "sword-shield"
+              ]
+            },
+            {
+              "move": {
+                "id": 76,
+                "name": "Solar Beam"
+              },
+              "type": "grass",
+              "category": "special",
+              "power": 120,
+              "accuracy": 100,
+              "pp": 10,
+              "level": null,
+              "versionGroups": [
+                "sword-shield"
+              ]
+            },
+            {
+              "move": {
+                "id": 164,
+                "name": "Substitute"
+              },
+              "type": "normal",
+              "category": "status",
+              "power": null,
+              "accuracy": null,
+              "pp": 10,
+              "level": null,
+              "versionGroups": [
+                "sword-shield"
+              ]
+            },
+            {
+              "move": {
+                "id": 241,
+                "name": "Sunny Day"
+              },
+              "type": "fire",
+              "category": "status",
+              "power": null,
+              "accuracy": null,
+              "pp": 5,
+              "level": null,
+              "versionGroups": [
+                "sword-shield"
+              ]
+            },
+            {
+              "move": {
+                "id": 369,
+                "name": "U-turn"
+              },
+              "type": "bug",
+              "category": "physical",
+              "power": 70,
+              "accuracy": 100,
+              "pp": 20,
+              "level": null,
+              "versionGroups": [
+                "sword-shield"
+              ]
+            },
+            {
+              "move": {
+                "id": 528,
+                "name": "Wild Charge"
+              },
+              "type": "electric",
+              "category": "physical",
+              "power": 90,
+              "accuracy": 100,
+              "pp": 15,
+              "level": null,
+              "versionGroups": [
+                "sword-shield"
+              ]
+            },
+            {
+              "move": {
+                "id": 261,
+                "name": "Will-O-Wisp"
+              },
+              "type": "fire",
+              "category": "status",
+              "power": null,
+              "accuracy": 85,
+              "pp": 15,
+              "level": null,
+              "versionGroups": [
+                "sword-shield"
+              ]
+            },
+            {
+              "move": {
+                "id": 428,
+                "name": "Zen Headbutt"
+              },
+              "type": "psychic",
+              "category": "physical",
+              "power": 80,
+              "accuracy": 90,
+              "pp": 15,
+              "level": null,
+              "versionGroups": [
+                "sword-shield"
+              ]
+            }
+          ]
+        },
+        {
+          "method": "tutor",
+          "items": [
+            {
+              "move": {
+                "id": 806,
+                "name": "Skitter Smack"
+              },
+              "type": "bug",
+              "category": "physical",
+              "power": 70,
+              "accuracy": 90,
+              "pp": 10,
+              "level": null,
+              "versionGroups": [
+                "sword-shield"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "generation": "generation-ix",
+      "order": 21,
+      "entries": [
+        {
+          "method": "egg",
+          "items": [
+            {
+              "move": {
+                "id": 71,
+                "name": "Absorb"
+              },
+              "type": "grass",
+              "category": "special",
+              "power": 20,
+              "accuracy": 100,
+              "pp": 25,
+              "level": null,
+              "versionGroups": [
+                "scarlet-violet"
+              ]
+            },
+            {
+              "move": {
+                "id": 106,
+                "name": "Harden"
+              },
+              "type": "normal",
+              "category": "status",
+              "power": null,
+              "accuracy": null,
+              "pp": 30,
+              "level": null,
+              "versionGroups": [
+                "scarlet-violet"
+              ]
+            },
+            {
+              "move": {
+                "id": 234,
+                "name": "Morning Sun"
+              },
+              "type": "normal",
+              "category": "status",
+              "power": null,
+              "accuracy": null,
+              "pp": 5,
+              "level": null,
+              "versionGroups": [
+                "scarlet-violet"
+              ]
+            },
+            {
+              "move": {
+                "id": 37,
+                "name": "Thrash"
+              },
+              "type": "normal",
+              "category": "physical",
+              "power": 120,
+              "accuracy": 100,
+              "pp": 10,
+              "level": null,
+              "versionGroups": [
+                "scarlet-violet"
+              ]
+            }
+          ]
+        },
+        {
+          "method": "level-up",
+          "items": [
+            {
+              "move": {
+                "id": 52,
+                "name": "Ember"
+              },
+              "type": "fire",
+              "category": "special",
+              "power": 40,
+              "accuracy": 100,
+              "pp": 25,
+              "level": 1,
+              "versionGroups": [
+                "scarlet-violet"
+              ]
+            },
+            {
+              "move": {
+                "id": 81,
+                "name": "String Shot"
+              },
+              "type": "bug",
+              "category": "status",
+              "power": null,
+              "accuracy": 95,
+              "pp": 40,
+              "level": 1,
+              "versionGroups": [
+                "scarlet-violet"
+              ]
+            },
+            {
+              "move": {
+                "id": 488,
+                "name": "Flame Charge"
+              },
+              "type": "fire",
+              "category": "physical",
+              "power": 50,
+              "accuracy": 100,
+              "pp": 20,
+              "level": 6,
+              "versionGroups": [
+                "scarlet-violet"
+              ]
+            },
+            {
+              "move": {
+                "id": 522,
+                "name": "Struggle Bug"
+              },
+              "type": "bug",
+              "category": "special",
+              "power": 50,
+              "accuracy": 100,
+              "pp": 20,
+              "level": 12,
+              "versionGroups": [
+                "scarlet-violet"
+              ]
+            },
+            {
+              "move": {
+                "id": 172,
+                "name": "Flame Wheel"
+              },
+              "type": "fire",
+              "category": "physical",
+              "power": 60,
+              "accuracy": 100,
+              "pp": 25,
+              "level": 18,
+              "versionGroups": [
+                "scarlet-violet"
+              ]
+            },
+            {
+              "move": {
+                "id": 450,
+                "name": "Bug Bite"
+              },
+              "type": "bug",
+              "category": "physical",
+              "power": 60,
+              "accuracy": 100,
+              "pp": 20,
+              "level": 24,
+              "versionGroups": [
+                "scarlet-violet"
+              ]
+            },
+            {
+              "move": {
+                "id": 103,
+                "name": "Screech"
+              },
+              "type": "normal",
+              "category": "status",
+              "power": null,
+              "accuracy": 85,
+              "pp": 40,
+              "level": 30,
+              "versionGroups": [
+                "scarlet-violet"
+              ]
+            },
+            {
+              "move": {
+                "id": 141,
+                "name": "Leech Life"
+              },
+              "type": "bug",
+              "category": "physical",
+              "power": 80,
+              "accuracy": 100,
+              "pp": 10,
+              "level": 36,
+              "versionGroups": [
+                "scarlet-violet"
+              ]
+            },
+            {
+              "move": {
+                "id": 405,
+                "name": "Bug Buzz"
+              },
+              "type": "bug",
+              "category": "special",
+              "power": 90,
+              "accuracy": 100,
+              "pp": 10,
+              "level": 42,
+              "versionGroups": [
+                "scarlet-violet"
+              ]
+            },
+            {
+              "move": {
+                "id": 36,
+                "name": "Take Down"
+              },
+              "type": "normal",
+              "category": "physical",
+              "power": 90,
+              "accuracy": 85,
+              "pp": 20,
+              "level": 48,
+              "versionGroups": [
+                "scarlet-violet"
+              ]
+            },
+            {
+              "move": {
+                "id": 133,
+                "name": "Amnesia"
+              },
+              "type": "psychic",
+              "category": "status",
+              "power": null,
+              "accuracy": null,
+              "pp": 20,
+              "level": 54,
+              "versionGroups": [
+                "scarlet-violet"
+              ]
+            },
+            {
+              "move": {
+                "id": 38,
+                "name": "Double-Edge"
+              },
+              "type": "normal",
+              "category": "physical",
+              "power": 120,
+              "accuracy": 100,
+              "pp": 15,
+              "level": 60,
+              "versionGroups": [
+                "scarlet-violet"
+              ]
+            },
+            {
+              "move": {
+                "id": 394,
+                "name": "Flare Blitz"
+              },
+              "type": "fire",
+              "category": "physical",
+              "power": 120,
+              "accuracy": 100,
+              "pp": 15,
+              "level": 66,
+              "versionGroups": [
+                "scarlet-violet"
+              ]
+            }
+          ]
+        },
+        {
+          "method": "machine",
+          "items": [
+            {
+              "move": {
+                "id": 512,
+                "name": "Acrobatics"
+              },
+              "type": "flying",
+              "category": "physical",
+              "power": 55,
+              "accuracy": 100,
+              "pp": 15,
+              "level": null,
+              "versionGroups": [
+                "scarlet-violet"
+              ]
+            },
+            {
+              "move": {
+                "id": 133,
+                "name": "Amnesia"
+              },
+              "type": "psychic",
+              "category": "status",
+              "power": null,
+              "accuracy": null,
+              "pp": 20,
+              "level": null,
+              "versionGroups": [
+                "scarlet-violet"
+              ]
+            },
+            {
+              "move": {
+                "id": 34,
+                "name": "Body Slam"
+              },
+              "type": "normal",
+              "category": "physical",
+              "power": 85,
+              "accuracy": 100,
+              "pp": 15,
+              "level": null,
+              "versionGroups": [
+                "scarlet-violet"
+              ]
+            },
+            {
+              "move": {
+                "id": 450,
+                "name": "Bug Bite"
+              },
+              "type": "bug",
+              "category": "physical",
+              "power": 60,
+              "accuracy": 100,
+              "pp": 20,
+              "level": null,
+              "versionGroups": [
+                "scarlet-violet"
+              ]
+            },
+            {
+              "move": {
+                "id": 405,
+                "name": "Bug Buzz"
+              },
+              "type": "bug",
+              "category": "special",
+              "power": 90,
+              "accuracy": 100,
+              "pp": 10,
+              "level": null,
+              "versionGroups": [
+                "scarlet-violet"
+              ]
+            },
+            {
+              "move": {
+                "id": 347,
+                "name": "Calm Mind"
+              },
+              "type": "psychic",
+              "category": "status",
+              "power": null,
+              "accuracy": null,
+              "pp": 20,
+              "level": null,
+              "versionGroups": [
+                "scarlet-violet"
+              ]
+            },
+            {
+              "move": {
+                "id": 38,
+                "name": "Double-Edge"
+              },
+              "type": "normal",
+              "category": "physical",
+              "power": 120,
+              "accuracy": 100,
+              "pp": 15,
+              "level": null,
+              "versionGroups": [
+                "scarlet-violet"
+              ]
+            },
+            {
+              "move": {
+                "id": 203,
+                "name": "Endure"
+              },
+              "type": "normal",
+              "category": "status",
+              "power": null,
+              "accuracy": null,
+              "pp": 10,
+              "level": null,
+              "versionGroups": [
+                "scarlet-violet"
+              ]
+            },
+            {
+              "move": {
+                "id": 263,
+                "name": "Facade"
+              },
+              "type": "normal",
+              "category": "physical",
+              "power": 70,
+              "accuracy": 100,
+              "pp": 20,
+              "level": null,
+              "versionGroups": [
+                "scarlet-violet"
+              ]
+            },
+            {
+              "move": {
+                "id": 126,
+                "name": "Fire Blast"
+              },
+              "type": "fire",
+              "category": "special",
+              "power": 110,
+              "accuracy": 85,
+              "pp": 5,
+              "level": null,
+              "versionGroups": [
+                "scarlet-violet"
+              ]
+            },
+            {
+              "move": {
+                "id": 83,
+                "name": "Fire Spin"
+              },
+              "type": "fire",
+              "category": "special",
+              "power": 35,
+              "accuracy": 85,
+              "pp": 15,
+              "level": null,
+              "versionGroups": [
+                "scarlet-violet"
+              ]
+            },
+            {
+              "move": {
+                "id": 488,
+                "name": "Flame Charge"
+              },
+              "type": "fire",
+              "category": "physical",
+              "power": 50,
+              "accuracy": 100,
+              "pp": 20,
+              "level": null,
+              "versionGroups": [
+                "scarlet-violet"
+              ]
+            },
+            {
+              "move": {
+                "id": 53,
+                "name": "Flamethrower"
+              },
+              "type": "fire",
+              "category": "special",
+              "power": 90,
+              "accuracy": 100,
+              "pp": 15,
+              "level": null,
+              "versionGroups": [
+                "scarlet-violet"
+              ]
+            },
+            {
+              "move": {
+                "id": 394,
+                "name": "Flare Blitz"
+              },
+              "type": "fire",
+              "category": "physical",
+              "power": 120,
+              "accuracy": 100,
+              "pp": 15,
+              "level": null,
+              "versionGroups": [
+                "scarlet-violet"
+              ]
+            },
+            {
+              "move": {
+                "id": 202,
+                "name": "Giga Drain"
+              },
+              "type": "grass",
+              "category": "special",
+              "power": 75,
+              "accuracy": 100,
+              "pp": 10,
+              "level": null,
+              "versionGroups": [
+                "scarlet-violet"
+              ]
+            },
+            {
+              "move": {
+                "id": 257,
+                "name": "Heat Wave"
+              },
+              "type": "fire",
+              "category": "special",
+              "power": 95,
+              "accuracy": 90,
+              "pp": 10,
+              "level": null,
+              "versionGroups": [
+                "scarlet-violet"
+              ]
+            },
+            {
+              "move": {
+                "id": 141,
+                "name": "Leech Life"
+              },
+              "type": "bug",
+              "category": "physical",
+              "power": 80,
+              "accuracy": 100,
+              "pp": 10,
+              "level": null,
+              "versionGroups": [
+                "scarlet-violet"
+              ]
+            },
+            {
+              "move": {
+                "id": 113,
+                "name": "Light Screen"
+              },
+              "type": "psychic",
+              "category": "status",
+              "power": null,
+              "accuracy": null,
+              "pp": 30,
+              "level": null,
+              "versionGroups": [
+                "scarlet-violet"
+              ]
+            },
+            {
+              "move": {
+                "id": 679,
+                "name": "Lunge"
+              },
+              "type": "bug",
+              "category": "physical",
+              "power": 80,
+              "accuracy": 100,
+              "pp": 15,
+              "level": null,
+              "versionGroups": [
+                "scarlet-violet"
+              ]
+            },
+            {
+              "move": {
+                "id": 315,
+                "name": "Overheat"
+              },
+              "type": "fire",
+              "category": "special",
+              "power": 130,
+              "accuracy": 90,
+              "pp": 5,
+              "level": null,
+              "versionGroups": [
+                "scarlet-violet"
+              ]
+            },
+            {
+              "move": {
+                "id": 884,
+                "name": "Pounce"
+              },
+              "type": "bug",
+              "category": "physical",
+              "power": 50,
+              "accuracy": 100,
+              "pp": 20,
+              "level": null,
+              "versionGroups": [
+                "scarlet-violet"
+              ]
+            },
+            {
+              "move": {
+                "id": 182,
+                "name": "Protect"
+              },
+              "type": "normal",
+              "category": "status",
+              "power": null,
+              "accuracy": null,
+              "pp": 10,
+              "level": null,
+              "versionGroups": [
+                "scarlet-violet"
+              ]
+            },
+            {
+              "move": {
+                "id": 94,
+                "name": "Psychic"
+              },
+              "type": "psychic",
+              "category": "special",
+              "power": 90,
+              "accuracy": 100,
+              "pp": 10,
+              "level": null,
+              "versionGroups": [
+                "scarlet-violet"
+              ]
+            },
+            {
+              "move": {
+                "id": 156,
+                "name": "Rest"
+              },
+              "type": "psychic",
+              "category": "status",
+              "power": null,
+              "accuracy": null,
+              "pp": 5,
+              "level": null,
+              "versionGroups": [
+                "scarlet-violet"
+              ]
+            },
+            {
+              "move": {
+                "id": 806,
+                "name": "Skitter Smack"
+              },
+              "type": "bug",
+              "category": "physical",
+              "power": 70,
+              "accuracy": 90,
+              "pp": 10,
+              "level": null,
+              "versionGroups": [
+                "scarlet-violet"
+              ]
+            },
+            {
+              "move": {
+                "id": 214,
+                "name": "Sleep Talk"
+              },
+              "type": "normal",
+              "category": "status",
+              "power": null,
+              "accuracy": null,
+              "pp": 10,
+              "level": null,
+              "versionGroups": [
+                "scarlet-violet"
+              ]
+            },
+            {
+              "move": {
+                "id": 76,
+                "name": "Solar Beam"
+              },
+              "type": "grass",
+              "category": "special",
+              "power": 120,
+              "accuracy": 100,
+              "pp": 10,
+              "level": null,
+              "versionGroups": [
+                "scarlet-violet"
+              ]
+            },
+            {
+              "move": {
+                "id": 522,
+                "name": "Struggle Bug"
+              },
+              "type": "bug",
+              "category": "special",
+              "power": 50,
+              "accuracy": 100,
+              "pp": 20,
+              "level": null,
+              "versionGroups": [
+                "scarlet-violet"
+              ]
+            },
+            {
+              "move": {
+                "id": 164,
+                "name": "Substitute"
+              },
+              "type": "normal",
+              "category": "status",
+              "power": null,
+              "accuracy": null,
+              "pp": 10,
+              "level": null,
+              "versionGroups": [
+                "scarlet-violet"
+              ]
+            },
+            {
+              "move": {
+                "id": 241,
+                "name": "Sunny Day"
+              },
+              "type": "fire",
+              "category": "status",
+              "power": null,
+              "accuracy": null,
+              "pp": 5,
+              "level": null,
+              "versionGroups": [
+                "scarlet-violet"
+              ]
+            },
+            {
+              "move": {
+                "id": 36,
+                "name": "Take Down"
+              },
+              "type": "normal",
+              "category": "physical",
+              "power": 90,
+              "accuracy": 85,
+              "pp": 20,
+              "level": null,
+              "versionGroups": [
+                "scarlet-violet"
+              ]
+            },
+            {
+              "move": {
+                "id": 851,
+                "name": "Tera Blast"
+              },
+              "type": "normal",
+              "category": "special",
+              "power": 80,
+              "accuracy": 100,
+              "pp": 10,
+              "level": null,
+              "versionGroups": [
+                "scarlet-violet"
+              ]
+            },
+            {
+              "move": {
+                "id": 885,
+                "name": "Trailblaze"
+              },
+              "type": "grass",
+              "category": "physical",
+              "power": 50,
+              "accuracy": 100,
+              "pp": 20,
+              "level": null,
+              "versionGroups": [
+                "scarlet-violet"
+              ]
+            },
+            {
+              "move": {
+                "id": 369,
+                "name": "U-turn"
+              },
+              "type": "bug",
+              "category": "physical",
+              "power": 70,
+              "accuracy": 100,
+              "pp": 20,
+              "level": null,
+              "versionGroups": [
+                "scarlet-violet"
+              ]
+            },
+            {
+              "move": {
+                "id": 528,
+                "name": "Wild Charge"
+              },
+              "type": "electric",
+              "category": "physical",
+              "power": 90,
+              "accuracy": 100,
+              "pp": 15,
+              "level": null,
+              "versionGroups": [
+                "scarlet-violet"
+              ]
+            },
+            {
+              "move": {
+                "id": 261,
+                "name": "Will-O-Wisp"
+              },
+              "type": "fire",
+              "category": "status",
+              "power": null,
+              "accuracy": 85,
+              "pp": 15,
+              "level": null,
+              "versionGroups": [
+                "scarlet-violet"
+              ]
+            },
+            {
+              "move": {
+                "id": 428,
+                "name": "Zen Headbutt"
+              },
+              "type": "psychic",
+              "category": "physical",
+              "power": 80,
+              "accuracy": 90,
+              "pp": 15,
+              "level": null,
+              "versionGroups": [
+                "scarlet-violet"
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

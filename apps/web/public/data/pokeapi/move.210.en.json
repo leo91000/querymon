@@ -1,0 +1,914 @@
+{
+  "id": 210,
+  "name": "Fury Cutter",
+  "type": {
+    "id": 7,
+    "name": "bug"
+  },
+  "damage_class": {
+    "name": "physical"
+  },
+  "power": 40,
+  "accuracy": 95,
+  "pp": 20,
+  "priority": 0,
+  "target": {
+    "name": "selected-pokemon"
+  },
+  "generation": {
+    "name": "generation-ii"
+  },
+  "effect_entries": [
+    {
+      "effect": "Inflicts regular damage.  Power doubles after every time this move is used, whether consecutively or not, maxing out at 16x.  If this move misses or the user leaves the field, power resets.",
+      "language": {
+        "name": "en",
+        "url": "https://pokeapi.co/api/v2/language/9/"
+      },
+      "short_effect": "Power doubles every turn this move is used in succession after the first, maxing out after five turns."
+    }
+  ],
+  "flavor_text_entries": [
+    {
+      "flavor_text": "Successive hits raise power.",
+      "language": {
+        "name": "en",
+        "url": "https://pokeapi.co/api/v2/language/9/"
+      },
+      "version_group": {
+        "name": "gold-silver",
+        "url": "https://pokeapi.co/api/v2/version-group/3/"
+      }
+    },
+    {
+      "flavor_text": "Successive hits raise power.",
+      "language": {
+        "name": "en",
+        "url": "https://pokeapi.co/api/v2/language/9/"
+      },
+      "version_group": {
+        "name": "crystal",
+        "url": "https://pokeapi.co/api/v2/version-group/4/"
+      }
+    },
+    {
+      "flavor_text": "An attack that intensifies on each successive hit.",
+      "language": {
+        "name": "en",
+        "url": "https://pokeapi.co/api/v2/language/9/"
+      },
+      "version_group": {
+        "name": "ruby-sapphire",
+        "url": "https://pokeapi.co/api/v2/version-group/5/"
+      }
+    },
+    {
+      "flavor_text": "An attack that intensifies on each successive hit.",
+      "language": {
+        "name": "en",
+        "url": "https://pokeapi.co/api/v2/language/9/"
+      },
+      "version_group": {
+        "name": "emerald",
+        "url": "https://pokeapi.co/api/v2/version-group/6/"
+      }
+    },
+    {
+      "flavor_text": "An attack that grows stronger on each successive hit.",
+      "language": {
+        "name": "en",
+        "url": "https://pokeapi.co/api/v2/language/9/"
+      },
+      "version_group": {
+        "name": "firered-leafgreen",
+        "url": "https://pokeapi.co/api/v2/version-group/7/"
+      }
+    },
+    {
+      "flavor_text": "The foe is slashed with scythes or claws. Its power increases if it hits in succession.",
+      "language": {
+        "name": "en",
+        "url": "https://pokeapi.co/api/v2/language/9/"
+      },
+      "version_group": {
+        "name": "diamond-pearl",
+        "url": "https://pokeapi.co/api/v2/version-group/8/"
+      }
+    },
+    {
+      "flavor_text": "The foe is slashed with scythes or claws. Its power increases if it hits in succession.",
+      "language": {
+        "name": "en",
+        "url": "https://pokeapi.co/api/v2/language/9/"
+      },
+      "version_group": {
+        "name": "platinum",
+        "url": "https://pokeapi.co/api/v2/version-group/9/"
+      }
+    },
+    {
+      "flavor_text": "The foe is slashed with scythes or claws. Its power increases if it hits in succession.",
+      "language": {
+        "name": "en",
+        "url": "https://pokeapi.co/api/v2/language/9/"
+      },
+      "version_group": {
+        "name": "heartgold-soulsilver",
+        "url": "https://pokeapi.co/api/v2/version-group/10/"
+      }
+    },
+    {
+      "flavor_text": "The target is slashed with scythes or claws. Its power increases if it hits in succession.",
+      "language": {
+        "name": "en",
+        "url": "https://pokeapi.co/api/v2/language/9/"
+      },
+      "version_group": {
+        "name": "black-white",
+        "url": "https://pokeapi.co/api/v2/version-group/11/"
+      }
+    },
+    {
+      "flavor_text": "The target is slashed with scythes or claws. Its power increases if it hits in succession.",
+      "language": {
+        "name": "en",
+        "url": "https://pokeapi.co/api/v2/language/9/"
+      },
+      "version_group": {
+        "name": "black-2-white-2",
+        "url": "https://pokeapi.co/api/v2/version-group/14/"
+      }
+    },
+    {
+      "flavor_text": "The target is slashed with scythes or claws. This attack becomes more powerful if it hits in succession.",
+      "language": {
+        "name": "en",
+        "url": "https://pokeapi.co/api/v2/language/9/"
+      },
+      "version_group": {
+        "name": "x-y",
+        "url": "https://pokeapi.co/api/v2/version-group/15/"
+      }
+    },
+    {
+      "flavor_text": "The target is slashed with scythes or claws. This attack becomes more powerful if it hits in succession.",
+      "language": {
+        "name": "en",
+        "url": "https://pokeapi.co/api/v2/language/9/"
+      },
+      "version_group": {
+        "name": "omega-ruby-alpha-sapphire",
+        "url": "https://pokeapi.co/api/v2/version-group/16/"
+      }
+    },
+    {
+      "flavor_text": "The target is slashed with scythes or claws. This attack becomes more powerful if it hits in succession.",
+      "language": {
+        "name": "en",
+        "url": "https://pokeapi.co/api/v2/language/9/"
+      },
+      "version_group": {
+        "name": "sun-moon",
+        "url": "https://pokeapi.co/api/v2/version-group/17/"
+      }
+    },
+    {
+      "flavor_text": "The target is slashed with scythes or claws. This attack becomes more powerful if it hits in succession.",
+      "language": {
+        "name": "en",
+        "url": "https://pokeapi.co/api/v2/language/9/"
+      },
+      "version_group": {
+        "name": "ultra-sun-ultra-moon",
+        "url": "https://pokeapi.co/api/v2/version-group/18/"
+      }
+    },
+    {
+      "flavor_text": "The target is slashed with scythes or claws. This attack becomes more powerful if it hits in succession.",
+      "language": {
+        "name": "en",
+        "url": "https://pokeapi.co/api/v2/language/9/"
+      },
+      "version_group": {
+        "name": "lets-go-pikachu-lets-go-eevee",
+        "url": "https://pokeapi.co/api/v2/version-group/19/"
+      }
+    },
+    {
+      "flavor_text": "The target is slashed with scythes or claws. This attack becomes more powerful if it hits in succession.",
+      "language": {
+        "name": "en",
+        "url": "https://pokeapi.co/api/v2/language/9/"
+      },
+      "version_group": {
+        "name": "sword-shield",
+        "url": "https://pokeapi.co/api/v2/version-group/20/"
+      }
+    },
+    {
+      "flavor_text": "The target is slashed with scythes or claws. This attack becomes more powerful if it hits in succession.",
+      "language": {
+        "name": "en",
+        "url": "https://pokeapi.co/api/v2/language/9/"
+      },
+      "version_group": {
+        "name": "legends-arceus",
+        "url": "https://pokeapi.co/api/v2/version-group/24/"
+      }
+    },
+    {
+      "flavor_text": "The user attacks by slashing the target with scythes, claws, or the like. This attack becomes more powerful if it hits in succession.",
+      "language": {
+        "name": "en",
+        "url": "https://pokeapi.co/api/v2/language/9/"
+      },
+      "version_group": {
+        "name": "scarlet-violet",
+        "url": "https://pokeapi.co/api/v2/version-group/25/"
+      }
+    }
+  ],
+  "stat_changes": [],
+  "learned_by_pokemon": [
+    {
+      "id": 1,
+      "name": "Bulbasaur"
+    },
+    {
+      "id": 2,
+      "name": "Ivysaur"
+    },
+    {
+      "id": 3,
+      "name": "Venusaur"
+    },
+    {
+      "id": 4,
+      "name": "Charmander"
+    },
+    {
+      "id": 5,
+      "name": "Charmeleon"
+    },
+    {
+      "id": 6,
+      "name": "Charizard"
+    },
+    {
+      "id": 15,
+      "name": "Beedrill"
+    },
+    {
+      "id": 27,
+      "name": "Sandshrew"
+    },
+    {
+      "id": 28,
+      "name": "Sandslash"
+    },
+    {
+      "id": 31,
+      "name": "Nidoqueen"
+    },
+    {
+      "id": 34,
+      "name": "Nidoking"
+    },
+    {
+      "id": 46,
+      "name": "Paras"
+    },
+    {
+      "id": 47,
+      "name": "Parasect"
+    },
+    {
+      "id": 55,
+      "name": "Golduck"
+    },
+    {
+      "id": 76,
+      "name": "Golem"
+    },
+    {
+      "id": 80,
+      "name": "Slowbro"
+    },
+    {
+      "id": 83,
+      "name": "Farfetch’d"
+    },
+    {
+      "id": 98,
+      "name": "Krabby"
+    },
+    {
+      "id": 99,
+      "name": "Kingler"
+    },
+    {
+      "id": 104,
+      "name": "Cubone"
+    },
+    {
+      "id": 105,
+      "name": "Marowak"
+    },
+    {
+      "id": 112,
+      "name": "Rhydon"
+    },
+    {
+      "id": 115,
+      "name": "Kangaskhan"
+    },
+    {
+      "id": 118,
+      "name": "Goldeen"
+    },
+    {
+      "id": 119,
+      "name": "Seaking"
+    },
+    {
+      "id": 123,
+      "name": "Scyther"
+    },
+    {
+      "id": 127,
+      "name": "Pinsir"
+    },
+    {
+      "id": 141,
+      "name": "Kabutops"
+    },
+    {
+      "id": 149,
+      "name": "Dragonite"
+    },
+    {
+      "id": 151,
+      "name": "Mew"
+    },
+    {
+      "id": 152,
+      "name": "Chikorita"
+    },
+    {
+      "id": 153,
+      "name": "Bayleef"
+    },
+    {
+      "id": 154,
+      "name": "Meganium"
+    },
+    {
+      "id": 156,
+      "name": "Quilava"
+    },
+    {
+      "id": 157,
+      "name": "Typhlosion"
+    },
+    {
+      "id": 159,
+      "name": "Croconaw"
+    },
+    {
+      "id": 160,
+      "name": "Feraligatr"
+    },
+    {
+      "id": 161,
+      "name": "Sentret"
+    },
+    {
+      "id": 162,
+      "name": "Furret"
+    },
+    {
+      "id": 190,
+      "name": "Aipom"
+    },
+    {
+      "id": 199,
+      "name": "Slowking"
+    },
+    {
+      "id": 207,
+      "name": "Gligar"
+    },
+    {
+      "id": 212,
+      "name": "Scizor"
+    },
+    {
+      "id": 214,
+      "name": "Heracross"
+    },
+    {
+      "id": 215,
+      "name": "Sneasel"
+    },
+    {
+      "id": 216,
+      "name": "Teddiursa"
+    },
+    {
+      "id": 217,
+      "name": "Ursaring"
+    },
+    {
+      "id": 227,
+      "name": "Skarmory"
+    },
+    {
+      "id": 248,
+      "name": "Tyranitar"
+    },
+    {
+      "id": 252,
+      "name": "Treecko"
+    },
+    {
+      "id": 253,
+      "name": "Grovyle"
+    },
+    {
+      "id": 254,
+      "name": "Sceptile"
+    },
+    {
+      "id": 256,
+      "name": "Combusken"
+    },
+    {
+      "id": 257,
+      "name": "Blaziken"
+    },
+    {
+      "id": 263,
+      "name": "Zigzagoon"
+    },
+    {
+      "id": 264,
+      "name": "Linoone"
+    },
+    {
+      "id": 274,
+      "name": "Nuzleaf"
+    },
+    {
+      "id": 275,
+      "name": "Shiftry"
+    },
+    {
+      "id": 286,
+      "name": "Breloom"
+    },
+    {
+      "id": 287,
+      "name": "Slakoth"
+    },
+    {
+      "id": 288,
+      "name": "Vigoroth"
+    },
+    {
+      "id": 289,
+      "name": "Slaking"
+    },
+    {
+      "id": 290,
+      "name": "Nincada"
+    },
+    {
+      "id": 291,
+      "name": "Ninjask"
+    },
+    {
+      "id": 292,
+      "name": "Shedinja"
+    },
+    {
+      "id": 302,
+      "name": "Sableye"
+    },
+    {
+      "id": 304,
+      "name": "Aron"
+    },
+    {
+      "id": 305,
+      "name": "Lairon"
+    },
+    {
+      "id": 306,
+      "name": "Aggron"
+    },
+    {
+      "id": 315,
+      "name": "Roselia"
+    },
+    {
+      "id": 318,
+      "name": "Carvanha"
+    },
+    {
+      "id": 319,
+      "name": "Sharpedo"
+    },
+    {
+      "id": 328,
+      "name": "Trapinch"
+    },
+    {
+      "id": 329,
+      "name": "Vibrava"
+    },
+    {
+      "id": 330,
+      "name": "Flygon"
+    },
+    {
+      "id": 331,
+      "name": "Cacnea"
+    },
+    {
+      "id": 332,
+      "name": "Cacturne"
+    },
+    {
+      "id": 335,
+      "name": "Zangoose"
+    },
+    {
+      "id": 336,
+      "name": "Seviper"
+    },
+    {
+      "id": 341,
+      "name": "Corphish"
+    },
+    {
+      "id": 342,
+      "name": "Crawdaunt"
+    },
+    {
+      "id": 347,
+      "name": "Anorith"
+    },
+    {
+      "id": 348,
+      "name": "Armaldo"
+    },
+    {
+      "id": 352,
+      "name": "Kecleon"
+    },
+    {
+      "id": 357,
+      "name": "Tropius"
+    },
+    {
+      "id": 359,
+      "name": "Absol"
+    },
+    {
+      "id": 365,
+      "name": "Walrein"
+    },
+    {
+      "id": 371,
+      "name": "Bagon"
+    },
+    {
+      "id": 372,
+      "name": "Shelgon"
+    },
+    {
+      "id": 373,
+      "name": "Salamence"
+    },
+    {
+      "id": 375,
+      "name": "Metang"
+    },
+    {
+      "id": 376,
+      "name": "Metagross"
+    },
+    {
+      "id": 380,
+      "name": "Latias"
+    },
+    {
+      "id": 381,
+      "name": "Latios"
+    },
+    {
+      "id": 383,
+      "name": "Groudon"
+    },
+    {
+      "id": 384,
+      "name": "Rayquaza"
+    },
+    {
+      "id": 395,
+      "name": "Empoleon"
+    },
+    {
+      "id": 399,
+      "name": "Bidoof"
+    },
+    {
+      "id": 400,
+      "name": "Bibarel"
+    },
+    {
+      "id": 402,
+      "name": "Kricketune"
+    },
+    {
+      "id": 403,
+      "name": "Shinx"
+    },
+    {
+      "id": 404,
+      "name": "Luxio"
+    },
+    {
+      "id": 405,
+      "name": "Luxray"
+    },
+    {
+      "id": 407,
+      "name": "Roserade"
+    },
+    {
+      "id": 416,
+      "name": "Vespiquen"
+    },
+    {
+      "id": 418,
+      "name": "Buizel"
+    },
+    {
+      "id": 424,
+      "name": "Ambipom"
+    },
+    {
+      "id": 428,
+      "name": "Lopunny"
+    },
+    {
+      "id": 431,
+      "name": "Glameow"
+    },
+    {
+      "id": 432,
+      "name": "Purugly"
+    },
+    {
+      "id": 434,
+      "name": "Stunky"
+    },
+    {
+      "id": 435,
+      "name": "Skuntank"
+    },
+    {
+      "id": 443,
+      "name": "Gible"
+    },
+    {
+      "id": 444,
+      "name": "Gabite"
+    },
+    {
+      "id": 445,
+      "name": "Garchomp"
+    },
+    {
+      "id": 447,
+      "name": "Riolu"
+    },
+    {
+      "id": 448,
+      "name": "Lucario"
+    },
+    {
+      "id": 451,
+      "name": "Skorupi"
+    },
+    {
+      "id": 452,
+      "name": "Drapion"
+    },
+    {
+      "id": 453,
+      "name": "Croagunk"
+    },
+    {
+      "id": 454,
+      "name": "Toxicroak"
+    },
+    {
+      "id": 455,
+      "name": "Carnivine"
+    },
+    {
+      "id": 461,
+      "name": "Weavile"
+    },
+    {
+      "id": 464,
+      "name": "Rhyperior"
+    },
+    {
+      "id": 470,
+      "name": "Leafeon"
+    },
+    {
+      "id": 472,
+      "name": "Gliscor"
+    },
+    {
+      "id": 473,
+      "name": "Mamoswine"
+    },
+    {
+      "id": 475,
+      "name": "Gallade"
+    },
+    {
+      "id": 483,
+      "name": "Dialga"
+    },
+    {
+      "id": 484,
+      "name": "Palkia"
+    },
+    {
+      "id": 487,
+      "name": "Giratina"
+    },
+    {
+      "id": 488,
+      "name": "Cresselia"
+    },
+    {
+      "id": 493,
+      "name": "Arceus"
+    },
+    {
+      "id": 501,
+      "name": "Oshawott"
+    },
+    {
+      "id": 502,
+      "name": "Dewott"
+    },
+    {
+      "id": 503,
+      "name": "Samurott"
+    },
+    {
+      "id": 543,
+      "name": "Venipede"
+    },
+    {
+      "id": 557,
+      "name": "Dwebble"
+    },
+    {
+      "id": 558,
+      "name": "Crustle"
+    },
+    {
+      "id": 588,
+      "name": "Karrablast"
+    },
+    {
+      "id": 589,
+      "name": "Escavalier"
+    },
+    {
+      "id": 595,
+      "name": "Joltik"
+    },
+    {
+      "id": 596,
+      "name": "Galvantula"
+    },
+    {
+      "id": 624,
+      "name": "Pawniard"
+    },
+    {
+      "id": 625,
+      "name": "Bisharp"
+    },
+    {
+      "id": 632,
+      "name": "Durant"
+    },
+    {
+      "id": 649,
+      "name": "Genesect"
+    },
+    {
+      "id": 679,
+      "name": "Honedge"
+    },
+    {
+      "id": 680,
+      "name": "Doublade"
+    },
+    {
+      "id": 681,
+      "name": "Aegislash"
+    },
+    {
+      "id": 688,
+      "name": "Binacle"
+    },
+    {
+      "id": 689,
+      "name": "Barbaracle"
+    },
+    {
+      "id": 753,
+      "name": "Fomantis"
+    },
+    {
+      "id": 754,
+      "name": "Lurantis"
+    },
+    {
+      "id": 768,
+      "name": "Golisopod"
+    },
+    {
+      "id": 798,
+      "name": "Kartana"
+    },
+    {
+      "id": 865,
+      "name": "Sirfetch’d"
+    },
+    {
+      "id": 900,
+      "name": "Kleavor"
+    },
+    {
+      "id": 983,
+      "name": "Kingambit"
+    },
+    {
+      "id": 1006,
+      "name": "Iron Valiant"
+    },
+    {
+      "id": 10007,
+      "name": "Giratina"
+    },
+    {
+      "id": 10026,
+      "name": "Aegislash"
+    },
+    {
+      "id": 10046,
+      "name": "Scizor"
+    },
+    {
+      "id": 10065,
+      "name": "Sceptile"
+    },
+    {
+      "id": 10068,
+      "name": "Gallade"
+    },
+    {
+      "id": 10101,
+      "name": "Sandshrew"
+    },
+    {
+      "id": 10102,
+      "name": "Sandslash"
+    },
+    {
+      "id": 10128,
+      "name": "Lurantis"
+    },
+    {
+      "id": 10166,
+      "name": "Farfetch’d"
+    },
+    {
+      "id": 10236,
+      "name": "Samurott"
+    }
+  ]
+}

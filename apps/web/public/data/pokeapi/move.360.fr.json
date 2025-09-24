@@ -1,0 +1,924 @@
+{
+  "id": 360,
+  "name": "Gyroballe",
+  "type": {
+    "id": 9,
+    "name": "steel"
+  },
+  "damage_class": {
+    "name": "physical"
+  },
+  "power": null,
+  "accuracy": 100,
+  "pp": 5,
+  "priority": 0,
+  "target": {
+    "name": "selected-pokemon"
+  },
+  "generation": {
+    "name": "generation-iv"
+  },
+  "effect_entries": [
+    {
+      "effect": "Inflicts regular damage.  Power increases with the target’s current Speed compared to the user, given by `1 + 25 * target Speed / user Speed`, capped at 150.",
+      "language": {
+        "name": "en",
+        "url": "https://pokeapi.co/api/v2/language/9/"
+      },
+      "short_effect": "Power raises when the user has lower Speed, up to a maximum of 150."
+    }
+  ],
+  "flavor_text_entries": [
+    {
+      "flavor_text": "The user tackles the foe with a high-speed spin. The slower the user, the greater the damage.",
+      "language": {
+        "name": "en",
+        "url": "https://pokeapi.co/api/v2/language/9/"
+      },
+      "version_group": {
+        "name": "diamond-pearl",
+        "url": "https://pokeapi.co/api/v2/version-group/8/"
+      }
+    },
+    {
+      "flavor_text": "The user tackles the foe with a high-speed spin. The slower the user, the greater the damage.",
+      "language": {
+        "name": "en",
+        "url": "https://pokeapi.co/api/v2/language/9/"
+      },
+      "version_group": {
+        "name": "platinum",
+        "url": "https://pokeapi.co/api/v2/version-group/9/"
+      }
+    },
+    {
+      "flavor_text": "The user tackles the foe with a high-speed spin. The slower the user, the greater the damage.",
+      "language": {
+        "name": "en",
+        "url": "https://pokeapi.co/api/v2/language/9/"
+      },
+      "version_group": {
+        "name": "heartgold-soulsilver",
+        "url": "https://pokeapi.co/api/v2/version-group/10/"
+      }
+    },
+    {
+      "flavor_text": "Le lanceur effectue une rotation et frappe l’ennemi. Plus le lanceur est lent, plus il fait de dégâts.",
+      "language": {
+        "name": "fr",
+        "url": "https://pokeapi.co/api/v2/language/5/"
+      },
+      "version_group": {
+        "name": "black-white",
+        "url": "https://pokeapi.co/api/v2/version-group/11/"
+      }
+    },
+    {
+      "flavor_text": "The user tackles the target with a high-speed spin. The slower the user, the greater the damage.",
+      "language": {
+        "name": "en",
+        "url": "https://pokeapi.co/api/v2/language/9/"
+      },
+      "version_group": {
+        "name": "black-white",
+        "url": "https://pokeapi.co/api/v2/version-group/11/"
+      }
+    },
+    {
+      "flavor_text": "The user tackles the target with a high-speed spin. The slower the user, the greater the damage.",
+      "language": {
+        "name": "en",
+        "url": "https://pokeapi.co/api/v2/language/9/"
+      },
+      "version_group": {
+        "name": "black-2-white-2",
+        "url": "https://pokeapi.co/api/v2/version-group/14/"
+      }
+    },
+    {
+      "flavor_text": "Le lanceur effectue une rotation et frappe l’ennemi. Plus la Vitesse du lanceur est basse, plus il fait de dégâts.",
+      "language": {
+        "name": "fr",
+        "url": "https://pokeapi.co/api/v2/language/5/"
+      },
+      "version_group": {
+        "name": "x-y",
+        "url": "https://pokeapi.co/api/v2/version-group/15/"
+      }
+    },
+    {
+      "flavor_text": "The user tackles the target with a high-speed spin. The slower the user compared to the target, the greater the move’s power.",
+      "language": {
+        "name": "en",
+        "url": "https://pokeapi.co/api/v2/language/9/"
+      },
+      "version_group": {
+        "name": "x-y",
+        "url": "https://pokeapi.co/api/v2/version-group/15/"
+      }
+    },
+    {
+      "flavor_text": "Le lanceur effectue une rotation et frappe l’ennemi. Plus la Vitesse du lanceur est basse, plus il fait de dégâts.",
+      "language": {
+        "name": "fr",
+        "url": "https://pokeapi.co/api/v2/language/5/"
+      },
+      "version_group": {
+        "name": "omega-ruby-alpha-sapphire",
+        "url": "https://pokeapi.co/api/v2/version-group/16/"
+      }
+    },
+    {
+      "flavor_text": "The user tackles the target with a high-speed spin. The slower the user compared to the target, the greater the move’s power.",
+      "language": {
+        "name": "en",
+        "url": "https://pokeapi.co/api/v2/language/9/"
+      },
+      "version_group": {
+        "name": "omega-ruby-alpha-sapphire",
+        "url": "https://pokeapi.co/api/v2/version-group/16/"
+      }
+    },
+    {
+      "flavor_text": "Le lanceur effectue une rotation et frappe l’ennemi. Plus la Vitesse du lanceur est basse, plus il fait de dégâts.",
+      "language": {
+        "name": "fr",
+        "url": "https://pokeapi.co/api/v2/language/5/"
+      },
+      "version_group": {
+        "name": "sun-moon",
+        "url": "https://pokeapi.co/api/v2/version-group/17/"
+      }
+    },
+    {
+      "flavor_text": "The user tackles the target with a high-speed spin. The slower the user compared to the target, the greater the move’s power.",
+      "language": {
+        "name": "en",
+        "url": "https://pokeapi.co/api/v2/language/9/"
+      },
+      "version_group": {
+        "name": "sun-moon",
+        "url": "https://pokeapi.co/api/v2/version-group/17/"
+      }
+    },
+    {
+      "flavor_text": "Le lanceur effectue une rotation et frappe l’ennemi. Plus la Vitesse du lanceur est basse, plus il fait de dégâts.",
+      "language": {
+        "name": "fr",
+        "url": "https://pokeapi.co/api/v2/language/5/"
+      },
+      "version_group": {
+        "name": "ultra-sun-ultra-moon",
+        "url": "https://pokeapi.co/api/v2/version-group/18/"
+      }
+    },
+    {
+      "flavor_text": "The user tackles the target with a high-speed spin. The slower the user compared to the target, the greater the move’s power.",
+      "language": {
+        "name": "en",
+        "url": "https://pokeapi.co/api/v2/language/9/"
+      },
+      "version_group": {
+        "name": "ultra-sun-ultra-moon",
+        "url": "https://pokeapi.co/api/v2/version-group/18/"
+      }
+    },
+    {
+      "flavor_text": "Le lanceur effectue une rotation et frappe l’ennemi. Plus la Vitesse du lanceur est basse, plus il fait de dégâts.",
+      "language": {
+        "name": "fr",
+        "url": "https://pokeapi.co/api/v2/language/5/"
+      },
+      "version_group": {
+        "name": "lets-go-pikachu-lets-go-eevee",
+        "url": "https://pokeapi.co/api/v2/version-group/19/"
+      }
+    },
+    {
+      "flavor_text": "The user tackles the target with a high-speed spin. The slower the user compared to the target, the greater the move’s power.",
+      "language": {
+        "name": "en",
+        "url": "https://pokeapi.co/api/v2/language/9/"
+      },
+      "version_group": {
+        "name": "lets-go-pikachu-lets-go-eevee",
+        "url": "https://pokeapi.co/api/v2/version-group/19/"
+      }
+    },
+    {
+      "flavor_text": "Le lanceur effectue une rotation et frappe l’ennemi. Plus la Vitesse du lanceur est basse, plus il inflige de dégâts.",
+      "language": {
+        "name": "fr",
+        "url": "https://pokeapi.co/api/v2/language/5/"
+      },
+      "version_group": {
+        "name": "sword-shield",
+        "url": "https://pokeapi.co/api/v2/version-group/20/"
+      }
+    },
+    {
+      "flavor_text": "The user tackles the target with a high-speed spin. The slower the user compared to the target, the greater the move’s power.",
+      "language": {
+        "name": "en",
+        "url": "https://pokeapi.co/api/v2/language/9/"
+      },
+      "version_group": {
+        "name": "sword-shield",
+        "url": "https://pokeapi.co/api/v2/version-group/20/"
+      }
+    },
+    {
+      "flavor_text": "The user tackles the target with a high-speed spin. The slower the user compared to the target, the greater the move's power.",
+      "language": {
+        "name": "en",
+        "url": "https://pokeapi.co/api/v2/language/9/"
+      },
+      "version_group": {
+        "name": "legends-arceus",
+        "url": "https://pokeapi.co/api/v2/version-group/24/"
+      }
+    },
+    {
+      "flavor_text": "The user tackles the target with a high-speed spin. The slower the user is than the target, the greater the move's power.",
+      "language": {
+        "name": "en",
+        "url": "https://pokeapi.co/api/v2/language/9/"
+      },
+      "version_group": {
+        "name": "scarlet-violet",
+        "url": "https://pokeapi.co/api/v2/version-group/25/"
+      }
+    }
+  ],
+  "stat_changes": [],
+  "learned_by_pokemon": [
+    {
+      "id": 7,
+      "name": "Carapuce"
+    },
+    {
+      "id": 8,
+      "name": "Carabaffe"
+    },
+    {
+      "id": 9,
+      "name": "Tortank"
+    },
+    {
+      "id": 27,
+      "name": "Sabelette"
+    },
+    {
+      "id": 28,
+      "name": "Sablaireau"
+    },
+    {
+      "id": 39,
+      "name": "Rondoudou"
+    },
+    {
+      "id": 40,
+      "name": "Grodoudou"
+    },
+    {
+      "id": 74,
+      "name": "Racaillou"
+    },
+    {
+      "id": 75,
+      "name": "Gravalanch"
+    },
+    {
+      "id": 76,
+      "name": "Grolem"
+    },
+    {
+      "id": 81,
+      "name": "Magnéti"
+    },
+    {
+      "id": 82,
+      "name": "Magnéton"
+    },
+    {
+      "id": 95,
+      "name": "Onix"
+    },
+    {
+      "id": 100,
+      "name": "Voltorbe"
+    },
+    {
+      "id": 101,
+      "name": "Électrode"
+    },
+    {
+      "id": 109,
+      "name": "Smogo"
+    },
+    {
+      "id": 110,
+      "name": "Smogogo"
+    },
+    {
+      "id": 120,
+      "name": "Stari"
+    },
+    {
+      "id": 121,
+      "name": "Staross"
+    },
+    {
+      "id": 138,
+      "name": "Amonita"
+    },
+    {
+      "id": 139,
+      "name": "Amonistar"
+    },
+    {
+      "id": 151,
+      "name": "Mew"
+    },
+    {
+      "id": 157,
+      "name": "Typhlosion"
+    },
+    {
+      "id": 204,
+      "name": "Pomdepik"
+    },
+    {
+      "id": 205,
+      "name": "Foretress"
+    },
+    {
+      "id": 206,
+      "name": "Insolourdo"
+    },
+    {
+      "id": 208,
+      "name": "Steelix"
+    },
+    {
+      "id": 211,
+      "name": "Qwilfish"
+    },
+    {
+      "id": 213,
+      "name": "Caratroc"
+    },
+    {
+      "id": 219,
+      "name": "Volcaropod"
+    },
+    {
+      "id": 232,
+      "name": "Donphan"
+    },
+    {
+      "id": 237,
+      "name": "Kapoera"
+    },
+    {
+      "id": 241,
+      "name": "Écrémeuh"
+    },
+    {
+      "id": 302,
+      "name": "Ténéfix"
+    },
+    {
+      "id": 324,
+      "name": "Chartor"
+    },
+    {
+      "id": 337,
+      "name": "Séléroc"
+    },
+    {
+      "id": 338,
+      "name": "Solaroc"
+    },
+    {
+      "id": 343,
+      "name": "Balbuto"
+    },
+    {
+      "id": 344,
+      "name": "Kaorine"
+    },
+    {
+      "id": 362,
+      "name": "Oniglali"
+    },
+    {
+      "id": 375,
+      "name": "Métang"
+    },
+    {
+      "id": 376,
+      "name": "Métalosse"
+    },
+    {
+      "id": 384,
+      "name": "Rayquaza"
+    },
+    {
+      "id": 425,
+      "name": "Baudrive"
+    },
+    {
+      "id": 426,
+      "name": "Grodrive"
+    },
+    {
+      "id": 436,
+      "name": "Archéomire"
+    },
+    {
+      "id": 437,
+      "name": "Archéodong"
+    },
+    {
+      "id": 462,
+      "name": "Magnézone"
+    },
+    {
+      "id": 463,
+      "name": "Coudlangue"
+    },
+    {
+      "id": 498,
+      "name": "Gruikui"
+    },
+    {
+      "id": 499,
+      "name": "Grotichon"
+    },
+    {
+      "id": 500,
+      "name": "Roitiflam"
+    },
+    {
+      "id": 517,
+      "name": "Munna"
+    },
+    {
+      "id": 518,
+      "name": "Mushana"
+    },
+    {
+      "id": 527,
+      "name": "Chovsourir"
+    },
+    {
+      "id": 528,
+      "name": "Rhinolove"
+    },
+    {
+      "id": 543,
+      "name": "Venipatte"
+    },
+    {
+      "id": 544,
+      "name": "Scobolide"
+    },
+    {
+      "id": 545,
+      "name": "Brutapode"
+    },
+    {
+      "id": 554,
+      "name": "Darumarond"
+    },
+    {
+      "id": 555,
+      "name": "Darumacho"
+    },
+    {
+      "id": 577,
+      "name": "Nucléos"
+    },
+    {
+      "id": 578,
+      "name": "Méios"
+    },
+    {
+      "id": 579,
+      "name": "Symbios"
+    },
+    {
+      "id": 597,
+      "name": "Grindur"
+    },
+    {
+      "id": 598,
+      "name": "Noacier"
+    },
+    {
+      "id": 622,
+      "name": "Gringolem"
+    },
+    {
+      "id": 623,
+      "name": "Golemastoc"
+    },
+    {
+      "id": 650,
+      "name": "Marisson"
+    },
+    {
+      "id": 651,
+      "name": "Boguérisse"
+    },
+    {
+      "id": 652,
+      "name": "Blindépique"
+    },
+    {
+      "id": 679,
+      "name": "Monorpale"
+    },
+    {
+      "id": 680,
+      "name": "Dimoclès"
+    },
+    {
+      "id": 681,
+      "name": "Exagide"
+    },
+    {
+      "id": 682,
+      "name": "Fluvetin"
+    },
+    {
+      "id": 683,
+      "name": "Cocotine"
+    },
+    {
+      "id": 703,
+      "name": "Strassie"
+    },
+    {
+      "id": 710,
+      "name": "Pitrouille"
+    },
+    {
+      "id": 711,
+      "name": "Banshitrouye"
+    },
+    {
+      "id": 712,
+      "name": "Grelaçon"
+    },
+    {
+      "id": 713,
+      "name": "Séracrawl"
+    },
+    {
+      "id": 719,
+      "name": "Diancie"
+    },
+    {
+      "id": 721,
+      "name": "Volcanion"
+    },
+    {
+      "id": 766,
+      "name": "Quartermac"
+    },
+    {
+      "id": 774,
+      "name": "Météno"
+    },
+    {
+      "id": 777,
+      "name": "Togedemaru"
+    },
+    {
+      "id": 781,
+      "name": "Sinistrail"
+    },
+    {
+      "id": 791,
+      "name": "Solgaleo"
+    },
+    {
+      "id": 794,
+      "name": "Mouscoto"
+    },
+    {
+      "id": 797,
+      "name": "Bamboiselle"
+    },
+    {
+      "id": 799,
+      "name": "Engloutyran"
+    },
+    {
+      "id": 800,
+      "name": "Necrozma"
+    },
+    {
+      "id": 801,
+      "name": "Magearna"
+    },
+    {
+      "id": 805,
+      "name": "Ama-Ama"
+    },
+    {
+      "id": 808,
+      "name": "Meltan"
+    },
+    {
+      "id": 809,
+      "name": "Melmetal"
+    },
+    {
+      "id": 819,
+      "name": "Rongourmand"
+    },
+    {
+      "id": 820,
+      "name": "Rongrigou"
+    },
+    {
+      "id": 837,
+      "name": "Charbi"
+    },
+    {
+      "id": 838,
+      "name": "Wagomine"
+    },
+    {
+      "id": 839,
+      "name": "Monthracite"
+    },
+    {
+      "id": 842,
+      "name": "Dratatin"
+    },
+    {
+      "id": 863,
+      "name": "Berserkatt"
+    },
+    {
+      "id": 884,
+      "name": "Duralugon"
+    },
+    {
+      "id": 904,
+      "name": "Qwilpik"
+    },
+    {
+      "id": 965,
+      "name": "Vrombi"
+    },
+    {
+      "id": 966,
+      "name": "Vrombotor"
+    },
+    {
+      "id": 982,
+      "name": "Deusolourdo"
+    },
+    {
+      "id": 985,
+      "name": "Hurle-Queue"
+    },
+    {
+      "id": 990,
+      "name": "Roue-de-Fer"
+    },
+    {
+      "id": 1011,
+      "name": "Pomdramour"
+    },
+    {
+      "id": 1018,
+      "name": "Pondralugon"
+    },
+    {
+      "id": 1019,
+      "name": "Pomdorochi"
+    },
+    {
+      "id": 1024,
+      "name": "Terapagos"
+    },
+    {
+      "id": 10005,
+      "name": "Cheniselle"
+    },
+    {
+      "id": 10017,
+      "name": "Darumacho"
+    },
+    {
+      "id": 10026,
+      "name": "Exagide"
+    },
+    {
+      "id": 10027,
+      "name": "Pitrouille"
+    },
+    {
+      "id": 10028,
+      "name": "Pitrouille"
+    },
+    {
+      "id": 10029,
+      "name": "Pitrouille"
+    },
+    {
+      "id": 10030,
+      "name": "Banshitrouye"
+    },
+    {
+      "id": 10031,
+      "name": "Banshitrouye"
+    },
+    {
+      "id": 10032,
+      "name": "Banshitrouye"
+    },
+    {
+      "id": 10036,
+      "name": "Tortank"
+    },
+    {
+      "id": 10072,
+      "name": "Steelix"
+    },
+    {
+      "id": 10074,
+      "name": "Oniglali"
+    },
+    {
+      "id": 10075,
+      "name": "Diancie"
+    },
+    {
+      "id": 10076,
+      "name": "Métalosse"
+    },
+    {
+      "id": 10079,
+      "name": "Rayquaza"
+    },
+    {
+      "id": 10101,
+      "name": "Sabelette"
+    },
+    {
+      "id": 10102,
+      "name": "Sablaireau"
+    },
+    {
+      "id": 10109,
+      "name": "Racaillou"
+    },
+    {
+      "id": 10110,
+      "name": "Gravalanch"
+    },
+    {
+      "id": 10111,
+      "name": "Grolem"
+    },
+    {
+      "id": 10130,
+      "name": "Météno"
+    },
+    {
+      "id": 10131,
+      "name": "Météno"
+    },
+    {
+      "id": 10132,
+      "name": "Météno"
+    },
+    {
+      "id": 10133,
+      "name": "Météno"
+    },
+    {
+      "id": 10134,
+      "name": "Météno"
+    },
+    {
+      "id": 10135,
+      "name": "Météno"
+    },
+    {
+      "id": 10136,
+      "name": "Météno"
+    },
+    {
+      "id": 10137,
+      "name": "Météno"
+    },
+    {
+      "id": 10138,
+      "name": "Météno"
+    },
+    {
+      "id": 10139,
+      "name": "Météno"
+    },
+    {
+      "id": 10140,
+      "name": "Météno"
+    },
+    {
+      "id": 10141,
+      "name": "Météno"
+    },
+    {
+      "id": 10142,
+      "name": "Météno"
+    },
+    {
+      "id": 10147,
+      "name": "Magearna"
+    },
+    {
+      "id": 10154,
+      "name": "Togedemaru"
+    },
+    {
+      "id": 10155,
+      "name": "Necrozma"
+    },
+    {
+      "id": 10156,
+      "name": "Necrozma"
+    },
+    {
+      "id": 10157,
+      "name": "Necrozma"
+    },
+    {
+      "id": 10161,
+      "name": "Miaouss"
+    },
+    {
+      "id": 10167,
+      "name": "Smogogo"
+    },
+    {
+      "id": 10176,
+      "name": "Darumarond"
+    },
+    {
+      "id": 10177,
+      "name": "Darumacho"
+    },
+    {
+      "id": 10178,
+      "name": "Darumacho"
+    },
+    {
+      "id": 10231,
+      "name": "Voltorbe"
+    },
+    {
+      "id": 10232,
+      "name": "Électrode"
+    },
+    {
+      "id": 10233,
+      "name": "Typhlosion"
+    },
+    {
+      "id": 10234,
+      "name": "Qwilfish"
+    },
+    {
+      "id": 10241,
+      "name": "Colimucus"
+    },
+    {
+      "id": 10242,
+      "name": "Muplodocus"
+    },
+    {
+      "id": 10243,
+      "name": "Séracrawl"
+    },
+    {
+      "id": 10255,
+      "name": "Deusolourdo"
+    },
+    {
+      "id": 10276,
+      "name": "Terapagos"
+    },
+    {
+      "id": 10277,
+      "name": "Terapagos"
+    }
+  ]
+}

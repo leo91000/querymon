@@ -2,7 +2,7 @@ import Card from '../components/Card';
 import Badge from '../components/Badge';
 import TypeBox from '../components/TypeBox';
 import { For, Show, createMemo, createResource, createSignal } from 'solid-js';
-import { formatName, loadItemById, type ResourceName, loadNameMap, loadTypeEntries } from '../services/data';
+import { formatName, loadItemById, type ResourceName, loadList } from '../services/data';
 import { t, getLocale } from '../i18n';
 
 type TypeData = any;
@@ -21,37 +21,17 @@ function toneForType(name?: string) {
 function idFromUrl(url?: string | null) { const m = url?.match(/\/(\d+)\/?$/); return m ? Number(m[1]) : undefined; }
 
 export default function TypeDetail(props: { id: number }) {
-  const [data] = createResource(() => props.id, (id) => loadItemById('type' as ResourceName, id));
-  const [typesData] = createResource(loadTypeEntries);
-  const allTypes = () => typesData() || [];
+  const [data] = createResource(() => ({ id: props.id, loc: getLocale() }), (key) => loadItemById('type' as ResourceName, key.id));
+  // New list: types.<loc>.json for localized type names
+  const [typesList] = createResource(() => getLocale(), () => loadList('type' as any));
   function localizeType(typeId?: number, fallback?: string) {
-    const loc = getLocale() as 'en'|'fr'|'jp';
-    const lang = { en:'en', fr:'fr', jp:'ja' }[loc] || 'en';
-    const entry = (allTypes()||[]).find((t:any)=>t.id===typeId);
-    const names = entry?.names || [];
-    if (lang==='ja') {
-      const ja = names.find((n:any)=>n.language?.name==='ja')?.name;
-      if (ja) return ja;
-      const jaHrkt = names.find((n:any)=>n.language?.name==='ja-Hrkt')?.name;
-      if (jaHrkt) return jaHrkt;
-    }
-    return names.find((n:any)=>n.language?.name===lang)?.name || fallback || '';
+    const list = typesList() || [];
+    const name = list.find((t: any) => t.id === typeId)?.name;
+    return name || fallback || '';
   }
   const type = createMemo(() => data() as TypeData | undefined);
   const dmg = createMemo(() => type()?.damage_relations || {});
-  const localizedTypeName = createMemo(() => {
-    const names = type()?.names || [];
-    const map = { en: 'en', fr: 'fr', jp: 'ja' } as const;
-    const loc = (getLocale() as 'en'|'fr'|'jp');
-    const want = map[loc] || 'en';
-    if (want === 'ja') {
-      const ja = names.find((n: any) => n.language?.name === 'ja')?.name;
-      if (ja) return ja;
-      const jaHrkt = names.find((n: any) => n.language?.name === 'ja-Hrkt')?.name;
-      if (jaHrkt) return jaHrkt;
-    }
-    return names.find((n: any) => n.language?.name === want)?.name || type()?.name;
-  });
+  const localizedTypeName = createMemo(() => type()?.name || '');
 
   const offense = createMemo(() => ({
     super: (dmg().double_damage_to || []).map((x: any) => x.type || x),
@@ -111,7 +91,7 @@ export default function TypeDetail(props: { id: number }) {
             <h3 class="mb-3 text-sm font-semibold tracking-wide text-gray-500">{t('type.moves')}</h3>
             <div class="flex flex-wrap gap-2">
               <For each={visibleMoves()}>{(m: any) => {
-                const id = idFromUrl(m.url);
+                const id = (typeof m?.id === 'number' ? m.id : idFromUrl(m?.url));
                 return (
                   <a href={id ? `/move/${id}` : '#'} class="rounded-full border border-gray-200 px-3 py-1 text-sm hover:bg-gray-50 dark:border-gray-700 dark:hover:bg-gray-700/50">
                     <MoveName id={id} fallback={formatName(m.name)} />
@@ -130,10 +110,10 @@ export default function TypeDetail(props: { id: number }) {
             <h3 class="mb-3 text-sm font-semibold tracking-wide text-gray-500">{t('type.pokemon')}</h3>
             <div class="flex flex-wrap gap-2">
               <For each={visiblePokemon()}>{(p: any) => {
-                const id = idFromUrl(p.pokemon?.url);
+                const id = (typeof p?.id === 'number' ? p.id : idFromUrl(p?.pokemon?.url));
                 return (
                   <a href={id ? `/pokemon/${id}` : '#'} class="rounded-full border border-gray-200 px-3 py-1 text-sm hover:bg-gray-50 dark:border-gray-700 dark:hover:bg-gray-700/50">
-                    <PokemonName id={id} fallback={formatName(p.pokemon?.name)} />
+                    <PokemonName id={id} fallback={formatName(p?.name || p?.pokemon?.name)} />
                   </a>
                 );
               }}</For>
@@ -150,14 +130,14 @@ export default function TypeDetail(props: { id: number }) {
   );
 }
 
-function RelRow(props: { label: string; list: any[] }) {
+  function RelRow(props: { label: string; list: any[] }) {
   return (
     <div class="mb-3">
       <div class="mb-1 text-xs font-semibold uppercase tracking-wide text-gray-500">{props.label}</div>
       <div class="flex flex-wrap gap-2">
         <For each={props.list}>{(t: any) => {
-          const id = idFromUrl(t.url);
-          return <TypeBox id={id} name={t.name} link />;
+          const id = (typeof t?.id === 'number' ? t.id : idFromUrl(t?.url));
+          return <TypeBox id={id} link />;
         }}</For>
         <Show when={(props.list?.length || 0) === 0}>
           <span class="text-sm text-gray-400">—</span>
@@ -168,16 +148,13 @@ function RelRow(props: { label: string; list: any[] }) {
 }
 
 function PokemonName(props: { id?: number; fallback: string }) {
-  const [names] = createResource(() => getLocale(), (loc) => loadNameMap('pokemon', loc as any));
-  return <>{(props.id && names()?.[String(props.id)]) || props.fallback}</>;
+  return <>{props.fallback}</>;
 }
 
 function MoveName(props: { id?: number; fallback: string }) {
-  const [names] = createResource(() => getLocale(), (loc) => loadNameMap('move', loc as any));
-  return <>{(props.id && names()?.[String(props.id)]) || props.fallback}</>;
+  return <>{props.fallback}</>;
 }
 
 function TypeName(props: { id?: number; fallback: string }) {
-  const [names] = createResource(() => getLocale(), (loc) => loadNameMap('type', loc as any));
-  return <>{(props.id && names()?.[String(props.id)]) || props.fallback}</>;
+  return <>{props.fallback}</>;
 }

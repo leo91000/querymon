@@ -1,0 +1,4993 @@
+{
+  "id": 637,
+  "name": "Pyrax",
+  "sprites": {
+    "front_default": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/637.png",
+    "front_shiny": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/shiny/637.png",
+    "official_artwork": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/637.png",
+    "dream_world": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/dream-world/637.svg",
+    "home_default": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/637.png",
+    "home_shiny": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/shiny/637.png",
+    "versions": {
+      "generation-v": {
+        "front_default": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/637.png",
+        "back_default": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/back/637.png",
+        "front_shiny": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/shiny/637.png",
+        "back_shiny": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/back/shiny/637.png"
+      },
+      "generation-vi": {
+        "front_default": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-vi/omegaruby-alphasapphire/637.png",
+        "front_shiny": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-vi/omegaruby-alphasapphire/shiny/637.png"
+      },
+      "generation-vii": {
+        "front_default": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-vii/icons/637.png",
+        "front_shiny": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-vii/ultra-sun-ultra-moon/shiny/637.png"
+      },
+      "generation-viii": {
+        "front_default": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-viii/icons/637.png"
+      }
+    }
+  },
+  "types": [
+    {
+      "id": 7,
+      "name": "bug"
+    },
+    {
+      "id": 10,
+      "name": "fire"
+    }
+  ],
+  "abilities": [
+    {
+      "id": 49,
+      "name": "flame-body",
+      "hidden": false
+    },
+    {
+      "id": 68,
+      "name": "swarm",
+      "hidden": true
+    }
+  ],
+  "stats": [
+    {
+      "name": "hp",
+      "base": 85,
+      "effort": 0
+    },
+    {
+      "name": "attack",
+      "base": 60,
+      "effort": 0
+    },
+    {
+      "name": "defense",
+      "base": 65,
+      "effort": 0
+    },
+    {
+      "name": "special-attack",
+      "base": 135,
+      "effort": 3
+    },
+    {
+      "name": "special-defense",
+      "base": 105,
+      "effort": 0
+    },
+    {
+      "name": "speed",
+      "base": 100,
+      "effort": 0
+    }
+  ],
+  "weight": 460,
+  "height": 16,
+  "base_experience": 248,
+  "species": {
+    "capture_rate": 15,
+    "hatch_counter": 40,
+    "gender_rate": 4,
+    "growth_rate": {
+      "id": 1,
+      "name": "slow"
+    },
+    "egg_groups": [
+      {
+        "id": 3,
+        "name": "Insectoïde"
+      }
+    ],
+    "color": {
+      "id": 9,
+      "name": "Blanc"
+    },
+    "genus": "Pokémon Soleil",
+    "flavor_text": "On dit que quand le ciel s’est obscurci à cause des cendres d’un volcan, le feu d’un Pyrax aurait remplacé le soleil."
+  },
+  "evolutions": [
+    [
+      {
+        "id": 636,
+        "name": "Pyronille",
+        "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/636.png",
+        "isCurrent": false,
+        "details": []
+      }
+    ],
+    [
+      {
+        "id": 637,
+        "name": "Pyrax",
+        "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/637.png",
+        "isCurrent": true,
+        "details": [
+          {
+            "gender": null,
+            "held_item": null,
+            "item": null,
+            "known_move": null,
+            "known_move_type": null,
+            "location": null,
+            "min_affection": null,
+            "min_beauty": null,
+            "min_happiness": null,
+            "min_level": 59,
+            "needs_overworld_rain": false,
+            "party_species": null,
+            "party_type": null,
+            "relative_physical_stats": null,
+            "time_of_day": "",
+            "trade_species": null,
+            "trigger": {
+              "name": "level-up",
+              "url": "https://pokeapi.co/api/v2/evolution-trigger/1/"
+            },
+            "turn_upside_down": false
+          }
+        ]
+      }
+    ]
+  ],
+  "learnsets": [
+    {
+      "generation": "generation-v",
+      "order": 11,
+      "entries": [
+        {
+          "method": "level-up",
+          "items": [
+            {
+              "move": {
+                "id": 52,
+                "name": "Flammèche"
+              },
+              "type": "fire",
+              "category": "special",
+              "power": 40,
+              "accuracy": 100,
+              "pp": 25,
+              "level": 1,
+              "versionGroups": [
+                "black-white",
+                "black-2-white-2"
+              ]
+            },
+            {
+              "move": {
+                "id": 81,
+                "name": "Sécrétion"
+              },
+              "type": "bug",
+              "category": "status",
+              "power": null,
+              "accuracy": 95,
+              "pp": 40,
+              "level": 1,
+              "versionGroups": [
+                "black-white",
+                "black-2-white-2"
+              ]
+            },
+            {
+              "move": {
+                "id": 16,
+                "name": "Tornade"
+              },
+              "type": "flying",
+              "category": "special",
+              "power": 40,
+              "accuracy": 100,
+              "pp": 35,
+              "level": 1,
+              "versionGroups": [
+                "black-white",
+                "black-2-white-2"
+              ]
+            },
+            {
+              "move": {
+                "id": 141,
+                "name": "Vampirisme"
+              },
+              "type": "bug",
+              "category": "physical",
+              "power": 80,
+              "accuracy": 100,
+              "pp": 10,
+              "level": 1,
+              "versionGroups": [
+                "black-white",
+                "black-2-white-2"
+              ]
+            },
+            {
+              "move": {
+                "id": 83,
+                "name": "Danse Flammes"
+              },
+              "type": "fire",
+              "category": "special",
+              "power": 35,
+              "accuracy": 85,
+              "pp": 15,
+              "level": 30,
+              "versionGroups": [
+                "black-white",
+                "black-2-white-2"
+              ]
+            },
+            {
+              "move": {
+                "id": 18,
+                "name": "Cyclone"
+              },
+              "type": "normal",
+              "category": "status",
+              "power": null,
+              "accuracy": null,
+              "pp": 20,
+              "level": 40,
+              "versionGroups": [
+                "black-white",
+                "black-2-white-2"
+              ]
+            },
+            {
+              "move": {
+                "id": 318,
+                "name": "Vent Argenté"
+              },
+              "type": "bug",
+              "category": "special",
+              "power": 60,
+              "accuracy": 100,
+              "pp": 5,
+              "level": 50,
+              "versionGroups": [
+                "black-white",
+                "black-2-white-2"
+              ]
+            },
+            {
+              "move": {
+                "id": 483,
+                "name": "Papillodanse"
+              },
+              "type": "bug",
+              "category": "status",
+              "power": null,
+              "accuracy": null,
+              "pp": 20,
+              "level": 59,
+              "versionGroups": [
+                "black-white",
+                "black-2-white-2"
+              ]
+            },
+            {
+              "move": {
+                "id": 257,
+                "name": "Canicule"
+              },
+              "type": "fire",
+              "category": "special",
+              "power": 95,
+              "accuracy": 90,
+              "pp": 10,
+              "level": 60,
+              "versionGroups": [
+                "black-white",
+                "black-2-white-2"
+              ]
+            },
+            {
+              "move": {
+                "id": 405,
+                "name": "Bourdon"
+              },
+              "type": "bug",
+              "category": "special",
+              "power": 90,
+              "accuracy": 100,
+              "pp": 10,
+              "level": 70,
+              "versionGroups": [
+                "black-white",
+                "black-2-white-2"
+              ]
+            },
+            {
+              "move": {
+                "id": 476,
+                "name": "Poudre Fureur"
+              },
+              "type": "bug",
+              "category": "status",
+              "power": null,
+              "accuracy": null,
+              "pp": 20,
+              "level": 80,
+              "versionGroups": [
+                "black-white",
+                "black-2-white-2"
+              ]
+            },
+            {
+              "move": {
+                "id": 542,
+                "name": "Vent Violent"
+              },
+              "type": "flying",
+              "category": "special",
+              "power": 110,
+              "accuracy": 70,
+              "pp": 10,
+              "level": 90,
+              "versionGroups": [
+                "black-white",
+                "black-2-white-2"
+              ]
+            },
+            {
+              "move": {
+                "id": 552,
+                "name": "Danse du Feu"
+              },
+              "type": "fire",
+              "category": "special",
+              "power": 80,
+              "accuracy": 100,
+              "pp": 10,
+              "level": 100,
+              "versionGroups": [
+                "black-white",
+                "black-2-white-2"
+              ]
+            }
+          ]
+        },
+        {
+          "method": "machine",
+          "items": [
+            {
+              "move": {
+                "id": 182,
+                "name": "Abri"
+              },
+              "type": "normal",
+              "category": "status",
+              "power": null,
+              "accuracy": null,
+              "pp": 10,
+              "level": null,
+              "versionGroups": [
+                "black-white",
+                "black-2-white-2"
+              ]
+            },
+            {
+              "move": {
+                "id": 512,
+                "name": "Acrobatie"
+              },
+              "type": "flying",
+              "category": "physical",
+              "power": 55,
+              "accuracy": 100,
+              "pp": 15,
+              "level": null,
+              "versionGroups": [
+                "black-white",
+                "black-2-white-2"
+              ]
+            },
+            {
+              "move": {
+                "id": 332,
+                "name": "Aéropique"
+              },
+              "type": "flying",
+              "category": "physical",
+              "power": 60,
+              "accuracy": null,
+              "pp": 20,
+              "level": null,
+              "versionGroups": [
+                "black-white",
+                "black-2-white-2"
+              ]
+            },
+            {
+              "move": {
+                "id": 510,
+                "name": "Calcination"
+              },
+              "type": "fire",
+              "category": "special",
+              "power": 60,
+              "accuracy": 100,
+              "pp": 15,
+              "level": null,
+              "versionGroups": [
+                "black-white",
+                "black-2-white-2"
+              ]
+            },
+            {
+              "move": {
+                "id": 496,
+                "name": "Chant Canon"
+              },
+              "type": "normal",
+              "category": "special",
+              "power": 60,
+              "accuracy": 100,
+              "pp": 15,
+              "level": null,
+              "versionGroups": [
+                "black-white",
+                "black-2-white-2"
+              ]
+            },
+            {
+              "move": {
+                "id": 164,
+                "name": "Clonage"
+              },
+              "type": "normal",
+              "category": "status",
+              "power": null,
+              "accuracy": null,
+              "pp": 10,
+              "level": null,
+              "versionGroups": [
+                "black-white",
+                "black-2-white-2"
+              ]
+            },
+            {
+              "move": {
+                "id": 126,
+                "name": "Déflagration"
+              },
+              "type": "fire",
+              "category": "special",
+              "power": 110,
+              "accuracy": 85,
+              "pp": 5,
+              "level": null,
+              "versionGroups": [
+                "black-white",
+                "black-2-white-2"
+              ]
+            },
+            {
+              "move": {
+                "id": 369,
+                "name": "Demi-Tour"
+              },
+              "type": "bug",
+              "category": "physical",
+              "power": 70,
+              "accuracy": 100,
+              "pp": 20,
+              "level": null,
+              "versionGroups": [
+                "black-white",
+                "black-2-white-2"
+              ]
+            },
+            {
+              "move": {
+                "id": 398,
+                "name": "Direct Toxik"
+              },
+              "type": "poison",
+              "category": "physical",
+              "power": 80,
+              "accuracy": 100,
+              "pp": 20,
+              "level": null,
+              "versionGroups": [
+                "black-white",
+                "black-2-white-2"
+              ]
+            },
+            {
+              "move": {
+                "id": 528,
+                "name": "Éclair Fou"
+              },
+              "type": "electric",
+              "category": "physical",
+              "power": 90,
+              "accuracy": 100,
+              "pp": 15,
+              "level": null,
+              "versionGroups": [
+                "black-white",
+                "black-2-white-2"
+              ]
+            },
+            {
+              "move": {
+                "id": 263,
+                "name": "Façade"
+              },
+              "type": "normal",
+              "category": "physical",
+              "power": 70,
+              "accuracy": 100,
+              "pp": 20,
+              "level": null,
+              "versionGroups": [
+                "black-white",
+                "black-2-white-2"
+              ]
+            },
+            {
+              "move": {
+                "id": 261,
+                "name": "Feu Follet"
+              },
+              "type": "fire",
+              "category": "status",
+              "power": null,
+              "accuracy": 85,
+              "pp": 15,
+              "level": null,
+              "versionGroups": [
+                "black-white",
+                "black-2-white-2"
+              ]
+            },
+            {
+              "move": {
+                "id": 218,
+                "name": "Frustration"
+              },
+              "type": "normal",
+              "category": "physical",
+              "power": null,
+              "accuracy": 100,
+              "pp": 20,
+              "level": null,
+              "versionGroups": [
+                "black-white",
+                "black-2-white-2"
+              ]
+            },
+            {
+              "move": {
+                "id": 416,
+                "name": "Giga Impact"
+              },
+              "type": "normal",
+              "category": "physical",
+              "power": 150,
+              "accuracy": 90,
+              "pp": 5,
+              "level": null,
+              "versionGroups": [
+                "black-white",
+                "black-2-white-2"
+              ]
+            },
+            {
+              "move": {
+                "id": 53,
+                "name": "Lance-Flammes"
+              },
+              "type": "fire",
+              "category": "special",
+              "power": 90,
+              "accuracy": 100,
+              "pp": 15,
+              "level": null,
+              "versionGroups": [
+                "black-white",
+                "black-2-white-2"
+              ]
+            },
+            {
+              "move": {
+                "id": 76,
+                "name": "Lance-Soleil"
+              },
+              "type": "grass",
+              "category": "special",
+              "power": 120,
+              "accuracy": 100,
+              "pp": 10,
+              "level": null,
+              "versionGroups": [
+                "black-white",
+                "black-2-white-2"
+              ]
+            },
+            {
+              "move": {
+                "id": 113,
+                "name": "Mur Lumière"
+              },
+              "type": "psychic",
+              "category": "status",
+              "power": null,
+              "accuracy": null,
+              "pp": 30,
+              "level": null,
+              "versionGroups": [
+                "black-white",
+                "black-2-white-2"
+              ]
+            },
+            {
+              "move": {
+                "id": 488,
+                "name": "Nitrocharge"
+              },
+              "type": "fire",
+              "category": "physical",
+              "power": 50,
+              "accuracy": 100,
+              "pp": 20,
+              "level": null,
+              "versionGroups": [
+                "black-white",
+                "black-2-white-2"
+              ]
+            },
+            {
+              "move": {
+                "id": 347,
+                "name": "Plénitude"
+              },
+              "type": "psychic",
+              "category": "status",
+              "power": null,
+              "accuracy": null,
+              "pp": 20,
+              "level": null,
+              "versionGroups": [
+                "black-white",
+                "black-2-white-2"
+              ]
+            },
+            {
+              "move": {
+                "id": 94,
+                "name": "Psyko"
+              },
+              "type": "psychic",
+              "category": "special",
+              "power": 90,
+              "accuracy": 100,
+              "pp": 10,
+              "level": null,
+              "versionGroups": [
+                "black-white",
+                "black-2-white-2"
+              ]
+            },
+            {
+              "move": {
+                "id": 237,
+                "name": "Puissance Cachée"
+              },
+              "type": "normal",
+              "category": "special",
+              "power": 60,
+              "accuracy": 100,
+              "pp": 15,
+              "level": null,
+              "versionGroups": [
+                "black-white",
+                "black-2-white-2"
+              ]
+            },
+            {
+              "move": {
+                "id": 104,
+                "name": "Reflet"
+              },
+              "type": "normal",
+              "category": "status",
+              "power": null,
+              "accuracy": null,
+              "pp": 15,
+              "level": null,
+              "versionGroups": [
+                "black-white",
+                "black-2-white-2"
+              ]
+            },
+            {
+              "move": {
+                "id": 156,
+                "name": "Repos"
+              },
+              "type": "psychic",
+              "category": "status",
+              "power": null,
+              "accuracy": null,
+              "pp": 5,
+              "level": null,
+              "versionGroups": [
+                "black-white",
+                "black-2-white-2"
+              ]
+            },
+            {
+              "move": {
+                "id": 216,
+                "name": "Retour"
+              },
+              "type": "normal",
+              "category": "physical",
+              "power": null,
+              "accuracy": 100,
+              "pp": 20,
+              "level": null,
+              "versionGroups": [
+                "black-white",
+                "black-2-white-2"
+              ]
+            },
+            {
+              "move": {
+                "id": 219,
+                "name": "Rune Protect"
+              },
+              "type": "normal",
+              "category": "status",
+              "power": null,
+              "accuracy": null,
+              "pp": 25,
+              "level": null,
+              "versionGroups": [
+                "black-white",
+                "black-2-white-2"
+              ]
+            },
+            {
+              "move": {
+                "id": 315,
+                "name": "Surchauffe"
+              },
+              "type": "fire",
+              "category": "special",
+              "power": 130,
+              "accuracy": 90,
+              "pp": 5,
+              "level": null,
+              "versionGroups": [
+                "black-white",
+                "black-2-white-2"
+              ]
+            },
+            {
+              "move": {
+                "id": 522,
+                "name": "Survinsecte"
+              },
+              "type": "bug",
+              "category": "special",
+              "power": 50,
+              "accuracy": 100,
+              "pp": 20,
+              "level": null,
+              "versionGroups": [
+                "black-white",
+                "black-2-white-2"
+              ]
+            },
+            {
+              "move": {
+                "id": 92,
+                "name": "Toxik"
+              },
+              "type": "poison",
+              "category": "status",
+              "power": null,
+              "accuracy": 90,
+              "pp": 10,
+              "level": null,
+              "versionGroups": [
+                "black-white",
+                "black-2-white-2"
+              ]
+            },
+            {
+              "move": {
+                "id": 63,
+                "name": "Ultralaser"
+              },
+              "type": "normal",
+              "category": "special",
+              "power": 150,
+              "accuracy": 90,
+              "pp": 5,
+              "level": null,
+              "versionGroups": [
+                "black-white",
+                "black-2-white-2"
+              ]
+            },
+            {
+              "move": {
+                "id": 207,
+                "name": "Vantardise"
+              },
+              "type": "normal",
+              "category": "status",
+              "power": null,
+              "accuracy": 85,
+              "pp": 15,
+              "level": null,
+              "versionGroups": [
+                "black-white",
+                "black-2-white-2"
+              ]
+            },
+            {
+              "move": {
+                "id": 19,
+                "name": "Vol"
+              },
+              "type": "flying",
+              "category": "physical",
+              "power": 90,
+              "accuracy": 95,
+              "pp": 15,
+              "level": null,
+              "versionGroups": [
+                "black-white",
+                "black-2-white-2"
+              ]
+            },
+            {
+              "move": {
+                "id": 241,
+                "name": "Zénith"
+              },
+              "type": "fire",
+              "category": "status",
+              "power": null,
+              "accuracy": null,
+              "pp": 5,
+              "level": null,
+              "versionGroups": [
+                "black-white",
+                "black-2-white-2"
+              ]
+            }
+          ]
+        },
+        {
+          "method": "tutor",
+          "items": [
+            {
+              "move": {
+                "id": 355,
+                "name": "Atterrissage"
+              },
+              "type": "flying",
+              "category": "status",
+              "power": null,
+              "accuracy": null,
+              "pp": 5,
+              "level": null,
+              "versionGroups": [
+                "black-2-white-2"
+              ]
+            },
+            {
+              "move": {
+                "id": 214,
+                "name": "Blabla Dodo"
+              },
+              "type": "normal",
+              "category": "status",
+              "power": null,
+              "accuracy": null,
+              "pp": 10,
+              "level": null,
+              "versionGroups": [
+                "black-2-white-2"
+              ]
+            },
+            {
+              "move": {
+                "id": 257,
+                "name": "Canicule"
+              },
+              "type": "fire",
+              "category": "special",
+              "power": 95,
+              "accuracy": 90,
+              "pp": 10,
+              "level": null,
+              "versionGroups": [
+                "black-2-white-2"
+              ]
+            },
+            {
+              "move": {
+                "id": 202,
+                "name": "Giga-Sangsue"
+              },
+              "type": "grass",
+              "category": "special",
+              "power": 75,
+              "accuracy": 100,
+              "pp": 10,
+              "level": null,
+              "versionGroups": [
+                "black-2-white-2"
+              ]
+            },
+            {
+              "move": {
+                "id": 450,
+                "name": "Piqûre"
+              },
+              "type": "bug",
+              "category": "physical",
+              "power": 60,
+              "accuracy": 100,
+              "pp": 20,
+              "level": null,
+              "versionGroups": [
+                "black-2-white-2"
+              ]
+            },
+            {
+              "move": {
+                "id": 428,
+                "name": "Psykoud’Boul"
+              },
+              "type": "psychic",
+              "category": "physical",
+              "power": 80,
+              "accuracy": 90,
+              "pp": 15,
+              "level": null,
+              "versionGroups": [
+                "black-2-white-2"
+              ]
+            },
+            {
+              "move": {
+                "id": 324,
+                "name": "Rayon Signal"
+              },
+              "type": "bug",
+              "category": "special",
+              "power": 75,
+              "accuracy": 100,
+              "pp": 15,
+              "level": null,
+              "versionGroups": [
+                "black-2-white-2"
+              ]
+            },
+            {
+              "move": {
+                "id": 173,
+                "name": "Ronflement"
+              },
+              "type": "normal",
+              "category": "special",
+              "power": 50,
+              "accuracy": 100,
+              "pp": 15,
+              "level": null,
+              "versionGroups": [
+                "black-2-white-2"
+              ]
+            },
+            {
+              "move": {
+                "id": 366,
+                "name": "Vent Arrière"
+              },
+              "type": "flying",
+              "category": "status",
+              "power": null,
+              "accuracy": null,
+              "pp": 15,
+              "level": null,
+              "versionGroups": [
+                "black-2-white-2"
+              ]
+            },
+            {
+              "move": {
+                "id": 393,
+                "name": "Vol Magnétik"
+              },
+              "type": "electric",
+              "category": "status",
+              "power": null,
+              "accuracy": null,
+              "pp": 10,
+              "level": null,
+              "versionGroups": [
+                "black-2-white-2"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "generation": "generation-vi",
+      "order": 13,
+      "entries": [
+        {
+          "method": "level-up",
+          "items": [
+            {
+              "move": {
+                "id": 133,
+                "name": "Amnésie"
+              },
+              "type": "psychic",
+              "category": "status",
+              "power": null,
+              "accuracy": null,
+              "pp": 20,
+              "level": 1,
+              "versionGroups": [
+                "x-y",
+                "omega-ruby-alpha-sapphire"
+              ]
+            },
+            {
+              "move": {
+                "id": 405,
+                "name": "Bourdon"
+              },
+              "type": "bug",
+              "category": "special",
+              "power": 90,
+              "accuracy": 100,
+              "pp": 10,
+              "level": 1,
+              "versionGroups": [
+                "x-y",
+                "omega-ruby-alpha-sapphire"
+              ]
+            },
+            {
+              "move": {
+                "id": 394,
+                "name": "Boutefeu"
+              },
+              "type": "fire",
+              "category": "physical",
+              "power": 120,
+              "accuracy": 100,
+              "pp": 15,
+              "level": 1,
+              "versionGroups": [
+                "x-y",
+                "omega-ruby-alpha-sapphire"
+              ]
+            },
+            {
+              "move": {
+                "id": 257,
+                "name": "Canicule"
+              },
+              "type": "fire",
+              "category": "special",
+              "power": 95,
+              "accuracy": 90,
+              "pp": 10,
+              "level": 1,
+              "versionGroups": [
+                "x-y",
+                "omega-ruby-alpha-sapphire"
+              ]
+            },
+            {
+              "move": {
+                "id": 552,
+                "name": "Danse du Feu"
+              },
+              "type": "fire",
+              "category": "special",
+              "power": 80,
+              "accuracy": 100,
+              "pp": 10,
+              "level": 1,
+              "versionGroups": [
+                "x-y",
+                "omega-ruby-alpha-sapphire"
+              ]
+            },
+            {
+              "move": {
+                "id": 52,
+                "name": "Flammèche"
+              },
+              "type": "fire",
+              "category": "special",
+              "power": 40,
+              "accuracy": 100,
+              "pp": 25,
+              "level": 1,
+              "versionGroups": [
+                "x-y",
+                "omega-ruby-alpha-sapphire"
+              ]
+            },
+            {
+              "move": {
+                "id": 37,
+                "name": "Mania"
+              },
+              "type": "normal",
+              "category": "physical",
+              "power": 120,
+              "accuracy": 100,
+              "pp": 10,
+              "level": 1,
+              "versionGroups": [
+                "x-y",
+                "omega-ruby-alpha-sapphire"
+              ]
+            },
+            {
+              "move": {
+                "id": 483,
+                "name": "Papillodanse"
+              },
+              "type": "bug",
+              "category": "status",
+              "power": null,
+              "accuracy": null,
+              "pp": 20,
+              "level": 1,
+              "versionGroups": [
+                "x-y",
+                "omega-ruby-alpha-sapphire"
+              ]
+            },
+            {
+              "move": {
+                "id": 476,
+                "name": "Poudre Fureur"
+              },
+              "type": "bug",
+              "category": "status",
+              "power": null,
+              "accuracy": null,
+              "pp": 20,
+              "level": 1,
+              "versionGroups": [
+                "x-y",
+                "omega-ruby-alpha-sapphire"
+              ]
+            },
+            {
+              "move": {
+                "id": 172,
+                "name": "Roue de Feu"
+              },
+              "type": "fire",
+              "category": "physical",
+              "power": 60,
+              "accuracy": 100,
+              "pp": 25,
+              "level": 1,
+              "versionGroups": [
+                "x-y",
+                "omega-ruby-alpha-sapphire"
+              ]
+            },
+            {
+              "move": {
+                "id": 81,
+                "name": "Sécrétion"
+              },
+              "type": "bug",
+              "category": "status",
+              "power": null,
+              "accuracy": 95,
+              "pp": 40,
+              "level": 1,
+              "versionGroups": [
+                "x-y",
+                "omega-ruby-alpha-sapphire"
+              ]
+            },
+            {
+              "move": {
+                "id": 16,
+                "name": "Tornade"
+              },
+              "type": "flying",
+              "category": "special",
+              "power": 40,
+              "accuracy": 100,
+              "pp": 35,
+              "level": 1,
+              "versionGroups": [
+                "x-y",
+                "omega-ruby-alpha-sapphire"
+              ]
+            },
+            {
+              "move": {
+                "id": 141,
+                "name": "Vampirisme"
+              },
+              "type": "bug",
+              "category": "physical",
+              "power": 80,
+              "accuracy": 100,
+              "pp": 10,
+              "level": 1,
+              "versionGroups": [
+                "x-y",
+                "omega-ruby-alpha-sapphire"
+              ]
+            },
+            {
+              "move": {
+                "id": 542,
+                "name": "Vent Violent"
+              },
+              "type": "flying",
+              "category": "special",
+              "power": 110,
+              "accuracy": 70,
+              "pp": 10,
+              "level": 1,
+              "versionGroups": [
+                "x-y",
+                "omega-ruby-alpha-sapphire"
+              ]
+            },
+            {
+              "move": {
+                "id": 83,
+                "name": "Danse Flammes"
+              },
+              "type": "fire",
+              "category": "special",
+              "power": 35,
+              "accuracy": 85,
+              "pp": 15,
+              "level": 30,
+              "versionGroups": [
+                "x-y",
+                "omega-ruby-alpha-sapphire"
+              ]
+            },
+            {
+              "move": {
+                "id": 18,
+                "name": "Cyclone"
+              },
+              "type": "normal",
+              "category": "status",
+              "power": null,
+              "accuracy": null,
+              "pp": 20,
+              "level": 40,
+              "versionGroups": [
+                "x-y",
+                "omega-ruby-alpha-sapphire"
+              ]
+            },
+            {
+              "move": {
+                "id": 318,
+                "name": "Vent Argenté"
+              },
+              "type": "bug",
+              "category": "special",
+              "power": 60,
+              "accuracy": 100,
+              "pp": 5,
+              "level": 50,
+              "versionGroups": [
+                "x-y",
+                "omega-ruby-alpha-sapphire"
+              ]
+            }
+          ]
+        },
+        {
+          "method": "machine",
+          "items": [
+            {
+              "move": {
+                "id": 182,
+                "name": "Abri"
+              },
+              "type": "normal",
+              "category": "status",
+              "power": null,
+              "accuracy": null,
+              "pp": 10,
+              "level": null,
+              "versionGroups": [
+                "x-y",
+                "omega-ruby-alpha-sapphire"
+              ]
+            },
+            {
+              "move": {
+                "id": 512,
+                "name": "Acrobatie"
+              },
+              "type": "flying",
+              "category": "physical",
+              "power": 55,
+              "accuracy": 100,
+              "pp": 15,
+              "level": null,
+              "versionGroups": [
+                "x-y",
+                "omega-ruby-alpha-sapphire"
+              ]
+            },
+            {
+              "move": {
+                "id": 332,
+                "name": "Aéropique"
+              },
+              "type": "flying",
+              "category": "physical",
+              "power": 60,
+              "accuracy": null,
+              "pp": 20,
+              "level": null,
+              "versionGroups": [
+                "x-y",
+                "omega-ruby-alpha-sapphire"
+              ]
+            },
+            {
+              "move": {
+                "id": 355,
+                "name": "Atterrissage"
+              },
+              "type": "flying",
+              "category": "status",
+              "power": null,
+              "accuracy": null,
+              "pp": 5,
+              "level": null,
+              "versionGroups": [
+                "x-y",
+                "omega-ruby-alpha-sapphire"
+              ]
+            },
+            {
+              "move": {
+                "id": 214,
+                "name": "Blabla Dodo"
+              },
+              "type": "normal",
+              "category": "status",
+              "power": null,
+              "accuracy": null,
+              "pp": 10,
+              "level": null,
+              "versionGroups": [
+                "x-y",
+                "omega-ruby-alpha-sapphire"
+              ]
+            },
+            {
+              "move": {
+                "id": 510,
+                "name": "Calcination"
+              },
+              "type": "fire",
+              "category": "special",
+              "power": 60,
+              "accuracy": 100,
+              "pp": 15,
+              "level": null,
+              "versionGroups": [
+                "x-y",
+                "omega-ruby-alpha-sapphire"
+              ]
+            },
+            {
+              "move": {
+                "id": 496,
+                "name": "Chant Canon"
+              },
+              "type": "normal",
+              "category": "special",
+              "power": 60,
+              "accuracy": 100,
+              "pp": 15,
+              "level": null,
+              "versionGroups": [
+                "x-y",
+                "omega-ruby-alpha-sapphire"
+              ]
+            },
+            {
+              "move": {
+                "id": 164,
+                "name": "Clonage"
+              },
+              "type": "normal",
+              "category": "status",
+              "power": null,
+              "accuracy": null,
+              "pp": 10,
+              "level": null,
+              "versionGroups": [
+                "x-y",
+                "omega-ruby-alpha-sapphire"
+              ]
+            },
+            {
+              "move": {
+                "id": 590,
+                "name": "Confidence"
+              },
+              "type": "normal",
+              "category": "status",
+              "power": null,
+              "accuracy": null,
+              "pp": 20,
+              "level": null,
+              "versionGroups": [
+                "x-y",
+                "omega-ruby-alpha-sapphire"
+              ]
+            },
+            {
+              "move": {
+                "id": 126,
+                "name": "Déflagration"
+              },
+              "type": "fire",
+              "category": "special",
+              "power": 110,
+              "accuracy": 85,
+              "pp": 5,
+              "level": null,
+              "versionGroups": [
+                "x-y",
+                "omega-ruby-alpha-sapphire"
+              ]
+            },
+            {
+              "move": {
+                "id": 369,
+                "name": "Demi-Tour"
+              },
+              "type": "bug",
+              "category": "physical",
+              "power": 70,
+              "accuracy": 100,
+              "pp": 20,
+              "level": null,
+              "versionGroups": [
+                "x-y",
+                "omega-ruby-alpha-sapphire"
+              ]
+            },
+            {
+              "move": {
+                "id": 398,
+                "name": "Direct Toxik"
+              },
+              "type": "poison",
+              "category": "physical",
+              "power": 80,
+              "accuracy": 100,
+              "pp": 20,
+              "level": null,
+              "versionGroups": [
+                "x-y",
+                "omega-ruby-alpha-sapphire"
+              ]
+            },
+            {
+              "move": {
+                "id": 528,
+                "name": "Éclair Fou"
+              },
+              "type": "electric",
+              "category": "physical",
+              "power": 90,
+              "accuracy": 100,
+              "pp": 15,
+              "level": null,
+              "versionGroups": [
+                "x-y",
+                "omega-ruby-alpha-sapphire"
+              ]
+            },
+            {
+              "move": {
+                "id": 263,
+                "name": "Façade"
+              },
+              "type": "normal",
+              "category": "physical",
+              "power": 70,
+              "accuracy": 100,
+              "pp": 20,
+              "level": null,
+              "versionGroups": [
+                "x-y",
+                "omega-ruby-alpha-sapphire"
+              ]
+            },
+            {
+              "move": {
+                "id": 261,
+                "name": "Feu Follet"
+              },
+              "type": "fire",
+              "category": "status",
+              "power": null,
+              "accuracy": 85,
+              "pp": 15,
+              "level": null,
+              "versionGroups": [
+                "x-y",
+                "omega-ruby-alpha-sapphire"
+              ]
+            },
+            {
+              "move": {
+                "id": 290,
+                "name": "Force Cachée"
+              },
+              "type": "normal",
+              "category": "physical",
+              "power": 70,
+              "accuracy": 100,
+              "pp": 20,
+              "level": null,
+              "versionGroups": [
+                "omega-ruby-alpha-sapphire"
+              ]
+            },
+            {
+              "move": {
+                "id": 218,
+                "name": "Frustration"
+              },
+              "type": "normal",
+              "category": "physical",
+              "power": null,
+              "accuracy": 100,
+              "pp": 20,
+              "level": null,
+              "versionGroups": [
+                "x-y",
+                "omega-ruby-alpha-sapphire"
+              ]
+            },
+            {
+              "move": {
+                "id": 416,
+                "name": "Giga Impact"
+              },
+              "type": "normal",
+              "category": "physical",
+              "power": 150,
+              "accuracy": 90,
+              "pp": 5,
+              "level": null,
+              "versionGroups": [
+                "x-y",
+                "omega-ruby-alpha-sapphire"
+              ]
+            },
+            {
+              "move": {
+                "id": 53,
+                "name": "Lance-Flammes"
+              },
+              "type": "fire",
+              "category": "special",
+              "power": 90,
+              "accuracy": 100,
+              "pp": 15,
+              "level": null,
+              "versionGroups": [
+                "x-y",
+                "omega-ruby-alpha-sapphire"
+              ]
+            },
+            {
+              "move": {
+                "id": 76,
+                "name": "Lance-Soleil"
+              },
+              "type": "grass",
+              "category": "special",
+              "power": 120,
+              "accuracy": 100,
+              "pp": 10,
+              "level": null,
+              "versionGroups": [
+                "x-y",
+                "omega-ruby-alpha-sapphire"
+              ]
+            },
+            {
+              "move": {
+                "id": 113,
+                "name": "Mur Lumière"
+              },
+              "type": "psychic",
+              "category": "status",
+              "power": null,
+              "accuracy": null,
+              "pp": 30,
+              "level": null,
+              "versionGroups": [
+                "x-y",
+                "omega-ruby-alpha-sapphire"
+              ]
+            },
+            {
+              "move": {
+                "id": 488,
+                "name": "Nitrocharge"
+              },
+              "type": "fire",
+              "category": "physical",
+              "power": 50,
+              "accuracy": 100,
+              "pp": 20,
+              "level": null,
+              "versionGroups": [
+                "x-y",
+                "omega-ruby-alpha-sapphire"
+              ]
+            },
+            {
+              "move": {
+                "id": 347,
+                "name": "Plénitude"
+              },
+              "type": "psychic",
+              "category": "status",
+              "power": null,
+              "accuracy": null,
+              "pp": 20,
+              "level": null,
+              "versionGroups": [
+                "x-y",
+                "omega-ruby-alpha-sapphire"
+              ]
+            },
+            {
+              "move": {
+                "id": 94,
+                "name": "Psyko"
+              },
+              "type": "psychic",
+              "category": "special",
+              "power": 90,
+              "accuracy": 100,
+              "pp": 10,
+              "level": null,
+              "versionGroups": [
+                "x-y",
+                "omega-ruby-alpha-sapphire"
+              ]
+            },
+            {
+              "move": {
+                "id": 237,
+                "name": "Puissance Cachée"
+              },
+              "type": "normal",
+              "category": "special",
+              "power": 60,
+              "accuracy": 100,
+              "pp": 15,
+              "level": null,
+              "versionGroups": [
+                "x-y",
+                "omega-ruby-alpha-sapphire"
+              ]
+            },
+            {
+              "move": {
+                "id": 104,
+                "name": "Reflet"
+              },
+              "type": "normal",
+              "category": "status",
+              "power": null,
+              "accuracy": null,
+              "pp": 15,
+              "level": null,
+              "versionGroups": [
+                "x-y",
+                "omega-ruby-alpha-sapphire"
+              ]
+            },
+            {
+              "move": {
+                "id": 156,
+                "name": "Repos"
+              },
+              "type": "psychic",
+              "category": "status",
+              "power": null,
+              "accuracy": null,
+              "pp": 5,
+              "level": null,
+              "versionGroups": [
+                "x-y",
+                "omega-ruby-alpha-sapphire"
+              ]
+            },
+            {
+              "move": {
+                "id": 216,
+                "name": "Retour"
+              },
+              "type": "normal",
+              "category": "physical",
+              "power": null,
+              "accuracy": 100,
+              "pp": 20,
+              "level": null,
+              "versionGroups": [
+                "x-y",
+                "omega-ruby-alpha-sapphire"
+              ]
+            },
+            {
+              "move": {
+                "id": 219,
+                "name": "Rune Protect"
+              },
+              "type": "normal",
+              "category": "status",
+              "power": null,
+              "accuracy": null,
+              "pp": 25,
+              "level": null,
+              "versionGroups": [
+                "x-y",
+                "omega-ruby-alpha-sapphire"
+              ]
+            },
+            {
+              "move": {
+                "id": 315,
+                "name": "Surchauffe"
+              },
+              "type": "fire",
+              "category": "special",
+              "power": 130,
+              "accuracy": 90,
+              "pp": 5,
+              "level": null,
+              "versionGroups": [
+                "x-y",
+                "omega-ruby-alpha-sapphire"
+              ]
+            },
+            {
+              "move": {
+                "id": 522,
+                "name": "Survinsecte"
+              },
+              "type": "bug",
+              "category": "special",
+              "power": 50,
+              "accuracy": 100,
+              "pp": 20,
+              "level": null,
+              "versionGroups": [
+                "x-y",
+                "omega-ruby-alpha-sapphire"
+              ]
+            },
+            {
+              "move": {
+                "id": 92,
+                "name": "Toxik"
+              },
+              "type": "poison",
+              "category": "status",
+              "power": null,
+              "accuracy": 90,
+              "pp": 10,
+              "level": null,
+              "versionGroups": [
+                "x-y",
+                "omega-ruby-alpha-sapphire"
+              ]
+            },
+            {
+              "move": {
+                "id": 63,
+                "name": "Ultralaser"
+              },
+              "type": "normal",
+              "category": "special",
+              "power": 150,
+              "accuracy": 90,
+              "pp": 5,
+              "level": null,
+              "versionGroups": [
+                "x-y",
+                "omega-ruby-alpha-sapphire"
+              ]
+            },
+            {
+              "move": {
+                "id": 207,
+                "name": "Vantardise"
+              },
+              "type": "normal",
+              "category": "status",
+              "power": null,
+              "accuracy": 85,
+              "pp": 15,
+              "level": null,
+              "versionGroups": [
+                "x-y",
+                "omega-ruby-alpha-sapphire"
+              ]
+            },
+            {
+              "move": {
+                "id": 19,
+                "name": "Vol"
+              },
+              "type": "flying",
+              "category": "physical",
+              "power": 90,
+              "accuracy": 95,
+              "pp": 15,
+              "level": null,
+              "versionGroups": [
+                "x-y",
+                "omega-ruby-alpha-sapphire"
+              ]
+            },
+            {
+              "move": {
+                "id": 241,
+                "name": "Zénith"
+              },
+              "type": "fire",
+              "category": "status",
+              "power": null,
+              "accuracy": null,
+              "pp": 5,
+              "level": null,
+              "versionGroups": [
+                "x-y",
+                "omega-ruby-alpha-sapphire"
+              ]
+            }
+          ]
+        },
+        {
+          "method": "tutor",
+          "items": [
+            {
+              "move": {
+                "id": 257,
+                "name": "Canicule"
+              },
+              "type": "fire",
+              "category": "special",
+              "power": 95,
+              "accuracy": 90,
+              "pp": 10,
+              "level": null,
+              "versionGroups": [
+                "omega-ruby-alpha-sapphire"
+              ]
+            },
+            {
+              "move": {
+                "id": 202,
+                "name": "Giga-Sangsue"
+              },
+              "type": "grass",
+              "category": "special",
+              "power": 75,
+              "accuracy": 100,
+              "pp": 10,
+              "level": null,
+              "versionGroups": [
+                "omega-ruby-alpha-sapphire"
+              ]
+            },
+            {
+              "move": {
+                "id": 450,
+                "name": "Piqûre"
+              },
+              "type": "bug",
+              "category": "physical",
+              "power": 60,
+              "accuracy": 100,
+              "pp": 20,
+              "level": null,
+              "versionGroups": [
+                "omega-ruby-alpha-sapphire"
+              ]
+            },
+            {
+              "move": {
+                "id": 428,
+                "name": "Psykoud’Boul"
+              },
+              "type": "psychic",
+              "category": "physical",
+              "power": 80,
+              "accuracy": 90,
+              "pp": 15,
+              "level": null,
+              "versionGroups": [
+                "omega-ruby-alpha-sapphire"
+              ]
+            },
+            {
+              "move": {
+                "id": 324,
+                "name": "Rayon Signal"
+              },
+              "type": "bug",
+              "category": "special",
+              "power": 75,
+              "accuracy": 100,
+              "pp": 15,
+              "level": null,
+              "versionGroups": [
+                "omega-ruby-alpha-sapphire"
+              ]
+            },
+            {
+              "move": {
+                "id": 173,
+                "name": "Ronflement"
+              },
+              "type": "normal",
+              "category": "special",
+              "power": 50,
+              "accuracy": 100,
+              "pp": 15,
+              "level": null,
+              "versionGroups": [
+                "omega-ruby-alpha-sapphire"
+              ]
+            },
+            {
+              "move": {
+                "id": 366,
+                "name": "Vent Arrière"
+              },
+              "type": "flying",
+              "category": "status",
+              "power": null,
+              "accuracy": null,
+              "pp": 15,
+              "level": null,
+              "versionGroups": [
+                "omega-ruby-alpha-sapphire"
+              ]
+            },
+            {
+              "move": {
+                "id": 393,
+                "name": "Vol Magnétik"
+              },
+              "type": "electric",
+              "category": "status",
+              "power": null,
+              "accuracy": null,
+              "pp": 10,
+              "level": null,
+              "versionGroups": [
+                "omega-ruby-alpha-sapphire"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "generation": "generation-vii",
+      "order": 15,
+      "entries": [
+        {
+          "method": "level-up",
+          "items": [
+            {
+              "move": {
+                "id": 133,
+                "name": "Amnésie"
+              },
+              "type": "psychic",
+              "category": "status",
+              "power": null,
+              "accuracy": null,
+              "pp": 20,
+              "level": 1,
+              "versionGroups": [
+                "sun-moon",
+                "ultra-sun-ultra-moon"
+              ]
+            },
+            {
+              "move": {
+                "id": 405,
+                "name": "Bourdon"
+              },
+              "type": "bug",
+              "category": "special",
+              "power": 90,
+              "accuracy": 100,
+              "pp": 10,
+              "level": 1,
+              "versionGroups": [
+                "sun-moon",
+                "ultra-sun-ultra-moon"
+              ]
+            },
+            {
+              "move": {
+                "id": 394,
+                "name": "Boutefeu"
+              },
+              "type": "fire",
+              "category": "physical",
+              "power": 120,
+              "accuracy": 100,
+              "pp": 15,
+              "level": 1,
+              "versionGroups": [
+                "sun-moon",
+                "ultra-sun-ultra-moon"
+              ]
+            },
+            {
+              "move": {
+                "id": 257,
+                "name": "Canicule"
+              },
+              "type": "fire",
+              "category": "special",
+              "power": 95,
+              "accuracy": 90,
+              "pp": 10,
+              "level": 1,
+              "versionGroups": [
+                "sun-moon",
+                "ultra-sun-ultra-moon"
+              ]
+            },
+            {
+              "move": {
+                "id": 552,
+                "name": "Danse du Feu"
+              },
+              "type": "fire",
+              "category": "special",
+              "power": 80,
+              "accuracy": 100,
+              "pp": 10,
+              "level": 1,
+              "versionGroups": [
+                "sun-moon",
+                "ultra-sun-ultra-moon"
+              ]
+            },
+            {
+              "move": {
+                "id": 52,
+                "name": "Flammèche"
+              },
+              "type": "fire",
+              "category": "special",
+              "power": 40,
+              "accuracy": 100,
+              "pp": 25,
+              "level": 1,
+              "versionGroups": [
+                "sun-moon",
+                "ultra-sun-ultra-moon"
+              ]
+            },
+            {
+              "move": {
+                "id": 37,
+                "name": "Mania"
+              },
+              "type": "normal",
+              "category": "physical",
+              "power": 120,
+              "accuracy": 100,
+              "pp": 10,
+              "level": 1,
+              "versionGroups": [
+                "sun-moon",
+                "ultra-sun-ultra-moon"
+              ]
+            },
+            {
+              "move": {
+                "id": 483,
+                "name": "Papillodanse"
+              },
+              "type": "bug",
+              "category": "status",
+              "power": null,
+              "accuracy": null,
+              "pp": 20,
+              "level": 1,
+              "versionGroups": [
+                "sun-moon",
+                "ultra-sun-ultra-moon"
+              ]
+            },
+            {
+              "move": {
+                "id": 476,
+                "name": "Poudre Fureur"
+              },
+              "type": "bug",
+              "category": "status",
+              "power": null,
+              "accuracy": null,
+              "pp": 20,
+              "level": 1,
+              "versionGroups": [
+                "sun-moon",
+                "ultra-sun-ultra-moon"
+              ]
+            },
+            {
+              "move": {
+                "id": 172,
+                "name": "Roue de Feu"
+              },
+              "type": "fire",
+              "category": "physical",
+              "power": 60,
+              "accuracy": 100,
+              "pp": 25,
+              "level": 1,
+              "versionGroups": [
+                "sun-moon",
+                "ultra-sun-ultra-moon"
+              ]
+            },
+            {
+              "move": {
+                "id": 81,
+                "name": "Sécrétion"
+              },
+              "type": "bug",
+              "category": "status",
+              "power": null,
+              "accuracy": 95,
+              "pp": 40,
+              "level": 1,
+              "versionGroups": [
+                "sun-moon",
+                "ultra-sun-ultra-moon"
+              ]
+            },
+            {
+              "move": {
+                "id": 16,
+                "name": "Tornade"
+              },
+              "type": "flying",
+              "category": "special",
+              "power": 40,
+              "accuracy": 100,
+              "pp": 35,
+              "level": 1,
+              "versionGroups": [
+                "sun-moon",
+                "ultra-sun-ultra-moon"
+              ]
+            },
+            {
+              "move": {
+                "id": 542,
+                "name": "Vent Violent"
+              },
+              "type": "flying",
+              "category": "special",
+              "power": 110,
+              "accuracy": 70,
+              "pp": 10,
+              "level": 1,
+              "versionGroups": [
+                "sun-moon",
+                "ultra-sun-ultra-moon"
+              ]
+            },
+            {
+              "move": {
+                "id": 71,
+                "name": "Vole-Vie"
+              },
+              "type": "grass",
+              "category": "special",
+              "power": 20,
+              "accuracy": 100,
+              "pp": 25,
+              "level": 1,
+              "versionGroups": [
+                "sun-moon",
+                "ultra-sun-ultra-moon"
+              ]
+            },
+            {
+              "move": {
+                "id": 83,
+                "name": "Danse Flammes"
+              },
+              "type": "fire",
+              "category": "special",
+              "power": 35,
+              "accuracy": 85,
+              "pp": 15,
+              "level": 30,
+              "versionGroups": [
+                "sun-moon",
+                "ultra-sun-ultra-moon"
+              ]
+            },
+            {
+              "move": {
+                "id": 18,
+                "name": "Cyclone"
+              },
+              "type": "normal",
+              "category": "status",
+              "power": null,
+              "accuracy": null,
+              "pp": 20,
+              "level": 40,
+              "versionGroups": [
+                "sun-moon",
+                "ultra-sun-ultra-moon"
+              ]
+            },
+            {
+              "move": {
+                "id": 318,
+                "name": "Vent Argenté"
+              },
+              "type": "bug",
+              "category": "special",
+              "power": 60,
+              "accuracy": 100,
+              "pp": 5,
+              "level": 50,
+              "versionGroups": [
+                "sun-moon",
+                "ultra-sun-ultra-moon"
+              ]
+            }
+          ]
+        },
+        {
+          "method": "machine",
+          "items": [
+            {
+              "move": {
+                "id": 182,
+                "name": "Abri"
+              },
+              "type": "normal",
+              "category": "status",
+              "power": null,
+              "accuracy": null,
+              "pp": 10,
+              "level": null,
+              "versionGroups": [
+                "sun-moon",
+                "ultra-sun-ultra-moon"
+              ]
+            },
+            {
+              "move": {
+                "id": 512,
+                "name": "Acrobatie"
+              },
+              "type": "flying",
+              "category": "physical",
+              "power": 55,
+              "accuracy": 100,
+              "pp": 15,
+              "level": null,
+              "versionGroups": [
+                "sun-moon",
+                "ultra-sun-ultra-moon"
+              ]
+            },
+            {
+              "move": {
+                "id": 332,
+                "name": "Aéropique"
+              },
+              "type": "flying",
+              "category": "physical",
+              "power": 60,
+              "accuracy": null,
+              "pp": 20,
+              "level": null,
+              "versionGroups": [
+                "sun-moon",
+                "ultra-sun-ultra-moon"
+              ]
+            },
+            {
+              "move": {
+                "id": 355,
+                "name": "Atterrissage"
+              },
+              "type": "flying",
+              "category": "status",
+              "power": null,
+              "accuracy": null,
+              "pp": 5,
+              "level": null,
+              "versionGroups": [
+                "sun-moon",
+                "ultra-sun-ultra-moon"
+              ]
+            },
+            {
+              "move": {
+                "id": 214,
+                "name": "Blabla Dodo"
+              },
+              "type": "normal",
+              "category": "status",
+              "power": null,
+              "accuracy": null,
+              "pp": 10,
+              "level": null,
+              "versionGroups": [
+                "sun-moon",
+                "ultra-sun-ultra-moon"
+              ]
+            },
+            {
+              "move": {
+                "id": 496,
+                "name": "Chant Canon"
+              },
+              "type": "normal",
+              "category": "special",
+              "power": 60,
+              "accuracy": 100,
+              "pp": 15,
+              "level": null,
+              "versionGroups": [
+                "sun-moon",
+                "ultra-sun-ultra-moon"
+              ]
+            },
+            {
+              "move": {
+                "id": 164,
+                "name": "Clonage"
+              },
+              "type": "normal",
+              "category": "status",
+              "power": null,
+              "accuracy": null,
+              "pp": 10,
+              "level": null,
+              "versionGroups": [
+                "sun-moon",
+                "ultra-sun-ultra-moon"
+              ]
+            },
+            {
+              "move": {
+                "id": 590,
+                "name": "Confidence"
+              },
+              "type": "normal",
+              "category": "status",
+              "power": null,
+              "accuracy": null,
+              "pp": 20,
+              "level": null,
+              "versionGroups": [
+                "sun-moon",
+                "ultra-sun-ultra-moon"
+              ]
+            },
+            {
+              "move": {
+                "id": 126,
+                "name": "Déflagration"
+              },
+              "type": "fire",
+              "category": "special",
+              "power": 110,
+              "accuracy": 85,
+              "pp": 5,
+              "level": null,
+              "versionGroups": [
+                "sun-moon",
+                "ultra-sun-ultra-moon"
+              ]
+            },
+            {
+              "move": {
+                "id": 369,
+                "name": "Demi-Tour"
+              },
+              "type": "bug",
+              "category": "physical",
+              "power": 70,
+              "accuracy": 100,
+              "pp": 20,
+              "level": null,
+              "versionGroups": [
+                "sun-moon",
+                "ultra-sun-ultra-moon"
+              ]
+            },
+            {
+              "move": {
+                "id": 398,
+                "name": "Direct Toxik"
+              },
+              "type": "poison",
+              "category": "physical",
+              "power": 80,
+              "accuracy": 100,
+              "pp": 20,
+              "level": null,
+              "versionGroups": [
+                "sun-moon",
+                "ultra-sun-ultra-moon"
+              ]
+            },
+            {
+              "move": {
+                "id": 528,
+                "name": "Éclair Fou"
+              },
+              "type": "electric",
+              "category": "physical",
+              "power": 90,
+              "accuracy": 100,
+              "pp": 15,
+              "level": null,
+              "versionGroups": [
+                "sun-moon",
+                "ultra-sun-ultra-moon"
+              ]
+            },
+            {
+              "move": {
+                "id": 263,
+                "name": "Façade"
+              },
+              "type": "normal",
+              "category": "physical",
+              "power": 70,
+              "accuracy": 100,
+              "pp": 20,
+              "level": null,
+              "versionGroups": [
+                "sun-moon",
+                "ultra-sun-ultra-moon"
+              ]
+            },
+            {
+              "move": {
+                "id": 261,
+                "name": "Feu Follet"
+              },
+              "type": "fire",
+              "category": "status",
+              "power": null,
+              "accuracy": 85,
+              "pp": 15,
+              "level": null,
+              "versionGroups": [
+                "sun-moon",
+                "ultra-sun-ultra-moon"
+              ]
+            },
+            {
+              "move": {
+                "id": 218,
+                "name": "Frustration"
+              },
+              "type": "normal",
+              "category": "physical",
+              "power": null,
+              "accuracy": 100,
+              "pp": 20,
+              "level": null,
+              "versionGroups": [
+                "sun-moon",
+                "ultra-sun-ultra-moon"
+              ]
+            },
+            {
+              "move": {
+                "id": 416,
+                "name": "Giga Impact"
+              },
+              "type": "normal",
+              "category": "physical",
+              "power": 150,
+              "accuracy": 90,
+              "pp": 5,
+              "level": null,
+              "versionGroups": [
+                "sun-moon",
+                "ultra-sun-ultra-moon"
+              ]
+            },
+            {
+              "move": {
+                "id": 53,
+                "name": "Lance-Flammes"
+              },
+              "type": "fire",
+              "category": "special",
+              "power": 90,
+              "accuracy": 100,
+              "pp": 15,
+              "level": null,
+              "versionGroups": [
+                "sun-moon",
+                "ultra-sun-ultra-moon"
+              ]
+            },
+            {
+              "move": {
+                "id": 76,
+                "name": "Lance-Soleil"
+              },
+              "type": "grass",
+              "category": "special",
+              "power": 120,
+              "accuracy": 100,
+              "pp": 10,
+              "level": null,
+              "versionGroups": [
+                "sun-moon",
+                "ultra-sun-ultra-moon"
+              ]
+            },
+            {
+              "move": {
+                "id": 113,
+                "name": "Mur Lumière"
+              },
+              "type": "psychic",
+              "category": "status",
+              "power": null,
+              "accuracy": null,
+              "pp": 30,
+              "level": null,
+              "versionGroups": [
+                "sun-moon",
+                "ultra-sun-ultra-moon"
+              ]
+            },
+            {
+              "move": {
+                "id": 488,
+                "name": "Nitrocharge"
+              },
+              "type": "fire",
+              "category": "physical",
+              "power": 50,
+              "accuracy": 100,
+              "pp": 20,
+              "level": null,
+              "versionGroups": [
+                "sun-moon",
+                "ultra-sun-ultra-moon"
+              ]
+            },
+            {
+              "move": {
+                "id": 347,
+                "name": "Plénitude"
+              },
+              "type": "psychic",
+              "category": "status",
+              "power": null,
+              "accuracy": null,
+              "pp": 20,
+              "level": null,
+              "versionGroups": [
+                "sun-moon",
+                "ultra-sun-ultra-moon"
+              ]
+            },
+            {
+              "move": {
+                "id": 94,
+                "name": "Psyko"
+              },
+              "type": "psychic",
+              "category": "special",
+              "power": 90,
+              "accuracy": 100,
+              "pp": 10,
+              "level": null,
+              "versionGroups": [
+                "sun-moon",
+                "ultra-sun-ultra-moon"
+              ]
+            },
+            {
+              "move": {
+                "id": 237,
+                "name": "Puissance Cachée"
+              },
+              "type": "normal",
+              "category": "special",
+              "power": 60,
+              "accuracy": 100,
+              "pp": 15,
+              "level": null,
+              "versionGroups": [
+                "sun-moon",
+                "ultra-sun-ultra-moon"
+              ]
+            },
+            {
+              "move": {
+                "id": 104,
+                "name": "Reflet"
+              },
+              "type": "normal",
+              "category": "status",
+              "power": null,
+              "accuracy": null,
+              "pp": 15,
+              "level": null,
+              "versionGroups": [
+                "sun-moon",
+                "ultra-sun-ultra-moon"
+              ]
+            },
+            {
+              "move": {
+                "id": 156,
+                "name": "Repos"
+              },
+              "type": "psychic",
+              "category": "status",
+              "power": null,
+              "accuracy": null,
+              "pp": 5,
+              "level": null,
+              "versionGroups": [
+                "sun-moon",
+                "ultra-sun-ultra-moon"
+              ]
+            },
+            {
+              "move": {
+                "id": 216,
+                "name": "Retour"
+              },
+              "type": "normal",
+              "category": "physical",
+              "power": null,
+              "accuracy": 100,
+              "pp": 20,
+              "level": null,
+              "versionGroups": [
+                "sun-moon",
+                "ultra-sun-ultra-moon"
+              ]
+            },
+            {
+              "move": {
+                "id": 219,
+                "name": "Rune Protect"
+              },
+              "type": "normal",
+              "category": "status",
+              "power": null,
+              "accuracy": null,
+              "pp": 25,
+              "level": null,
+              "versionGroups": [
+                "sun-moon",
+                "ultra-sun-ultra-moon"
+              ]
+            },
+            {
+              "move": {
+                "id": 315,
+                "name": "Surchauffe"
+              },
+              "type": "fire",
+              "category": "special",
+              "power": 130,
+              "accuracy": 90,
+              "pp": 5,
+              "level": null,
+              "versionGroups": [
+                "sun-moon",
+                "ultra-sun-ultra-moon"
+              ]
+            },
+            {
+              "move": {
+                "id": 92,
+                "name": "Toxik"
+              },
+              "type": "poison",
+              "category": "status",
+              "power": null,
+              "accuracy": 90,
+              "pp": 10,
+              "level": null,
+              "versionGroups": [
+                "sun-moon",
+                "ultra-sun-ultra-moon"
+              ]
+            },
+            {
+              "move": {
+                "id": 63,
+                "name": "Ultralaser"
+              },
+              "type": "normal",
+              "category": "special",
+              "power": 150,
+              "accuracy": 90,
+              "pp": 5,
+              "level": null,
+              "versionGroups": [
+                "sun-moon",
+                "ultra-sun-ultra-moon"
+              ]
+            },
+            {
+              "move": {
+                "id": 141,
+                "name": "Vampirisme"
+              },
+              "type": "bug",
+              "category": "physical",
+              "power": 80,
+              "accuracy": 100,
+              "pp": 10,
+              "level": null,
+              "versionGroups": [
+                "sun-moon",
+                "ultra-sun-ultra-moon"
+              ]
+            },
+            {
+              "move": {
+                "id": 207,
+                "name": "Vantardise"
+              },
+              "type": "normal",
+              "category": "status",
+              "power": null,
+              "accuracy": 85,
+              "pp": 15,
+              "level": null,
+              "versionGroups": [
+                "sun-moon",
+                "ultra-sun-ultra-moon"
+              ]
+            },
+            {
+              "move": {
+                "id": 19,
+                "name": "Vol"
+              },
+              "type": "flying",
+              "category": "physical",
+              "power": 90,
+              "accuracy": 95,
+              "pp": 15,
+              "level": null,
+              "versionGroups": [
+                "sun-moon",
+                "ultra-sun-ultra-moon"
+              ]
+            },
+            {
+              "move": {
+                "id": 241,
+                "name": "Zénith"
+              },
+              "type": "fire",
+              "category": "status",
+              "power": null,
+              "accuracy": null,
+              "pp": 5,
+              "level": null,
+              "versionGroups": [
+                "sun-moon",
+                "ultra-sun-ultra-moon"
+              ]
+            }
+          ]
+        },
+        {
+          "method": "tutor",
+          "items": [
+            {
+              "move": {
+                "id": 432,
+                "name": "Anti-Brume"
+              },
+              "type": "flying",
+              "category": "status",
+              "power": null,
+              "accuracy": null,
+              "pp": 15,
+              "level": null,
+              "versionGroups": [
+                "ultra-sun-ultra-moon"
+              ]
+            },
+            {
+              "move": {
+                "id": 257,
+                "name": "Canicule"
+              },
+              "type": "fire",
+              "category": "special",
+              "power": 95,
+              "accuracy": 90,
+              "pp": 10,
+              "level": null,
+              "versionGroups": [
+                "ultra-sun-ultra-moon"
+              ]
+            },
+            {
+              "move": {
+                "id": 202,
+                "name": "Giga-Sangsue"
+              },
+              "type": "grass",
+              "category": "special",
+              "power": 75,
+              "accuracy": 100,
+              "pp": 10,
+              "level": null,
+              "versionGroups": [
+                "ultra-sun-ultra-moon"
+              ]
+            },
+            {
+              "move": {
+                "id": 450,
+                "name": "Piqûre"
+              },
+              "type": "bug",
+              "category": "physical",
+              "power": 60,
+              "accuracy": 100,
+              "pp": 20,
+              "level": null,
+              "versionGroups": [
+                "ultra-sun-ultra-moon"
+              ]
+            },
+            {
+              "move": {
+                "id": 428,
+                "name": "Psykoud’Boul"
+              },
+              "type": "psychic",
+              "category": "physical",
+              "power": 80,
+              "accuracy": 90,
+              "pp": 15,
+              "level": null,
+              "versionGroups": [
+                "ultra-sun-ultra-moon"
+              ]
+            },
+            {
+              "move": {
+                "id": 324,
+                "name": "Rayon Signal"
+              },
+              "type": "bug",
+              "category": "special",
+              "power": 75,
+              "accuracy": 100,
+              "pp": 15,
+              "level": null,
+              "versionGroups": [
+                "ultra-sun-ultra-moon"
+              ]
+            },
+            {
+              "move": {
+                "id": 173,
+                "name": "Ronflement"
+              },
+              "type": "normal",
+              "category": "special",
+              "power": 50,
+              "accuracy": 100,
+              "pp": 15,
+              "level": null,
+              "versionGroups": [
+                "ultra-sun-ultra-moon"
+              ]
+            },
+            {
+              "move": {
+                "id": 366,
+                "name": "Vent Arrière"
+              },
+              "type": "flying",
+              "category": "status",
+              "power": null,
+              "accuracy": null,
+              "pp": 15,
+              "level": null,
+              "versionGroups": [
+                "ultra-sun-ultra-moon"
+              ]
+            },
+            {
+              "move": {
+                "id": 393,
+                "name": "Vol Magnétik"
+              },
+              "type": "electric",
+              "category": "status",
+              "power": null,
+              "accuracy": null,
+              "pp": 10,
+              "level": null,
+              "versionGroups": [
+                "ultra-sun-ultra-moon"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "generation": "generation-viii",
+      "order": 18,
+      "entries": [
+        {
+          "method": "level-up",
+          "items": [
+            {
+              "move": {
+                "id": 36,
+                "name": "Bélier"
+              },
+              "type": "normal",
+              "category": "physical",
+              "power": 90,
+              "accuracy": 85,
+              "pp": 20,
+              "level": 1,
+              "versionGroups": [
+                "sword-shield"
+              ]
+            },
+            {
+              "move": {
+                "id": 394,
+                "name": "Boutefeu"
+              },
+              "type": "fire",
+              "category": "physical",
+              "power": 120,
+              "accuracy": 100,
+              "pp": 15,
+              "level": 1,
+              "versionGroups": [
+                "sword-shield"
+              ]
+            },
+            {
+              "move": {
+                "id": 18,
+                "name": "Cyclone"
+              },
+              "type": "normal",
+              "category": "status",
+              "power": null,
+              "accuracy": null,
+              "pp": 20,
+              "level": 1,
+              "versionGroups": [
+                "sword-shield"
+              ]
+            },
+            {
+              "move": {
+                "id": 38,
+                "name": "Damoclès"
+              },
+              "type": "normal",
+              "category": "physical",
+              "power": 120,
+              "accuracy": 100,
+              "pp": 15,
+              "level": 1,
+              "versionGroups": [
+                "sword-shield"
+              ]
+            },
+            {
+              "move": {
+                "id": 552,
+                "name": "Danse du Feu"
+              },
+              "type": "fire",
+              "category": "special",
+              "power": 80,
+              "accuracy": 100,
+              "pp": 10,
+              "level": 1,
+              "versionGroups": [
+                "sword-shield"
+              ]
+            },
+            {
+              "move": {
+                "id": 83,
+                "name": "Danse Flammes"
+              },
+              "type": "fire",
+              "category": "special",
+              "power": 35,
+              "accuracy": 85,
+              "pp": 15,
+              "level": 1,
+              "versionGroups": [
+                "sword-shield"
+              ]
+            },
+            {
+              "move": {
+                "id": 52,
+                "name": "Flammèche"
+              },
+              "type": "fire",
+              "category": "special",
+              "power": 40,
+              "accuracy": 100,
+              "pp": 25,
+              "level": 1,
+              "versionGroups": [
+                "sword-shield"
+              ]
+            },
+            {
+              "move": {
+                "id": 488,
+                "name": "Nitrocharge"
+              },
+              "type": "fire",
+              "category": "physical",
+              "power": 50,
+              "accuracy": 100,
+              "pp": 20,
+              "level": 1,
+              "versionGroups": [
+                "sword-shield"
+              ]
+            },
+            {
+              "move": {
+                "id": 483,
+                "name": "Papillodanse"
+              },
+              "type": "bug",
+              "category": "status",
+              "power": null,
+              "accuracy": null,
+              "pp": 20,
+              "level": 1,
+              "versionGroups": [
+                "sword-shield"
+              ]
+            },
+            {
+              "move": {
+                "id": 81,
+                "name": "Sécrétion"
+              },
+              "type": "bug",
+              "category": "status",
+              "power": null,
+              "accuracy": 95,
+              "pp": 40,
+              "level": 1,
+              "versionGroups": [
+                "sword-shield"
+              ]
+            },
+            {
+              "move": {
+                "id": 522,
+                "name": "Survinsecte"
+              },
+              "type": "bug",
+              "category": "special",
+              "power": 50,
+              "accuracy": 100,
+              "pp": 20,
+              "level": 1,
+              "versionGroups": [
+                "sword-shield"
+              ]
+            },
+            {
+              "move": {
+                "id": 16,
+                "name": "Tornade"
+              },
+              "type": "flying",
+              "category": "special",
+              "power": 40,
+              "accuracy": 100,
+              "pp": 35,
+              "level": 1,
+              "versionGroups": [
+                "sword-shield"
+              ]
+            },
+            {
+              "move": {
+                "id": 172,
+                "name": "Roue de Feu"
+              },
+              "type": "fire",
+              "category": "physical",
+              "power": 60,
+              "accuracy": 100,
+              "pp": 25,
+              "level": 18,
+              "versionGroups": [
+                "sword-shield"
+              ]
+            },
+            {
+              "move": {
+                "id": 450,
+                "name": "Piqûre"
+              },
+              "type": "bug",
+              "category": "physical",
+              "power": 60,
+              "accuracy": 100,
+              "pp": 20,
+              "level": 24,
+              "versionGroups": [
+                "sword-shield"
+              ]
+            },
+            {
+              "move": {
+                "id": 103,
+                "name": "Grincement"
+              },
+              "type": "normal",
+              "category": "status",
+              "power": null,
+              "accuracy": 85,
+              "pp": 40,
+              "level": 30,
+              "versionGroups": [
+                "sword-shield"
+              ]
+            },
+            {
+              "move": {
+                "id": 141,
+                "name": "Vampirisme"
+              },
+              "type": "bug",
+              "category": "physical",
+              "power": 80,
+              "accuracy": 100,
+              "pp": 10,
+              "level": 36,
+              "versionGroups": [
+                "sword-shield"
+              ]
+            },
+            {
+              "move": {
+                "id": 405,
+                "name": "Bourdon"
+              },
+              "type": "bug",
+              "category": "special",
+              "power": 90,
+              "accuracy": 100,
+              "pp": 10,
+              "level": 42,
+              "versionGroups": [
+                "sword-shield"
+              ]
+            },
+            {
+              "move": {
+                "id": 257,
+                "name": "Canicule"
+              },
+              "type": "fire",
+              "category": "special",
+              "power": 95,
+              "accuracy": 90,
+              "pp": 10,
+              "level": 48,
+              "versionGroups": [
+                "sword-shield"
+              ]
+            },
+            {
+              "move": {
+                "id": 133,
+                "name": "Amnésie"
+              },
+              "type": "psychic",
+              "category": "status",
+              "power": null,
+              "accuracy": null,
+              "pp": 20,
+              "level": 54,
+              "versionGroups": [
+                "sword-shield"
+              ]
+            },
+            {
+              "move": {
+                "id": 542,
+                "name": "Vent Violent"
+              },
+              "type": "flying",
+              "category": "special",
+              "power": 110,
+              "accuracy": 70,
+              "pp": 10,
+              "level": 62,
+              "versionGroups": [
+                "sword-shield"
+              ]
+            },
+            {
+              "move": {
+                "id": 126,
+                "name": "Déflagration"
+              },
+              "type": "fire",
+              "category": "special",
+              "power": 110,
+              "accuracy": 85,
+              "pp": 5,
+              "level": 70,
+              "versionGroups": [
+                "sword-shield"
+              ]
+            },
+            {
+              "move": {
+                "id": 476,
+                "name": "Poudre Fureur"
+              },
+              "type": "bug",
+              "category": "status",
+              "power": null,
+              "accuracy": null,
+              "pp": 20,
+              "level": 78,
+              "versionGroups": [
+                "sword-shield"
+              ]
+            }
+          ]
+        },
+        {
+          "method": "machine",
+          "items": [
+            {
+              "move": {
+                "id": 182,
+                "name": "Abri"
+              },
+              "type": "normal",
+              "category": "status",
+              "power": null,
+              "accuracy": null,
+              "pp": 10,
+              "level": null,
+              "versionGroups": [
+                "sword-shield"
+              ]
+            },
+            {
+              "move": {
+                "id": 512,
+                "name": "Acrobatie"
+              },
+              "type": "flying",
+              "category": "physical",
+              "power": 55,
+              "accuracy": 100,
+              "pp": 15,
+              "level": null,
+              "versionGroups": [
+                "sword-shield"
+              ]
+            },
+            {
+              "move": {
+                "id": 133,
+                "name": "Amnésie"
+              },
+              "type": "psychic",
+              "category": "status",
+              "power": null,
+              "accuracy": null,
+              "pp": 20,
+              "level": null,
+              "versionGroups": [
+                "sword-shield"
+              ]
+            },
+            {
+              "move": {
+                "id": 213,
+                "name": "Attraction"
+              },
+              "type": "normal",
+              "category": "status",
+              "power": null,
+              "accuracy": 100,
+              "pp": 15,
+              "level": null,
+              "versionGroups": [
+                "sword-shield"
+              ]
+            },
+            {
+              "move": {
+                "id": 214,
+                "name": "Blabla Dodo"
+              },
+              "type": "normal",
+              "category": "status",
+              "power": null,
+              "accuracy": null,
+              "pp": 10,
+              "level": null,
+              "versionGroups": [
+                "sword-shield"
+              ]
+            },
+            {
+              "move": {
+                "id": 405,
+                "name": "Bourdon"
+              },
+              "type": "bug",
+              "category": "special",
+              "power": 90,
+              "accuracy": 100,
+              "pp": 10,
+              "level": null,
+              "versionGroups": [
+                "sword-shield"
+              ]
+            },
+            {
+              "move": {
+                "id": 394,
+                "name": "Boutefeu"
+              },
+              "type": "fire",
+              "category": "physical",
+              "power": 120,
+              "accuracy": 100,
+              "pp": 15,
+              "level": null,
+              "versionGroups": [
+                "sword-shield"
+              ]
+            },
+            {
+              "move": {
+                "id": 257,
+                "name": "Canicule"
+              },
+              "type": "fire",
+              "category": "special",
+              "power": 95,
+              "accuracy": 90,
+              "pp": 10,
+              "level": null,
+              "versionGroups": [
+                "sword-shield"
+              ]
+            },
+            {
+              "move": {
+                "id": 496,
+                "name": "Chant Canon"
+              },
+              "type": "normal",
+              "category": "special",
+              "power": 60,
+              "accuracy": 100,
+              "pp": 15,
+              "level": null,
+              "versionGroups": [
+                "sword-shield"
+              ]
+            },
+            {
+              "move": {
+                "id": 164,
+                "name": "Clonage"
+              },
+              "type": "normal",
+              "category": "status",
+              "power": null,
+              "accuracy": null,
+              "pp": 10,
+              "level": null,
+              "versionGroups": [
+                "sword-shield"
+              ]
+            },
+            {
+              "move": {
+                "id": 83,
+                "name": "Danse Flammes"
+              },
+              "type": "fire",
+              "category": "special",
+              "power": 35,
+              "accuracy": 85,
+              "pp": 15,
+              "level": null,
+              "versionGroups": [
+                "sword-shield"
+              ]
+            },
+            {
+              "move": {
+                "id": 126,
+                "name": "Déflagration"
+              },
+              "type": "fire",
+              "category": "special",
+              "power": 110,
+              "accuracy": 85,
+              "pp": 5,
+              "level": null,
+              "versionGroups": [
+                "sword-shield"
+              ]
+            },
+            {
+              "move": {
+                "id": 369,
+                "name": "Demi-Tour"
+              },
+              "type": "bug",
+              "category": "physical",
+              "power": 70,
+              "accuracy": 100,
+              "pp": 20,
+              "level": null,
+              "versionGroups": [
+                "sword-shield"
+              ]
+            },
+            {
+              "move": {
+                "id": 398,
+                "name": "Direct Toxik"
+              },
+              "type": "poison",
+              "category": "physical",
+              "power": 80,
+              "accuracy": 100,
+              "pp": 20,
+              "level": null,
+              "versionGroups": [
+                "sword-shield"
+              ]
+            },
+            {
+              "move": {
+                "id": 528,
+                "name": "Éclair Fou"
+              },
+              "type": "electric",
+              "category": "physical",
+              "power": 90,
+              "accuracy": 100,
+              "pp": 15,
+              "level": null,
+              "versionGroups": [
+                "sword-shield"
+              ]
+            },
+            {
+              "move": {
+                "id": 263,
+                "name": "Façade"
+              },
+              "type": "normal",
+              "category": "physical",
+              "power": 70,
+              "accuracy": 100,
+              "pp": 20,
+              "level": null,
+              "versionGroups": [
+                "sword-shield"
+              ]
+            },
+            {
+              "move": {
+                "id": 595,
+                "name": "Feu Ensorcelé"
+              },
+              "type": "fire",
+              "category": "special",
+              "power": 75,
+              "accuracy": 100,
+              "pp": 10,
+              "level": null,
+              "versionGroups": [
+                "sword-shield"
+              ]
+            },
+            {
+              "move": {
+                "id": 261,
+                "name": "Feu Follet"
+              },
+              "type": "fire",
+              "category": "status",
+              "power": null,
+              "accuracy": 85,
+              "pp": 15,
+              "level": null,
+              "versionGroups": [
+                "sword-shield"
+              ]
+            },
+            {
+              "move": {
+                "id": 416,
+                "name": "Giga Impact"
+              },
+              "type": "normal",
+              "category": "physical",
+              "power": 150,
+              "accuracy": 90,
+              "pp": 5,
+              "level": null,
+              "versionGroups": [
+                "sword-shield"
+              ]
+            },
+            {
+              "move": {
+                "id": 202,
+                "name": "Giga-Sangsue"
+              },
+              "type": "grass",
+              "category": "special",
+              "power": 75,
+              "accuracy": 100,
+              "pp": 10,
+              "level": null,
+              "versionGroups": [
+                "sword-shield"
+              ]
+            },
+            {
+              "move": {
+                "id": 103,
+                "name": "Grincement"
+              },
+              "type": "normal",
+              "category": "status",
+              "power": null,
+              "accuracy": 85,
+              "pp": 40,
+              "level": null,
+              "versionGroups": [
+                "sword-shield"
+              ]
+            },
+            {
+              "move": {
+                "id": 53,
+                "name": "Lance-Flammes"
+              },
+              "type": "fire",
+              "category": "special",
+              "power": 90,
+              "accuracy": 100,
+              "pp": 15,
+              "level": null,
+              "versionGroups": [
+                "sword-shield"
+              ]
+            },
+            {
+              "move": {
+                "id": 76,
+                "name": "Lance-Soleil"
+              },
+              "type": "grass",
+              "category": "special",
+              "power": 120,
+              "accuracy": 100,
+              "pp": 10,
+              "level": null,
+              "versionGroups": [
+                "sword-shield"
+              ]
+            },
+            {
+              "move": {
+                "id": 113,
+                "name": "Mur Lumière"
+              },
+              "type": "psychic",
+              "category": "status",
+              "power": null,
+              "accuracy": null,
+              "pp": 30,
+              "level": null,
+              "versionGroups": [
+                "sword-shield"
+              ]
+            },
+            {
+              "move": {
+                "id": 347,
+                "name": "Plénitude"
+              },
+              "type": "psychic",
+              "category": "status",
+              "power": null,
+              "accuracy": null,
+              "pp": 20,
+              "level": null,
+              "versionGroups": [
+                "sword-shield"
+              ]
+            },
+            {
+              "move": {
+                "id": 94,
+                "name": "Psyko"
+              },
+              "type": "psychic",
+              "category": "special",
+              "power": 90,
+              "accuracy": 100,
+              "pp": 10,
+              "level": null,
+              "versionGroups": [
+                "sword-shield"
+              ]
+            },
+            {
+              "move": {
+                "id": 428,
+                "name": "Psykoud’Boul"
+              },
+              "type": "psychic",
+              "category": "physical",
+              "power": 80,
+              "accuracy": 90,
+              "pp": 15,
+              "level": null,
+              "versionGroups": [
+                "sword-shield"
+              ]
+            },
+            {
+              "move": {
+                "id": 156,
+                "name": "Repos"
+              },
+              "type": "psychic",
+              "category": "status",
+              "power": null,
+              "accuracy": null,
+              "pp": 5,
+              "level": null,
+              "versionGroups": [
+                "sword-shield"
+              ]
+            },
+            {
+              "move": {
+                "id": 173,
+                "name": "Ronflement"
+              },
+              "type": "normal",
+              "category": "special",
+              "power": 50,
+              "accuracy": 100,
+              "pp": 15,
+              "level": null,
+              "versionGroups": [
+                "sword-shield"
+              ]
+            },
+            {
+              "move": {
+                "id": 219,
+                "name": "Rune Protect"
+              },
+              "type": "normal",
+              "category": "status",
+              "power": null,
+              "accuracy": null,
+              "pp": 25,
+              "level": null,
+              "versionGroups": [
+                "sword-shield"
+              ]
+            },
+            {
+              "move": {
+                "id": 315,
+                "name": "Surchauffe"
+              },
+              "type": "fire",
+              "category": "special",
+              "power": 130,
+              "accuracy": 90,
+              "pp": 5,
+              "level": null,
+              "versionGroups": [
+                "sword-shield"
+              ]
+            },
+            {
+              "move": {
+                "id": 203,
+                "name": "Ténacité"
+              },
+              "type": "normal",
+              "category": "status",
+              "power": null,
+              "accuracy": null,
+              "pp": 10,
+              "level": null,
+              "versionGroups": [
+                "sword-shield"
+              ]
+            },
+            {
+              "move": {
+                "id": 63,
+                "name": "Ultralaser"
+              },
+              "type": "normal",
+              "category": "special",
+              "power": 150,
+              "accuracy": 90,
+              "pp": 5,
+              "level": null,
+              "versionGroups": [
+                "sword-shield"
+              ]
+            },
+            {
+              "move": {
+                "id": 141,
+                "name": "Vampirisme"
+              },
+              "type": "bug",
+              "category": "physical",
+              "power": 80,
+              "accuracy": 100,
+              "pp": 10,
+              "level": null,
+              "versionGroups": [
+                "sword-shield"
+              ]
+            },
+            {
+              "move": {
+                "id": 542,
+                "name": "Vent Violent"
+              },
+              "type": "flying",
+              "category": "special",
+              "power": 110,
+              "accuracy": 70,
+              "pp": 10,
+              "level": null,
+              "versionGroups": [
+                "sword-shield"
+              ]
+            },
+            {
+              "move": {
+                "id": 19,
+                "name": "Vol"
+              },
+              "type": "flying",
+              "category": "physical",
+              "power": 90,
+              "accuracy": 95,
+              "pp": 15,
+              "level": null,
+              "versionGroups": [
+                "sword-shield"
+              ]
+            },
+            {
+              "move": {
+                "id": 241,
+                "name": "Zénith"
+              },
+              "type": "fire",
+              "category": "status",
+              "power": null,
+              "accuracy": null,
+              "pp": 5,
+              "level": null,
+              "versionGroups": [
+                "sword-shield"
+              ]
+            }
+          ]
+        },
+        {
+          "method": "tutor",
+          "items": [
+            {
+              "move": {
+                "id": 814,
+                "name": "Double Volée"
+              },
+              "type": "flying",
+              "category": "physical",
+              "power": 40,
+              "accuracy": 90,
+              "pp": 10,
+              "level": null,
+              "versionGroups": [
+                "sword-shield"
+              ]
+            },
+            {
+              "move": {
+                "id": 806,
+                "name": "Ravage Rampant"
+              },
+              "type": "bug",
+              "category": "physical",
+              "power": 70,
+              "accuracy": 90,
+              "pp": 10,
+              "level": null,
+              "versionGroups": [
+                "sword-shield"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "generation": "generation-ix",
+      "order": 21,
+      "entries": [
+        {
+          "method": "level-up",
+          "items": [
+            {
+              "move": {
+                "id": 483,
+                "name": "Papillodanse"
+              },
+              "type": "bug",
+              "category": "status",
+              "power": null,
+              "accuracy": null,
+              "pp": 20,
+              "level": 0,
+              "versionGroups": [
+                "scarlet-violet"
+              ]
+            },
+            {
+              "move": {
+                "id": 36,
+                "name": "Bélier"
+              },
+              "type": "normal",
+              "category": "physical",
+              "power": 90,
+              "accuracy": 85,
+              "pp": 20,
+              "level": 1,
+              "versionGroups": [
+                "scarlet-violet"
+              ]
+            },
+            {
+              "move": {
+                "id": 394,
+                "name": "Boutefeu"
+              },
+              "type": "fire",
+              "category": "physical",
+              "power": 120,
+              "accuracy": 100,
+              "pp": 15,
+              "level": 1,
+              "versionGroups": [
+                "scarlet-violet"
+              ]
+            },
+            {
+              "move": {
+                "id": 18,
+                "name": "Cyclone"
+              },
+              "type": "normal",
+              "category": "status",
+              "power": null,
+              "accuracy": null,
+              "pp": 20,
+              "level": 1,
+              "versionGroups": [
+                "scarlet-violet"
+              ]
+            },
+            {
+              "move": {
+                "id": 38,
+                "name": "Damoclès"
+              },
+              "type": "normal",
+              "category": "physical",
+              "power": 120,
+              "accuracy": 100,
+              "pp": 15,
+              "level": 1,
+              "versionGroups": [
+                "scarlet-violet"
+              ]
+            },
+            {
+              "move": {
+                "id": 552,
+                "name": "Danse du Feu"
+              },
+              "type": "fire",
+              "category": "special",
+              "power": 80,
+              "accuracy": 100,
+              "pp": 10,
+              "level": 1,
+              "versionGroups": [
+                "scarlet-violet"
+              ]
+            },
+            {
+              "move": {
+                "id": 83,
+                "name": "Danse Flammes"
+              },
+              "type": "fire",
+              "category": "special",
+              "power": 35,
+              "accuracy": 85,
+              "pp": 15,
+              "level": 1,
+              "versionGroups": [
+                "scarlet-violet"
+              ]
+            },
+            {
+              "move": {
+                "id": 52,
+                "name": "Flammèche"
+              },
+              "type": "fire",
+              "category": "special",
+              "power": 40,
+              "accuracy": 100,
+              "pp": 25,
+              "level": 1,
+              "versionGroups": [
+                "scarlet-violet"
+              ]
+            },
+            {
+              "move": {
+                "id": 488,
+                "name": "Nitrocharge"
+              },
+              "type": "fire",
+              "category": "physical",
+              "power": 50,
+              "accuracy": 100,
+              "pp": 20,
+              "level": 1,
+              "versionGroups": [
+                "scarlet-violet"
+              ]
+            },
+            {
+              "move": {
+                "id": 81,
+                "name": "Sécrétion"
+              },
+              "type": "bug",
+              "category": "status",
+              "power": null,
+              "accuracy": 95,
+              "pp": 40,
+              "level": 1,
+              "versionGroups": [
+                "scarlet-violet"
+              ]
+            },
+            {
+              "move": {
+                "id": 522,
+                "name": "Survinsecte"
+              },
+              "type": "bug",
+              "category": "special",
+              "power": 50,
+              "accuracy": 100,
+              "pp": 20,
+              "level": 1,
+              "versionGroups": [
+                "scarlet-violet"
+              ]
+            },
+            {
+              "move": {
+                "id": 16,
+                "name": "Tornade"
+              },
+              "type": "flying",
+              "category": "special",
+              "power": 40,
+              "accuracy": 100,
+              "pp": 35,
+              "level": 1,
+              "versionGroups": [
+                "scarlet-violet"
+              ]
+            },
+            {
+              "move": {
+                "id": 172,
+                "name": "Roue de Feu"
+              },
+              "type": "fire",
+              "category": "physical",
+              "power": 60,
+              "accuracy": 100,
+              "pp": 25,
+              "level": 18,
+              "versionGroups": [
+                "scarlet-violet"
+              ]
+            },
+            {
+              "move": {
+                "id": 450,
+                "name": "Piqûre"
+              },
+              "type": "bug",
+              "category": "physical",
+              "power": 60,
+              "accuracy": 100,
+              "pp": 20,
+              "level": 24,
+              "versionGroups": [
+                "scarlet-violet"
+              ]
+            },
+            {
+              "move": {
+                "id": 103,
+                "name": "Grincement"
+              },
+              "type": "normal",
+              "category": "status",
+              "power": null,
+              "accuracy": 85,
+              "pp": 40,
+              "level": 30,
+              "versionGroups": [
+                "scarlet-violet"
+              ]
+            },
+            {
+              "move": {
+                "id": 141,
+                "name": "Vampirisme"
+              },
+              "type": "bug",
+              "category": "physical",
+              "power": 80,
+              "accuracy": 100,
+              "pp": 10,
+              "level": 36,
+              "versionGroups": [
+                "scarlet-violet"
+              ]
+            },
+            {
+              "move": {
+                "id": 405,
+                "name": "Bourdon"
+              },
+              "type": "bug",
+              "category": "special",
+              "power": 90,
+              "accuracy": 100,
+              "pp": 10,
+              "level": 42,
+              "versionGroups": [
+                "scarlet-violet"
+              ]
+            },
+            {
+              "move": {
+                "id": 257,
+                "name": "Canicule"
+              },
+              "type": "fire",
+              "category": "special",
+              "power": 95,
+              "accuracy": 90,
+              "pp": 10,
+              "level": 48,
+              "versionGroups": [
+                "scarlet-violet"
+              ]
+            },
+            {
+              "move": {
+                "id": 133,
+                "name": "Amnésie"
+              },
+              "type": "psychic",
+              "category": "status",
+              "power": null,
+              "accuracy": null,
+              "pp": 20,
+              "level": 54,
+              "versionGroups": [
+                "scarlet-violet"
+              ]
+            },
+            {
+              "move": {
+                "id": 542,
+                "name": "Vent Violent"
+              },
+              "type": "flying",
+              "category": "special",
+              "power": 110,
+              "accuracy": 70,
+              "pp": 10,
+              "level": 62,
+              "versionGroups": [
+                "scarlet-violet"
+              ]
+            },
+            {
+              "move": {
+                "id": 126,
+                "name": "Déflagration"
+              },
+              "type": "fire",
+              "category": "special",
+              "power": 110,
+              "accuracy": 85,
+              "pp": 5,
+              "level": 70,
+              "versionGroups": [
+                "scarlet-violet"
+              ]
+            },
+            {
+              "move": {
+                "id": 476,
+                "name": "Poudre Fureur"
+              },
+              "type": "bug",
+              "category": "status",
+              "power": null,
+              "accuracy": null,
+              "pp": 20,
+              "level": 78,
+              "versionGroups": [
+                "scarlet-violet"
+              ]
+            }
+          ]
+        },
+        {
+          "method": "machine",
+          "items": [
+            {
+              "move": {
+                "id": 182,
+                "name": "Abri"
+              },
+              "type": "normal",
+              "category": "status",
+              "power": null,
+              "accuracy": null,
+              "pp": 10,
+              "level": null,
+              "versionGroups": [
+                "scarlet-violet"
+              ]
+            },
+            {
+              "move": {
+                "id": 512,
+                "name": "Acrobatie"
+              },
+              "type": "flying",
+              "category": "physical",
+              "power": 55,
+              "accuracy": 100,
+              "pp": 15,
+              "level": null,
+              "versionGroups": [
+                "scarlet-violet"
+              ]
+            },
+            {
+              "move": {
+                "id": 133,
+                "name": "Amnésie"
+              },
+              "type": "psychic",
+              "category": "status",
+              "power": null,
+              "accuracy": null,
+              "pp": 20,
+              "level": null,
+              "versionGroups": [
+                "scarlet-violet"
+              ]
+            },
+            {
+              "move": {
+                "id": 36,
+                "name": "Bélier"
+              },
+              "type": "normal",
+              "category": "physical",
+              "power": 90,
+              "accuracy": 85,
+              "pp": 20,
+              "level": null,
+              "versionGroups": [
+                "scarlet-violet"
+              ]
+            },
+            {
+              "move": {
+                "id": 214,
+                "name": "Blabla Dodo"
+              },
+              "type": "normal",
+              "category": "status",
+              "power": null,
+              "accuracy": null,
+              "pp": 10,
+              "level": null,
+              "versionGroups": [
+                "scarlet-violet"
+              ]
+            },
+            {
+              "move": {
+                "id": 405,
+                "name": "Bourdon"
+              },
+              "type": "bug",
+              "category": "special",
+              "power": 90,
+              "accuracy": 100,
+              "pp": 10,
+              "level": null,
+              "versionGroups": [
+                "scarlet-violet"
+              ]
+            },
+            {
+              "move": {
+                "id": 394,
+                "name": "Boutefeu"
+              },
+              "type": "fire",
+              "category": "physical",
+              "power": 120,
+              "accuracy": 100,
+              "pp": 15,
+              "level": null,
+              "versionGroups": [
+                "scarlet-violet"
+              ]
+            },
+            {
+              "move": {
+                "id": 257,
+                "name": "Canicule"
+              },
+              "type": "fire",
+              "category": "special",
+              "power": 95,
+              "accuracy": 90,
+              "pp": 10,
+              "level": null,
+              "versionGroups": [
+                "scarlet-violet"
+              ]
+            },
+            {
+              "move": {
+                "id": 164,
+                "name": "Clonage"
+              },
+              "type": "normal",
+              "category": "status",
+              "power": null,
+              "accuracy": null,
+              "pp": 10,
+              "level": null,
+              "versionGroups": [
+                "scarlet-violet"
+              ]
+            },
+            {
+              "move": {
+                "id": 38,
+                "name": "Damoclès"
+              },
+              "type": "normal",
+              "category": "physical",
+              "power": 120,
+              "accuracy": 100,
+              "pp": 15,
+              "level": null,
+              "versionGroups": [
+                "scarlet-violet"
+              ]
+            },
+            {
+              "move": {
+                "id": 83,
+                "name": "Danse Flammes"
+              },
+              "type": "fire",
+              "category": "special",
+              "power": 35,
+              "accuracy": 85,
+              "pp": 15,
+              "level": null,
+              "versionGroups": [
+                "scarlet-violet"
+              ]
+            },
+            {
+              "move": {
+                "id": 240,
+                "name": "Danse Pluie"
+              },
+              "type": "water",
+              "category": "status",
+              "power": null,
+              "accuracy": null,
+              "pp": 5,
+              "level": null,
+              "versionGroups": [
+                "scarlet-violet"
+              ]
+            },
+            {
+              "move": {
+                "id": 126,
+                "name": "Déflagration"
+              },
+              "type": "fire",
+              "category": "special",
+              "power": 110,
+              "accuracy": 85,
+              "pp": 5,
+              "level": null,
+              "versionGroups": [
+                "scarlet-violet"
+              ]
+            },
+            {
+              "move": {
+                "id": 369,
+                "name": "Demi-Tour"
+              },
+              "type": "bug",
+              "category": "physical",
+              "power": 70,
+              "accuracy": 100,
+              "pp": 20,
+              "level": null,
+              "versionGroups": [
+                "scarlet-violet"
+              ]
+            },
+            {
+              "move": {
+                "id": 398,
+                "name": "Direct Toxik"
+              },
+              "type": "poison",
+              "category": "physical",
+              "power": 80,
+              "accuracy": 100,
+              "pp": 20,
+              "level": null,
+              "versionGroups": [
+                "scarlet-violet"
+              ]
+            },
+            {
+              "move": {
+                "id": 814,
+                "name": "Double Volée"
+              },
+              "type": "flying",
+              "category": "physical",
+              "power": 40,
+              "accuracy": 90,
+              "pp": 10,
+              "level": null,
+              "versionGroups": [
+                "scarlet-violet"
+              ]
+            },
+            {
+              "move": {
+                "id": 528,
+                "name": "Éclair Fou"
+              },
+              "type": "electric",
+              "category": "physical",
+              "power": 90,
+              "accuracy": 100,
+              "pp": 15,
+              "level": null,
+              "versionGroups": [
+                "scarlet-violet"
+              ]
+            },
+            {
+              "move": {
+                "id": 263,
+                "name": "Façade"
+              },
+              "type": "normal",
+              "category": "physical",
+              "power": 70,
+              "accuracy": 100,
+              "pp": 20,
+              "level": null,
+              "versionGroups": [
+                "scarlet-violet"
+              ]
+            },
+            {
+              "move": {
+                "id": 261,
+                "name": "Feu Follet"
+              },
+              "type": "fire",
+              "category": "status",
+              "power": null,
+              "accuracy": 85,
+              "pp": 15,
+              "level": null,
+              "versionGroups": [
+                "scarlet-violet"
+              ]
+            },
+            {
+              "move": {
+                "id": 679,
+                "name": "Furie-Bond"
+              },
+              "type": "bug",
+              "category": "physical",
+              "power": 80,
+              "accuracy": 100,
+              "pp": 15,
+              "level": null,
+              "versionGroups": [
+                "scarlet-violet"
+              ]
+            },
+            {
+              "move": {
+                "id": 416,
+                "name": "Giga Impact"
+              },
+              "type": "normal",
+              "category": "physical",
+              "power": 150,
+              "accuracy": 90,
+              "pp": 5,
+              "level": null,
+              "versionGroups": [
+                "scarlet-violet"
+              ]
+            },
+            {
+              "move": {
+                "id": 202,
+                "name": "Giga-Sangsue"
+              },
+              "type": "grass",
+              "category": "special",
+              "power": 75,
+              "accuracy": 100,
+              "pp": 10,
+              "level": null,
+              "versionGroups": [
+                "scarlet-violet"
+              ]
+            },
+            {
+              "move": {
+                "id": 403,
+                "name": "Lame d’Air"
+              },
+              "type": "flying",
+              "category": "special",
+              "power": 75,
+              "accuracy": 95,
+              "pp": 15,
+              "level": null,
+              "versionGroups": [
+                "scarlet-violet"
+              ]
+            },
+            {
+              "move": {
+                "id": 53,
+                "name": "Lance-Flammes"
+              },
+              "type": "fire",
+              "category": "special",
+              "power": 90,
+              "accuracy": 100,
+              "pp": 15,
+              "level": null,
+              "versionGroups": [
+                "scarlet-violet"
+              ]
+            },
+            {
+              "move": {
+                "id": 76,
+                "name": "Lance-Soleil"
+              },
+              "type": "grass",
+              "category": "special",
+              "power": 120,
+              "accuracy": 100,
+              "pp": 10,
+              "level": null,
+              "versionGroups": [
+                "scarlet-violet"
+              ]
+            },
+            {
+              "move": {
+                "id": 113,
+                "name": "Mur Lumière"
+              },
+              "type": "psychic",
+              "category": "status",
+              "power": null,
+              "accuracy": null,
+              "pp": 30,
+              "level": null,
+              "versionGroups": [
+                "scarlet-violet"
+              ]
+            },
+            {
+              "move": {
+                "id": 488,
+                "name": "Nitrocharge"
+              },
+              "type": "fire",
+              "category": "physical",
+              "power": 50,
+              "accuracy": 100,
+              "pp": 20,
+              "level": null,
+              "versionGroups": [
+                "scarlet-violet"
+              ]
+            },
+            {
+              "move": {
+                "id": 450,
+                "name": "Piqûre"
+              },
+              "type": "bug",
+              "category": "physical",
+              "power": 60,
+              "accuracy": 100,
+              "pp": 20,
+              "level": null,
+              "versionGroups": [
+                "scarlet-violet"
+              ]
+            },
+            {
+              "move": {
+                "id": 34,
+                "name": "Plaquage"
+              },
+              "type": "normal",
+              "category": "physical",
+              "power": 85,
+              "accuracy": 100,
+              "pp": 15,
+              "level": null,
+              "versionGroups": [
+                "scarlet-violet"
+              ]
+            },
+            {
+              "move": {
+                "id": 347,
+                "name": "Plénitude"
+              },
+              "type": "psychic",
+              "category": "status",
+              "power": null,
+              "accuracy": null,
+              "pp": 20,
+              "level": null,
+              "versionGroups": [
+                "scarlet-violet"
+              ]
+            },
+            {
+              "move": {
+                "id": 884,
+                "name": "pounce"
+              },
+              "type": "bug",
+              "category": "physical",
+              "power": 50,
+              "accuracy": 100,
+              "pp": 20,
+              "level": null,
+              "versionGroups": [
+                "scarlet-violet"
+              ]
+            },
+            {
+              "move": {
+                "id": 94,
+                "name": "Psyko"
+              },
+              "type": "psychic",
+              "category": "special",
+              "power": 90,
+              "accuracy": 100,
+              "pp": 10,
+              "level": null,
+              "versionGroups": [
+                "scarlet-violet"
+              ]
+            },
+            {
+              "move": {
+                "id": 428,
+                "name": "Psykoud’Boul"
+              },
+              "type": "psychic",
+              "category": "physical",
+              "power": 80,
+              "accuracy": 90,
+              "pp": 15,
+              "level": null,
+              "versionGroups": [
+                "scarlet-violet"
+              ]
+            },
+            {
+              "move": {
+                "id": 806,
+                "name": "Ravage Rampant"
+              },
+              "type": "bug",
+              "category": "physical",
+              "power": 70,
+              "accuracy": 90,
+              "pp": 10,
+              "level": null,
+              "versionGroups": [
+                "scarlet-violet"
+              ]
+            },
+            {
+              "move": {
+                "id": 156,
+                "name": "Repos"
+              },
+              "type": "psychic",
+              "category": "status",
+              "power": null,
+              "accuracy": null,
+              "pp": 5,
+              "level": null,
+              "versionGroups": [
+                "scarlet-violet"
+              ]
+            },
+            {
+              "move": {
+                "id": 315,
+                "name": "Surchauffe"
+              },
+              "type": "fire",
+              "category": "special",
+              "power": 130,
+              "accuracy": 90,
+              "pp": 5,
+              "level": null,
+              "versionGroups": [
+                "scarlet-violet"
+              ]
+            },
+            {
+              "move": {
+                "id": 522,
+                "name": "Survinsecte"
+              },
+              "type": "bug",
+              "category": "special",
+              "power": 50,
+              "accuracy": 100,
+              "pp": 20,
+              "level": null,
+              "versionGroups": [
+                "scarlet-violet"
+              ]
+            },
+            {
+              "move": {
+                "id": 203,
+                "name": "Ténacité"
+              },
+              "type": "normal",
+              "category": "status",
+              "power": null,
+              "accuracy": null,
+              "pp": 10,
+              "level": null,
+              "versionGroups": [
+                "scarlet-violet"
+              ]
+            },
+            {
+              "move": {
+                "id": 851,
+                "name": "tera-blast"
+              },
+              "type": "normal",
+              "category": "special",
+              "power": 80,
+              "accuracy": 100,
+              "pp": 10,
+              "level": null,
+              "versionGroups": [
+                "scarlet-violet"
+              ]
+            },
+            {
+              "move": {
+                "id": 885,
+                "name": "trailblaze"
+              },
+              "type": "grass",
+              "category": "physical",
+              "power": 50,
+              "accuracy": 100,
+              "pp": 20,
+              "level": null,
+              "versionGroups": [
+                "scarlet-violet"
+              ]
+            },
+            {
+              "move": {
+                "id": 314,
+                "name": "Tranch’Air"
+              },
+              "type": "flying",
+              "category": "special",
+              "power": 60,
+              "accuracy": 95,
+              "pp": 25,
+              "level": null,
+              "versionGroups": [
+                "scarlet-violet"
+              ]
+            },
+            {
+              "move": {
+                "id": 63,
+                "name": "Ultralaser"
+              },
+              "type": "normal",
+              "category": "special",
+              "power": 150,
+              "accuracy": 90,
+              "pp": 5,
+              "level": null,
+              "versionGroups": [
+                "scarlet-violet"
+              ]
+            },
+            {
+              "move": {
+                "id": 141,
+                "name": "Vampirisme"
+              },
+              "type": "bug",
+              "category": "physical",
+              "power": 80,
+              "accuracy": 100,
+              "pp": 10,
+              "level": null,
+              "versionGroups": [
+                "scarlet-violet"
+              ]
+            },
+            {
+              "move": {
+                "id": 366,
+                "name": "Vent Arrière"
+              },
+              "type": "flying",
+              "category": "status",
+              "power": null,
+              "accuracy": null,
+              "pp": 15,
+              "level": null,
+              "versionGroups": [
+                "scarlet-violet"
+              ]
+            },
+            {
+              "move": {
+                "id": 542,
+                "name": "Vent Violent"
+              },
+              "type": "flying",
+              "category": "special",
+              "power": 110,
+              "accuracy": 70,
+              "pp": 10,
+              "level": null,
+              "versionGroups": [
+                "scarlet-violet"
+              ]
+            },
+            {
+              "move": {
+                "id": 19,
+                "name": "Vol"
+              },
+              "type": "flying",
+              "category": "physical",
+              "power": 90,
+              "accuracy": 95,
+              "pp": 15,
+              "level": null,
+              "versionGroups": [
+                "scarlet-violet"
+              ]
+            },
+            {
+              "move": {
+                "id": 241,
+                "name": "Zénith"
+              },
+              "type": "fire",
+              "category": "status",
+              "power": null,
+              "accuracy": null,
+              "pp": 5,
+              "level": null,
+              "versionGroups": [
+                "scarlet-violet"
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

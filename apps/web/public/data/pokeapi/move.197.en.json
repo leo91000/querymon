@@ -1,0 +1,870 @@
+{
+  "id": 197,
+  "name": "Detect",
+  "type": {
+    "id": 2,
+    "name": "fighting"
+  },
+  "damage_class": {
+    "name": "status"
+  },
+  "power": null,
+  "accuracy": null,
+  "pp": 5,
+  "priority": 4,
+  "target": {
+    "name": "user"
+  },
+  "generation": {
+    "name": "generation-ii"
+  },
+  "effect_entries": [
+    {
+      "effect": "No moves will hit the user for the remainder of this turn.  If the user is last to act this turn, this move will fail.  If the user successfully used detect, endure, protect, quick guard, or wide guard on the last turn, this move has a 50% chance to fail.  lock on, mind reader, and no guard provide a (100 – accuracy)% chance for moves to break through this move.  This does not apply to one-hit KO moves (fissure, guillotine, horn drill, and sheer cold); those are always blocked by this move.  thunder during rain dance and blizzard during hail have a 30% chance to break through this move.  The following effects are not prevented by this move:  * acupressure from an ally * curse’s curse effect * Delayed damage from doom desire and future sight; however, these moves will be prevented if they are used this turn * feint, which will also end this move’s protection after it hits * imprison * perish song * shadow force * Moves that merely copy the user, such as transform or psych up  This move cannot be selected by assist or metronome.",
+      "language": {
+        "name": "en",
+        "url": "https://pokeapi.co/api/v2/language/9/"
+      },
+      "short_effect": "Prevents any moves from hitting the user this turn."
+    }
+  ],
+  "flavor_text_entries": [
+    {
+      "flavor_text": "Evades attack that turn. It may fail.",
+      "language": {
+        "name": "en",
+        "url": "https://pokeapi.co/api/v2/language/9/"
+      },
+      "version_group": {
+        "name": "gold-silver",
+        "url": "https://pokeapi.co/api/v2/version-group/3/"
+      }
+    },
+    {
+      "flavor_text": "Evades attack that turn. It may fail.",
+      "language": {
+        "name": "en",
+        "url": "https://pokeapi.co/api/v2/language/9/"
+      },
+      "version_group": {
+        "name": "crystal",
+        "url": "https://pokeapi.co/api/v2/version-group/4/"
+      }
+    },
+    {
+      "flavor_text": "Evades attack, but may fail if used in succession.",
+      "language": {
+        "name": "en",
+        "url": "https://pokeapi.co/api/v2/language/9/"
+      },
+      "version_group": {
+        "name": "ruby-sapphire",
+        "url": "https://pokeapi.co/api/v2/version-group/5/"
+      }
+    },
+    {
+      "flavor_text": "Evades attack, but may fail if used in succession.",
+      "language": {
+        "name": "en",
+        "url": "https://pokeapi.co/api/v2/language/9/"
+      },
+      "version_group": {
+        "name": "emerald",
+        "url": "https://pokeapi.co/api/v2/version-group/6/"
+      }
+    },
+    {
+      "flavor_text": "Enables the user to evade all attacks. It may fail if used in succession.",
+      "language": {
+        "name": "en",
+        "url": "https://pokeapi.co/api/v2/language/9/"
+      },
+      "version_group": {
+        "name": "firered-leafgreen",
+        "url": "https://pokeapi.co/api/v2/version-group/7/"
+      }
+    },
+    {
+      "flavor_text": "It enables the user to evade all attacks. Its chance of failing rises if it is used in succession.",
+      "language": {
+        "name": "en",
+        "url": "https://pokeapi.co/api/v2/language/9/"
+      },
+      "version_group": {
+        "name": "diamond-pearl",
+        "url": "https://pokeapi.co/api/v2/version-group/8/"
+      }
+    },
+    {
+      "flavor_text": "It enables the user to evade all attacks. Its chance of failing rises if it is used in succession.",
+      "language": {
+        "name": "en",
+        "url": "https://pokeapi.co/api/v2/language/9/"
+      },
+      "version_group": {
+        "name": "platinum",
+        "url": "https://pokeapi.co/api/v2/version-group/9/"
+      }
+    },
+    {
+      "flavor_text": "It enables the user to evade all attacks. Its chance of failing rises if it is used in succession.",
+      "language": {
+        "name": "en",
+        "url": "https://pokeapi.co/api/v2/language/9/"
+      },
+      "version_group": {
+        "name": "heartgold-soulsilver",
+        "url": "https://pokeapi.co/api/v2/version-group/10/"
+      }
+    },
+    {
+      "flavor_text": "It enables the user to evade all attacks. Its chance of failing rises if it is used in succession.",
+      "language": {
+        "name": "en",
+        "url": "https://pokeapi.co/api/v2/language/9/"
+      },
+      "version_group": {
+        "name": "black-white",
+        "url": "https://pokeapi.co/api/v2/version-group/11/"
+      }
+    },
+    {
+      "flavor_text": "It enables the user to evade all attacks. Its chance of failing rises if it is used in succession.",
+      "language": {
+        "name": "en",
+        "url": "https://pokeapi.co/api/v2/language/9/"
+      },
+      "version_group": {
+        "name": "black-2-white-2",
+        "url": "https://pokeapi.co/api/v2/version-group/14/"
+      }
+    },
+    {
+      "flavor_text": "Enables the user to evade all attacks. Its chance of failing rises if it is used in succession.",
+      "language": {
+        "name": "en",
+        "url": "https://pokeapi.co/api/v2/language/9/"
+      },
+      "version_group": {
+        "name": "x-y",
+        "url": "https://pokeapi.co/api/v2/version-group/15/"
+      }
+    },
+    {
+      "flavor_text": "Enables the user to evade all attacks. Its chance of failing rises if it is used in succession.",
+      "language": {
+        "name": "en",
+        "url": "https://pokeapi.co/api/v2/language/9/"
+      },
+      "version_group": {
+        "name": "omega-ruby-alpha-sapphire",
+        "url": "https://pokeapi.co/api/v2/version-group/16/"
+      }
+    },
+    {
+      "flavor_text": "Enables the user to evade all attacks. Its chance of failing rises if it is used in succession.",
+      "language": {
+        "name": "en",
+        "url": "https://pokeapi.co/api/v2/language/9/"
+      },
+      "version_group": {
+        "name": "sun-moon",
+        "url": "https://pokeapi.co/api/v2/version-group/17/"
+      }
+    },
+    {
+      "flavor_text": "Enables the user to evade all attacks. Its chance of failing rises if it is used in succession.",
+      "language": {
+        "name": "en",
+        "url": "https://pokeapi.co/api/v2/language/9/"
+      },
+      "version_group": {
+        "name": "ultra-sun-ultra-moon",
+        "url": "https://pokeapi.co/api/v2/version-group/18/"
+      }
+    },
+    {
+      "flavor_text": "Enables the user to evade all attacks. Its chance of failing rises if it is used in succession.",
+      "language": {
+        "name": "en",
+        "url": "https://pokeapi.co/api/v2/language/9/"
+      },
+      "version_group": {
+        "name": "lets-go-pikachu-lets-go-eevee",
+        "url": "https://pokeapi.co/api/v2/version-group/19/"
+      }
+    },
+    {
+      "flavor_text": "This move enables the user to protect itself from all attacks. Its chance of failing rises if it is used in succession.",
+      "language": {
+        "name": "en",
+        "url": "https://pokeapi.co/api/v2/language/9/"
+      },
+      "version_group": {
+        "name": "sword-shield",
+        "url": "https://pokeapi.co/api/v2/version-group/20/"
+      }
+    },
+    {
+      "flavor_text": "This move enables the user to protect itself from all attacks. Its chance of failing rises if it is used in succession.",
+      "language": {
+        "name": "en",
+        "url": "https://pokeapi.co/api/v2/language/9/"
+      },
+      "version_group": {
+        "name": "legends-arceus",
+        "url": "https://pokeapi.co/api/v2/version-group/24/"
+      }
+    },
+    {
+      "flavor_text": "This move enables the user to protect itself from all attacks. Its chance of failing rises if it is used in succession.",
+      "language": {
+        "name": "en",
+        "url": "https://pokeapi.co/api/v2/language/9/"
+      },
+      "version_group": {
+        "name": "scarlet-violet",
+        "url": "https://pokeapi.co/api/v2/version-group/25/"
+      }
+    }
+  ],
+  "stat_changes": [],
+  "learned_by_pokemon": [
+    {
+      "id": 16,
+      "name": "Pidgey"
+    },
+    {
+      "id": 17,
+      "name": "Pidgeotto"
+    },
+    {
+      "id": 18,
+      "name": "Pidgeot"
+    },
+    {
+      "id": 21,
+      "name": "Spearow"
+    },
+    {
+      "id": 22,
+      "name": "Fearow"
+    },
+    {
+      "id": 25,
+      "name": "Pikachu"
+    },
+    {
+      "id": 26,
+      "name": "Raichu"
+    },
+    {
+      "id": 27,
+      "name": "Sandshrew"
+    },
+    {
+      "id": 28,
+      "name": "Sandslash"
+    },
+    {
+      "id": 29,
+      "name": "Nidoran♀"
+    },
+    {
+      "id": 30,
+      "name": "Nidorina"
+    },
+    {
+      "id": 31,
+      "name": "Nidoqueen"
+    },
+    {
+      "id": 32,
+      "name": "Nidoran♂"
+    },
+    {
+      "id": 33,
+      "name": "Nidorino"
+    },
+    {
+      "id": 34,
+      "name": "Nidoking"
+    },
+    {
+      "id": 35,
+      "name": "Clefairy"
+    },
+    {
+      "id": 36,
+      "name": "Clefable"
+    },
+    {
+      "id": 39,
+      "name": "Jigglypuff"
+    },
+    {
+      "id": 40,
+      "name": "Wigglytuff"
+    },
+    {
+      "id": 41,
+      "name": "Zubat"
+    },
+    {
+      "id": 42,
+      "name": "Golbat"
+    },
+    {
+      "id": 52,
+      "name": "Meowth"
+    },
+    {
+      "id": 53,
+      "name": "Persian"
+    },
+    {
+      "id": 56,
+      "name": "Mankey"
+    },
+    {
+      "id": 57,
+      "name": "Primeape"
+    },
+    {
+      "id": 61,
+      "name": "Poliwhirl"
+    },
+    {
+      "id": 62,
+      "name": "Poliwrath"
+    },
+    {
+      "id": 66,
+      "name": "Machop"
+    },
+    {
+      "id": 67,
+      "name": "Machoke"
+    },
+    {
+      "id": 68,
+      "name": "Machamp"
+    },
+    {
+      "id": 83,
+      "name": "Farfetch’d"
+    },
+    {
+      "id": 104,
+      "name": "Cubone"
+    },
+    {
+      "id": 105,
+      "name": "Marowak"
+    },
+    {
+      "id": 106,
+      "name": "Hitmonlee"
+    },
+    {
+      "id": 107,
+      "name": "Hitmonchan"
+    },
+    {
+      "id": 123,
+      "name": "Scyther"
+    },
+    {
+      "id": 125,
+      "name": "Electabuzz"
+    },
+    {
+      "id": 126,
+      "name": "Magmar"
+    },
+    {
+      "id": 133,
+      "name": "Eevee"
+    },
+    {
+      "id": 134,
+      "name": "Vaporeon"
+    },
+    {
+      "id": 135,
+      "name": "Jolteon"
+    },
+    {
+      "id": 136,
+      "name": "Flareon"
+    },
+    {
+      "id": 142,
+      "name": "Aerodactyl"
+    },
+    {
+      "id": 144,
+      "name": "Articuno"
+    },
+    {
+      "id": 145,
+      "name": "Zapdos"
+    },
+    {
+      "id": 146,
+      "name": "Moltres"
+    },
+    {
+      "id": 147,
+      "name": "Dratini"
+    },
+    {
+      "id": 148,
+      "name": "Dragonair"
+    },
+    {
+      "id": 149,
+      "name": "Dragonite"
+    },
+    {
+      "id": 150,
+      "name": "Mewtwo"
+    },
+    {
+      "id": 151,
+      "name": "Mew"
+    },
+    {
+      "id": 152,
+      "name": "Chikorita"
+    },
+    {
+      "id": 153,
+      "name": "Bayleef"
+    },
+    {
+      "id": 154,
+      "name": "Meganium"
+    },
+    {
+      "id": 155,
+      "name": "Cyndaquil"
+    },
+    {
+      "id": 156,
+      "name": "Quilava"
+    },
+    {
+      "id": 157,
+      "name": "Typhlosion"
+    },
+    {
+      "id": 158,
+      "name": "Totodile"
+    },
+    {
+      "id": 159,
+      "name": "Croconaw"
+    },
+    {
+      "id": 160,
+      "name": "Feraligatr"
+    },
+    {
+      "id": 161,
+      "name": "Sentret"
+    },
+    {
+      "id": 162,
+      "name": "Furret"
+    },
+    {
+      "id": 163,
+      "name": "Hoothoot"
+    },
+    {
+      "id": 164,
+      "name": "Noctowl"
+    },
+    {
+      "id": 169,
+      "name": "Crobat"
+    },
+    {
+      "id": 172,
+      "name": "Pichu"
+    },
+    {
+      "id": 173,
+      "name": "Cleffa"
+    },
+    {
+      "id": 174,
+      "name": "Igglybuff"
+    },
+    {
+      "id": 175,
+      "name": "Togepi"
+    },
+    {
+      "id": 176,
+      "name": "Togetic"
+    },
+    {
+      "id": 177,
+      "name": "Natu"
+    },
+    {
+      "id": 178,
+      "name": "Xatu"
+    },
+    {
+      "id": 186,
+      "name": "Politoed"
+    },
+    {
+      "id": 190,
+      "name": "Aipom"
+    },
+    {
+      "id": 193,
+      "name": "Yanma"
+    },
+    {
+      "id": 196,
+      "name": "Espeon"
+    },
+    {
+      "id": 197,
+      "name": "Umbreon"
+    },
+    {
+      "id": 198,
+      "name": "Murkrow"
+    },
+    {
+      "id": 207,
+      "name": "Gligar"
+    },
+    {
+      "id": 209,
+      "name": "Snubbull"
+    },
+    {
+      "id": 210,
+      "name": "Granbull"
+    },
+    {
+      "id": 212,
+      "name": "Scizor"
+    },
+    {
+      "id": 214,
+      "name": "Heracross"
+    },
+    {
+      "id": 215,
+      "name": "Sneasel"
+    },
+    {
+      "id": 220,
+      "name": "Swinub"
+    },
+    {
+      "id": 221,
+      "name": "Piloswine"
+    },
+    {
+      "id": 225,
+      "name": "Delibird"
+    },
+    {
+      "id": 227,
+      "name": "Skarmory"
+    },
+    {
+      "id": 228,
+      "name": "Houndour"
+    },
+    {
+      "id": 229,
+      "name": "Houndoom"
+    },
+    {
+      "id": 234,
+      "name": "Stantler"
+    },
+    {
+      "id": 236,
+      "name": "Tyrogue"
+    },
+    {
+      "id": 237,
+      "name": "Hitmontop"
+    },
+    {
+      "id": 239,
+      "name": "Elekid"
+    },
+    {
+      "id": 240,
+      "name": "Magby"
+    },
+    {
+      "id": 243,
+      "name": "Raikou"
+    },
+    {
+      "id": 244,
+      "name": "Entei"
+    },
+    {
+      "id": 245,
+      "name": "Suicune"
+    },
+    {
+      "id": 246,
+      "name": "Larvitar"
+    },
+    {
+      "id": 247,
+      "name": "Pupitar"
+    },
+    {
+      "id": 248,
+      "name": "Tyranitar"
+    },
+    {
+      "id": 249,
+      "name": "Lugia"
+    },
+    {
+      "id": 250,
+      "name": "Ho-Oh"
+    },
+    {
+      "id": 251,
+      "name": "Celebi"
+    },
+    {
+      "id": 252,
+      "name": "Treecko"
+    },
+    {
+      "id": 253,
+      "name": "Grovyle"
+    },
+    {
+      "id": 254,
+      "name": "Sceptile"
+    },
+    {
+      "id": 255,
+      "name": "Torchic"
+    },
+    {
+      "id": 256,
+      "name": "Combusken"
+    },
+    {
+      "id": 257,
+      "name": "Blaziken"
+    },
+    {
+      "id": 296,
+      "name": "Makuhita"
+    },
+    {
+      "id": 297,
+      "name": "Hariyama"
+    },
+    {
+      "id": 302,
+      "name": "Sableye"
+    },
+    {
+      "id": 307,
+      "name": "Meditite"
+    },
+    {
+      "id": 308,
+      "name": "Medicham"
+    },
+    {
+      "id": 335,
+      "name": "Zangoose"
+    },
+    {
+      "id": 352,
+      "name": "Kecleon"
+    },
+    {
+      "id": 359,
+      "name": "Absol"
+    },
+    {
+      "id": 396,
+      "name": "Starly"
+    },
+    {
+      "id": 447,
+      "name": "Riolu"
+    },
+    {
+      "id": 448,
+      "name": "Lucario"
+    },
+    {
+      "id": 469,
+      "name": "Yanmega"
+    },
+    {
+      "id": 482,
+      "name": "Azelf"
+    },
+    {
+      "id": 501,
+      "name": "Oshawott"
+    },
+    {
+      "id": 502,
+      "name": "Dewott"
+    },
+    {
+      "id": 503,
+      "name": "Samurott"
+    },
+    {
+      "id": 504,
+      "name": "Patrat"
+    },
+    {
+      "id": 505,
+      "name": "Watchog"
+    },
+    {
+      "id": 519,
+      "name": "Pidove"
+    },
+    {
+      "id": 520,
+      "name": "Tranquill"
+    },
+    {
+      "id": 521,
+      "name": "Unfezant"
+    },
+    {
+      "id": 532,
+      "name": "Timburr"
+    },
+    {
+      "id": 533,
+      "name": "Gurdurr"
+    },
+    {
+      "id": 534,
+      "name": "Conkeldurr"
+    },
+    {
+      "id": 559,
+      "name": "Scraggy"
+    },
+    {
+      "id": 560,
+      "name": "Scrafty"
+    },
+    {
+      "id": 570,
+      "name": "Zorua"
+    },
+    {
+      "id": 619,
+      "name": "Mienfoo"
+    },
+    {
+      "id": 620,
+      "name": "Mienshao"
+    },
+    {
+      "id": 701,
+      "name": "Hawlucha"
+    },
+    {
+      "id": 798,
+      "name": "Kartana"
+    },
+    {
+      "id": 852,
+      "name": "Clobbopus"
+    },
+    {
+      "id": 853,
+      "name": "Grapploct"
+    },
+    {
+      "id": 865,
+      "name": "Sirfetch’d"
+    },
+    {
+      "id": 891,
+      "name": "Kubfu"
+    },
+    {
+      "id": 892,
+      "name": "Urshifu"
+    },
+    {
+      "id": 912,
+      "name": "Quaxly"
+    },
+    {
+      "id": 920,
+      "name": "Lokix"
+    },
+    {
+      "id": 973,
+      "name": "Flamigo"
+    },
+    {
+      "id": 992,
+      "name": "Iron Hands"
+    },
+    {
+      "id": 10054,
+      "name": "Medicham"
+    },
+    {
+      "id": 10057,
+      "name": "Absol"
+    },
+    {
+      "id": 10059,
+      "name": "Lucario"
+    },
+    {
+      "id": 10065,
+      "name": "Sceptile"
+    },
+    {
+      "id": 10066,
+      "name": "Sableye"
+    },
+    {
+      "id": 10166,
+      "name": "Farfetch’d"
+    },
+    {
+      "id": 10170,
+      "name": "Zapdos"
+    },
+    {
+      "id": 10191,
+      "name": "Urshifu"
+    },
+    {
+      "id": 10238,
+      "name": "Zorua"
+    }
+  ]
+}

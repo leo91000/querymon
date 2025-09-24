@@ -2,11 +2,10 @@ import Card from '../components/Card';
 import Badge from '../components/Badge';
 import TypeBox from '../components/TypeBox';
 import PokemonLearnset from '../components/PokemonLearnset';
-import { Show, For, createMemo, createResource, onMount } from 'solid-js';
-import { formatName, loadItemById, loadTypeEntries, loadGrowthRates } from '../services/data';
+import { Show, For, createMemo, createResource } from 'solid-js';
+import { formatName, loadItemById, loadGrowthRatesLite, loadList } from '../services/data';
 import type { ResourceName } from '../services/data';
 import { t, getLocale } from '../i18n';
-import { loadNameMap } from '../services/data';
 import Skeleton from '../components/Skeleton';
 import PokemonSpriteViewer from '../components/PokemonSpriteViewer';
 
@@ -39,12 +38,13 @@ function findLocalFlavor(species: Species, lang: 'en'|'fr'|'jp'): { text?: strin
 }
 
 export default function PokemonDetail(props: { id: number }) {
-  onMount(() => console.debug('[PokemonDetail] mount id', props.id));
-  const [data] = createResource(() => props.id, (id) => loadItemById<PageData>('pokemon' as ResourceName, id));
-  const [speciesFull] = createResource(() => props.id, (id) => loadItemById('pokemon-species' as ResourceName, id));
+  const [data] = createResource(
+    () => ({ id: props.id, loc: getLocale() }),
+    (key) => loadItemById<PageData>('pokemon' as ResourceName, key.id),
+  );
   const pokemon = createMemo(() => data());
   const speciesRaw = createMemo(() => data()?.species);
-  const speciesData = createMemo(() => speciesFull() || speciesRaw());
+  const speciesData = createMemo(() => speciesRaw());
 
   const types = createMemo(() => {
     const list = pokemon()?.types || [];
@@ -93,23 +93,16 @@ export default function PokemonDetail(props: { id: number }) {
     if (locale() === 'jp') return formatJaUnits(v);
     return nf().format(v);
   };
-  const [growthRateNames] = createResource(() => locale(), (loc) => loadNameMap('growth-rate' as any, loc as any));
-  const [eggGroupNames] = createResource(() => locale(), (loc) => loadNameMap('egg-group' as any, loc as any));
-  const [colorNames] = createResource(() => locale(), (loc) => loadNameMap('pokemon-color' as any, loc as any));
-  const [abilityNames] = createResource(() => locale(), (loc) => loadNameMap('ability' as any, loc as any));
-  const [moveNames] = createResource(() => locale(), (loc) => loadNameMap('move', loc as any));
-  const [growthRatesData] = createResource(loadGrowthRates);
-  const [typeEntries] = createResource(loadTypeEntries);
-  const [pokemonNames] = createResource(() => locale(), (loc) => loadNameMap('pokemon', loc as any));
-  const allTypes = () => typeEntries() || [];
+  const hasEmbedded = createMemo(() => Array.isArray((pokemon() as any)?.learnsets));
+  // Only fetch legacy name maps when we don't have embedded/new data
+  // New layout: growth-rates.<loc>.json provides label and exp at 100
+  const [growthRatesLite] = createResource(() => getLocale(), (loc) => loadGrowthRatesLite(loc as any));
+  const [abilityList] = createResource(() => (hasEmbedded() ? getLocale() : null), () => loadList('ability' as any));
+  const [typeList] = createResource(() => (hasEmbedded() ? getLocale() : null), () => loadList('type' as any));
+  // No legacy pokemon name map in new layout
 
-  const chainId = createMemo(() => {
-    const url = speciesFull()?.evolution_chain?.url;
-    const match = typeof url === 'string' ? url.match(/\/(\d+)\/?$/) : undefined;
-    return match ? Number(match[1]) : undefined;
-  });
-
-  const [evolutionChain] = createResource(chainId, (id) => (id ? loadItemById('evolution-chain' as ResourceName, id) : undefined));
+  // Skip evolution chain fetch if embedded evolutions exist in the detail payload
+  const embeddedEvolutions = createMemo(() => (data() as any)?.evolutions as any[] | undefined);
 
   type EvolutionStageEntry = {
     id?: number;
@@ -120,35 +113,11 @@ export default function PokemonDetail(props: { id: number }) {
   };
 
   function buildEvolutionStages() {
-    const chain = evolutionChain()?.chain;
-    if (!chain) return [] as EvolutionStageEntry[][];
-    const stages: EvolutionStageEntry[][] = [];
-    const namesMap = pokemonNames() || {};
-
-    const visit = (node: any, stageIndex: number) => {
-      const speciesUrl = node?.species?.url as string | undefined;
-      const speciesId = speciesUrl ? idFromUrl(speciesUrl) : undefined;
-      const localizedName = speciesId != null && namesMap[String(speciesId)]
-        ? namesMap[String(speciesId)]
-        : formatName(node?.species?.name || '');
-
-      if (!stages[stageIndex]) stages[stageIndex] = [];
-
-      stages[stageIndex].push({
-        id: speciesId,
-        name: localizedName,
-        sprite: speciesId ? `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${speciesId}.png` : '',
-        isCurrent: speciesId === props.id,
-        details: Array.isArray(node?.evolution_details) ? node.evolution_details : [],
-      });
-
-      for (const child of node?.evolves_to || []) {
-        visit(child, stageIndex + 1);
-      }
-    };
-
-    visit(chain, 0);
-    return stages;
+    const embedded = embeddedEvolutions();
+    if (Array.isArray(embedded) && embedded.length > 0) {
+      return embedded as unknown as EvolutionStageEntry[][];
+    }
+    return [] as EvolutionStageEntry[][];
   }
 
   const evolutionStages = createMemo(buildEvolutionStages);
@@ -211,18 +180,9 @@ export default function PokemonDetail(props: { id: number }) {
   }
 
   function localizeTypeName(typeId?: number, fallback?: string) {
-    const want = locale();
-    const lang = { en: 'en', fr: 'fr', jp: 'ja' }[want as 'en'|'fr'|'jp'] || 'en';
-    const entry = (allTypes() || []).find((t:any)=>t.id===typeId);
-    if (!entry) return fallback || '';
-    const names = entry.names || [];
-    if (lang === 'ja') {
-      const ja = names.find((n:any)=>n.language?.name==='ja')?.name;
-      if (ja) return ja;
-      const jaHrkt = names.find((n:any)=>n.language?.name==='ja-Hrkt')?.name;
-      if (jaHrkt) return jaHrkt;
-    }
-    return names.find((n:any)=>n.language?.name===lang)?.name || fallback || '';
+    const list = typeList() || [];
+    const name = list.find((t: any) => t.id === typeId)?.name;
+    return name || fallback || '';
   }
 
   const localizedTypeLabels = createMemo(() => {
@@ -231,13 +191,12 @@ export default function PokemonDetail(props: { id: number }) {
   });
 
   const localizedAbilities = createMemo(() => {
-    const _ = locale();
-    const map = abilityNames() || {};
+    const list = abilityList() || [];
     return (abilities() || []).map((ab: any) => {
       const ref = ab?.ability || ab;
       const id = ab?.id ?? idFromUrl(ref?.url);
-      const name = ref?.name || ab?.name;
-      const label = (id && map[String(id)]) || formatName(name || '');
+      const name = id != null ? list.find((a: any) => a.id === id)?.name : undefined;
+      const label = name || formatName(ref?.name || ab?.name || '');
       return { id, label, hidden: ab?.is_hidden ?? ab?.hidden };
     });
   });
@@ -425,6 +384,8 @@ export default function PokemonDetail(props: { id: number }) {
               <div>
                 <div class="text-gray-500 dark:text-gray-400">{t('pokemon.category')}</div>
                 <div class="font-medium">{(() => {
+                  const genus = speciesData()?.genus;
+                  if (genus) return genus;
                   const gens = speciesData()?.genera || [];
                   const map = { en: 'en', fr: 'fr', jp: 'ja' } as const;
                   const want = map[locale()] || 'en';
@@ -450,7 +411,7 @@ export default function PokemonDetail(props: { id: number }) {
               </div>
               <div>
                 <div class="text-gray-500 dark:text-gray-400">{t('pokemon.eggGroups')}</div>
-                <div class="font-medium">{(() => { const arr = (speciesData()?.egg_groups || []) as any[]; const names = arr.map(g => { const id = g?.id ?? idFromUrl(g?.url); return (id && eggGroupNames()?.[String(id)]) || formatName(g?.name); }); return names.join(', ') || '—'; })()}</div>
+                <div class="font-medium">{(() => { const arr = (speciesData()?.egg_groups || []) as any[]; const names = arr.map(g => String(g?.name || '')).filter(Boolean); return names.join(', ') || '—'; })()}</div>
               </div>
               <div>
                 <div class="text-gray-500 dark:text-gray-400">{t('pokemon.eggCycles')}</div>
@@ -471,9 +432,12 @@ export default function PokemonDetail(props: { id: number }) {
                 <div class="text-gray-500 dark:text-gray-400">{t('pokemon.expAt100')}</div>
                 <div class="font-medium">{(() => {
                   const gid = speciesData()?.growth_rate?.id ?? idFromUrl(speciesData()?.growth_rate?.url);
-                  const g = (growthRatesData() || []).find((x: any) => x.id === gid);
-                  const e = g?.levels?.find((l: any) => l.level === 100)?.experience;
-                  const grp = gid ? growthRateNames()?.[String(gid)] : undefined;
+                  const slug = speciesData()?.growth_rate?.name as string | undefined;
+                  const g = (growthRatesLite() || []).find((x: any) => x.id === gid);
+                  const e = g?.exp100;
+                  const key = slug ? `growthRate.${slug}` : undefined;
+                  const tr = key ? (t(key as any) as unknown as string) : undefined;
+                  const grp = tr && tr !== key ? tr : (g?.name || slug);
                   if (e == null) return '—';
                   const val = num(e);
                   return grp ? `${val} (${grp})` : `${val}`;
@@ -485,7 +449,7 @@ export default function PokemonDetail(props: { id: number }) {
               </div>
               <div>
                 <div class="text-gray-500 dark:text-gray-400">{t('pokemon.color')}</div>
-                <div class="font-medium">{(() => { const id = speciesData()?.color?.id ?? idFromUrl(speciesData()?.color?.url); return (id && colorNames()?.[String(id)]) || formatName(speciesData()?.color?.name || '—'); })()}</div>
+                <div class="font-medium">{speciesData()?.color?.name || '—'}</div>
               </div>
               
             </div>
@@ -548,9 +512,11 @@ export default function PokemonDetail(props: { id: number }) {
 
         <PokemonLearnset
           pokemonId={props.id}
-          moves={pokemon()?.moves}
+          // Prefer embedded learnsets from new per-locale file; fallback to raw moves
+          learnsets={(pokemon() as any)?.learnsets}
+          moves={(pokemon() as any)?.moves}
           locale={locale()}
-          moveNames={moveNames()}
+          moveNames={undefined}
         />
       </Show>
     </div>

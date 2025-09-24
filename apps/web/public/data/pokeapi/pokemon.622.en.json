@@ -1,0 +1,5322 @@
+{
+  "id": 622,
+  "name": "Golett",
+  "sprites": {
+    "front_default": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/622.png",
+    "front_shiny": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/shiny/622.png",
+    "official_artwork": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/622.png",
+    "dream_world": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/dream-world/622.svg",
+    "home_default": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/622.png",
+    "home_shiny": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/shiny/622.png",
+    "versions": {
+      "generation-v": {
+        "front_default": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/622.png",
+        "back_default": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/back/622.png",
+        "front_shiny": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/shiny/622.png",
+        "back_shiny": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/back/shiny/622.png"
+      },
+      "generation-vi": {
+        "front_default": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-vi/omegaruby-alphasapphire/622.png",
+        "front_shiny": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-vi/omegaruby-alphasapphire/shiny/622.png"
+      },
+      "generation-vii": {
+        "front_default": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-vii/icons/622.png",
+        "front_shiny": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-vii/ultra-sun-ultra-moon/shiny/622.png"
+      },
+      "generation-viii": {
+        "front_default": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-viii/icons/622.png"
+      }
+    }
+  },
+  "types": [
+    {
+      "id": 5,
+      "name": "ground"
+    },
+    {
+      "id": 8,
+      "name": "ghost"
+    }
+  ],
+  "abilities": [
+    {
+      "id": 89,
+      "name": "iron-fist",
+      "hidden": false
+    },
+    {
+      "id": 103,
+      "name": "klutz",
+      "hidden": false
+    },
+    {
+      "id": 99,
+      "name": "no-guard",
+      "hidden": true
+    }
+  ],
+  "stats": [
+    {
+      "name": "hp",
+      "base": 59,
+      "effort": 0
+    },
+    {
+      "name": "attack",
+      "base": 74,
+      "effort": 1
+    },
+    {
+      "name": "defense",
+      "base": 50,
+      "effort": 0
+    },
+    {
+      "name": "special-attack",
+      "base": 35,
+      "effort": 0
+    },
+    {
+      "name": "special-defense",
+      "base": 50,
+      "effort": 0
+    },
+    {
+      "name": "speed",
+      "base": 35,
+      "effort": 0
+    }
+  ],
+  "weight": 920,
+  "height": 10,
+  "base_experience": 61,
+  "species": {
+    "capture_rate": 190,
+    "hatch_counter": 25,
+    "gender_rate": -1,
+    "growth_rate": {
+      "id": 2,
+      "name": "medium"
+    },
+    "egg_groups": [
+      {
+        "id": 10,
+        "name": "Mineral"
+      }
+    ],
+    "color": {
+      "id": 5,
+      "name": "Green"
+    },
+    "genus": "Automaton Pokémon",
+    "flavor_text": "The energy that burns inside it enables it to move, but no one has yet been able to identify this energy."
+  },
+  "evolutions": [
+    [
+      {
+        "id": 622,
+        "name": "Golett",
+        "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/622.png",
+        "isCurrent": true,
+        "details": []
+      }
+    ],
+    [
+      {
+        "id": 623,
+        "name": "Golurk",
+        "sprite": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/623.png",
+        "isCurrent": false,
+        "details": [
+          {
+            "gender": null,
+            "held_item": null,
+            "item": null,
+            "known_move": null,
+            "known_move_type": null,
+            "location": null,
+            "min_affection": null,
+            "min_beauty": null,
+            "min_happiness": null,
+            "min_level": 43,
+            "needs_overworld_rain": false,
+            "party_species": null,
+            "party_type": null,
+            "relative_physical_stats": null,
+            "time_of_day": "",
+            "trade_species": null,
+            "trigger": {
+              "name": "level-up",
+              "url": "https://pokeapi.co/api/v2/evolution-trigger/1/"
+            },
+            "turn_upside_down": false
+          }
+        ]
+      }
+    ]
+  ],
+  "learnsets": [
+    {
+      "generation": "generation-v",
+      "order": 11,
+      "entries": [
+        {
+          "method": "level-up",
+          "items": [
+            {
+              "move": {
+                "id": 310,
+                "name": "Astonish"
+              },
+              "type": "ghost",
+              "category": "physical",
+              "power": 30,
+              "accuracy": 100,
+              "pp": 15,
+              "level": 1,
+              "versionGroups": [
+                "black-white",
+                "black-2-white-2"
+              ]
+            },
+            {
+              "move": {
+                "id": 111,
+                "name": "Defense Curl"
+              },
+              "type": "normal",
+              "category": "status",
+              "power": null,
+              "accuracy": null,
+              "pp": 40,
+              "level": 1,
+              "versionGroups": [
+                "black-white",
+                "black-2-white-2"
+              ]
+            },
+            {
+              "move": {
+                "id": 1,
+                "name": "Pound"
+              },
+              "type": "normal",
+              "category": "physical",
+              "power": 40,
+              "accuracy": 100,
+              "pp": 35,
+              "level": 1,
+              "versionGroups": [
+                "black-white",
+                "black-2-white-2"
+              ]
+            },
+            {
+              "move": {
+                "id": 189,
+                "name": "Mud-Slap"
+              },
+              "type": "ground",
+              "category": "special",
+              "power": 20,
+              "accuracy": 100,
+              "pp": 10,
+              "level": 5,
+              "versionGroups": [
+                "black-white",
+                "black-2-white-2"
+              ]
+            },
+            {
+              "move": {
+                "id": 205,
+                "name": "Rollout"
+              },
+              "type": "rock",
+              "category": "physical",
+              "power": 30,
+              "accuracy": 90,
+              "pp": 20,
+              "level": 9,
+              "versionGroups": [
+                "black-white",
+                "black-2-white-2"
+              ]
+            },
+            {
+              "move": {
+                "id": 325,
+                "name": "Shadow Punch"
+              },
+              "type": "ghost",
+              "category": "physical",
+              "power": 60,
+              "accuracy": null,
+              "pp": 20,
+              "level": 13,
+              "versionGroups": [
+                "black-white",
+                "black-2-white-2"
+              ]
+            },
+            {
+              "move": {
+                "id": 334,
+                "name": "Iron Defense"
+              },
+              "type": "steel",
+              "category": "status",
+              "power": null,
+              "accuracy": null,
+              "pp": 15,
+              "level": 17,
+              "versionGroups": [
+                "black-white",
+                "black-2-white-2"
+              ]
+            },
+            {
+              "move": {
+                "id": 5,
+                "name": "Mega Punch"
+              },
+              "type": "normal",
+              "category": "physical",
+              "power": 80,
+              "accuracy": 85,
+              "pp": 20,
+              "level": 21,
+              "versionGroups": [
+                "black-white",
+                "black-2-white-2"
+              ]
+            },
+            {
+              "move": {
+                "id": 222,
+                "name": "Magnitude"
+              },
+              "type": "ground",
+              "category": "physical",
+              "power": null,
+              "accuracy": 100,
+              "pp": 30,
+              "level": 25,
+              "versionGroups": [
+                "black-white",
+                "black-2-white-2"
+              ]
+            },
+            {
+              "move": {
+                "id": 223,
+                "name": "Dynamic Punch"
+              },
+              "type": "fighting",
+              "category": "physical",
+              "power": 100,
+              "accuracy": 50,
+              "pp": 5,
+              "level": 30,
+              "versionGroups": [
+                "black-white",
+                "black-2-white-2"
+              ]
+            },
+            {
+              "move": {
+                "id": 101,
+                "name": "Night Shade"
+              },
+              "type": "ghost",
+              "category": "special",
+              "power": null,
+              "accuracy": 100,
+              "pp": 15,
+              "level": 35,
+              "versionGroups": [
+                "black-white",
+                "black-2-white-2"
+              ]
+            },
+            {
+              "move": {
+                "id": 174,
+                "name": "Curse"
+              },
+              "type": "ghost",
+              "category": "status",
+              "power": null,
+              "accuracy": null,
+              "pp": 10,
+              "level": 40,
+              "versionGroups": [
+                "black-white",
+                "black-2-white-2"
+              ]
+            },
+            {
+              "move": {
+                "id": 89,
+                "name": "Earthquake"
+              },
+              "type": "ground",
+              "category": "physical",
+              "power": 100,
+              "accuracy": 100,
+              "pp": 10,
+              "level": 45,
+              "versionGroups": [
+                "black-white",
+                "black-2-white-2"
+              ]
+            },
+            {
+              "move": {
+                "id": 359,
+                "name": "Hammer Arm"
+              },
+              "type": "fighting",
+              "category": "physical",
+              "power": 100,
+              "accuracy": 90,
+              "pp": 10,
+              "level": 50,
+              "versionGroups": [
+                "black-white",
+                "black-2-white-2"
+              ]
+            },
+            {
+              "move": {
+                "id": 264,
+                "name": "Focus Punch"
+              },
+              "type": "fighting",
+              "category": "physical",
+              "power": 150,
+              "accuracy": 100,
+              "pp": 20,
+              "level": 55,
+              "versionGroups": [
+                "black-white",
+                "black-2-white-2"
+              ]
+            }
+          ]
+        },
+        {
+          "method": "machine",
+          "items": [
+            {
+              "move": {
+                "id": 280,
+                "name": "Brick Break"
+              },
+              "type": "fighting",
+              "category": "physical",
+              "power": 75,
+              "accuracy": 100,
+              "pp": 15,
+              "level": null,
+              "versionGroups": [
+                "black-white",
+                "black-2-white-2"
+              ]
+            },
+            {
+              "move": {
+                "id": 523,
+                "name": "Bulldoze"
+              },
+              "type": "ground",
+              "category": "physical",
+              "power": 60,
+              "accuracy": 100,
+              "pp": 20,
+              "level": null,
+              "versionGroups": [
+                "black-white",
+                "black-2-white-2"
+              ]
+            },
+            {
+              "move": {
+                "id": 104,
+                "name": "Double Team"
+              },
+              "type": "normal",
+              "category": "status",
+              "power": null,
+              "accuracy": null,
+              "pp": 15,
+              "level": null,
+              "versionGroups": [
+                "black-white",
+                "black-2-white-2"
+              ]
+            },
+            {
+              "move": {
+                "id": 89,
+                "name": "Earthquake"
+              },
+              "type": "ground",
+              "category": "physical",
+              "power": 100,
+              "accuracy": 100,
+              "pp": 10,
+              "level": null,
+              "versionGroups": [
+                "black-white",
+                "black-2-white-2"
+              ]
+            },
+            {
+              "move": {
+                "id": 263,
+                "name": "Facade"
+              },
+              "type": "normal",
+              "category": "physical",
+              "power": 70,
+              "accuracy": 100,
+              "pp": 20,
+              "level": null,
+              "versionGroups": [
+                "black-white",
+                "black-2-white-2"
+              ]
+            },
+            {
+              "move": {
+                "id": 148,
+                "name": "Flash"
+              },
+              "type": "normal",
+              "category": "status",
+              "power": null,
+              "accuracy": 100,
+              "pp": 20,
+              "level": null,
+              "versionGroups": [
+                "black-white",
+                "black-2-white-2"
+              ]
+            },
+            {
+              "move": {
+                "id": 374,
+                "name": "Fling"
+              },
+              "type": "dark",
+              "category": "physical",
+              "power": null,
+              "accuracy": 100,
+              "pp": 10,
+              "level": null,
+              "versionGroups": [
+                "black-white",
+                "black-2-white-2"
+              ]
+            },
+            {
+              "move": {
+                "id": 411,
+                "name": "Focus Blast"
+              },
+              "type": "fighting",
+              "category": "special",
+              "power": 120,
+              "accuracy": 70,
+              "pp": 5,
+              "level": null,
+              "versionGroups": [
+                "black-white",
+                "black-2-white-2"
+              ]
+            },
+            {
+              "move": {
+                "id": 218,
+                "name": "Frustration"
+              },
+              "type": "normal",
+              "category": "physical",
+              "power": null,
+              "accuracy": 100,
+              "pp": 20,
+              "level": null,
+              "versionGroups": [
+                "black-white",
+                "black-2-white-2"
+              ]
+            },
+            {
+              "move": {
+                "id": 447,
+                "name": "Grass Knot"
+              },
+              "type": "grass",
+              "category": "special",
+              "power": null,
+              "accuracy": 100,
+              "pp": 20,
+              "level": null,
+              "versionGroups": [
+                "black-white",
+                "black-2-white-2"
+              ]
+            },
+            {
+              "move": {
+                "id": 360,
+                "name": "Gyro Ball"
+              },
+              "type": "steel",
+              "category": "physical",
+              "power": null,
+              "accuracy": 100,
+              "pp": 5,
+              "level": null,
+              "versionGroups": [
+                "black-white",
+                "black-2-white-2"
+              ]
+            },
+            {
+              "move": {
+                "id": 237,
+                "name": "Hidden Power"
+              },
+              "type": "normal",
+              "category": "special",
+              "power": 60,
+              "accuracy": 100,
+              "pp": 15,
+              "level": null,
+              "versionGroups": [
+                "black-white",
+                "black-2-white-2"
+              ]
+            },
+            {
+              "move": {
+                "id": 58,
+                "name": "Ice Beam"
+              },
+              "type": "ice",
+              "category": "special",
+              "power": 90,
+              "accuracy": 100,
+              "pp": 10,
+              "level": null,
+              "versionGroups": [
+                "black-white",
+                "black-2-white-2"
+              ]
+            },
+            {
+              "move": {
+                "id": 490,
+                "name": "Low Sweep"
+              },
+              "type": "fighting",
+              "category": "physical",
+              "power": 65,
+              "accuracy": 100,
+              "pp": 20,
+              "level": null,
+              "versionGroups": [
+                "black-white",
+                "black-2-white-2"
+              ]
+            },
+            {
+              "move": {
+                "id": 182,
+                "name": "Protect"
+              },
+              "type": "normal",
+              "category": "status",
+              "power": null,
+              "accuracy": null,
+              "pp": 10,
+              "level": null,
+              "versionGroups": [
+                "black-white",
+                "black-2-white-2"
+              ]
+            },
+            {
+              "move": {
+                "id": 94,
+                "name": "Psychic"
+              },
+              "type": "psychic",
+              "category": "special",
+              "power": 90,
+              "accuracy": 100,
+              "pp": 10,
+              "level": null,
+              "versionGroups": [
+                "black-white",
+                "black-2-white-2"
+              ]
+            },
+            {
+              "move": {
+                "id": 240,
+                "name": "Rain Dance"
+              },
+              "type": "water",
+              "category": "status",
+              "power": null,
+              "accuracy": null,
+              "pp": 5,
+              "level": null,
+              "versionGroups": [
+                "black-white",
+                "black-2-white-2"
+              ]
+            },
+            {
+              "move": {
+                "id": 156,
+                "name": "Rest"
+              },
+              "type": "psychic",
+              "category": "status",
+              "power": null,
+              "accuracy": null,
+              "pp": 5,
+              "level": null,
+              "versionGroups": [
+                "black-white",
+                "black-2-white-2"
+              ]
+            },
+            {
+              "move": {
+                "id": 216,
+                "name": "Return"
+              },
+              "type": "normal",
+              "category": "physical",
+              "power": null,
+              "accuracy": 100,
+              "pp": 20,
+              "level": null,
+              "versionGroups": [
+                "black-white",
+                "black-2-white-2"
+              ]
+            },
+            {
+              "move": {
+                "id": 397,
+                "name": "Rock Polish"
+              },
+              "type": "rock",
+              "category": "status",
+              "power": null,
+              "accuracy": null,
+              "pp": 20,
+              "level": null,
+              "versionGroups": [
+                "black-white",
+                "black-2-white-2"
+              ]
+            },
+            {
+              "move": {
+                "id": 157,
+                "name": "Rock Slide"
+              },
+              "type": "rock",
+              "category": "physical",
+              "power": 75,
+              "accuracy": 90,
+              "pp": 10,
+              "level": null,
+              "versionGroups": [
+                "black-white",
+                "black-2-white-2"
+              ]
+            },
+            {
+              "move": {
+                "id": 249,
+                "name": "Rock Smash"
+              },
+              "type": "fighting",
+              "category": "physical",
+              "power": 40,
+              "accuracy": 100,
+              "pp": 15,
+              "level": null,
+              "versionGroups": [
+                "black-white",
+                "black-2-white-2"
+              ]
+            },
+            {
+              "move": {
+                "id": 317,
+                "name": "Rock Tomb"
+              },
+              "type": "rock",
+              "category": "physical",
+              "power": 60,
+              "accuracy": 95,
+              "pp": 15,
+              "level": null,
+              "versionGroups": [
+                "black-white",
+                "black-2-white-2"
+              ]
+            },
+            {
+              "move": {
+                "id": 496,
+                "name": "Round"
+              },
+              "type": "normal",
+              "category": "special",
+              "power": 60,
+              "accuracy": 100,
+              "pp": 15,
+              "level": null,
+              "versionGroups": [
+                "black-white",
+                "black-2-white-2"
+              ]
+            },
+            {
+              "move": {
+                "id": 219,
+                "name": "Safeguard"
+              },
+              "type": "normal",
+              "category": "status",
+              "power": null,
+              "accuracy": null,
+              "pp": 25,
+              "level": null,
+              "versionGroups": [
+                "black-white",
+                "black-2-white-2"
+              ]
+            },
+            {
+              "move": {
+                "id": 247,
+                "name": "Shadow Ball"
+              },
+              "type": "ghost",
+              "category": "special",
+              "power": 80,
+              "accuracy": 100,
+              "pp": 15,
+              "level": null,
+              "versionGroups": [
+                "black-white",
+                "black-2-white-2"
+              ]
+            },
+            {
+              "move": {
+                "id": 70,
+                "name": "Strength"
+              },
+              "type": "normal",
+              "category": "physical",
+              "power": 80,
+              "accuracy": 100,
+              "pp": 15,
+              "level": null,
+              "versionGroups": [
+                "black-white",
+                "black-2-white-2"
+              ]
+            },
+            {
+              "move": {
+                "id": 164,
+                "name": "Substitute"
+              },
+              "type": "normal",
+              "category": "status",
+              "power": null,
+              "accuracy": null,
+              "pp": 10,
+              "level": null,
+              "versionGroups": [
+                "black-white",
+                "black-2-white-2"
+              ]
+            },
+            {
+              "move": {
+                "id": 207,
+                "name": "Swagger"
+              },
+              "type": "normal",
+              "category": "status",
+              "power": null,
+              "accuracy": 85,
+              "pp": 15,
+              "level": null,
+              "versionGroups": [
+                "black-white",
+                "black-2-white-2"
+              ]
+            },
+            {
+              "move": {
+                "id": 477,
+                "name": "Telekinesis"
+              },
+              "type": "psychic",
+              "category": "status",
+              "power": null,
+              "accuracy": null,
+              "pp": 15,
+              "level": null,
+              "versionGroups": [
+                "black-white",
+                "black-2-white-2"
+              ]
+            },
+            {
+              "move": {
+                "id": 168,
+                "name": "Thief"
+              },
+              "type": "dark",
+              "category": "physical",
+              "power": 60,
+              "accuracy": 100,
+              "pp": 25,
+              "level": null,
+              "versionGroups": [
+                "black-white",
+                "black-2-white-2"
+              ]
+            },
+            {
+              "move": {
+                "id": 92,
+                "name": "Toxic"
+              },
+              "type": "poison",
+              "category": "status",
+              "power": null,
+              "accuracy": 90,
+              "pp": 10,
+              "level": null,
+              "versionGroups": [
+                "black-white",
+                "black-2-white-2"
+              ]
+            }
+          ]
+        },
+        {
+          "method": "tutor",
+          "items": [
+            {
+              "move": {
+                "id": 335,
+                "name": "Block"
+              },
+              "type": "normal",
+              "category": "status",
+              "power": null,
+              "accuracy": null,
+              "pp": 5,
+              "level": null,
+              "versionGroups": [
+                "black-2-white-2"
+              ]
+            },
+            {
+              "move": {
+                "id": 409,
+                "name": "Drain Punch"
+              },
+              "type": "fighting",
+              "category": "physical",
+              "power": 75,
+              "accuracy": 100,
+              "pp": 10,
+              "level": null,
+              "versionGroups": [
+                "black-2-white-2"
+              ]
+            },
+            {
+              "move": {
+                "id": 414,
+                "name": "Earth Power"
+              },
+              "type": "ground",
+              "category": "special",
+              "power": 90,
+              "accuracy": 100,
+              "pp": 10,
+              "level": null,
+              "versionGroups": [
+                "black-2-white-2"
+              ]
+            },
+            {
+              "move": {
+                "id": 7,
+                "name": "Fire Punch"
+              },
+              "type": "fire",
+              "category": "physical",
+              "power": 75,
+              "accuracy": 100,
+              "pp": 15,
+              "level": null,
+              "versionGroups": [
+                "black-2-white-2"
+              ]
+            },
+            {
+              "move": {
+                "id": 356,
+                "name": "Gravity"
+              },
+              "type": "psychic",
+              "category": "status",
+              "power": null,
+              "accuracy": null,
+              "pp": 5,
+              "level": null,
+              "versionGroups": [
+                "black-2-white-2"
+              ]
+            },
+            {
+              "move": {
+                "id": 8,
+                "name": "Ice Punch"
+              },
+              "type": "ice",
+              "category": "physical",
+              "power": 75,
+              "accuracy": 100,
+              "pp": 15,
+              "level": null,
+              "versionGroups": [
+                "black-2-white-2"
+              ]
+            },
+            {
+              "move": {
+                "id": 196,
+                "name": "Icy Wind"
+              },
+              "type": "ice",
+              "category": "special",
+              "power": 55,
+              "accuracy": 95,
+              "pp": 15,
+              "level": null,
+              "versionGroups": [
+                "black-2-white-2"
+              ]
+            },
+            {
+              "move": {
+                "id": 334,
+                "name": "Iron Defense"
+              },
+              "type": "steel",
+              "category": "status",
+              "power": null,
+              "accuracy": null,
+              "pp": 15,
+              "level": null,
+              "versionGroups": [
+                "black-2-white-2"
+              ]
+            },
+            {
+              "move": {
+                "id": 67,
+                "name": "Low Kick"
+              },
+              "type": "fighting",
+              "category": "physical",
+              "power": null,
+              "accuracy": 100,
+              "pp": 20,
+              "level": null,
+              "versionGroups": [
+                "black-2-white-2"
+              ]
+            },
+            {
+              "move": {
+                "id": 277,
+                "name": "Magic Coat"
+              },
+              "type": "psychic",
+              "category": "status",
+              "power": null,
+              "accuracy": null,
+              "pp": 15,
+              "level": null,
+              "versionGroups": [
+                "black-2-white-2"
+              ]
+            },
+            {
+              "move": {
+                "id": 324,
+                "name": "Signal Beam"
+              },
+              "type": "bug",
+              "category": "special",
+              "power": 75,
+              "accuracy": 100,
+              "pp": 15,
+              "level": null,
+              "versionGroups": [
+                "black-2-white-2"
+              ]
+            },
+            {
+              "move": {
+                "id": 214,
+                "name": "Sleep Talk"
+              },
+              "type": "normal",
+              "category": "status",
+              "power": null,
+              "accuracy": null,
+              "pp": 10,
+              "level": null,
+              "versionGroups": [
+                "black-2-white-2"
+              ]
+            },
+            {
+              "move": {
+                "id": 173,
+                "name": "Snore"
+              },
+              "type": "normal",
+              "category": "special",
+              "power": 50,
+              "accuracy": 100,
+              "pp": 15,
+              "level": null,
+              "versionGroups": [
+                "black-2-white-2"
+              ]
+            },
+            {
+              "move": {
+                "id": 446,
+                "name": "Stealth Rock"
+              },
+              "type": "rock",
+              "category": "status",
+              "power": null,
+              "accuracy": null,
+              "pp": 20,
+              "level": null,
+              "versionGroups": [
+                "black-2-white-2"
+              ]
+            },
+            {
+              "move": {
+                "id": 276,
+                "name": "Superpower"
+              },
+              "type": "fighting",
+              "category": "physical",
+              "power": 120,
+              "accuracy": 100,
+              "pp": 5,
+              "level": null,
+              "versionGroups": [
+                "black-2-white-2"
+              ]
+            },
+            {
+              "move": {
+                "id": 9,
+                "name": "Thunder Punch"
+              },
+              "type": "electric",
+              "category": "physical",
+              "power": 75,
+              "accuracy": 100,
+              "pp": 15,
+              "level": null,
+              "versionGroups": [
+                "black-2-white-2"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "generation": "generation-vi",
+      "order": 13,
+      "entries": [
+        {
+          "method": "level-up",
+          "items": [
+            {
+              "move": {
+                "id": 310,
+                "name": "Astonish"
+              },
+              "type": "ghost",
+              "category": "physical",
+              "power": 30,
+              "accuracy": 100,
+              "pp": 15,
+              "level": 1,
+              "versionGroups": [
+                "x-y",
+                "omega-ruby-alpha-sapphire"
+              ]
+            },
+            {
+              "move": {
+                "id": 111,
+                "name": "Defense Curl"
+              },
+              "type": "normal",
+              "category": "status",
+              "power": null,
+              "accuracy": null,
+              "pp": 40,
+              "level": 1,
+              "versionGroups": [
+                "x-y",
+                "omega-ruby-alpha-sapphire"
+              ]
+            },
+            {
+              "move": {
+                "id": 1,
+                "name": "Pound"
+              },
+              "type": "normal",
+              "category": "physical",
+              "power": 40,
+              "accuracy": 100,
+              "pp": 35,
+              "level": 1,
+              "versionGroups": [
+                "x-y",
+                "omega-ruby-alpha-sapphire"
+              ]
+            },
+            {
+              "move": {
+                "id": 189,
+                "name": "Mud-Slap"
+              },
+              "type": "ground",
+              "category": "special",
+              "power": 20,
+              "accuracy": 100,
+              "pp": 10,
+              "level": 5,
+              "versionGroups": [
+                "x-y",
+                "omega-ruby-alpha-sapphire"
+              ]
+            },
+            {
+              "move": {
+                "id": 205,
+                "name": "Rollout"
+              },
+              "type": "rock",
+              "category": "physical",
+              "power": 30,
+              "accuracy": 90,
+              "pp": 20,
+              "level": 9,
+              "versionGroups": [
+                "x-y",
+                "omega-ruby-alpha-sapphire"
+              ]
+            },
+            {
+              "move": {
+                "id": 325,
+                "name": "Shadow Punch"
+              },
+              "type": "ghost",
+              "category": "physical",
+              "power": 60,
+              "accuracy": null,
+              "pp": 20,
+              "level": 13,
+              "versionGroups": [
+                "x-y",
+                "omega-ruby-alpha-sapphire"
+              ]
+            },
+            {
+              "move": {
+                "id": 334,
+                "name": "Iron Defense"
+              },
+              "type": "steel",
+              "category": "status",
+              "power": null,
+              "accuracy": null,
+              "pp": 15,
+              "level": 17,
+              "versionGroups": [
+                "x-y",
+                "omega-ruby-alpha-sapphire"
+              ]
+            },
+            {
+              "move": {
+                "id": 5,
+                "name": "Mega Punch"
+              },
+              "type": "normal",
+              "category": "physical",
+              "power": 80,
+              "accuracy": 85,
+              "pp": 20,
+              "level": 21,
+              "versionGroups": [
+                "x-y",
+                "omega-ruby-alpha-sapphire"
+              ]
+            },
+            {
+              "move": {
+                "id": 222,
+                "name": "Magnitude"
+              },
+              "type": "ground",
+              "category": "physical",
+              "power": null,
+              "accuracy": 100,
+              "pp": 30,
+              "level": 25,
+              "versionGroups": [
+                "x-y",
+                "omega-ruby-alpha-sapphire"
+              ]
+            },
+            {
+              "move": {
+                "id": 223,
+                "name": "Dynamic Punch"
+              },
+              "type": "fighting",
+              "category": "physical",
+              "power": 100,
+              "accuracy": 50,
+              "pp": 5,
+              "level": 30,
+              "versionGroups": [
+                "x-y",
+                "omega-ruby-alpha-sapphire"
+              ]
+            },
+            {
+              "move": {
+                "id": 101,
+                "name": "Night Shade"
+              },
+              "type": "ghost",
+              "category": "special",
+              "power": null,
+              "accuracy": 100,
+              "pp": 15,
+              "level": 35,
+              "versionGroups": [
+                "x-y",
+                "omega-ruby-alpha-sapphire"
+              ]
+            },
+            {
+              "move": {
+                "id": 174,
+                "name": "Curse"
+              },
+              "type": "ghost",
+              "category": "status",
+              "power": null,
+              "accuracy": null,
+              "pp": 10,
+              "level": 40,
+              "versionGroups": [
+                "x-y",
+                "omega-ruby-alpha-sapphire"
+              ]
+            },
+            {
+              "move": {
+                "id": 89,
+                "name": "Earthquake"
+              },
+              "type": "ground",
+              "category": "physical",
+              "power": 100,
+              "accuracy": 100,
+              "pp": 10,
+              "level": 45,
+              "versionGroups": [
+                "x-y",
+                "omega-ruby-alpha-sapphire"
+              ]
+            },
+            {
+              "move": {
+                "id": 359,
+                "name": "Hammer Arm"
+              },
+              "type": "fighting",
+              "category": "physical",
+              "power": 100,
+              "accuracy": 90,
+              "pp": 10,
+              "level": 50,
+              "versionGroups": [
+                "x-y",
+                "omega-ruby-alpha-sapphire"
+              ]
+            },
+            {
+              "move": {
+                "id": 264,
+                "name": "Focus Punch"
+              },
+              "type": "fighting",
+              "category": "physical",
+              "power": 150,
+              "accuracy": 100,
+              "pp": 20,
+              "level": 55,
+              "versionGroups": [
+                "x-y",
+                "omega-ruby-alpha-sapphire"
+              ]
+            }
+          ]
+        },
+        {
+          "method": "machine",
+          "items": [
+            {
+              "move": {
+                "id": 280,
+                "name": "Brick Break"
+              },
+              "type": "fighting",
+              "category": "physical",
+              "power": 75,
+              "accuracy": 100,
+              "pp": 15,
+              "level": null,
+              "versionGroups": [
+                "x-y",
+                "omega-ruby-alpha-sapphire"
+              ]
+            },
+            {
+              "move": {
+                "id": 523,
+                "name": "Bulldoze"
+              },
+              "type": "ground",
+              "category": "physical",
+              "power": 60,
+              "accuracy": 100,
+              "pp": 20,
+              "level": null,
+              "versionGroups": [
+                "x-y",
+                "omega-ruby-alpha-sapphire"
+              ]
+            },
+            {
+              "move": {
+                "id": 590,
+                "name": "Confide"
+              },
+              "type": "normal",
+              "category": "status",
+              "power": null,
+              "accuracy": null,
+              "pp": 20,
+              "level": null,
+              "versionGroups": [
+                "x-y",
+                "omega-ruby-alpha-sapphire"
+              ]
+            },
+            {
+              "move": {
+                "id": 104,
+                "name": "Double Team"
+              },
+              "type": "normal",
+              "category": "status",
+              "power": null,
+              "accuracy": null,
+              "pp": 15,
+              "level": null,
+              "versionGroups": [
+                "x-y",
+                "omega-ruby-alpha-sapphire"
+              ]
+            },
+            {
+              "move": {
+                "id": 89,
+                "name": "Earthquake"
+              },
+              "type": "ground",
+              "category": "physical",
+              "power": 100,
+              "accuracy": 100,
+              "pp": 10,
+              "level": null,
+              "versionGroups": [
+                "x-y",
+                "omega-ruby-alpha-sapphire"
+              ]
+            },
+            {
+              "move": {
+                "id": 263,
+                "name": "Facade"
+              },
+              "type": "normal",
+              "category": "physical",
+              "power": 70,
+              "accuracy": 100,
+              "pp": 20,
+              "level": null,
+              "versionGroups": [
+                "x-y",
+                "omega-ruby-alpha-sapphire"
+              ]
+            },
+            {
+              "move": {
+                "id": 148,
+                "name": "Flash"
+              },
+              "type": "normal",
+              "category": "status",
+              "power": null,
+              "accuracy": 100,
+              "pp": 20,
+              "level": null,
+              "versionGroups": [
+                "x-y",
+                "omega-ruby-alpha-sapphire"
+              ]
+            },
+            {
+              "move": {
+                "id": 374,
+                "name": "Fling"
+              },
+              "type": "dark",
+              "category": "physical",
+              "power": null,
+              "accuracy": 100,
+              "pp": 10,
+              "level": null,
+              "versionGroups": [
+                "x-y",
+                "omega-ruby-alpha-sapphire"
+              ]
+            },
+            {
+              "move": {
+                "id": 411,
+                "name": "Focus Blast"
+              },
+              "type": "fighting",
+              "category": "special",
+              "power": 120,
+              "accuracy": 70,
+              "pp": 5,
+              "level": null,
+              "versionGroups": [
+                "x-y",
+                "omega-ruby-alpha-sapphire"
+              ]
+            },
+            {
+              "move": {
+                "id": 218,
+                "name": "Frustration"
+              },
+              "type": "normal",
+              "category": "physical",
+              "power": null,
+              "accuracy": 100,
+              "pp": 20,
+              "level": null,
+              "versionGroups": [
+                "x-y",
+                "omega-ruby-alpha-sapphire"
+              ]
+            },
+            {
+              "move": {
+                "id": 447,
+                "name": "Grass Knot"
+              },
+              "type": "grass",
+              "category": "special",
+              "power": null,
+              "accuracy": 100,
+              "pp": 20,
+              "level": null,
+              "versionGroups": [
+                "x-y",
+                "omega-ruby-alpha-sapphire"
+              ]
+            },
+            {
+              "move": {
+                "id": 360,
+                "name": "Gyro Ball"
+              },
+              "type": "steel",
+              "category": "physical",
+              "power": null,
+              "accuracy": 100,
+              "pp": 5,
+              "level": null,
+              "versionGroups": [
+                "x-y",
+                "omega-ruby-alpha-sapphire"
+              ]
+            },
+            {
+              "move": {
+                "id": 237,
+                "name": "Hidden Power"
+              },
+              "type": "normal",
+              "category": "special",
+              "power": 60,
+              "accuracy": 100,
+              "pp": 15,
+              "level": null,
+              "versionGroups": [
+                "x-y",
+                "omega-ruby-alpha-sapphire"
+              ]
+            },
+            {
+              "move": {
+                "id": 58,
+                "name": "Ice Beam"
+              },
+              "type": "ice",
+              "category": "special",
+              "power": 90,
+              "accuracy": 100,
+              "pp": 10,
+              "level": null,
+              "versionGroups": [
+                "x-y",
+                "omega-ruby-alpha-sapphire"
+              ]
+            },
+            {
+              "move": {
+                "id": 490,
+                "name": "Low Sweep"
+              },
+              "type": "fighting",
+              "category": "physical",
+              "power": 65,
+              "accuracy": 100,
+              "pp": 20,
+              "level": null,
+              "versionGroups": [
+                "x-y",
+                "omega-ruby-alpha-sapphire"
+              ]
+            },
+            {
+              "move": {
+                "id": 612,
+                "name": "Power-Up Punch"
+              },
+              "type": "fighting",
+              "category": "physical",
+              "power": 40,
+              "accuracy": 100,
+              "pp": 20,
+              "level": null,
+              "versionGroups": [
+                "x-y",
+                "omega-ruby-alpha-sapphire"
+              ]
+            },
+            {
+              "move": {
+                "id": 182,
+                "name": "Protect"
+              },
+              "type": "normal",
+              "category": "status",
+              "power": null,
+              "accuracy": null,
+              "pp": 10,
+              "level": null,
+              "versionGroups": [
+                "x-y",
+                "omega-ruby-alpha-sapphire"
+              ]
+            },
+            {
+              "move": {
+                "id": 94,
+                "name": "Psychic"
+              },
+              "type": "psychic",
+              "category": "special",
+              "power": 90,
+              "accuracy": 100,
+              "pp": 10,
+              "level": null,
+              "versionGroups": [
+                "x-y",
+                "omega-ruby-alpha-sapphire"
+              ]
+            },
+            {
+              "move": {
+                "id": 240,
+                "name": "Rain Dance"
+              },
+              "type": "water",
+              "category": "status",
+              "power": null,
+              "accuracy": null,
+              "pp": 5,
+              "level": null,
+              "versionGroups": [
+                "x-y",
+                "omega-ruby-alpha-sapphire"
+              ]
+            },
+            {
+              "move": {
+                "id": 156,
+                "name": "Rest"
+              },
+              "type": "psychic",
+              "category": "status",
+              "power": null,
+              "accuracy": null,
+              "pp": 5,
+              "level": null,
+              "versionGroups": [
+                "x-y",
+                "omega-ruby-alpha-sapphire"
+              ]
+            },
+            {
+              "move": {
+                "id": 216,
+                "name": "Return"
+              },
+              "type": "normal",
+              "category": "physical",
+              "power": null,
+              "accuracy": 100,
+              "pp": 20,
+              "level": null,
+              "versionGroups": [
+                "x-y",
+                "omega-ruby-alpha-sapphire"
+              ]
+            },
+            {
+              "move": {
+                "id": 397,
+                "name": "Rock Polish"
+              },
+              "type": "rock",
+              "category": "status",
+              "power": null,
+              "accuracy": null,
+              "pp": 20,
+              "level": null,
+              "versionGroups": [
+                "x-y",
+                "omega-ruby-alpha-sapphire"
+              ]
+            },
+            {
+              "move": {
+                "id": 157,
+                "name": "Rock Slide"
+              },
+              "type": "rock",
+              "category": "physical",
+              "power": 75,
+              "accuracy": 90,
+              "pp": 10,
+              "level": null,
+              "versionGroups": [
+                "x-y",
+                "omega-ruby-alpha-sapphire"
+              ]
+            },
+            {
+              "move": {
+                "id": 249,
+                "name": "Rock Smash"
+              },
+              "type": "fighting",
+              "category": "physical",
+              "power": 40,
+              "accuracy": 100,
+              "pp": 15,
+              "level": null,
+              "versionGroups": [
+                "x-y",
+                "omega-ruby-alpha-sapphire"
+              ]
+            },
+            {
+              "move": {
+                "id": 317,
+                "name": "Rock Tomb"
+              },
+              "type": "rock",
+              "category": "physical",
+              "power": 60,
+              "accuracy": 95,
+              "pp": 15,
+              "level": null,
+              "versionGroups": [
+                "x-y",
+                "omega-ruby-alpha-sapphire"
+              ]
+            },
+            {
+              "move": {
+                "id": 496,
+                "name": "Round"
+              },
+              "type": "normal",
+              "category": "special",
+              "power": 60,
+              "accuracy": 100,
+              "pp": 15,
+              "level": null,
+              "versionGroups": [
+                "x-y",
+                "omega-ruby-alpha-sapphire"
+              ]
+            },
+            {
+              "move": {
+                "id": 219,
+                "name": "Safeguard"
+              },
+              "type": "normal",
+              "category": "status",
+              "power": null,
+              "accuracy": null,
+              "pp": 25,
+              "level": null,
+              "versionGroups": [
+                "x-y",
+                "omega-ruby-alpha-sapphire"
+              ]
+            },
+            {
+              "move": {
+                "id": 290,
+                "name": "Secret Power"
+              },
+              "type": "normal",
+              "category": "physical",
+              "power": 70,
+              "accuracy": 100,
+              "pp": 20,
+              "level": null,
+              "versionGroups": [
+                "omega-ruby-alpha-sapphire"
+              ]
+            },
+            {
+              "move": {
+                "id": 247,
+                "name": "Shadow Ball"
+              },
+              "type": "ghost",
+              "category": "special",
+              "power": 80,
+              "accuracy": 100,
+              "pp": 15,
+              "level": null,
+              "versionGroups": [
+                "x-y",
+                "omega-ruby-alpha-sapphire"
+              ]
+            },
+            {
+              "move": {
+                "id": 214,
+                "name": "Sleep Talk"
+              },
+              "type": "normal",
+              "category": "status",
+              "power": null,
+              "accuracy": null,
+              "pp": 10,
+              "level": null,
+              "versionGroups": [
+                "x-y",
+                "omega-ruby-alpha-sapphire"
+              ]
+            },
+            {
+              "move": {
+                "id": 70,
+                "name": "Strength"
+              },
+              "type": "normal",
+              "category": "physical",
+              "power": 80,
+              "accuracy": 100,
+              "pp": 15,
+              "level": null,
+              "versionGroups": [
+                "x-y",
+                "omega-ruby-alpha-sapphire"
+              ]
+            },
+            {
+              "move": {
+                "id": 164,
+                "name": "Substitute"
+              },
+              "type": "normal",
+              "category": "status",
+              "power": null,
+              "accuracy": null,
+              "pp": 10,
+              "level": null,
+              "versionGroups": [
+                "x-y",
+                "omega-ruby-alpha-sapphire"
+              ]
+            },
+            {
+              "move": {
+                "id": 207,
+                "name": "Swagger"
+              },
+              "type": "normal",
+              "category": "status",
+              "power": null,
+              "accuracy": 85,
+              "pp": 15,
+              "level": null,
+              "versionGroups": [
+                "x-y",
+                "omega-ruby-alpha-sapphire"
+              ]
+            },
+            {
+              "move": {
+                "id": 168,
+                "name": "Thief"
+              },
+              "type": "dark",
+              "category": "physical",
+              "power": 60,
+              "accuracy": 100,
+              "pp": 25,
+              "level": null,
+              "versionGroups": [
+                "x-y",
+                "omega-ruby-alpha-sapphire"
+              ]
+            },
+            {
+              "move": {
+                "id": 92,
+                "name": "Toxic"
+              },
+              "type": "poison",
+              "category": "status",
+              "power": null,
+              "accuracy": 90,
+              "pp": 10,
+              "level": null,
+              "versionGroups": [
+                "x-y",
+                "omega-ruby-alpha-sapphire"
+              ]
+            }
+          ]
+        },
+        {
+          "method": "tutor",
+          "items": [
+            {
+              "move": {
+                "id": 335,
+                "name": "Block"
+              },
+              "type": "normal",
+              "category": "status",
+              "power": null,
+              "accuracy": null,
+              "pp": 5,
+              "level": null,
+              "versionGroups": [
+                "omega-ruby-alpha-sapphire"
+              ]
+            },
+            {
+              "move": {
+                "id": 409,
+                "name": "Drain Punch"
+              },
+              "type": "fighting",
+              "category": "physical",
+              "power": 75,
+              "accuracy": 100,
+              "pp": 10,
+              "level": null,
+              "versionGroups": [
+                "omega-ruby-alpha-sapphire"
+              ]
+            },
+            {
+              "move": {
+                "id": 414,
+                "name": "Earth Power"
+              },
+              "type": "ground",
+              "category": "special",
+              "power": 90,
+              "accuracy": 100,
+              "pp": 10,
+              "level": null,
+              "versionGroups": [
+                "omega-ruby-alpha-sapphire"
+              ]
+            },
+            {
+              "move": {
+                "id": 7,
+                "name": "Fire Punch"
+              },
+              "type": "fire",
+              "category": "physical",
+              "power": 75,
+              "accuracy": 100,
+              "pp": 15,
+              "level": null,
+              "versionGroups": [
+                "omega-ruby-alpha-sapphire"
+              ]
+            },
+            {
+              "move": {
+                "id": 264,
+                "name": "Focus Punch"
+              },
+              "type": "fighting",
+              "category": "physical",
+              "power": 150,
+              "accuracy": 100,
+              "pp": 20,
+              "level": null,
+              "versionGroups": [
+                "omega-ruby-alpha-sapphire"
+              ]
+            },
+            {
+              "move": {
+                "id": 356,
+                "name": "Gravity"
+              },
+              "type": "psychic",
+              "category": "status",
+              "power": null,
+              "accuracy": null,
+              "pp": 5,
+              "level": null,
+              "versionGroups": [
+                "omega-ruby-alpha-sapphire"
+              ]
+            },
+            {
+              "move": {
+                "id": 8,
+                "name": "Ice Punch"
+              },
+              "type": "ice",
+              "category": "physical",
+              "power": 75,
+              "accuracy": 100,
+              "pp": 15,
+              "level": null,
+              "versionGroups": [
+                "omega-ruby-alpha-sapphire"
+              ]
+            },
+            {
+              "move": {
+                "id": 196,
+                "name": "Icy Wind"
+              },
+              "type": "ice",
+              "category": "special",
+              "power": 55,
+              "accuracy": 95,
+              "pp": 15,
+              "level": null,
+              "versionGroups": [
+                "omega-ruby-alpha-sapphire"
+              ]
+            },
+            {
+              "move": {
+                "id": 334,
+                "name": "Iron Defense"
+              },
+              "type": "steel",
+              "category": "status",
+              "power": null,
+              "accuracy": null,
+              "pp": 15,
+              "level": null,
+              "versionGroups": [
+                "omega-ruby-alpha-sapphire"
+              ]
+            },
+            {
+              "move": {
+                "id": 67,
+                "name": "Low Kick"
+              },
+              "type": "fighting",
+              "category": "physical",
+              "power": null,
+              "accuracy": 100,
+              "pp": 20,
+              "level": null,
+              "versionGroups": [
+                "omega-ruby-alpha-sapphire"
+              ]
+            },
+            {
+              "move": {
+                "id": 277,
+                "name": "Magic Coat"
+              },
+              "type": "psychic",
+              "category": "status",
+              "power": null,
+              "accuracy": null,
+              "pp": 15,
+              "level": null,
+              "versionGroups": [
+                "omega-ruby-alpha-sapphire"
+              ]
+            },
+            {
+              "move": {
+                "id": 351,
+                "name": "Shock Wave"
+              },
+              "type": "electric",
+              "category": "special",
+              "power": 60,
+              "accuracy": null,
+              "pp": 20,
+              "level": null,
+              "versionGroups": [
+                "omega-ruby-alpha-sapphire"
+              ]
+            },
+            {
+              "move": {
+                "id": 324,
+                "name": "Signal Beam"
+              },
+              "type": "bug",
+              "category": "special",
+              "power": 75,
+              "accuracy": 100,
+              "pp": 15,
+              "level": null,
+              "versionGroups": [
+                "omega-ruby-alpha-sapphire"
+              ]
+            },
+            {
+              "move": {
+                "id": 173,
+                "name": "Snore"
+              },
+              "type": "normal",
+              "category": "special",
+              "power": 50,
+              "accuracy": 100,
+              "pp": 15,
+              "level": null,
+              "versionGroups": [
+                "omega-ruby-alpha-sapphire"
+              ]
+            },
+            {
+              "move": {
+                "id": 446,
+                "name": "Stealth Rock"
+              },
+              "type": "rock",
+              "category": "status",
+              "power": null,
+              "accuracy": null,
+              "pp": 20,
+              "level": null,
+              "versionGroups": [
+                "omega-ruby-alpha-sapphire"
+              ]
+            },
+            {
+              "move": {
+                "id": 276,
+                "name": "Superpower"
+              },
+              "type": "fighting",
+              "category": "physical",
+              "power": 120,
+              "accuracy": 100,
+              "pp": 5,
+              "level": null,
+              "versionGroups": [
+                "omega-ruby-alpha-sapphire"
+              ]
+            },
+            {
+              "move": {
+                "id": 9,
+                "name": "Thunder Punch"
+              },
+              "type": "electric",
+              "category": "physical",
+              "power": 75,
+              "accuracy": 100,
+              "pp": 15,
+              "level": null,
+              "versionGroups": [
+                "omega-ruby-alpha-sapphire"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "generation": "generation-vii",
+      "order": 15,
+      "entries": [
+        {
+          "method": "level-up",
+          "items": [
+            {
+              "move": {
+                "id": 310,
+                "name": "Astonish"
+              },
+              "type": "ghost",
+              "category": "physical",
+              "power": 30,
+              "accuracy": 100,
+              "pp": 15,
+              "level": 1,
+              "versionGroups": [
+                "sun-moon",
+                "ultra-sun-ultra-moon"
+              ]
+            },
+            {
+              "move": {
+                "id": 111,
+                "name": "Defense Curl"
+              },
+              "type": "normal",
+              "category": "status",
+              "power": null,
+              "accuracy": null,
+              "pp": 40,
+              "level": 1,
+              "versionGroups": [
+                "sun-moon",
+                "ultra-sun-ultra-moon"
+              ]
+            },
+            {
+              "move": {
+                "id": 1,
+                "name": "Pound"
+              },
+              "type": "normal",
+              "category": "physical",
+              "power": 40,
+              "accuracy": 100,
+              "pp": 35,
+              "level": 1,
+              "versionGroups": [
+                "sun-moon",
+                "ultra-sun-ultra-moon"
+              ]
+            },
+            {
+              "move": {
+                "id": 189,
+                "name": "Mud-Slap"
+              },
+              "type": "ground",
+              "category": "special",
+              "power": 20,
+              "accuracy": 100,
+              "pp": 10,
+              "level": 5,
+              "versionGroups": [
+                "sun-moon",
+                "ultra-sun-ultra-moon"
+              ]
+            },
+            {
+              "move": {
+                "id": 205,
+                "name": "Rollout"
+              },
+              "type": "rock",
+              "category": "physical",
+              "power": 30,
+              "accuracy": 90,
+              "pp": 20,
+              "level": 9,
+              "versionGroups": [
+                "sun-moon",
+                "ultra-sun-ultra-moon"
+              ]
+            },
+            {
+              "move": {
+                "id": 325,
+                "name": "Shadow Punch"
+              },
+              "type": "ghost",
+              "category": "physical",
+              "power": 60,
+              "accuracy": null,
+              "pp": 20,
+              "level": 13,
+              "versionGroups": [
+                "sun-moon",
+                "ultra-sun-ultra-moon"
+              ]
+            },
+            {
+              "move": {
+                "id": 334,
+                "name": "Iron Defense"
+              },
+              "type": "steel",
+              "category": "status",
+              "power": null,
+              "accuracy": null,
+              "pp": 15,
+              "level": 17,
+              "versionGroups": [
+                "sun-moon",
+                "ultra-sun-ultra-moon"
+              ]
+            },
+            {
+              "move": {
+                "id": 707,
+                "name": "Stomping Tantrum"
+              },
+              "type": "ground",
+              "category": "physical",
+              "power": 75,
+              "accuracy": 100,
+              "pp": 10,
+              "level": 21,
+              "versionGroups": [
+                "sun-moon",
+                "ultra-sun-ultra-moon"
+              ]
+            },
+            {
+              "move": {
+                "id": 5,
+                "name": "Mega Punch"
+              },
+              "type": "normal",
+              "category": "physical",
+              "power": 80,
+              "accuracy": 85,
+              "pp": 20,
+              "level": 25,
+              "versionGroups": [
+                "sun-moon",
+                "ultra-sun-ultra-moon"
+              ]
+            },
+            {
+              "move": {
+                "id": 222,
+                "name": "Magnitude"
+              },
+              "type": "ground",
+              "category": "physical",
+              "power": null,
+              "accuracy": 100,
+              "pp": 30,
+              "level": 30,
+              "versionGroups": [
+                "sun-moon",
+                "ultra-sun-ultra-moon"
+              ]
+            },
+            {
+              "move": {
+                "id": 223,
+                "name": "Dynamic Punch"
+              },
+              "type": "fighting",
+              "category": "physical",
+              "power": 100,
+              "accuracy": 50,
+              "pp": 5,
+              "level": 35,
+              "versionGroups": [
+                "sun-moon",
+                "ultra-sun-ultra-moon"
+              ]
+            },
+            {
+              "move": {
+                "id": 101,
+                "name": "Night Shade"
+              },
+              "type": "ghost",
+              "category": "special",
+              "power": null,
+              "accuracy": 100,
+              "pp": 15,
+              "level": 40,
+              "versionGroups": [
+                "sun-moon",
+                "ultra-sun-ultra-moon"
+              ]
+            },
+            {
+              "move": {
+                "id": 174,
+                "name": "Curse"
+              },
+              "type": "ghost",
+              "category": "status",
+              "power": null,
+              "accuracy": null,
+              "pp": 10,
+              "level": 45,
+              "versionGroups": [
+                "sun-moon",
+                "ultra-sun-ultra-moon"
+              ]
+            },
+            {
+              "move": {
+                "id": 89,
+                "name": "Earthquake"
+              },
+              "type": "ground",
+              "category": "physical",
+              "power": 100,
+              "accuracy": 100,
+              "pp": 10,
+              "level": 50,
+              "versionGroups": [
+                "sun-moon",
+                "ultra-sun-ultra-moon"
+              ]
+            },
+            {
+              "move": {
+                "id": 359,
+                "name": "Hammer Arm"
+              },
+              "type": "fighting",
+              "category": "physical",
+              "power": 100,
+              "accuracy": 90,
+              "pp": 10,
+              "level": 55,
+              "versionGroups": [
+                "sun-moon",
+                "ultra-sun-ultra-moon"
+              ]
+            },
+            {
+              "move": {
+                "id": 264,
+                "name": "Focus Punch"
+              },
+              "type": "fighting",
+              "category": "physical",
+              "power": 150,
+              "accuracy": 100,
+              "pp": 20,
+              "level": 61,
+              "versionGroups": [
+                "sun-moon",
+                "ultra-sun-ultra-moon"
+              ]
+            }
+          ]
+        },
+        {
+          "method": "machine",
+          "items": [
+            {
+              "move": {
+                "id": 280,
+                "name": "Brick Break"
+              },
+              "type": "fighting",
+              "category": "physical",
+              "power": 75,
+              "accuracy": 100,
+              "pp": 15,
+              "level": null,
+              "versionGroups": [
+                "sun-moon",
+                "ultra-sun-ultra-moon"
+              ]
+            },
+            {
+              "move": {
+                "id": 523,
+                "name": "Bulldoze"
+              },
+              "type": "ground",
+              "category": "physical",
+              "power": 60,
+              "accuracy": 100,
+              "pp": 20,
+              "level": null,
+              "versionGroups": [
+                "sun-moon",
+                "ultra-sun-ultra-moon"
+              ]
+            },
+            {
+              "move": {
+                "id": 590,
+                "name": "Confide"
+              },
+              "type": "normal",
+              "category": "status",
+              "power": null,
+              "accuracy": null,
+              "pp": 20,
+              "level": null,
+              "versionGroups": [
+                "sun-moon",
+                "ultra-sun-ultra-moon"
+              ]
+            },
+            {
+              "move": {
+                "id": 104,
+                "name": "Double Team"
+              },
+              "type": "normal",
+              "category": "status",
+              "power": null,
+              "accuracy": null,
+              "pp": 15,
+              "level": null,
+              "versionGroups": [
+                "sun-moon",
+                "ultra-sun-ultra-moon"
+              ]
+            },
+            {
+              "move": {
+                "id": 89,
+                "name": "Earthquake"
+              },
+              "type": "ground",
+              "category": "physical",
+              "power": 100,
+              "accuracy": 100,
+              "pp": 10,
+              "level": null,
+              "versionGroups": [
+                "sun-moon",
+                "ultra-sun-ultra-moon"
+              ]
+            },
+            {
+              "move": {
+                "id": 263,
+                "name": "Facade"
+              },
+              "type": "normal",
+              "category": "physical",
+              "power": 70,
+              "accuracy": 100,
+              "pp": 20,
+              "level": null,
+              "versionGroups": [
+                "sun-moon",
+                "ultra-sun-ultra-moon"
+              ]
+            },
+            {
+              "move": {
+                "id": 374,
+                "name": "Fling"
+              },
+              "type": "dark",
+              "category": "physical",
+              "power": null,
+              "accuracy": 100,
+              "pp": 10,
+              "level": null,
+              "versionGroups": [
+                "sun-moon",
+                "ultra-sun-ultra-moon"
+              ]
+            },
+            {
+              "move": {
+                "id": 411,
+                "name": "Focus Blast"
+              },
+              "type": "fighting",
+              "category": "special",
+              "power": 120,
+              "accuracy": 70,
+              "pp": 5,
+              "level": null,
+              "versionGroups": [
+                "sun-moon",
+                "ultra-sun-ultra-moon"
+              ]
+            },
+            {
+              "move": {
+                "id": 218,
+                "name": "Frustration"
+              },
+              "type": "normal",
+              "category": "physical",
+              "power": null,
+              "accuracy": 100,
+              "pp": 20,
+              "level": null,
+              "versionGroups": [
+                "sun-moon",
+                "ultra-sun-ultra-moon"
+              ]
+            },
+            {
+              "move": {
+                "id": 447,
+                "name": "Grass Knot"
+              },
+              "type": "grass",
+              "category": "special",
+              "power": null,
+              "accuracy": 100,
+              "pp": 20,
+              "level": null,
+              "versionGroups": [
+                "sun-moon",
+                "ultra-sun-ultra-moon"
+              ]
+            },
+            {
+              "move": {
+                "id": 360,
+                "name": "Gyro Ball"
+              },
+              "type": "steel",
+              "category": "physical",
+              "power": null,
+              "accuracy": 100,
+              "pp": 5,
+              "level": null,
+              "versionGroups": [
+                "sun-moon",
+                "ultra-sun-ultra-moon"
+              ]
+            },
+            {
+              "move": {
+                "id": 237,
+                "name": "Hidden Power"
+              },
+              "type": "normal",
+              "category": "special",
+              "power": 60,
+              "accuracy": 100,
+              "pp": 15,
+              "level": null,
+              "versionGroups": [
+                "sun-moon",
+                "ultra-sun-ultra-moon"
+              ]
+            },
+            {
+              "move": {
+                "id": 58,
+                "name": "Ice Beam"
+              },
+              "type": "ice",
+              "category": "special",
+              "power": 90,
+              "accuracy": 100,
+              "pp": 10,
+              "level": null,
+              "versionGroups": [
+                "sun-moon",
+                "ultra-sun-ultra-moon"
+              ]
+            },
+            {
+              "move": {
+                "id": 490,
+                "name": "Low Sweep"
+              },
+              "type": "fighting",
+              "category": "physical",
+              "power": 65,
+              "accuracy": 100,
+              "pp": 20,
+              "level": null,
+              "versionGroups": [
+                "sun-moon",
+                "ultra-sun-ultra-moon"
+              ]
+            },
+            {
+              "move": {
+                "id": 182,
+                "name": "Protect"
+              },
+              "type": "normal",
+              "category": "status",
+              "power": null,
+              "accuracy": null,
+              "pp": 10,
+              "level": null,
+              "versionGroups": [
+                "sun-moon",
+                "ultra-sun-ultra-moon"
+              ]
+            },
+            {
+              "move": {
+                "id": 94,
+                "name": "Psychic"
+              },
+              "type": "psychic",
+              "category": "special",
+              "power": 90,
+              "accuracy": 100,
+              "pp": 10,
+              "level": null,
+              "versionGroups": [
+                "sun-moon",
+                "ultra-sun-ultra-moon"
+              ]
+            },
+            {
+              "move": {
+                "id": 240,
+                "name": "Rain Dance"
+              },
+              "type": "water",
+              "category": "status",
+              "power": null,
+              "accuracy": null,
+              "pp": 5,
+              "level": null,
+              "versionGroups": [
+                "sun-moon",
+                "ultra-sun-ultra-moon"
+              ]
+            },
+            {
+              "move": {
+                "id": 156,
+                "name": "Rest"
+              },
+              "type": "psychic",
+              "category": "status",
+              "power": null,
+              "accuracy": null,
+              "pp": 5,
+              "level": null,
+              "versionGroups": [
+                "sun-moon",
+                "ultra-sun-ultra-moon"
+              ]
+            },
+            {
+              "move": {
+                "id": 216,
+                "name": "Return"
+              },
+              "type": "normal",
+              "category": "physical",
+              "power": null,
+              "accuracy": 100,
+              "pp": 20,
+              "level": null,
+              "versionGroups": [
+                "sun-moon",
+                "ultra-sun-ultra-moon"
+              ]
+            },
+            {
+              "move": {
+                "id": 397,
+                "name": "Rock Polish"
+              },
+              "type": "rock",
+              "category": "status",
+              "power": null,
+              "accuracy": null,
+              "pp": 20,
+              "level": null,
+              "versionGroups": [
+                "sun-moon",
+                "ultra-sun-ultra-moon"
+              ]
+            },
+            {
+              "move": {
+                "id": 157,
+                "name": "Rock Slide"
+              },
+              "type": "rock",
+              "category": "physical",
+              "power": 75,
+              "accuracy": 90,
+              "pp": 10,
+              "level": null,
+              "versionGroups": [
+                "sun-moon",
+                "ultra-sun-ultra-moon"
+              ]
+            },
+            {
+              "move": {
+                "id": 317,
+                "name": "Rock Tomb"
+              },
+              "type": "rock",
+              "category": "physical",
+              "power": 60,
+              "accuracy": 95,
+              "pp": 15,
+              "level": null,
+              "versionGroups": [
+                "sun-moon",
+                "ultra-sun-ultra-moon"
+              ]
+            },
+            {
+              "move": {
+                "id": 496,
+                "name": "Round"
+              },
+              "type": "normal",
+              "category": "special",
+              "power": 60,
+              "accuracy": 100,
+              "pp": 15,
+              "level": null,
+              "versionGroups": [
+                "sun-moon",
+                "ultra-sun-ultra-moon"
+              ]
+            },
+            {
+              "move": {
+                "id": 219,
+                "name": "Safeguard"
+              },
+              "type": "normal",
+              "category": "status",
+              "power": null,
+              "accuracy": null,
+              "pp": 25,
+              "level": null,
+              "versionGroups": [
+                "sun-moon",
+                "ultra-sun-ultra-moon"
+              ]
+            },
+            {
+              "move": {
+                "id": 247,
+                "name": "Shadow Ball"
+              },
+              "type": "ghost",
+              "category": "special",
+              "power": 80,
+              "accuracy": 100,
+              "pp": 15,
+              "level": null,
+              "versionGroups": [
+                "sun-moon",
+                "ultra-sun-ultra-moon"
+              ]
+            },
+            {
+              "move": {
+                "id": 214,
+                "name": "Sleep Talk"
+              },
+              "type": "normal",
+              "category": "status",
+              "power": null,
+              "accuracy": null,
+              "pp": 10,
+              "level": null,
+              "versionGroups": [
+                "sun-moon",
+                "ultra-sun-ultra-moon"
+              ]
+            },
+            {
+              "move": {
+                "id": 164,
+                "name": "Substitute"
+              },
+              "type": "normal",
+              "category": "status",
+              "power": null,
+              "accuracy": null,
+              "pp": 10,
+              "level": null,
+              "versionGroups": [
+                "sun-moon",
+                "ultra-sun-ultra-moon"
+              ]
+            },
+            {
+              "move": {
+                "id": 207,
+                "name": "Swagger"
+              },
+              "type": "normal",
+              "category": "status",
+              "power": null,
+              "accuracy": 85,
+              "pp": 15,
+              "level": null,
+              "versionGroups": [
+                "sun-moon",
+                "ultra-sun-ultra-moon"
+              ]
+            },
+            {
+              "move": {
+                "id": 168,
+                "name": "Thief"
+              },
+              "type": "dark",
+              "category": "physical",
+              "power": 60,
+              "accuracy": 100,
+              "pp": 25,
+              "level": null,
+              "versionGroups": [
+                "sun-moon",
+                "ultra-sun-ultra-moon"
+              ]
+            },
+            {
+              "move": {
+                "id": 92,
+                "name": "Toxic"
+              },
+              "type": "poison",
+              "category": "status",
+              "power": null,
+              "accuracy": 90,
+              "pp": 10,
+              "level": null,
+              "versionGroups": [
+                "sun-moon",
+                "ultra-sun-ultra-moon"
+              ]
+            }
+          ]
+        },
+        {
+          "method": "tutor",
+          "items": [
+            {
+              "move": {
+                "id": 502,
+                "name": "Ally Switch"
+              },
+              "type": "psychic",
+              "category": "status",
+              "power": null,
+              "accuracy": null,
+              "pp": 15,
+              "level": null,
+              "versionGroups": [
+                "ultra-sun-ultra-moon"
+              ]
+            },
+            {
+              "move": {
+                "id": 335,
+                "name": "Block"
+              },
+              "type": "normal",
+              "category": "status",
+              "power": null,
+              "accuracy": null,
+              "pp": 5,
+              "level": null,
+              "versionGroups": [
+                "ultra-sun-ultra-moon"
+              ]
+            },
+            {
+              "move": {
+                "id": 409,
+                "name": "Drain Punch"
+              },
+              "type": "fighting",
+              "category": "physical",
+              "power": 75,
+              "accuracy": 100,
+              "pp": 10,
+              "level": null,
+              "versionGroups": [
+                "ultra-sun-ultra-moon"
+              ]
+            },
+            {
+              "move": {
+                "id": 414,
+                "name": "Earth Power"
+              },
+              "type": "ground",
+              "category": "special",
+              "power": 90,
+              "accuracy": 100,
+              "pp": 10,
+              "level": null,
+              "versionGroups": [
+                "ultra-sun-ultra-moon"
+              ]
+            },
+            {
+              "move": {
+                "id": 7,
+                "name": "Fire Punch"
+              },
+              "type": "fire",
+              "category": "physical",
+              "power": 75,
+              "accuracy": 100,
+              "pp": 15,
+              "level": null,
+              "versionGroups": [
+                "ultra-sun-ultra-moon"
+              ]
+            },
+            {
+              "move": {
+                "id": 264,
+                "name": "Focus Punch"
+              },
+              "type": "fighting",
+              "category": "physical",
+              "power": 150,
+              "accuracy": 100,
+              "pp": 20,
+              "level": null,
+              "versionGroups": [
+                "ultra-sun-ultra-moon"
+              ]
+            },
+            {
+              "move": {
+                "id": 356,
+                "name": "Gravity"
+              },
+              "type": "psychic",
+              "category": "status",
+              "power": null,
+              "accuracy": null,
+              "pp": 5,
+              "level": null,
+              "versionGroups": [
+                "ultra-sun-ultra-moon"
+              ]
+            },
+            {
+              "move": {
+                "id": 8,
+                "name": "Ice Punch"
+              },
+              "type": "ice",
+              "category": "physical",
+              "power": 75,
+              "accuracy": 100,
+              "pp": 15,
+              "level": null,
+              "versionGroups": [
+                "ultra-sun-ultra-moon"
+              ]
+            },
+            {
+              "move": {
+                "id": 196,
+                "name": "Icy Wind"
+              },
+              "type": "ice",
+              "category": "special",
+              "power": 55,
+              "accuracy": 95,
+              "pp": 15,
+              "level": null,
+              "versionGroups": [
+                "ultra-sun-ultra-moon"
+              ]
+            },
+            {
+              "move": {
+                "id": 334,
+                "name": "Iron Defense"
+              },
+              "type": "steel",
+              "category": "status",
+              "power": null,
+              "accuracy": null,
+              "pp": 15,
+              "level": null,
+              "versionGroups": [
+                "ultra-sun-ultra-moon"
+              ]
+            },
+            {
+              "move": {
+                "id": 67,
+                "name": "Low Kick"
+              },
+              "type": "fighting",
+              "category": "physical",
+              "power": null,
+              "accuracy": 100,
+              "pp": 20,
+              "level": null,
+              "versionGroups": [
+                "ultra-sun-ultra-moon"
+              ]
+            },
+            {
+              "move": {
+                "id": 277,
+                "name": "Magic Coat"
+              },
+              "type": "psychic",
+              "category": "status",
+              "power": null,
+              "accuracy": null,
+              "pp": 15,
+              "level": null,
+              "versionGroups": [
+                "ultra-sun-ultra-moon"
+              ]
+            },
+            {
+              "move": {
+                "id": 351,
+                "name": "Shock Wave"
+              },
+              "type": "electric",
+              "category": "special",
+              "power": 60,
+              "accuracy": null,
+              "pp": 20,
+              "level": null,
+              "versionGroups": [
+                "ultra-sun-ultra-moon"
+              ]
+            },
+            {
+              "move": {
+                "id": 324,
+                "name": "Signal Beam"
+              },
+              "type": "bug",
+              "category": "special",
+              "power": 75,
+              "accuracy": 100,
+              "pp": 15,
+              "level": null,
+              "versionGroups": [
+                "ultra-sun-ultra-moon"
+              ]
+            },
+            {
+              "move": {
+                "id": 173,
+                "name": "Snore"
+              },
+              "type": "normal",
+              "category": "special",
+              "power": 50,
+              "accuracy": 100,
+              "pp": 15,
+              "level": null,
+              "versionGroups": [
+                "ultra-sun-ultra-moon"
+              ]
+            },
+            {
+              "move": {
+                "id": 446,
+                "name": "Stealth Rock"
+              },
+              "type": "rock",
+              "category": "status",
+              "power": null,
+              "accuracy": null,
+              "pp": 20,
+              "level": null,
+              "versionGroups": [
+                "ultra-sun-ultra-moon"
+              ]
+            },
+            {
+              "move": {
+                "id": 276,
+                "name": "Superpower"
+              },
+              "type": "fighting",
+              "category": "physical",
+              "power": 120,
+              "accuracy": 100,
+              "pp": 5,
+              "level": null,
+              "versionGroups": [
+                "ultra-sun-ultra-moon"
+              ]
+            },
+            {
+              "move": {
+                "id": 477,
+                "name": "Telekinesis"
+              },
+              "type": "psychic",
+              "category": "status",
+              "power": null,
+              "accuracy": null,
+              "pp": 15,
+              "level": null,
+              "versionGroups": [
+                "ultra-sun-ultra-moon"
+              ]
+            },
+            {
+              "move": {
+                "id": 9,
+                "name": "Thunder Punch"
+              },
+              "type": "electric",
+              "category": "physical",
+              "power": 75,
+              "accuracy": 100,
+              "pp": 15,
+              "level": null,
+              "versionGroups": [
+                "ultra-sun-ultra-moon"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "generation": "generation-viii",
+      "order": 18,
+      "entries": [
+        {
+          "method": "level-up",
+          "items": [
+            {
+              "move": {
+                "id": 310,
+                "name": "Astonish"
+              },
+              "type": "ghost",
+              "category": "physical",
+              "power": 30,
+              "accuracy": 100,
+              "pp": 15,
+              "level": 1,
+              "versionGroups": [
+                "sword-shield"
+              ]
+            },
+            {
+              "move": {
+                "id": 189,
+                "name": "Mud-Slap"
+              },
+              "type": "ground",
+              "category": "special",
+              "power": 20,
+              "accuracy": 100,
+              "pp": 10,
+              "level": 1,
+              "versionGroups": [
+                "sword-shield"
+              ]
+            },
+            {
+              "move": {
+                "id": 111,
+                "name": "Defense Curl"
+              },
+              "type": "normal",
+              "category": "status",
+              "power": null,
+              "accuracy": null,
+              "pp": 40,
+              "level": 4,
+              "versionGroups": [
+                "sword-shield"
+              ]
+            },
+            {
+              "move": {
+                "id": 1,
+                "name": "Pound"
+              },
+              "type": "normal",
+              "category": "physical",
+              "power": 40,
+              "accuracy": 100,
+              "pp": 35,
+              "level": 8,
+              "versionGroups": [
+                "sword-shield"
+              ]
+            },
+            {
+              "move": {
+                "id": 325,
+                "name": "Shadow Punch"
+              },
+              "type": "ghost",
+              "category": "physical",
+              "power": 60,
+              "accuracy": null,
+              "pp": 20,
+              "level": 12,
+              "versionGroups": [
+                "sword-shield"
+              ]
+            },
+            {
+              "move": {
+                "id": 174,
+                "name": "Curse"
+              },
+              "type": "ghost",
+              "category": "status",
+              "power": null,
+              "accuracy": null,
+              "pp": 10,
+              "level": 16,
+              "versionGroups": [
+                "sword-shield"
+              ]
+            },
+            {
+              "move": {
+                "id": 101,
+                "name": "Night Shade"
+              },
+              "type": "ghost",
+              "category": "special",
+              "power": null,
+              "accuracy": 100,
+              "pp": 15,
+              "level": 20,
+              "versionGroups": [
+                "sword-shield"
+              ]
+            },
+            {
+              "move": {
+                "id": 707,
+                "name": "Stomping Tantrum"
+              },
+              "type": "ground",
+              "category": "physical",
+              "power": 75,
+              "accuracy": 100,
+              "pp": 10,
+              "level": 24,
+              "versionGroups": [
+                "sword-shield"
+              ]
+            },
+            {
+              "move": {
+                "id": 334,
+                "name": "Iron Defense"
+              },
+              "type": "steel",
+              "category": "status",
+              "power": null,
+              "accuracy": null,
+              "pp": 15,
+              "level": 28,
+              "versionGroups": [
+                "sword-shield"
+              ]
+            },
+            {
+              "move": {
+                "id": 5,
+                "name": "Mega Punch"
+              },
+              "type": "normal",
+              "category": "physical",
+              "power": 80,
+              "accuracy": 85,
+              "pp": 20,
+              "level": 32,
+              "versionGroups": [
+                "sword-shield"
+              ]
+            },
+            {
+              "move": {
+                "id": 247,
+                "name": "Shadow Ball"
+              },
+              "type": "ghost",
+              "category": "special",
+              "power": 80,
+              "accuracy": 100,
+              "pp": 15,
+              "level": 36,
+              "versionGroups": [
+                "sword-shield"
+              ]
+            },
+            {
+              "move": {
+                "id": 484,
+                "name": "Heavy Slam"
+              },
+              "type": "steel",
+              "category": "physical",
+              "power": null,
+              "accuracy": 100,
+              "pp": 10,
+              "level": 40,
+              "versionGroups": [
+                "sword-shield"
+              ]
+            },
+            {
+              "move": {
+                "id": 566,
+                "name": "Phantom Force"
+              },
+              "type": "ghost",
+              "category": "physical",
+              "power": 90,
+              "accuracy": 100,
+              "pp": 10,
+              "level": 44,
+              "versionGroups": [
+                "sword-shield"
+              ]
+            },
+            {
+              "move": {
+                "id": 359,
+                "name": "Hammer Arm"
+              },
+              "type": "fighting",
+              "category": "physical",
+              "power": 100,
+              "accuracy": 90,
+              "pp": 10,
+              "level": 48,
+              "versionGroups": [
+                "sword-shield"
+              ]
+            },
+            {
+              "move": {
+                "id": 89,
+                "name": "Earthquake"
+              },
+              "type": "ground",
+              "category": "physical",
+              "power": 100,
+              "accuracy": 100,
+              "pp": 10,
+              "level": 52,
+              "versionGroups": [
+                "sword-shield"
+              ]
+            },
+            {
+              "move": {
+                "id": 223,
+                "name": "Dynamic Punch"
+              },
+              "type": "fighting",
+              "category": "physical",
+              "power": 100,
+              "accuracy": 50,
+              "pp": 5,
+              "level": 56,
+              "versionGroups": [
+                "sword-shield"
+              ]
+            }
+          ]
+        },
+        {
+          "method": "machine",
+          "items": [
+            {
+              "move": {
+                "id": 502,
+                "name": "Ally Switch"
+              },
+              "type": "psychic",
+              "category": "status",
+              "power": null,
+              "accuracy": null,
+              "pp": 15,
+              "level": null,
+              "versionGroups": [
+                "sword-shield"
+              ]
+            },
+            {
+              "move": {
+                "id": 280,
+                "name": "Brick Break"
+              },
+              "type": "fighting",
+              "category": "physical",
+              "power": 75,
+              "accuracy": 100,
+              "pp": 15,
+              "level": null,
+              "versionGroups": [
+                "sword-shield"
+              ]
+            },
+            {
+              "move": {
+                "id": 523,
+                "name": "Bulldoze"
+              },
+              "type": "ground",
+              "category": "physical",
+              "power": 60,
+              "accuracy": 100,
+              "pp": 20,
+              "level": null,
+              "versionGroups": [
+                "sword-shield"
+              ]
+            },
+            {
+              "move": {
+                "id": 91,
+                "name": "Dig"
+              },
+              "type": "ground",
+              "category": "physical",
+              "power": 80,
+              "accuracy": 100,
+              "pp": 10,
+              "level": null,
+              "versionGroups": [
+                "sword-shield"
+              ]
+            },
+            {
+              "move": {
+                "id": 409,
+                "name": "Drain Punch"
+              },
+              "type": "fighting",
+              "category": "physical",
+              "power": 75,
+              "accuracy": 100,
+              "pp": 10,
+              "level": null,
+              "versionGroups": [
+                "sword-shield"
+              ]
+            },
+            {
+              "move": {
+                "id": 414,
+                "name": "Earth Power"
+              },
+              "type": "ground",
+              "category": "special",
+              "power": 90,
+              "accuracy": 100,
+              "pp": 10,
+              "level": null,
+              "versionGroups": [
+                "sword-shield"
+              ]
+            },
+            {
+              "move": {
+                "id": 89,
+                "name": "Earthquake"
+              },
+              "type": "ground",
+              "category": "physical",
+              "power": 100,
+              "accuracy": 100,
+              "pp": 10,
+              "level": null,
+              "versionGroups": [
+                "sword-shield"
+              ]
+            },
+            {
+              "move": {
+                "id": 203,
+                "name": "Endure"
+              },
+              "type": "normal",
+              "category": "status",
+              "power": null,
+              "accuracy": null,
+              "pp": 10,
+              "level": null,
+              "versionGroups": [
+                "sword-shield"
+              ]
+            },
+            {
+              "move": {
+                "id": 263,
+                "name": "Facade"
+              },
+              "type": "normal",
+              "category": "physical",
+              "power": 70,
+              "accuracy": 100,
+              "pp": 20,
+              "level": null,
+              "versionGroups": [
+                "sword-shield"
+              ]
+            },
+            {
+              "move": {
+                "id": 7,
+                "name": "Fire Punch"
+              },
+              "type": "fire",
+              "category": "physical",
+              "power": 75,
+              "accuracy": 100,
+              "pp": 15,
+              "level": null,
+              "versionGroups": [
+                "sword-shield"
+              ]
+            },
+            {
+              "move": {
+                "id": 374,
+                "name": "Fling"
+              },
+              "type": "dark",
+              "category": "physical",
+              "power": null,
+              "accuracy": 100,
+              "pp": 10,
+              "level": null,
+              "versionGroups": [
+                "sword-shield"
+              ]
+            },
+            {
+              "move": {
+                "id": 411,
+                "name": "Focus Blast"
+              },
+              "type": "fighting",
+              "category": "special",
+              "power": 120,
+              "accuracy": 70,
+              "pp": 5,
+              "level": null,
+              "versionGroups": [
+                "sword-shield"
+              ]
+            },
+            {
+              "move": {
+                "id": 447,
+                "name": "Grass Knot"
+              },
+              "type": "grass",
+              "category": "special",
+              "power": null,
+              "accuracy": 100,
+              "pp": 20,
+              "level": null,
+              "versionGroups": [
+                "sword-shield"
+              ]
+            },
+            {
+              "move": {
+                "id": 360,
+                "name": "Gyro Ball"
+              },
+              "type": "steel",
+              "category": "physical",
+              "power": null,
+              "accuracy": 100,
+              "pp": 5,
+              "level": null,
+              "versionGroups": [
+                "sword-shield"
+              ]
+            },
+            {
+              "move": {
+                "id": 484,
+                "name": "Heavy Slam"
+              },
+              "type": "steel",
+              "category": "physical",
+              "power": null,
+              "accuracy": 100,
+              "pp": 10,
+              "level": null,
+              "versionGroups": [
+                "sword-shield"
+              ]
+            },
+            {
+              "move": {
+                "id": 270,
+                "name": "Helping Hand"
+              },
+              "type": "normal",
+              "category": "status",
+              "power": null,
+              "accuracy": null,
+              "pp": 20,
+              "level": null,
+              "versionGroups": [
+                "sword-shield"
+              ]
+            },
+            {
+              "move": {
+                "id": 58,
+                "name": "Ice Beam"
+              },
+              "type": "ice",
+              "category": "special",
+              "power": 90,
+              "accuracy": 100,
+              "pp": 10,
+              "level": null,
+              "versionGroups": [
+                "sword-shield"
+              ]
+            },
+            {
+              "move": {
+                "id": 8,
+                "name": "Ice Punch"
+              },
+              "type": "ice",
+              "category": "physical",
+              "power": 75,
+              "accuracy": 100,
+              "pp": 15,
+              "level": null,
+              "versionGroups": [
+                "sword-shield"
+              ]
+            },
+            {
+              "move": {
+                "id": 196,
+                "name": "Icy Wind"
+              },
+              "type": "ice",
+              "category": "special",
+              "power": 55,
+              "accuracy": 95,
+              "pp": 15,
+              "level": null,
+              "versionGroups": [
+                "sword-shield"
+              ]
+            },
+            {
+              "move": {
+                "id": 286,
+                "name": "Imprison"
+              },
+              "type": "psychic",
+              "category": "status",
+              "power": null,
+              "accuracy": null,
+              "pp": 10,
+              "level": null,
+              "versionGroups": [
+                "sword-shield"
+              ]
+            },
+            {
+              "move": {
+                "id": 334,
+                "name": "Iron Defense"
+              },
+              "type": "steel",
+              "category": "status",
+              "power": null,
+              "accuracy": null,
+              "pp": 15,
+              "level": null,
+              "versionGroups": [
+                "sword-shield"
+              ]
+            },
+            {
+              "move": {
+                "id": 67,
+                "name": "Low Kick"
+              },
+              "type": "fighting",
+              "category": "physical",
+              "power": null,
+              "accuracy": 100,
+              "pp": 20,
+              "level": null,
+              "versionGroups": [
+                "sword-shield"
+              ]
+            },
+            {
+              "move": {
+                "id": 490,
+                "name": "Low Sweep"
+              },
+              "type": "fighting",
+              "category": "physical",
+              "power": 65,
+              "accuracy": 100,
+              "pp": 20,
+              "level": null,
+              "versionGroups": [
+                "sword-shield"
+              ]
+            },
+            {
+              "move": {
+                "id": 25,
+                "name": "Mega Kick"
+              },
+              "type": "normal",
+              "category": "physical",
+              "power": 120,
+              "accuracy": 75,
+              "pp": 5,
+              "level": null,
+              "versionGroups": [
+                "sword-shield"
+              ]
+            },
+            {
+              "move": {
+                "id": 5,
+                "name": "Mega Punch"
+              },
+              "type": "normal",
+              "category": "physical",
+              "power": 80,
+              "accuracy": 85,
+              "pp": 20,
+              "level": null,
+              "versionGroups": [
+                "sword-shield"
+              ]
+            },
+            {
+              "move": {
+                "id": 566,
+                "name": "Phantom Force"
+              },
+              "type": "ghost",
+              "category": "physical",
+              "power": 90,
+              "accuracy": 100,
+              "pp": 10,
+              "level": null,
+              "versionGroups": [
+                "sword-shield"
+              ]
+            },
+            {
+              "move": {
+                "id": 182,
+                "name": "Protect"
+              },
+              "type": "normal",
+              "category": "status",
+              "power": null,
+              "accuracy": null,
+              "pp": 10,
+              "level": null,
+              "versionGroups": [
+                "sword-shield"
+              ]
+            },
+            {
+              "move": {
+                "id": 94,
+                "name": "Psychic"
+              },
+              "type": "psychic",
+              "category": "special",
+              "power": 90,
+              "accuracy": 100,
+              "pp": 10,
+              "level": null,
+              "versionGroups": [
+                "sword-shield"
+              ]
+            },
+            {
+              "move": {
+                "id": 240,
+                "name": "Rain Dance"
+              },
+              "type": "water",
+              "category": "status",
+              "power": null,
+              "accuracy": null,
+              "pp": 5,
+              "level": null,
+              "versionGroups": [
+                "sword-shield"
+              ]
+            },
+            {
+              "move": {
+                "id": 156,
+                "name": "Rest"
+              },
+              "type": "psychic",
+              "category": "status",
+              "power": null,
+              "accuracy": null,
+              "pp": 5,
+              "level": null,
+              "versionGroups": [
+                "sword-shield"
+              ]
+            },
+            {
+              "move": {
+                "id": 157,
+                "name": "Rock Slide"
+              },
+              "type": "rock",
+              "category": "physical",
+              "power": 75,
+              "accuracy": 90,
+              "pp": 10,
+              "level": null,
+              "versionGroups": [
+                "sword-shield"
+              ]
+            },
+            {
+              "move": {
+                "id": 317,
+                "name": "Rock Tomb"
+              },
+              "type": "rock",
+              "category": "physical",
+              "power": 60,
+              "accuracy": 95,
+              "pp": 15,
+              "level": null,
+              "versionGroups": [
+                "sword-shield"
+              ]
+            },
+            {
+              "move": {
+                "id": 496,
+                "name": "Round"
+              },
+              "type": "normal",
+              "category": "special",
+              "power": 60,
+              "accuracy": 100,
+              "pp": 15,
+              "level": null,
+              "versionGroups": [
+                "sword-shield"
+              ]
+            },
+            {
+              "move": {
+                "id": 219,
+                "name": "Safeguard"
+              },
+              "type": "normal",
+              "category": "status",
+              "power": null,
+              "accuracy": null,
+              "pp": 25,
+              "level": null,
+              "versionGroups": [
+                "sword-shield"
+              ]
+            },
+            {
+              "move": {
+                "id": 120,
+                "name": "Self-Destruct"
+              },
+              "type": "normal",
+              "category": "physical",
+              "power": 200,
+              "accuracy": 100,
+              "pp": 5,
+              "level": null,
+              "versionGroups": [
+                "sword-shield"
+              ]
+            },
+            {
+              "move": {
+                "id": 247,
+                "name": "Shadow Ball"
+              },
+              "type": "ghost",
+              "category": "special",
+              "power": 80,
+              "accuracy": 100,
+              "pp": 15,
+              "level": null,
+              "versionGroups": [
+                "sword-shield"
+              ]
+            },
+            {
+              "move": {
+                "id": 214,
+                "name": "Sleep Talk"
+              },
+              "type": "normal",
+              "category": "status",
+              "power": null,
+              "accuracy": null,
+              "pp": 10,
+              "level": null,
+              "versionGroups": [
+                "sword-shield"
+              ]
+            },
+            {
+              "move": {
+                "id": 173,
+                "name": "Snore"
+              },
+              "type": "normal",
+              "category": "special",
+              "power": 50,
+              "accuracy": 100,
+              "pp": 15,
+              "level": null,
+              "versionGroups": [
+                "sword-shield"
+              ]
+            },
+            {
+              "move": {
+                "id": 446,
+                "name": "Stealth Rock"
+              },
+              "type": "rock",
+              "category": "status",
+              "power": null,
+              "accuracy": null,
+              "pp": 20,
+              "level": null,
+              "versionGroups": [
+                "sword-shield"
+              ]
+            },
+            {
+              "move": {
+                "id": 707,
+                "name": "Stomping Tantrum"
+              },
+              "type": "ground",
+              "category": "physical",
+              "power": 75,
+              "accuracy": 100,
+              "pp": 10,
+              "level": null,
+              "versionGroups": [
+                "sword-shield"
+              ]
+            },
+            {
+              "move": {
+                "id": 164,
+                "name": "Substitute"
+              },
+              "type": "normal",
+              "category": "status",
+              "power": null,
+              "accuracy": null,
+              "pp": 10,
+              "level": null,
+              "versionGroups": [
+                "sword-shield"
+              ]
+            },
+            {
+              "move": {
+                "id": 276,
+                "name": "Superpower"
+              },
+              "type": "fighting",
+              "category": "physical",
+              "power": 120,
+              "accuracy": 100,
+              "pp": 5,
+              "level": null,
+              "versionGroups": [
+                "sword-shield"
+              ]
+            },
+            {
+              "move": {
+                "id": 168,
+                "name": "Thief"
+              },
+              "type": "dark",
+              "category": "physical",
+              "power": 60,
+              "accuracy": 100,
+              "pp": 25,
+              "level": null,
+              "versionGroups": [
+                "sword-shield"
+              ]
+            },
+            {
+              "move": {
+                "id": 9,
+                "name": "Thunder Punch"
+              },
+              "type": "electric",
+              "category": "physical",
+              "power": 75,
+              "accuracy": 100,
+              "pp": 15,
+              "level": null,
+              "versionGroups": [
+                "sword-shield"
+              ]
+            }
+          ]
+        },
+        {
+          "method": "tutor",
+          "items": [
+            {
+              "move": {
+                "id": 809,
+                "name": "Poltergeist"
+              },
+              "type": "ghost",
+              "category": "physical",
+              "power": 110,
+              "accuracy": 90,
+              "pp": 5,
+              "level": null,
+              "versionGroups": [
+                "sword-shield"
+              ]
+            },
+            {
+              "move": {
+                "id": 815,
+                "name": "Scorching Sands"
+              },
+              "type": "ground",
+              "category": "special",
+              "power": 70,
+              "accuracy": 100,
+              "pp": 10,
+              "level": null,
+              "versionGroups": [
+                "sword-shield"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "generation": "generation-ix",
+      "order": 21,
+      "entries": [
+        {
+          "method": "level-up",
+          "items": [
+            {
+              "move": {
+                "id": 310,
+                "name": "Astonish"
+              },
+              "type": "ghost",
+              "category": "physical",
+              "power": 30,
+              "accuracy": 100,
+              "pp": 15,
+              "level": 1,
+              "versionGroups": [
+                "scarlet-violet"
+              ]
+            },
+            {
+              "move": {
+                "id": 189,
+                "name": "Mud-Slap"
+              },
+              "type": "ground",
+              "category": "special",
+              "power": 20,
+              "accuracy": 100,
+              "pp": 10,
+              "level": 1,
+              "versionGroups": [
+                "scarlet-violet"
+              ]
+            },
+            {
+              "move": {
+                "id": 111,
+                "name": "Defense Curl"
+              },
+              "type": "normal",
+              "category": "status",
+              "power": null,
+              "accuracy": null,
+              "pp": 40,
+              "level": 4,
+              "versionGroups": [
+                "scarlet-violet"
+              ]
+            },
+            {
+              "move": {
+                "id": 1,
+                "name": "Pound"
+              },
+              "type": "normal",
+              "category": "physical",
+              "power": 40,
+              "accuracy": 100,
+              "pp": 35,
+              "level": 8,
+              "versionGroups": [
+                "scarlet-violet"
+              ]
+            },
+            {
+              "move": {
+                "id": 325,
+                "name": "Shadow Punch"
+              },
+              "type": "ghost",
+              "category": "physical",
+              "power": 60,
+              "accuracy": null,
+              "pp": 20,
+              "level": 12,
+              "versionGroups": [
+                "scarlet-violet"
+              ]
+            },
+            {
+              "move": {
+                "id": 174,
+                "name": "Curse"
+              },
+              "type": "ghost",
+              "category": "status",
+              "power": null,
+              "accuracy": null,
+              "pp": 10,
+              "level": 16,
+              "versionGroups": [
+                "scarlet-violet"
+              ]
+            },
+            {
+              "move": {
+                "id": 101,
+                "name": "Night Shade"
+              },
+              "type": "ghost",
+              "category": "special",
+              "power": null,
+              "accuracy": 100,
+              "pp": 15,
+              "level": 20,
+              "versionGroups": [
+                "scarlet-violet"
+              ]
+            },
+            {
+              "move": {
+                "id": 707,
+                "name": "Stomping Tantrum"
+              },
+              "type": "ground",
+              "category": "physical",
+              "power": 75,
+              "accuracy": 100,
+              "pp": 10,
+              "level": 24,
+              "versionGroups": [
+                "scarlet-violet"
+              ]
+            },
+            {
+              "move": {
+                "id": 334,
+                "name": "Iron Defense"
+              },
+              "type": "steel",
+              "category": "status",
+              "power": null,
+              "accuracy": null,
+              "pp": 15,
+              "level": 28,
+              "versionGroups": [
+                "scarlet-violet"
+              ]
+            },
+            {
+              "move": {
+                "id": 5,
+                "name": "Mega Punch"
+              },
+              "type": "normal",
+              "category": "physical",
+              "power": 80,
+              "accuracy": 85,
+              "pp": 20,
+              "level": 32,
+              "versionGroups": [
+                "scarlet-violet"
+              ]
+            },
+            {
+              "move": {
+                "id": 247,
+                "name": "Shadow Ball"
+              },
+              "type": "ghost",
+              "category": "special",
+              "power": 80,
+              "accuracy": 100,
+              "pp": 15,
+              "level": 36,
+              "versionGroups": [
+                "scarlet-violet"
+              ]
+            },
+            {
+              "move": {
+                "id": 484,
+                "name": "Heavy Slam"
+              },
+              "type": "steel",
+              "category": "physical",
+              "power": null,
+              "accuracy": 100,
+              "pp": 10,
+              "level": 40,
+              "versionGroups": [
+                "scarlet-violet"
+              ]
+            },
+            {
+              "move": {
+                "id": 566,
+                "name": "Phantom Force"
+              },
+              "type": "ghost",
+              "category": "physical",
+              "power": 90,
+              "accuracy": 100,
+              "pp": 10,
+              "level": 44,
+              "versionGroups": [
+                "scarlet-violet"
+              ]
+            },
+            {
+              "move": {
+                "id": 359,
+                "name": "Hammer Arm"
+              },
+              "type": "fighting",
+              "category": "physical",
+              "power": 100,
+              "accuracy": 90,
+              "pp": 10,
+              "level": 48,
+              "versionGroups": [
+                "scarlet-violet"
+              ]
+            },
+            {
+              "move": {
+                "id": 89,
+                "name": "Earthquake"
+              },
+              "type": "ground",
+              "category": "physical",
+              "power": 100,
+              "accuracy": 100,
+              "pp": 10,
+              "level": 52,
+              "versionGroups": [
+                "scarlet-violet"
+              ]
+            },
+            {
+              "move": {
+                "id": 223,
+                "name": "Dynamic Punch"
+              },
+              "type": "fighting",
+              "category": "physical",
+              "power": 100,
+              "accuracy": 50,
+              "pp": 5,
+              "level": 56,
+              "versionGroups": [
+                "scarlet-violet"
+              ]
+            }
+          ]
+        },
+        {
+          "method": "machine",
+          "items": [
+            {
+              "move": {
+                "id": 34,
+                "name": "Body Slam"
+              },
+              "type": "normal",
+              "category": "physical",
+              "power": 85,
+              "accuracy": 100,
+              "pp": 15,
+              "level": null,
+              "versionGroups": [
+                "scarlet-violet"
+              ]
+            },
+            {
+              "move": {
+                "id": 280,
+                "name": "Brick Break"
+              },
+              "type": "fighting",
+              "category": "physical",
+              "power": 75,
+              "accuracy": 100,
+              "pp": 15,
+              "level": null,
+              "versionGroups": [
+                "scarlet-violet"
+              ]
+            },
+            {
+              "move": {
+                "id": 523,
+                "name": "Bulldoze"
+              },
+              "type": "ground",
+              "category": "physical",
+              "power": 60,
+              "accuracy": 100,
+              "pp": 20,
+              "level": null,
+              "versionGroups": [
+                "scarlet-violet"
+              ]
+            },
+            {
+              "move": {
+                "id": 109,
+                "name": "Confuse Ray"
+              },
+              "type": "ghost",
+              "category": "status",
+              "power": null,
+              "accuracy": 100,
+              "pp": 10,
+              "level": null,
+              "versionGroups": [
+                "scarlet-violet"
+              ]
+            },
+            {
+              "move": {
+                "id": 174,
+                "name": "Curse"
+              },
+              "type": "ghost",
+              "category": "status",
+              "power": null,
+              "accuracy": null,
+              "pp": 10,
+              "level": null,
+              "versionGroups": [
+                "scarlet-violet"
+              ]
+            },
+            {
+              "move": {
+                "id": 91,
+                "name": "Dig"
+              },
+              "type": "ground",
+              "category": "physical",
+              "power": 80,
+              "accuracy": 100,
+              "pp": 10,
+              "level": null,
+              "versionGroups": [
+                "scarlet-violet"
+              ]
+            },
+            {
+              "move": {
+                "id": 38,
+                "name": "Double-Edge"
+              },
+              "type": "normal",
+              "category": "physical",
+              "power": 120,
+              "accuracy": 100,
+              "pp": 15,
+              "level": null,
+              "versionGroups": [
+                "scarlet-violet"
+              ]
+            },
+            {
+              "move": {
+                "id": 409,
+                "name": "Drain Punch"
+              },
+              "type": "fighting",
+              "category": "physical",
+              "power": 75,
+              "accuracy": 100,
+              "pp": 10,
+              "level": null,
+              "versionGroups": [
+                "scarlet-violet"
+              ]
+            },
+            {
+              "move": {
+                "id": 414,
+                "name": "Earth Power"
+              },
+              "type": "ground",
+              "category": "special",
+              "power": 90,
+              "accuracy": 100,
+              "pp": 10,
+              "level": null,
+              "versionGroups": [
+                "scarlet-violet"
+              ]
+            },
+            {
+              "move": {
+                "id": 89,
+                "name": "Earthquake"
+              },
+              "type": "ground",
+              "category": "physical",
+              "power": 100,
+              "accuracy": 100,
+              "pp": 10,
+              "level": null,
+              "versionGroups": [
+                "scarlet-violet"
+              ]
+            },
+            {
+              "move": {
+                "id": 203,
+                "name": "Endure"
+              },
+              "type": "normal",
+              "category": "status",
+              "power": null,
+              "accuracy": null,
+              "pp": 10,
+              "level": null,
+              "versionGroups": [
+                "scarlet-violet"
+              ]
+            },
+            {
+              "move": {
+                "id": 263,
+                "name": "Facade"
+              },
+              "type": "normal",
+              "category": "physical",
+              "power": 70,
+              "accuracy": 100,
+              "pp": 20,
+              "level": null,
+              "versionGroups": [
+                "scarlet-violet"
+              ]
+            },
+            {
+              "move": {
+                "id": 7,
+                "name": "Fire Punch"
+              },
+              "type": "fire",
+              "category": "physical",
+              "power": 75,
+              "accuracy": 100,
+              "pp": 15,
+              "level": null,
+              "versionGroups": [
+                "scarlet-violet"
+              ]
+            },
+            {
+              "move": {
+                "id": 374,
+                "name": "Fling"
+              },
+              "type": "dark",
+              "category": "physical",
+              "power": null,
+              "accuracy": 100,
+              "pp": 10,
+              "level": null,
+              "versionGroups": [
+                "scarlet-violet"
+              ]
+            },
+            {
+              "move": {
+                "id": 411,
+                "name": "Focus Blast"
+              },
+              "type": "fighting",
+              "category": "special",
+              "power": 120,
+              "accuracy": 70,
+              "pp": 5,
+              "level": null,
+              "versionGroups": [
+                "scarlet-violet"
+              ]
+            },
+            {
+              "move": {
+                "id": 264,
+                "name": "Focus Punch"
+              },
+              "type": "fighting",
+              "category": "physical",
+              "power": 150,
+              "accuracy": 100,
+              "pp": 20,
+              "level": null,
+              "versionGroups": [
+                "scarlet-violet"
+              ]
+            },
+            {
+              "move": {
+                "id": 447,
+                "name": "Grass Knot"
+              },
+              "type": "grass",
+              "category": "special",
+              "power": null,
+              "accuracy": 100,
+              "pp": 20,
+              "level": null,
+              "versionGroups": [
+                "scarlet-violet"
+              ]
+            },
+            {
+              "move": {
+                "id": 356,
+                "name": "Gravity"
+              },
+              "type": "psychic",
+              "category": "status",
+              "power": null,
+              "accuracy": null,
+              "pp": 5,
+              "level": null,
+              "versionGroups": [
+                "scarlet-violet"
+              ]
+            },
+            {
+              "move": {
+                "id": 360,
+                "name": "Gyro Ball"
+              },
+              "type": "steel",
+              "category": "physical",
+              "power": null,
+              "accuracy": 100,
+              "pp": 5,
+              "level": null,
+              "versionGroups": [
+                "scarlet-violet"
+              ]
+            },
+            {
+              "move": {
+                "id": 484,
+                "name": "Heavy Slam"
+              },
+              "type": "steel",
+              "category": "physical",
+              "power": null,
+              "accuracy": 100,
+              "pp": 10,
+              "level": null,
+              "versionGroups": [
+                "scarlet-violet"
+              ]
+            },
+            {
+              "move": {
+                "id": 270,
+                "name": "Helping Hand"
+              },
+              "type": "normal",
+              "category": "status",
+              "power": null,
+              "accuracy": null,
+              "pp": 20,
+              "level": null,
+              "versionGroups": [
+                "scarlet-violet"
+              ]
+            },
+            {
+              "move": {
+                "id": 506,
+                "name": "Hex"
+              },
+              "type": "ghost",
+              "category": "special",
+              "power": 65,
+              "accuracy": 100,
+              "pp": 10,
+              "level": null,
+              "versionGroups": [
+                "scarlet-violet"
+              ]
+            },
+            {
+              "move": {
+                "id": 58,
+                "name": "Ice Beam"
+              },
+              "type": "ice",
+              "category": "special",
+              "power": 90,
+              "accuracy": 100,
+              "pp": 10,
+              "level": null,
+              "versionGroups": [
+                "scarlet-violet"
+              ]
+            },
+            {
+              "move": {
+                "id": 8,
+                "name": "Ice Punch"
+              },
+              "type": "ice",
+              "category": "physical",
+              "power": 75,
+              "accuracy": 100,
+              "pp": 15,
+              "level": null,
+              "versionGroups": [
+                "scarlet-violet"
+              ]
+            },
+            {
+              "move": {
+                "id": 196,
+                "name": "Icy Wind"
+              },
+              "type": "ice",
+              "category": "special",
+              "power": 55,
+              "accuracy": 95,
+              "pp": 15,
+              "level": null,
+              "versionGroups": [
+                "scarlet-violet"
+              ]
+            },
+            {
+              "move": {
+                "id": 286,
+                "name": "Imprison"
+              },
+              "type": "psychic",
+              "category": "status",
+              "power": null,
+              "accuracy": null,
+              "pp": 10,
+              "level": null,
+              "versionGroups": [
+                "scarlet-violet"
+              ]
+            },
+            {
+              "move": {
+                "id": 334,
+                "name": "Iron Defense"
+              },
+              "type": "steel",
+              "category": "status",
+              "power": null,
+              "accuracy": null,
+              "pp": 15,
+              "level": null,
+              "versionGroups": [
+                "scarlet-violet"
+              ]
+            },
+            {
+              "move": {
+                "id": 282,
+                "name": "Knock Off"
+              },
+              "type": "dark",
+              "category": "physical",
+              "power": 65,
+              "accuracy": 100,
+              "pp": 20,
+              "level": null,
+              "versionGroups": [
+                "scarlet-violet"
+              ]
+            },
+            {
+              "move": {
+                "id": 67,
+                "name": "Low Kick"
+              },
+              "type": "fighting",
+              "category": "physical",
+              "power": null,
+              "accuracy": 100,
+              "pp": 20,
+              "level": null,
+              "versionGroups": [
+                "scarlet-violet"
+              ]
+            },
+            {
+              "move": {
+                "id": 490,
+                "name": "Low Sweep"
+              },
+              "type": "fighting",
+              "category": "physical",
+              "power": 65,
+              "accuracy": 100,
+              "pp": 20,
+              "level": null,
+              "versionGroups": [
+                "scarlet-violet"
+              ]
+            },
+            {
+              "move": {
+                "id": 189,
+                "name": "Mud-Slap"
+              },
+              "type": "ground",
+              "category": "special",
+              "power": 20,
+              "accuracy": 100,
+              "pp": 10,
+              "level": null,
+              "versionGroups": [
+                "scarlet-violet"
+              ]
+            },
+            {
+              "move": {
+                "id": 101,
+                "name": "Night Shade"
+              },
+              "type": "ghost",
+              "category": "special",
+              "power": null,
+              "accuracy": 100,
+              "pp": 15,
+              "level": null,
+              "versionGroups": [
+                "scarlet-violet"
+              ]
+            },
+            {
+              "move": {
+                "id": 566,
+                "name": "Phantom Force"
+              },
+              "type": "ghost",
+              "category": "physical",
+              "power": 90,
+              "accuracy": 100,
+              "pp": 10,
+              "level": null,
+              "versionGroups": [
+                "scarlet-violet"
+              ]
+            },
+            {
+              "move": {
+                "id": 809,
+                "name": "Poltergeist"
+              },
+              "type": "ghost",
+              "category": "physical",
+              "power": 110,
+              "accuracy": 90,
+              "pp": 5,
+              "level": null,
+              "versionGroups": [
+                "scarlet-violet"
+              ]
+            },
+            {
+              "move": {
+                "id": 182,
+                "name": "Protect"
+              },
+              "type": "normal",
+              "category": "status",
+              "power": null,
+              "accuracy": null,
+              "pp": 10,
+              "level": null,
+              "versionGroups": [
+                "scarlet-violet"
+              ]
+            },
+            {
+              "move": {
+                "id": 244,
+                "name": "Psych Up"
+              },
+              "type": "normal",
+              "category": "status",
+              "power": null,
+              "accuracy": null,
+              "pp": 10,
+              "level": null,
+              "versionGroups": [
+                "scarlet-violet"
+              ]
+            },
+            {
+              "move": {
+                "id": 94,
+                "name": "Psychic"
+              },
+              "type": "psychic",
+              "category": "special",
+              "power": 90,
+              "accuracy": 100,
+              "pp": 10,
+              "level": null,
+              "versionGroups": [
+                "scarlet-violet"
+              ]
+            },
+            {
+              "move": {
+                "id": 240,
+                "name": "Rain Dance"
+              },
+              "type": "water",
+              "category": "status",
+              "power": null,
+              "accuracy": null,
+              "pp": 5,
+              "level": null,
+              "versionGroups": [
+                "scarlet-violet"
+              ]
+            },
+            {
+              "move": {
+                "id": 115,
+                "name": "Reflect"
+              },
+              "type": "psychic",
+              "category": "status",
+              "power": null,
+              "accuracy": null,
+              "pp": 20,
+              "level": null,
+              "versionGroups": [
+                "scarlet-violet"
+              ]
+            },
+            {
+              "move": {
+                "id": 156,
+                "name": "Rest"
+              },
+              "type": "psychic",
+              "category": "status",
+              "power": null,
+              "accuracy": null,
+              "pp": 5,
+              "level": null,
+              "versionGroups": [
+                "scarlet-violet"
+              ]
+            },
+            {
+              "move": {
+                "id": 157,
+                "name": "Rock Slide"
+              },
+              "type": "rock",
+              "category": "physical",
+              "power": 75,
+              "accuracy": 90,
+              "pp": 10,
+              "level": null,
+              "versionGroups": [
+                "scarlet-violet"
+              ]
+            },
+            {
+              "move": {
+                "id": 317,
+                "name": "Rock Tomb"
+              },
+              "type": "rock",
+              "category": "physical",
+              "power": 60,
+              "accuracy": 95,
+              "pp": 15,
+              "level": null,
+              "versionGroups": [
+                "scarlet-violet"
+              ]
+            },
+            {
+              "move": {
+                "id": 201,
+                "name": "Sandstorm"
+              },
+              "type": "rock",
+              "category": "status",
+              "power": null,
+              "accuracy": null,
+              "pp": 10,
+              "level": null,
+              "versionGroups": [
+                "scarlet-violet"
+              ]
+            },
+            {
+              "move": {
+                "id": 815,
+                "name": "Scorching Sands"
+              },
+              "type": "ground",
+              "category": "special",
+              "power": 70,
+              "accuracy": 100,
+              "pp": 10,
+              "level": null,
+              "versionGroups": [
+                "scarlet-violet"
+              ]
+            },
+            {
+              "move": {
+                "id": 247,
+                "name": "Shadow Ball"
+              },
+              "type": "ghost",
+              "category": "special",
+              "power": 80,
+              "accuracy": 100,
+              "pp": 15,
+              "level": null,
+              "versionGroups": [
+                "scarlet-violet"
+              ]
+            },
+            {
+              "move": {
+                "id": 214,
+                "name": "Sleep Talk"
+              },
+              "type": "normal",
+              "category": "status",
+              "power": null,
+              "accuracy": null,
+              "pp": 10,
+              "level": null,
+              "versionGroups": [
+                "scarlet-violet"
+              ]
+            },
+            {
+              "move": {
+                "id": 479,
+                "name": "Smack Down"
+              },
+              "type": "rock",
+              "category": "physical",
+              "power": 50,
+              "accuracy": 100,
+              "pp": 15,
+              "level": null,
+              "versionGroups": [
+                "scarlet-violet"
+              ]
+            },
+            {
+              "move": {
+                "id": 446,
+                "name": "Stealth Rock"
+              },
+              "type": "rock",
+              "category": "status",
+              "power": null,
+              "accuracy": null,
+              "pp": 20,
+              "level": null,
+              "versionGroups": [
+                "scarlet-violet"
+              ]
+            },
+            {
+              "move": {
+                "id": 707,
+                "name": "Stomping Tantrum"
+              },
+              "type": "ground",
+              "category": "physical",
+              "power": 75,
+              "accuracy": 100,
+              "pp": 10,
+              "level": null,
+              "versionGroups": [
+                "scarlet-violet"
+              ]
+            },
+            {
+              "move": {
+                "id": 164,
+                "name": "Substitute"
+              },
+              "type": "normal",
+              "category": "status",
+              "power": null,
+              "accuracy": null,
+              "pp": 10,
+              "level": null,
+              "versionGroups": [
+                "scarlet-violet"
+              ]
+            },
+            {
+              "move": {
+                "id": 241,
+                "name": "Sunny Day"
+              },
+              "type": "fire",
+              "category": "status",
+              "power": null,
+              "accuracy": null,
+              "pp": 5,
+              "level": null,
+              "versionGroups": [
+                "scarlet-violet"
+              ]
+            },
+            {
+              "move": {
+                "id": 36,
+                "name": "Take Down"
+              },
+              "type": "normal",
+              "category": "physical",
+              "power": 90,
+              "accuracy": 85,
+              "pp": 20,
+              "level": null,
+              "versionGroups": [
+                "scarlet-violet"
+              ]
+            },
+            {
+              "move": {
+                "id": 851,
+                "name": "Tera Blast"
+              },
+              "type": "normal",
+              "category": "special",
+              "power": 80,
+              "accuracy": 100,
+              "pp": 10,
+              "level": null,
+              "versionGroups": [
+                "scarlet-violet"
+              ]
+            },
+            {
+              "move": {
+                "id": 168,
+                "name": "Thief"
+              },
+              "type": "dark",
+              "category": "physical",
+              "power": 60,
+              "accuracy": 100,
+              "pp": 25,
+              "level": null,
+              "versionGroups": [
+                "scarlet-violet"
+              ]
+            },
+            {
+              "move": {
+                "id": 9,
+                "name": "Thunder Punch"
+              },
+              "type": "electric",
+              "category": "physical",
+              "power": 75,
+              "accuracy": 100,
+              "pp": 15,
+              "level": null,
+              "versionGroups": [
+                "scarlet-violet"
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

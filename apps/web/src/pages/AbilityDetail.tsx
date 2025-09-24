@@ -1,7 +1,7 @@
 import Card from '../components/Card';
 import Badge from '../components/Badge';
 import { For, Show, createMemo, createResource, createSignal } from 'solid-js';
-import { formatName, loadItemById, type ResourceName, loadNameMap } from '../services/data';
+import { formatName, loadItemById, type ResourceName, loadList } from '../services/data';
 import { t, getLocale } from '../i18n';
 
 type Ability = any;
@@ -33,8 +33,7 @@ function pickFlavorText(ability: Ability, lang: 'en'|'fr'|'jp') {
 }
 
 export default function AbilityDetail(props: { id: number }) {
-  const [data] = createResource(() => props.id, (id) => loadItemById('ability' as ResourceName, id));
-  const [abilityNames] = createResource(() => getLocale(), (loc) => loadNameMap('ability', loc as any));
+  const [data] = createResource(() => ({ id: props.id, loc: getLocale() }), (key) => loadItemById('ability' as ResourceName, key.id));
 
   const ability = createMemo(() => data() as Ability | undefined);
   const locale = () => getLocale() as 'en' | 'fr' | 'jp';
@@ -48,12 +47,12 @@ export default function AbilityDetail(props: { id: number }) {
     const seenBase = new Set<string>();
     const entries: any[] = [];
     for (const entry of list) {
-      const name = entry?.pokemon?.name || '';
+      const name = entry?.name || entry?.pokemon?.name || '';
       const baseMatch = name.match(/^(.*?)-gmax$/i);
       const baseSlug = baseMatch ? baseMatch[1] : name;
       if (seenBase.has(baseSlug)) continue;
       if (baseMatch) {
-        const merged = { ...entry, pokemon: { ...entry.pokemon, name: baseSlug } };
+        const merged = entry?.pokemon ? { ...entry, pokemon: { ...entry.pokemon, name: baseSlug } } : { ...entry, name: baseSlug };
         entries.push(merged);
       } else {
         entries.push(entry);
@@ -66,7 +65,6 @@ export default function AbilityDetail(props: { id: number }) {
     const list = filteredPokemon();
     return showAllPokemon() ? list : list.slice(0, 36);
   });
-  const [pokemonNames] = createResource(() => getLocale(), (loc) => loadNameMap('pokemon', loc as any));
 
   function translateOr(key: string, fallback: string) {
     const value = t(key as any) as string;
@@ -75,14 +73,7 @@ export default function AbilityDetail(props: { id: number }) {
   }
 
   const localizedName = createMemo(() => {
-    const id = ability()?.id;
-    const map = abilityNames();
-    if (id != null) {
-      const fromMap = map?.[String(id)];
-      if (fromMap) return fromMap;
-    }
-    const raw = ability()?.name;
-    return raw ? formatName(raw) : '—';
+    return ability()?.name ? String(ability()?.name) : '—';
   });
 
   const generationLabel = createMemo(() => {
@@ -135,10 +126,12 @@ export default function AbilityDetail(props: { id: number }) {
             <h3 class="mb-3 text-sm font-semibold tracking-wide text-gray-500">{t('ability.withAbility')}</h3>
             <div class="flex flex-wrap gap-2">
               <For each={visiblePokemon()}>{(p: any) => {
-                const id = idFromUrl(p.pokemon?.url);
+                const id = (typeof p?.id === 'number' ? p.id : idFromUrl(p?.pokemon?.url));
+                const map = pokemonNameMap();
+                const display = id != null && map[String(id)] ? map[String(id)] : (p?.name || p?.pokemon?.name || '—');
                 return (
                   <a href={id ? `/pokemon/${id}` : '#'} class="rounded-full border border-gray-200 px-3 py-1 text-sm hover:bg-gray-50 dark:border-gray-700 dark:hover:bg-gray-700/50">
-                    {pokemonNames()?.[String(id)] || formatName(p.pokemon?.name)}{p.is_hidden ? ` (${t('ability.hidden')})` : ''}
+                    {display}{p.is_hidden ? ` (${t('ability.hidden')})` : ''}
                   </a>
                 );
               }}</For>
@@ -163,3 +156,11 @@ function StatBox(props: { label: string; value: any }) {
     </div>
   );
 }
+  // Localized Pokémon names for carriers (robust even if ability JSON had fallback names)
+  const [pokemonList] = createResource(() => getLocale(), () => loadList('pokemon' as any));
+  const pokemonNameMap = createMemo(() => {
+    const list = pokemonList() || [];
+    const map: Record<string, string> = {};
+    for (const p of list) map[String(p.id)] = p.name;
+    return map;
+  });

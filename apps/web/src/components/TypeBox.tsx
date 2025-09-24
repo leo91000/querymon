@@ -1,7 +1,7 @@
 import { A } from '@solidjs/router';
 import { Show, createMemo, createSignal, onCleanup, onMount, createResource } from 'solid-js';
 import { getLocale } from '../i18n';
-import { loadTypeEntries } from '../services/data';
+import { loadList } from '../services/data';
 
 type Props = {
   id?: number;
@@ -12,8 +12,15 @@ type Props = {
   showLabel?: boolean;
 };
 
+const TYPE_SLUG_BY_ID: Record<number, string> = {
+  1: 'normal', 2: 'fighting', 3: 'flying', 4: 'poison', 5: 'ground', 6: 'rock', 7: 'bug', 8: 'ghost', 9: 'steel',
+  10: 'fire', 11: 'water', 12: 'grass', 13: 'electric', 14: 'psychic', 15: 'ice', 16: 'dragon', 17: 'dark', 18: 'fairy',
+};
+const SLUG_TO_ID: Record<string, number> = Object.fromEntries(Object.entries(TYPE_SLUG_BY_ID).map(([id, slug]) => [slug, Number(id)]));
+
 export default function TypeBox(props: Props) {
-  const [types] = createResource(loadTypeEntries);
+  // Localized type labels from new layout
+  const [types] = createResource(() => getLocale(), () => loadList('type' as any));
   const locale = () => getLocale() as 'en'|'fr'|'jp';
 
   // Per-type light/dark tones (tailwind v4 class-based dark)
@@ -40,16 +47,18 @@ export default function TypeBox(props: Props) {
     stellar: 'border-teal-200 bg-teal-100 text-teal-800 dark:border-teal-500/60 dark:bg-teal-700/60 dark:text-white',
   };
 
-  const entry = createMemo(() => {
-    const list = types() || [];
-    if (props.id) return list.find((t: any) => t.id === props.id);
-    if (props.name) return list.find((t: any) => (t.name || '').toLowerCase() === props.name!.toLowerCase());
-    return undefined;
+  const slug = createMemo(() => {
+    if (props.id && TYPE_SLUG_BY_ID[props.id]) return TYPE_SLUG_BY_ID[props.id];
+    return String(props.name || 'unknown').toLowerCase();
   });
 
-  const slug = createMemo(() => {
-    const e = entry();
-    return (props.name || e?.name || 'unknown').toLowerCase();
+  const effectiveId = createMemo(() => props.id ?? SLUG_TO_ID[slug()]);
+
+  const entry = createMemo(() => {
+    const list = types() || [];
+    const id = effectiveId();
+    if (id) return list.find((t: any) => t.id === id);
+    return undefined;
   });
 
   const toneClass = createMemo(() => TONE[slug()] || 'border-gray-200 bg-white text-gray-800 dark:border-gray-700 dark:bg-gray-800 dark:text-gray-200');
@@ -70,16 +79,9 @@ export default function TypeBox(props: Props) {
 
   const label = createMemo(() => {
     const e = entry();
-    if (!e) return (props.name || '').charAt(0).toUpperCase() + (props.name || '').slice(1);
-    const names = e.names || [];
-    const want = { en: 'en', fr: 'fr', jp: 'ja' }[locale()] || 'en';
-    if (want === 'ja') {
-      const ja = names.find((n: any) => n.language?.name === 'ja')?.name;
-      if (ja) return ja;
-      const jaHrkt = names.find((n: any) => n.language?.name === 'ja-Hrkt')?.name;
-      if (jaHrkt) return jaHrkt;
-    }
-    return names.find((n: any) => n.language?.name === want)?.name || e.name;
+    if (e && e.name) return String(e.name);
+    const base = String(props.name || slug());
+    return base.charAt(0).toUpperCase() + base.slice(1);
   });
 
   const size = props.size || 'md';
@@ -97,8 +99,8 @@ export default function TypeBox(props: Props) {
     </span>
   );
 
-  if (props.link && props.id) {
-    return <A href={`/type/${props.id}`}>{content}</A>;
+  if (props.link && (effectiveId() != null)) {
+    return <A href={`/type/${effectiveId()}`}>{content}</A>;
   }
   return content;
 }

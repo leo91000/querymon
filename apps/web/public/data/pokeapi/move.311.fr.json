@@ -1,0 +1,973 @@
+{
+  "id": 311,
+  "name": "Ball’Météo",
+  "type": {
+    "id": 1,
+    "name": "normal"
+  },
+  "damage_class": {
+    "name": "special"
+  },
+  "power": 50,
+  "accuracy": 100,
+  "pp": 10,
+  "priority": 0,
+  "target": {
+    "name": "selected-pokemon"
+  },
+  "generation": {
+    "name": "generation-iii"
+  },
+  "effect_entries": [
+    {
+      "effect": "Inflicts regular damage.  If a weather move is active, this move has double power, and its type becomes the type of the weather move.  shadow sky is typeless for the purposes of this move.",
+      "language": {
+        "name": "en",
+        "url": "https://pokeapi.co/api/v2/language/9/"
+      },
+      "short_effect": "If there be weather, this move has doubled power and the weather’s type."
+    }
+  ],
+  "flavor_text_entries": [
+    {
+      "flavor_text": "Une attaque dont la puissance et le type varient en fonction du temps qu’il fait.",
+      "language": {
+        "name": "fr",
+        "url": "https://pokeapi.co/api/v2/language/5/"
+      },
+      "version_group": {
+        "name": "sun-moon",
+        "url": "https://pokeapi.co/api/v2/version-group/17/"
+      }
+    },
+    {
+      "flavor_text": "The move’s type and power change with the weather.",
+      "language": {
+        "name": "en",
+        "url": "https://pokeapi.co/api/v2/language/9/"
+      },
+      "version_group": {
+        "name": "ruby-sapphire",
+        "url": "https://pokeapi.co/api/v2/version-group/5/"
+      }
+    },
+    {
+      "flavor_text": "The move’s type and power change with the weather.",
+      "language": {
+        "name": "en",
+        "url": "https://pokeapi.co/api/v2/language/9/"
+      },
+      "version_group": {
+        "name": "emerald",
+        "url": "https://pokeapi.co/api/v2/version-group/6/"
+      }
+    },
+    {
+      "flavor_text": "An attack that varies in power and type depending on the weather.",
+      "language": {
+        "name": "en",
+        "url": "https://pokeapi.co/api/v2/language/9/"
+      },
+      "version_group": {
+        "name": "firered-leafgreen",
+        "url": "https://pokeapi.co/api/v2/version-group/7/"
+      }
+    },
+    {
+      "flavor_text": "An attack move that varies in power and type depending on the weather. ",
+      "language": {
+        "name": "en",
+        "url": "https://pokeapi.co/api/v2/language/9/"
+      },
+      "version_group": {
+        "name": "diamond-pearl",
+        "url": "https://pokeapi.co/api/v2/version-group/8/"
+      }
+    },
+    {
+      "flavor_text": "An attack move that varies in power and type depending on the weather. ",
+      "language": {
+        "name": "en",
+        "url": "https://pokeapi.co/api/v2/language/9/"
+      },
+      "version_group": {
+        "name": "platinum",
+        "url": "https://pokeapi.co/api/v2/version-group/9/"
+      }
+    },
+    {
+      "flavor_text": "An attack move that varies in power and type depending on the weather. ",
+      "language": {
+        "name": "en",
+        "url": "https://pokeapi.co/api/v2/language/9/"
+      },
+      "version_group": {
+        "name": "heartgold-soulsilver",
+        "url": "https://pokeapi.co/api/v2/version-group/10/"
+      }
+    },
+    {
+      "flavor_text": "Une attaque dont la puissance et le type varient en fonction du temps qu’il fait.",
+      "language": {
+        "name": "fr",
+        "url": "https://pokeapi.co/api/v2/language/5/"
+      },
+      "version_group": {
+        "name": "black-white",
+        "url": "https://pokeapi.co/api/v2/version-group/11/"
+      }
+    },
+    {
+      "flavor_text": "An attack move that varies in power and type depending on the weather.",
+      "language": {
+        "name": "en",
+        "url": "https://pokeapi.co/api/v2/language/9/"
+      },
+      "version_group": {
+        "name": "black-white",
+        "url": "https://pokeapi.co/api/v2/version-group/11/"
+      }
+    },
+    {
+      "flavor_text": "An attack move that varies in power and type depending on the weather.",
+      "language": {
+        "name": "en",
+        "url": "https://pokeapi.co/api/v2/language/9/"
+      },
+      "version_group": {
+        "name": "black-2-white-2",
+        "url": "https://pokeapi.co/api/v2/version-group/14/"
+      }
+    },
+    {
+      "flavor_text": "Une attaque dont la puissance et le type varient en fonction du temps qu’il fait.",
+      "language": {
+        "name": "fr",
+        "url": "https://pokeapi.co/api/v2/language/5/"
+      },
+      "version_group": {
+        "name": "x-y",
+        "url": "https://pokeapi.co/api/v2/version-group/15/"
+      }
+    },
+    {
+      "flavor_text": "An attack move that varies in power and type depending on the weather.",
+      "language": {
+        "name": "en",
+        "url": "https://pokeapi.co/api/v2/language/9/"
+      },
+      "version_group": {
+        "name": "x-y",
+        "url": "https://pokeapi.co/api/v2/version-group/15/"
+      }
+    },
+    {
+      "flavor_text": "Une attaque dont la puissance et le type varient en fonction du temps qu’il fait.",
+      "language": {
+        "name": "fr",
+        "url": "https://pokeapi.co/api/v2/language/5/"
+      },
+      "version_group": {
+        "name": "omega-ruby-alpha-sapphire",
+        "url": "https://pokeapi.co/api/v2/version-group/16/"
+      }
+    },
+    {
+      "flavor_text": "An attack move that varies in power and type depending on the weather.",
+      "language": {
+        "name": "en",
+        "url": "https://pokeapi.co/api/v2/language/9/"
+      },
+      "version_group": {
+        "name": "omega-ruby-alpha-sapphire",
+        "url": "https://pokeapi.co/api/v2/version-group/16/"
+      }
+    },
+    {
+      "flavor_text": "This attack move varies in power and type depending on the weather.",
+      "language": {
+        "name": "en",
+        "url": "https://pokeapi.co/api/v2/language/9/"
+      },
+      "version_group": {
+        "name": "sun-moon",
+        "url": "https://pokeapi.co/api/v2/version-group/17/"
+      }
+    },
+    {
+      "flavor_text": "Une attaque dont la puissance et le type varient en fonction du temps qu’il fait.",
+      "language": {
+        "name": "fr",
+        "url": "https://pokeapi.co/api/v2/language/5/"
+      },
+      "version_group": {
+        "name": "ultra-sun-ultra-moon",
+        "url": "https://pokeapi.co/api/v2/version-group/18/"
+      }
+    },
+    {
+      "flavor_text": "This attack move varies in power and type depending on the weather.",
+      "language": {
+        "name": "en",
+        "url": "https://pokeapi.co/api/v2/language/9/"
+      },
+      "version_group": {
+        "name": "ultra-sun-ultra-moon",
+        "url": "https://pokeapi.co/api/v2/version-group/18/"
+      }
+    },
+    {
+      "flavor_text": "Une attaque dont la puissance et le type varient en fonction du temps qu’il fait.",
+      "language": {
+        "name": "fr",
+        "url": "https://pokeapi.co/api/v2/language/5/"
+      },
+      "version_group": {
+        "name": "lets-go-pikachu-lets-go-eevee",
+        "url": "https://pokeapi.co/api/v2/version-group/19/"
+      }
+    },
+    {
+      "flavor_text": "This attack move varies in power and type depending on the weather.",
+      "language": {
+        "name": "en",
+        "url": "https://pokeapi.co/api/v2/language/9/"
+      },
+      "version_group": {
+        "name": "lets-go-pikachu-lets-go-eevee",
+        "url": "https://pokeapi.co/api/v2/version-group/19/"
+      }
+    },
+    {
+      "flavor_text": "Une attaque dont la puissance et le type varient en fonction du temps qu’il fait.",
+      "language": {
+        "name": "fr",
+        "url": "https://pokeapi.co/api/v2/language/5/"
+      },
+      "version_group": {
+        "name": "sword-shield",
+        "url": "https://pokeapi.co/api/v2/version-group/20/"
+      }
+    },
+    {
+      "flavor_text": "This attack move varies in power and type depending on the weather.",
+      "language": {
+        "name": "en",
+        "url": "https://pokeapi.co/api/v2/language/9/"
+      },
+      "version_group": {
+        "name": "sword-shield",
+        "url": "https://pokeapi.co/api/v2/version-group/20/"
+      }
+    },
+    {
+      "flavor_text": "This attack move varies in power and type depending on the weather.",
+      "language": {
+        "name": "en",
+        "url": "https://pokeapi.co/api/v2/language/9/"
+      },
+      "version_group": {
+        "name": "legends-arceus",
+        "url": "https://pokeapi.co/api/v2/version-group/24/"
+      }
+    },
+    {
+      "flavor_text": "This move's type and power change depending on the weather at the time the move is used.",
+      "language": {
+        "name": "en",
+        "url": "https://pokeapi.co/api/v2/language/9/"
+      },
+      "version_group": {
+        "name": "scarlet-violet",
+        "url": "https://pokeapi.co/api/v2/version-group/25/"
+      }
+    }
+  ],
+  "stat_changes": [],
+  "learned_by_pokemon": [
+    {
+      "id": 1,
+      "name": "Bulbizarre"
+    },
+    {
+      "id": 2,
+      "name": "Herbizarre"
+    },
+    {
+      "id": 3,
+      "name": "Florizarre"
+    },
+    {
+      "id": 4,
+      "name": "Salamèche"
+    },
+    {
+      "id": 5,
+      "name": "Reptincel"
+    },
+    {
+      "id": 6,
+      "name": "Dracaufeu"
+    },
+    {
+      "id": 7,
+      "name": "Carapuce"
+    },
+    {
+      "id": 8,
+      "name": "Carabaffe"
+    },
+    {
+      "id": 9,
+      "name": "Tortank"
+    },
+    {
+      "id": 37,
+      "name": "Goupix"
+    },
+    {
+      "id": 38,
+      "name": "Feunard"
+    },
+    {
+      "id": 45,
+      "name": "Rafflesia"
+    },
+    {
+      "id": 60,
+      "name": "Ptitard"
+    },
+    {
+      "id": 61,
+      "name": "Têtarte"
+    },
+    {
+      "id": 62,
+      "name": "Tartard"
+    },
+    {
+      "id": 69,
+      "name": "Chétiflor"
+    },
+    {
+      "id": 70,
+      "name": "Boustiflor"
+    },
+    {
+      "id": 71,
+      "name": "Empiflor"
+    },
+    {
+      "id": 73,
+      "name": "Tentacruel"
+    },
+    {
+      "id": 79,
+      "name": "Ramoloss"
+    },
+    {
+      "id": 80,
+      "name": "Flagadoss"
+    },
+    {
+      "id": 86,
+      "name": "Otaria"
+    },
+    {
+      "id": 87,
+      "name": "Lamantine"
+    },
+    {
+      "id": 91,
+      "name": "Crustabri"
+    },
+    {
+      "id": 116,
+      "name": "Hypotrempe"
+    },
+    {
+      "id": 117,
+      "name": "Hypocéan"
+    },
+    {
+      "id": 131,
+      "name": "Lokhlass"
+    },
+    {
+      "id": 133,
+      "name": "Évoli"
+    },
+    {
+      "id": 134,
+      "name": "Aquali"
+    },
+    {
+      "id": 135,
+      "name": "Voltali"
+    },
+    {
+      "id": 136,
+      "name": "Pyroli"
+    },
+    {
+      "id": 144,
+      "name": "Artikodin"
+    },
+    {
+      "id": 145,
+      "name": "Électhor"
+    },
+    {
+      "id": 146,
+      "name": "Sulfura"
+    },
+    {
+      "id": 148,
+      "name": "Draco"
+    },
+    {
+      "id": 149,
+      "name": "Dracolosse"
+    },
+    {
+      "id": 150,
+      "name": "Mewtwo"
+    },
+    {
+      "id": 151,
+      "name": "Mew"
+    },
+    {
+      "id": 154,
+      "name": "Méganium"
+    },
+    {
+      "id": 182,
+      "name": "Joliflor"
+    },
+    {
+      "id": 186,
+      "name": "Tarpaud"
+    },
+    {
+      "id": 191,
+      "name": "Tournegrin"
+    },
+    {
+      "id": 192,
+      "name": "Héliatronc"
+    },
+    {
+      "id": 196,
+      "name": "Mentali"
+    },
+    {
+      "id": 197,
+      "name": "Noctali"
+    },
+    {
+      "id": 199,
+      "name": "Roigada"
+    },
+    {
+      "id": 225,
+      "name": "Cadoizo"
+    },
+    {
+      "id": 230,
+      "name": "Hyporoi"
+    },
+    {
+      "id": 243,
+      "name": "Raikou"
+    },
+    {
+      "id": 244,
+      "name": "Entei"
+    },
+    {
+      "id": 245,
+      "name": "Suicune"
+    },
+    {
+      "id": 249,
+      "name": "Lugia"
+    },
+    {
+      "id": 250,
+      "name": "Ho-Oh"
+    },
+    {
+      "id": 251,
+      "name": "Celebi"
+    },
+    {
+      "id": 260,
+      "name": "Laggron"
+    },
+    {
+      "id": 270,
+      "name": "Nénupiot"
+    },
+    {
+      "id": 271,
+      "name": "Lombre"
+    },
+    {
+      "id": 272,
+      "name": "Ludicolo"
+    },
+    {
+      "id": 274,
+      "name": "Pifeuil"
+    },
+    {
+      "id": 275,
+      "name": "Tengalice"
+    },
+    {
+      "id": 279,
+      "name": "Bekipan"
+    },
+    {
+      "id": 284,
+      "name": "Maskadra"
+    },
+    {
+      "id": 315,
+      "name": "Rosélia"
+    },
+    {
+      "id": 320,
+      "name": "Wailmer"
+    },
+    {
+      "id": 321,
+      "name": "Wailord"
+    },
+    {
+      "id": 324,
+      "name": "Chartor"
+    },
+    {
+      "id": 334,
+      "name": "Altaria"
+    },
+    {
+      "id": 337,
+      "name": "Séléroc"
+    },
+    {
+      "id": 338,
+      "name": "Solaroc"
+    },
+    {
+      "id": 340,
+      "name": "Barbicha"
+    },
+    {
+      "id": 350,
+      "name": "Milobellus"
+    },
+    {
+      "id": 351,
+      "name": "Morphéo"
+    },
+    {
+      "id": 361,
+      "name": "Stalgamin"
+    },
+    {
+      "id": 362,
+      "name": "Oniglali"
+    },
+    {
+      "id": 380,
+      "name": "Latias"
+    },
+    {
+      "id": 381,
+      "name": "Latios"
+    },
+    {
+      "id": 393,
+      "name": "Tiplouf"
+    },
+    {
+      "id": 394,
+      "name": "Prinplouf"
+    },
+    {
+      "id": 395,
+      "name": "Pingoléon"
+    },
+    {
+      "id": 406,
+      "name": "Rozbouton"
+    },
+    {
+      "id": 407,
+      "name": "Roserade"
+    },
+    {
+      "id": 420,
+      "name": "Ceribou"
+    },
+    {
+      "id": 421,
+      "name": "Ceriflor"
+    },
+    {
+      "id": 423,
+      "name": "Tritosor"
+    },
+    {
+      "id": 425,
+      "name": "Baudrive"
+    },
+    {
+      "id": 426,
+      "name": "Grodrive"
+    },
+    {
+      "id": 437,
+      "name": "Archéodong"
+    },
+    {
+      "id": 449,
+      "name": "Hippopotas"
+    },
+    {
+      "id": 450,
+      "name": "Hippodocus"
+    },
+    {
+      "id": 459,
+      "name": "Blizzi"
+    },
+    {
+      "id": 460,
+      "name": "Blizzaroi"
+    },
+    {
+      "id": 466,
+      "name": "Élekable"
+    },
+    {
+      "id": 467,
+      "name": "Maganon"
+    },
+    {
+      "id": 470,
+      "name": "Phyllali"
+    },
+    {
+      "id": 471,
+      "name": "Givrali"
+    },
+    {
+      "id": 478,
+      "name": "Momartik"
+    },
+    {
+      "id": 489,
+      "name": "Phione"
+    },
+    {
+      "id": 490,
+      "name": "Manaphy"
+    },
+    {
+      "id": 526,
+      "name": "Gigalithe"
+    },
+    {
+      "id": 535,
+      "name": "Tritonde"
+    },
+    {
+      "id": 536,
+      "name": "Batracné"
+    },
+    {
+      "id": 537,
+      "name": "Crapustule"
+    },
+    {
+      "id": 549,
+      "name": "Fragilady"
+    },
+    {
+      "id": 556,
+      "name": "Maracachi"
+    },
+    {
+      "id": 581,
+      "name": "Lakmécygne"
+    },
+    {
+      "id": 584,
+      "name": "Sorbouboul"
+    },
+    {
+      "id": 641,
+      "name": "Boréas"
+    },
+    {
+      "id": 642,
+      "name": "Fulguris"
+    },
+    {
+      "id": 643,
+      "name": "Reshiram"
+    },
+    {
+      "id": 644,
+      "name": "Zekrom"
+    },
+    {
+      "id": 645,
+      "name": "Démétéros"
+    },
+    {
+      "id": 646,
+      "name": "Kyurem"
+    },
+    {
+      "id": 658,
+      "name": "Amphinobi"
+    },
+    {
+      "id": 666,
+      "name": "Prismillon"
+    },
+    {
+      "id": 692,
+      "name": "Flingouste"
+    },
+    {
+      "id": 693,
+      "name": "Gamblast"
+    },
+    {
+      "id": 695,
+      "name": "Iguolta"
+    },
+    {
+      "id": 698,
+      "name": "Amagara"
+    },
+    {
+      "id": 699,
+      "name": "Dragmara"
+    },
+    {
+      "id": 700,
+      "name": "Nymphali"
+    },
+    {
+      "id": 706,
+      "name": "Muplodocus"
+    },
+    {
+      "id": 721,
+      "name": "Volcanion"
+    },
+    {
+      "id": 730,
+      "name": "Oratoria"
+    },
+    {
+      "id": 753,
+      "name": "Mimantis"
+    },
+    {
+      "id": 754,
+      "name": "Floramantis"
+    },
+    {
+      "id": 756,
+      "name": "Lampignon"
+    },
+    {
+      "id": 814,
+      "name": "Lapyro"
+    },
+    {
+      "id": 815,
+      "name": "Pyrobut"
+    },
+    {
+      "id": 816,
+      "name": "Larméléon"
+    },
+    {
+      "id": 817,
+      "name": "Arrozard"
+    },
+    {
+      "id": 818,
+      "name": "Lézargus"
+    },
+    {
+      "id": 830,
+      "name": "Blancoton"
+    },
+    {
+      "id": 845,
+      "name": "Nigosier"
+    },
+    {
+      "id": 873,
+      "name": "Beldeneige"
+    },
+    {
+      "id": 875,
+      "name": "Bekaglaçon"
+    },
+    {
+      "id": 905,
+      "name": "Amovénus"
+    },
+    {
+      "id": 928,
+      "name": "Olivini"
+    },
+    {
+      "id": 929,
+      "name": "Olivado"
+    },
+    {
+      "id": 930,
+      "name": "Arboliva"
+    },
+    {
+      "id": 936,
+      "name": "Carmadura"
+    },
+    {
+      "id": 938,
+      "name": "Têtampoule"
+    },
+    {
+      "id": 939,
+      "name": "Ampibidou"
+    },
+    {
+      "id": 940,
+      "name": "Zapétrel"
+    },
+    {
+      "id": 941,
+      "name": "Fulgulairo"
+    },
+    {
+      "id": 953,
+      "name": "Léboulérou"
+    },
+    {
+      "id": 954,
+      "name": "Bérasca"
+    },
+    {
+      "id": 1009,
+      "name": "Serpente-Eau"
+    },
+    {
+      "id": 1020,
+      "name": "Feu-Perçant"
+    },
+    {
+      "id": 1021,
+      "name": "Ire-Foudre"
+    },
+    {
+      "id": 1024,
+      "name": "Terapagos"
+    },
+    {
+      "id": 10013,
+      "name": "Morphéo"
+    },
+    {
+      "id": 10014,
+      "name": "Morphéo"
+    },
+    {
+      "id": 10015,
+      "name": "Morphéo"
+    },
+    {
+      "id": 10019,
+      "name": "Boréas"
+    },
+    {
+      "id": 10020,
+      "name": "Fulguris"
+    },
+    {
+      "id": 10021,
+      "name": "Démétéros"
+    },
+    {
+      "id": 10022,
+      "name": "Kyurem"
+    },
+    {
+      "id": 10023,
+      "name": "Kyurem"
+    },
+    {
+      "id": 10103,
+      "name": "Goupix"
+    },
+    {
+      "id": 10104,
+      "name": "Feunard"
+    },
+    {
+      "id": 10164,
+      "name": "Ramoloss"
+    },
+    {
+      "id": 10165,
+      "name": "Flagadoss"
+    },
+    {
+      "id": 10172,
+      "name": "Roigada"
+    },
+    {
+      "id": 10182,
+      "name": "Nigosier"
+    },
+    {
+      "id": 10183,
+      "name": "Nigosier"
+    },
+    {
+      "id": 10185,
+      "name": "Bekaglaçon"
+    },
+    {
+      "id": 10237,
+      "name": "Fragilady"
+    },
+    {
+      "id": 10242,
+      "name": "Muplodocus"
+    },
+    {
+      "id": 10249,
+      "name": "Amovénus"
+    },
+    {
+      "id": 10276,
+      "name": "Terapagos"
+    },
+    {
+      "id": 10277,
+      "name": "Terapagos"
+    }
+  ]
+}

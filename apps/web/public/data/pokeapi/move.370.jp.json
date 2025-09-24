@@ -1,0 +1,888 @@
+{
+  "id": 370,
+  "name": "インファイト",
+  "type": {
+    "id": 2,
+    "name": "fighting"
+  },
+  "damage_class": {
+    "name": "physical"
+  },
+  "power": 120,
+  "accuracy": 100,
+  "pp": 5,
+  "priority": 0,
+  "target": {
+    "name": "selected-pokemon"
+  },
+  "generation": {
+    "name": "generation-iv"
+  },
+  "effect_entries": [
+    {
+      "effect": "Inflicts regular damage, then lowers the user’s Defense and Special Defense by one stage each.",
+      "language": {
+        "name": "en",
+        "url": "https://pokeapi.co/api/v2/language/9/"
+      },
+      "short_effect": "Lowers the user’s Defense and Special Defense by one stage after inflicting damage."
+    }
+  ],
+  "flavor_text_entries": [
+    {
+      "flavor_text": "The user fights the foe in close without guarding itself. It also cuts the user’s Defense and Sp. Def.",
+      "language": {
+        "name": "en",
+        "url": "https://pokeapi.co/api/v2/language/9/"
+      },
+      "version_group": {
+        "name": "diamond-pearl",
+        "url": "https://pokeapi.co/api/v2/version-group/8/"
+      }
+    },
+    {
+      "flavor_text": "The user fights the foe in close without guarding itself. It also cuts the user’s Defense and Sp. Def.",
+      "language": {
+        "name": "en",
+        "url": "https://pokeapi.co/api/v2/language/9/"
+      },
+      "version_group": {
+        "name": "platinum",
+        "url": "https://pokeapi.co/api/v2/version-group/9/"
+      }
+    },
+    {
+      "flavor_text": "The user fights the foe up close without guarding itself. It also cuts the user’s Defense and Sp. Def.",
+      "language": {
+        "name": "en",
+        "url": "https://pokeapi.co/api/v2/language/9/"
+      },
+      "version_group": {
+        "name": "heartgold-soulsilver",
+        "url": "https://pokeapi.co/api/v2/version-group/10/"
+      }
+    },
+    {
+      "flavor_text": "The user fights the target up close without guarding itself. It also cuts the user’s Defense and Sp. Def.",
+      "language": {
+        "name": "en",
+        "url": "https://pokeapi.co/api/v2/language/9/"
+      },
+      "version_group": {
+        "name": "black-white",
+        "url": "https://pokeapi.co/api/v2/version-group/11/"
+      }
+    },
+    {
+      "flavor_text": "The user fights the target up close without guarding itself. It also cuts the user’s Defense and Sp. Def.",
+      "language": {
+        "name": "en",
+        "url": "https://pokeapi.co/api/v2/language/9/"
+      },
+      "version_group": {
+        "name": "black-2-white-2",
+        "url": "https://pokeapi.co/api/v2/version-group/14/"
+      }
+    },
+    {
+      "flavor_text": "The user fights the target up close without guarding itself. This also lowers the user’s Defense and Sp. Def stats.",
+      "language": {
+        "name": "en",
+        "url": "https://pokeapi.co/api/v2/language/9/"
+      },
+      "version_group": {
+        "name": "x-y",
+        "url": "https://pokeapi.co/api/v2/version-group/15/"
+      }
+    },
+    {
+      "flavor_text": "守りを　捨てて　相手の　ふところに 突撃する。自分の 防御と　特防が　さがる。",
+      "language": {
+        "name": "ja",
+        "url": "https://pokeapi.co/api/v2/language/11/"
+      },
+      "version_group": {
+        "name": "x-y",
+        "url": "https://pokeapi.co/api/v2/version-group/15/"
+      }
+    },
+    {
+      "flavor_text": "The user fights the target up close without guarding itself. This also lowers the user’s Defense and Sp. Def stats.",
+      "language": {
+        "name": "en",
+        "url": "https://pokeapi.co/api/v2/language/9/"
+      },
+      "version_group": {
+        "name": "omega-ruby-alpha-sapphire",
+        "url": "https://pokeapi.co/api/v2/version-group/16/"
+      }
+    },
+    {
+      "flavor_text": "守りを　捨てて　相手の　ふところに 突撃する。自分の 防御と　特防が　さがる。",
+      "language": {
+        "name": "ja",
+        "url": "https://pokeapi.co/api/v2/language/11/"
+      },
+      "version_group": {
+        "name": "omega-ruby-alpha-sapphire",
+        "url": "https://pokeapi.co/api/v2/version-group/16/"
+      }
+    },
+    {
+      "flavor_text": "The user fights the target up close without guarding itself. This also lowers the user’s Defense and Sp. Def stats.",
+      "language": {
+        "name": "en",
+        "url": "https://pokeapi.co/api/v2/language/9/"
+      },
+      "version_group": {
+        "name": "sun-moon",
+        "url": "https://pokeapi.co/api/v2/version-group/17/"
+      }
+    },
+    {
+      "flavor_text": "守りを　捨てて　相手の　ふところに 突撃する。　自分の 防御と　特防が　さがる。",
+      "language": {
+        "name": "ja",
+        "url": "https://pokeapi.co/api/v2/language/11/"
+      },
+      "version_group": {
+        "name": "sun-moon",
+        "url": "https://pokeapi.co/api/v2/version-group/17/"
+      }
+    },
+    {
+      "flavor_text": "The user fights the target up close without guarding itself. This also lowers the user’s Defense and Sp. Def stats.",
+      "language": {
+        "name": "en",
+        "url": "https://pokeapi.co/api/v2/language/9/"
+      },
+      "version_group": {
+        "name": "ultra-sun-ultra-moon",
+        "url": "https://pokeapi.co/api/v2/version-group/18/"
+      }
+    },
+    {
+      "flavor_text": "守りを　捨てて　相手の　ふところに 突撃する。　自分の 防御と　特防が　さがる。",
+      "language": {
+        "name": "ja",
+        "url": "https://pokeapi.co/api/v2/language/11/"
+      },
+      "version_group": {
+        "name": "ultra-sun-ultra-moon",
+        "url": "https://pokeapi.co/api/v2/version-group/18/"
+      }
+    },
+    {
+      "flavor_text": "The user fights the target up close without guarding itself. This also lowers the user’s Defense and Sp. Def stats.",
+      "language": {
+        "name": "en",
+        "url": "https://pokeapi.co/api/v2/language/9/"
+      },
+      "version_group": {
+        "name": "lets-go-pikachu-lets-go-eevee",
+        "url": "https://pokeapi.co/api/v2/version-group/19/"
+      }
+    },
+    {
+      "flavor_text": "守りを　捨てて　相手の　ふところに 突撃する。　自分の 防御と　特防が　さがる。",
+      "language": {
+        "name": "ja",
+        "url": "https://pokeapi.co/api/v2/language/11/"
+      },
+      "version_group": {
+        "name": "lets-go-pikachu-lets-go-eevee",
+        "url": "https://pokeapi.co/api/v2/version-group/19/"
+      }
+    },
+    {
+      "flavor_text": "The user fights the target up close without guarding itself. This also lowers the user’s Defense and Sp. Def stats.",
+      "language": {
+        "name": "en",
+        "url": "https://pokeapi.co/api/v2/language/9/"
+      },
+      "version_group": {
+        "name": "sword-shield",
+        "url": "https://pokeapi.co/api/v2/version-group/20/"
+      }
+    },
+    {
+      "flavor_text": "守りを　捨てて　相手の　ふところに 突撃する。　自分の 防御と　特防が　さがる。",
+      "language": {
+        "name": "ja",
+        "url": "https://pokeapi.co/api/v2/language/11/"
+      },
+      "version_group": {
+        "name": "sword-shield",
+        "url": "https://pokeapi.co/api/v2/version-group/20/"
+      }
+    },
+    {
+      "flavor_text": "The user fights the target up close, inflicting damage without guarding itself. This also lowers the user's defensive stats.",
+      "language": {
+        "name": "en",
+        "url": "https://pokeapi.co/api/v2/language/9/"
+      },
+      "version_group": {
+        "name": "legends-arceus",
+        "url": "https://pokeapi.co/api/v2/version-group/24/"
+      }
+    },
+    {
+      "flavor_text": "The user fights the target up close, inflicting damage without guarding itself. This also lowers the user's Defense and Sp. Def stats.",
+      "language": {
+        "name": "en",
+        "url": "https://pokeapi.co/api/v2/language/9/"
+      },
+      "version_group": {
+        "name": "scarlet-violet",
+        "url": "https://pokeapi.co/api/v2/version-group/25/"
+      }
+    }
+  ],
+  "stat_changes": [
+    {
+      "change": -1,
+      "stat": {
+        "name": "defense",
+        "url": "https://pokeapi.co/api/v2/stat/3/"
+      }
+    },
+    {
+      "change": -1,
+      "stat": {
+        "name": "special-defense",
+        "url": "https://pokeapi.co/api/v2/stat/5/"
+      }
+    }
+  ],
+  "learned_by_pokemon": [
+    {
+      "id": 56,
+      "name": "マンキー"
+    },
+    {
+      "id": 57,
+      "name": "オコリザル"
+    },
+    {
+      "id": 58,
+      "name": "ガーディ"
+    },
+    {
+      "id": 59,
+      "name": "ウインディ"
+    },
+    {
+      "id": 62,
+      "name": "ニョロボン"
+    },
+    {
+      "id": 66,
+      "name": "ワンリキー"
+    },
+    {
+      "id": 67,
+      "name": "ゴーリキー"
+    },
+    {
+      "id": 68,
+      "name": "カイリキー"
+    },
+    {
+      "id": 83,
+      "name": "カモネギ"
+    },
+    {
+      "id": 106,
+      "name": "サワムラー"
+    },
+    {
+      "id": 107,
+      "name": "エビワラー"
+    },
+    {
+      "id": 123,
+      "name": "ストライク"
+    },
+    {
+      "id": 127,
+      "name": "カイロス"
+    },
+    {
+      "id": 128,
+      "name": "ケンタロス"
+    },
+    {
+      "id": 151,
+      "name": "ミュウ"
+    },
+    {
+      "id": 209,
+      "name": "ブルー"
+    },
+    {
+      "id": 210,
+      "name": "グランブル"
+    },
+    {
+      "id": 212,
+      "name": "ハッサム"
+    },
+    {
+      "id": 214,
+      "name": "ヘラクロス"
+    },
+    {
+      "id": 216,
+      "name": "ヒメグマ"
+    },
+    {
+      "id": 217,
+      "name": "リングマ"
+    },
+    {
+      "id": 237,
+      "name": "カポエラー"
+    },
+    {
+      "id": 256,
+      "name": "ワカシャモ"
+    },
+    {
+      "id": 257,
+      "name": "バシャーモ"
+    },
+    {
+      "id": 286,
+      "name": "キノガッサ"
+    },
+    {
+      "id": 296,
+      "name": "マクノシタ"
+    },
+    {
+      "id": 297,
+      "name": "ハリテヤマ"
+    },
+    {
+      "id": 307,
+      "name": "アサナン"
+    },
+    {
+      "id": 308,
+      "name": "チャーレム"
+    },
+    {
+      "id": 319,
+      "name": "サメハダー"
+    },
+    {
+      "id": 335,
+      "name": "ザングース"
+    },
+    {
+      "id": 342,
+      "name": "シザリガー"
+    },
+    {
+      "id": 359,
+      "name": "アブソル"
+    },
+    {
+      "id": 391,
+      "name": "モウカザル"
+    },
+    {
+      "id": 392,
+      "name": "ゴウカザル"
+    },
+    {
+      "id": 398,
+      "name": "ムクホーク"
+    },
+    {
+      "id": 428,
+      "name": "ミミロップ"
+    },
+    {
+      "id": 447,
+      "name": "リオル"
+    },
+    {
+      "id": 448,
+      "name": "ルカリオ"
+    },
+    {
+      "id": 453,
+      "name": "グレッグル"
+    },
+    {
+      "id": 454,
+      "name": "ドクロッグ"
+    },
+    {
+      "id": 475,
+      "name": "エルレイド"
+    },
+    {
+      "id": 499,
+      "name": "チャオブー"
+    },
+    {
+      "id": 500,
+      "name": "エンブオー"
+    },
+    {
+      "id": 532,
+      "name": "ドッコラー"
+    },
+    {
+      "id": 533,
+      "name": "ドテッコツ"
+    },
+    {
+      "id": 534,
+      "name": "ローブシン"
+    },
+    {
+      "id": 539,
+      "name": "ダゲキ"
+    },
+    {
+      "id": 553,
+      "name": "ワルビアル"
+    },
+    {
+      "id": 559,
+      "name": "ズルッグ"
+    },
+    {
+      "id": 560,
+      "name": "ズルズキン"
+    },
+    {
+      "id": 589,
+      "name": "シュバルゴ"
+    },
+    {
+      "id": 604,
+      "name": "シビルドン"
+    },
+    {
+      "id": 612,
+      "name": "オノノクス"
+    },
+    {
+      "id": 614,
+      "name": "ツンベアー"
+    },
+    {
+      "id": 619,
+      "name": "コジョフー"
+    },
+    {
+      "id": 620,
+      "name": "コジョンド"
+    },
+    {
+      "id": 623,
+      "name": "ゴルーグ"
+    },
+    {
+      "id": 626,
+      "name": "バッフロン"
+    },
+    {
+      "id": 627,
+      "name": "ワシボン"
+    },
+    {
+      "id": 628,
+      "name": "ウォーグル"
+    },
+    {
+      "id": 638,
+      "name": "コバルオン"
+    },
+    {
+      "id": 639,
+      "name": "テラキオン"
+    },
+    {
+      "id": 640,
+      "name": "ビリジオン"
+    },
+    {
+      "id": 647,
+      "name": "ケルディオ"
+    },
+    {
+      "id": 648,
+      "name": "メロエッタ"
+    },
+    {
+      "id": 652,
+      "name": "ブリガロン"
+    },
+    {
+      "id": 675,
+      "name": "ゴロンダ"
+    },
+    {
+      "id": 679,
+      "name": "ヒトツキ"
+    },
+    {
+      "id": 680,
+      "name": "ニダンギル"
+    },
+    {
+      "id": 681,
+      "name": "ギルガルド"
+    },
+    {
+      "id": 696,
+      "name": "チゴラス"
+    },
+    {
+      "id": 697,
+      "name": "ガチゴラス"
+    },
+    {
+      "id": 701,
+      "name": "ルチャブル"
+    },
+    {
+      "id": 716,
+      "name": "ゼルネアス"
+    },
+    {
+      "id": 724,
+      "name": "ジュナイパー"
+    },
+    {
+      "id": 727,
+      "name": "ガオガエン"
+    },
+    {
+      "id": 739,
+      "name": "マケンカニ"
+    },
+    {
+      "id": 740,
+      "name": "ケケンカニ"
+    },
+    {
+      "id": 745,
+      "name": "ルガルガン"
+    },
+    {
+      "id": 749,
+      "name": "ドロバンコ"
+    },
+    {
+      "id": 750,
+      "name": "バンバドロ"
+    },
+    {
+      "id": 760,
+      "name": "キテルグマ"
+    },
+    {
+      "id": 766,
+      "name": "ナゲツケサル"
+    },
+    {
+      "id": 768,
+      "name": "グソクムシャ"
+    },
+    {
+      "id": 783,
+      "name": "ジャランゴ"
+    },
+    {
+      "id": 784,
+      "name": "ジャラランガ"
+    },
+    {
+      "id": 787,
+      "name": "カプ・ブルル"
+    },
+    {
+      "id": 791,
+      "name": "ソルガレオ"
+    },
+    {
+      "id": 794,
+      "name": "マッシブーン"
+    },
+    {
+      "id": 795,
+      "name": "フェローチェ"
+    },
+    {
+      "id": 802,
+      "name": "マーシャドー"
+    },
+    {
+      "id": 807,
+      "name": "ゼラオラ"
+    },
+    {
+      "id": 846,
+      "name": "サシカマス"
+    },
+    {
+      "id": 847,
+      "name": "カマスジョー"
+    },
+    {
+      "id": 852,
+      "name": "タタッコ"
+    },
+    {
+      "id": 853,
+      "name": "オトスパス"
+    },
+    {
+      "id": 862,
+      "name": "タチフサグマ"
+    },
+    {
+      "id": 863,
+      "name": "ニャイキング"
+    },
+    {
+      "id": 865,
+      "name": "ネギガナイト"
+    },
+    {
+      "id": 870,
+      "name": "タイレーツ"
+    },
+    {
+      "id": 888,
+      "name": "ザシアン"
+    },
+    {
+      "id": 889,
+      "name": "ザマゼンタ"
+    },
+    {
+      "id": 891,
+      "name": "ダクマ"
+    },
+    {
+      "id": 892,
+      "name": "ウーラオス"
+    },
+    {
+      "id": 893,
+      "name": "ザルード"
+    },
+    {
+      "id": 896,
+      "name": "ブリザポス"
+    },
+    {
+      "id": 900,
+      "name": "バサギリ"
+    },
+    {
+      "id": 901,
+      "name": "ガチグマ"
+    },
+    {
+      "id": 903,
+      "name": "オオニューラ"
+    },
+    {
+      "id": 914,
+      "name": "ウェーニバル"
+    },
+    {
+      "id": 923,
+      "name": "パーモット"
+    },
+    {
+      "id": 937,
+      "name": "ソウブレイズ"
+    },
+    {
+      "id": 964,
+      "name": "イルカマン"
+    },
+    {
+      "id": 973,
+      "name": "カラミンゴ"
+    },
+    {
+      "id": 979,
+      "name": "コノヨザル"
+    },
+    {
+      "id": 984,
+      "name": "イダイナキバ"
+    },
+    {
+      "id": 986,
+      "name": "アラブルタケ"
+    },
+    {
+      "id": 988,
+      "name": "チヲハウハネ"
+    },
+    {
+      "id": 992,
+      "name": "テツノカイナ"
+    },
+    {
+      "id": 1006,
+      "name": "テツノブジン"
+    },
+    {
+      "id": 1007,
+      "name": "コライドン"
+    },
+    {
+      "id": 1010,
+      "name": "テツノイサハ"
+    },
+    {
+      "id": 1014,
+      "name": "イイネイヌ"
+    },
+    {
+      "id": 1022,
+      "name": "テツノイワオ"
+    },
+    {
+      "id": 10018,
+      "name": "メロエッタ"
+    },
+    {
+      "id": 10024,
+      "name": "ケルディオ"
+    },
+    {
+      "id": 10026,
+      "name": "ギルガルド"
+    },
+    {
+      "id": 10040,
+      "name": "カイロス"
+    },
+    {
+      "id": 10047,
+      "name": "ヘラクロス"
+    },
+    {
+      "id": 10059,
+      "name": "ルカリオ"
+    },
+    {
+      "id": 10068,
+      "name": "エルレイド"
+    },
+    {
+      "id": 10126,
+      "name": "ルガルガン"
+    },
+    {
+      "id": 10146,
+      "name": "ジャラランガ"
+    },
+    {
+      "id": 10152,
+      "name": "ルガルガン"
+    },
+    {
+      "id": 10166,
+      "name": "カモネギ"
+    },
+    {
+      "id": 10170,
+      "name": "サンダー"
+    },
+    {
+      "id": 10188,
+      "name": "ザシアン"
+    },
+    {
+      "id": 10189,
+      "name": "ザマゼンタ"
+    },
+    {
+      "id": 10191,
+      "name": "ウーラオス"
+    },
+    {
+      "id": 10192,
+      "name": "ザルード"
+    },
+    {
+      "id": 10193,
+      "name": "バドレックス"
+    },
+    {
+      "id": 10229,
+      "name": "ガーディ"
+    },
+    {
+      "id": 10230,
+      "name": "ウインディ"
+    },
+    {
+      "id": 10235,
+      "name": "ニューラ"
+    },
+    {
+      "id": 10237,
+      "name": "ドレディア"
+    },
+    {
+      "id": 10240,
+      "name": "ウォーグル"
+    },
+    {
+      "id": 10244,
+      "name": "ジュナイパー"
+    },
+    {
+      "id": 10250,
+      "name": "ケンタロス"
+    },
+    {
+      "id": 10251,
+      "name": "ケンタロス"
+    },
+    {
+      "id": 10252,
+      "name": "ケンタロス"
+    },
+    {
+      "id": 10256,
+      "name": "イルカマン"
+    },
+    {
+      "id": 10264,
+      "name": "コライドン"
+    },
+    {
+      "id": 10265,
+      "name": "コライドン"
+    },
+    {
+      "id": 10266,
+      "name": "コライドン"
+    },
+    {
+      "id": 10267,
+      "name": "コライドン"
+    },
+    {
+      "id": 10272,
+      "name": "ガチグマ"
+    }
+  ]
+}

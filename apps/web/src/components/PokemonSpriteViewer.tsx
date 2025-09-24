@@ -72,6 +72,15 @@ export default function PokemonSpriteViewer(props: Props) {
     if (home?.front_shiny) modern.push({ key: 'home_front_shiny', label: 'HOME Shiny', url: home.front_shiny });
     const dw = other?.['dream_world'];
     if (dw?.front_default) modern.push({ key: 'dream_world', label: 'Dream World', url: dw.front_default });
+    // Support trimmed sprite pack from new layout (flat keys)
+    if (!modern.length) {
+      if (s?.official_artwork) modern.push({ key: 'official-artwork', label: 'Official Artwork', url: s.official_artwork });
+      if (s?.home_default) modern.push({ key: 'home_front', label: 'HOME', url: s.home_default });
+      if (s?.home_shiny) modern.push({ key: 'home_front_shiny', label: 'HOME Shiny', url: s.home_shiny });
+      if (s?.dream_world) modern.push({ key: 'dream_world', label: 'Dream World', url: s.dream_world });
+      if (s?.front_default && modern.length === 0) modern.push({ key: 'front_default', label: 'Front', url: s.front_default });
+      if (s?.front_shiny) modern.push({ key: 'front_shiny', label: 'Front Shiny', url: s.front_shiny });
+    }
     if (modern.length) out.set('modern', modern);
 
     const versions = s?.versions || {};
@@ -93,10 +102,16 @@ export default function PokemonSpriteViewer(props: Props) {
       // Prefer one URL per category across version groups
       for (const { key, label } of catDefs) {
         let url: string | null = null;
-        for (const vgName of Object.keys(gobj)) {
-          const group = gobj[vgName] || {};
-          const candidate = group?.[key];
-          if (typeof candidate === 'string' && candidate) { url = candidate; break; }
+        // Collapsed per-gen mapping (new layout): value at gobj[key]
+        const direct = (gobj as any)?.[key];
+        if (typeof direct === 'string' && direct) url = direct;
+        // Legacy nested mapping: iterate version groups
+        if (!url) {
+          for (const vgName of Object.keys(gobj)) {
+            const group = (gobj as any)[vgName] || {};
+            const candidate = group?.[key];
+            if (typeof candidate === 'string' && candidate) { url = candidate; break; }
+          }
         }
         if (url) list.push({ key, label, url });
       }

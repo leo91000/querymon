@@ -1,14 +1,22 @@
 import { createSignal, createResource, createRoot } from 'solid-js';
 import { flatten, translator, resolveTemplate } from '@solid-primitives/i18n';
+import { queryClient } from '../queryClient';
 
 export type Locale = 'en' | 'fr' | 'jp';
 
 const i18n = createRoot(() => {
   const [locale, setLocale] = createSignal<Locale>('en');
   const [dict] = createResource(locale, async (loc) => {
-    const res = await fetch(`/locales/${loc}/common.json`);
-    const json = await res.json();
-    return flatten(json);
+    // Cache and persist locale dictionaries via TanStack Query for fast switches/offline
+    return queryClient.ensureQueryData({
+      queryKey: ['i18n', loc, 'common', 'v1'],
+      queryFn: async () => {
+        const res = await fetch(`/locales/${loc}/common.json`, { cache: 'no-store' });
+        if (!res.ok) throw new Error(`Failed to load locale ${loc}`);
+        const json = await res.json();
+        return flatten(json);
+      },
+    });
   });
 
   const translate = translator(dict, resolveTemplate);

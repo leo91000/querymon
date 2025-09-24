@@ -1,0 +1,983 @@
+{
+  "id": 289,
+  "name": "Saisie",
+  "type": {
+    "id": 17,
+    "name": "dark"
+  },
+  "damage_class": {
+    "name": "status"
+  },
+  "power": null,
+  "accuracy": null,
+  "pp": 10,
+  "priority": 4,
+  "target": {
+    "name": "user"
+  },
+  "generation": {
+    "name": "generation-iii"
+  },
+  "effect_entries": [
+    {
+      "effect": "The next time a Pokémon uses a beneficial move on itself or itself and its ally this turn, the user of this move will steal the move and use it itself.  Moves which may be stolen by this move are identified by the \"snatchable\" flag.  If two Pokémon use this move on the same turn, the faster Pokémon will steal the first beneficial move, and the slower Pokémon will then steal it again—thus, only the slowest Pokémon using this move ultimately gains a stolen move’s effect.  If the user steals psych up, it will target the Pokémon that used psych up.  If the user was the original target of psych up, and the Pokémon that originally used it’s affected by pressure, it will only lose 1 PP.  This move cannot be copied by mirror move, nor selected by assist or metronome.",
+      "language": {
+        "name": "en",
+        "url": "https://pokeapi.co/api/v2/language/9/"
+      },
+      "short_effect": "Steals the target’s move, if it’s self-targeted."
+    }
+  ],
+  "flavor_text_entries": [
+    {
+      "flavor_text": "Steals the effects of the move the foe uses next.",
+      "language": {
+        "name": "en",
+        "url": "https://pokeapi.co/api/v2/language/9/"
+      },
+      "version_group": {
+        "name": "ruby-sapphire",
+        "url": "https://pokeapi.co/api/v2/version-group/5/"
+      }
+    },
+    {
+      "flavor_text": "Steals the effects of the move the target uses next.",
+      "language": {
+        "name": "en",
+        "url": "https://pokeapi.co/api/v2/language/9/"
+      },
+      "version_group": {
+        "name": "emerald",
+        "url": "https://pokeapi.co/api/v2/version-group/6/"
+      }
+    },
+    {
+      "flavor_text": "Steals the effects of the foe’s healing or status- changing move.",
+      "language": {
+        "name": "en",
+        "url": "https://pokeapi.co/api/v2/language/9/"
+      },
+      "version_group": {
+        "name": "firered-leafgreen",
+        "url": "https://pokeapi.co/api/v2/version-group/7/"
+      }
+    },
+    {
+      "flavor_text": "The user steals the effects of any healing or status- changing move the foe attempts to use.",
+      "language": {
+        "name": "en",
+        "url": "https://pokeapi.co/api/v2/language/9/"
+      },
+      "version_group": {
+        "name": "diamond-pearl",
+        "url": "https://pokeapi.co/api/v2/version-group/8/"
+      }
+    },
+    {
+      "flavor_text": "The user steals the effects of any healing or stat- changing move the foe attempts to use.",
+      "language": {
+        "name": "en",
+        "url": "https://pokeapi.co/api/v2/language/9/"
+      },
+      "version_group": {
+        "name": "platinum",
+        "url": "https://pokeapi.co/api/v2/version-group/9/"
+      }
+    },
+    {
+      "flavor_text": "The user steals the effects of any healing or stat- changing move the foe attempts to use.",
+      "language": {
+        "name": "en",
+        "url": "https://pokeapi.co/api/v2/language/9/"
+      },
+      "version_group": {
+        "name": "heartgold-soulsilver",
+        "url": "https://pokeapi.co/api/v2/version-group/10/"
+      }
+    },
+    {
+      "flavor_text": "Le lanceur vole l’effet des capacités de soin ou de changement de stats utilisées par la cible.",
+      "language": {
+        "name": "fr",
+        "url": "https://pokeapi.co/api/v2/language/5/"
+      },
+      "version_group": {
+        "name": "black-white",
+        "url": "https://pokeapi.co/api/v2/version-group/11/"
+      }
+    },
+    {
+      "flavor_text": "The user steals the effects of any healing or stat-changing move the opponent attempts to use.",
+      "language": {
+        "name": "en",
+        "url": "https://pokeapi.co/api/v2/language/9/"
+      },
+      "version_group": {
+        "name": "black-white",
+        "url": "https://pokeapi.co/api/v2/version-group/11/"
+      }
+    },
+    {
+      "flavor_text": "The user steals the effects of any healing or stat-changing move the opponent attempts to use.",
+      "language": {
+        "name": "en",
+        "url": "https://pokeapi.co/api/v2/language/9/"
+      },
+      "version_group": {
+        "name": "black-2-white-2",
+        "url": "https://pokeapi.co/api/v2/version-group/14/"
+      }
+    },
+    {
+      "flavor_text": "Lorsqu’une capacité de soin ou de changement de stats est utilisée, le lanceur vole ses effets.",
+      "language": {
+        "name": "fr",
+        "url": "https://pokeapi.co/api/v2/language/5/"
+      },
+      "version_group": {
+        "name": "x-y",
+        "url": "https://pokeapi.co/api/v2/version-group/15/"
+      }
+    },
+    {
+      "flavor_text": "The user steals the effects of any attempts to use a healing or stat-changing move.",
+      "language": {
+        "name": "en",
+        "url": "https://pokeapi.co/api/v2/language/9/"
+      },
+      "version_group": {
+        "name": "x-y",
+        "url": "https://pokeapi.co/api/v2/version-group/15/"
+      }
+    },
+    {
+      "flavor_text": "Lorsqu’une capacité de soin ou de changement de stats est utilisée, le lanceur vole ses effets.",
+      "language": {
+        "name": "fr",
+        "url": "https://pokeapi.co/api/v2/language/5/"
+      },
+      "version_group": {
+        "name": "omega-ruby-alpha-sapphire",
+        "url": "https://pokeapi.co/api/v2/version-group/16/"
+      }
+    },
+    {
+      "flavor_text": "The user steals the effects of any attempts to use a healing or stat-changing move.",
+      "language": {
+        "name": "en",
+        "url": "https://pokeapi.co/api/v2/language/9/"
+      },
+      "version_group": {
+        "name": "omega-ruby-alpha-sapphire",
+        "url": "https://pokeapi.co/api/v2/version-group/16/"
+      }
+    },
+    {
+      "flavor_text": "Lorsqu’une capacité de soin ou de changement de stats est utilisée, le lanceur vole ses effets.",
+      "language": {
+        "name": "fr",
+        "url": "https://pokeapi.co/api/v2/language/5/"
+      },
+      "version_group": {
+        "name": "sun-moon",
+        "url": "https://pokeapi.co/api/v2/version-group/17/"
+      }
+    },
+    {
+      "flavor_text": "The user steals the effects of any attempts to use a healing or stat-changing move.",
+      "language": {
+        "name": "en",
+        "url": "https://pokeapi.co/api/v2/language/9/"
+      },
+      "version_group": {
+        "name": "sun-moon",
+        "url": "https://pokeapi.co/api/v2/version-group/17/"
+      }
+    },
+    {
+      "flavor_text": "Lorsqu’une capacité de soin ou de changement de stats est utilisée, le lanceur vole ses effets.",
+      "language": {
+        "name": "fr",
+        "url": "https://pokeapi.co/api/v2/language/5/"
+      },
+      "version_group": {
+        "name": "ultra-sun-ultra-moon",
+        "url": "https://pokeapi.co/api/v2/version-group/18/"
+      }
+    },
+    {
+      "flavor_text": "The user steals the effects of any attempts to use a healing or stat-changing move.",
+      "language": {
+        "name": "en",
+        "url": "https://pokeapi.co/api/v2/language/9/"
+      },
+      "version_group": {
+        "name": "ultra-sun-ultra-moon",
+        "url": "https://pokeapi.co/api/v2/version-group/18/"
+      }
+    },
+    {
+      "flavor_text": "Lorsqu’une capacité de soin ou de changement de stats est utilisée, le lanceur vole ses effets.",
+      "language": {
+        "name": "fr",
+        "url": "https://pokeapi.co/api/v2/language/5/"
+      },
+      "version_group": {
+        "name": "lets-go-pikachu-lets-go-eevee",
+        "url": "https://pokeapi.co/api/v2/version-group/19/"
+      }
+    },
+    {
+      "flavor_text": "The user steals the effects of any attempts to use a healing or stat-changing move.",
+      "language": {
+        "name": "en",
+        "url": "https://pokeapi.co/api/v2/language/9/"
+      },
+      "version_group": {
+        "name": "lets-go-pikachu-lets-go-eevee",
+        "url": "https://pokeapi.co/api/v2/version-group/19/"
+      }
+    },
+    {
+      "flavor_text": "Cette capacité ne peut pas être utilisée. Il est recommandé de l’oublier, même s’il sera impossible de se la remémorer une fois oubliée.",
+      "language": {
+        "name": "fr",
+        "url": "https://pokeapi.co/api/v2/language/5/"
+      },
+      "version_group": {
+        "name": "sword-shield",
+        "url": "https://pokeapi.co/api/v2/version-group/20/"
+      }
+    },
+    {
+      "flavor_text": "This move can’t be used. It’s recommended that this move is forgotten. Once forgotten, this move can’t be remembered.",
+      "language": {
+        "name": "en",
+        "url": "https://pokeapi.co/api/v2/language/9/"
+      },
+      "version_group": {
+        "name": "sword-shield",
+        "url": "https://pokeapi.co/api/v2/version-group/20/"
+      }
+    }
+  ],
+  "stat_changes": [],
+  "learned_by_pokemon": [
+    {
+      "id": 23,
+      "name": "Abo"
+    },
+    {
+      "id": 24,
+      "name": "Arbok"
+    },
+    {
+      "id": 35,
+      "name": "Mélofée"
+    },
+    {
+      "id": 36,
+      "name": "Mélodelfe"
+    },
+    {
+      "id": 39,
+      "name": "Rondoudou"
+    },
+    {
+      "id": 40,
+      "name": "Grodoudou"
+    },
+    {
+      "id": 41,
+      "name": "Nosferapti"
+    },
+    {
+      "id": 42,
+      "name": "Nosferalto"
+    },
+    {
+      "id": 52,
+      "name": "Miaouss"
+    },
+    {
+      "id": 53,
+      "name": "Persian"
+    },
+    {
+      "id": 63,
+      "name": "Abra"
+    },
+    {
+      "id": 64,
+      "name": "Kadabra"
+    },
+    {
+      "id": 65,
+      "name": "Alakazam"
+    },
+    {
+      "id": 92,
+      "name": "Fantominus"
+    },
+    {
+      "id": 93,
+      "name": "Spectrum"
+    },
+    {
+      "id": 94,
+      "name": "Ectoplasma"
+    },
+    {
+      "id": 96,
+      "name": "Soporifik"
+    },
+    {
+      "id": 97,
+      "name": "Hypnomade"
+    },
+    {
+      "id": 113,
+      "name": "Leveinard"
+    },
+    {
+      "id": 122,
+      "name": "M. Mime"
+    },
+    {
+      "id": 143,
+      "name": "Ronflex"
+    },
+    {
+      "id": 150,
+      "name": "Mewtwo"
+    },
+    {
+      "id": 151,
+      "name": "Mew"
+    },
+    {
+      "id": 169,
+      "name": "Nostenfer"
+    },
+    {
+      "id": 190,
+      "name": "Capumain"
+    },
+    {
+      "id": 197,
+      "name": "Noctali"
+    },
+    {
+      "id": 198,
+      "name": "Cornèbre"
+    },
+    {
+      "id": 200,
+      "name": "Feuforêve"
+    },
+    {
+      "id": 215,
+      "name": "Farfuret"
+    },
+    {
+      "id": 228,
+      "name": "Malosse"
+    },
+    {
+      "id": 229,
+      "name": "Démolosse"
+    },
+    {
+      "id": 242,
+      "name": "Leuphorie"
+    },
+    {
+      "id": 261,
+      "name": "Medhyèna"
+    },
+    {
+      "id": 262,
+      "name": "Grahyèna"
+    },
+    {
+      "id": 280,
+      "name": "Tarsal"
+    },
+    {
+      "id": 281,
+      "name": "Kirlia"
+    },
+    {
+      "id": 282,
+      "name": "Gardevoir"
+    },
+    {
+      "id": 285,
+      "name": "Balignon"
+    },
+    {
+      "id": 286,
+      "name": "Chapignon"
+    },
+    {
+      "id": 302,
+      "name": "Ténéfix"
+    },
+    {
+      "id": 303,
+      "name": "Mysdibule"
+    },
+    {
+      "id": 316,
+      "name": "Gloupti"
+    },
+    {
+      "id": 317,
+      "name": "Avaltout"
+    },
+    {
+      "id": 325,
+      "name": "Spoink"
+    },
+    {
+      "id": 326,
+      "name": "Groret"
+    },
+    {
+      "id": 327,
+      "name": "Spinda"
+    },
+    {
+      "id": 336,
+      "name": "Séviper"
+    },
+    {
+      "id": 352,
+      "name": "Kecleon"
+    },
+    {
+      "id": 353,
+      "name": "Polichombr"
+    },
+    {
+      "id": 354,
+      "name": "Branette"
+    },
+    {
+      "id": 355,
+      "name": "Skelénox"
+    },
+    {
+      "id": 356,
+      "name": "Téraclope"
+    },
+    {
+      "id": 358,
+      "name": "Éoko"
+    },
+    {
+      "id": 359,
+      "name": "Absol"
+    },
+    {
+      "id": 367,
+      "name": "Serpang"
+    },
+    {
+      "id": 386,
+      "name": "Deoxys"
+    },
+    {
+      "id": 424,
+      "name": "Capidextre"
+    },
+    {
+      "id": 429,
+      "name": "Magirêve"
+    },
+    {
+      "id": 430,
+      "name": "Corboss"
+    },
+    {
+      "id": 431,
+      "name": "Chaglam"
+    },
+    {
+      "id": 432,
+      "name": "Chaffreux"
+    },
+    {
+      "id": 433,
+      "name": "Korillon"
+    },
+    {
+      "id": 434,
+      "name": "Moufouette"
+    },
+    {
+      "id": 435,
+      "name": "Moufflair"
+    },
+    {
+      "id": 439,
+      "name": "Mime Jr."
+    },
+    {
+      "id": 442,
+      "name": "Spiritomb"
+    },
+    {
+      "id": 446,
+      "name": "Goinfrex"
+    },
+    {
+      "id": 453,
+      "name": "Cradopaud"
+    },
+    {
+      "id": 454,
+      "name": "Coatox"
+    },
+    {
+      "id": 461,
+      "name": "Dimoret"
+    },
+    {
+      "id": 475,
+      "name": "Gallame"
+    },
+    {
+      "id": 477,
+      "name": "Noctunoir"
+    },
+    {
+      "id": 478,
+      "name": "Momartik"
+    },
+    {
+      "id": 479,
+      "name": "Motisma"
+    },
+    {
+      "id": 491,
+      "name": "Darkrai"
+    },
+    {
+      "id": 495,
+      "name": "Vipélierre"
+    },
+    {
+      "id": 496,
+      "name": "Lianaja"
+    },
+    {
+      "id": 497,
+      "name": "Majaspic"
+    },
+    {
+      "id": 509,
+      "name": "Chacripan"
+    },
+    {
+      "id": 510,
+      "name": "Léopardus"
+    },
+    {
+      "id": 522,
+      "name": "Zébibron"
+    },
+    {
+      "id": 523,
+      "name": "Zéblitz"
+    },
+    {
+      "id": 531,
+      "name": "Nanméouïe"
+    },
+    {
+      "id": 545,
+      "name": "Brutapode"
+    },
+    {
+      "id": 551,
+      "name": "Mascaïman"
+    },
+    {
+      "id": 552,
+      "name": "Escroco"
+    },
+    {
+      "id": 553,
+      "name": "Crocorible"
+    },
+    {
+      "id": 554,
+      "name": "Darumarond"
+    },
+    {
+      "id": 555,
+      "name": "Darumacho"
+    },
+    {
+      "id": 559,
+      "name": "Baggiguane"
+    },
+    {
+      "id": 560,
+      "name": "Baggaïd"
+    },
+    {
+      "id": 562,
+      "name": "Tutafeh"
+    },
+    {
+      "id": 563,
+      "name": "Tutankafer"
+    },
+    {
+      "id": 570,
+      "name": "Zorua"
+    },
+    {
+      "id": 571,
+      "name": "Zoroark"
+    },
+    {
+      "id": 574,
+      "name": "Scrutella"
+    },
+    {
+      "id": 575,
+      "name": "Mesmérella"
+    },
+    {
+      "id": 576,
+      "name": "Sidérella"
+    },
+    {
+      "id": 577,
+      "name": "Nucléos"
+    },
+    {
+      "id": 578,
+      "name": "Méios"
+    },
+    {
+      "id": 579,
+      "name": "Symbios"
+    },
+    {
+      "id": 605,
+      "name": "Lewsor"
+    },
+    {
+      "id": 606,
+      "name": "Neitram"
+    },
+    {
+      "id": 621,
+      "name": "Drakkarmin"
+    },
+    {
+      "id": 624,
+      "name": "Scalpion"
+    },
+    {
+      "id": 625,
+      "name": "Scalproie"
+    },
+    {
+      "id": 629,
+      "name": "Vostourno"
+    },
+    {
+      "id": 630,
+      "name": "Vaututrice"
+    },
+    {
+      "id": 631,
+      "name": "Aflamanoir"
+    },
+    {
+      "id": 648,
+      "name": "Meloetta"
+    },
+    {
+      "id": 654,
+      "name": "Roussil"
+    },
+    {
+      "id": 655,
+      "name": "Goupelin"
+    },
+    {
+      "id": 656,
+      "name": "Grenousse"
+    },
+    {
+      "id": 657,
+      "name": "Croâporal"
+    },
+    {
+      "id": 658,
+      "name": "Amphinobi"
+    },
+    {
+      "id": 660,
+      "name": "Excavarenne"
+    },
+    {
+      "id": 661,
+      "name": "Passerouge"
+    },
+    {
+      "id": 662,
+      "name": "Braisillon"
+    },
+    {
+      "id": 663,
+      "name": "Flambusard"
+    },
+    {
+      "id": 667,
+      "name": "Hélionceau"
+    },
+    {
+      "id": 668,
+      "name": "Némélios"
+    },
+    {
+      "id": 674,
+      "name": "Pandespiègle"
+    },
+    {
+      "id": 675,
+      "name": "Pandarbare"
+    },
+    {
+      "id": 677,
+      "name": "Psystigri"
+    },
+    {
+      "id": 678,
+      "name": "Mistigrix"
+    },
+    {
+      "id": 686,
+      "name": "Sepiatop"
+    },
+    {
+      "id": 687,
+      "name": "Sepiatroce"
+    },
+    {
+      "id": 714,
+      "name": "Sonistrelle"
+    },
+    {
+      "id": 715,
+      "name": "Bruyverne"
+    },
+    {
+      "id": 720,
+      "name": "Hoopa"
+    },
+    {
+      "id": 727,
+      "name": "Félinferno"
+    },
+    {
+      "id": 747,
+      "name": "Vorastérie"
+    },
+    {
+      "id": 748,
+      "name": "Prédastérie"
+    },
+    {
+      "id": 757,
+      "name": "Tritox"
+    },
+    {
+      "id": 758,
+      "name": "Malamandre"
+    },
+    {
+      "id": 765,
+      "name": "Gouroutan"
+    },
+    {
+      "id": 766,
+      "name": "Quartermac"
+    },
+    {
+      "id": 778,
+      "name": "Mimiqui"
+    },
+    {
+      "id": 779,
+      "name": "Denticrisse"
+    },
+    {
+      "id": 795,
+      "name": "Cancrelove"
+    },
+    {
+      "id": 802,
+      "name": "Marshadow"
+    },
+    {
+      "id": 803,
+      "name": "Vémini"
+    },
+    {
+      "id": 804,
+      "name": "Mandrillon"
+    },
+    {
+      "id": 807,
+      "name": "Zeraora"
+    },
+    {
+      "id": 10001,
+      "name": "Deoxys"
+    },
+    {
+      "id": 10002,
+      "name": "Deoxys"
+    },
+    {
+      "id": 10003,
+      "name": "Deoxys"
+    },
+    {
+      "id": 10008,
+      "name": "Motisma"
+    },
+    {
+      "id": 10009,
+      "name": "Motisma"
+    },
+    {
+      "id": 10010,
+      "name": "Motisma"
+    },
+    {
+      "id": 10011,
+      "name": "Motisma"
+    },
+    {
+      "id": 10012,
+      "name": "Motisma"
+    },
+    {
+      "id": 10017,
+      "name": "Darumacho"
+    },
+    {
+      "id": 10018,
+      "name": "Meloetta"
+    },
+    {
+      "id": 10025,
+      "name": "Mistigrix"
+    },
+    {
+      "id": 10037,
+      "name": "Alakazam"
+    },
+    {
+      "id": 10038,
+      "name": "Ectoplasma"
+    },
+    {
+      "id": 10043,
+      "name": "Mewtwo"
+    },
+    {
+      "id": 10044,
+      "name": "Mewtwo"
+    },
+    {
+      "id": 10048,
+      "name": "Démolosse"
+    },
+    {
+      "id": 10051,
+      "name": "Gardevoir"
+    },
+    {
+      "id": 10052,
+      "name": "Mysdibule"
+    },
+    {
+      "id": 10056,
+      "name": "Branette"
+    },
+    {
+      "id": 10057,
+      "name": "Absol"
+    },
+    {
+      "id": 10066,
+      "name": "Ténéfix"
+    },
+    {
+      "id": 10068,
+      "name": "Gallame"
+    },
+    {
+      "id": 10069,
+      "name": "Nanméouïe"
+    },
+    {
+      "id": 10086,
+      "name": "Hoopa"
+    },
+    {
+      "id": 10091,
+      "name": "Rattata"
+    },
+    {
+      "id": 10092,
+      "name": "Rattatac"
+    },
+    {
+      "id": 10093,
+      "name": "Rattatac"
+    },
+    {
+      "id": 10107,
+      "name": "Miaouss"
+    },
+    {
+      "id": 10108,
+      "name": "Persian"
+    },
+    {
+      "id": 10116,
+      "name": "Amphinobi"
+    },
+    {
+      "id": 10117,
+      "name": "Amphinobi"
+    },
+    {
+      "id": 10129,
+      "name": "Malamandre"
+    },
+    {
+      "id": 10143,
+      "name": "Mimiqui"
+    },
+    {
+      "id": 10144,
+      "name": "Mimiqui"
+    },
+    {
+      "id": 10145,
+      "name": "Mimiqui"
+    }
+  ]
+}

@@ -1,0 +1,967 @@
+{
+  "id": 175,
+  "name": "Gigotage",
+  "type": {
+    "id": 1,
+    "name": "normal"
+  },
+  "damage_class": {
+    "name": "physical"
+  },
+  "power": null,
+  "accuracy": 100,
+  "pp": 15,
+  "priority": 0,
+  "target": {
+    "name": "selected-pokemon"
+  },
+  "generation": {
+    "name": "generation-ii"
+  },
+  "effect_entries": [
+    {
+      "effect": "Inflicts regular damage.  Power varies inversely with the user’s proportional remaining HP.  64 * current HP / max HP | Power -----------------------: | ----:  0– 1                    |  200  2– 5                    |  150  6–12                    |  100 13–21                    |   80 22–42                    |   40 43–64                    |   20 ",
+      "language": {
+        "name": "en",
+        "url": "https://pokeapi.co/api/v2/language/9/"
+      },
+      "short_effect": "Inflicts more damage when the user has less HP remaining, with a maximum of 200 power."
+    }
+  ],
+  "flavor_text_entries": [
+    {
+      "flavor_text": "Stronger if the user's HP is low.",
+      "language": {
+        "name": "en",
+        "url": "https://pokeapi.co/api/v2/language/9/"
+      },
+      "version_group": {
+        "name": "gold-silver",
+        "url": "https://pokeapi.co/api/v2/version-group/3/"
+      }
+    },
+    {
+      "flavor_text": "Stronger if the user's HP is low.",
+      "language": {
+        "name": "en",
+        "url": "https://pokeapi.co/api/v2/language/9/"
+      },
+      "version_group": {
+        "name": "crystal",
+        "url": "https://pokeapi.co/api/v2/version-group/4/"
+      }
+    },
+    {
+      "flavor_text": "Inflicts more damage when the user’s HP is down.",
+      "language": {
+        "name": "en",
+        "url": "https://pokeapi.co/api/v2/language/9/"
+      },
+      "version_group": {
+        "name": "ruby-sapphire",
+        "url": "https://pokeapi.co/api/v2/version-group/5/"
+      }
+    },
+    {
+      "flavor_text": "Inflicts more damage when the user’s HP is down.",
+      "language": {
+        "name": "en",
+        "url": "https://pokeapi.co/api/v2/language/9/"
+      },
+      "version_group": {
+        "name": "emerald",
+        "url": "https://pokeapi.co/api/v2/version-group/6/"
+      }
+    },
+    {
+      "flavor_text": "A desperate attack that becomes more powerful the less HP the user has.",
+      "language": {
+        "name": "en",
+        "url": "https://pokeapi.co/api/v2/language/9/"
+      },
+      "version_group": {
+        "name": "firered-leafgreen",
+        "url": "https://pokeapi.co/api/v2/version-group/7/"
+      }
+    },
+    {
+      "flavor_text": "The user flails about aimlessly to attack. It becomes more powerful the less HP the user has.",
+      "language": {
+        "name": "en",
+        "url": "https://pokeapi.co/api/v2/language/9/"
+      },
+      "version_group": {
+        "name": "diamond-pearl",
+        "url": "https://pokeapi.co/api/v2/version-group/8/"
+      }
+    },
+    {
+      "flavor_text": "The user flails about aimlessly to attack. It becomes more powerful the less HP the user has.",
+      "language": {
+        "name": "en",
+        "url": "https://pokeapi.co/api/v2/language/9/"
+      },
+      "version_group": {
+        "name": "platinum",
+        "url": "https://pokeapi.co/api/v2/version-group/9/"
+      }
+    },
+    {
+      "flavor_text": "The user flails about aimlessly to attack. It becomes more powerful the less HP the user has.",
+      "language": {
+        "name": "en",
+        "url": "https://pokeapi.co/api/v2/language/9/"
+      },
+      "version_group": {
+        "name": "heartgold-soulsilver",
+        "url": "https://pokeapi.co/api/v2/version-group/10/"
+      }
+    },
+    {
+      "flavor_text": "Le lanceur fait tournoyer son fléau. Plus ses PV sont bas, plus l’attaque est puissante.",
+      "language": {
+        "name": "fr",
+        "url": "https://pokeapi.co/api/v2/language/5/"
+      },
+      "version_group": {
+        "name": "black-white",
+        "url": "https://pokeapi.co/api/v2/version-group/11/"
+      }
+    },
+    {
+      "flavor_text": "The user flails about aimlessly to attack. It becomes more powerful the less HP the user has.",
+      "language": {
+        "name": "en",
+        "url": "https://pokeapi.co/api/v2/language/9/"
+      },
+      "version_group": {
+        "name": "black-white",
+        "url": "https://pokeapi.co/api/v2/version-group/11/"
+      }
+    },
+    {
+      "flavor_text": "The user flails about aimlessly to attack. It becomes more powerful the less HP the user has.",
+      "language": {
+        "name": "en",
+        "url": "https://pokeapi.co/api/v2/language/9/"
+      },
+      "version_group": {
+        "name": "black-2-white-2",
+        "url": "https://pokeapi.co/api/v2/version-group/14/"
+      }
+    },
+    {
+      "flavor_text": "Le lanceur fait tournoyer son fléau. Plus ses PV sont bas, plus l’attaque est puissante.",
+      "language": {
+        "name": "fr",
+        "url": "https://pokeapi.co/api/v2/language/5/"
+      },
+      "version_group": {
+        "name": "x-y",
+        "url": "https://pokeapi.co/api/v2/version-group/15/"
+      }
+    },
+    {
+      "flavor_text": "The user flails about aimlessly to attack. The less HP the user has, the greater the move’s power.",
+      "language": {
+        "name": "en",
+        "url": "https://pokeapi.co/api/v2/language/9/"
+      },
+      "version_group": {
+        "name": "x-y",
+        "url": "https://pokeapi.co/api/v2/version-group/15/"
+      }
+    },
+    {
+      "flavor_text": "Le lanceur fait tournoyer son fléau. Plus ses PV sont bas, plus l’attaque est puissante.",
+      "language": {
+        "name": "fr",
+        "url": "https://pokeapi.co/api/v2/language/5/"
+      },
+      "version_group": {
+        "name": "omega-ruby-alpha-sapphire",
+        "url": "https://pokeapi.co/api/v2/version-group/16/"
+      }
+    },
+    {
+      "flavor_text": "The user flails about aimlessly to attack. The less HP the user has, the greater the move’s power.",
+      "language": {
+        "name": "en",
+        "url": "https://pokeapi.co/api/v2/language/9/"
+      },
+      "version_group": {
+        "name": "omega-ruby-alpha-sapphire",
+        "url": "https://pokeapi.co/api/v2/version-group/16/"
+      }
+    },
+    {
+      "flavor_text": "Le lanceur fait tournoyer son fléau. Plus ses PV sont bas, plus l’attaque est puissante.",
+      "language": {
+        "name": "fr",
+        "url": "https://pokeapi.co/api/v2/language/5/"
+      },
+      "version_group": {
+        "name": "sun-moon",
+        "url": "https://pokeapi.co/api/v2/version-group/17/"
+      }
+    },
+    {
+      "flavor_text": "The user flails about aimlessly to attack. The less HP the user has, the greater the move’s power.",
+      "language": {
+        "name": "en",
+        "url": "https://pokeapi.co/api/v2/language/9/"
+      },
+      "version_group": {
+        "name": "sun-moon",
+        "url": "https://pokeapi.co/api/v2/version-group/17/"
+      }
+    },
+    {
+      "flavor_text": "Le lanceur fait tournoyer son fléau. Plus ses PV sont bas, plus l’attaque est puissante.",
+      "language": {
+        "name": "fr",
+        "url": "https://pokeapi.co/api/v2/language/5/"
+      },
+      "version_group": {
+        "name": "ultra-sun-ultra-moon",
+        "url": "https://pokeapi.co/api/v2/version-group/18/"
+      }
+    },
+    {
+      "flavor_text": "The user flails about aimlessly to attack. The less HP the user has, the greater the move’s power.",
+      "language": {
+        "name": "en",
+        "url": "https://pokeapi.co/api/v2/language/9/"
+      },
+      "version_group": {
+        "name": "ultra-sun-ultra-moon",
+        "url": "https://pokeapi.co/api/v2/version-group/18/"
+      }
+    },
+    {
+      "flavor_text": "Le lanceur fait tournoyer son fléau. Plus ses PV sont bas, plus l’attaque est puissante.",
+      "language": {
+        "name": "fr",
+        "url": "https://pokeapi.co/api/v2/language/5/"
+      },
+      "version_group": {
+        "name": "lets-go-pikachu-lets-go-eevee",
+        "url": "https://pokeapi.co/api/v2/version-group/19/"
+      }
+    },
+    {
+      "flavor_text": "The user flails about aimlessly to attack. The less HP the user has, the greater the move’s power.",
+      "language": {
+        "name": "en",
+        "url": "https://pokeapi.co/api/v2/language/9/"
+      },
+      "version_group": {
+        "name": "lets-go-pikachu-lets-go-eevee",
+        "url": "https://pokeapi.co/api/v2/version-group/19/"
+      }
+    },
+    {
+      "flavor_text": "Le lanceur attaque en gigotant dans tous les sens. Plus ses PV sont bas, plus l’attaque est puissante.",
+      "language": {
+        "name": "fr",
+        "url": "https://pokeapi.co/api/v2/language/5/"
+      },
+      "version_group": {
+        "name": "sword-shield",
+        "url": "https://pokeapi.co/api/v2/version-group/20/"
+      }
+    },
+    {
+      "flavor_text": "The user flails about aimlessly to attack. The less HP the user has, the greater the move’s power.",
+      "language": {
+        "name": "en",
+        "url": "https://pokeapi.co/api/v2/language/9/"
+      },
+      "version_group": {
+        "name": "sword-shield",
+        "url": "https://pokeapi.co/api/v2/version-group/20/"
+      }
+    },
+    {
+      "flavor_text": "The user flails about aimlessly to attack. The less HP the user has, the greater the move's power.",
+      "language": {
+        "name": "en",
+        "url": "https://pokeapi.co/api/v2/language/9/"
+      },
+      "version_group": {
+        "name": "legends-arceus",
+        "url": "https://pokeapi.co/api/v2/version-group/24/"
+      }
+    },
+    {
+      "flavor_text": "The user flails about aimlessly to attack. The less HP the user has, the greater the move's power.",
+      "language": {
+        "name": "en",
+        "url": "https://pokeapi.co/api/v2/language/9/"
+      },
+      "version_group": {
+        "name": "scarlet-violet",
+        "url": "https://pokeapi.co/api/v2/version-group/25/"
+      }
+    }
+  ],
+  "stat_changes": [],
+  "learned_by_pokemon": [
+    {
+      "id": 7,
+      "name": "Carapuce"
+    },
+    {
+      "id": 8,
+      "name": "Carabaffe"
+    },
+    {
+      "id": 9,
+      "name": "Tortank"
+    },
+    {
+      "id": 27,
+      "name": "Sabelette"
+    },
+    {
+      "id": 28,
+      "name": "Sablaireau"
+    },
+    {
+      "id": 37,
+      "name": "Goupix"
+    },
+    {
+      "id": 38,
+      "name": "Feunard"
+    },
+    {
+      "id": 43,
+      "name": "Mystherbe"
+    },
+    {
+      "id": 44,
+      "name": "Ortide"
+    },
+    {
+      "id": 45,
+      "name": "Rafflesia"
+    },
+    {
+      "id": 46,
+      "name": "Paras"
+    },
+    {
+      "id": 52,
+      "name": "Miaouss"
+    },
+    {
+      "id": 74,
+      "name": "Racaillou"
+    },
+    {
+      "id": 75,
+      "name": "Gravalanch"
+    },
+    {
+      "id": 76,
+      "name": "Grolem"
+    },
+    {
+      "id": 83,
+      "name": "Canarticho"
+    },
+    {
+      "id": 84,
+      "name": "Doduo"
+    },
+    {
+      "id": 85,
+      "name": "Dodrio"
+    },
+    {
+      "id": 95,
+      "name": "Onix"
+    },
+    {
+      "id": 98,
+      "name": "Krabby"
+    },
+    {
+      "id": 99,
+      "name": "Krabboss"
+    },
+    {
+      "id": 114,
+      "name": "Saquedeneu"
+    },
+    {
+      "id": 116,
+      "name": "Hypotrempe"
+    },
+    {
+      "id": 117,
+      "name": "Hypocéan"
+    },
+    {
+      "id": 118,
+      "name": "Poissirène"
+    },
+    {
+      "id": 119,
+      "name": "Poissoroy"
+    },
+    {
+      "id": 127,
+      "name": "Scarabrute"
+    },
+    {
+      "id": 129,
+      "name": "Magicarpe"
+    },
+    {
+      "id": 130,
+      "name": "Léviator"
+    },
+    {
+      "id": 133,
+      "name": "Évoli"
+    },
+    {
+      "id": 140,
+      "name": "Kabuto"
+    },
+    {
+      "id": 143,
+      "name": "Ronflex"
+    },
+    {
+      "id": 152,
+      "name": "Germignon"
+    },
+    {
+      "id": 153,
+      "name": "Macronium"
+    },
+    {
+      "id": 154,
+      "name": "Méganium"
+    },
+    {
+      "id": 158,
+      "name": "Kaiminus"
+    },
+    {
+      "id": 159,
+      "name": "Crocrodil"
+    },
+    {
+      "id": 160,
+      "name": "Aligatueur"
+    },
+    {
+      "id": 170,
+      "name": "Loupio"
+    },
+    {
+      "id": 171,
+      "name": "Lanturn"
+    },
+    {
+      "id": 172,
+      "name": "Pichu"
+    },
+    {
+      "id": 182,
+      "name": "Joliflor"
+    },
+    {
+      "id": 185,
+      "name": "Simularbre"
+    },
+    {
+      "id": 204,
+      "name": "Pomdepik"
+    },
+    {
+      "id": 206,
+      "name": "Insolourdo"
+    },
+    {
+      "id": 211,
+      "name": "Qwilfish"
+    },
+    {
+      "id": 214,
+      "name": "Scarhino"
+    },
+    {
+      "id": 220,
+      "name": "Marcacrin"
+    },
+    {
+      "id": 221,
+      "name": "Cochignon"
+    },
+    {
+      "id": 222,
+      "name": "Corayon"
+    },
+    {
+      "id": 223,
+      "name": "Rémoraid"
+    },
+    {
+      "id": 230,
+      "name": "Hyporoi"
+    },
+    {
+      "id": 231,
+      "name": "Phanpy"
+    },
+    {
+      "id": 232,
+      "name": "Donphan"
+    },
+    {
+      "id": 263,
+      "name": "Zigzaton"
+    },
+    {
+      "id": 264,
+      "name": "Linéon"
+    },
+    {
+      "id": 270,
+      "name": "Nénupiot"
+    },
+    {
+      "id": 271,
+      "name": "Lombre"
+    },
+    {
+      "id": 272,
+      "name": "Ludicolo"
+    },
+    {
+      "id": 287,
+      "name": "Parecool"
+    },
+    {
+      "id": 288,
+      "name": "Vigoroth"
+    },
+    {
+      "id": 289,
+      "name": "Monaflèmit"
+    },
+    {
+      "id": 290,
+      "name": "Ningale"
+    },
+    {
+      "id": 324,
+      "name": "Chartor"
+    },
+    {
+      "id": 327,
+      "name": "Spinda"
+    },
+    {
+      "id": 328,
+      "name": "Kraknoix"
+    },
+    {
+      "id": 329,
+      "name": "Vibraninf"
+    },
+    {
+      "id": 330,
+      "name": "Libégon"
+    },
+    {
+      "id": 335,
+      "name": "Mangriff"
+    },
+    {
+      "id": 339,
+      "name": "Barloche"
+    },
+    {
+      "id": 349,
+      "name": "Barpau"
+    },
+    {
+      "id": 350,
+      "name": "Milobellus"
+    },
+    {
+      "id": 369,
+      "name": "Relicanth"
+    },
+    {
+      "id": 370,
+      "name": "Lovdisc"
+    },
+    {
+      "id": 393,
+      "name": "Tiplouf"
+    },
+    {
+      "id": 413,
+      "name": "Cheniselle"
+    },
+    {
+      "id": 417,
+      "name": "Pachirisu"
+    },
+    {
+      "id": 427,
+      "name": "Laporeille"
+    },
+    {
+      "id": 431,
+      "name": "Chaglam"
+    },
+    {
+      "id": 438,
+      "name": "Manzaï"
+    },
+    {
+      "id": 446,
+      "name": "Goinfrex"
+    },
+    {
+      "id": 456,
+      "name": "Écayon"
+    },
+    {
+      "id": 457,
+      "name": "Luminéon"
+    },
+    {
+      "id": 473,
+      "name": "Mammochon"
+    },
+    {
+      "id": 480,
+      "name": "Créhelf"
+    },
+    {
+      "id": 504,
+      "name": "Ratentif"
+    },
+    {
+      "id": 535,
+      "name": "Tritonde"
+    },
+    {
+      "id": 536,
+      "name": "Batracné"
+    },
+    {
+      "id": 537,
+      "name": "Crapustule"
+    },
+    {
+      "id": 540,
+      "name": "Larveyette"
+    },
+    {
+      "id": 541,
+      "name": "Couverdure"
+    },
+    {
+      "id": 550,
+      "name": "Bargantua"
+    },
+    {
+      "id": 557,
+      "name": "Crabicoque"
+    },
+    {
+      "id": 558,
+      "name": "Crabaraque"
+    },
+    {
+      "id": 564,
+      "name": "Carapagos"
+    },
+    {
+      "id": 572,
+      "name": "Chinchidou"
+    },
+    {
+      "id": 573,
+      "name": "Pashmilla"
+    },
+    {
+      "id": 588,
+      "name": "Carabing"
+    },
+    {
+      "id": 589,
+      "name": "Lançargot"
+    },
+    {
+      "id": 613,
+      "name": "Polarhume"
+    },
+    {
+      "id": 614,
+      "name": "Polagriffe"
+    },
+    {
+      "id": 618,
+      "name": "Limonde"
+    },
+    {
+      "id": 632,
+      "name": "Fermite"
+    },
+    {
+      "id": 659,
+      "name": "Sapereau"
+    },
+    {
+      "id": 660,
+      "name": "Excavarenne"
+    },
+    {
+      "id": 661,
+      "name": "Passerouge"
+    },
+    {
+      "id": 662,
+      "name": "Braisillon"
+    },
+    {
+      "id": 663,
+      "name": "Flambusard"
+    },
+    {
+      "id": 682,
+      "name": "Fluvetin"
+    },
+    {
+      "id": 683,
+      "name": "Cocotine"
+    },
+    {
+      "id": 692,
+      "name": "Flingouste"
+    },
+    {
+      "id": 693,
+      "name": "Gamblast"
+    },
+    {
+      "id": 703,
+      "name": "Strassie"
+    },
+    {
+      "id": 704,
+      "name": "Mucuscule"
+    },
+    {
+      "id": 705,
+      "name": "Colimucus"
+    },
+    {
+      "id": 706,
+      "name": "Muplodocus"
+    },
+    {
+      "id": 719,
+      "name": "Diancie"
+    },
+    {
+      "id": 759,
+      "name": "Nounourson"
+    },
+    {
+      "id": 760,
+      "name": "Chelours"
+    },
+    {
+      "id": 761,
+      "name": "Croquine"
+    },
+    {
+      "id": 762,
+      "name": "Candine"
+    },
+    {
+      "id": 763,
+      "name": "Sucreine"
+    },
+    {
+      "id": 775,
+      "name": "Dodoala"
+    },
+    {
+      "id": 776,
+      "name": "Boumata"
+    },
+    {
+      "id": 777,
+      "name": "Togedemaru"
+    },
+    {
+      "id": 848,
+      "name": "Toxizap"
+    },
+    {
+      "id": 849,
+      "name": "Salarsen"
+    },
+    {
+      "id": 902,
+      "name": "Paragruel"
+    },
+    {
+      "id": 928,
+      "name": "Olivini"
+    },
+    {
+      "id": 929,
+      "name": "Olivado"
+    },
+    {
+      "id": 930,
+      "name": "Arboliva"
+    },
+    {
+      "id": 938,
+      "name": "Têtampoule"
+    },
+    {
+      "id": 939,
+      "name": "Ampibidou"
+    },
+    {
+      "id": 950,
+      "name": "Craparoi"
+    },
+    {
+      "id": 974,
+      "name": "Piétacé"
+    },
+    {
+      "id": 975,
+      "name": "Balbalèze"
+    },
+    {
+      "id": 977,
+      "name": "Oyacata"
+    },
+    {
+      "id": 982,
+      "name": "Deusolourdo"
+    },
+    {
+      "id": 10004,
+      "name": "Cheniselle"
+    },
+    {
+      "id": 10005,
+      "name": "Cheniselle"
+    },
+    {
+      "id": 10016,
+      "name": "Bargantua"
+    },
+    {
+      "id": 10040,
+      "name": "Scarabrute"
+    },
+    {
+      "id": 10047,
+      "name": "Scarhino"
+    },
+    {
+      "id": 10075,
+      "name": "Diancie"
+    },
+    {
+      "id": 10096,
+      "name": "Pikachu"
+    },
+    {
+      "id": 10101,
+      "name": "Sabelette"
+    },
+    {
+      "id": 10102,
+      "name": "Sablaireau"
+    },
+    {
+      "id": 10103,
+      "name": "Goupix"
+    },
+    {
+      "id": 10104,
+      "name": "Feunard"
+    },
+    {
+      "id": 10107,
+      "name": "Miaouss"
+    },
+    {
+      "id": 10109,
+      "name": "Racaillou"
+    },
+    {
+      "id": 10110,
+      "name": "Gravalanch"
+    },
+    {
+      "id": 10111,
+      "name": "Grolem"
+    },
+    {
+      "id": 10154,
+      "name": "Togedemaru"
+    },
+    {
+      "id": 10161,
+      "name": "Miaouss"
+    },
+    {
+      "id": 10166,
+      "name": "Canarticho"
+    },
+    {
+      "id": 10180,
+      "name": "Limonde"
+    },
+    {
+      "id": 10184,
+      "name": "Salarsen"
+    },
+    {
+      "id": 10234,
+      "name": "Qwilfish"
+    },
+    {
+      "id": 10241,
+      "name": "Colimucus"
+    },
+    {
+      "id": 10242,
+      "name": "Muplodocus"
+    },
+    {
+      "id": 10247,
+      "name": "Bargantua"
+    },
+    {
+      "id": 10248,
+      "name": "Paragruel"
+    },
+    {
+      "id": 10255,
+      "name": "Deusolourdo"
+    }
+  ]
+}

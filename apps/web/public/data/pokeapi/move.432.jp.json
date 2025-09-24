@@ -1,0 +1,993 @@
+{
+  "id": 432,
+  "name": "きりばらい",
+  "type": {
+    "id": 3,
+    "name": "flying"
+  },
+  "damage_class": {
+    "name": "status"
+  },
+  "power": null,
+  "accuracy": null,
+  "pp": 15,
+  "priority": 0,
+  "target": {
+    "name": "selected-pokemon"
+  },
+  "generation": {
+    "name": "generation-iv"
+  },
+  "effect_entries": [
+    {
+      "effect": "Lowers the target’s evasion by one stage.  Clears away fog.  Removes the effects of mist, light screen, reflect, safeguard, spikes, stealth rock, and toxic spikes from the target’s side of the field.  If the target is protected by mist, it will prevent the evasion change, then be removed by this move.",
+      "language": {
+        "name": "en",
+        "url": "https://pokeapi.co/api/v2/language/9/"
+      },
+      "short_effect": "Lowers the target’s evasion by one stage.  Removes field effects from the enemy field."
+    }
+  ],
+  "flavor_text_entries": [
+    {
+      "flavor_text": "Obstacles are moved, reducing the foe’s evasion stat. It can also be used to clear deep fog, etc.",
+      "language": {
+        "name": "en",
+        "url": "https://pokeapi.co/api/v2/language/9/"
+      },
+      "version_group": {
+        "name": "diamond-pearl",
+        "url": "https://pokeapi.co/api/v2/version-group/8/"
+      }
+    },
+    {
+      "flavor_text": "Obstacles are moved, reducing the foe’s evasion stat. It can also be used to clear deep fog, etc.",
+      "language": {
+        "name": "en",
+        "url": "https://pokeapi.co/api/v2/language/9/"
+      },
+      "version_group": {
+        "name": "platinum",
+        "url": "https://pokeapi.co/api/v2/version-group/9/"
+      }
+    },
+    {
+      "flavor_text": "It reduces the foe’s evasion stat. It also removes spikes, light screens, etc.",
+      "language": {
+        "name": "en",
+        "url": "https://pokeapi.co/api/v2/language/9/"
+      },
+      "version_group": {
+        "name": "heartgold-soulsilver",
+        "url": "https://pokeapi.co/api/v2/version-group/10/"
+      }
+    },
+    {
+      "flavor_text": "A strong wind blows away the target’s obstacles such as Reflect or Light Screen. It also lowers the target’s evasiveness.",
+      "language": {
+        "name": "en",
+        "url": "https://pokeapi.co/api/v2/language/9/"
+      },
+      "version_group": {
+        "name": "black-white",
+        "url": "https://pokeapi.co/api/v2/version-group/11/"
+      }
+    },
+    {
+      "flavor_text": "A strong wind blows away the target’s obstacles such as Reflect or Light Screen. It also lowers the target’s evasiveness.",
+      "language": {
+        "name": "en",
+        "url": "https://pokeapi.co/api/v2/language/9/"
+      },
+      "version_group": {
+        "name": "black-2-white-2",
+        "url": "https://pokeapi.co/api/v2/version-group/14/"
+      }
+    },
+    {
+      "flavor_text": "A strong wind blows away the target’s barriers such as Reflect or Light Screen. This also lowers the target’s evasiveness.",
+      "language": {
+        "name": "en",
+        "url": "https://pokeapi.co/api/v2/language/9/"
+      },
+      "version_group": {
+        "name": "x-y",
+        "url": "https://pokeapi.co/api/v2/version-group/15/"
+      }
+    },
+    {
+      "flavor_text": "強い風で　相手の　リフレクターや ひかりのかべ　などを　はらいのける。 回避率も　さげる。",
+      "language": {
+        "name": "ja",
+        "url": "https://pokeapi.co/api/v2/language/11/"
+      },
+      "version_group": {
+        "name": "x-y",
+        "url": "https://pokeapi.co/api/v2/version-group/15/"
+      }
+    },
+    {
+      "flavor_text": "A strong wind blows away the target’s barriers such as Reflect or Light Screen. This also lowers the target’s evasiveness.",
+      "language": {
+        "name": "en",
+        "url": "https://pokeapi.co/api/v2/language/9/"
+      },
+      "version_group": {
+        "name": "omega-ruby-alpha-sapphire",
+        "url": "https://pokeapi.co/api/v2/version-group/16/"
+      }
+    },
+    {
+      "flavor_text": "強い風で　相手の　リフレクターや ひかりのかべ　などを　はらいのける。 回避率も　さげる。",
+      "language": {
+        "name": "ja",
+        "url": "https://pokeapi.co/api/v2/language/11/"
+      },
+      "version_group": {
+        "name": "omega-ruby-alpha-sapphire",
+        "url": "https://pokeapi.co/api/v2/version-group/16/"
+      }
+    },
+    {
+      "flavor_text": "A strong wind blows away the target’s barriers such as Reflect or Light Screen. This also lowers the target’s evasiveness.",
+      "language": {
+        "name": "en",
+        "url": "https://pokeapi.co/api/v2/language/9/"
+      },
+      "version_group": {
+        "name": "sun-moon",
+        "url": "https://pokeapi.co/api/v2/version-group/17/"
+      }
+    },
+    {
+      "flavor_text": "強い風で　相手の　リフレクターや ひかりのかべ　などを　はらいのける。 回避率も　さげる。",
+      "language": {
+        "name": "ja",
+        "url": "https://pokeapi.co/api/v2/language/11/"
+      },
+      "version_group": {
+        "name": "sun-moon",
+        "url": "https://pokeapi.co/api/v2/version-group/17/"
+      }
+    },
+    {
+      "flavor_text": "A strong wind blows away the target’s barriers such as Reflect or Light Screen. This also lowers the target’s evasiveness.",
+      "language": {
+        "name": "en",
+        "url": "https://pokeapi.co/api/v2/language/9/"
+      },
+      "version_group": {
+        "name": "ultra-sun-ultra-moon",
+        "url": "https://pokeapi.co/api/v2/version-group/18/"
+      }
+    },
+    {
+      "flavor_text": "強い風で　相手の　リフレクターや ひかりのかべ　などを　はらいのける。 回避率も　さげる。",
+      "language": {
+        "name": "ja",
+        "url": "https://pokeapi.co/api/v2/language/11/"
+      },
+      "version_group": {
+        "name": "ultra-sun-ultra-moon",
+        "url": "https://pokeapi.co/api/v2/version-group/18/"
+      }
+    },
+    {
+      "flavor_text": "A strong wind blows away the target’s barriers such as Reflect or Light Screen. This also lowers the target’s evasiveness.",
+      "language": {
+        "name": "en",
+        "url": "https://pokeapi.co/api/v2/language/9/"
+      },
+      "version_group": {
+        "name": "lets-go-pikachu-lets-go-eevee",
+        "url": "https://pokeapi.co/api/v2/version-group/19/"
+      }
+    },
+    {
+      "flavor_text": "強い風で　相手の　リフレクターや ひかりのかべ　などを　はらいのける。 回避率も　さげる。",
+      "language": {
+        "name": "ja",
+        "url": "https://pokeapi.co/api/v2/language/11/"
+      },
+      "version_group": {
+        "name": "lets-go-pikachu-lets-go-eevee",
+        "url": "https://pokeapi.co/api/v2/version-group/19/"
+      }
+    },
+    {
+      "flavor_text": "A strong wind blows away the target’s barriers such as Reflect or Light Screen. This also lowers the target’s evasiveness.",
+      "language": {
+        "name": "en",
+        "url": "https://pokeapi.co/api/v2/language/9/"
+      },
+      "version_group": {
+        "name": "sword-shield",
+        "url": "https://pokeapi.co/api/v2/version-group/20/"
+      }
+    },
+    {
+      "flavor_text": "強い風で　相手の　リフレクターや ひかりのかべ　などを　はらいのける。 回避率も　さげる。",
+      "language": {
+        "name": "ja",
+        "url": "https://pokeapi.co/api/v2/language/11/"
+      },
+      "version_group": {
+        "name": "sword-shield",
+        "url": "https://pokeapi.co/api/v2/version-group/20/"
+      }
+    },
+    {
+      "flavor_text": "A strong wind blows away the target's barriers such as Reflect or Light Screen. This also lowers the target's evasiveness.",
+      "language": {
+        "name": "en",
+        "url": "https://pokeapi.co/api/v2/language/9/"
+      },
+      "version_group": {
+        "name": "legends-arceus",
+        "url": "https://pokeapi.co/api/v2/version-group/24/"
+      }
+    },
+    {
+      "flavor_text": "A strong wind blows away the target's barriers such as Reflect or Light Screen. This also lowers the target's evasiveness.",
+      "language": {
+        "name": "en",
+        "url": "https://pokeapi.co/api/v2/language/9/"
+      },
+      "version_group": {
+        "name": "scarlet-violet",
+        "url": "https://pokeapi.co/api/v2/version-group/25/"
+      }
+    }
+  ],
+  "stat_changes": [
+    {
+      "change": -1,
+      "stat": {
+        "name": "evasion",
+        "url": "https://pokeapi.co/api/v2/stat/8/"
+      }
+    }
+  ],
+  "learned_by_pokemon": [
+    {
+      "id": 6,
+      "name": "リザードン"
+    },
+    {
+      "id": 12,
+      "name": "バタフリー"
+    },
+    {
+      "id": 15,
+      "name": "スピアー"
+    },
+    {
+      "id": 16,
+      "name": "ポッポ"
+    },
+    {
+      "id": 17,
+      "name": "ピジョン"
+    },
+    {
+      "id": 18,
+      "name": "ピジョット"
+    },
+    {
+      "id": 21,
+      "name": "オニスズメ"
+    },
+    {
+      "id": 22,
+      "name": "オニドリル"
+    },
+    {
+      "id": 41,
+      "name": "ズバット"
+    },
+    {
+      "id": 42,
+      "name": "ゴルバット"
+    },
+    {
+      "id": 49,
+      "name": "モルフォン"
+    },
+    {
+      "id": 83,
+      "name": "カモネギ"
+    },
+    {
+      "id": 123,
+      "name": "ストライク"
+    },
+    {
+      "id": 142,
+      "name": "プテラ"
+    },
+    {
+      "id": 144,
+      "name": "フリーザー"
+    },
+    {
+      "id": 145,
+      "name": "サンダー"
+    },
+    {
+      "id": 146,
+      "name": "ファイヤー"
+    },
+    {
+      "id": 149,
+      "name": "カイリュー"
+    },
+    {
+      "id": 151,
+      "name": "ミュウ"
+    },
+    {
+      "id": 163,
+      "name": "ホーホー"
+    },
+    {
+      "id": 164,
+      "name": "ヨルノズク"
+    },
+    {
+      "id": 166,
+      "name": "レディアン"
+    },
+    {
+      "id": 169,
+      "name": "クロバット"
+    },
+    {
+      "id": 176,
+      "name": "トゲチック"
+    },
+    {
+      "id": 178,
+      "name": "ネイティオ"
+    },
+    {
+      "id": 193,
+      "name": "ヤンヤンマ"
+    },
+    {
+      "id": 198,
+      "name": "ヤミカラス"
+    },
+    {
+      "id": 207,
+      "name": "グライガー"
+    },
+    {
+      "id": 212,
+      "name": "ハッサム"
+    },
+    {
+      "id": 225,
+      "name": "デリバード"
+    },
+    {
+      "id": 226,
+      "name": "マンタイン"
+    },
+    {
+      "id": 227,
+      "name": "エアームド"
+    },
+    {
+      "id": 249,
+      "name": "ルギア"
+    },
+    {
+      "id": 250,
+      "name": "ホウオウ"
+    },
+    {
+      "id": 255,
+      "name": "アチャモ"
+    },
+    {
+      "id": 256,
+      "name": "ワカシャモ"
+    },
+    {
+      "id": 257,
+      "name": "バシャーモ"
+    },
+    {
+      "id": 267,
+      "name": "アゲハント"
+    },
+    {
+      "id": 269,
+      "name": "ドクケイル"
+    },
+    {
+      "id": 273,
+      "name": "タネボー"
+    },
+    {
+      "id": 274,
+      "name": "コノハナ"
+    },
+    {
+      "id": 275,
+      "name": "ダーテング"
+    },
+    {
+      "id": 276,
+      "name": "スバメ"
+    },
+    {
+      "id": 277,
+      "name": "オオスバメ"
+    },
+    {
+      "id": 278,
+      "name": "キャモメ"
+    },
+    {
+      "id": 279,
+      "name": "ペリッパー"
+    },
+    {
+      "id": 284,
+      "name": "アメモース"
+    },
+    {
+      "id": 291,
+      "name": "テッカニン"
+    },
+    {
+      "id": 313,
+      "name": "バルビート"
+    },
+    {
+      "id": 314,
+      "name": "イルミーゼ"
+    },
+    {
+      "id": 329,
+      "name": "ビブラーバ"
+    },
+    {
+      "id": 330,
+      "name": "フライゴン"
+    },
+    {
+      "id": 333,
+      "name": "チルット"
+    },
+    {
+      "id": 334,
+      "name": "チルタリス"
+    },
+    {
+      "id": 351,
+      "name": "ポワルン"
+    },
+    {
+      "id": 357,
+      "name": "トロピウス"
+    },
+    {
+      "id": 358,
+      "name": "チリーン"
+    },
+    {
+      "id": 373,
+      "name": "ボーマンダ"
+    },
+    {
+      "id": 380,
+      "name": "ラティアス"
+    },
+    {
+      "id": 381,
+      "name": "ラティオス"
+    },
+    {
+      "id": 384,
+      "name": "レックウザ"
+    },
+    {
+      "id": 393,
+      "name": "ポッチャマ"
+    },
+    {
+      "id": 394,
+      "name": "ポッタイシ"
+    },
+    {
+      "id": 395,
+      "name": "エンペルト"
+    },
+    {
+      "id": 396,
+      "name": "ムックル"
+    },
+    {
+      "id": 397,
+      "name": "ムクバード"
+    },
+    {
+      "id": 398,
+      "name": "ムクホーク"
+    },
+    {
+      "id": 414,
+      "name": "ガーメイル"
+    },
+    {
+      "id": 416,
+      "name": "ビークイン"
+    },
+    {
+      "id": 425,
+      "name": "フワンテ"
+    },
+    {
+      "id": 426,
+      "name": "フワライド"
+    },
+    {
+      "id": 430,
+      "name": "ドンカラス"
+    },
+    {
+      "id": 434,
+      "name": "スカンプー"
+    },
+    {
+      "id": 435,
+      "name": "スカタンク"
+    },
+    {
+      "id": 441,
+      "name": "ペラップ"
+    },
+    {
+      "id": 455,
+      "name": "マスキッパ"
+    },
+    {
+      "id": 456,
+      "name": "ケイコウオ"
+    },
+    {
+      "id": 457,
+      "name": "ネオラント"
+    },
+    {
+      "id": 468,
+      "name": "トゲキッス"
+    },
+    {
+      "id": 469,
+      "name": "メガヤンマ"
+    },
+    {
+      "id": 472,
+      "name": "グライオン"
+    },
+    {
+      "id": 479,
+      "name": "ロトム"
+    },
+    {
+      "id": 487,
+      "name": "ギラティナ"
+    },
+    {
+      "id": 493,
+      "name": "アルセウス"
+    },
+    {
+      "id": 495,
+      "name": "ツタージャ"
+    },
+    {
+      "id": 496,
+      "name": "ジャノビー"
+    },
+    {
+      "id": 497,
+      "name": "ジャローダ"
+    },
+    {
+      "id": 519,
+      "name": "マメパト"
+    },
+    {
+      "id": 520,
+      "name": "ハトーボー"
+    },
+    {
+      "id": 521,
+      "name": "ケンホロウ"
+    },
+    {
+      "id": 527,
+      "name": "コロモリ"
+    },
+    {
+      "id": 528,
+      "name": "ココロモリ"
+    },
+    {
+      "id": 532,
+      "name": "ドッコラー"
+    },
+    {
+      "id": 533,
+      "name": "ドテッコツ"
+    },
+    {
+      "id": 534,
+      "name": "ローブシン"
+    },
+    {
+      "id": 546,
+      "name": "モンメン"
+    },
+    {
+      "id": 547,
+      "name": "エルフーン"
+    },
+    {
+      "id": 561,
+      "name": "シンボラー"
+    },
+    {
+      "id": 566,
+      "name": "アーケン"
+    },
+    {
+      "id": 567,
+      "name": "アーケオス"
+    },
+    {
+      "id": 580,
+      "name": "コアルヒー"
+    },
+    {
+      "id": 581,
+      "name": "スワンナ"
+    },
+    {
+      "id": 587,
+      "name": "エモンガ"
+    },
+    {
+      "id": 615,
+      "name": "フリージオ"
+    },
+    {
+      "id": 627,
+      "name": "ワシボン"
+    },
+    {
+      "id": 628,
+      "name": "ウォーグル"
+    },
+    {
+      "id": 629,
+      "name": "バルチャイ"
+    },
+    {
+      "id": 630,
+      "name": "バルジーナ"
+    },
+    {
+      "id": 635,
+      "name": "サザンドラ"
+    },
+    {
+      "id": 637,
+      "name": "ウルガモス"
+    },
+    {
+      "id": 641,
+      "name": "トルネロス"
+    },
+    {
+      "id": 642,
+      "name": "ボルトロス"
+    },
+    {
+      "id": 643,
+      "name": "レシラム"
+    },
+    {
+      "id": 644,
+      "name": "ゼクロム"
+    },
+    {
+      "id": 645,
+      "name": "ランドロス"
+    },
+    {
+      "id": 661,
+      "name": "ヤヤコマ"
+    },
+    {
+      "id": 662,
+      "name": "ヒノヤコマ"
+    },
+    {
+      "id": 663,
+      "name": "ファイアロー"
+    },
+    {
+      "id": 666,
+      "name": "ビビヨン"
+    },
+    {
+      "id": 671,
+      "name": "フラージェス"
+    },
+    {
+      "id": 701,
+      "name": "ルチャブル"
+    },
+    {
+      "id": 707,
+      "name": "クレッフィ"
+    },
+    {
+      "id": 714,
+      "name": "オンバット"
+    },
+    {
+      "id": 715,
+      "name": "オンバーン"
+    },
+    {
+      "id": 716,
+      "name": "ゼルネアス"
+    },
+    {
+      "id": 717,
+      "name": "イベルタル"
+    },
+    {
+      "id": 721,
+      "name": "ボルケニオン"
+    },
+    {
+      "id": 722,
+      "name": "モクロー"
+    },
+    {
+      "id": 723,
+      "name": "フクスロー"
+    },
+    {
+      "id": 724,
+      "name": "ジュナイパー"
+    },
+    {
+      "id": 731,
+      "name": "ツツケラ"
+    },
+    {
+      "id": 732,
+      "name": "ケララッパ"
+    },
+    {
+      "id": 733,
+      "name": "ドデカバシ"
+    },
+    {
+      "id": 741,
+      "name": "オドリドリ"
+    },
+    {
+      "id": 742,
+      "name": "アブリー"
+    },
+    {
+      "id": 743,
+      "name": "アブリボン"
+    },
+    {
+      "id": 753,
+      "name": "カリキリ"
+    },
+    {
+      "id": 754,
+      "name": "ラランテス"
+    },
+    {
+      "id": 764,
+      "name": "キュワワー"
+    },
+    {
+      "id": 773,
+      "name": "シルヴァディ"
+    },
+    {
+      "id": 780,
+      "name": "ジジーロン"
+    },
+    {
+      "id": 785,
+      "name": "カプ・コケコ"
+    },
+    {
+      "id": 788,
+      "name": "カプ・レヒレ"
+    },
+    {
+      "id": 792,
+      "name": "ルナアーラ"
+    },
+    {
+      "id": 798,
+      "name": "カミツルギ"
+    },
+    {
+      "id": 821,
+      "name": "ココガラ"
+    },
+    {
+      "id": 823,
+      "name": "アーマーガア"
+    },
+    {
+      "id": 845,
+      "name": "ウッウ"
+    },
+    {
+      "id": 865,
+      "name": "ネギガナイト"
+    },
+    {
+      "id": 873,
+      "name": "モスノウ"
+    },
+    {
+      "id": 10007,
+      "name": "ギラティナ"
+    },
+    {
+      "id": 10008,
+      "name": "ロトム"
+    },
+    {
+      "id": 10009,
+      "name": "ロトム"
+    },
+    {
+      "id": 10010,
+      "name": "ロトム"
+    },
+    {
+      "id": 10011,
+      "name": "ロトム"
+    },
+    {
+      "id": 10012,
+      "name": "ロトム"
+    },
+    {
+      "id": 10013,
+      "name": "ポワルン"
+    },
+    {
+      "id": 10014,
+      "name": "ポワルン"
+    },
+    {
+      "id": 10015,
+      "name": "ポワルン"
+    },
+    {
+      "id": 10019,
+      "name": "トルネロス"
+    },
+    {
+      "id": 10020,
+      "name": "ボルトロス"
+    },
+    {
+      "id": 10021,
+      "name": "ランドロス"
+    },
+    {
+      "id": 10034,
+      "name": "リザードン"
+    },
+    {
+      "id": 10035,
+      "name": "リザードン"
+    },
+    {
+      "id": 10042,
+      "name": "プテラ"
+    },
+    {
+      "id": 10046,
+      "name": "ハッサム"
+    },
+    {
+      "id": 10050,
+      "name": "バシャーモ"
+    },
+    {
+      "id": 10062,
+      "name": "ラティアス"
+    },
+    {
+      "id": 10063,
+      "name": "ラティオス"
+    },
+    {
+      "id": 10067,
+      "name": "チルタリス"
+    },
+    {
+      "id": 10073,
+      "name": "ピジョット"
+    },
+    {
+      "id": 10079,
+      "name": "レックウザ"
+    },
+    {
+      "id": 10089,
+      "name": "ボーマンダ"
+    },
+    {
+      "id": 10090,
+      "name": "スピアー"
+    },
+    {
+      "id": 10123,
+      "name": "オドリドリ"
+    },
+    {
+      "id": 10124,
+      "name": "オドリドリ"
+    },
+    {
+      "id": 10125,
+      "name": "オドリドリ"
+    },
+    {
+      "id": 10128,
+      "name": "ラランテス"
+    },
+    {
+      "id": 10150,
+      "name": "アブリボン"
+    },
+    {
+      "id": 10166,
+      "name": "カモネギ"
+    },
+    {
+      "id": 10167,
+      "name": "マタドガス"
+    },
+    {
+      "id": 10182,
+      "name": "ウッウ"
+    },
+    {
+      "id": 10183,
+      "name": "ウッウ"
+    },
+    {
+      "id": 10237,
+      "name": "ドレディア"
+    },
+    {
+      "id": 10240,
+      "name": "ウォーグル"
+    }
+  ]
+}

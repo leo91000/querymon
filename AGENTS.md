@@ -21,6 +21,7 @@ This file guides agents and contributors working in this repository. It applies 
   - Linux/Wayland: `WEBKIT_DISABLE_DMABUF_RENDERER=1 pnpm dev:desktop`
 - Web build: `pnpm build:web`
 - Desktop build: `pnpm build:desktop`
+- Agent responsibility: When data assets need updating or regenerating, do not ask the user to run scrape scripts; run them yourself (use `pnpm scrape -- --clean` when appropriate).
 
 ## Project Structure
 - `apps/web`: Solid + Vite app (public data lives here; SPA configured via `vercel.json`)
@@ -36,10 +37,8 @@ This file guides agents and contributors working in this repository. It applies 
   - `src/i18n`: i18n setup (`@solid-primitives/i18n`)
   - `src/theme`: theme manager (system/light/dark)
 - `apps/desktop`: Tauri v2 shell (loads web dev server or dist)
-- `scripts`: data scraper and index builder
-  - `scrape-pokeapi.mjs` → downloads aggregated datasets
-  - `build-index.mjs` → builds search indexes, localized lists, alias maps
-  - `build-pages.mjs` → emits page‑optimized JSON (see layout above)
+- `scripts`: data scraper
+  - `scrape.mjs` → single script that downloads/merges aggregated datasets and emits the new per‑page, per‑locale JSON (lists, details, aliases, build.json)
 
 ## Code Style & Patterns
 - Language: TypeScript with `strict` mode; avoid `any` where practical.
@@ -71,8 +70,7 @@ This file guides agents and contributors working in this repository. It applies 
 - Do not call PokeAPI from the app at runtime. If data is missing or needs to be added/changed, extend the scraper/build steps, regenerate assets, and ship them with the app. Runtime network calls to `https://pokeapi.co/api/v2/...` are not allowed in the UI.
 - Compression: deployed on Vercel, static assets are served with Brotli/Gzip automatically; no manual gzip step required.
 - Cache/validation: Vercel serves strong ETags and Last‑Modified for static JSON. If explicit cache busting is needed later, add a small `last-updated.json` manifest and append `?v=<buildId>` to fetch URLs (not enabled by default).
-- Scraper: `scripts/scrape-pokeapi.mjs` (supports sharding) → writes aggregated files.
-- Indexer: `scripts/build-index.mjs` → builds `<resource>.list.json`, `<resource>.idmap.json`, and `search-index.json`.
+- Scraper: `scripts/scrape.mjs` (supports sharding/limits) → writes all page JSON and manifests under `apps/web/public/data/pokeapi`.
 - Resource rules:
   - UI "Pokémon" uses species data under the hood (alias: `pokemon` → `pokemon-species`).
   - Global search excludes the old `pokemon` dataset and maps species entries to `pokemon` routes.

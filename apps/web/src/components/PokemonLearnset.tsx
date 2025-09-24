@@ -2,11 +2,30 @@ import { For, Show, createMemo, createResource, createSignal, createEffect, onMo
 import Card from './Card';
 import TypeBox from './TypeBox';
 import { formatName, loadItemById, type ResourceName } from '../services/data';
-import { t } from '../i18n';
+import { t, getLocale } from '../i18n';
 
 interface PokemonLearnsetProps {
   pokemonId: number;
-  moves: Array<any> | undefined;
+  // New path: precomputed, localized sections from pokemon.<id>.<loc>.json
+  learnsets?: Array<{
+    generation: string;
+    order: number;
+    entries: Array<{
+      method: string;
+      items: Array<{
+        move: { id?: number; name: string };
+        type: string | null;
+        category: string | null;
+        power: number | null;
+        accuracy: number | null;
+        pp: number | null;
+        level: number | null;
+        versionGroups: string[];
+      }>;
+    }>;
+  }>;
+  // Legacy path: raw PokeAPI moves array (will lazy-fetch per move)
+  moves?: Array<any> | undefined;
   locale: 'en' | 'fr' | 'jp';
   moveNames?: Record<string, string>;
 }
@@ -114,11 +133,13 @@ function idFromUrl(url?: string | null) {
 }
 
 export default function PokemonLearnset(props: PokemonLearnsetProps) {
+  const locale = () => getLocale() as 'en' | 'fr' | 'jp';
   const [openGeneration, setOpenGeneration] = createSignal<GenerationSlug | null>(null);
   const [openMethods, setOpenMethods] = createSignal<Record<string, Partial<Record<MethodKey, boolean>>>>({});
 
-  // Pre-compute move ids grouped by generation so we can fetch lazily per generation
+  // Pre-compute move ids grouped by generation only if we don't have embedded learnsets
   const idsByGeneration = createMemo(() => {
+    if (props.learnsets && props.learnsets.length > 0) return new Map<GenerationSlug, Set<number>>();
     const map = new Map<GenerationSlug, Set<number>>();
     for (const entry of props.moves || []) {
       const moveId = idFromUrl(entry?.move?.url);
@@ -139,6 +160,8 @@ export default function PokemonLearnset(props: PokemonLearnsetProps) {
   const detailCache = new Map<number, any>();
 
   const [moveDetails] = createResource(openGeneration, async (gen) => {
+    // If learnsets are embedded, we do not need per-move fetches
+    if (props.learnsets && props.learnsets.length > 0) return new Map(detailCache);
     if (!gen) return new Map(detailCache);
     const idsForGen = Array.from(idsByGeneration().get(gen) ?? []);
     const missing = idsForGen.filter((id) => !detailCache.has(id));
@@ -155,6 +178,42 @@ export default function PokemonLearnset(props: PokemonLearnsetProps) {
   });
 
   const learnset = createMemo(() => {
+    // Use embedded, localized sections if provided
+    if (props.learnsets && props.learnsets.length > 0) {
+      const out = [] as Array<{ generation: GenerationSlug; entries: Array<{ method: MethodKey; items: LearnsetEntry[] }>; order: number }>;
+      for (const sec of props.learnsets) {
+        // Map unknown gen string to our GenerationSlug if possible; otherwise cast
+        const gen = (sec.generation as GenerationSlug) || 'generation-i';
+        const entries = [] as Array<{ method: MethodKey; items: LearnsetEntry[] }>;
+        for (const ent of sec.entries) {
+          const method = (METHOD_MAP[ent.method] || ent.method) as MethodKey;
+          const items: LearnsetEntry[] = ent.items.map((it) => ({
+            moveId: it.move?.id,
+            name: it.move?.name || '',
+            typeName: it.type || undefined,
+            damageClass: it.category || undefined,
+            power: it.power,
+            accuracy: it.accuracy,
+            pp: it.pp,
+            level: it.level,
+            versionGroups: Array.isArray(it.versionGroups) ? it.versionGroups : [],
+          }));
+          // Keep sort consistent with legacy path
+          items.sort((a, b) => {
+            if (method === 'level-up') {
+              const la = a.level ?? 0, lb = b.level ?? 0; if (la !== lb) return la - lb;
+            }
+            return a.name.localeCompare(b.name);
+          });
+          if (items.length > 0) entries.push({ method, items });
+        }
+        if (entries.length > 0) out.push({ generation: gen, entries, order: (sec as any).order ?? 0 });
+      }
+      out.sort((a, b) => GENERATION_ORDER.indexOf(a.generation) - GENERATION_ORDER.indexOf(b.generation));
+      return out;
+    }
+
+    // Legacy path: derive from raw moves + optionally fetched move details
     const moves = props.moves || [];
     const details = moveDetails(); // may be partially filled; OK
     if (!moves.length) return [] as Array<{ generation: GenerationSlug; entries: Array<{ method: MethodKey; items: LearnsetEntry[] }>; order: number }>;
@@ -184,18 +243,16 @@ export default function PokemonLearnset(props: PokemonLearnsetProps) {
         const methodMap = generationEntry.methods.get(mappedMethod) ?? new Map<string, LearnsetEntry>();
         generationEntry.methods.set(mappedMethod, methodMap);
 
-        // De-duplicate the same move across version groups inside a generation.
-        // Key by move (id or localized name) within method.
         const key = `${moveId ?? localizedName}`;
         if (!methodMap.has(key)) {
           methodMap.set(key, {
             moveId,
             name: localizedName,
-            typeName: detail?.type?.name,
-            damageClass: detail?.damage_class?.name,
-            power: detail?.power ?? null,
-            accuracy: detail?.accuracy ?? null,
-            pp: detail?.pp ?? null,
+            typeName: (detail as any)?.type?.name,
+            damageClass: (detail as any)?.damage_class?.name,
+            power: (detail as any)?.power ?? null,
+            accuracy: (detail as any)?.accuracy ?? null,
+            pp: (detail as any)?.pp ?? null,
             level: mappedMethod === 'level-up' ? vg?.level_learned_at ?? null : null,
             versionGroups: vgName ? [vgName] : [],
           });
@@ -393,18 +450,6 @@ export default function PokemonLearnset(props: PokemonLearnsetProps) {
                                     const accuracy = entry.accuracy != null ? `${entry.accuracy}%` : '—';
                                     const power = entry.power != null && entry.power !== 0 ? entry.power : '—';
                                     const pp = entry.pp != null ? entry.pp : '—';
-                                    const damageClassKey = entry.damageClass ? `move.damageClass.${entry.damageClass}` : undefined;
-                                    const categoryLabel = damageClassKey ? t(damageClassKey) : '—';
-                                    const levelLabel = entry.level != null && entry.level > 0 ? `N.${entry.level}` : t('learnset.levelStart');
-                                    const versionLabel = entry.versionGroups && entry.versionGroups.length
-                                      ? entry.versionGroups
-                                          .map((v) => {
-                                            const key = `versionGroupName.${v}`;
-                                            const translated = t(key as any) as string;
-                                            return translated && translated !== key ? translated : formatName(v);
-                                          })
-                                          .join(', ')
-                                      : '—';
                                     return (
                                       <tr class="text-gray-700 dark:text-gray-200">
                                         <td class="px-3 py-2">
@@ -417,14 +462,31 @@ export default function PokemonLearnset(props: PokemonLearnsetProps) {
                                             {(typeName) => <TypeBox name={typeName()} size="sm" showLabel />}
                                           </Show>
                                         </td>
-                                        <td class="px-3 py-2">{categoryLabel}</td>
+                                        <td class="px-3 py-2">{() => {
+                                          // Force dependency on locale so Solid re-runs this expression
+                                          void locale();
+                                          const damageClassKey = entry.damageClass ? `move.damageClass.${entry.damageClass}` : undefined;
+                                          return damageClassKey ? (t(damageClassKey as any) as string) : '—';
+                                        }}</td>
                                         <td class="px-3 py-2 text-right tabular-nums">{power}</td>
                                         <td class="px-3 py-2 text-right tabular-nums">{accuracy}</td>
                                         <td class="px-3 py-2 text-right tabular-nums">{pp}</td>
                                         <Show when={methodSection.method === 'level-up'}>
-                                          <td class="px-3 py-2 text-right tabular-nums">{levelLabel}</td>
+                                          <td class="px-3 py-2 text-right tabular-nums">{() => (entry.level != null && entry.level > 0 ? `N.${entry.level}` : t('learnset.levelStart'))}</td>
                                         </Show>
-                                        <td class="px-3 py-2 capitalize">{versionLabel}</td>
+                                        <td class="px-3 py-2 capitalize">{() => {
+                                          void locale();
+                                          if (entry.versionGroups && entry.versionGroups.length) {
+                                            return entry.versionGroups
+                                              .map((v) => {
+                                                const key = `versionGroupName.${v}`;
+                                                const translated = t(key as any) as string;
+                                                return translated && translated !== key ? translated : formatName(v);
+                                              })
+                                              .join(', ');
+                                          }
+                                          return '—';
+                                        }}</td>
                                       </tr>
                                     );
                                   }}

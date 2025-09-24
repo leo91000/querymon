@@ -1,0 +1,974 @@
+{
+  "id": 220,
+  "name": "Pain Split",
+  "type": {
+    "id": 1,
+    "name": "normal"
+  },
+  "damage_class": {
+    "name": "status"
+  },
+  "power": null,
+  "accuracy": null,
+  "pp": 20,
+  "priority": 0,
+  "target": {
+    "name": "selected-pokemon"
+  },
+  "generation": {
+    "name": "generation-ii"
+  },
+  "effect_entries": [
+    {
+      "effect": "Changes the user’s and target’s remaining HP to the average of their current remaining HP.  Ignores accuracy and evasion modifiers.  This effect does not count as inflicting damage for other moves and effects that respond to damage taken.  This effect fails against a substitute.",
+      "language": {
+        "name": "en",
+        "url": "https://pokeapi.co/api/v2/language/9/"
+      },
+      "short_effect": "Sets the user’s and targets’s HP to the average of their current HP."
+    }
+  ],
+  "flavor_text_entries": [
+    {
+      "flavor_text": "Adds user & foe's HPs. Shares total.",
+      "language": {
+        "name": "en",
+        "url": "https://pokeapi.co/api/v2/language/9/"
+      },
+      "version_group": {
+        "name": "gold-silver",
+        "url": "https://pokeapi.co/api/v2/version-group/3/"
+      }
+    },
+    {
+      "flavor_text": "Adds user & foe's HPs. Shares total.",
+      "language": {
+        "name": "en",
+        "url": "https://pokeapi.co/api/v2/language/9/"
+      },
+      "version_group": {
+        "name": "crystal",
+        "url": "https://pokeapi.co/api/v2/version-group/4/"
+      }
+    },
+    {
+      "flavor_text": "Adds the user and foe’s HP, then shares them equally.",
+      "language": {
+        "name": "en",
+        "url": "https://pokeapi.co/api/v2/language/9/"
+      },
+      "version_group": {
+        "name": "ruby-sapphire",
+        "url": "https://pokeapi.co/api/v2/version-group/5/"
+      }
+    },
+    {
+      "flavor_text": "Adds the user and foe’s HP, then shares them equally.",
+      "language": {
+        "name": "en",
+        "url": "https://pokeapi.co/api/v2/language/9/"
+      },
+      "version_group": {
+        "name": "emerald",
+        "url": "https://pokeapi.co/api/v2/version-group/6/"
+      }
+    },
+    {
+      "flavor_text": "The user adds its HP to the foe’s HP, then equally shares the total HP.",
+      "language": {
+        "name": "en",
+        "url": "https://pokeapi.co/api/v2/language/9/"
+      },
+      "version_group": {
+        "name": "firered-leafgreen",
+        "url": "https://pokeapi.co/api/v2/version-group/7/"
+      }
+    },
+    {
+      "flavor_text": "The user adds its HP to the foe’s HP, then equally shares the combined HP with the foe.",
+      "language": {
+        "name": "en",
+        "url": "https://pokeapi.co/api/v2/language/9/"
+      },
+      "version_group": {
+        "name": "diamond-pearl",
+        "url": "https://pokeapi.co/api/v2/version-group/8/"
+      }
+    },
+    {
+      "flavor_text": "The user adds its HP to the foe’s HP, then equally shares the combined HP with the foe.",
+      "language": {
+        "name": "en",
+        "url": "https://pokeapi.co/api/v2/language/9/"
+      },
+      "version_group": {
+        "name": "platinum",
+        "url": "https://pokeapi.co/api/v2/version-group/9/"
+      }
+    },
+    {
+      "flavor_text": "The user adds its HP to the foe’s HP, then equally shares the combined HP with the foe.",
+      "language": {
+        "name": "en",
+        "url": "https://pokeapi.co/api/v2/language/9/"
+      },
+      "version_group": {
+        "name": "heartgold-soulsilver",
+        "url": "https://pokeapi.co/api/v2/version-group/10/"
+      }
+    },
+    {
+      "flavor_text": "The user adds its HP to the target’s HP, then equally shares the combined HP with the target.",
+      "language": {
+        "name": "en",
+        "url": "https://pokeapi.co/api/v2/language/9/"
+      },
+      "version_group": {
+        "name": "black-white",
+        "url": "https://pokeapi.co/api/v2/version-group/11/"
+      }
+    },
+    {
+      "flavor_text": "The user adds its HP to the target’s HP, then equally shares the combined HP with the target.",
+      "language": {
+        "name": "en",
+        "url": "https://pokeapi.co/api/v2/language/9/"
+      },
+      "version_group": {
+        "name": "black-2-white-2",
+        "url": "https://pokeapi.co/api/v2/version-group/14/"
+      }
+    },
+    {
+      "flavor_text": "The user adds its HP to the target’s HP, then equally shares the combined HP with the target.",
+      "language": {
+        "name": "en",
+        "url": "https://pokeapi.co/api/v2/language/9/"
+      },
+      "version_group": {
+        "name": "x-y",
+        "url": "https://pokeapi.co/api/v2/version-group/15/"
+      }
+    },
+    {
+      "flavor_text": "The user adds its HP to the target’s HP, then equally shares the combined HP with the target.",
+      "language": {
+        "name": "en",
+        "url": "https://pokeapi.co/api/v2/language/9/"
+      },
+      "version_group": {
+        "name": "omega-ruby-alpha-sapphire",
+        "url": "https://pokeapi.co/api/v2/version-group/16/"
+      }
+    },
+    {
+      "flavor_text": "The user adds its HP to the target’s HP, then equally shares the combined HP with the target.",
+      "language": {
+        "name": "en",
+        "url": "https://pokeapi.co/api/v2/language/9/"
+      },
+      "version_group": {
+        "name": "sun-moon",
+        "url": "https://pokeapi.co/api/v2/version-group/17/"
+      }
+    },
+    {
+      "flavor_text": "The user adds its HP to the target’s HP, then equally shares the combined HP with the target.",
+      "language": {
+        "name": "en",
+        "url": "https://pokeapi.co/api/v2/language/9/"
+      },
+      "version_group": {
+        "name": "ultra-sun-ultra-moon",
+        "url": "https://pokeapi.co/api/v2/version-group/18/"
+      }
+    },
+    {
+      "flavor_text": "The user adds its HP to the target’s HP, then equally shares the combined HP with the target.",
+      "language": {
+        "name": "en",
+        "url": "https://pokeapi.co/api/v2/language/9/"
+      },
+      "version_group": {
+        "name": "lets-go-pikachu-lets-go-eevee",
+        "url": "https://pokeapi.co/api/v2/version-group/19/"
+      }
+    },
+    {
+      "flavor_text": "The user adds its HP to the target’s HP, then equally shares the combined HP with the target.",
+      "language": {
+        "name": "en",
+        "url": "https://pokeapi.co/api/v2/language/9/"
+      },
+      "version_group": {
+        "name": "sword-shield",
+        "url": "https://pokeapi.co/api/v2/version-group/20/"
+      }
+    },
+    {
+      "flavor_text": "The user adds its HP to the target's HP, then equally shares the combined HP with the target.",
+      "language": {
+        "name": "en",
+        "url": "https://pokeapi.co/api/v2/language/9/"
+      },
+      "version_group": {
+        "name": "legends-arceus",
+        "url": "https://pokeapi.co/api/v2/version-group/24/"
+      }
+    },
+    {
+      "flavor_text": "The user adds its HP to the target's HP, then equally splits the combined HP between the target and itself.",
+      "language": {
+        "name": "en",
+        "url": "https://pokeapi.co/api/v2/language/9/"
+      },
+      "version_group": {
+        "name": "scarlet-violet",
+        "url": "https://pokeapi.co/api/v2/version-group/25/"
+      }
+    }
+  ],
+  "stat_changes": [],
+  "learned_by_pokemon": [
+    {
+      "id": 24,
+      "name": "Arbok"
+    },
+    {
+      "id": 37,
+      "name": "Vulpix"
+    },
+    {
+      "id": 38,
+      "name": "Ninetales"
+    },
+    {
+      "id": 39,
+      "name": "Jigglypuff"
+    },
+    {
+      "id": 40,
+      "name": "Wigglytuff"
+    },
+    {
+      "id": 52,
+      "name": "Meowth"
+    },
+    {
+      "id": 53,
+      "name": "Persian"
+    },
+    {
+      "id": 88,
+      "name": "Grimer"
+    },
+    {
+      "id": 89,
+      "name": "Muk"
+    },
+    {
+      "id": 92,
+      "name": "Gastly"
+    },
+    {
+      "id": 93,
+      "name": "Haunter"
+    },
+    {
+      "id": 94,
+      "name": "Gengar"
+    },
+    {
+      "id": 109,
+      "name": "Koffing"
+    },
+    {
+      "id": 110,
+      "name": "Weezing"
+    },
+    {
+      "id": 114,
+      "name": "Tangela"
+    },
+    {
+      "id": 120,
+      "name": "Staryu"
+    },
+    {
+      "id": 121,
+      "name": "Starmie"
+    },
+    {
+      "id": 137,
+      "name": "Porygon"
+    },
+    {
+      "id": 151,
+      "name": "Mew"
+    },
+    {
+      "id": 174,
+      "name": "Igglybuff"
+    },
+    {
+      "id": 177,
+      "name": "Natu"
+    },
+    {
+      "id": 178,
+      "name": "Xatu"
+    },
+    {
+      "id": 200,
+      "name": "Misdreavus"
+    },
+    {
+      "id": 204,
+      "name": "Pineco"
+    },
+    {
+      "id": 205,
+      "name": "Forretress"
+    },
+    {
+      "id": 206,
+      "name": "Dunsparce"
+    },
+    {
+      "id": 211,
+      "name": "Qwilfish"
+    },
+    {
+      "id": 218,
+      "name": "Slugma"
+    },
+    {
+      "id": 219,
+      "name": "Magcargo"
+    },
+    {
+      "id": 228,
+      "name": "Houndour"
+    },
+    {
+      "id": 229,
+      "name": "Houndoom"
+    },
+    {
+      "id": 233,
+      "name": "Porygon2"
+    },
+    {
+      "id": 280,
+      "name": "Ralts"
+    },
+    {
+      "id": 281,
+      "name": "Kirlia"
+    },
+    {
+      "id": 282,
+      "name": "Gardevoir"
+    },
+    {
+      "id": 299,
+      "name": "Nosepass"
+    },
+    {
+      "id": 302,
+      "name": "Sableye"
+    },
+    {
+      "id": 303,
+      "name": "Mawile"
+    },
+    {
+      "id": 307,
+      "name": "Meditite"
+    },
+    {
+      "id": 308,
+      "name": "Medicham"
+    },
+    {
+      "id": 316,
+      "name": "Gulpin"
+    },
+    {
+      "id": 317,
+      "name": "Swalot"
+    },
+    {
+      "id": 337,
+      "name": "Lunatone"
+    },
+    {
+      "id": 338,
+      "name": "Solrock"
+    },
+    {
+      "id": 345,
+      "name": "Lileep"
+    },
+    {
+      "id": 346,
+      "name": "Cradily"
+    },
+    {
+      "id": 353,
+      "name": "Shuppet"
+    },
+    {
+      "id": 354,
+      "name": "Banette"
+    },
+    {
+      "id": 355,
+      "name": "Duskull"
+    },
+    {
+      "id": 356,
+      "name": "Dusclops"
+    },
+    {
+      "id": 386,
+      "name": "Deoxys"
+    },
+    {
+      "id": 409,
+      "name": "Rampardos"
+    },
+    {
+      "id": 422,
+      "name": "Shellos"
+    },
+    {
+      "id": 423,
+      "name": "Gastrodon"
+    },
+    {
+      "id": 425,
+      "name": "Drifloon"
+    },
+    {
+      "id": 426,
+      "name": "Drifblim"
+    },
+    {
+      "id": 429,
+      "name": "Mismagius"
+    },
+    {
+      "id": 442,
+      "name": "Spiritomb"
+    },
+    {
+      "id": 465,
+      "name": "Tangrowth"
+    },
+    {
+      "id": 474,
+      "name": "Porygon-Z"
+    },
+    {
+      "id": 475,
+      "name": "Gallade"
+    },
+    {
+      "id": 476,
+      "name": "Probopass"
+    },
+    {
+      "id": 477,
+      "name": "Dusknoir"
+    },
+    {
+      "id": 478,
+      "name": "Froslass"
+    },
+    {
+      "id": 479,
+      "name": "Rotom"
+    },
+    {
+      "id": 480,
+      "name": "Uxie"
+    },
+    {
+      "id": 481,
+      "name": "Mesprit"
+    },
+    {
+      "id": 487,
+      "name": "Giratina"
+    },
+    {
+      "id": 517,
+      "name": "Munna"
+    },
+    {
+      "id": 518,
+      "name": "Musharna"
+    },
+    {
+      "id": 531,
+      "name": "Audino"
+    },
+    {
+      "id": 538,
+      "name": "Throh"
+    },
+    {
+      "id": 539,
+      "name": "Sawk"
+    },
+    {
+      "id": 562,
+      "name": "Yamask"
+    },
+    {
+      "id": 563,
+      "name": "Cofagrigus"
+    },
+    {
+      "id": 568,
+      "name": "Trubbish"
+    },
+    {
+      "id": 569,
+      "name": "Garbodor"
+    },
+    {
+      "id": 570,
+      "name": "Zorua"
+    },
+    {
+      "id": 571,
+      "name": "Zoroark"
+    },
+    {
+      "id": 577,
+      "name": "Solosis"
+    },
+    {
+      "id": 578,
+      "name": "Duosion"
+    },
+    {
+      "id": 579,
+      "name": "Reuniclus"
+    },
+    {
+      "id": 592,
+      "name": "Frillish"
+    },
+    {
+      "id": 593,
+      "name": "Jellicent"
+    },
+    {
+      "id": 594,
+      "name": "Alomomola"
+    },
+    {
+      "id": 605,
+      "name": "Elgyem"
+    },
+    {
+      "id": 606,
+      "name": "Beheeyem"
+    },
+    {
+      "id": 607,
+      "name": "Litwick"
+    },
+    {
+      "id": 608,
+      "name": "Lampent"
+    },
+    {
+      "id": 609,
+      "name": "Chandelure"
+    },
+    {
+      "id": 618,
+      "name": "Stunfisk"
+    },
+    {
+      "id": 647,
+      "name": "Keldeo"
+    },
+    {
+      "id": 650,
+      "name": "Chespin"
+    },
+    {
+      "id": 651,
+      "name": "Quilladin"
+    },
+    {
+      "id": 652,
+      "name": "Chesnaught"
+    },
+    {
+      "id": 708,
+      "name": "Phantump"
+    },
+    {
+      "id": 709,
+      "name": "Trevenant"
+    },
+    {
+      "id": 710,
+      "name": "Pumpkaboo"
+    },
+    {
+      "id": 711,
+      "name": "Gourgeist"
+    },
+    {
+      "id": 718,
+      "name": "Zygarde"
+    },
+    {
+      "id": 747,
+      "name": "Mareanie"
+    },
+    {
+      "id": 748,
+      "name": "Toxapex"
+    },
+    {
+      "id": 759,
+      "name": "Stufful"
+    },
+    {
+      "id": 760,
+      "name": "Bewear"
+    },
+    {
+      "id": 764,
+      "name": "Comfey"
+    },
+    {
+      "id": 765,
+      "name": "Oranguru"
+    },
+    {
+      "id": 766,
+      "name": "Passimian"
+    },
+    {
+      "id": 768,
+      "name": "Golisopod"
+    },
+    {
+      "id": 769,
+      "name": "Sandygast"
+    },
+    {
+      "id": 770,
+      "name": "Palossand"
+    },
+    {
+      "id": 771,
+      "name": "Pyukumuku"
+    },
+    {
+      "id": 778,
+      "name": "Mimikyu"
+    },
+    {
+      "id": 779,
+      "name": "Bruxish"
+    },
+    {
+      "id": 781,
+      "name": "Dhelmise"
+    },
+    {
+      "id": 793,
+      "name": "Nihilego"
+    },
+    {
+      "id": 801,
+      "name": "Magearna"
+    },
+    {
+      "id": 806,
+      "name": "Blacephalon"
+    },
+    {
+      "id": 852,
+      "name": "Clobbopus"
+    },
+    {
+      "id": 855,
+      "name": "Polteageist"
+    },
+    {
+      "id": 858,
+      "name": "Hatterene"
+    },
+    {
+      "id": 869,
+      "name": "Alcremie"
+    },
+    {
+      "id": 871,
+      "name": "Pincurchin"
+    },
+    {
+      "id": 897,
+      "name": "Spectrier"
+    },
+    {
+      "id": 902,
+      "name": "Basculegion"
+    },
+    {
+      "id": 904,
+      "name": "Overqwil"
+    },
+    {
+      "id": 918,
+      "name": "Spidops"
+    },
+    {
+      "id": 943,
+      "name": "Mabosstiff"
+    },
+    {
+      "id": 946,
+      "name": "Bramblin"
+    },
+    {
+      "id": 947,
+      "name": "Brambleghast"
+    },
+    {
+      "id": 948,
+      "name": "Toedscool"
+    },
+    {
+      "id": 949,
+      "name": "Toedscruel"
+    },
+    {
+      "id": 961,
+      "name": "Wugtrio"
+    },
+    {
+      "id": 971,
+      "name": "Greavard"
+    },
+    {
+      "id": 972,
+      "name": "Houndstone"
+    },
+    {
+      "id": 976,
+      "name": "Veluza"
+    },
+    {
+      "id": 982,
+      "name": "Dudunsparce"
+    },
+    {
+      "id": 987,
+      "name": "Flutter Mane"
+    },
+    {
+      "id": 1012,
+      "name": "Poltchageist"
+    },
+    {
+      "id": 1013,
+      "name": "Sinistcha"
+    },
+    {
+      "id": 10001,
+      "name": "Deoxys"
+    },
+    {
+      "id": 10002,
+      "name": "Deoxys"
+    },
+    {
+      "id": 10003,
+      "name": "Deoxys"
+    },
+    {
+      "id": 10007,
+      "name": "Giratina"
+    },
+    {
+      "id": 10008,
+      "name": "Rotom"
+    },
+    {
+      "id": 10009,
+      "name": "Rotom"
+    },
+    {
+      "id": 10010,
+      "name": "Rotom"
+    },
+    {
+      "id": 10011,
+      "name": "Rotom"
+    },
+    {
+      "id": 10012,
+      "name": "Rotom"
+    },
+    {
+      "id": 10024,
+      "name": "Keldeo"
+    },
+    {
+      "id": 10027,
+      "name": "Pumpkaboo"
+    },
+    {
+      "id": 10028,
+      "name": "Pumpkaboo"
+    },
+    {
+      "id": 10029,
+      "name": "Pumpkaboo"
+    },
+    {
+      "id": 10030,
+      "name": "Gourgeist"
+    },
+    {
+      "id": 10031,
+      "name": "Gourgeist"
+    },
+    {
+      "id": 10032,
+      "name": "Gourgeist"
+    },
+    {
+      "id": 10038,
+      "name": "Gengar"
+    },
+    {
+      "id": 10051,
+      "name": "Gardevoir"
+    },
+    {
+      "id": 10052,
+      "name": "Mawile"
+    },
+    {
+      "id": 10054,
+      "name": "Medicham"
+    },
+    {
+      "id": 10056,
+      "name": "Banette"
+    },
+    {
+      "id": 10066,
+      "name": "Sableye"
+    },
+    {
+      "id": 10068,
+      "name": "Gallade"
+    },
+    {
+      "id": 10069,
+      "name": "Audino"
+    },
+    {
+      "id": 10103,
+      "name": "Vulpix"
+    },
+    {
+      "id": 10104,
+      "name": "Ninetales"
+    },
+    {
+      "id": 10112,
+      "name": "Grimer"
+    },
+    {
+      "id": 10113,
+      "name": "Muk"
+    },
+    {
+      "id": 10115,
+      "name": "Marowak"
+    },
+    {
+      "id": 10118,
+      "name": "Zygarde"
+    },
+    {
+      "id": 10119,
+      "name": "Zygarde"
+    },
+    {
+      "id": 10120,
+      "name": "Zygarde"
+    },
+    {
+      "id": 10143,
+      "name": "Mimikyu"
+    },
+    {
+      "id": 10144,
+      "name": "Mimikyu"
+    },
+    {
+      "id": 10145,
+      "name": "Mimikyu"
+    },
+    {
+      "id": 10147,
+      "name": "Magearna"
+    },
+    {
+      "id": 10149,
+      "name": "Marowak"
+    },
+    {
+      "id": 10167,
+      "name": "Weezing"
+    },
+    {
+      "id": 10171,
+      "name": "Moltres"
+    },
+    {
+      "id": 10180,
+      "name": "Stunfisk"
+    },
+    {
+      "id": 10181,
+      "name": "Zygarde"
+    },
+    {
+      "id": 10234,
+      "name": "Qwilfish"
+    },
+    {
+      "id": 10238,
+      "name": "Zorua"
+    },
+    {
+      "id": 10239,
+      "name": "Zoroark"
+    },
+    {
+      "id": 10248,
+      "name": "Basculegion"
+    },
+    {
+      "id": 10255,
+      "name": "Dudunsparce"
+    }
+  ]
+}

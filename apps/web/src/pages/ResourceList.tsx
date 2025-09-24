@@ -2,7 +2,7 @@ import { A, useLocation } from '@solidjs/router';
 import { For, Show, createMemo, createResource, createSignal, onCleanup, onMount, createEffect } from 'solid-js';
 import Card from '../components/Card';
 import Input from '../components/Input';
-import { formatName, loadList, resourceLabel, type ResourceName, loadAliases, loadNameMap } from '../services/data';
+import { formatName, loadList, resourceLabel, type ResourceName } from '../services/data';
 import { t, getLocale } from '../i18n';
 import ResourceTabs from '../components/ResourceTabs';
 import PokemonCard from '../components/PokemonCard';
@@ -13,12 +13,7 @@ export default function ResourceList(props: { resource: ResourceName }) {
     () => ({ res: props.resource, loc: getLocale() }),
     (key) => loadList(key.res as ResourceName),
   );
-  const [aliases] = createResource(() => props.resource, async (r) => {
-    if (!['pokemon','move','ability','type'].includes(r)) return {} as any;
-    // Use prebuilt aliases only; no heavy fallbacks
-    const pre = await loadAliases(r as any).catch(()=>({} as any));
-    return pre || ({} as any);
-  });
+  // Aliases removed in new layout to avoid extra fetches; simple name filtering only.
   const [q, setQ] = createSignal('');
   function normalize(s: string) {
     return s
@@ -32,13 +27,11 @@ export default function ResourceList(props: { resource: ResourceName }) {
     const term = normalize(q());
     const list = items() || [];
     if (!term) return list;
-    const map = aliases() || {};
     const out: typeof list = [] as any;
     for (const it of list) {
       const idStr = String((it as any).id);
       const nameMatch = normalize(it.name).includes(term);
-      const aliasMatch = Array.isArray((map as any)[idStr]) && (map as any)[idStr].some((a: string) => normalize(a).includes(term));
-      if (nameMatch || aliasMatch) out.push(it);
+      if (nameMatch) out.push(it);
     }
     return out;
   });
@@ -92,7 +85,6 @@ export default function ResourceList(props: { resource: ResourceName }) {
 }
 
 function PokemonGrid(props: { items: Array<{ id: number; name: string; types?: string[]; sprite?: string }> }) {
-  const [nameMap] = createResource(() => loadNameMap('pokemon'));
 
   function typesOf(it: { types?: string[] }): PokemonType[] {
     return (it.types || [])
@@ -102,10 +94,10 @@ function PokemonGrid(props: { items: Array<{ id: number; name: string; types?: s
   }
 
   const cards = createMemo(() => {
-    const names = nameMap() || {};
+    // Names in new pokemons.<loc>.json are already localized
     return (props.items || []).map((it) => ({
       id: it.id,
-      name: names[String(it.id)] || formatName(it.name),
+      name: formatName(it.name),
       types: typesOf(it),
       sprite: it.sprite || '',
       description: '',

@@ -1,0 +1,940 @@
+{
+  "id": 389,
+  "name": "Coup Bas",
+  "type": {
+    "id": 17,
+    "name": "dark"
+  },
+  "damage_class": {
+    "name": "physical"
+  },
+  "power": 70,
+  "accuracy": 100,
+  "pp": 5,
+  "priority": 1,
+  "target": {
+    "name": "selected-pokemon"
+  },
+  "generation": {
+    "name": "generation-iv"
+  },
+  "effect_entries": [
+    {
+      "effect": "Inflicts regular damage.  If the target has not selected a damaging move this turn, or if the target has already acted this turn, this move will fail.  This move is not affected by iron fist.",
+      "language": {
+        "name": "en",
+        "url": "https://pokeapi.co/api/v2/language/9/"
+      },
+      "short_effect": "Only works if the target is about to use a damaging move."
+    }
+  ],
+  "flavor_text_entries": [
+    {
+      "flavor_text": "This move enables the user to attack first. It fails if the foe is not readying an attack, however.",
+      "language": {
+        "name": "en",
+        "url": "https://pokeapi.co/api/v2/language/9/"
+      },
+      "version_group": {
+        "name": "diamond-pearl",
+        "url": "https://pokeapi.co/api/v2/version-group/8/"
+      }
+    },
+    {
+      "flavor_text": "This move enables the user to attack first. It fails if the foe is not readying an attack, however.",
+      "language": {
+        "name": "en",
+        "url": "https://pokeapi.co/api/v2/language/9/"
+      },
+      "version_group": {
+        "name": "platinum",
+        "url": "https://pokeapi.co/api/v2/version-group/9/"
+      }
+    },
+    {
+      "flavor_text": "This move enables the user to attack first. It fails if the foe is not readying an attack, however.",
+      "language": {
+        "name": "en",
+        "url": "https://pokeapi.co/api/v2/language/9/"
+      },
+      "version_group": {
+        "name": "heartgold-soulsilver",
+        "url": "https://pokeapi.co/api/v2/version-group/10/"
+      }
+    },
+    {
+      "flavor_text": "Permet au lanceur de frapper en premier. Échoue si l’ennemi ne prépare pas une attaque.",
+      "language": {
+        "name": "fr",
+        "url": "https://pokeapi.co/api/v2/language/5/"
+      },
+      "version_group": {
+        "name": "black-white",
+        "url": "https://pokeapi.co/api/v2/version-group/11/"
+      }
+    },
+    {
+      "flavor_text": "This move enables the user to attack first. It fails if the target is not readying an attack, however.",
+      "language": {
+        "name": "en",
+        "url": "https://pokeapi.co/api/v2/language/9/"
+      },
+      "version_group": {
+        "name": "black-white",
+        "url": "https://pokeapi.co/api/v2/version-group/11/"
+      }
+    },
+    {
+      "flavor_text": "This move enables the user to attack first. It fails if the target is not readying an attack, however.",
+      "language": {
+        "name": "en",
+        "url": "https://pokeapi.co/api/v2/language/9/"
+      },
+      "version_group": {
+        "name": "black-2-white-2",
+        "url": "https://pokeapi.co/api/v2/version-group/14/"
+      }
+    },
+    {
+      "flavor_text": "Permet au lanceur de frapper en premier. Échoue si l’ennemi ne prépare pas une attaque.",
+      "language": {
+        "name": "fr",
+        "url": "https://pokeapi.co/api/v2/language/5/"
+      },
+      "version_group": {
+        "name": "x-y",
+        "url": "https://pokeapi.co/api/v2/version-group/15/"
+      }
+    },
+    {
+      "flavor_text": "This move enables the user to attack first. This move fails if the target is not readying an attack.",
+      "language": {
+        "name": "en",
+        "url": "https://pokeapi.co/api/v2/language/9/"
+      },
+      "version_group": {
+        "name": "x-y",
+        "url": "https://pokeapi.co/api/v2/version-group/15/"
+      }
+    },
+    {
+      "flavor_text": "Permet au lanceur de frapper en premier. Échoue si l’ennemi ne prépare pas une attaque.",
+      "language": {
+        "name": "fr",
+        "url": "https://pokeapi.co/api/v2/language/5/"
+      },
+      "version_group": {
+        "name": "omega-ruby-alpha-sapphire",
+        "url": "https://pokeapi.co/api/v2/version-group/16/"
+      }
+    },
+    {
+      "flavor_text": "This move enables the user to attack first. This move fails if the target is not readying an attack.",
+      "language": {
+        "name": "en",
+        "url": "https://pokeapi.co/api/v2/language/9/"
+      },
+      "version_group": {
+        "name": "omega-ruby-alpha-sapphire",
+        "url": "https://pokeapi.co/api/v2/version-group/16/"
+      }
+    },
+    {
+      "flavor_text": "Permet au lanceur de frapper en priorité. Échoue si l’ennemi ne prépare pas une attaque.",
+      "language": {
+        "name": "fr",
+        "url": "https://pokeapi.co/api/v2/language/5/"
+      },
+      "version_group": {
+        "name": "sun-moon",
+        "url": "https://pokeapi.co/api/v2/version-group/17/"
+      }
+    },
+    {
+      "flavor_text": "This move enables the user to attack first. This move fails if the target is not readying an attack.",
+      "language": {
+        "name": "en",
+        "url": "https://pokeapi.co/api/v2/language/9/"
+      },
+      "version_group": {
+        "name": "sun-moon",
+        "url": "https://pokeapi.co/api/v2/version-group/17/"
+      }
+    },
+    {
+      "flavor_text": "Permet au lanceur de frapper en priorité. Échoue si l’ennemi ne prépare pas une attaque.",
+      "language": {
+        "name": "fr",
+        "url": "https://pokeapi.co/api/v2/language/5/"
+      },
+      "version_group": {
+        "name": "ultra-sun-ultra-moon",
+        "url": "https://pokeapi.co/api/v2/version-group/18/"
+      }
+    },
+    {
+      "flavor_text": "This move enables the user to attack first. This move fails if the target is not readying an attack.",
+      "language": {
+        "name": "en",
+        "url": "https://pokeapi.co/api/v2/language/9/"
+      },
+      "version_group": {
+        "name": "ultra-sun-ultra-moon",
+        "url": "https://pokeapi.co/api/v2/version-group/18/"
+      }
+    },
+    {
+      "flavor_text": "Permet au lanceur de frapper en priorité. Échoue si l’ennemi ne prépare pas une attaque.",
+      "language": {
+        "name": "fr",
+        "url": "https://pokeapi.co/api/v2/language/5/"
+      },
+      "version_group": {
+        "name": "lets-go-pikachu-lets-go-eevee",
+        "url": "https://pokeapi.co/api/v2/version-group/19/"
+      }
+    },
+    {
+      "flavor_text": "This move enables the user to attack first. This move fails if the target is not readying an attack.",
+      "language": {
+        "name": "en",
+        "url": "https://pokeapi.co/api/v2/language/9/"
+      },
+      "version_group": {
+        "name": "lets-go-pikachu-lets-go-eevee",
+        "url": "https://pokeapi.co/api/v2/version-group/19/"
+      }
+    },
+    {
+      "flavor_text": "Permet au lanceur de frapper en priorité. Échoue si l’ennemi ne prépare pas une attaque.",
+      "language": {
+        "name": "fr",
+        "url": "https://pokeapi.co/api/v2/language/5/"
+      },
+      "version_group": {
+        "name": "sword-shield",
+        "url": "https://pokeapi.co/api/v2/version-group/20/"
+      }
+    },
+    {
+      "flavor_text": "This move enables the user to attack first. This move fails if the target is not readying an attack.",
+      "language": {
+        "name": "en",
+        "url": "https://pokeapi.co/api/v2/language/9/"
+      },
+      "version_group": {
+        "name": "sword-shield",
+        "url": "https://pokeapi.co/api/v2/version-group/20/"
+      }
+    },
+    {
+      "flavor_text": "This move enables the user to attack first. This move fails if the target is not readying an attack.",
+      "language": {
+        "name": "en",
+        "url": "https://pokeapi.co/api/v2/language/9/"
+      },
+      "version_group": {
+        "name": "legends-arceus",
+        "url": "https://pokeapi.co/api/v2/version-group/24/"
+      }
+    },
+    {
+      "flavor_text": "This move enables the user to attack first. This move fails if the target is not readying an attack.",
+      "language": {
+        "name": "en",
+        "url": "https://pokeapi.co/api/v2/language/9/"
+      },
+      "version_group": {
+        "name": "scarlet-violet",
+        "url": "https://pokeapi.co/api/v2/version-group/25/"
+      }
+    }
+  ],
+  "stat_changes": [],
+  "learned_by_pokemon": [
+    {
+      "id": 19,
+      "name": "Rattata"
+    },
+    {
+      "id": 20,
+      "name": "Rattatac"
+    },
+    {
+      "id": 23,
+      "name": "Abo"
+    },
+    {
+      "id": 24,
+      "name": "Arbok"
+    },
+    {
+      "id": 32,
+      "name": "Nidoran♂"
+    },
+    {
+      "id": 33,
+      "name": "Nidorino"
+    },
+    {
+      "id": 34,
+      "name": "Nidoking"
+    },
+    {
+      "id": 50,
+      "name": "Taupiqueur"
+    },
+    {
+      "id": 51,
+      "name": "Triopikeur"
+    },
+    {
+      "id": 69,
+      "name": "Chétiflor"
+    },
+    {
+      "id": 70,
+      "name": "Boustiflor"
+    },
+    {
+      "id": 71,
+      "name": "Empiflor"
+    },
+    {
+      "id": 74,
+      "name": "Racaillou"
+    },
+    {
+      "id": 75,
+      "name": "Gravalanch"
+    },
+    {
+      "id": 76,
+      "name": "Grolem"
+    },
+    {
+      "id": 92,
+      "name": "Fantominus"
+    },
+    {
+      "id": 93,
+      "name": "Spectrum"
+    },
+    {
+      "id": 94,
+      "name": "Ectoplasma"
+    },
+    {
+      "id": 100,
+      "name": "Voltorbe"
+    },
+    {
+      "id": 101,
+      "name": "Électrode"
+    },
+    {
+      "id": 106,
+      "name": "Kicklee"
+    },
+    {
+      "id": 115,
+      "name": "Kangourex"
+    },
+    {
+      "id": 122,
+      "name": "M. Mime"
+    },
+    {
+      "id": 151,
+      "name": "Mew"
+    },
+    {
+      "id": 161,
+      "name": "Fouinette"
+    },
+    {
+      "id": 162,
+      "name": "Fouinar"
+    },
+    {
+      "id": 167,
+      "name": "Mimigal"
+    },
+    {
+      "id": 168,
+      "name": "Migalos"
+    },
+    {
+      "id": 170,
+      "name": "Loupio"
+    },
+    {
+      "id": 171,
+      "name": "Lanturn"
+    },
+    {
+      "id": 177,
+      "name": "Natu"
+    },
+    {
+      "id": 178,
+      "name": "Xatu"
+    },
+    {
+      "id": 185,
+      "name": "Simularbre"
+    },
+    {
+      "id": 197,
+      "name": "Noctali"
+    },
+    {
+      "id": 198,
+      "name": "Cornèbre"
+    },
+    {
+      "id": 200,
+      "name": "Feuforêve"
+    },
+    {
+      "id": 203,
+      "name": "Girafarig"
+    },
+    {
+      "id": 222,
+      "name": "Corayon"
+    },
+    {
+      "id": 228,
+      "name": "Malosse"
+    },
+    {
+      "id": 229,
+      "name": "Démolosse"
+    },
+    {
+      "id": 234,
+      "name": "Cerfrousse"
+    },
+    {
+      "id": 237,
+      "name": "Kapoera"
+    },
+    {
+      "id": 251,
+      "name": "Celebi"
+    },
+    {
+      "id": 261,
+      "name": "Medhyèna"
+    },
+    {
+      "id": 262,
+      "name": "Grahyèna"
+    },
+    {
+      "id": 273,
+      "name": "Grainipiot"
+    },
+    {
+      "id": 274,
+      "name": "Pifeuil"
+    },
+    {
+      "id": 275,
+      "name": "Tengalice"
+    },
+    {
+      "id": 287,
+      "name": "Parecool"
+    },
+    {
+      "id": 288,
+      "name": "Vigoroth"
+    },
+    {
+      "id": 289,
+      "name": "Monaflèmit"
+    },
+    {
+      "id": 292,
+      "name": "Munja"
+    },
+    {
+      "id": 300,
+      "name": "Skitty"
+    },
+    {
+      "id": 301,
+      "name": "Delcatty"
+    },
+    {
+      "id": 302,
+      "name": "Ténéfix"
+    },
+    {
+      "id": 303,
+      "name": "Mysdibule"
+    },
+    {
+      "id": 327,
+      "name": "Spinda"
+    },
+    {
+      "id": 331,
+      "name": "Cacnea"
+    },
+    {
+      "id": 332,
+      "name": "Cacturne"
+    },
+    {
+      "id": 336,
+      "name": "Séviper"
+    },
+    {
+      "id": 352,
+      "name": "Kecleon"
+    },
+    {
+      "id": 353,
+      "name": "Polichombr"
+    },
+    {
+      "id": 354,
+      "name": "Branette"
+    },
+    {
+      "id": 355,
+      "name": "Skelénox"
+    },
+    {
+      "id": 356,
+      "name": "Téraclope"
+    },
+    {
+      "id": 359,
+      "name": "Absol"
+    },
+    {
+      "id": 367,
+      "name": "Serpang"
+    },
+    {
+      "id": 380,
+      "name": "Latias"
+    },
+    {
+      "id": 413,
+      "name": "Cheniselle"
+    },
+    {
+      "id": 425,
+      "name": "Baudrive"
+    },
+    {
+      "id": 426,
+      "name": "Grodrive"
+    },
+    {
+      "id": 429,
+      "name": "Magirêve"
+    },
+    {
+      "id": 430,
+      "name": "Corboss"
+    },
+    {
+      "id": 431,
+      "name": "Chaglam"
+    },
+    {
+      "id": 432,
+      "name": "Chaffreux"
+    },
+    {
+      "id": 434,
+      "name": "Moufouette"
+    },
+    {
+      "id": 435,
+      "name": "Moufflair"
+    },
+    {
+      "id": 438,
+      "name": "Manzaï"
+    },
+    {
+      "id": 439,
+      "name": "Mime Jr."
+    },
+    {
+      "id": 442,
+      "name": "Spiritomb"
+    },
+    {
+      "id": 453,
+      "name": "Cradopaud"
+    },
+    {
+      "id": 454,
+      "name": "Coatox"
+    },
+    {
+      "id": 477,
+      "name": "Noctunoir"
+    },
+    {
+      "id": 478,
+      "name": "Momartik"
+    },
+    {
+      "id": 479,
+      "name": "Motisma"
+    },
+    {
+      "id": 491,
+      "name": "Darkrai"
+    },
+    {
+      "id": 498,
+      "name": "Gruikui"
+    },
+    {
+      "id": 499,
+      "name": "Grotichon"
+    },
+    {
+      "id": 500,
+      "name": "Roitiflam"
+    },
+    {
+      "id": 509,
+      "name": "Chacripan"
+    },
+    {
+      "id": 510,
+      "name": "Léopardus"
+    },
+    {
+      "id": 556,
+      "name": "Maracachi"
+    },
+    {
+      "id": 570,
+      "name": "Zorua"
+    },
+    {
+      "id": 595,
+      "name": "Statitik"
+    },
+    {
+      "id": 596,
+      "name": "Mygavolt"
+    },
+    {
+      "id": 618,
+      "name": "Limonde"
+    },
+    {
+      "id": 621,
+      "name": "Drakkarmin"
+    },
+    {
+      "id": 624,
+      "name": "Scalpion"
+    },
+    {
+      "id": 631,
+      "name": "Aflamanoir"
+    },
+    {
+      "id": 676,
+      "name": "Couafarel"
+    },
+    {
+      "id": 678,
+      "name": "Mistigrix"
+    },
+    {
+      "id": 708,
+      "name": "Brocélôme"
+    },
+    {
+      "id": 709,
+      "name": "Desséliande"
+    },
+    {
+      "id": 717,
+      "name": "Yveltal"
+    },
+    {
+      "id": 722,
+      "name": "Brindibou"
+    },
+    {
+      "id": 723,
+      "name": "Efflèche"
+    },
+    {
+      "id": 724,
+      "name": "Archéduc"
+    },
+    {
+      "id": 744,
+      "name": "Rocabot"
+    },
+    {
+      "id": 745,
+      "name": "Lougaroc"
+    },
+    {
+      "id": 768,
+      "name": "Sarmuraï"
+    },
+    {
+      "id": 775,
+      "name": "Dodoala"
+    },
+    {
+      "id": 802,
+      "name": "Marshadow"
+    },
+    {
+      "id": 813,
+      "name": "Flambino"
+    },
+    {
+      "id": 814,
+      "name": "Lapyro"
+    },
+    {
+      "id": 815,
+      "name": "Pyrobut"
+    },
+    {
+      "id": 816,
+      "name": "Larméléon"
+    },
+    {
+      "id": 817,
+      "name": "Arrozard"
+    },
+    {
+      "id": 818,
+      "name": "Lézargus"
+    },
+    {
+      "id": 827,
+      "name": "Goupilou"
+    },
+    {
+      "id": 828,
+      "name": "Roublenard"
+    },
+    {
+      "id": 840,
+      "name": "Verpom"
+    },
+    {
+      "id": 852,
+      "name": "Poulpaf"
+    },
+    {
+      "id": 854,
+      "name": "Théffroi"
+    },
+    {
+      "id": 855,
+      "name": "Polthégeist"
+    },
+    {
+      "id": 859,
+      "name": "Grimalin"
+    },
+    {
+      "id": 860,
+      "name": "Fourbelin"
+    },
+    {
+      "id": 861,
+      "name": "Angoliath"
+    },
+    {
+      "id": 866,
+      "name": "M. Glaquette"
+    },
+    {
+      "id": 871,
+      "name": "Wattapik"
+    },
+    {
+      "id": 885,
+      "name": "Fantyrm"
+    },
+    {
+      "id": 887,
+      "name": "Lanssorien"
+    },
+    {
+      "id": 892,
+      "name": "Shifours"
+    },
+    {
+      "id": 906,
+      "name": "Poussacha"
+    },
+    {
+      "id": 917,
+      "name": "Tissenboule"
+    },
+    {
+      "id": 919,
+      "name": "Lilliterelle"
+    },
+    {
+      "id": 920,
+      "name": "Gambex"
+    },
+    {
+      "id": 938,
+      "name": "Têtampoule"
+    },
+    {
+      "id": 939,
+      "name": "Ampibidou"
+    },
+    {
+      "id": 960,
+      "name": "Taupikeau"
+    },
+    {
+      "id": 961,
+      "name": "Triopikeau"
+    },
+    {
+      "id": 962,
+      "name": "Lestombaile"
+    },
+    {
+      "id": 986,
+      "name": "Fongus-Furie"
+    },
+    {
+      "id": 1002,
+      "name": "Baojian"
+    },
+    {
+      "id": 1011,
+      "name": "Pomdramour"
+    },
+    {
+      "id": 1019,
+      "name": "Pomdorochi"
+    },
+    {
+      "id": 10004,
+      "name": "Cheniselle"
+    },
+    {
+      "id": 10005,
+      "name": "Cheniselle"
+    },
+    {
+      "id": 10008,
+      "name": "Motisma"
+    },
+    {
+      "id": 10009,
+      "name": "Motisma"
+    },
+    {
+      "id": 10010,
+      "name": "Motisma"
+    },
+    {
+      "id": 10011,
+      "name": "Motisma"
+    },
+    {
+      "id": 10012,
+      "name": "Motisma"
+    },
+    {
+      "id": 10025,
+      "name": "Mistigrix"
+    },
+    {
+      "id": 10038,
+      "name": "Ectoplasma"
+    },
+    {
+      "id": 10039,
+      "name": "Kangourex"
+    },
+    {
+      "id": 10052,
+      "name": "Mysdibule"
+    },
+    {
+      "id": 10056,
+      "name": "Branette"
+    },
+    {
+      "id": 10057,
+      "name": "Absol"
+    },
+    {
+      "id": 10066,
+      "name": "Ténéfix"
+    },
+    {
+      "id": 10091,
+      "name": "Rattata"
+    },
+    {
+      "id": 10092,
+      "name": "Rattatac"
+    },
+    {
+      "id": 10093,
+      "name": "Rattatac"
+    },
+    {
+      "id": 10105,
+      "name": "Taupiqueur"
+    },
+    {
+      "id": 10106,
+      "name": "Triopikeur"
+    },
+    {
+      "id": 10151,
+      "name": "Rocabot"
+    },
+    {
+      "id": 10152,
+      "name": "Lougaroc"
+    },
+    {
+      "id": 10168,
+      "name": "M. Mime"
+    },
+    {
+      "id": 10171,
+      "name": "Sulfura"
+    },
+    {
+      "id": 10180,
+      "name": "Limonde"
+    },
+    {
+      "id": 10236,
+      "name": "Clamiral"
+    },
+    {
+      "id": 10244,
+      "name": "Archéduc"
+    }
+  ]
+}

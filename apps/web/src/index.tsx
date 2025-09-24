@@ -3,9 +3,11 @@ import './index.css';
 import { render } from 'solid-js/web';
 import 'solid-devtools';
 import { Router } from '@solidjs/router';
+import { QueryClientProvider } from '@tanstack/solid-query';
 import App from './App';
 import { initI18n } from './i18n';
 import { initTheme } from './theme';
+import { queryClient, initQueryPersistence } from './queryClient';
 
 const root = document.getElementById('root');
 
@@ -15,11 +17,26 @@ if (import.meta.env.DEV && !(root instanceof HTMLElement)) {
   );
 }
 
-initI18n();
-initTheme();
+async function bootstrap() {
+  initI18n();
+  initTheme();
+  let buildId = 'dev';
+  try {
+    const res = await fetch('/data/pokeapi/build.json', { cache: 'no-store' });
+    if (res.ok) {
+      const m = await res.json();
+      if (m?.buildId) buildId = String(m.buildId);
+    }
+  } catch {}
+  await initQueryPersistence(buildId);
 
-render(() => (
-  <Router>
-    <App />
-  </Router>
-), root!);
+  render(() => (
+    <QueryClientProvider client={queryClient}>
+      <Router>
+        <App />
+      </Router>
+    </QueryClientProvider>
+  ), root!);
+}
+
+bootstrap();

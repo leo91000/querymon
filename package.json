@@ -4,10 +4,7 @@
   "description": "",
   "type": "module",
   "scripts": {
-    "scrape": "node scripts/scrape-pokeapi.mjs && node scripts/build-index.mjs && node scripts/build-pages.mjs",
-    "data:sync": "node scripts/sync-data.mjs",
-    "data:gen": "node scripts/generate-pokejson.mjs",
-    "index": "node scripts/build-index.mjs",
+    "scrape": "node scripts/scrape.mjs",
     "dev:web": "pnpm --filter @querymon/web dev",
     "build:web": "pnpm --filter @querymon/web build",
     "serve:web": "pnpm --filter @querymon/web serve",

@@ -1,0 +1,634 @@
+{
+  "id": 50,
+  "name": "Disable",
+  "type": {
+    "id": 1,
+    "name": "normal"
+  },
+  "damage_class": {
+    "name": "status"
+  },
+  "power": null,
+  "accuracy": 100,
+  "pp": 20,
+  "priority": 0,
+  "target": {
+    "name": "selected-pokemon"
+  },
+  "generation": {
+    "name": "generation-i"
+  },
+  "effect_entries": [
+    {
+      "effect": "Disables the target’s last used move, preventing its use for 4–7 turns, selected at random, or until the target leaves the field.  If the target hasn’t used a move since entering the field, if it tried to use a move this turn and failed,  if its last used move has 0 PP remaining, or if it already has a move disabled, this move will fail.",
+      "language": {
+        "name": "en",
+        "url": "https://pokeapi.co/api/v2/language/9/"
+      },
+      "short_effect": "Disables the target’s last used move for 1-8 turns."
+    }
+  ],
+  "flavor_text_entries": [
+    {
+      "flavor_text": "Disables the foe's most recent move.",
+      "language": {
+        "name": "en",
+        "url": "https://pokeapi.co/api/v2/language/9/"
+      },
+      "version_group": {
+        "name": "gold-silver",
+        "url": "https://pokeapi.co/api/v2/version-group/3/"
+      }
+    },
+    {
+      "flavor_text": "Disables the foe's most recent move.",
+      "language": {
+        "name": "en",
+        "url": "https://pokeapi.co/api/v2/language/9/"
+      },
+      "version_group": {
+        "name": "crystal",
+        "url": "https://pokeapi.co/api/v2/version-group/4/"
+      }
+    },
+    {
+      "flavor_text": "Psychically disables one of the foe’s moves.",
+      "language": {
+        "name": "en",
+        "url": "https://pokeapi.co/api/v2/language/9/"
+      },
+      "version_group": {
+        "name": "ruby-sapphire",
+        "url": "https://pokeapi.co/api/v2/version-group/5/"
+      }
+    },
+    {
+      "flavor_text": "Psychically disables one of the foe’s moves.",
+      "language": {
+        "name": "en",
+        "url": "https://pokeapi.co/api/v2/language/9/"
+      },
+      "version_group": {
+        "name": "emerald",
+        "url": "https://pokeapi.co/api/v2/version-group/6/"
+      }
+    },
+    {
+      "flavor_text": "For a few turns, it prevents the foe from using the move it last used.",
+      "language": {
+        "name": "en",
+        "url": "https://pokeapi.co/api/v2/language/9/"
+      },
+      "version_group": {
+        "name": "firered-leafgreen",
+        "url": "https://pokeapi.co/api/v2/version-group/7/"
+      }
+    },
+    {
+      "flavor_text": "For several turns, this move prevents the foe from using the move it last used.",
+      "language": {
+        "name": "en",
+        "url": "https://pokeapi.co/api/v2/language/9/"
+      },
+      "version_group": {
+        "name": "diamond-pearl",
+        "url": "https://pokeapi.co/api/v2/version-group/8/"
+      }
+    },
+    {
+      "flavor_text": "For several turns, this move prevents the foe from using the move it last used.",
+      "language": {
+        "name": "en",
+        "url": "https://pokeapi.co/api/v2/language/9/"
+      },
+      "version_group": {
+        "name": "platinum",
+        "url": "https://pokeapi.co/api/v2/version-group/9/"
+      }
+    },
+    {
+      "flavor_text": "For several turns, this move prevents the foe from using the move it last used.",
+      "language": {
+        "name": "en",
+        "url": "https://pokeapi.co/api/v2/language/9/"
+      },
+      "version_group": {
+        "name": "heartgold-soulsilver",
+        "url": "https://pokeapi.co/api/v2/version-group/10/"
+      }
+    },
+    {
+      "flavor_text": "For four turns, this move prevents the target from using the move it last used.",
+      "language": {
+        "name": "en",
+        "url": "https://pokeapi.co/api/v2/language/9/"
+      },
+      "version_group": {
+        "name": "black-white",
+        "url": "https://pokeapi.co/api/v2/version-group/11/"
+      }
+    },
+    {
+      "flavor_text": "For four turns, this move prevents the target from using the move it last used.",
+      "language": {
+        "name": "en",
+        "url": "https://pokeapi.co/api/v2/language/9/"
+      },
+      "version_group": {
+        "name": "black-2-white-2",
+        "url": "https://pokeapi.co/api/v2/version-group/14/"
+      }
+    },
+    {
+      "flavor_text": "For four turns, this move prevents the target from using the move it last used.",
+      "language": {
+        "name": "en",
+        "url": "https://pokeapi.co/api/v2/language/9/"
+      },
+      "version_group": {
+        "name": "x-y",
+        "url": "https://pokeapi.co/api/v2/version-group/15/"
+      }
+    },
+    {
+      "flavor_text": "For four turns, this move prevents the target from using the move it last used.",
+      "language": {
+        "name": "en",
+        "url": "https://pokeapi.co/api/v2/language/9/"
+      },
+      "version_group": {
+        "name": "omega-ruby-alpha-sapphire",
+        "url": "https://pokeapi.co/api/v2/version-group/16/"
+      }
+    },
+    {
+      "flavor_text": "For four turns, this move prevents the target from using the move it last used.",
+      "language": {
+        "name": "en",
+        "url": "https://pokeapi.co/api/v2/language/9/"
+      },
+      "version_group": {
+        "name": "sun-moon",
+        "url": "https://pokeapi.co/api/v2/version-group/17/"
+      }
+    },
+    {
+      "flavor_text": "For four turns, this move prevents the target from using the move it last used.",
+      "language": {
+        "name": "en",
+        "url": "https://pokeapi.co/api/v2/language/9/"
+      },
+      "version_group": {
+        "name": "ultra-sun-ultra-moon",
+        "url": "https://pokeapi.co/api/v2/version-group/18/"
+      }
+    },
+    {
+      "flavor_text": "For four turns, this move prevents the target from using the move it last used.",
+      "language": {
+        "name": "en",
+        "url": "https://pokeapi.co/api/v2/language/9/"
+      },
+      "version_group": {
+        "name": "lets-go-pikachu-lets-go-eevee",
+        "url": "https://pokeapi.co/api/v2/version-group/19/"
+      }
+    },
+    {
+      "flavor_text": "For four turns, this move prevents the target from using the move it last used.",
+      "language": {
+        "name": "en",
+        "url": "https://pokeapi.co/api/v2/language/9/"
+      },
+      "version_group": {
+        "name": "sword-shield",
+        "url": "https://pokeapi.co/api/v2/version-group/20/"
+      }
+    },
+    {
+      "flavor_text": "For four turns, this move prevents the target from using the move it last used.",
+      "language": {
+        "name": "en",
+        "url": "https://pokeapi.co/api/v2/language/9/"
+      },
+      "version_group": {
+        "name": "legends-arceus",
+        "url": "https://pokeapi.co/api/v2/version-group/24/"
+      }
+    },
+    {
+      "flavor_text": "For four turns, the target will be unable to use whichever move it last used.",
+      "language": {
+        "name": "en",
+        "url": "https://pokeapi.co/api/v2/language/9/"
+      },
+      "version_group": {
+        "name": "scarlet-violet",
+        "url": "https://pokeapi.co/api/v2/version-group/25/"
+      }
+    }
+  ],
+  "stat_changes": [],
+  "learned_by_pokemon": [
+    {
+      "id": 23,
+      "name": "Ekans"
+    },
+    {
+      "id": 29,
+      "name": "Nidoran♀"
+    },
+    {
+      "id": 32,
+      "name": "Nidoran♂"
+    },
+    {
+      "id": 37,
+      "name": "Vulpix"
+    },
+    {
+      "id": 38,
+      "name": "Ninetales"
+    },
+    {
+      "id": 39,
+      "name": "Jigglypuff"
+    },
+    {
+      "id": 40,
+      "name": "Wigglytuff"
+    },
+    {
+      "id": 48,
+      "name": "Venonat"
+    },
+    {
+      "id": 49,
+      "name": "Venomoth"
+    },
+    {
+      "id": 54,
+      "name": "Psyduck"
+    },
+    {
+      "id": 55,
+      "name": "Golduck"
+    },
+    {
+      "id": 64,
+      "name": "Kadabra"
+    },
+    {
+      "id": 65,
+      "name": "Alakazam"
+    },
+    {
+      "id": 79,
+      "name": "Slowpoke"
+    },
+    {
+      "id": 80,
+      "name": "Slowbro"
+    },
+    {
+      "id": 86,
+      "name": "Seel"
+    },
+    {
+      "id": 87,
+      "name": "Dewgong"
+    },
+    {
+      "id": 88,
+      "name": "Grimer"
+    },
+    {
+      "id": 89,
+      "name": "Muk"
+    },
+    {
+      "id": 92,
+      "name": "Gastly"
+    },
+    {
+      "id": 94,
+      "name": "Gengar"
+    },
+    {
+      "id": 96,
+      "name": "Drowzee"
+    },
+    {
+      "id": 97,
+      "name": "Hypno"
+    },
+    {
+      "id": 108,
+      "name": "Lickitung"
+    },
+    {
+      "id": 115,
+      "name": "Kangaskhan"
+    },
+    {
+      "id": 116,
+      "name": "Horsea"
+    },
+    {
+      "id": 117,
+      "name": "Seadra"
+    },
+    {
+      "id": 150,
+      "name": "Mewtwo"
+    },
+    {
+      "id": 167,
+      "name": "Spinarak"
+    },
+    {
+      "id": 168,
+      "name": "Ariados"
+    },
+    {
+      "id": 174,
+      "name": "Igglybuff"
+    },
+    {
+      "id": 199,
+      "name": "Slowking"
+    },
+    {
+      "id": 230,
+      "name": "Kingdra"
+    },
+    {
+      "id": 234,
+      "name": "Stantler"
+    },
+    {
+      "id": 280,
+      "name": "Ralts"
+    },
+    {
+      "id": 302,
+      "name": "Sableye"
+    },
+    {
+      "id": 327,
+      "name": "Spinda"
+    },
+    {
+      "id": 331,
+      "name": "Cacnea"
+    },
+    {
+      "id": 335,
+      "name": "Zangoose"
+    },
+    {
+      "id": 351,
+      "name": "Castform"
+    },
+    {
+      "id": 352,
+      "name": "Kecleon"
+    },
+    {
+      "id": 353,
+      "name": "Shuppet"
+    },
+    {
+      "id": 355,
+      "name": "Duskull"
+    },
+    {
+      "id": 356,
+      "name": "Dusclops"
+    },
+    {
+      "id": 358,
+      "name": "Chimecho"
+    },
+    {
+      "id": 361,
+      "name": "Snorunt"
+    },
+    {
+      "id": 425,
+      "name": "Drifloon"
+    },
+    {
+      "id": 433,
+      "name": "Chingling"
+    },
+    {
+      "id": 442,
+      "name": "Spiritomb"
+    },
+    {
+      "id": 463,
+      "name": "Lickilicky"
+    },
+    {
+      "id": 477,
+      "name": "Dusknoir"
+    },
+    {
+      "id": 491,
+      "name": "Darkrai"
+    },
+    {
+      "id": 562,
+      "name": "Yamask"
+    },
+    {
+      "id": 563,
+      "name": "Cofagrigus"
+    },
+    {
+      "id": 595,
+      "name": "Joltik"
+    },
+    {
+      "id": 605,
+      "name": "Elgyem"
+    },
+    {
+      "id": 682,
+      "name": "Spritzee"
+    },
+    {
+      "id": 686,
+      "name": "Inkay"
+    },
+    {
+      "id": 687,
+      "name": "Malamar"
+    },
+    {
+      "id": 708,
+      "name": "Phantump"
+    },
+    {
+      "id": 709,
+      "name": "Trevenant"
+    },
+    {
+      "id": 710,
+      "name": "Pumpkaboo"
+    },
+    {
+      "id": 717,
+      "name": "Yveltal"
+    },
+    {
+      "id": 758,
+      "name": "Salazzle"
+    },
+    {
+      "id": 779,
+      "name": "Bruxish"
+    },
+    {
+      "id": 787,
+      "name": "Tapu Bulu"
+    },
+    {
+      "id": 864,
+      "name": "Cursola"
+    },
+    {
+      "id": 867,
+      "name": "Runerigus"
+    },
+    {
+      "id": 885,
+      "name": "Dreepy"
+    },
+    {
+      "id": 897,
+      "name": "Spectrier"
+    },
+    {
+      "id": 935,
+      "name": "Charcadet"
+    },
+    {
+      "id": 946,
+      "name": "Bramblin"
+    },
+    {
+      "id": 947,
+      "name": "Brambleghast"
+    },
+    {
+      "id": 971,
+      "name": "Greavard"
+    },
+    {
+      "id": 985,
+      "name": "Scream Tail"
+    },
+    {
+      "id": 1006,
+      "name": "Iron Valiant"
+    },
+    {
+      "id": 10013,
+      "name": "Castform"
+    },
+    {
+      "id": 10014,
+      "name": "Castform"
+    },
+    {
+      "id": 10015,
+      "name": "Castform"
+    },
+    {
+      "id": 10027,
+      "name": "Pumpkaboo"
+    },
+    {
+      "id": 10028,
+      "name": "Pumpkaboo"
+    },
+    {
+      "id": 10029,
+      "name": "Pumpkaboo"
+    },
+    {
+      "id": 10037,
+      "name": "Alakazam"
+    },
+    {
+      "id": 10038,
+      "name": "Gengar"
+    },
+    {
+      "id": 10039,
+      "name": "Kangaskhan"
+    },
+    {
+      "id": 10043,
+      "name": "Mewtwo"
+    },
+    {
+      "id": 10044,
+      "name": "Mewtwo"
+    },
+    {
+      "id": 10071,
+      "name": "Slowbro"
+    },
+    {
+      "id": 10098,
+      "name": "Pikachu"
+    },
+    {
+      "id": 10103,
+      "name": "Vulpix"
+    },
+    {
+      "id": 10104,
+      "name": "Ninetales"
+    },
+    {
+      "id": 10112,
+      "name": "Grimer"
+    },
+    {
+      "id": 10113,
+      "name": "Muk"
+    },
+    {
+      "id": 10129,
+      "name": "Salazzle"
+    },
+    {
+      "id": 10164,
+      "name": "Slowpoke"
+    },
+    {
+      "id": 10165,
+      "name": "Slowbro"
+    },
+    {
+      "id": 10172,
+      "name": "Slowking"
+    },
+    {
+      "id": 10173,
+      "name": "Corsola"
+    },
+    {
+      "id": 10179,
+      "name": "Yamask"
+    },
+    {
+      "id": 10194,
+      "name": "Calyrex"
+    }
+  ]
+}

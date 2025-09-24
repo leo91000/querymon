@@ -1,0 +1,998 @@
+{
+  "id": 258,
+  "name": "Hail",
+  "type": {
+    "id": 15,
+    "name": "ice"
+  },
+  "damage_class": {
+    "name": "status"
+  },
+  "power": null,
+  "accuracy": null,
+  "pp": 10,
+  "priority": 0,
+  "target": {
+    "name": "entire-field"
+  },
+  "generation": {
+    "name": "generation-iii"
+  },
+  "effect_entries": [
+    {
+      "effect": "Changes the weather to hail for five turns, during which non-ice Pokémon are damaged for 1/16 their max HP at the end of every turn.  If the user is holding icy rock, this effect lasts for eight turns.  blizzard has 100% accuracy.  If the target has used detect or protect, blizzard has a (100 - accuracy)% chance to break through the protection.  moonlight, morning sun, and synthesis heal only 1/4 of the user’s max HP.  Pokémon with snow cloak are exempt from this effect’s damage.",
+      "language": {
+        "name": "en",
+        "url": "https://pokeapi.co/api/v2/language/9/"
+      },
+      "short_effect": "Changes the weather to a hailstorm for five turns."
+    }
+  ],
+  "flavor_text_entries": [
+    {
+      "flavor_text": "Summons a hailstorm that strikes every turn.",
+      "language": {
+        "name": "en",
+        "url": "https://pokeapi.co/api/v2/language/9/"
+      },
+      "version_group": {
+        "name": "ruby-sapphire",
+        "url": "https://pokeapi.co/api/v2/version-group/5/"
+      }
+    },
+    {
+      "flavor_text": "Summons a hailstorm that strikes every turn.",
+      "language": {
+        "name": "en",
+        "url": "https://pokeapi.co/api/v2/language/9/"
+      },
+      "version_group": {
+        "name": "emerald",
+        "url": "https://pokeapi.co/api/v2/version-group/6/"
+      }
+    },
+    {
+      "flavor_text": "A hailstorm lasting five turns damages all POKéMON except the ICE-type.",
+      "language": {
+        "name": "en",
+        "url": "https://pokeapi.co/api/v2/language/9/"
+      },
+      "version_group": {
+        "name": "firered-leafgreen",
+        "url": "https://pokeapi.co/api/v2/version-group/7/"
+      }
+    },
+    {
+      "flavor_text": "The user summons a hailstorm lasting five turns. It damages all Pokémon except the Ice type.",
+      "language": {
+        "name": "en",
+        "url": "https://pokeapi.co/api/v2/language/9/"
+      },
+      "version_group": {
+        "name": "diamond-pearl",
+        "url": "https://pokeapi.co/api/v2/version-group/8/"
+      }
+    },
+    {
+      "flavor_text": "The user summons a hailstorm lasting five turns. It damages all Pokémon except the Ice type.",
+      "language": {
+        "name": "en",
+        "url": "https://pokeapi.co/api/v2/language/9/"
+      },
+      "version_group": {
+        "name": "platinum",
+        "url": "https://pokeapi.co/api/v2/version-group/9/"
+      }
+    },
+    {
+      "flavor_text": "The user summons a hailstorm lasting five turns. It damages all Pokémon except the Ice type.",
+      "language": {
+        "name": "en",
+        "url": "https://pokeapi.co/api/v2/language/9/"
+      },
+      "version_group": {
+        "name": "heartgold-soulsilver",
+        "url": "https://pokeapi.co/api/v2/version-group/10/"
+      }
+    },
+    {
+      "flavor_text": "The user summons a hailstorm lasting five turns. It damages all Pokémon except the Ice type.",
+      "language": {
+        "name": "en",
+        "url": "https://pokeapi.co/api/v2/language/9/"
+      },
+      "version_group": {
+        "name": "black-white",
+        "url": "https://pokeapi.co/api/v2/version-group/11/"
+      }
+    },
+    {
+      "flavor_text": "The user summons a hailstorm lasting five turns. It damages all Pokémon except the Ice type.",
+      "language": {
+        "name": "en",
+        "url": "https://pokeapi.co/api/v2/language/9/"
+      },
+      "version_group": {
+        "name": "black-2-white-2",
+        "url": "https://pokeapi.co/api/v2/version-group/14/"
+      }
+    },
+    {
+      "flavor_text": "The user summons a hailstorm lasting five turns. It damages all Pokémon except the Ice type.",
+      "language": {
+        "name": "en",
+        "url": "https://pokeapi.co/api/v2/language/9/"
+      },
+      "version_group": {
+        "name": "x-y",
+        "url": "https://pokeapi.co/api/v2/version-group/15/"
+      }
+    },
+    {
+      "flavor_text": "The user summons a hailstorm lasting five turns. It damages all Pokémon except the Ice type.",
+      "language": {
+        "name": "en",
+        "url": "https://pokeapi.co/api/v2/language/9/"
+      },
+      "version_group": {
+        "name": "omega-ruby-alpha-sapphire",
+        "url": "https://pokeapi.co/api/v2/version-group/16/"
+      }
+    },
+    {
+      "flavor_text": "The user summons a hailstorm lasting five turns. It damages all Pokémon except the Ice type.",
+      "language": {
+        "name": "en",
+        "url": "https://pokeapi.co/api/v2/language/9/"
+      },
+      "version_group": {
+        "name": "sun-moon",
+        "url": "https://pokeapi.co/api/v2/version-group/17/"
+      }
+    },
+    {
+      "flavor_text": "The user summons a hailstorm lasting five turns. It damages all Pokémon except the Ice type.",
+      "language": {
+        "name": "en",
+        "url": "https://pokeapi.co/api/v2/language/9/"
+      },
+      "version_group": {
+        "name": "ultra-sun-ultra-moon",
+        "url": "https://pokeapi.co/api/v2/version-group/18/"
+      }
+    },
+    {
+      "flavor_text": "The user summons a hailstorm lasting five turns. It damages all Pokémon except the Ice type.",
+      "language": {
+        "name": "en",
+        "url": "https://pokeapi.co/api/v2/language/9/"
+      },
+      "version_group": {
+        "name": "lets-go-pikachu-lets-go-eevee",
+        "url": "https://pokeapi.co/api/v2/version-group/19/"
+      }
+    },
+    {
+      "flavor_text": "The user summons a hailstorm lasting five turns. It damages all Pokémon except Ice types.",
+      "language": {
+        "name": "en",
+        "url": "https://pokeapi.co/api/v2/language/9/"
+      },
+      "version_group": {
+        "name": "sword-shield",
+        "url": "https://pokeapi.co/api/v2/version-group/20/"
+      }
+    }
+  ],
+  "stat_changes": [],
+  "learned_by_pokemon": [
+    {
+      "id": 7,
+      "name": "Squirtle"
+    },
+    {
+      "id": 8,
+      "name": "Wartortle"
+    },
+    {
+      "id": 9,
+      "name": "Blastoise"
+    },
+    {
+      "id": 54,
+      "name": "Psyduck"
+    },
+    {
+      "id": 55,
+      "name": "Golduck"
+    },
+    {
+      "id": 60,
+      "name": "Poliwag"
+    },
+    {
+      "id": 61,
+      "name": "Poliwhirl"
+    },
+    {
+      "id": 62,
+      "name": "Poliwrath"
+    },
+    {
+      "id": 72,
+      "name": "Tentacool"
+    },
+    {
+      "id": 73,
+      "name": "Tentacruel"
+    },
+    {
+      "id": 79,
+      "name": "Slowpoke"
+    },
+    {
+      "id": 80,
+      "name": "Slowbro"
+    },
+    {
+      "id": 86,
+      "name": "Seel"
+    },
+    {
+      "id": 87,
+      "name": "Dewgong"
+    },
+    {
+      "id": 90,
+      "name": "Shellder"
+    },
+    {
+      "id": 91,
+      "name": "Cloyster"
+    },
+    {
+      "id": 98,
+      "name": "Krabby"
+    },
+    {
+      "id": 99,
+      "name": "Kingler"
+    },
+    {
+      "id": 113,
+      "name": "Chansey"
+    },
+    {
+      "id": 115,
+      "name": "Kangaskhan"
+    },
+    {
+      "id": 116,
+      "name": "Horsea"
+    },
+    {
+      "id": 117,
+      "name": "Seadra"
+    },
+    {
+      "id": 118,
+      "name": "Goldeen"
+    },
+    {
+      "id": 119,
+      "name": "Seaking"
+    },
+    {
+      "id": 120,
+      "name": "Staryu"
+    },
+    {
+      "id": 121,
+      "name": "Starmie"
+    },
+    {
+      "id": 124,
+      "name": "Jynx"
+    },
+    {
+      "id": 130,
+      "name": "Gyarados"
+    },
+    {
+      "id": 131,
+      "name": "Lapras"
+    },
+    {
+      "id": 134,
+      "name": "Vaporeon"
+    },
+    {
+      "id": 138,
+      "name": "Omanyte"
+    },
+    {
+      "id": 139,
+      "name": "Omastar"
+    },
+    {
+      "id": 140,
+      "name": "Kabuto"
+    },
+    {
+      "id": 141,
+      "name": "Kabutops"
+    },
+    {
+      "id": 144,
+      "name": "Articuno"
+    },
+    {
+      "id": 145,
+      "name": "Zapdos"
+    },
+    {
+      "id": 147,
+      "name": "Dratini"
+    },
+    {
+      "id": 148,
+      "name": "Dragonair"
+    },
+    {
+      "id": 149,
+      "name": "Dragonite"
+    },
+    {
+      "id": 150,
+      "name": "Mewtwo"
+    },
+    {
+      "id": 151,
+      "name": "Mew"
+    },
+    {
+      "id": 158,
+      "name": "Totodile"
+    },
+    {
+      "id": 159,
+      "name": "Croconaw"
+    },
+    {
+      "id": 160,
+      "name": "Feraligatr"
+    },
+    {
+      "id": 170,
+      "name": "Chinchou"
+    },
+    {
+      "id": 171,
+      "name": "Lanturn"
+    },
+    {
+      "id": 183,
+      "name": "Marill"
+    },
+    {
+      "id": 184,
+      "name": "Azumarill"
+    },
+    {
+      "id": 186,
+      "name": "Politoed"
+    },
+    {
+      "id": 194,
+      "name": "Wooper"
+    },
+    {
+      "id": 195,
+      "name": "Quagsire"
+    },
+    {
+      "id": 199,
+      "name": "Slowking"
+    },
+    {
+      "id": 211,
+      "name": "Qwilfish"
+    },
+    {
+      "id": 215,
+      "name": "Sneasel"
+    },
+    {
+      "id": 220,
+      "name": "Swinub"
+    },
+    {
+      "id": 221,
+      "name": "Piloswine"
+    },
+    {
+      "id": 222,
+      "name": "Corsola"
+    },
+    {
+      "id": 225,
+      "name": "Delibird"
+    },
+    {
+      "id": 226,
+      "name": "Mantine"
+    },
+    {
+      "id": 230,
+      "name": "Kingdra"
+    },
+    {
+      "id": 238,
+      "name": "Smoochum"
+    },
+    {
+      "id": 242,
+      "name": "Blissey"
+    },
+    {
+      "id": 245,
+      "name": "Suicune"
+    },
+    {
+      "id": 249,
+      "name": "Lugia"
+    },
+    {
+      "id": 258,
+      "name": "Mudkip"
+    },
+    {
+      "id": 259,
+      "name": "Marshtomp"
+    },
+    {
+      "id": 260,
+      "name": "Swampert"
+    },
+    {
+      "id": 270,
+      "name": "Lotad"
+    },
+    {
+      "id": 271,
+      "name": "Lombre"
+    },
+    {
+      "id": 272,
+      "name": "Ludicolo"
+    },
+    {
+      "id": 278,
+      "name": "Wingull"
+    },
+    {
+      "id": 279,
+      "name": "Pelipper"
+    },
+    {
+      "id": 298,
+      "name": "Azurill"
+    },
+    {
+      "id": 318,
+      "name": "Carvanha"
+    },
+    {
+      "id": 319,
+      "name": "Sharpedo"
+    },
+    {
+      "id": 320,
+      "name": "Wailmer"
+    },
+    {
+      "id": 321,
+      "name": "Wailord"
+    },
+    {
+      "id": 337,
+      "name": "Lunatone"
+    },
+    {
+      "id": 339,
+      "name": "Barboach"
+    },
+    {
+      "id": 340,
+      "name": "Whiscash"
+    },
+    {
+      "id": 341,
+      "name": "Corphish"
+    },
+    {
+      "id": 342,
+      "name": "Crawdaunt"
+    },
+    {
+      "id": 349,
+      "name": "Feebas"
+    },
+    {
+      "id": 350,
+      "name": "Milotic"
+    },
+    {
+      "id": 351,
+      "name": "Castform"
+    },
+    {
+      "id": 359,
+      "name": "Absol"
+    },
+    {
+      "id": 361,
+      "name": "Snorunt"
+    },
+    {
+      "id": 362,
+      "name": "Glalie"
+    },
+    {
+      "id": 363,
+      "name": "Spheal"
+    },
+    {
+      "id": 364,
+      "name": "Sealeo"
+    },
+    {
+      "id": 365,
+      "name": "Walrein"
+    },
+    {
+      "id": 366,
+      "name": "Clamperl"
+    },
+    {
+      "id": 367,
+      "name": "Huntail"
+    },
+    {
+      "id": 368,
+      "name": "Gorebyss"
+    },
+    {
+      "id": 369,
+      "name": "Relicanth"
+    },
+    {
+      "id": 370,
+      "name": "Luvdisc"
+    },
+    {
+      "id": 378,
+      "name": "Regice"
+    },
+    {
+      "id": 382,
+      "name": "Kyogre"
+    },
+    {
+      "id": 393,
+      "name": "Piplup"
+    },
+    {
+      "id": 394,
+      "name": "Prinplup"
+    },
+    {
+      "id": 395,
+      "name": "Empoleon"
+    },
+    {
+      "id": 418,
+      "name": "Buizel"
+    },
+    {
+      "id": 419,
+      "name": "Floatzel"
+    },
+    {
+      "id": 422,
+      "name": "Shellos"
+    },
+    {
+      "id": 423,
+      "name": "Gastrodon"
+    },
+    {
+      "id": 440,
+      "name": "Happiny"
+    },
+    {
+      "id": 456,
+      "name": "Finneon"
+    },
+    {
+      "id": 457,
+      "name": "Lumineon"
+    },
+    {
+      "id": 458,
+      "name": "Mantyke"
+    },
+    {
+      "id": 459,
+      "name": "Snover"
+    },
+    {
+      "id": 460,
+      "name": "Abomasnow"
+    },
+    {
+      "id": 461,
+      "name": "Weavile"
+    },
+    {
+      "id": 471,
+      "name": "Glaceon"
+    },
+    {
+      "id": 473,
+      "name": "Mamoswine"
+    },
+    {
+      "id": 478,
+      "name": "Froslass"
+    },
+    {
+      "id": 484,
+      "name": "Palkia"
+    },
+    {
+      "id": 489,
+      "name": "Phione"
+    },
+    {
+      "id": 490,
+      "name": "Manaphy"
+    },
+    {
+      "id": 493,
+      "name": "Arceus"
+    },
+    {
+      "id": 501,
+      "name": "Oshawott"
+    },
+    {
+      "id": 502,
+      "name": "Dewott"
+    },
+    {
+      "id": 503,
+      "name": "Samurott"
+    },
+    {
+      "id": 515,
+      "name": "Panpour"
+    },
+    {
+      "id": 516,
+      "name": "Simipour"
+    },
+    {
+      "id": 535,
+      "name": "Tympole"
+    },
+    {
+      "id": 536,
+      "name": "Palpitoad"
+    },
+    {
+      "id": 537,
+      "name": "Seismitoad"
+    },
+    {
+      "id": 550,
+      "name": "Basculin"
+    },
+    {
+      "id": 580,
+      "name": "Ducklett"
+    },
+    {
+      "id": 581,
+      "name": "Swanna"
+    },
+    {
+      "id": 582,
+      "name": "Vanillite"
+    },
+    {
+      "id": 583,
+      "name": "Vanillish"
+    },
+    {
+      "id": 584,
+      "name": "Vanilluxe"
+    },
+    {
+      "id": 592,
+      "name": "Frillish"
+    },
+    {
+      "id": 593,
+      "name": "Jellicent"
+    },
+    {
+      "id": 594,
+      "name": "Alomomola"
+    },
+    {
+      "id": 613,
+      "name": "Cubchoo"
+    },
+    {
+      "id": 614,
+      "name": "Beartic"
+    },
+    {
+      "id": 615,
+      "name": "Cryogonal"
+    },
+    {
+      "id": 646,
+      "name": "Kyurem"
+    },
+    {
+      "id": 647,
+      "name": "Keldeo"
+    },
+    {
+      "id": 690,
+      "name": "Skrelp"
+    },
+    {
+      "id": 691,
+      "name": "Dragalge"
+    },
+    {
+      "id": 698,
+      "name": "Amaura"
+    },
+    {
+      "id": 699,
+      "name": "Aurorus"
+    },
+    {
+      "id": 703,
+      "name": "Carbink"
+    },
+    {
+      "id": 706,
+      "name": "Goodra"
+    },
+    {
+      "id": 712,
+      "name": "Bergmite"
+    },
+    {
+      "id": 713,
+      "name": "Avalugg"
+    },
+    {
+      "id": 716,
+      "name": "Xerneas"
+    },
+    {
+      "id": 719,
+      "name": "Diancie"
+    },
+    {
+      "id": 728,
+      "name": "Popplio"
+    },
+    {
+      "id": 729,
+      "name": "Brionne"
+    },
+    {
+      "id": 730,
+      "name": "Primarina"
+    },
+    {
+      "id": 740,
+      "name": "Crabominable"
+    },
+    {
+      "id": 746,
+      "name": "Wishiwashi"
+    },
+    {
+      "id": 747,
+      "name": "Mareanie"
+    },
+    {
+      "id": 748,
+      "name": "Toxapex"
+    },
+    {
+      "id": 767,
+      "name": "Wimpod"
+    },
+    {
+      "id": 768,
+      "name": "Golisopod"
+    },
+    {
+      "id": 771,
+      "name": "Pyukumuku"
+    },
+    {
+      "id": 772,
+      "name": "Type: Null"
+    },
+    {
+      "id": 773,
+      "name": "Silvally"
+    },
+    {
+      "id": 864,
+      "name": "Cursola"
+    },
+    {
+      "id": 866,
+      "name": "Mr. Rime"
+    },
+    {
+      "id": 873,
+      "name": "Frosmoth"
+    },
+    {
+      "id": 875,
+      "name": "Eiscue"
+    },
+    {
+      "id": 881,
+      "name": "Arctozolt"
+    },
+    {
+      "id": 883,
+      "name": "Arctovish"
+    },
+    {
+      "id": 896,
+      "name": "Glastrier"
+    },
+    {
+      "id": 10013,
+      "name": "Castform"
+    },
+    {
+      "id": 10014,
+      "name": "Castform"
+    },
+    {
+      "id": 10015,
+      "name": "Castform"
+    },
+    {
+      "id": 10016,
+      "name": "Basculin"
+    },
+    {
+      "id": 10022,
+      "name": "Kyurem"
+    },
+    {
+      "id": 10023,
+      "name": "Kyurem"
+    },
+    {
+      "id": 10024,
+      "name": "Keldeo"
+    },
+    {
+      "id": 10036,
+      "name": "Blastoise"
+    },
+    {
+      "id": 10039,
+      "name": "Kangaskhan"
+    },
+    {
+      "id": 10041,
+      "name": "Gyarados"
+    },
+    {
+      "id": 10043,
+      "name": "Mewtwo"
+    },
+    {
+      "id": 10044,
+      "name": "Mewtwo"
+    },
+    {
+      "id": 10057,
+      "name": "Absol"
+    },
+    {
+      "id": 10060,
+      "name": "Abomasnow"
+    },
+    {
+      "id": 10064,
+      "name": "Swampert"
+    },
+    {
+      "id": 10070,
+      "name": "Sharpedo"
+    },
+    {
+      "id": 10071,
+      "name": "Slowbro"
+    },
+    {
+      "id": 10074,
+      "name": "Glalie"
+    },
+    {
+      "id": 10075,
+      "name": "Diancie"
+    },
+    {
+      "id": 10077,
+      "name": "Kyogre"
+    },
+    {
+      "id": 10101,
+      "name": "Sandshrew"
+    },
+    {
+      "id": 10102,
+      "name": "Sandslash"
+    },
+    {
+      "id": 10103,
+      "name": "Vulpix"
+    },
+    {
+      "id": 10104,
+      "name": "Ninetales"
+    },
+    {
+      "id": 10127,
+      "name": "Wishiwashi"
+    },
+    {
+      "id": 10164,
+      "name": "Slowpoke"
+    },
+    {
+      "id": 10165,
+      "name": "Slowbro"
+    },
+    {
+      "id": 10168,
+      "name": "Mr. Mime"
+    },
+    {
+      "id": 10172,
+      "name": "Slowking"
+    },
+    {
+      "id": 10173,
+      "name": "Corsola"
+    },
+    {
+      "id": 10185,
+      "name": "Eiscue"
+    },
+    {
+      "id": 10193,
+      "name": "Calyrex"
+    }
+  ]
+}
