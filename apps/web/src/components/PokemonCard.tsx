@@ -45,9 +45,10 @@ export default function PokemonCard(props: { pokemon: Pokemon }) {
         loading="lazy"
       />
       <div class="min-w-0 flex-1">
-        <div class="flex items-center justify-between">
-          <h3 class="truncate text-base font-semibold text-gray-900 dark:text-gray-100">#{p.id.toString().padStart(3, '0')} {p.name}</h3>
+        <div class="mb-1">
+          <Badge tone="gray">#{p.id.toString().padStart(3, '0')}</Badge>
         </div>
+        <h3 class="truncate text-base font-semibold text-gray-900 dark:text-gray-100">{p.name}</h3>
         <p class="mt-1 line-clamp-2 text-sm text-gray-600 dark:text-gray-300">{p.description}</p>
         <div class="mt-2 flex flex-wrap gap-2">
           {p.types.map((t) => (
