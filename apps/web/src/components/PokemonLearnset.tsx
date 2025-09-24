@@ -341,9 +341,10 @@ export default function PokemonLearnset(props: PokemonLearnsetProps) {
                     const [mh, setMh] = createSignal('0px');
                     const [animate, setAnimate] = createSignal(false);
                     onMount(() => {
-                      // Enable transitions after initial mount so default-open panels don't animate.
-                      if (typeof queueMicrotask === 'function') queueMicrotask(() => setAnimate(true));
-                      else setTimeout(() => setAnimate(true), 0);
+                      // Enable transitions only after we've painted at least once (and again next frame)
+                      // so the initial default-open state doesn't animate when tabs change.
+                      const raf = (cb: () => void) => (typeof requestAnimationFrame === 'function' ? requestAnimationFrame(cb) : setTimeout(cb, 0));
+                      raf(() => raf(() => setAnimate(true)));
                     });
                     const recalcM = () => {
                       if (methodOpen()) queueMicrotask(() => setMh(`${methodRef?.scrollHeight ?? 0}px`));
