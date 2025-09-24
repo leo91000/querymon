@@ -129,8 +129,9 @@ export default function PokemonLearnset(props: PokemonLearnsetProps) {
 
     for (const move of moves) {
       const moveId = idFromUrl(move?.move?.url);
-      const detail = moveId != null ? details.get(moveId) : undefined;
-      const localizedName = moveId != null ? props.moveNames?.[String(moveId)] ?? formatName(move?.move?.name || '') : formatName(move?.move?.name || '');
+        const detail = moveId != null ? details.get(moveId) : undefined;
+        const moveSlug = typeof move?.move?.name === 'string' ? move.move.name : '';
+        const localizedName = moveId != null ? props.moveNames?.[String(moveId)] ?? formatName(moveSlug) : formatName(moveSlug);
 
       for (const vg of move?.version_group_details || []) {
         const mappedMethod = METHOD_MAP[vg?.move_learn_method?.name];
@@ -250,7 +251,7 @@ export default function PokemonLearnset(props: PokemonLearnsetProps) {
                                     </td>
                                     <td class="px-3 py-2">
                                       <Show when={entry.typeName} fallback={<span>—</span>}>
-                                        {(typeName) => <TypeBox name={typeName} size="sm" showLabel />}
+                                        {(typeName) => <TypeBox name={typeName()} size="sm" showLabel />}
                                       </Show>
                                     </td>
                                     <td class="px-3 py-2">{categoryLabel}</td>
