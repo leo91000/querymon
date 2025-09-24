@@ -283,7 +283,7 @@ export default function PokemonLearnset(props: PokemonLearnsetProps) {
   return (
     <Show when={learnset().length > 0}>
       <Card class="p-6">
-        <h3 class="mb-3 text-sm font-semibold tracking-wide text-gray-500 dark:text-gray-300">
+        <h3 class="mb-3 text-sm font-semibold tracking-wide text-gray-500">
           {t('pokemon.learnset')}
         </h3>
 
