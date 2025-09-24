@@ -15,6 +15,14 @@
   }
 }
 
+/* Global page background (light/dark) */
+@layer base {
+  html { background-color: #f8fafc; } /* slate-50 */
+}
+@layer base {
+  .dark { background-color: #0b0f19; } /* a bit darker than gray-900 to reduce glow */
+}
+
 /* Utility for headline accents */
 .font-jersey { font-family: var(--font-jersey); letter-spacing: 0.02em; }
 
