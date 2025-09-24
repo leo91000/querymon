@@ -371,9 +371,9 @@ export default function PokemonDetail(props: { id: number }) {
               <div>
                 <div class="text-gray-500 dark:text-gray-400">{t('pokemon.expAt100')}</div>
                 <div class="font-medium">{(() => {
-                  const gid = speciesData()?.growth_rate?.id;
-                  const g = (growthRatesData()||[]).find((x:any)=>x.id===gid);
-                  const e = g?.levels?.find((l:any)=>l.level===100)?.experience;
+                  const gid = speciesData()?.growth_rate?.id ?? idFromUrl(speciesData()?.growth_rate?.url);
+                  const g = (growthRatesData() || []).find((x: any) => x.id === gid);
+                  const e = g?.levels?.find((l: any) => l.level === 100)?.experience;
                   const grp = gid ? growthRateNames()?.[String(gid)] : undefined;
                   if (e == null) return '—';
                   const val = num(e);
