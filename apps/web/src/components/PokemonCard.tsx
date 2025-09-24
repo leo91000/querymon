@@ -35,7 +35,7 @@ function typeTone(t: PokemonType): NonNullable<Parameters<typeof Badge>[0]['tone
 export default function PokemonCard(props: { pokemon: Pokemon }) {
   const p = props.pokemon;
   return (
-    <Card class="group flex h-full items-center gap-4 p-4">
+    <Card class="group relative flex h-full items-center gap-4 p-4">
       <img
         src={p.sprite}
         alt={p.name}
@@ -45,9 +45,6 @@ export default function PokemonCard(props: { pokemon: Pokemon }) {
         loading="lazy"
       />
       <div class="min-w-0 flex-1">
-        <div class="mb-1">
-          <Badge tone="gray">#{p.id.toString().padStart(3, '0')}</Badge>
-        </div>
         <h3 class="truncate text-base font-semibold text-gray-900 dark:text-gray-100">{p.name}</h3>
         <p class="mt-1 line-clamp-2 text-sm text-gray-600 dark:text-gray-300">{p.description}</p>
         <div class="mt-2 flex flex-wrap gap-2">
@@ -56,6 +53,9 @@ export default function PokemonCard(props: { pokemon: Pokemon }) {
           ))}
         </div>
       </div>
+      <span class="pointer-events-none absolute bottom-2 right-2">
+        <Badge tone="gray">#{p.id.toString().padStart(3, '0')}</Badge>
+      </span>
     </Card>
   );
 }
