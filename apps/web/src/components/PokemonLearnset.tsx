@@ -203,12 +203,7 @@ export default function PokemonLearnset(props: PokemonLearnsetProps) {
     return generationSections;
   });
 
-  createEffect(() => {
-    const sections = learnset();
-    if (sections.length > 0 && openGeneration() === null) {
-      setOpenGeneration(sections[0].generation);
-    }
-  });
+  // Start collapsed: leave openGeneration as null; clicking a header toggles visibility.
 
   return (
     <Show when={learnset().length > 0}>
@@ -229,7 +224,8 @@ export default function PokemonLearnset(props: PokemonLearnsetProps) {
                   onClick={toggle}
                   class="inline-flex items-center gap-2 rounded-full border border-gray-200 px-3 py-1 text-xs font-semibold uppercase tracking-wide text-gray-500 transition hover:bg-gray-100 dark:border-gray-700 dark:text-gray-300 dark:hover:bg-gray-800"
                 >
-                  <span class={`icon-[ph--caret-${isOpen() ? 'up' : 'down'}-bold] text-sm`} aria-hidden="true" />
+                  <span aria-hidden="true" class="icon-[ph--caret-down-bold] text-sm" classList={{ hidden: isOpen() }} />
+                  <span aria-hidden="true" class="icon-[ph--caret-up-bold] text-sm" classList={{ hidden: !isOpen() }} />
                   {isOpen() ? t('common.hide') : t('common.show')}
                 </button>
               </div>
