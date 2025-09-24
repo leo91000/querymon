@@ -282,8 +282,8 @@ export default function PokemonLearnset(props: PokemonLearnsetProps) {
 
   return (
     <Show when={learnset().length > 0}>
-      <div class="space-y-4">
-        <h3 class="text-sm font-semibold tracking-wide text-gray-500 dark:text-gray-300">
+      <Card class="p-6">
+        <h3 class="mb-3 text-sm font-semibold tracking-wide text-gray-500 dark:text-gray-300">
           {t('pokemon.learnset')}
         </h3>
 
@@ -327,11 +327,11 @@ export default function PokemonLearnset(props: PokemonLearnsetProps) {
         {/* Active generation content */}
         <Show when={currentSection()}>
           {(sec) => (
-            <Card
+            <div
               role="tabpanel"
               id={`panel-${sec().generation}`}
               aria-labelledby={`tab-${sec().generation}`}
-              class="p-6"
+              class="pt-4"
             >
               <div class="space-y-6">
                 <For each={sec().entries}>
@@ -439,10 +439,10 @@ export default function PokemonLearnset(props: PokemonLearnsetProps) {
                   }}
                 </For>
               </div>
-            </Card>
+            </div>
           )}
         </Show>
-      </div>
+      </Card>
     </Show>
   );
 }
