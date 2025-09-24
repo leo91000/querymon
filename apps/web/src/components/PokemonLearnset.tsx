@@ -229,6 +229,13 @@ export default function PokemonLearnset(props: PokemonLearnsetProps) {
             };
             createEffect(recalc);
             createEffect(() => { void moveDetails(); recalc(); });
+            // Recompute container height whenever methods open/close within this generation
+            createEffect(() => {
+              // stringify to create a stable dependency on the per-generation open state
+              const dep = JSON.stringify(openMethods()[section.generation] || {});
+              void dep;
+              recalc();
+            });
 
             // Initialize per-generation method state when opening: default Level-up open
             createEffect(() => {
