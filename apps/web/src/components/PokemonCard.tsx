@@ -49,7 +49,7 @@ export default function PokemonCard(props: { pokemon: Pokemon }) {
         <p class="mt-1 line-clamp-2 text-sm text-gray-600 dark:text-gray-300">{p.description}</p>
         <div class="mt-2 flex flex-wrap gap-2">
           {p.types.map((t) => (
-            <TypeBox name={t} size="sm" link />
+            <TypeBox name={t} size="sm" />
           ))}
         </div>
       </div>
