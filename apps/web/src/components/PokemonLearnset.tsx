@@ -276,7 +276,7 @@ export default function PokemonLearnset(props: PokemonLearnsetProps) {
                   onClick={toggle}
                   aria-expanded={isOpen()}
                   aria-controls={contentId}
-                  class="inline-flex items-center gap-2 rounded-full border border-gray-200 px-3 py-1 text-xs font-semibold uppercase tracking-wide text-gray-500 transition hover:bg-gray-100 dark:border-gray-700 dark:text-gray-300 dark:hover:bg-gray-800"
+                  class="inline-flex cursor-pointer items-center gap-2 rounded-full border border-gray-200 px-3 py-1 text-xs font-semibold uppercase tracking-wide text-gray-500 transition hover:bg-gray-100 dark:border-gray-700 dark:text-gray-300 dark:hover:bg-gray-800"
                 >
                   <span aria-hidden="true" class="icon-[ph--circle-notch-bold] text-sm animate-spin" classList={{ hidden: !(isOpen() && (moveDetails as any).loading) }} />
                   <span aria-hidden="true" class="icon-[ph--caret-down-bold] text-sm" classList={{ hidden: isOpen() }} />
@@ -305,7 +305,7 @@ export default function PokemonLearnset(props: PokemonLearnsetProps) {
                           type="button"
                           onClick={() => toggleMethod(method)}
                           aria-expanded={methodOpen()}
-                          class="inline-flex items-center gap-2 rounded-full border border-blue-200 px-2 py-0.5 text-[11px] font-semibold uppercase tracking-wide text-blue-600 transition hover:bg-blue-50 dark:border-blue-500/40 dark:text-blue-300 dark:hover:bg-blue-500/10"
+                          class="inline-flex cursor-pointer items-center gap-2 rounded-full border border-blue-200 px-2 py-0.5 text-[11px] font-semibold uppercase tracking-wide text-blue-600 transition hover:bg-blue-50 dark:border-blue-500/40 dark:text-blue-300 dark:hover:bg-blue-500/10"
                         >
                           <span aria-hidden="true" class="icon-[ph--caret-down-bold] text-sm" classList={{ hidden: methodOpen() }} />
                           <span aria-hidden="true" class="icon-[ph--caret-up-bold] text-sm" classList={{ hidden: !methodOpen() }} />
