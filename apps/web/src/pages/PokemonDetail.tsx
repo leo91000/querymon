@@ -379,7 +379,7 @@ export default function PokemonDetail(props: { id: number }) {
           <Card>
             <h3 class="mb-3 text-sm font-semibold tracking-wide text-gray-500">{t('pokemon.evolutions')}</h3>
             <div class="overflow-x-auto">
-              <div class="flex min-w-[260px] items-start gap-8 pb-2">
+              <div class="flex min-w-[260px] items-start justify-center gap-8 pb-2">
                 <For each={evolutionStages()}>
                   {(stage, idx) => (
                     <div class="flex items-center gap-6">
@@ -404,13 +404,14 @@ export default function PokemonDetail(props: { id: number }) {
                                   <div class={`text-center text-sm font-semibold ${entry.isCurrent ? 'text-blue-600 dark:text-blue-300' : 'text-gray-800 dark:text-gray-100'}`}>
                                     {entry.name}
                                   </div>
-                                  <Show when={hints.length > 0}>
-                                    <div class="flex flex-wrap justify-center gap-1">
-                                      <For each={hints}>{(hint) => (
-                                        <span class="rounded-full bg-blue-50 px-2 py-0.5 text-[11px] font-medium text-blue-600 dark:bg-blue-500/20 dark:text-blue-200">{hint}</span>
-                                      )}</For>
-                                    </div>
-                                  </Show>
+                                  <div class="flex min-h-[1.75rem] flex-wrap justify-center gap-1">
+                                    <For each={hints}>{(hint) => (
+                                      <span class="rounded-full bg-blue-50 px-2 py-0.5 text-[11px] font-medium text-blue-600 dark:bg-blue-500/20 dark:text-blue-200">{hint}</span>
+                                    )}</For>
+                                    <Show when={hints.length === 0}>
+                                      <span class="invisible rounded-full bg-blue-50 px-2 py-0.5 text-[11px] font-medium">placeholder</span>
+                                    </Show>
+                                  </div>
                                 </a>
                               );
                             }}
