@@ -163,25 +163,29 @@ export default function PokemonLearnset(props: PokemonLearnsetProps) {
     // Cache move details across generations (so reopening is instant)
     const detailCache = new Map<number, any>();
 
-    const [moveDetails] = createResource(openGeneration, async (gen) => {
-        // If learnsets are embedded, we do not need per-move fetches
-        if (props.learnsets && props.learnsets.length > 0)
+    const hasEmbeddedLearnsets = createMemo(() => !!(props.learnsets && props.learnsets.length > 0));
+    const [moveDetails] = createResource(
+        () => ({ gen: openGeneration(), idsMap: idsByGeneration(), hasEmbed: hasEmbeddedLearnsets() }),
+        async ({ gen, idsMap, hasEmbed }) => {
+            // If learnsets are embedded, we do not need per-move fetches
+            if (hasEmbed)
+                return new Map(detailCache);
+            if (!gen)
+                return new Map(detailCache);
+            const idsForGen = Array.from((idsMap as Map<GenerationSlug, Set<number>>).get(gen) ?? []);
+            const missing = idsForGen.filter(id => !detailCache.has(id));
+            if (missing.length > 0) {
+                const results = await Promise.all(
+                    missing.map(async (id) => {
+                        const detail = await loadItemById('move' as ResourceName, id);
+                        return [id, detail] as const;
+                    }),
+                );
+                for (const [id, detail] of results) detailCache.set(id, detail);
+            }
             return new Map(detailCache);
-        if (!gen)
-            return new Map(detailCache);
-        const idsForGen = Array.from(idsByGeneration().get(gen) ?? []);
-        const missing = idsForGen.filter(id => !detailCache.has(id));
-        if (missing.length > 0) {
-            const results = await Promise.all(
-                missing.map(async (id) => {
-                    const detail = await loadItemById('move' as ResourceName, id);
-                    return [id, detail] as const;
-                }),
-            );
-            for (const [id, detail] of results) detailCache.set(id, detail);
-        }
-        return new Map(detailCache);
-    });
+        },
+    );
 
     const learnset = createMemo(() => {
         // Use embedded, localized sections if provided

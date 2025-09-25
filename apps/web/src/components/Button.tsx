@@ -1,4 +1,5 @@
 import type { JSX } from 'solid-js';
+import { createMemo, splitProps } from 'solid-js';
 
 type Variant = 'primary' | 'secondary' | 'ghost';
 type Size = 'sm' | 'md' | 'lg';
@@ -23,7 +24,7 @@ const sizes: Record<Size, string> = {
 };
 
 export default function Button(props: ButtonProps) {
-    const { variant = 'primary', size = 'md', class: className, ...rest } = props;
-    const cls = `${base} ${variants[variant]} ${sizes[size]}${className ? ` ${className}` : ''}`;
-    return <button class={cls} {...rest} />;
+    const [local, rest] = splitProps(props, ['variant', 'size', 'class']);
+    const cls = createMemo(() => `${base} ${variants[local.variant ?? 'primary']} ${sizes[local.size ?? 'md']}${local.class ? ` ${local.class}` : ''}`);
+    return <button class={cls()} {...rest} />;
 }
