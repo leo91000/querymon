@@ -26,6 +26,6 @@ function tabLabel(r: ResourceName): string {
     case 'move': return t('nav.moves');
     case 'ability': return t('nav.abilities');
     case 'type': return t('nav.types');
-    
+    default: return r;
   }
 }

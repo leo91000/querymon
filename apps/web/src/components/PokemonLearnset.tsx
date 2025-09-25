@@ -450,6 +450,26 @@ export default function PokemonLearnset(props: PokemonLearnsetProps) {
                                     const accuracy = entry.accuracy != null ? `${entry.accuracy}%` : '—';
                                     const power = entry.power != null && entry.power !== 0 ? entry.power : '—';
                                     const pp = entry.pp != null ? entry.pp : '—';
+                                    const damageClassText = () => {
+                                      // Force dependency on locale so Solid re-runs this expression
+                                      void locale();
+                                      const damageClassKey = entry.damageClass ? `move.damageClass.${entry.damageClass}` : undefined;
+                                      return damageClassKey ? t(damageClassKey as any) : '—';
+                                    };
+                                    const levelText = () => (entry.level != null && entry.level > 0 ? `N.${entry.level}` : t('learnset.levelStart'));
+                                    const versionText = () => {
+                                      void locale();
+                                      if (entry.versionGroups && entry.versionGroups.length) {
+                                        return entry.versionGroups
+                                          .map((v) => {
+                                            const key = `versionGroupName.${v}`;
+                                            const translated = t(key as any);
+                                            return translated && translated !== key ? translated : formatName(v);
+                                          })
+                                          .join(', ');
+                                      }
+                                      return '—';
+                                    };
                                     return (
                                       <tr class="text-gray-700 dark:text-gray-200">
                                         <td class="px-3 py-2">
@@ -462,31 +482,14 @@ export default function PokemonLearnset(props: PokemonLearnsetProps) {
                                             {(typeName) => <TypeBox name={typeName()} size="sm" showLabel />}
                                           </Show>
                                         </td>
-                                        <td class="px-3 py-2">{() => {
-                                          // Force dependency on locale so Solid re-runs this expression
-                                          void locale();
-                                          const damageClassKey = entry.damageClass ? `move.damageClass.${entry.damageClass}` : undefined;
-                                          return damageClassKey ? (t(damageClassKey as any) as string) : '—';
-                                        }}</td>
+                                        <td class="px-3 py-2">{damageClassText()}</td>
                                         <td class="px-3 py-2 text-right tabular-nums">{power}</td>
                                         <td class="px-3 py-2 text-right tabular-nums">{accuracy}</td>
                                         <td class="px-3 py-2 text-right tabular-nums">{pp}</td>
                                         <Show when={methodSection.method === 'level-up'}>
-                                          <td class="px-3 py-2 text-right tabular-nums">{() => (entry.level != null && entry.level > 0 ? `N.${entry.level}` : t('learnset.levelStart'))}</td>
+                                          <td class="px-3 py-2 text-right tabular-nums">{levelText()}</td>
                                         </Show>
-                                        <td class="px-3 py-2 capitalize">{() => {
-                                          void locale();
-                                          if (entry.versionGroups && entry.versionGroups.length) {
-                                            return entry.versionGroups
-                                              .map((v) => {
-                                                const key = `versionGroupName.${v}`;
-                                                const translated = t(key as any) as string;
-                                                return translated && translated !== key ? translated : formatName(v);
-                                              })
-                                              .join(', ');
-                                          }
-                                          return '—';
-                                        }}</td>
+                                        <td class="px-3 py-2 capitalize">{versionText()}</td>
                                       </tr>
                                     );
                                   }}

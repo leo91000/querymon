@@ -225,15 +225,16 @@ export default function MoveDetail(props: { id: number }) {
               <div class="flex flex-wrap gap-2">
                 <For each={visibleLearners()}>{(p: any) => {
                   const id = (typeof p?.id === 'number' ? p.id : idFromUrl(p?.url));
+                  const label = () => {
+                    // Recompute on locale or list updates
+                    const map = pokemonNameMap();
+                    const fromList = id != null ? map[String(id)] : undefined;
+                    const fromMove = p?.name ? String(p.name) : undefined;
+                    return fromList || fromMove || '—';
+                  };
                   return (
                     <a href={id ? `/pokemon/${id}` : '#'} class="rounded-full border border-gray-200 px-3 py-1 text-sm hover:bg-gray-50 dark:border-gray-700 dark:hover:bg-gray-700/50">
-                      {() => {
-                        // Recompute on locale or list updates to avoid a one-step lag
-                        const map = pokemonNameMap();
-                        const fromList = id != null ? map[String(id)] : undefined;
-                        const fromMove = p?.name ? String(p.name) : undefined;
-                        return fromList || fromMove || '—';
-                      }}
+                      {label()}
                     </a>
                   );
                 }}</For>
