@@ -15,5 +15,6 @@ export default antfu({
         'apps/web/public/**',
         'apps/desktop/src-tauri/target/**',
         'var/**',
+        'pnpm-workspace.yaml',
     ],
 });
