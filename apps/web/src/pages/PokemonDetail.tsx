@@ -7,7 +7,6 @@ import { formatName, loadItemById, loadGrowthRatesLite, loadList } from '../serv
 import type { ResourceName } from '../services/data';
 import type { PokemonDetailData, PokemonTypeRef, PokemonAbilityRef, SpeciesNamesEntry, NamedRef } from '../types/pokeapi';
 import { t, getLocale, type Locale } from '../i18n';
-import { pick } from 'lodash-es';
 import { LOCALE_TO_POKEAPI } from '../constants/locale';
 import Skeleton from '../components/Skeleton';
 import PokemonSpriteViewer from '../components/PokemonSpriteViewer';
@@ -57,10 +56,8 @@ export default function PokemonDetail(props: { id: number }) {
   const types = createMemo(() => {
     const list: PokemonTypeRef[] = pokemon()?.types ?? [];
     return list.map((t) => {
-      const typeRef = t?.type || t;
-      const name = typeRef?.name || t?.name || '';
-      const url = (typeRef && typeof typeRef === 'object' && 'url' in (typeRef as any)) ? (typeRef as NamedRef).url : undefined;
-      const id = t?.id ?? idFromUrl(url);
+      const name = t.type?.name ?? t.name ?? '';
+      const id = t.id ?? idFromUrl(t.type?.url);
       return { name, id };
     });
   });
@@ -68,21 +65,15 @@ export default function PokemonDetail(props: { id: number }) {
   const officialArt = createMemo(() => {
     const sprites = pokemon()?.sprites;
     if (!sprites) return undefined;
-    if (sprites.official_artwork) return sprites.official_artwork;
     if (sprites.front_default) return sprites.front_default;
     const other = sprites.other;
-    const getStr = (grp?: unknown, key?: string) => {
-      if (!grp || typeof grp !== 'object' || !key) return undefined;
-      const val = (pick(grp as object, [key]) as Record<string, unknown>)[key];
-      return typeof val === 'string' ? val : undefined;
-    };
-    const oaFront = getStr(other?.['official-artwork'], 'front_default');
+    const oaFront = other?.['official-artwork']?.front_default;
     if (oaFront) return oaFront;
     const home = other?.home;
-    const homeFront = getStr(home, 'front_default');
+    const homeFront = home?.front_default;
     if (homeFront) return homeFront;
     const dw = other?.['dream_world'];
-    const dwFront = getStr(dw, 'front_default');
+    const dwFront = dw?.front_default;
     if (dwFront) return dwFront;
     return sprites.front_default;
   });
@@ -252,16 +243,8 @@ export default function PokemonDetail(props: { id: number }) {
   });
 
   const localizedName = createMemo<string>(() => {
-    const names: SpeciesNamesEntry[] = speciesData()?.names || [];
-    const loc = (getLocale() as Locale);
-    const want = LOCALE_TO_POKEAPI[loc] || 'en';
-    if (want === 'ja') {
-      const ja = names.find((n) => n.language?.name === 'ja')?.name;
-      if (ja) return ja;
-      const jaHrkt = names.find((n) => n.language?.name === 'ja-Hrkt')?.name;
-      if (jaHrkt) return jaHrkt;
-    }
-    return names.find((n) => n.language?.name === want)?.name || speciesData()?.name || '—';
+    const n = pokemon()?.name;
+    return typeof n === 'string' && n ? n : '—';
   });
 
   return (
