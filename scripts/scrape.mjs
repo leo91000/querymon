@@ -68,7 +68,7 @@ function capFirst(s) { return String(s || '').charAt(0).toUpperCase() + String(s
 
 async function fetchJSON(url, attempt = 1) {
   const max = 5;
-  if (LIMIT == null) try {
+  try {
     const res = await fetch(url, { headers: { 'User-Agent': 'QueryMon/1.0 (scrape)' } });
     if (res.status === 429) {
       const ra = Number(res.headers.get('Retry-After')) || Math.min(2 ** attempt * 250, 5000);
@@ -194,14 +194,16 @@ function flavorTextFor(species, loc) {
 
 function spritePack(p) {
   const other = p?.sprites?.other || {};
-  return {
+  const pack = {
     front_default: p?.sprites?.front_default || null,
     front_shiny: p?.sprites?.front_shiny || null,
-    official_artwork: other?.['official-artwork']?.front_default || null,
-    dream_world: other?.['dream_world']?.front_default || null,
-    home_default: other?.['home']?.front_default || null,
-    home_shiny: other?.['home']?.front_shiny || null,
+    other: {
+      'official-artwork': { front_default: other?.['official-artwork']?.front_default || null },
+      home: { front_default: other?.home?.front_default || null, front_shiny: other?.home?.front_shiny || null },
+      'dream_world': { front_default: other?.['dream_world']?.front_default || null },
+    },
   };
+  return pack;
 }
 
 function collapseVersions(p) {
@@ -635,6 +637,7 @@ async function main() {
         height: p?.height ?? null,
         base_experience: p?.base_experience ?? null,
         species: {
+          name: localizedNameFrom(s, loc),
           capture_rate: s?.capture_rate ?? null,
           hatch_counter: s?.hatch_counter ?? null,
           gender_rate: s?.gender_rate ?? null,
