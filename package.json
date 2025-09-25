@@ -13,6 +13,9 @@
     "start:api": "pnpm --filter @querymon/api start",
     "dev:desktop": "pnpm --filter @querymon/desktop dev",
     "build:desktop": "pnpm --filter @querymon/desktop build"
+    ,
+    "typecheck": "pnpm --filter @querymon/api typecheck && pnpm --filter @querymon/web typecheck && pnpm --filter @querymon/desktop typecheck",
+    "typecheck:all": "concurrently -k -n API,WEB,DESK -c blue,green,magenta \"pnpm --filter @querymon/api typecheck\" \"pnpm --filter @querymon/web typecheck\" \"pnpm --filter @querymon/desktop typecheck\""
   },
   "license": "MIT",
   "private": true,
