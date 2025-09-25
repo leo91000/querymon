@@ -1,9 +1,11 @@
 import { Show, For, createEffect, createMemo, createSignal, onMount } from 'solid-js';
 import DropdownSelect from './DropdownSelect';
 import { t } from '../i18n';
+import type { PokemonSprites } from '../types/pokeapi';
 
+type SpriteLike = PokemonSprites & { versions?: Record<string, unknown>; other?: Record<string, unknown> };
 type Props = {
-  sprites: any | undefined;
+  sprites: SpriteLike | undefined;
   name: string;
 };
 
@@ -46,7 +48,7 @@ const GEN_ROMAN: Record<Exclude<GenerationSlug, 'modern'>, string> = {
 function genLabel(slug: GenerationSlug) {
   if (slug === 'modern') return 'Modern';
   const roman = GEN_ROMAN[slug as Exclude<GenerationSlug, 'modern'>];
-  const tmpl = t('learnset.genShort' as any) as unknown as string;
+  const tmpl = t('learnset.genShort');
   return typeof tmpl === 'string' && tmpl.includes('{roman}') ? tmpl.replace('{roman}', roman) : `Gen ${roman}`;
 }
 
@@ -60,27 +62,22 @@ export default function PokemonSpriteViewer(props: Props) {
 
   const variantsByGen = createMemo(() => {
     const out = new Map<GenerationSlug, Variant[]>();
-    const s = props.sprites || {};
+    const s = (props.sprites || {}) as SpriteLike;
+    // Access helpers no longer needed; types include nested optional keys.
 
     // Modern
     const modern: Variant[] = [];
     const other = s?.other || {};
-    const oa = other?.['official-artwork'];
-    if (oa?.front_default) modern.push({ key: 'official-artwork', label: 'Official Artwork', url: oa.front_default });
-    const home = other?.home;
-    if (home?.front_default) modern.push({ key: 'home_front', label: 'HOME', url: home.front_default });
-    if (home?.front_shiny) modern.push({ key: 'home_front_shiny', label: 'HOME Shiny', url: home.front_shiny });
-    const dw = other?.['dream_world'];
-    if (dw?.front_default) modern.push({ key: 'dream_world', label: 'Dream World', url: dw.front_default });
-    // Support trimmed sprite pack from new layout (flat keys)
-    if (!modern.length) {
-      if (s?.official_artwork) modern.push({ key: 'official-artwork', label: 'Official Artwork', url: s.official_artwork });
-      if (s?.home_default) modern.push({ key: 'home_front', label: 'HOME', url: s.home_default });
-      if (s?.home_shiny) modern.push({ key: 'home_front_shiny', label: 'HOME Shiny', url: s.home_shiny });
-      if (s?.dream_world) modern.push({ key: 'dream_world', label: 'Dream World', url: s.dream_world });
-      if (s?.front_default && modern.length === 0) modern.push({ key: 'front_default', label: 'Front', url: s.front_default });
-      if (s?.front_shiny) modern.push({ key: 'front_shiny', label: 'Front Shiny', url: s.front_shiny });
-    }
+    const oaFront = other?.['official-artwork']?.front_default;
+    if (oaFront) modern.push({ key: 'official-artwork', label: 'Official Artwork', url: oaFront });
+    const homeFront = other?.home?.front_default;
+    if (homeFront) modern.push({ key: 'home_front', label: 'HOME', url: homeFront });
+    const homeShiny = other?.home?.front_shiny;
+    if (homeShiny) modern.push({ key: 'home_front_shiny', label: 'HOME Shiny', url: homeShiny });
+    const dwFront = other?.['dream_world']?.front_default;
+    if (dwFront) modern.push({ key: 'dream_world', label: 'Dream World', url: dwFront });
+    // Flat fallback removed; we rely on nested 'other' entries and top-level front_default only.
+    if (!modern.length && s.front_default) modern.push({ key: 'front_default', label: 'Front', url: s.front_default });
     if (modern.length) out.set('modern', modern);
 
     const versions = s?.versions || {};
@@ -96,19 +93,19 @@ export default function PokemonSpriteViewer(props: Props) {
     ] as const;
 
     for (const gen of GEN_ORDER) {
-      const gobj = (versions as any)?.[gen];
+      const gobj = (versions as Record<string, unknown>)?.[gen] as Record<string, unknown> | undefined;
       if (!gobj) continue;
       const list: Variant[] = [];
       // Prefer one URL per category across version groups
       for (const { key, label } of catDefs) {
         let url: string | null = null;
         // Collapsed per-gen mapping (new layout): value at gobj[key]
-        const direct = (gobj as any)?.[key];
+        const direct = (gobj as Record<string, unknown>)?.[key];
         if (typeof direct === 'string' && direct) url = direct;
         // Legacy nested mapping: iterate version groups
         if (!url) {
           for (const vgName of Object.keys(gobj)) {
-            const group = (gobj as any)[vgName] || {};
+            const group = (gobj as Record<string, unknown>)[vgName] as Record<string, unknown> || {};
             const candidate = group?.[key];
             if (typeof candidate === 'string' && candidate) { url = candidate; break; }
           }
@@ -117,13 +114,16 @@ export default function PokemonSpriteViewer(props: Props) {
       }
       // Animated (Gen V Black/White)
       try {
-        const bw = (gobj as any)?.['black-white']?.animated;
-        if (bw) {
+        const bwGroup = (gobj as { ['black-white']?: unknown })['black-white'];
+        const animated = (bwGroup && typeof bwGroup === 'object')
+          ? (bwGroup as { animated?: { front_default?: string; back_default?: string; front_shiny?: string; back_shiny?: string } }).animated
+          : undefined;
+        if (animated) {
           const amap: Array<[string, string, string | null]> = [
-            ['animated_front_default', 'Anim Front', bw.front_default || null],
-            ['animated_back_default', 'Anim Back', bw.back_default || null],
-            ['animated_front_shiny', 'Anim Front Shiny', bw.front_shiny || null],
-            ['animated_back_shiny', 'Anim Back Shiny', bw.back_shiny || null],
+            ['animated_front_default', 'Anim Front', animated.front_default || null],
+            ['animated_back_default', 'Anim Back', animated.back_default || null],
+            ['animated_front_shiny', 'Anim Front Shiny', animated.front_shiny || null],
+            ['animated_back_shiny', 'Anim Back Shiny', animated.back_shiny || null],
           ];
           for (const [k, label, u] of amap) if (u) list.push({ key: k, label, url: u });
         }
@@ -142,7 +142,7 @@ export default function PokemonSpriteViewer(props: Props) {
     arr.sort((a, b) => {
       if (a.value === 'modern' && b.value !== 'modern') return -1;
       if (b.value === 'modern' && a.value !== 'modern') return 1;
-      return GEN_ORDER.indexOf(a.value as any) - GEN_ORDER.indexOf(b.value as any);
+      return GEN_ORDER.indexOf(a.value as Exclude<GenerationSlug, 'modern'> & GenerationSlug) - GEN_ORDER.indexOf(b.value as Exclude<GenerationSlug, 'modern'> & GenerationSlug);
     });
     return arr;
   });
@@ -165,10 +165,10 @@ export default function PokemonSpriteViewer(props: Props) {
     } catch {}
     // Default latest available generation (descending order), else modern
     for (let i = GEN_ORDER.length - 1; i >= 0; i--) {
-      const g = GEN_ORDER[i];
-      if (map.has(g as any) && (map.get(g as any)?.length || 0) > 0) {
-        setSelectedGen(g as GenerationSlug);
-        setSelectedVariant(map.get(g as any)![0].key);
+      const g = GEN_ORDER[i] as GenerationSlug;
+      if (map.has(g) && (map.get(g)?.length || 0) > 0) {
+        setSelectedGen(g);
+        setSelectedVariant(map.get(g)![0].key);
         return;
       }
     }

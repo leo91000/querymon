@@ -52,7 +52,7 @@ export default function PokemonDetail(props: { id: number }) {
   const speciesRaw = createMemo(() => data()?.species);
   const speciesData = createMemo(() => speciesRaw());
 
-  
+
   const types = createMemo(() => {
     const list: PokemonTypeRef[] = pokemon()?.types ?? [];
     return list.map((t) => {
@@ -83,7 +83,7 @@ export default function PokemonDetail(props: { id: number }) {
     const list = (pokemon()?.stats || []) as import('../types/pokeapi').PokemonStat[];
     return list.map((s) => ({ name: s.stat?.name ?? s.name ?? '', base: s.base_stat ?? s.base, effort: s.effort }));
   });
-  const locale = () => getLocale() as 'en' | 'fr' | 'jp';
+  const locale = () => getLocale();
   const localFlavor = createMemo(() => findLocalFlavor(speciesData(), locale()));
   const flavorText = createMemo(() => localFlavor()?.text);
   const [adding, setAdding] = createSignal(false);
@@ -316,7 +316,7 @@ export default function PokemonDetail(props: { id: number }) {
               <Skeleton class="mb-3 h-4 w-40" />
               <div class="overflow-x-auto">
                 <div class="flex min-w-[260px] items-start justify-center gap-8 pb-2">
-                  <For each={[0,1,2]}>{() => (
+                  <For each={[0, 1, 2]}>{() => (
                     <div class="flex items-center gap-6">
                       <div class="flex min-w-[180px] flex-col items-center gap-4">
                         <Skeleton class="h-3 w-20" />
@@ -372,7 +372,7 @@ export default function PokemonDetail(props: { id: number }) {
                       }
                       await fetch((import.meta.env.VITE_API_BASE?.replace(/\/?$/, '') || 'http://localhost:8787') + '/api/provision', { method: 'POST', credentials: 'include' });
                       const trpc = createTRPCProxyClient<AppRouter>({
-                        links: [httpBatchLink({ url: (import.meta.env.VITE_API_BASE?.replace(/\/?$/, '') || 'http://localhost:8787') + '/trpc', fetch(url, opts){ return fetch(url, { ...opts, credentials: 'include' as const }); } })],
+                        links: [httpBatchLink({ url: (import.meta.env.VITE_API_BASE?.replace(/\/?$/, '') || 'http://localhost:8787') + '/trpc', fetch(url, opts) { return fetch(url, { ...opts, credentials: 'include' as const }); } })],
                       });
                       await trpc.favorites.add.mutate({ pokemonId: props.id });
                       setAdded(true);
@@ -434,7 +434,7 @@ export default function PokemonDetail(props: { id: number }) {
                     <span class="font-mono text-xs text-gray-500">{s.base ?? 0}</span>
                   </div>
                   <div class="mt-1 h-2 w-full overflow-hidden rounded bg-gray-200 dark:bg-gray-700">
-                    <div class="h-full rounded bg-blue-600 dark:bg-blue-500" style={{ width: `${Math.min(100, ((s.base ?? 0)/255)*100)}%` }} />
+                    <div class="h-full rounded bg-blue-600 dark:bg-blue-500" style={{ width: `${Math.min(100, ((s.base ?? 0) / 255) * 100)}%` }} />
                   </div>
                 </div>
               )}</For>
@@ -452,23 +452,23 @@ export default function PokemonDetail(props: { id: number }) {
                   const gens = speciesData()?.genera || [];
                   const map = { en: 'en', fr: 'fr', jp: 'ja' } as const;
                   const want = map[locale()] || 'en';
-                  return gens.find((g)=>g.language?.name===want)?.genus || gens.find((g)=>g.language?.name==='en')?.genus || '—';
+                  return gens.find((g) => g.language?.name === want)?.genus || gens.find((g) => g.language?.name === 'en')?.genus || '—';
                 })()}</div>
               </div>
               <div>
                 <div class="text-gray-500 dark:text-gray-400">{t('pokemon.height')}</div>
                 <div class="font-medium">{(() => {
-                  const hdm = pokemon()?.height ?? 0; const m = (hdm/10).toFixed(1);
-                  const totalIn = Math.round((hdm/10) / 0.0254);
-                  const ft = Math.floor(totalIn/12); const inches = totalIn - ft*12;
+                  const hdm = pokemon()?.height ?? 0; const m = (hdm / 10).toFixed(1);
+                  const totalIn = Math.round((hdm / 10) / 0.0254);
+                  const ft = Math.floor(totalIn / 12); const inches = totalIn - ft * 12;
                   return fmt(t('pokemon.heightWithImperial'), { m, ft, in: inches });
                 })()}</div>
               </div>
               <div>
                 <div class="text-gray-500 dark:text-gray-400">{t('pokemon.weight')}</div>
                 <div class="font-medium">{(() => {
-                  const hg = pokemon()?.weight ?? 0; const kg = (hg/10).toFixed(1);
-                  const lb = (parseFloat(kg)*2.20462).toFixed(1);
+                  const hg = pokemon()?.weight ?? 0; const kg = (hg / 10).toFixed(1);
+                  const lb = (parseFloat(kg) * 2.20462).toFixed(1);
                   return fmt(t('pokemon.weightWithImperial'), { kg, lb });
                 })()}</div>
               </div>
@@ -483,7 +483,7 @@ export default function PokemonDetail(props: { id: number }) {
               <div>
                 <div class="text-gray-500 dark:text-gray-400">{t('pokemon.effortPoints')}</div>
                 <div class="font-medium">{(() => {
-                  const eps = (stats()||[]).filter((s)=> (s as any).effort>0).map((s)=>`+${(s as any).effort} ${t(`stat.${(s as any).name}`)}`);
+                  const eps = (stats() || []).filter((s) => (s as any).effort > 0).map((s) => `+${(s as any).effort} ${t(`stat.${(s as any).name}`)}`);
                   return eps.join(' , ') || '—';
                 })()}</div>
               </div>
@@ -510,13 +510,13 @@ export default function PokemonDetail(props: { id: number }) {
               </div>
               <div>
                 <div class="text-gray-500 dark:text-gray-400">{t('pokemon.gender')}</div>
-                <div class="font-medium">{(() => { const gr = speciesData()?.gender_rate; if (gr == null) return '—'; if (gr===-1) return t('pokemon.genderless'); const female = (gr*12.5).toFixed(1); const male = (100 - gr*12.5).toFixed(1); return `${female}% ${t('pokemon.female')} ; ${male}% ${t('pokemon.male')}`; })()}</div>
+                <div class="font-medium">{(() => { const gr = speciesData()?.gender_rate; if (gr == null) return '—'; if (gr === -1) return t('pokemon.genderless'); const female = (gr * 12.5).toFixed(1); const male = (100 - gr * 12.5).toFixed(1); return `${female}% ${t('pokemon.female')} ; ${male}% ${t('pokemon.male')}`; })()}</div>
               </div>
               <div>
                 <div class="text-gray-500 dark:text-gray-400">{t('pokemon.color')}</div>
                 <div class="font-medium">{speciesData()?.color?.name || '—'}</div>
               </div>
-              
+
             </div>
           </Card>
         </div>
@@ -587,6 +587,6 @@ export default function PokemonDetail(props: { id: number }) {
     </div>
   );
 }
-  function fmt(tpl: string, params: Record<string, string | number>): string {
-    return String(tpl).replace(/\{(\w+)\}/g, (_, k) => (params[k] != null ? String(params[k]) : `{${k}}`));
-  }
+function fmt(tpl: string, params: Record<string, string | number>): string {
+  return String(tpl).replace(/\{(\w+)\}/g, (_, k) => (params[k] != null ? String(params[k]) : `{${k}}`));
+}

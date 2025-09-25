@@ -61,7 +61,13 @@ export default function ResourceDetail(props: { resource: ResourceName }) {
       <Show when={item()} fallback={<div class="text-gray-500">{t('detail.loading')}</div>}>
         {(it) => (
           <Card class="p-4">
-            <div class="mb-4 text-lg font-semibold">{formatName(((it() as any)?.name) || `ID ${id()}`)}</div>
+            <div class="mb-4 text-lg font-semibold">
+              {(() => {
+                const data = it() as unknown;
+                const name = (data && typeof data === 'object') ? (data as { name?: unknown }).name : undefined;
+                return formatName(typeof name === 'string' ? name : `ID ${id()}`);
+              })()}
+            </div>
             <JsonViewer value={it()} />
           </Card>
         )}

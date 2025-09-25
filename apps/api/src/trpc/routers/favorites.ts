@@ -29,15 +29,15 @@ export const favoritesRouter = router({
     }),
 });
 
-async function ensureFavoritesTable(db: any) {
+async function ensureFavoritesTable(db: unknown) {
   try {
-    await db.select().from(favorites).limit(1);
+    await (db as any).select().from(favorites).limit(1);
   } catch (e) {
     // create table if missing
-    const { sql } = await import('drizzle-orm');
     try {
       // minimal portable DDL for libsql/sqlite
-      await (db as any).execute?.(`CREATE TABLE IF NOT EXISTS favorites (
+      const exec = (db as { execute?: (sql: string) => Promise<unknown> }).execute;
+      await exec?.(`CREATE TABLE IF NOT EXISTS favorites (
         id integer PRIMARY KEY AUTOINCREMENT NOT NULL,
         pokemon_id integer NOT NULL,
         nickname text,

@@ -113,7 +113,7 @@ export default function MoveDetail(props: { id: number }) {
   const learners = createMemo(() => move()?.learned_by_pokemon || []);
   const visibleLearners = createMemo(() => showAllLearners() ? learners() : learners().slice(0, 24));
   // Localized Pokémon names for learners
-  const [pokemonList] = createResource(() => getLocale(), () => loadList('pokemon' as any));
+  const [pokemonList] = createResource(() => getLocale(), () => loadList('pokemon'));
   const pokemonNameMap = createMemo(() => {
     const list = pokemonList() || [];
     const map: Record<string, string> = {};
@@ -122,7 +122,7 @@ export default function MoveDetail(props: { id: number }) {
   });
 
   function translateOr(key: string, fallback: string) {
-    const value = t(key as any) as string;
+    const value = t(key);
     if (!value || value === key) return fallback;
     return value;
   }
@@ -207,7 +207,7 @@ export default function MoveDetail(props: { id: number }) {
                 <div class="mt-4">
                   <div class="mb-1 text-sm font-semibold tracking-wide text-gray-500">{t('move.statChanges')}</div>
                   <ul class="text-sm">
-                    <For each={m().stat_changes || []}>{(sc: any) => (
+                    <For each={m().stat_changes || []}>{(sc) => (
                       <li class="flex items-center justify-between border-b border-gray-100 py-1 text-gray-700 last:border-none dark:border-gray-700 dark:text-gray-200">
                         <span>{t(`stat.${sc.stat?.name}`)}</span>
                         <span class="font-mono">{sc.change > 0 ? '+' : ''}{sc.change}</span>
@@ -221,7 +221,7 @@ export default function MoveDetail(props: { id: number }) {
             <Card>
               <h3 class="mb-3 text-sm font-semibold tracking-wide text-gray-500">{t('move.learnedBy')}</h3>
               <div class="flex flex-wrap gap-2">
-                <For each={visibleLearners()}>{(p: any) => {
+                <For each={visibleLearners()}>{(p) => {
                   const id = (typeof p?.id === 'number' ? p.id : idFromUrl(p?.url));
                   const label = () => {
                     // Recompute on locale or list updates
@@ -250,7 +250,7 @@ export default function MoveDetail(props: { id: number }) {
   );
 }
 
-function StatBox(props: { label: string; value: any }) {
+function StatBox(props: { label: string; value: string | number }) {
   return (
     <div class="rounded-lg border border-gray-200 p-3 text-sm dark:border-gray-700">
       <div class="text-gray-500 dark:text-gray-400">{props.label}</div>
@@ -259,7 +259,7 @@ function StatBox(props: { label: string; value: any }) {
   );
 }
 
-function MetaRow(props: { label: string; value: any }) {
+function MetaRow(props: { label: string; value: string | number }) {
   return (
     <div>
       <div class="text-gray-500 dark:text-gray-400">{props.label}</div>
