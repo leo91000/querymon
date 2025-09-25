@@ -5,8 +5,9 @@ import PokemonLearnset from '../components/PokemonLearnset';
 import { Show, For, createMemo, createResource, createSignal } from 'solid-js';
 import { formatName, loadItemById, loadGrowthRatesLite, loadList } from '../services/data';
 import type { ResourceName } from '../services/data';
-import type { PokemonDetailData } from '../types/pokeapi';
+import type { PokemonDetailData, PokemonTypeRef, PokemonAbilityRef, SpeciesNamesEntry, NamedRef } from '../types/pokeapi';
 import { t, getLocale, type Locale } from '../i18n';
+import { pick } from 'lodash-es';
 import { LOCALE_TO_POKEAPI } from '../constants/locale';
 import Skeleton from '../components/Skeleton';
 import PokemonSpriteViewer from '../components/PokemonSpriteViewer';
@@ -24,8 +25,8 @@ const TYPE_TONE: Record<string, NonNullable<Parameters<typeof Badge>[0]['tone']>
   dragon: 'fuchsia', dark: 'gray', steel: 'gray', fairy: 'pink',
 };
 
-function toneForType(name: string) {
-  const k = name?.toLowerCase();
+function toneForType(name?: string) {
+  const k = (name || '').toLowerCase();
   return TYPE_TONE[k] ?? 'gray';
 }
 
@@ -34,10 +35,10 @@ function m(heightDecimeters: number) { return (heightDecimeters / 10).toFixed(1)
 function idFromUrl(url?: string | null) { const m = url?.match(/\/(\d+)\/?$/); return m ? Number(m[1]) : undefined; }
 
 function findLocalFlavor(species: Species, lang: Locale): { text?: string; hasWanted: boolean } {
-  const list = species?.flavor_text_entries as any[] | undefined;
+  const list = species?.flavor_text_entries;
   if (!list) return { text: undefined, hasWanted: false };
   const wanted = lang === 'jp' ? ['ja', 'ja-Hrkt'] : [lang];
-  const foundWanted = list.find((e) => wanted.includes(e?.language?.name));
+  const foundWanted = list.find((e) => wanted.includes(e?.language?.name || ''));
   if (foundWanted?.flavor_text) return { text: String(foundWanted.flavor_text).replace(/[\n\f]/g, ' '), hasWanted: true };
   const en = list.find((e) => e?.language?.name === 'en');
   return { text: en?.flavor_text ? String(en.flavor_text).replace(/[\n\f]/g, ' ') : undefined, hasWanted: false };
@@ -52,23 +53,45 @@ export default function PokemonDetail(props: { id: number }) {
   const speciesRaw = createMemo(() => data()?.species);
   const speciesData = createMemo(() => speciesRaw());
 
+  
   const types = createMemo(() => {
-    const list = pokemon()?.types || [];
-    return list.map((t: any) => {
+    const list: PokemonTypeRef[] = pokemon()?.types ?? [];
+    return list.map((t) => {
       const typeRef = t?.type || t;
-      const name = typeRef?.name || t?.name;
-      const id = t?.id ?? idFromUrl(typeRef?.url);
+      const name = typeRef?.name || t?.name || '';
+      const url = (typeRef && typeof typeRef === 'object' && 'url' in (typeRef as any)) ? (typeRef as NamedRef).url : undefined;
+      const id = t?.id ?? idFromUrl(url);
       return { name, id };
     });
   });
 
   const officialArt = createMemo(() => {
     const sprites = pokemon()?.sprites;
-    return sprites?.official_artwork || sprites?.front_default || (sprites as any)?.other?.['official-artwork']?.front_default || sprites?.front_default || (sprites as any)?.other?.home?.front_default || (sprites as any)?.other?.['dream_world']?.front_default;
+    if (!sprites) return undefined;
+    if (sprites.official_artwork) return sprites.official_artwork;
+    if (sprites.front_default) return sprites.front_default;
+    const other = sprites.other;
+    const getStr = (grp?: unknown, key?: string) => {
+      if (!grp || typeof grp !== 'object' || !key) return undefined;
+      const val = (pick(grp as object, [key]) as Record<string, unknown>)[key];
+      return typeof val === 'string' ? val : undefined;
+    };
+    const oaFront = getStr(other?.['official-artwork'], 'front_default');
+    if (oaFront) return oaFront;
+    const home = other?.home;
+    const homeFront = getStr(home, 'front_default');
+    if (homeFront) return homeFront;
+    const dw = other?.['dream_world'];
+    const dwFront = getStr(dw, 'front_default');
+    if (dwFront) return dwFront;
+    return sprites.front_default;
   });
 
   const abilities = createMemo(() => (pokemon()?.abilities || []));
-  const stats = createMemo(() => (pokemon()?.stats || []).map((s: any) => ({ name: s?.stat?.name || s?.name, base: s?.base_stat ?? s?.base, effort: s?.effort })));
+  const stats = createMemo(() => {
+    const list = (pokemon()?.stats || []) as import('../types/pokeapi').PokemonStat[];
+    return list.map((s) => ({ name: s.stat?.name ?? s.name ?? '', base: s.base_stat ?? s.base, effort: s.effort }));
+  });
   const locale = () => getLocale() as 'en' | 'fr' | 'jp';
   const localFlavor = createMemo(() => findLocalFlavor(speciesData(), locale()));
   const flavorText = createMemo(() => localFlavor()?.text);
@@ -101,16 +124,16 @@ export default function PokemonDetail(props: { id: number }) {
     if (locale() === 'jp') return formatJaUnits(v);
     return nf().format(v);
   };
-  const hasEmbedded = createMemo(() => Array.isArray((pokemon() as any)?.learnsets));
+  const hasEmbedded = createMemo(() => Array.isArray(pokemon()?.learnsets));
   // Only fetch legacy name maps when we don't have embedded/new data
   // New layout: growth-rates.<loc>.json provides label and exp at 100
-  const [growthRatesLite] = createResource(() => getLocale(), (loc) => loadGrowthRatesLite(loc as any));
-  const [abilityList] = createResource(() => (hasEmbedded() ? getLocale() : null), () => loadList('ability' as any));
-  const [typeList] = createResource(() => (hasEmbedded() ? getLocale() : null), () => loadList('type' as any));
+  const [growthRatesLite] = createResource(() => getLocale(), (loc) => loadGrowthRatesLite(loc as Locale));
+  const [abilityList] = createResource(() => (hasEmbedded() ? getLocale() : null), () => loadList('ability'));
+  const [typeList] = createResource(() => (hasEmbedded() ? getLocale() : null), () => loadList('type'));
   // No legacy pokemon name map in new layout
 
   // Skip evolution chain fetch if embedded evolutions exist in the detail payload
-  const embeddedEvolutions = createMemo(() => (data() as any)?.evolutions as any[] | undefined);
+  const embeddedEvolutions = createMemo(() => data()?.evolutions);
 
   type EvolutionStageEntry = {
     id?: number;
@@ -136,7 +159,24 @@ export default function PokemonDetail(props: { id: number }) {
     return (stages[0]?.length || 0) > 1;
   });
 
-  function summarizeEvolutionDetails(details: any[]): string[] {
+  type EvoDetail = {
+    min_level?: number;
+    trigger?: { name?: string };
+    item?: { name?: string };
+    held_item?: { name?: string };
+    time_of_day?: string;
+    location?: { name?: string };
+    min_happiness?: number;
+    min_affection?: number;
+    min_beauty?: number;
+    gender?: number;
+    known_move?: { name?: string };
+    known_move_type?: { name?: string };
+    trade_species?: { name?: string };
+    needs_overworld_rain?: boolean;
+    turn_upside_down?: boolean;
+  };
+  function summarizeEvolutionDetails(details: EvoDetail[]): string[] {
     if (!Array.isArray(details) || details.length === 0) return [];
     const source = details[0] || {};
     const labels: string[] = [];
@@ -200,27 +240,28 @@ export default function PokemonDetail(props: { id: number }) {
   });
 
   const localizedAbilities = createMemo(() => {
-    const list = abilityList() || [];
-    return (abilities() || []).map((ab: any) => {
-      const ref = ab?.ability || ab;
-      const id = ab?.id ?? idFromUrl(ref?.url);
-      const name = id != null ? list.find((a: any) => a.id === id)?.name : undefined;
-      const label = name || formatName(ref?.name || ab?.name || '');
-      return { id, label, hidden: ab?.is_hidden ?? ab?.hidden };
+    const list = (abilityList() || []) as Array<{ id: number; name: string }>;
+    const abil: PokemonAbilityRef[] = abilities() ?? [];
+    return abil.map((ab) => {
+      const ref: NamedRef | undefined = ab.ability ?? (ab.name ? { name: ab.name } : undefined);
+      const id = ab.id ?? idFromUrl(ref?.url);
+      const name = id != null ? list.find((a) => a.id === id)?.name : undefined;
+      const label = name || formatName(ref?.name || '');
+      return { id, label, hidden: ab.is_hidden ?? ab.hidden };
     });
   });
 
   const localizedName = createMemo<string>(() => {
-    const names = speciesData()?.names || [];
+    const names: SpeciesNamesEntry[] = speciesData()?.names || [];
     const loc = (getLocale() as Locale);
     const want = LOCALE_TO_POKEAPI[loc] || 'en';
     if (want === 'ja') {
-      const ja = names.find((n: any) => n.language?.name === 'ja')?.name;
+      const ja = names.find((n) => n.language?.name === 'ja')?.name;
       if (ja) return ja;
-      const jaHrkt = names.find((n: any) => n.language?.name === 'ja-Hrkt')?.name;
+      const jaHrkt = names.find((n) => n.language?.name === 'ja-Hrkt')?.name;
       if (jaHrkt) return jaHrkt;
     }
-    return names.find((n: any) => n.language?.name === want)?.name || speciesData()?.name || '—';
+    return names.find((n) => n.language?.name === want)?.name || speciesData()?.name || '—';
   });
 
   return (
@@ -407,10 +448,10 @@ export default function PokemonDetail(props: { id: number }) {
                 <div>
                   <div class="flex items-center justify-between text-sm">
                     <span class="text-gray-600 dark:text-gray-300">{t(`stat.${s.name}`)}</span>
-                    <span class="font-mono text-xs text-gray-500">{s.base}</span>
+                    <span class="font-mono text-xs text-gray-500">{s.base ?? 0}</span>
                   </div>
                   <div class="mt-1 h-2 w-full overflow-hidden rounded bg-gray-200 dark:bg-gray-700">
-                    <div class="h-full rounded bg-blue-600 dark:bg-blue-500" style={{ width: `${Math.min(100, (s.base/255)*100)}%` }} />
+                    <div class="h-full rounded bg-blue-600 dark:bg-blue-500" style={{ width: `${Math.min(100, ((s.base ?? 0)/255)*100)}%` }} />
                   </div>
                 </div>
               )}</For>
@@ -428,7 +469,7 @@ export default function PokemonDetail(props: { id: number }) {
                   const gens = speciesData()?.genera || [];
                   const map = { en: 'en', fr: 'fr', jp: 'ja' } as const;
                   const want = map[locale()] || 'en';
-                  return gens.find((g:any)=>g.language?.name===want)?.genus || gens.find((g:any)=>g.language?.name==='en')?.genus || '—';
+                  return gens.find((g)=>g.language?.name===want)?.genus || gens.find((g)=>g.language?.name==='en')?.genus || '—';
                 })()}</div>
               </div>
               <div>
@@ -437,7 +478,7 @@ export default function PokemonDetail(props: { id: number }) {
                   const hdm = pokemon()?.height ?? 0; const m = (hdm/10).toFixed(1);
                   const totalIn = Math.round((hdm/10) / 0.0254);
                   const ft = Math.floor(totalIn/12); const inches = totalIn - ft*12;
-                  return fmt(t('pokemon.heightWithImperial') as unknown as string, { m, ft, in: inches });
+                  return fmt(t('pokemon.heightWithImperial'), { m, ft, in: inches });
                 })()}</div>
               </div>
               <div>
@@ -445,12 +486,12 @@ export default function PokemonDetail(props: { id: number }) {
                 <div class="font-medium">{(() => {
                   const hg = pokemon()?.weight ?? 0; const kg = (hg/10).toFixed(1);
                   const lb = (parseFloat(kg)*2.20462).toFixed(1);
-                  return fmt(t('pokemon.weightWithImperial') as unknown as string, { kg, lb });
+                  return fmt(t('pokemon.weightWithImperial'), { kg, lb });
                 })()}</div>
               </div>
               <div>
                 <div class="text-gray-500 dark:text-gray-400">{t('pokemon.eggGroups')}</div>
-                <div class="font-medium">{(() => { const arr = (speciesData()?.egg_groups || []) as any[]; const names = arr.map(g => String(g?.name || '')).filter(Boolean); return names.join(', ') || '—'; })()}</div>
+                <div class="font-medium">{(() => { const arr = speciesData()?.egg_groups || []; const names = arr.map(g => String(g?.name || '')).filter(Boolean); return names.join(', ') || '—'; })()}</div>
               </div>
               <div>
                 <div class="text-gray-500 dark:text-gray-400">{t('pokemon.eggCycles')}</div>
@@ -459,7 +500,7 @@ export default function PokemonDetail(props: { id: number }) {
               <div>
                 <div class="text-gray-500 dark:text-gray-400">{t('pokemon.effortPoints')}</div>
                 <div class="font-medium">{(() => {
-                  const eps = (stats()||[]).filter((s:any)=>s.effort>0).map((s:any)=>`+${s.effort} ${t(`stat.${s.name}`)}`);
+                  const eps = (stats()||[]).filter((s)=> (s as any).effort>0).map((s)=>`+${(s as any).effort} ${t(`stat.${(s as any).name}`)}`);
                   return eps.join(' , ') || '—';
                 })()}</div>
               </div>
@@ -474,10 +515,10 @@ export default function PokemonDetail(props: { id: number }) {
                   if (!gr) return '—';
                   const gid = gr.id ?? idFromUrl(gr.url);
                   const slug = gr.name as string | undefined;
-                  const g = (growthRatesLite() || []).find((x: any) => x.id === gid);
+                  const g = (growthRatesLite() || []).find((x) => x.id === gid);
                   const e = g?.exp100;
                   const key = slug ? `growthRate.${slug}` : undefined;
-                  const tr = key ? (t(key as any) as unknown as string) : undefined;
+                  const tr = key ? t(key) : undefined;
                   const grp = tr && tr !== key ? tr : (g?.name || slug);
                   if (e == null) return '—';
                   const val = num(e);
@@ -554,8 +595,8 @@ export default function PokemonDetail(props: { id: number }) {
         <PokemonLearnset
           pokemonId={props.id}
           // Prefer embedded learnsets from new per-locale file; fallback to raw moves
-          learnsets={(pokemon() as any)?.learnsets}
-          moves={(pokemon() as any)?.moves}
+          learnsets={pokemon()?.learnsets}
+          moves={pokemon()?.moves}
           locale={locale()}
           moveNames={undefined}
         />
