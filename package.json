@@ -5,12 +5,34 @@
   "type": "module",
   "scripts": {
     "scrape": "node scripts/scrape.mjs",
-    "dev:web": "pnpm --filter @querymon/web dev",
+    "dev:web": "concurrently -k -n API,WEB -c blue,green \"pnpm --filter @querymon/api dev\" \"pnpm --filter @querymon/web dev\"",
     "build:web": "pnpm --filter @querymon/web build",
     "serve:web": "pnpm --filter @querymon/web serve",
+    "dev:api": "pnpm --filter @querymon/api dev",
+    "build:api": "pnpm --filter @querymon/api build",
+    "start:api": "pnpm --filter @querymon/api start",
     "dev:desktop": "pnpm --filter @querymon/desktop dev",
     "build:desktop": "pnpm --filter @querymon/desktop build"
   },
   "license": "MIT",
-  "private": true
+  "private": true,
+  "dependencies": {
+    "@hono/node-server": "^1.19.4",
+    "@hono/trpc-server": "^0.4.0",
+    "@libsql/client": "^0.15.15",
+    "@trpc/client": "^11.6.0",
+    "@trpc/server": "^11.6.0",
+    "dotenv": "^17.2.2",
+    "drizzle-orm": "^0.44.5",
+    "hono": "^4.9.8",
+    "zod": "^4.1.11"
+  },
+  "devDependencies": {
+    "@better-auth/cli": "^1.3.17",
+    "@types/node": "^24.5.2",
+    "drizzle-kit": "^0.31.4",
+    "concurrently": "^9.0.1",
+    "tsx": "^4.20.5",
+    "typescript": "^5.9.2"
+  }
 }

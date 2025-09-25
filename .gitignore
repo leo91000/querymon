@@ -9,9 +9,12 @@ app.config.timestamp_*.js
 # Environment
 .env
 .env*.local
+**/.env
+**/.env*.local
 
 # dependencies
-/node_modules
+node_modules
+**/node_modules
 
 # IDEs and editors
 /.idea
@@ -32,3 +35,7 @@ Thumbs.db
 
 # Avoid committing giant aggregated dump; prefer shards or page JSON
 apps/web/public/data/pokeapi/pokemon.json
+var/
+**/var/
+apps/api/dist/
+apps/web/dist/
