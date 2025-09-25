@@ -210,9 +210,7 @@ export default function PokemonDetail(props: { id: number }) {
         return labels;
     }
 
-    // localizeTypeName was unused after refactor; remove to satisfy lint
 
-    // localizedTypeLabels was unused; removed to satisfy lint
 
     const localizedAbilities = createMemo(() => {
         const list = (abilityList() || []) as Array<{ id: number; name: string }>;

@@ -65,6 +65,5 @@ app.use('/trpc/*', trpcServer({
 }));
 
 const port = env.PORT;
-// Use console.warn to satisfy lint rule allowing warn/error only
 console.warn(`[api] listening on http://localhost:${port}`);
 serve({ fetch: app.fetch, port });
