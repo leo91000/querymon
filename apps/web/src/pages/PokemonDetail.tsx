@@ -5,6 +5,7 @@ import PokemonLearnset from '../components/PokemonLearnset';
 import { Show, For, createMemo, createResource, createSignal } from 'solid-js';
 import { formatName, loadItemById, loadGrowthRatesLite, loadList } from '../services/data';
 import type { ResourceName } from '../services/data';
+import type { PokemonDetailData } from '../types/pokeapi';
 import { t, getLocale } from '../i18n';
 import Skeleton from '../components/Skeleton';
 import PokemonSpriteViewer from '../components/PokemonSpriteViewer';
@@ -13,8 +14,8 @@ import { authClient } from '../services/authClient';
 import { createTRPCProxyClient, httpBatchLink } from '@trpc/client';
 import type { AppRouter } from '../../../api/src/trpc/router';
 
-type Species = any;
-type PageData = any;
+type Species = PokemonDetailData['species'];
+type PageData = PokemonDetailData;
 
 const TYPE_TONE: Record<string, NonNullable<Parameters<typeof Badge>[0]['tone']>> = {
   normal: 'gray', fire: 'orange', water: 'blue', electric: 'yellow', grass: 'green', ice: 'sky', fighting: 'rose',
@@ -61,8 +62,8 @@ export default function PokemonDetail(props: { id: number }) {
   });
 
   const officialArt = createMemo(() => {
-    const sprites = pokemon()?.sprites || {};
-    return sprites?.official_artwork || sprites?.front_default || sprites?.other?.['official-artwork']?.front_default || sprites?.front_default || sprites?.other?.home?.front_default || sprites?.other?.['dream_world']?.front_default;
+    const sprites = pokemon()?.sprites;
+    return sprites?.official_artwork || sprites?.front_default || (sprites as any)?.other?.['official-artwork']?.front_default || sprites?.front_default || (sprites as any)?.other?.home?.front_default || (sprites as any)?.other?.['dream_world']?.front_default;
   });
 
   const abilities = createMemo(() => (pokemon()?.abilities || []));
@@ -193,7 +194,8 @@ export default function PokemonDetail(props: { id: number }) {
 
   const localizedTypeLabels = createMemo(() => {
     const _ = locale();
-    return types().map((t) => ({ id: t.id, tone: toneForType(t.name), label: localizeTypeName(t.id, formatName(t.name)) }));
+    const list = types() as Array<{ id: number | undefined; name: string }>;
+    return list.map((ty) => ({ id: ty.id, tone: toneForType(ty.name), label: localizeTypeName(ty.id, formatName(ty.name)) }));
   });
 
   const localizedAbilities = createMemo(() => {
@@ -207,7 +209,7 @@ export default function PokemonDetail(props: { id: number }) {
     });
   });
 
-  const localizedName = createMemo(() => {
+  const localizedName = createMemo<string>(() => {
     const names = speciesData()?.names || [];
     const map = { en: 'en', fr: 'fr', jp: 'ja' } as const;
     const loc = (getLocale() as 'en'|'fr'|'jp');
@@ -218,7 +220,7 @@ export default function PokemonDetail(props: { id: number }) {
       const jaHrkt = names.find((n: any) => n.language?.name === 'ja-Hrkt')?.name;
       if (jaHrkt) return jaHrkt;
     }
-    return names.find((n: any) => n.language?.name === want)?.name || speciesData()?.name;
+    return names.find((n: any) => n.language?.name === want)?.name || speciesData()?.name || '—';
   });
 
   return (
@@ -368,11 +370,11 @@ export default function PokemonDetail(props: { id: number }) {
               <div class="mt-6 grid grid-cols-2 gap-4 md:grid-cols-3">
                 <div class="rounded-lg border border-gray-200 p-3 text-sm dark:border-gray-700">
                   <div class="flex items-center gap-2 text-gray-500 dark:text-gray-400"><span class="icon-[ph--scales] text-blue-600 dark:text-blue-400"></span> {t('pokemon.weight')}</div>
-                  <div class="text-lg font-semibold">{pokemon() ? kg(pokemon()!.weight) + ' kg' : '—'}</div>
+                  <div class="text-lg font-semibold">{pokemon() ? kg(pokemon()?.weight ?? 0) + ' kg' : '—'}</div>
                 </div>
                 <div class="rounded-lg border border-gray-200 p-3 text-sm dark:border-gray-700">
                   <div class="flex items-center gap-2 text-gray-500 dark:text-gray-400"><span class="icon-[ph--ruler] text-blue-600 dark:text-blue-400"></span> {t('pokemon.height')}</div>
-                  <div class="text-lg font-semibold">{pokemon() ? m(pokemon()!.height) + ' m' : '—'}</div>
+                  <div class="text-lg font-semibold">{pokemon() ? m(pokemon()?.height ?? 0) + ' m' : '—'}</div>
                 </div>
                 <div class="rounded-lg border border-gray-200 p-3 text-sm dark:border-gray-700">
                   <div class="flex items-center gap-2 text-gray-500 dark:text-gray-400"><span class="icon-[ph--target] text-blue-600 dark:text-blue-400"></span> {t('pokemon.captureRate')}</div>
@@ -468,8 +470,10 @@ export default function PokemonDetail(props: { id: number }) {
               <div>
                 <div class="text-gray-500 dark:text-gray-400">{t('pokemon.expAt100')}</div>
                 <div class="font-medium">{(() => {
-                  const gid = speciesData()?.growth_rate?.id ?? idFromUrl(speciesData()?.growth_rate?.url);
-                  const slug = speciesData()?.growth_rate?.name as string | undefined;
+                  const gr = speciesData()?.growth_rate;
+                  if (!gr) return '—';
+                  const gid = gr.id ?? idFromUrl(gr.url);
+                  const slug = gr.name as string | undefined;
                   const g = (growthRatesLite() || []).find((x: any) => x.id === gid);
                   const e = g?.exp100;
                   const key = slug ? `growthRate.${slug}` : undefined;
@@ -482,7 +486,7 @@ export default function PokemonDetail(props: { id: number }) {
               </div>
               <div>
                 <div class="text-gray-500 dark:text-gray-400">{t('pokemon.gender')}</div>
-                <div class="font-medium">{(() => { const gr = speciesData()?.gender_rate; if (gr===-1) return t('pokemon.genderless'); const female = (gr*12.5).toFixed(1); const male = (100 - gr*12.5).toFixed(1); return `${female}% ${t('pokemon.female')} ; ${male}% ${t('pokemon.male')}`; })()}</div>
+                <div class="font-medium">{(() => { const gr = speciesData()?.gender_rate; if (gr == null) return '—'; if (gr===-1) return t('pokemon.genderless'); const female = (gr*12.5).toFixed(1); const male = (100 - gr*12.5).toFixed(1); return `${female}% ${t('pokemon.female')} ; ${male}% ${t('pokemon.male')}`; })()}</div>
               </div>
               <div>
                 <div class="text-gray-500 dark:text-gray-400">{t('pokemon.color')}</div>
