@@ -6,7 +6,7 @@ import { Show, For, createMemo, createResource, createSignal } from 'solid-js';
 import { formatName, loadItemById, loadGrowthRatesLite, loadList } from '../services/data';
 import type { ResourceName } from '../services/data';
 import type { PokemonDetailData } from '../types/pokeapi';
-import { t, getLocale } from '../i18n';
+import { t, getLocale, type Locale } from '../i18n';
 import Skeleton from '../components/Skeleton';
 import PokemonSpriteViewer from '../components/PokemonSpriteViewer';
 import { addLocalFavorite } from '../services/favorites';
@@ -32,7 +32,7 @@ function kg(weightHectograms: number) { return (weightHectograms / 10).toFixed(1
 function m(heightDecimeters: number) { return (heightDecimeters / 10).toFixed(1); }
 function idFromUrl(url?: string | null) { const m = url?.match(/\/(\d+)\/?$/); return m ? Number(m[1]) : undefined; }
 
-function findLocalFlavor(species: Species, lang: 'en'|'fr'|'jp'): { text?: string; hasWanted: boolean } {
+function findLocalFlavor(species: Species, lang: Locale): { text?: string; hasWanted: boolean } {
   const list = species?.flavor_text_entries as any[] | undefined;
   if (!list) return { text: undefined, hasWanted: false };
   const wanted = lang === 'jp' ? ['ja', 'ja-Hrkt'] : [lang];

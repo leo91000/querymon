@@ -1,6 +1,6 @@
 import { A } from '@solidjs/router';
 import { Show, createMemo, createSignal, onCleanup, onMount, createResource } from 'solid-js';
-import { getLocale } from '../i18n';
+import { getLocale, type Locale } from '../i18n';
 import { loadList } from '../services/data';
 
 type Props = {
@@ -21,7 +21,7 @@ const SLUG_TO_ID: Record<string, number> = Object.fromEntries(Object.entries(TYP
 export default function TypeBox(props: Props) {
   // Localized type labels from new layout
   const [types] = createResource(() => getLocale(), () => loadList('type' as any));
-  const locale = () => getLocale() as 'en'|'fr'|'jp';
+  const locale = () => getLocale() as Locale;
 
   // Per-type light/dark tones (tailwind v4 class-based dark)
   // Vibrant dark-mode palette: stronger bg, lighter text, tinted border

@@ -1,8 +1,9 @@
 import type { JSX } from 'solid-js';
+import type { RouteSectionProps } from '@solidjs/router';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
 
-export default function MainLayout(props: { children: JSX.Element }) {
+export default function MainLayout(props: RouteSectionProps): JSX.Element {
   return (
     <div class="min-h-dvh bg-gray-50 text-gray-900 dark:bg-gray-900 dark:text-gray-100">
       <Navbar />

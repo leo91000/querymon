@@ -3,7 +3,7 @@ import Badge from '../components/Badge';
 import TypeBox from '../components/TypeBox';
 import { For, Show, createMemo, createResource, createSignal } from 'solid-js';
 import { formatName, loadItemById, type ResourceName, loadList } from '../services/data';
-import { t, getLocale } from '../i18n';
+import { t, getLocale, type Locale } from '../i18n';
 import type { MoveDetailData } from '../types/pokeapi';
 
 const TYPE_TONE: Record<string, NonNullable<Parameters<typeof Badge>[0]['tone']>> = {
@@ -73,8 +73,8 @@ function typeToneBg(name?: string) {
 
 function idFromUrl(url?: string | null) { const m = url?.match(/\/(\d+)\/?$/); return m ? Number(m[1]) : undefined; }
 
-function pickEffectText(move: MoveDetailData | undefined, lang: 'en'|'fr'|'jp') {
-  const map: Record<'en'|'fr'|'jp', string> = { en: 'en', fr: 'fr', jp: 'ja' } as any;
+function pickEffectText(move: MoveDetailData | undefined, lang: Locale) {
+  const map: Record<Locale, string> = { en: 'en', fr: 'fr', jp: 'ja' } as any;
   const want = map[lang] || 'en';
   const list = move?.effect_entries as any[] | undefined;
   if (!list) return undefined;
@@ -88,8 +88,8 @@ function pickEffectText(move: MoveDetailData | undefined, lang: 'en'|'fr'|'jp') 
   return txt.replace(/[\n\f]/g, ' ');
 }
 
-function pickFlavorText(move: MoveDetailData | undefined, lang: 'en'|'fr'|'jp') {
-  const map: Record<'en'|'fr'|'jp', string> = { en: 'en', fr: 'fr', jp: 'ja' } as any;
+function pickFlavorText(move: MoveDetailData | undefined, lang: Locale) {
+  const map: Record<Locale, string> = { en: 'en', fr: 'fr', jp: 'ja' } as any;
   const want = map[lang] || 'en';
   const list = move?.flavor_text_entries as any[] | undefined;
   if (!list) return undefined;
