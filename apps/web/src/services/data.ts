@@ -1,4 +1,5 @@
 import { t, getLocale, type Locale } from '../i18n';
+import type { ListItem } from '../types/pokeapi';
 import { queryClient } from '../queryClient';
 
 export type ResourceName = 'pokemon' | 'pokemon-species' | 'move' | 'ability' | 'type' | 'evolution-chain';
@@ -22,7 +23,7 @@ function ensure<T>(key: any[], fn: () => Promise<T>): Promise<T> {
   return queryClient.ensureQueryData({ queryKey: key, queryFn: fn });
 }
 
-export async function loadList(resource: ResourceName): Promise<Array<{ id: number; name: string } & Record<string, any>>> {
+export async function loadList(resource: ResourceName): Promise<ListItem[]> {
   const loc = getLocale();
   // New single-file lists per locale
   const NEW_MAP: Record<string, string | undefined> = {
@@ -34,7 +35,7 @@ export async function loadList(resource: ResourceName): Promise<Array<{ id: numb
   const mapped = NEW_MAP[resource];
   if (mapped) {
     const url = `${BASE}/${mapped}.${loc}.json`;
-    try { return await ensure(['list', resource, loc, 'v1'], () => fetchJSON(url)); } catch {}
+    try { return await ensure(['list', resource, loc, 'v1'], () => fetchJSON<ListItem[]>(url)); } catch {}
   }
 
   // Try new per-folder legacy (if present)
@@ -45,10 +46,10 @@ export async function loadList(resource: ResourceName): Promise<Array<{ id: numb
   candidates.push(`${BASE}/${resource}.list.${loc}.json`);
   candidates.push(`${BASE}/${resource}.list.json`);
   for (const url of candidates) {
-    try { return await ensure(['listLegacy', resource, loc, url], () => fetchJSON(url)); } catch { /* try next */ }
+    try { return await ensure(['listLegacy', resource, loc, url], () => fetchJSON<ListItem[]>(url)); } catch { /* try next */ }
   }
   // If everything fails, return empty to keep UI resilient
-  return [] as any;
+  return [];
 }
 
 export async function loadIdMap(resource: ResourceName): Promise<Record<string, string>> {

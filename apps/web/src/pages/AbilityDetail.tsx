@@ -3,12 +3,11 @@ import Badge from '../components/Badge';
 import { For, Show, createMemo, createResource, createSignal } from 'solid-js';
 import { formatName, loadItemById, type ResourceName, loadList } from '../services/data';
 import { t, getLocale } from '../i18n';
-
-type Ability = any;
+import type { AbilityDetailData } from '../types/pokeapi';
 
 function idFromUrl(url?: string | null) { const m = url?.match(/\/(\d+)\/?$/); return m ? Number(m[1]) : undefined; }
 
-function pickEffectText(ability: Ability, lang: 'en'|'fr'|'jp') {
+function pickEffectText(ability: AbilityDetailData | undefined, lang: 'en'|'fr'|'jp') {
   const map: Record<'en'|'fr'|'jp', string> = { en: 'en', fr: 'fr', jp: 'ja' } as any;
   const want = map[lang] || 'en';
   const list = ability?.effect_entries as any[] | undefined;
@@ -22,7 +21,7 @@ function pickEffectText(ability: Ability, lang: 'en'|'fr'|'jp') {
   };
 }
 
-function pickFlavorText(ability: Ability, lang: 'en'|'fr'|'jp') {
+function pickFlavorText(ability: AbilityDetailData | undefined, lang: 'en'|'fr'|'jp') {
   const map: Record<'en'|'fr'|'jp', string> = { en: 'en', fr: 'fr', jp: 'ja' } as any;
   const want = map[lang] || 'en';
   const list = ability?.flavor_text_entries as any[] | undefined;
@@ -33,9 +32,9 @@ function pickFlavorText(ability: Ability, lang: 'en'|'fr'|'jp') {
 }
 
 export default function AbilityDetail(props: { id: number }) {
-  const [data] = createResource(() => ({ id: props.id, loc: getLocale() }), (key) => loadItemById('ability' as ResourceName, key.id));
+  const [data] = createResource(() => ({ id: props.id, loc: getLocale() }), (key) => loadItemById<AbilityDetailData>('ability' as ResourceName, key.id));
 
-  const ability = createMemo(() => data() as Ability | undefined);
+  const ability = createMemo(() => data() as AbilityDetailData | undefined);
   const locale = () => getLocale() as 'en' | 'fr' | 'jp';
   const effects = createMemo(() => pickEffectText(ability(), locale()));
   const flavor = createMemo(() => pickFlavorText(ability(), locale()));

@@ -4,8 +4,7 @@ import TypeBox from '../components/TypeBox';
 import { For, Show, createMemo, createResource, createSignal } from 'solid-js';
 import { formatName, loadItemById, type ResourceName, loadList } from '../services/data';
 import { t, getLocale } from '../i18n';
-
-type TypeData = any;
+import type { TypeDetailData } from '../types/pokeapi';
 
 const TYPE_TONE: Record<string, NonNullable<Parameters<typeof Badge>[0]['tone']>> = {
   normal: 'gray', fire: 'orange', water: 'blue', electric: 'yellow', grass: 'green', ice: 'sky', fighting: 'rose',
@@ -29,7 +28,7 @@ export default function TypeDetail(props: { id: number }) {
     const name = list.find((t: any) => t.id === typeId)?.name;
     return name || fallback || '';
   }
-  const type = createMemo(() => data() as TypeData | undefined);
+  const type = createMemo(() => data() as TypeDetailData | undefined);
   const dmg = createMemo(() => type()?.damage_relations || {});
   const localizedTypeName = createMemo(() => type()?.name || '');
 

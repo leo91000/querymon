@@ -4,8 +4,7 @@ import TypeBox from '../components/TypeBox';
 import { For, Show, createMemo, createResource, createSignal } from 'solid-js';
 import { formatName, loadItemById, type ResourceName, loadList } from '../services/data';
 import { t, getLocale } from '../i18n';
-
-type Move = any;
+import type { MoveDetailData } from '../types/pokeapi';
 
 const TYPE_TONE: Record<string, NonNullable<Parameters<typeof Badge>[0]['tone']>> = {
   normal: 'gray', fire: 'orange', water: 'blue', electric: 'yellow', grass: 'green', ice: 'sky', fighting: 'rose',
@@ -74,7 +73,7 @@ function typeToneBg(name?: string) {
 
 function idFromUrl(url?: string | null) { const m = url?.match(/\/(\d+)\/?$/); return m ? Number(m[1]) : undefined; }
 
-function pickEffectText(move: Move, lang: 'en'|'fr'|'jp') {
+function pickEffectText(move: MoveDetailData | undefined, lang: 'en'|'fr'|'jp') {
   const map: Record<'en'|'fr'|'jp', string> = { en: 'en', fr: 'fr', jp: 'ja' } as any;
   const want = map[lang] || 'en';
   const list = move?.effect_entries as any[] | undefined;
@@ -89,7 +88,7 @@ function pickEffectText(move: Move, lang: 'en'|'fr'|'jp') {
   return txt.replace(/[\n\f]/g, ' ');
 }
 
-function pickFlavorText(move: Move, lang: 'en'|'fr'|'jp') {
+function pickFlavorText(move: MoveDetailData | undefined, lang: 'en'|'fr'|'jp') {
   const map: Record<'en'|'fr'|'jp', string> = { en: 'en', fr: 'fr', jp: 'ja' } as any;
   const want = map[lang] || 'en';
   const list = move?.flavor_text_entries as any[] | undefined;
@@ -102,10 +101,10 @@ function pickFlavorText(move: Move, lang: 'en'|'fr'|'jp') {
 export default function MoveDetail(props: { id: number }) {
   const [data] = createResource(
     () => ({ id: props.id, loc: getLocale() }),
-    (key) => loadItemById('move' as ResourceName, key.id)
+    (key) => loadItemById<MoveDetailData>('move' as ResourceName, key.id)
   );
 
-  const move = createMemo(() => data() as Move | undefined);
+  const move = createMemo(() => data() as MoveDetailData | undefined);
   const typeName = createMemo(() => move()?.type?.name);
   const damageClass = createMemo(() => move()?.damage_class?.name);
   const locale = () => getLocale() as 'en' | 'fr' | 'jp';
@@ -198,18 +197,18 @@ export default function MoveDetail(props: { id: number }) {
               <div class="grid grid-cols-2 gap-3 text-sm">
                 <MetaRow label={t('move.ailment')} value={ailmentLabel()} />
                 <MetaRow label={t('move.critRate')} value={m().meta?.crit_rate ?? 0} />
-                <MetaRow label={t('move.drain')} value={m().meta?.drain ? `${m().meta.drain}%` : '0%'} />
-                <MetaRow label={t('move.healing')} value={m().meta?.healing ? `${m().meta.healing}%` : '0%'} />
+                {(() => { const v = m().meta?.drain; return <MetaRow label={t('move.drain')} value={v != null ? `${v}%` : '0%'} />; })()}
+                {(() => { const v = m().meta?.healing; return <MetaRow label={t('move.healing')} value={v != null ? `${v}%` : '0%'} />; })()}
                 <MetaRow label={t('move.flinchChance')} value={(m().meta?.flinch_chance ?? 0) + '%'} />
                 <MetaRow label={t('move.effectChance')} value={(m().effect_chance ?? 0) + '%'} />
-                <MetaRow label={t('move.hits')} value={m().meta?.min_hits ? `${m().meta.min_hits}-${m().meta?.max_hits ?? m().meta?.min_hits}` : '—'} />
-                <MetaRow label={t('move.turns')} value={m().meta?.min_turns ? `${m().meta.min_turns}-${m().meta?.max_turns ?? m().meta?.min_turns}` : '—'} />
+                {(() => { const min = m().meta?.min_hits, max = m().meta?.max_hits; return <MetaRow label={t('move.hits')} value={min ? `${min}-${max ?? min}` : '—'} />; })()}
+                {(() => { const min = m().meta?.min_turns, max = m().meta?.max_turns; return <MetaRow label={t('move.turns')} value={min ? `${min}-${max ?? min}` : '—'} />; })()}
               </div>
               <Show when={(m().stat_changes?.length || 0) > 0}>
                 <div class="mt-4">
                   <div class="mb-1 text-sm font-semibold tracking-wide text-gray-500">{t('move.statChanges')}</div>
                   <ul class="text-sm">
-                    <For each={m().stat_changes}>{(sc: any) => (
+                    <For each={m().stat_changes || []}>{(sc: any) => (
                       <li class="flex items-center justify-between border-b border-gray-100 py-1 text-gray-700 last:border-none dark:border-gray-700 dark:text-gray-200">
                         <span>{t(`stat.${sc.stat?.name}`)}</span>
                         <span class="font-mono">{sc.change > 0 ? '+' : ''}{sc.change}</span>
