@@ -42,7 +42,10 @@ const i18n = createRoot(() => {
   };
 });
 
-export const t = i18n.t;
+// Typed translation helper: always return string
+export function t(key: string, params?: Record<string, string | number>): string {
+  return (i18n.t as any)(key, params) as string;
+}
 export function getLocale() {
   return i18n.getLocale();
 }

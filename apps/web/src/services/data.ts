@@ -106,6 +106,7 @@ export function resourceLabel(resource: ResourceName): string {
     case 'move': return t('resources.move');
     case 'ability': return t('resources.ability');
     case 'type': return t('resources.type');
+    default: return resource;
   }
 }
 
@@ -130,13 +131,13 @@ export function formatName(name: string): string {
 let typeEntriesPromise: Promise<any[]> | undefined;
 export async function loadTypeEntries(): Promise<any[]> {
   // Deprecated in new layout; keep legacy fallback only
-  if (!typeEntriesPromise) typeEntriesPromise = ensure(['legacy', 'type.json'], () => fetchJSON(`${BASE}/type.json`)).catch(() => []);
+  if (!typeEntriesPromise) typeEntriesPromise = ensure<any[]>(['legacy', 'type.json'], () => fetchJSON<any[]>(`${BASE}/type.json`)).catch(() => []);
   return typeEntriesPromise;
 }
 
 let growthRatesPromise: Promise<any[]> | undefined;
 export async function loadGrowthRates(): Promise<any[]> {
-  if (!growthRatesPromise) growthRatesPromise = ensure(['legacy', 'growth-rate.json'], () => fetchJSON(`${BASE}/growth-rate.json`)).catch(() => []);
+  if (!growthRatesPromise) growthRatesPromise = ensure<any[]>(['legacy', 'growth-rate.json'], () => fetchJSON<any[]>(`${BASE}/growth-rate.json`)).catch(() => []);
   return growthRatesPromise;
 }
 

@@ -19,13 +19,13 @@ export default function Home() {
     <div class="space-y-6">
       <h2 class="text-xl font-semibold">{t('home.browse')}</h2>
       <div class="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
-        <For each={RESOURCES as unknown as string[]}>
+        <For each={RESOURCES}>
           {(r) => (
             <A href={`/${r}`}>
               <Card class="flex items-center justify-between p-5 hover:shadow-md">
                 <div>
-                  <div class="text-sm text-gray-500">{resourceLabel(r as any)}</div>
-                  <div class="text-2xl font-bold">{counts()?.[r as any] ?? '…'}</div>
+                  <div class="text-sm text-gray-500">{resourceLabel(r)}</div>
+                  <div class="text-2xl font-bold">{counts()?.[r] ?? '…'}</div>
                 </div>
                 <span class="text-gray-400">→</span>
               </Card>
