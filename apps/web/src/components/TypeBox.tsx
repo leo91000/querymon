@@ -102,23 +102,25 @@ export default function TypeBox(props: Props) {
         return base.charAt(0).toUpperCase() + base.slice(1);
     });
 
-    const size = props.size || 'md';
-    const iconSize = size === 'sm' ? 'h-4 w-4' : size === 'lg' ? 'h-6 w-6' : 'h-5 w-5';
-    const textSize = size === 'sm' ? 'text-xs' : 'text-sm';
-    const padX = size === 'sm' ? 'px-2' : size === 'lg' ? 'px-3' : 'px-2.5';
-    const padY = size === 'sm' ? 'py-0.5' : 'py-1';
+    const size = createMemo(() => props.size || 'md');
+    const iconSize = createMemo(() => (size() === 'sm' ? 'h-4 w-4' : size() === 'lg' ? 'h-6 w-6' : 'h-5 w-5'));
+    const textSize = createMemo(() => (size() === 'sm' ? 'text-xs' : 'text-sm'));
+    const padX = createMemo(() => (size() === 'sm' ? 'px-2' : size() === 'lg' ? 'px-3' : 'px-2.5'));
+    const padY = createMemo(() => (size() === 'sm' ? 'py-0.5' : 'py-1'));
 
     const content = (
-        <span class={`inline-flex items-center gap-2 rounded-full border ${padX} ${padY} ${textSize} ${toneClass()} ${props.class || ''}`}>
-            <img src={iconSrc()} alt={label()} class={`${iconSize}`} loading="lazy" width={24} height={24} />
+        <span class={`inline-flex items-center gap-2 rounded-full border ${padX()} ${padY()} ${textSize()} ${toneClass()} ${props.class || ''}`}>
+            <img src={iconSrc()} alt={label()} class={`${iconSize()}`} loading="lazy" width={24} height={24} />
             <Show when={props.showLabel !== false}>
                 <span class="leading-none">{label()}</span>
             </Show>
         </span>
     );
-
-    if (props.link && (effectiveId() != null)) {
-        return <A href={`/type/${effectiveId()}`}>{content}</A>;
-    }
-    return content;
+    return (
+        <>
+            <Show when={props.link && (effectiveId() != null)} fallback={content}>
+                <A href={`/type/${effectiveId()}`}>{content}</A>
+            </Show>
+        </>
+    );
 }

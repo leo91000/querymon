@@ -1,4 +1,5 @@
 import type { JSX } from 'solid-js';
+import { createMemo, splitProps } from 'solid-js';
 
 interface BadgeProps extends JSX.HTMLAttributes<HTMLSpanElement> {
     tone?: 'gray' | 'red' | 'orange' | 'amber' | 'yellow' | 'lime' | 'green' | 'emerald' | 'teal' | 'cyan' | 'sky' | 'blue' | 'indigo' | 'violet' | 'purple' | 'fuchsia' | 'pink' | 'rose';
@@ -26,8 +27,8 @@ const TONES: Record<NonNullable<BadgeProps['tone']>, string> = {
 };
 
 export default function Badge(props: BadgeProps) {
-    const { class: className, tone = 'gray', ...rest } = props;
+    const [local, rest] = splitProps(props, ['class', 'tone']);
     const base = 'inline-flex items-center rounded-full px-2.5 py-0.5 text-xs font-semibold ring-1 ring-inset';
-    const cls = `${base} ${TONES[tone]}${className ? ` ${className}` : ''}`;
-    return <span class={cls} {...rest} />;
+    const cls = createMemo(() => `${base} ${TONES[(local.tone ?? 'gray')]}${local.class ? ` ${local.class}` : ''}`);
+    return <span class={cls()} {...rest} />;
 }

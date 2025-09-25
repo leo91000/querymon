@@ -113,6 +113,7 @@ export default function DropdownSelect<T extends string>(props: DropdownSelectPr
         setCoords({ top, left, width: r.width, placeAbove });
         setReady(true);
         // After panel renders, refine for above placement and width
+        const alignIsLeft = props.align === 'left';
         queueMicrotask(() => {
             const panel = listRef as HTMLUListElement | undefined;
             if (!panel)
@@ -123,7 +124,7 @@ export default function DropdownSelect<T extends string>(props: DropdownSelectPr
             if (placeAbove)
                 t = Math.max(8, r.top - ph - margin);
             let l = left;
-            if (props.align !== 'left')
+            if (!alignIsLeft)
                 l = Math.max(8, r.right - pw);
             l = Math.min(Math.max(8, l), viewW - pw - 8);
             setCoords({ top: t, left: l, width: r.width, placeAbove });

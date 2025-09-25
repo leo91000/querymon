@@ -210,8 +210,6 @@ export default function PokemonDetail(props: { id: number }) {
         return labels;
     }
 
-
-
     const localizedAbilities = createMemo(() => {
         const list = (abilityList() || []) as Array<{ id: number; name: string }>;
         const abil: PokemonAbilityRef[] = abilities() ?? [];
