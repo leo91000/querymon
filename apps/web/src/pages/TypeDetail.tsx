@@ -4,7 +4,7 @@ import TypeBox from '../components/TypeBox';
 import { For, Show, createMemo, createResource, createSignal } from 'solid-js';
 import { formatName, loadItemById, type ResourceName, loadList } from '../services/data';
 import { t, getLocale } from '../i18n';
-import type { TypeDetailData } from '../types/pokeapi';
+import type { TypeDetailData, NamedRef, ListItem } from '../types/pokeapi';
 
 const TYPE_TONE: Record<string, NonNullable<Parameters<typeof Badge>[0]['tone']>> = {
   normal: 'gray', fire: 'orange', water: 'blue', electric: 'yellow', grass: 'green', ice: 'sky', fighting: 'rose',
@@ -22,25 +22,26 @@ function idFromUrl(url?: string | null) { const m = url?.match(/\/(\d+)\/?$/); r
 export default function TypeDetail(props: { id: number }) {
   const [data] = createResource(() => ({ id: props.id, loc: getLocale() }), (key) => loadItemById('type' as ResourceName, key.id));
   // New list: types.<loc>.json for localized type names
-  const [typesList] = createResource(() => getLocale(), () => loadList('type' as any));
+  const [typesList] = createResource(() => getLocale(), () => loadList('type'));
   function localizeType(typeId?: number, fallback?: string) {
-    const list = typesList() || [];
-    const name = list.find((t: any) => t.id === typeId)?.name;
+    const list = (typesList() || []) as ListItem[];
+    const name = list.find((t) => t.id === Number(typeId))?.name;
     return name || fallback || '';
   }
   const type = createMemo(() => data() as TypeDetailData | undefined);
   const dmg = createMemo(() => type()?.damage_relations || {});
   const localizedTypeName = createMemo(() => type()?.name || '');
 
+  const unwrap = (x: NamedRef | { type?: NamedRef }) => ('type' in (x as any) ? (x as any).type ?? { name: '' } : (x as NamedRef));
   const offense = createMemo(() => ({
-    super: (dmg().double_damage_to || []).map((x: any) => x.type || x),
-    not: (dmg().half_damage_to || []).map((x: any) => x.type || x),
-    none: (dmg().no_damage_to || []).map((x: any) => x.type || x),
+    super: (dmg().double_damage_to || []).map((x: any) => unwrap(x)),
+    not: (dmg().half_damage_to || []).map((x: any) => unwrap(x)),
+    none: (dmg().no_damage_to || []).map((x: any) => unwrap(x)),
   }));
   const defense = createMemo(() => ({
-    weak: (dmg().double_damage_from || []).map((x: any) => x.type || x),
-    resist: (dmg().half_damage_from || []).map((x: any) => x.type || x),
-    immune: (dmg().no_damage_from || []).map((x: any) => x.type || x),
+    weak: (dmg().double_damage_from || []).map((x: any) => unwrap(x)),
+    resist: (dmg().half_damage_from || []).map((x: any) => unwrap(x)),
+    immune: (dmg().no_damage_from || []).map((x: any) => unwrap(x)),
   }));
 
   const [showAllMoves, setShowAllMoves] = createSignal(false);
@@ -89,11 +90,11 @@ export default function TypeDetail(props: { id: number }) {
           <Card>
             <h3 class="mb-3 text-sm font-semibold tracking-wide text-gray-500">{t('type.moves')}</h3>
             <div class="flex flex-wrap gap-2">
-              <For each={visibleMoves()}>{(m: any) => {
+              <For each={visibleMoves()}>{(m) => {
                 const id = (typeof m?.id === 'number' ? m.id : idFromUrl(m?.url));
                 return (
                   <a href={id ? `/move/${id}` : '#'} class="rounded-full border border-gray-200 px-3 py-1 text-sm hover:bg-gray-50 dark:border-gray-700 dark:hover:bg-gray-700/50">
-                    <MoveName id={id} fallback={formatName(m.name)} />
+                    <MoveName id={id} fallback={formatName(String(m.name || ''))} />
                   </a>
                 );
               }}</For>
@@ -108,11 +109,11 @@ export default function TypeDetail(props: { id: number }) {
           <Card>
             <h3 class="mb-3 text-sm font-semibold tracking-wide text-gray-500">{t('type.pokemon')}</h3>
             <div class="flex flex-wrap gap-2">
-              <For each={visiblePokemon()}>{(p: any) => {
+              <For each={visiblePokemon()}>{(p) => {
                 const id = (typeof p?.id === 'number' ? p.id : idFromUrl(p?.pokemon?.url));
                 return (
                   <a href={id ? `/pokemon/${id}` : '#'} class="rounded-full border border-gray-200 px-3 py-1 text-sm hover:bg-gray-50 dark:border-gray-700 dark:hover:bg-gray-700/50">
-                    <PokemonName id={id} fallback={formatName(p?.name || p?.pokemon?.name)} />
+                    <PokemonName id={id} fallback={formatName(String(p?.name || p?.pokemon?.name || ''))} />
                   </a>
                 );
               }}</For>
@@ -129,7 +130,7 @@ export default function TypeDetail(props: { id: number }) {
   );
 }
 
-  function RelRow(props: { label: string; list: any[] }) {
+  function RelRow(props: { label: string; list: Array<NamedRef | { type?: NamedRef }> }) {
   return (
     <div class="mb-3">
       <div class="mb-1 text-xs font-semibold uppercase tracking-wide text-gray-500">{props.label}</div>

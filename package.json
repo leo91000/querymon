@@ -12,10 +12,11 @@
     "build:api": "pnpm --filter @querymon/api build",
     "start:api": "pnpm --filter @querymon/api start",
     "dev:desktop": "pnpm --filter @querymon/desktop dev",
-    "build:desktop": "pnpm --filter @querymon/desktop build"
-    ,
+    "build:desktop": "pnpm --filter @querymon/desktop build",
     "typecheck": "pnpm --filter @querymon/api typecheck && pnpm --filter @querymon/web typecheck && pnpm --filter @querymon/desktop typecheck",
-    "typecheck:all": "concurrently -k -n API,WEB,DESK -c blue,green,magenta \"pnpm --filter @querymon/api typecheck\" \"pnpm --filter @querymon/web typecheck\" \"pnpm --filter @querymon/desktop typecheck\""
+    "typecheck:all": "concurrently -k -n API,WEB,DESK -c blue,green,magenta \"pnpm --filter @querymon/api typecheck\" \"pnpm --filter @querymon/web typecheck\" \"pnpm --filter @querymon/desktop typecheck\"",
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix"
   },
   "license": "MIT",
   "private": true,
@@ -25,16 +26,21 @@
     "@libsql/client": "^0.15.15",
     "@trpc/client": "^11.6.0",
     "@trpc/server": "^11.6.0",
+    "@types/lodash-es": "^4.17.12",
     "dotenv": "^17.2.2",
     "drizzle-orm": "^0.44.5",
     "hono": "^4.9.8",
+    "lodash-es": "^4.17.21",
     "zod": "^4.1.11"
   },
   "devDependencies": {
+    "@antfu/eslint-config": "^5.4.1",
     "@better-auth/cli": "^1.3.17",
     "@types/node": "^24.5.2",
-    "drizzle-kit": "^0.31.4",
     "concurrently": "^9.0.1",
+    "drizzle-kit": "^0.31.4",
+    "eslint": "^9.36.0",
+    "eslint-plugin-solid": "^0.14.5",
     "tsx": "^4.20.5",
     "typescript": "^5.9.2"
   }

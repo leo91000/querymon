@@ -52,8 +52,21 @@ export async function provisionForUser(userId: string, rootDb: DB): Promise<Prov
     const msg = await listRes.text();
     throw new Error(`turso get db failed: ${listRes.status} ${msg}`);
   }
-  const details = await listRes.json() as any;
-  const hostname = details?.database?.Hostname || details?.database?.hostname || details?.Hostname || details?.hostname;
+  const details: unknown = await listRes.json();
+  const hostname = (() => {
+    if (details && typeof details === 'object') {
+      const obj = details as Record<string, unknown>;
+      const db = obj.database;
+      if (db && typeof db === 'object') {
+        const dbo = db as Record<string, unknown>;
+        const hn = dbo.Hostname ?? dbo.hostname;
+        if (typeof hn === 'string') return hn;
+      }
+      const hn2 = (obj as Record<string, unknown>).Hostname ?? (obj as Record<string, unknown>).hostname;
+      if (typeof hn2 === 'string') return hn2;
+    }
+    return undefined;
+  })();
   if (!hostname) throw new Error('turso db hostname not found');
   const dbUrl = `libsql://${hostname}`;
 
@@ -86,7 +99,11 @@ async function maybeIssueDbToken(dbName: string, env: z.infer<typeof Env>): Prom
     headers: { 'Authorization': `Bearer ${env.TURSO_API_TOKEN}` },
   });
   if (!res.ok) return undefined;
-  const data = await res.json() as any;
-  const token = data?.jwt || data?.token || data?.authToken;
-  return token;
+  const data: unknown = await res.json();
+  if (data && typeof data === 'object') {
+    const o = data as Record<string, unknown>;
+    const token = o.jwt ?? o.token ?? o.authToken;
+    if (typeof token === 'string') return token;
+  }
+  return undefined;
 }

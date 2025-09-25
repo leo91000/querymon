@@ -43,7 +43,7 @@ export default function AbilityDetail(props: { id: number }) {
     const list = abilityPokemon();
     if (!list.length) return list;
     const seenBase = new Set<string>();
-    const entries: any[] = [];
+    const entries: Array<{ name?: string; pokemon?: { name?: string; url?: string }; is_hidden?: boolean; id?: number }> = [];
     for (const entry of list) {
       const name = entry?.name || entry?.pokemon?.name || '';
       const baseMatch = name.match(/^(.*?)-gmax$/i);
@@ -65,7 +65,7 @@ export default function AbilityDetail(props: { id: number }) {
   });
 
   function translateOr(key: string, fallback: string) {
-    const value = t(key as any) as string;
+    const value = t(key);
     if (!value || value === key) return fallback;
     return value;
   }
@@ -123,7 +123,7 @@ export default function AbilityDetail(props: { id: number }) {
           <Card>
             <h3 class="mb-3 text-sm font-semibold tracking-wide text-gray-500">{t('ability.withAbility')}</h3>
             <div class="flex flex-wrap gap-2">
-              <For each={visiblePokemon()}>{(p: any) => {
+              <For each={visiblePokemon()}>{(p) => {
                 const id = (typeof p?.id === 'number' ? p.id : idFromUrl(p?.pokemon?.url));
                 const map = pokemonNameMap();
                 const display = id != null && map[String(id)] ? map[String(id)] : (p?.name || p?.pokemon?.name || '—');
@@ -146,7 +146,7 @@ export default function AbilityDetail(props: { id: number }) {
   );
 }
 
-function StatBox(props: { label: string; value: any }) {
+function StatBox(props: { label: string; value: string | number }) {
   return (
     <div class="rounded-lg border border-gray-200 p-3 text-sm dark:border-gray-700">
       <div class="text-gray-500 dark:text-gray-400">{props.label}</div>

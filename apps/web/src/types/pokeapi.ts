@@ -29,9 +29,16 @@ export interface PokemonTypeRef {
 }
 
 export interface PokemonSprites {
-  official_artwork?: string;
   front_default?: string;
-  other?: Record<string, unknown>;
+  front_shiny?: string;
+  other?: {
+    ['official-artwork']?: { front_default?: string };
+    home?: { front_default?: string; front_shiny?: string };
+    ['dream_world']?: { front_default?: string };
+    versions?: Record<string, unknown>;
+    [k: string]: unknown;
+  };
+  versions?: Record<string, unknown>;
 }
 
 export interface SpeciesNamesEntry { language?: NamedRef; name?: string }
@@ -68,7 +75,23 @@ export interface PokemonDetailData {
   stats?: PokemonStat[];
   species?: PokemonSpeciesSubset;
   moves?: unknown[];
-  learnsets?: unknown[];
+  learnsets?: Array<{
+    generation: string;
+    order: number;
+    entries: Array<{
+      method: string;
+      items: Array<{
+        move: { id?: number; name: string };
+        type: string | null;
+        category: string | null;
+        power: number | null;
+        accuracy: number | null;
+        pp: number | null;
+        level: number | null;
+        versionGroups: string[];
+      }>;
+    }>;
+  }>;
   evolutions?: EvolutionEntry[][];
   height?: number;
   weight?: number;

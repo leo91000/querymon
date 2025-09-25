@@ -39,22 +39,9 @@ app.use('*', async (c, next) => {
 app.get('/healthz', (c) => c.json({ ok: true }));
 
 // debug helper
-app.get('/debug/whoami', async (c) => {
+app.get('/debug/whoami', (c) => {
   const ctx = c.var.ctx as Context;
-  return c.json({
-    user: ctx.session?.user ?? null,
-    // mask token presence, expose connected db host if any
-    db: (() => {
-      try {
-        const meta = (ctx.rootDb as any).query?.userMeta?.findFirst?.({
-          where: (fields: any, { eq }: any) => eq(fields.userId, ctx.session?.user?.id),
-        });
-        return meta || null;
-      } catch {
-        return null;
-      }
-    })(),
-  });
+  return c.json({ user: ctx.session?.user ?? null });
 });
 
 // Better Auth routes (mount all methods)

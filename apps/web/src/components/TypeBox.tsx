@@ -20,7 +20,7 @@ const SLUG_TO_ID: Record<string, number> = Object.fromEntries(Object.entries(TYP
 
 export default function TypeBox(props: Props) {
   // Localized type labels from new layout
-  const [types] = createResource(() => getLocale(), () => loadList('type' as any));
+  const [types] = createResource(() => getLocale(), () => loadList('type'));
   const locale = () => getLocale() as Locale;
 
   // Per-type light/dark tones (tailwind v4 class-based dark)
@@ -55,9 +55,9 @@ export default function TypeBox(props: Props) {
   const effectiveId = createMemo(() => props.id ?? SLUG_TO_ID[slug()]);
 
   const entry = createMemo(() => {
-    const list = types() || [];
+    const list = (types() || []) as Array<{ id: number; name: string }>;
     const id = effectiveId();
-    if (id) return list.find((t: any) => t.id === id);
+    if (id) return list.find((t) => t.id === id);
     return undefined;
   });
 
