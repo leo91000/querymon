@@ -3,13 +3,13 @@ import Badge from '../components/Badge';
 import { For, Show, createMemo, createResource, createSignal } from 'solid-js';
 import { formatName, loadItemById, type ResourceName, loadList } from '../services/data';
 import { t, getLocale, type Locale } from '../i18n';
+import { LOCALE_TO_POKEAPI } from '../constants/locale';
 import type { AbilityDetailData } from '../types/pokeapi';
 
 function idFromUrl(url?: string | null) { const m = url?.match(/\/(\d+)\/?$/); return m ? Number(m[1]) : undefined; }
 
 function pickEffectText(ability: AbilityDetailData | undefined, lang: Locale) {
-  const map: Record<Locale, string> = { en: 'en', fr: 'fr', jp: 'ja' } as any;
-  const want = map[lang] || 'en';
+  const want = LOCALE_TO_POKEAPI[lang] || 'en';
   const list = ability?.effect_entries as any[] | undefined;
   if (!list) return { short: undefined, full: undefined };
   const localized = list.find((e) => e.language?.name === want);
@@ -22,8 +22,7 @@ function pickEffectText(ability: AbilityDetailData | undefined, lang: Locale) {
 }
 
 function pickFlavorText(ability: AbilityDetailData | undefined, lang: Locale) {
-  const map: Record<Locale, string> = { en: 'en', fr: 'fr', jp: 'ja' } as any;
-  const want = map[lang] || 'en';
+  const want = LOCALE_TO_POKEAPI[lang] || 'en';
   const list = ability?.flavor_text_entries as any[] | undefined;
   if (!list) return undefined;
   const all = list.filter(e => e.language?.name === want);
