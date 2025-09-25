@@ -31,4 +31,3 @@ Endpoints
   - `favorites.list` – list favorites
   - `favorites.add` – add favorite
   - `favorites.remove` – remove favorite
-

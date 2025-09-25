@@ -1,3 +1,4 @@
+import process from 'node:process';
 import { defineConfig } from 'drizzle-kit';
 
 // Drizzle CLI config for both local SQLite (file) and Turso (libSQL)
@@ -10,13 +11,13 @@ const TURSO_AUTH_TOKEN = process.env.TURSO_AUTH_TOKEN;
 const LOCAL_SQLITE_URL = 'file:./var/dev.db';
 
 export default defineConfig({
-  schema: './src/db/schema.ts',
-  out: './drizzle',
-  dialect: 'sqlite',
-  dbCredentials: {
+    schema: './src/db/schema.ts',
+    out: './drizzle',
+    dialect: 'sqlite',
+    dbCredentials: {
     // If turso url exists, prefer it; otherwise use local file URL
-    url: TURSO_DATABASE_URL ?? LOCAL_SQLITE_URL,
-    authToken: TURSO_AUTH_TOKEN,
-  },
-  verbose: true,
+        url: TURSO_DATABASE_URL ?? LOCAL_SQLITE_URL,
+        authToken: TURSO_AUTH_TOKEN,
+    },
+    verbose: true,
 });

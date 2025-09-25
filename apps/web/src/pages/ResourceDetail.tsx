@@ -1,77 +1,83 @@
+import type { ResourceName } from '../services/data';
 import { useParams } from '@solidjs/router';
-import { Show, createResource } from 'solid-js';
+import { createResource, Show } from 'solid-js';
 import Card from '../components/Card';
 import JsonViewer from '../components/JsonViewer';
-import { formatName, loadItemById, resourceLabel, type ResourceName } from '../services/data';
-import { t } from '../i18n';
 import ResourceTabs from '../components/ResourceTabs';
-import MoveDetail from './MoveDetail';
+import { t } from '../i18n';
+import { formatName, loadItemById, resourceLabel } from '../services/data';
 import AbilityDetail from './AbilityDetail';
-import TypeDetail from './TypeDetail';
+import MoveDetail from './MoveDetail';
 import PokemonDetail from './PokemonDetail';
+import TypeDetail from './TypeDetail';
 
 export default function ResourceDetail(props: { resource: ResourceName }) {
-  const params = useParams();
-  const id = () => Number(params.id);
-  const [item] = createResource(async () => {
-    const data = await loadItemById(props.resource, id());
-    return data;
-  });
+    const params = useParams();
+    const id = () => Number(params.id);
+    const [item] = createResource(async () => {
+        const data = await loadItemById(props.resource, id());
+        return data;
+    });
 
-  if (props.resource === 'pokemon') {
-    return (
-      <div class="space-y-4">
-        <ResourceTabs current={props.resource} />
-        <PokemonDetail id={id()} />
-      </div>
-    );
-  }
-
-  if (props.resource === 'move') {
-    return (
-      <div class="space-y-4">
-        <ResourceTabs current={props.resource} />
-        <MoveDetail id={id()} />
-      </div>
-    );
-  }
-
-  if (props.resource === 'ability') {
-    return (
-      <div class="space-y-4">
-        <ResourceTabs current={props.resource} />
-        <AbilityDetail id={id()} />
-      </div>
-    );
-  }
-
-  if (props.resource === 'type') {
-    return (
-      <div class="space-y-4">
-        <ResourceTabs current={props.resource} />
-        <TypeDetail id={id()} />
-      </div>
-    );
-  }
-
-  return (
-    <div class="space-y-4">
-      <ResourceTabs current={props.resource} />
-      <h2 class="text-xl font-semibold">{resourceLabel(props.resource)} #{id()}</h2>
-      <Show when={item()} fallback={<div class="text-gray-500">{t('detail.loading')}</div>}>
-        {(it) => (
-          <Card class="p-4">
-            <div class="mb-4 text-lg font-semibold">
-              {(() => {
-                const data = it() as unknown;
-                const name = (data && typeof data === 'object') ? (data as { name?: unknown }).name : undefined;
-                return formatName(typeof name === 'string' ? name : `ID ${id()}`);
-              })()}
+    if (props.resource === 'pokemon') {
+        return (
+            <div class="space-y-4">
+                <ResourceTabs current={props.resource} />
+                <PokemonDetail id={id()} />
             </div>
-            <JsonViewer value={it()} />
-          </Card>
-        )}
-      </Show>
-    </div>
-  );
+        );
+    }
+
+    if (props.resource === 'move') {
+        return (
+            <div class="space-y-4">
+                <ResourceTabs current={props.resource} />
+                <MoveDetail id={id()} />
+            </div>
+        );
+    }
+
+    if (props.resource === 'ability') {
+        return (
+            <div class="space-y-4">
+                <ResourceTabs current={props.resource} />
+                <AbilityDetail id={id()} />
+            </div>
+        );
+    }
+
+    if (props.resource === 'type') {
+        return (
+            <div class="space-y-4">
+                <ResourceTabs current={props.resource} />
+                <TypeDetail id={id()} />
+            </div>
+        );
+    }
+
+    return (
+        <div class="space-y-4">
+            <ResourceTabs current={props.resource} />
+            <h2 class="text-xl font-semibold">
+                {resourceLabel(props.resource)}
+                {' '}
+                #
+                {id()}
+            </h2>
+            <Show when={item()} fallback={<div class="text-gray-500">{t('detail.loading')}</div>}>
+                {it => (
+                    <Card class="p-4">
+                        <div class="mb-4 text-lg font-semibold">
+                            {(() => {
+                                const data = it() as unknown;
+                                const name = (data && typeof data === 'object') ? (data as { name?: unknown }).name : undefined;
+                                return formatName(typeof name === 'string' ? name : `ID ${id()}`);
+                            })()}
+                        </div>
+                        <JsonViewer value={it()} />
+                    </Card>
+                )}
+            </Show>
+        </div>
+    );
 }
