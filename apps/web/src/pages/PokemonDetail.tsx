@@ -7,6 +7,7 @@ import { formatName, loadItemById, loadGrowthRatesLite, loadList } from '../serv
 import type { ResourceName } from '../services/data';
 import type { PokemonDetailData } from '../types/pokeapi';
 import { t, getLocale, type Locale } from '../i18n';
+import { LOCALE_TO_POKEAPI } from '../constants/locale';
 import Skeleton from '../components/Skeleton';
 import PokemonSpriteViewer from '../components/PokemonSpriteViewer';
 import { addLocalFavorite } from '../services/favorites';
@@ -211,9 +212,8 @@ export default function PokemonDetail(props: { id: number }) {
 
   const localizedName = createMemo<string>(() => {
     const names = speciesData()?.names || [];
-    const map = { en: 'en', fr: 'fr', jp: 'ja' } as const;
-    const loc = (getLocale() as 'en'|'fr'|'jp');
-    const want = map[loc] || 'en';
+    const loc = (getLocale() as Locale);
+    const want = LOCALE_TO_POKEAPI[loc] || 'en';
     if (want === 'ja') {
       const ja = names.find((n: any) => n.language?.name === 'ja')?.name;
       if (ja) return ja;
