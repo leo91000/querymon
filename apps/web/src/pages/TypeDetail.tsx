@@ -152,5 +152,3 @@ function PokemonName(props: { id?: number; fallback: string }) {
 function MoveName(props: { id?: number; fallback: string }) {
     return <>{props.fallback}</>;
 }
-
-// TypeName component was unused; removed to satisfy lint
