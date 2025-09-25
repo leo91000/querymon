@@ -57,6 +57,18 @@ This file guides agents and contributors working in this repository. It applies 
   - Co-locate small component-specific styles with the component via class lists.
 - Imports: Prefer relative imports until an alias is introduced.
 
+### Type Safety (Very Important)
+- Avoid `any` and double-assertions like `as unknown as X`. If a value is unknown, add a small runtime type guard or a narrowing helper instead of asserting.
+- Prefer explicit models/aliases for shared data shapes. Co-locate common types in `apps/web/src/types/` (e.g., `types/pokeapi.ts`) and reuse them across pages/components/services.
+- Reuse the centralized `Locale` type (`'en' | 'fr' | 'jp'`) from the i18n module instead of repeating union literals.
+- Use generic helpers (e.g., `fetchJSON<T>`, `loadItemById<T>`) to propagate correct types; do not return `Promise<unknown>`.
+- If a 3rd‑party API returns broad types, wrap access behind a thin, typed utility rather than asserting in many call sites.
+- In JSX, children should be strings or Elements; avoid passing functions returning strings directly as children. Memoize/compute to a string before rendering.
+- If a temporary assertion is unavoidable, add a TODO with the intended follow‑up type and refactor it out promptly.
+
+### Type Checks
+- Each workspace has a `typecheck` script. Run at the root with `pnpm typecheck` (or `pnpm typecheck:all`) and ensure it passes before committing.
+
 ## UI Components
 - Primitives provided: `Button`, `Card`, `Badge`, `Input`, `Select`, `Navbar`, `Footer`, `PokemonCard`.
 - When adding components:
