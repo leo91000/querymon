@@ -1,33 +1,57 @@
-@import 'tailwindcss';
+@import "tailwindcss";
 @plugin "@iconify/tailwind4";
 
 /* Tailwind v4: use class-based dark mode instead of media */
 @variant dark (&:where(.dark, .dark *));
 
 /* Improve native form controls and scrollbars when toggling themes */
-:root { color-scheme: light dark; }
+:root {
+  color-scheme: light dark;
+}
 
 /* Google Fonts (see index.html link tags) */
 @layer theme {
   :root {
-    --font-sans: "Outfit", ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+    --font-sans:
+      "Outfit", ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto,
+      "Helvetica Neue", Arial, "Noto Sans", "Apple Color Emoji",
+      "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
     --font-jersey: "Jersey 20", ui-sans-serif, system-ui, sans-serif;
   }
 }
 
 /* Global page background (light/dark) */
 @layer base {
-  html { background-color: #f8fafc; } /* slate-50 */
+  html {
+    background-color: #f8fafc;
+  }
+
+  /* slate-50 */
 }
+
 @layer base {
-  .dark { background-color: #0b0f19; } /* a bit darker than gray-900 to reduce glow */
+  .dark {
+    background-color: #0b0f19;
+  }
+
+  /* a bit darker than gray-900 to reduce glow */
 }
 
 /* Utility for headline accents */
-.font-jersey { font-family: var(--font-jersey); letter-spacing: 0.02em; }
+.font-jersey {
+  font-family: var(--font-jersey);
+  letter-spacing: 0.02em;
+}
 
 /* Keyframes for subtle entrance animations */
 @keyframes fade-in-up {
-  from { opacity: 0; transform: translateY(6px); }
-  to { opacity: 1; transform: translateY(0); }
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
