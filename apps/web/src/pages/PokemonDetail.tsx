@@ -2,12 +2,16 @@ import Card from '../components/Card';
 import Badge from '../components/Badge';
 import TypeBox from '../components/TypeBox';
 import PokemonLearnset from '../components/PokemonLearnset';
-import { Show, For, createMemo, createResource } from 'solid-js';
+import { Show, For, createMemo, createResource, createSignal } from 'solid-js';
 import { formatName, loadItemById, loadGrowthRatesLite, loadList } from '../services/data';
 import type { ResourceName } from '../services/data';
 import { t, getLocale } from '../i18n';
 import Skeleton from '../components/Skeleton';
 import PokemonSpriteViewer from '../components/PokemonSpriteViewer';
+import { addLocalFavorite } from '../services/favorites';
+import { authClient } from '../services/authClient';
+import { createTRPCProxyClient, httpBatchLink } from '@trpc/client';
+import type { AppRouter } from '../../../api/src/trpc/router';
 
 type Species = any;
 type PageData = any;
@@ -66,6 +70,8 @@ export default function PokemonDetail(props: { id: number }) {
   const locale = () => getLocale() as 'en' | 'fr' | 'jp';
   const localFlavor = createMemo(() => findLocalFlavor(speciesData(), locale()));
   const flavorText = createMemo(() => localFlavor()?.text);
+  const [adding, setAdding] = createSignal(false);
+  const [added, setAdded] = createSignal(false);
   // Locale-aware number formatter (JP uses native units: 億/万)
   const nf = createMemo(() => new Intl.NumberFormat(locale() === 'jp' ? 'ja' : locale()));
   function formatJaUnits(v: number): string {
@@ -325,6 +331,37 @@ export default function PokemonDetail(props: { id: number }) {
                     <TypeBox id={t.id} name={t.name} size="sm" link />
                   )}</For>
                 </div>
+                <button
+                  class={`ml-auto rounded-full border border-gray-200 px-3 py-1 text-sm hover:bg-gray-50 dark:border-gray-700 dark:hover:bg-gray-700/50 cursor-pointer ${added() ? 'opacity-70 cursor-default' : ''}`}
+                  onClick={async () => {
+                    if (added() || adding()) return;
+                    setAdding(true);
+                    try {
+                      const sess = await authClient.getSession();
+                      const user = (sess as any)?.user || (sess as any)?.data?.user;
+                      if (!user) {
+                        await addLocalFavorite(props.id);
+                        setAdded(true);
+                        return;
+                      }
+                      await fetch((import.meta.env.VITE_API_BASE?.replace(/\/?$/, '') || 'http://localhost:8787') + '/api/provision', { method: 'POST', credentials: 'include' });
+                      const trpc = createTRPCProxyClient<AppRouter>({
+                        links: [httpBatchLink({ url: (import.meta.env.VITE_API_BASE?.replace(/\/?$/, '') || 'http://localhost:8787') + '/trpc', fetch(url, opts){ return fetch(url, { ...opts, credentials: 'include' as const }); } })],
+                      });
+                      await trpc.favorites.add.mutate({ pokemonId: props.id });
+                      setAdded(true);
+                    } catch (e) {
+                      await addLocalFavorite(props.id);
+                      setAdded(true);
+                    } finally {
+                      setAdding(false);
+                    }
+                  }}
+                  disabled={adding()}
+                  aria-disabled={adding()}
+                >
+                  {added() ? 'Added' : (adding() ? 'Saving…' : '+ Favorite')}
+                </button>
               </div>
               <p class="mt-3 max-w-prose text-gray-600 dark:text-gray-300">{flavorText()}</p>
 

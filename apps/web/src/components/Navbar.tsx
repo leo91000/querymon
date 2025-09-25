@@ -3,6 +3,7 @@ import { A } from '@solidjs/router';
 import LanguageSwitcher from './LanguageSwitcher';
 import ThemeSwitcher from './ThemeSwitcher';
 import { t } from '../i18n';
+import AuthButton from './AuthButton';
 
 export default function Navbar() {
   return (
@@ -16,6 +17,7 @@ export default function Navbar() {
         <div class="hidden items-center gap-2 md:flex">
           <LanguageSwitcher />
           <ThemeSwitcher />
+          <AuthButton />
         </div>
       </div>
     </header>
