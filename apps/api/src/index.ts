@@ -2,6 +2,7 @@ import type { Context } from './trpc/context.js';
 import { fileURLToPath } from 'node:url';
 import { serve } from '@hono/node-server';
 import { trpcServer } from '@hono/trpc-server';
+import { createHash } from 'node:crypto';
 import { sql } from 'drizzle-orm';
 import { migrate } from 'drizzle-orm/libsql/migrator';
 import { Hono } from 'hono';
@@ -58,14 +59,16 @@ app.get('/debug/db-ping', async (c) => {
         await client.execute('select 1');
         const tok = process.env.TURSO_AUTH_TOKEN || '';
         const fp = tok ? `${tok.slice(0, 4)}…${tok.slice(-6)}` : '(none)';
-        return c.json({ ok: true, url: env.TURSO_DATABASE_URL ?? null, token: { len: tok.length, fp } });
+        const sha8 = tok ? createHash('sha256').update(tok).digest('hex').slice(0, 8) : '(none)';
+        return c.json({ ok: true, url: env.TURSO_DATABASE_URL ?? null, token: { len: tok.length, fp, sha8 } });
     }
     catch (e: any) {
         const msg = typeof e?.message === 'string' ? e.message : String(e);
         const status = (e as any)?.cause?.status ?? null;
         const tok = process.env.TURSO_AUTH_TOKEN || '';
         const fp = tok ? `${tok.slice(0, 4)}…${tok.slice(-6)}` : '(none)';
-        return c.json({ ok: false, error: msg, status, url: env.TURSO_DATABASE_URL ?? null, token: { len: tok.length, fp } }, 500);
+        const sha8 = tok ? createHash('sha256').update(tok).digest('hex').slice(0, 8) : '(none)';
+        return c.json({ ok: false, error: msg, status, url: env.TURSO_DATABASE_URL ?? null, token: { len: tok.length, fp, sha8 } }, 500);
     }
 });
 
