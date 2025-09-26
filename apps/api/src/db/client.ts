@@ -29,8 +29,11 @@ export function getDb(): DB {
       lang text,
       theme text,
       favorites_json text,
+      sprite_pref text,
       updated_at integer DEFAULT (strftime('%s','now')) NOT NULL
     );`).catch(() => {});
+    // Best-effort add missing column for existing DBs (ignore error if it exists)
+    void client.execute(`ALTER TABLE user_data ADD COLUMN sprite_pref text`).catch(() => {});
     dbInstance = drizzle(client);
     return dbInstance;
 }

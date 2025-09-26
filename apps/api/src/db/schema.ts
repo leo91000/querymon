@@ -9,6 +9,8 @@ export const userData = sqliteTable('user_data', {
     theme: text('theme'), // 'system' | 'light' | 'dark'
     // favorites as JSON string (array of numbers)
     favorites: text('favorites_json'),
+    // preferred sprite selection as JSON: { gen: string, variant: string }
+    spritePref: text('sprite_pref'),
     updatedAt: integer('updated_at', { mode: 'timestamp' })
         .notNull()
         .default(sql`(strftime('%s','now'))`),
