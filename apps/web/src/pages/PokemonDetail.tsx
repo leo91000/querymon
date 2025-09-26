@@ -301,7 +301,7 @@ export default function PokemonDetail(props: { id: number }) {
                         <Card>
                             <Skeleton class="mb-3 h-4 w-40" />
                             <div class="overflow-x-auto">
-                                <div class="flex min-w-[260px] items-start justify-start gap-8 pb-2 px-2">
+                                <div class="flex min-w-[260px] items-start justify-start md:justify-center gap-8 pb-2 px-2 md:px-0">
                                     <For each={[0, 1, 2]}>
                                         {() => (
                                             <div class="flex items-center gap-6">
@@ -574,7 +574,7 @@ export default function PokemonDetail(props: { id: number }) {
                     <Card>
                         <h3 class="mb-3 text-sm font-semibold tracking-wide text-gray-500">{t('pokemon.evolutions')}</h3>
                         <div class="overflow-x-auto">
-                            <div class="flex min-w-[260px] items-start justify-start gap-8 pb-2 px-2">
+                            <div class="flex min-w-[260px] items-start justify-start md:justify-center gap-8 pb-2 px-2 md:px-0">
                                 <For each={evolutionStages()}>
                                     {(stage, idx) => (
                                         <div class="flex items-center gap-6">
