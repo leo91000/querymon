@@ -1,8 +1,8 @@
 import type { PokemonSprites } from '../types/pokeapi';
 import { createEffect, createMemo, createSignal, For, Show } from 'solid-js';
 import { t } from '../i18n';
-import DropdownSelect from './DropdownSelect';
 import { getLocal, onUserDataUpdate, pushToRemoteIfLoggedIn, setLocal } from '../services/userData';
+import DropdownSelect from './DropdownSelect';
 
 type SpriteLike = PokemonSprites & { versions?: Record<string, unknown>; other?: Record<string, unknown> };
 interface Props {
@@ -217,7 +217,7 @@ export default function PokemonSpriteViewer(props: Props) {
     });
 
     // React to external updates (e.g., polling or another tab)
-    createEffect(() => onUserDataUpdate(d => {
+    createEffect(() => onUserDataUpdate((d) => {
         if (d.sprite) {
             const map = variantsByGen();
             const gen = d.sprite.gen as GenerationSlug;

@@ -1,8 +1,9 @@
 import type { Context } from './trpc/context.js';
-import { serve } from '@hono/node-server';
-import { migrate } from 'drizzle-orm/libsql/migrator';
 import { fileURLToPath } from 'node:url';
+import { serve } from '@hono/node-server';
 import { trpcServer } from '@hono/trpc-server';
+import { sql } from 'drizzle-orm';
+import { migrate } from 'drizzle-orm/libsql/migrator';
 import { Hono } from 'hono';
 import { cors } from 'hono/cors';
 import { auth } from './auth/index.js';
@@ -47,6 +48,23 @@ app.use('*', async (c, next) => {
 // health endpoint
 app.get('/healthz', c => c.json({ ok: true }));
 
+// lightweight DB ping for diagnostics (no secrets)
+app.get('/debug/db-ping', async (c) => {
+    try {
+        const db = getRootDb();
+        // Use underlying libsql client for a raw ping to avoid driver typing issues
+        const client = (db as any).$client;
+        if (!client) throw new Error('no libsql client');
+        await client.execute('select 1');
+        return c.json({ ok: true });
+    }
+    catch (e: any) {
+        const msg = typeof e?.message === 'string' ? e.message : String(e);
+        const status = (e as any)?.cause?.status ?? null;
+        return c.json({ ok: false, error: msg, status }, 500);
+    }
+});
+
 // debug helper
 app.get('/debug/whoami', (c) => {
     const ctx = c.var.ctx as Context;
@@ -62,6 +80,14 @@ app.use('/trpc/*', trpcServer({
     // Hono's adapter passes the Hono context as 2nd arg
     createContext: (_opts, c) => c.var.ctx,
 }));
+
+// Log DB target + masked token fingerprint
+(() => {
+    const url = env.TURSO_DATABASE_URL ?? '(none)';
+    const tok = process.env.TURSO_AUTH_TOKEN || '';
+    const fp = tok ? `${tok.slice(0, 4)}…${tok.slice(-6)}` : '(none)';
+    console.warn(`[api] db target: ${url}, token: ${fp}`);
+})();
 
 // Run DB migrations once on startup (auto)
 await (async () => {
