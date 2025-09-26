@@ -23,17 +23,7 @@ export function getDb(): DB {
         fs.mkdirSync(path.dirname(localDbPath), { recursive: true });
     }
     const client: LibsqlClient = createClient({ url, authToken: env.TURSO_AUTH_TOKEN });
-    // Ensure user_data table exists (single JSON per user)
-    void client.execute(`CREATE TABLE IF NOT EXISTS user_data (
-      user_id text PRIMARY KEY,
-      lang text,
-      theme text,
-      favorites_json text,
-      sprite_pref text,
-      updated_at integer DEFAULT (strftime('%s','now')) NOT NULL
-    );`).catch(() => {});
-    // Best-effort add missing column for existing DBs (ignore error if it exists)
-    void client.execute(`ALTER TABLE user_data ADD COLUMN sprite_pref text`).catch(() => {});
+    // Schema is managed by Drizzle migrations; no manual ensure here.
     dbInstance = drizzle(client);
     return dbInstance;
 }
