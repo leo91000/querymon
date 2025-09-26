@@ -56,12 +56,16 @@ app.get('/debug/db-ping', async (c) => {
         const client = (db as any).$client;
         if (!client) throw new Error('no libsql client');
         await client.execute('select 1');
-        return c.json({ ok: true });
+        const tok = process.env.TURSO_AUTH_TOKEN || '';
+        const fp = tok ? `${tok.slice(0, 4)}…${tok.slice(-6)}` : '(none)';
+        return c.json({ ok: true, url: env.TURSO_DATABASE_URL ?? null, token: { len: tok.length, fp } });
     }
     catch (e: any) {
         const msg = typeof e?.message === 'string' ? e.message : String(e);
         const status = (e as any)?.cause?.status ?? null;
-        return c.json({ ok: false, error: msg, status }, 500);
+        const tok = process.env.TURSO_AUTH_TOKEN || '';
+        const fp = tok ? `${tok.slice(0, 4)}…${tok.slice(-6)}` : '(none)';
+        return c.json({ ok: false, error: msg, status, url: env.TURSO_DATABASE_URL ?? null, token: { len: tok.length, fp } }, 500);
     }
 });
 
