@@ -336,7 +336,7 @@ export default function PokemonDetail(props: { id: number }) {
                 )}
             >
                 <Card class="relative overflow-hidden p-0">
-                    <div class="absolute right-3 top-3 z-10 md:right-4 md:top-4">
+                    <div class="absolute right-3 top-3 z-0 md:right-4 md:top-4">
                         <Tooltip content={isFavorited() ? (t('common.removeFavorite') || 'Remove favorite') : (t('common.addFavorite') || 'Add favorite')}>
                             <button
                                 class={`inline-flex h-9 w-9 items-center justify-center rounded-full border border-gray-200 text-lg transition hover:bg-gray-50 dark:border-gray-700 dark:hover:bg-gray-700/50 cursor-pointer ${isFavorited() ? 'text-rose-600 dark:text-rose-400' : 'text-gray-500 dark:text-gray-300'}`}
