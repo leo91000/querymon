@@ -1,6 +1,7 @@
 import { flatten, resolveTemplate, translator } from '@solid-primitives/i18n';
 import { createResource, createRoot, createSignal } from 'solid-js';
 import { queryClient } from '../queryClient';
+import { getLocal, pushToRemoteIfLoggedIn, updateLocal } from '../services/userData';
 
 export type Locale = 'en' | 'fr' | 'jp';
 
@@ -22,18 +23,19 @@ const i18n = createRoot(() => {
 
     const translate = translator(dict, resolveTemplate);
 
-    const changeLocale = async (next: Locale) => {
+    const changeLocale = async (next: Locale, opts?: { skipSync?: boolean }) => {
         setLocale(next);
-        localStorage.setItem('locale', next);
         document.documentElement.lang = next === 'jp' ? 'ja' : next;
+        if (!opts?.skipSync) {
+            updateLocal({ lang: next });
+            void pushToRemoteIfLoggedIn();
+        }
     };
 
     const init = () => {
-        const saved = localStorage.getItem('locale') as Locale | null;
-        const initial: Locale = saved && ['en', 'fr', 'jp'].includes(saved)
-            ? saved
-            : ((navigator?.language || 'en').startsWith('fr') ? 'fr' : (navigator?.language || 'en').startsWith('ja') ? 'jp' : 'en');
-        void changeLocale(initial);
+        const fromUser = getLocal().lang;
+        const initial: Locale = fromUser || ((navigator?.language || 'en').startsWith('fr') ? 'fr' : (navigator?.language || 'en').startsWith('ja') ? 'jp' : 'en');
+        void changeLocale(initial, { skipSync: true });
     };
 
     return {
@@ -52,8 +54,8 @@ export function getLocale() {
     return i18n.getLocale();
 }
 
-export function changeLocale(next: Locale) {
-    return i18n.changeLocale(next);
+export function changeLocale(next: Locale, opts?: { skipSync?: boolean }) {
+    return i18n.changeLocale(next, opts);
 }
 
 export function initI18n() {

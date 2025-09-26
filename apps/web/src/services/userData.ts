@@ -1,5 +1,5 @@
 import type { AppRouter } from '../../../api/src/trpc/router';
-import { createTRPCProxyClient, httpBatchLink, splitLink, wsLink } from '@trpc/client';
+import { createTRPCProxyClient, httpBatchLink } from '@trpc/client';
 
 export type Lang = 'en' | 'fr' | 'jp';
 export type Theme = 'system' | 'light' | 'dark';
@@ -25,6 +25,10 @@ export function getLocal(): UserData {
 
 export function setLocal(data: UserData) {
     localStorage.setItem(KEY, JSON.stringify(data));
+    try {
+        window.dispatchEvent(new CustomEvent<UserData>('userDataUpdated', { detail: data } as any));
+    }
+    catch {}
 }
 
 export function updateLocal(partial: Partial<UserData>): UserData {
@@ -36,17 +40,13 @@ export function updateLocal(partial: Partial<UserData>): UserData {
 
 function createClient() {
     const base = (import.meta.env.VITE_API_BASE?.replace(/\/?$/, '') || 'http://localhost:8787');
-    const wsBase = (import.meta.env.VITE_API_WS?.replace(/\/?$/, '') || 'ws://localhost:8790');
-    const ws = wsLink<AppRouter>({ url: `${wsBase}/trpc` });
     const http = httpBatchLink({
         url: `${base}/trpc`,
         fetch(url, opts) {
             return fetch(url, { ...opts, credentials: 'include' as const });
         },
     });
-    return createTRPCProxyClient<AppRouter>({
-        links: [splitLink({ condition: op => op.type === 'subscription', true: ws, false: http })],
-    });
+    return createTRPCProxyClient<AppRouter>({ links: [http] });
 }
 
 let client: ReturnType<typeof createClient> | null = null;
@@ -64,18 +64,38 @@ export async function pushToRemoteIfLoggedIn(): Promise<void> {
     }
 }
 
-export function subscribeRemote(onData: (d: UserData) => void) {
+// DOM-level helper to listen to local userData changes in-page
+export function onUserDataUpdate(fn: (data: UserData) => void): () => void {
+    const handler = (e: Event) => {
+        const d = (e as CustomEvent<UserData>).detail;
+        if (d) {
+            fn(d);
+        }
+    };
+    window.addEventListener('userDataUpdated', handler);
+    return () => window.removeEventListener('userDataUpdated', handler);
+}
+
+export async function pullFromRemoteIfLoggedIn(): Promise<UserData | null> {
     try {
-        return trpc().userData.onChange.subscribe(undefined, {
-            onData(data) {
-                setLocal(data);
-                onData(data);
-            },
-            onError() {},
-        });
+        const data = await trpc().userData.get.query();
+        setLocal(data);
+        return data;
     }
     catch {
-        const unsub = () => {};
-        return { unsubscribe: unsub } as { unsubscribe: () => void };
+        return null;
     }
+}
+
+export function startUserDataPoll(intervalMs = 60000): () => void {
+    const tick = async () => {
+        const data = await pullFromRemoteIfLoggedIn();
+        if (data) {
+            setLocal(data);
+        }
+    };
+    const id = setInterval(tick, intervalMs);
+    // kick once
+    void tick();
+    return () => clearInterval(id);
 }

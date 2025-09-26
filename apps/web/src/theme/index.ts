@@ -1,8 +1,8 @@
 import { createRoot, createSignal } from 'solid-js';
+import { getLocal, pushToRemoteIfLoggedIn, updateLocal } from '../services/userData';
 
 export type Theme = 'system' | 'light' | 'dark';
 
-const STORAGE_KEY = 'theme';
 const mq = typeof window !== 'undefined' ? window.matchMedia('(prefers-color-scheme: dark)') : null;
 
 const themeStore = createRoot(() => {
@@ -15,14 +15,17 @@ const themeStore = createRoot(() => {
         root.setAttribute('data-theme', dark ? 'dark' : 'light');
     };
 
-    const setTheme = (next: Theme) => {
+    const setTheme = (next: Theme, opts?: { skipSync?: boolean }) => {
         setThemeSignal(next);
-        localStorage.setItem(STORAGE_KEY, next);
         apply(next);
+        if (!opts?.skipSync) {
+            updateLocal({ theme: next });
+            void pushToRemoteIfLoggedIn();
+        }
     };
 
     const init = () => {
-        const saved = (localStorage.getItem(STORAGE_KEY) as Theme | null) ?? 'system';
+        const saved = (getLocal().theme ?? 'system') as Theme;
         setThemeSignal(saved);
         apply(saved);
         if (mq) {
@@ -41,8 +44,8 @@ const themeStore = createRoot(() => {
     };
 });
 
-export function setTheme(next: Theme) {
-    return themeStore.setTheme(next);
+export function setTheme(next: Theme, opts?: { skipSync?: boolean }) {
+    return themeStore.setTheme(next, opts);
 }
 
 export function getTheme() {

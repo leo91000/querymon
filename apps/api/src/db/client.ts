@@ -23,6 +23,14 @@ export function getDb(): DB {
         fs.mkdirSync(path.dirname(localDbPath), { recursive: true });
     }
     const client: LibsqlClient = createClient({ url, authToken: env.TURSO_AUTH_TOKEN });
+    // Ensure user_data table exists (single JSON per user)
+    void client.execute(`CREATE TABLE IF NOT EXISTS user_data (
+      user_id text PRIMARY KEY,
+      lang text,
+      theme text,
+      favorites_json text,
+      updated_at integer DEFAULT (strftime('%s','now')) NOT NULL
+    );`).catch(() => {});
     dbInstance = drizzle(client);
     return dbInstance;
 }

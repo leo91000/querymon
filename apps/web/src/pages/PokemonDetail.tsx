@@ -1,7 +1,7 @@
 import type { Locale } from '../i18n';
 import type { ResourceName } from '../services/data';
 import type { NamedRef, PokemonAbilityRef, PokemonDetailData, PokemonTypeRef } from '../types/pokeapi';
-import { createMemo, createResource, createSignal, For, Show } from 'solid-js';
+import { createMemo, createResource, createSignal, For, onCleanup, onMount, Show } from 'solid-js';
 import Card from '../components/Card';
 import PokemonLearnset from '../components/PokemonLearnset';
 import PokemonSpriteViewer from '../components/PokemonSpriteViewer';
@@ -10,7 +10,7 @@ import TypeBox from '../components/TypeBox';
 import { getLocale, t } from '../i18n';
 import { authClient } from '../services/authClient';
 import { formatName, loadGrowthRatesLite, loadItemById, loadList } from '../services/data';
-import { getLocal, pushToRemoteIfLoggedIn, setLocal } from '../services/userData';
+import { getLocal, onUserDataUpdate, pushToRemoteIfLoggedIn, setLocal } from '../services/userData';
 
 type Species = PokemonDetailData['species'];
 type PageData = PokemonDetailData;
@@ -67,7 +67,12 @@ export default function PokemonDetail(props: { id: number }) {
     const localFlavor = createMemo(() => findLocalFlavor(speciesData(), locale()));
     const flavorText = createMemo(() => localFlavor()?.text);
     const [adding, setAdding] = createSignal(false);
-    const [added, setAdded] = createSignal(false);
+    const [favorites, setFavorites] = createSignal<number[]>(getLocal().favorites || []);
+    const isFavorited = createMemo(() => favorites().includes(props.id));
+    onMount(() => {
+        const off = onUserDataUpdate(d => setFavorites(d.favorites || []));
+        onCleanup(() => off());
+    });
     // Locale-aware number formatter (JP uses native units: 億/万)
     const nf = createMemo(() => new Intl.NumberFormat(locale() === 'jp' ? 'ja' : locale()));
     function formatJaUnits(v: number): string {
@@ -348,34 +353,23 @@ export default function PokemonDetail(props: { id: number }) {
                                     </For>
                                 </div>
                                 <button
-                                    class={`ml-auto rounded-full border border-gray-200 px-3 py-1 text-sm hover:bg-gray-50 dark:border-gray-700 dark:hover:bg-gray-700/50 cursor-pointer ${added() ? 'opacity-70 cursor-default' : ''}`}
+                                    class="ml-auto rounded-full border border-gray-200 px-3 py-1 text-sm hover:bg-gray-50 dark:border-gray-700 dark:hover:bg-gray-700/50 cursor-pointer"
                                     onClick={async () => {
-                                        if (added() || adding())
+                                        if (adding())
                                             return;
                                         setAdding(true);
                                         try {
                                             const sess = await authClient.getSession();
                                             const user = (sess as any)?.user || (sess as any)?.data?.user;
-                                            if (!user) {
-                                                await addLocalFavorite(props.id);
-                                                setAdded(true);
-                                                return;
-                                            }
-                                            await fetch(`${import.meta.env.VITE_API_BASE?.replace(/\/?$/, '') || 'http://localhost:8787'}/api/provision`, { method: 'POST', credentials: 'include' });
                                             const cur = getLocal();
-                                            if (!cur.favorites.includes(props.id)) {
-                                                const next = { ...cur, favorites: [...cur.favorites, props.id] };
-                                                setLocal(next);
+                                            const nextFavs = isFavorited()
+                                                ? cur.favorites.filter(id => id !== props.id)
+                                                : (cur.favorites.includes(props.id) ? cur.favorites : [...cur.favorites, props.id]);
+                                            const next = { ...cur, favorites: nextFavs };
+                                            setLocal(next);
+                                            setFavorites(nextFavs);
+                                            if (user)
                                                 await pushToRemoteIfLoggedIn();
-                                            }
-                                            setAdded(true);
-                                        }
-                                        catch {
-                                            const cur2 = getLocal();
-                                            if (!cur2.favorites.includes(props.id)) {
-                                                setLocal({ ...cur2, favorites: [...cur2.favorites, props.id] });
-                                            }
-                                            setAdded(true);
                                         }
                                         finally {
                                             setAdding(false);
@@ -384,7 +378,7 @@ export default function PokemonDetail(props: { id: number }) {
                                     disabled={adding()}
                                     aria-disabled={adding()}
                                 >
-                                    {added() ? 'Added' : (adding() ? 'Saving…' : '+ Favorite')}
+                                    {adding() ? 'Saving…' : (isFavorited() ? '− Favorite' : '+ Favorite')}
                                 </button>
                             </div>
                             <p class="mt-3 max-w-prose text-gray-600 dark:text-gray-300">{flavorText()}</p>
