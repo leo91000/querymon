@@ -8,18 +8,24 @@ import { accounts, sessions, users, verifications } from './schema.js';
 // Validate env on module load
 loadEnv();
 
+const env = loadEnv();
+
+const trustedOrigins: string[] = [
+    'http://localhost:5173',
+    'http://127.0.0.1:5173',
+];
+if (env.WEB_ORIGIN)
+    trustedOrigins.push(env.WEB_ORIGIN);
+
 export const auth = betterAuth({
     basePath: '/api/auth',
     baseURL: process.env.BETTER_AUTH_URL || 'http://localhost:8787',
-    trustedOrigins: [
-        'http://localhost:5173',
-        'http://127.0.0.1:5173',
-    ],
+    trustedOrigins,
     secret: process.env.BETTER_AUTH_SECRET,
     cookies: {
         session: {
-            sameSite: 'lax',
-            secure: false,
+            sameSite: process.env.NODE_ENV === 'production' ? 'none' : 'lax',
+            secure: process.env.NODE_ENV === 'production',
         },
     },
     session: {

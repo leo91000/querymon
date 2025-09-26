@@ -14,9 +14,20 @@ const env = loadEnv();
 
 const app = new Hono<{ Variables: { ctx: Context } }>();
 
-// CORS for web dev (credentials on)
+// CORS (allow dev origins and optional WEB_ORIGIN)
+const allowlist = new Set<string>([
+    'http://localhost:5173',
+    'http://127.0.0.1:5173',
+]);
+if (env.WEB_ORIGIN)
+    allowlist.add(env.WEB_ORIGIN);
+
 app.use('*', cors({
-    origin: origin => origin || 'http://localhost:5173',
+    origin: (origin) => {
+        if (!origin)
+            return 'http://localhost:5173';
+        return allowlist.has(origin) ? origin : '';
+    },
     credentials: true,
     allowHeaders: ['Content-Type', 'Authorization', 'trpc-accept'],
 }));

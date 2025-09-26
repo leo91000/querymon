@@ -13,6 +13,8 @@ const EnvSchema = z.object({
     BETTER_AUTH_URL: z.string().optional(),
     GOOGLE_CLIENT_ID: z.string().optional(),
     GOOGLE_CLIENT_SECRET: z.string().optional(),
+    // Web app origin (production), e.g. https://querymon.vercel.app
+    WEB_ORIGIN: z.string().url().optional(),
 });
 
 export type Env = z.infer<typeof EnvSchema>;
