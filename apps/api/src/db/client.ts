@@ -22,7 +22,12 @@ export function getDb(): DB {
     if (!env.TURSO_DATABASE_URL) {
         fs.mkdirSync(path.dirname(localDbPath), { recursive: true });
     }
-    const client: LibsqlClient = createClient({ url, authToken: env.TURSO_AUTH_TOKEN });
+    // Some environments have issues forwarding Authorization headers to libsql.
+    // Allow a fallback that puts the token into the URL for authentication.
+    const useUrlToken = process.env.USE_URL_TOKEN === '1';
+    const client: LibsqlClient = useUrlToken && env.TURSO_AUTH_TOKEN
+        ? createClient({ url: `${url}${url.includes('?') ? '&' : '?'}authToken=${encodeURIComponent(env.TURSO_AUTH_TOKEN)}` })
+        : createClient({ url, authToken: env.TURSO_AUTH_TOKEN });
     // Schema is managed by Drizzle migrations; no manual ensure here.
     dbInstance = drizzle(client);
     return dbInstance;
