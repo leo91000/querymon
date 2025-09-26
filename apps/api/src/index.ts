@@ -1,5 +1,7 @@
 import type { Context } from './trpc/context.js';
 import { serve } from '@hono/node-server';
+import { migrate } from 'drizzle-orm/libsql/migrator';
+import { fileURLToPath } from 'node:url';
 import { trpcServer } from '@hono/trpc-server';
 import { Hono } from 'hono';
 import { cors } from 'hono/cors';
@@ -49,6 +51,19 @@ app.use('/trpc/*', trpcServer({
     // Hono's adapter passes the Hono context as 2nd arg
     createContext: (_opts, c) => c.var.ctx,
 }));
+
+// Run DB migrations once on startup (auto)
+await (async () => {
+    try {
+        const db = getRootDb();
+        const migrationsFolder = fileURLToPath(new URL('../drizzle', import.meta.url));
+        await migrate(db, { migrationsFolder });
+        console.warn('[api] migrations applied');
+    }
+    catch (e) {
+        console.error('[api] migration error', e);
+    }
+})();
 
 // Start HTTP server (Hono)
 const port = env.PORT;

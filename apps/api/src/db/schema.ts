@@ -17,4 +17,4 @@ export const userData = sqliteTable('user_data', {
 });
 
 // Include Better Auth tables for migrations
-export * from '../auth/schema.js';
+export * from '../auth/schema';
