@@ -10,15 +10,16 @@ interface TooltipProps {
 
 export default function Tooltip(props: TooltipProps) {
     const [open, setOpen] = createSignal(false);
-    const placement = createMemo(() => props.placement ?? 'top');
+    const placement = createMemo<NonNullable<TooltipProps['placement']>>(() => props.placement ?? 'top');
     const posCls = createMemo(() => {
-        switch (placement) {
+        switch (placement()) {
             case 'bottom': return 'left-1/2 top-full mt-2 -translate-x-1/2 origin-top';
             case 'left': return 'right-full top-1/2 -translate-y-1/2 mr-2 origin-right';
             case 'right': return 'left-full top-1/2 -translate-y-1/2 ml-2 origin-left';
+            case 'top':
             default: return 'left-1/2 bottom-full mb-2 -translate-x-1/2 origin-bottom';
         }
-    })();
+    });
 
     return (
         <span

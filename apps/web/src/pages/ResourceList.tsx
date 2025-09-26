@@ -72,7 +72,7 @@ export default function ResourceList(props: { resource: ResourceName }) {
                                     class="group relative flex min-w-[200px] items-center gap-2 rounded-lg border border-gray-200 bg-white px-3 py-2 shadow-sm transition duration-150 hover:-translate-y-0.5 hover:shadow-md hover:border-gray-300 dark:border-gray-700 dark:bg-gray-800 dark:hover:border-gray-600"
                                 >
                                     <div class="absolute right-1 top-1 z-10 md:right-2 md:top-2">
-                                        <Tooltip content={favorites().includes(p.id) ? 'Remove favorite' : 'Add favorite'}>
+                                        <Tooltip placement="bottom" content={favorites().includes(p.id) ? 'Remove favorite' : 'Add favorite'}>
                                             <button
                                                 type="button"
                                                 class={`inline-flex h-7 w-7 items-center justify-center rounded-full transition hover:bg-gray-100 dark:hover:bg-gray-700/60 cursor-pointer ${favorites().includes(p.id) ? 'text-rose-600 dark:text-rose-400' : 'text-gray-500 dark:text-gray-300'}`}
@@ -88,7 +88,7 @@ export default function ResourceList(props: { resource: ResourceName }) {
                                             </button>
                                         </Tooltip>
                                     </div>
-                                    <img src={p.sprite || ''} alt={p.name} width={40} height={40} class="h-10 w-10 rounded bg-gray-100 object-contain dark:bg-gray-700" loading="lazy" />
+                                    <img src={String(p.sprite || '')} alt={p.name} width={40} height={40} class="h-10 w-10 rounded bg-gray-100 object-contain dark:bg-gray-700" loading="lazy" />
                                     <span class="truncate pr-6 font-medium group-hover:underline">{formatName(p.name)}</span>
                                 </A>
                             )}

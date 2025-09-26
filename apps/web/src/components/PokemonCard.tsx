@@ -38,7 +38,7 @@ export default function PokemonCard(props: CardProps) {
             </span>
             <Show when={typeof props.onToggleFavorite === 'function'}>
                 <div class="absolute right-1 top-1 z-0 md:right-2 md:top-2">
-                    <Tooltip content={props.isFavorited ? 'Remove favorite' : 'Add favorite'}>
+                    <Tooltip placement="bottom" content={props.isFavorited ? 'Remove favorite' : 'Add favorite'}>
                         <button
                             type="button"
                             class={`inline-flex h-8 w-8 items-center justify-center rounded-full border border-transparent text-lg transition hover:bg-gray-100 dark:hover:bg-gray-700/60 cursor-pointer ${props.isFavorited ? 'text-rose-600 dark:text-rose-400' : 'text-gray-500 dark:text-gray-300'}`}
