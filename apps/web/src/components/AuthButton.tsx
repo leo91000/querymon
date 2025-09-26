@@ -53,7 +53,7 @@ export default function AuthButton() {
                 <Show
                     when={(session() as any)?.user || (session() as any)?.data?.user}
                     fallback={(
-                        <Tooltip content="Sign in">
+                        <Tooltip placement="bottom" content="Sign in">
                             <button
                                 aria-label="Sign in"
                                 class="inline-flex h-9 w-9 cursor-pointer items-center justify-center rounded-full border border-gray-200 text-lg hover:bg-gray-50 dark:border-gray-700 dark:hover:bg-gray-700/50"
@@ -67,7 +67,7 @@ export default function AuthButton() {
                         </Tooltip>
                     )}
                 >
-                    <Tooltip content="Sign out">
+                    <Tooltip placement="bottom" content="Sign out">
                         <button
                             aria-label="Sign out"
                             class="inline-flex h-9 w-9 cursor-pointer items-center justify-center rounded-full border border-gray-200 text-lg hover:bg-gray-50 dark:border-gray-700 dark:hover:bg-gray-700/50"
