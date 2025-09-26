@@ -3,7 +3,8 @@ import { createTRPCProxyClient, httpBatchLink } from '@trpc/client';
 
 export type Lang = 'en' | 'fr' | 'jp';
 export type Theme = 'system' | 'light' | 'dark';
-export interface UserData { lang: Lang; theme: Theme; favorites: number[] }
+export interface SpritePref { gen: string; variant: string }
+export interface UserData { lang: Lang; theme: Theme; favorites: number[]; sprite?: SpritePref }
 
 const KEY = 'userData';
 
@@ -16,7 +17,10 @@ export function getLocal(): UserData {
         const lang: Lang = parsed.lang ?? 'en';
         const theme: Theme = parsed.theme ?? 'system';
         const favorites: number[] = Array.isArray(parsed.favorites) ? parsed.favorites : [];
-        return { lang, theme, favorites };
+        const sprite: SpritePref | undefined = (parsed.sprite && typeof parsed.sprite === 'object' && typeof parsed.sprite.gen === 'string' && typeof parsed.sprite.variant === 'string')
+            ? { gen: parsed.sprite.gen, variant: parsed.sprite.variant }
+            : undefined;
+        return { lang, theme, favorites, sprite };
     }
     catch {
         return { lang: 'en', theme: 'system', favorites: [] };

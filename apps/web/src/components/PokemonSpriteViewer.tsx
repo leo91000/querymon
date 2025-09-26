@@ -2,6 +2,7 @@ import type { PokemonSprites } from '../types/pokeapi';
 import { createEffect, createMemo, createSignal, For, Show } from 'solid-js';
 import { t } from '../i18n';
 import DropdownSelect from './DropdownSelect';
+import { getLocal, onUserDataUpdate, pushToRemoteIfLoggedIn, setLocal } from '../services/userData';
 
 type SpriteLike = PokemonSprites & { versions?: Record<string, unknown>; other?: Record<string, unknown> };
 interface Props {
@@ -55,7 +56,7 @@ function genLabel(slug: GenerationSlug) {
 
 interface Variant { key: string; label: string; url: string }
 
-const STORAGE_KEY = 'sprite.selection';
+// Persist selection in userData for sync across devices
 
 export default function PokemonSpriteViewer(props: Props) {
     const [selectedGen, setSelectedGen] = createSignal<GenerationSlug>('modern');
@@ -170,21 +171,18 @@ export default function PokemonSpriteViewer(props: Props) {
 
     function selectDefaults() {
         const map = variantsByGen();
-        // Try saved
-        try {
-            const raw = localStorage.getItem(STORAGE_KEY);
-            if (raw) {
-                const [gen, variant] = raw.split('::') as [GenerationSlug, string];
-                if (map.has(gen)) {
-                    const list = map.get(gen)!;
-                    const match = list.find(v => v.key === variant) || list[0];
-                    setSelectedGen(gen);
-                    setSelectedVariant(match?.key || list[0]?.key || '');
-                    return;
-                }
+        // Try saved in userData
+        const saved = getLocal().sprite;
+        if (saved && typeof saved.gen === 'string' && typeof saved.variant === 'string') {
+            const gen = saved.gen as GenerationSlug;
+            if (map.has(gen)) {
+                const list = map.get(gen)!;
+                const match = list.find(v => v.key === saved.variant) || list[0];
+                setSelectedGen(gen);
+                setSelectedVariant(match?.key || list[0]?.key || '');
+                return;
             }
         }
-        catch { }
         // Default latest available generation (descending order), else modern
         for (let i = GEN_ORDER.length - 1; i >= 0; i--) {
             const g = GEN_ORDER[i] as GenerationSlug;
@@ -206,13 +204,31 @@ export default function PokemonSpriteViewer(props: Props) {
         selectDefaults();
     });
 
-    // Persist on change
+    // Persist on change to userData and sync if logged in
     createEffect(() => {
         const gen = selectedGen();
         const varKey = selectedVariant();
-        if (gen && varKey)
-            localStorage.setItem(STORAGE_KEY, `${gen}::${varKey}`);
+        if (!gen || !varKey)
+            return;
+        const cur = getLocal();
+        const next = { ...cur, sprite: { gen, variant: varKey } };
+        setLocal(next);
+        void pushToRemoteIfLoggedIn();
     });
+
+    // React to external updates (e.g., polling or another tab)
+    createEffect(() => onUserDataUpdate(d => {
+        if (d.sprite) {
+            const map = variantsByGen();
+            const gen = d.sprite.gen as GenerationSlug;
+            if (map.has(gen)) {
+                const list = map.get(gen)!;
+                const match = list.find(v => v.key === d.sprite!.variant) || list[0];
+                setSelectedGen(gen);
+                setSelectedVariant(match?.key || list[0]?.key || '');
+            }
+        }
+    }));
 
     const currentUrl = createMemo(() => {
         const list = variantsByGen().get(selectedGen());
