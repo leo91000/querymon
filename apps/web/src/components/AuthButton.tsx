@@ -1,7 +1,9 @@
 import type { Session } from '../services/authClient';
 import { createSignal, onCleanup, onMount, Show } from 'solid-js';
+import { changeLocale } from '../i18n';
 import { authClient } from '../services/authClient';
-import { pushToRemoteIfLoggedIn, subscribeRemote } from '../services/userData';
+import { onUserDataUpdate, pullFromRemoteIfLoggedIn, pushToRemoteIfLoggedIn, startUserDataPoll } from '../services/userData';
+import { setTheme } from '../theme';
 
 export default function AuthButton() {
     const [session, setSession] = createSignal<Session | null>(null);
@@ -25,8 +27,21 @@ export default function AuthButton() {
         const s = await authClient.getSession();
         const hasUser = Boolean((s as any)?.user || (s as any)?.data?.user);
         if (hasUser) {
-            const sub = subscribeRemote(() => {});
-            onCleanup(() => sub?.unsubscribe?.());
+            // Pull remote snapshot first so a refresh applies server state
+            const snap = await pullFromRemoteIfLoggedIn();
+            if (snap) {
+                changeLocale(snap.lang, { skipSync: true });
+                setTheme(snap.theme, { skipSync: true });
+            }
+            const offEvt = onUserDataUpdate((data) => {
+                changeLocale(data.lang, { skipSync: true });
+                setTheme(data.theme, { skipSync: true });
+            });
+            const stop = startUserDataPoll(60000);
+            onCleanup(() => {
+                offEvt();
+                stop();
+            });
             void pushToRemoteIfLoggedIn();
         }
     });
