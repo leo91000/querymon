@@ -33,13 +33,21 @@ export default function Tooltip(props: TooltipProps) {
             <Show when={open()}>
                 <span
                     role="tooltip"
-                    class={`pointer-events-none absolute z-50 rounded-md border border-gray-200 bg-white px-2 py-1 text-xs text-gray-700 shadow-md dark:border-gray-700 dark:bg-gray-800 dark:text-gray-200 ${posCls()} transition duration-150 ease-out data-[enter=true]:animate-[fade-in_120ms_ease-out]`}
+                    class={`pointer-events-none absolute z-50 rounded-md border border-gray-200 bg-white/95 px-2 py-1 text-xs text-gray-800 shadow-md ring-1 ring-black/5 backdrop-blur-sm dark:border-gray-700 dark:bg-gray-800/95 dark:text-gray-100 ${posCls()} transition duration-150 ease-out data-[enter=true]:animate-[fade-in_120ms_ease-out]`}
                     data-enter={open()}
                 >
                     {props.content}
                     <span
                         aria-hidden="true"
-                        class={`absolute block h-2 w-2 rotate-45 border border-gray-200 bg-white dark:border-gray-700 dark:bg-gray-800 ${placement() === 'top' ? 'left-1/2 top-full -translate-x-1/2 border-t-0 border-l-0' : ''}${placement() === 'bottom' ? 'left-1/2 bottom-full -translate-x-1/2 border-b-0 border-r-0' : ''}${placement() === 'left' ? 'right-0 top-1/2 -translate-y-1/2 translate-x-1/2 border-l-0 border-b-0' : ''}${placement() === 'right' ? 'left-0 top-1/2 -translate-y-1/2 -translate-x-1/2 border-r-0 border-t-0' : ''}`}
+                        class={`absolute block h-2 w-2 rotate-45 border border-gray-200 bg-white/95 dark:border-gray-700 dark:bg-gray-800/95 ${
+                            placement() === 'top'
+                                ? 'left-1/2 top-full -translate-x-1/2 -translate-y-1/2 border-t-0 border-l-0'
+                                : placement() === 'bottom'
+                                    ? 'left-1/2 bottom-full -translate-x-1/2 translate-y-1/2 border-b-0 border-r-0'
+                                    : placement() === 'left'
+                                        ? 'right-0 top-1/2 -translate-y-1/2 translate-x-1/2 border-l-0 border-b-0'
+                                        : 'left-0 top-1/2 -translate-y-1/2 -translate-x-1/2 border-r-0 border-t-0'
+                        }`}
                     />
                 </span>
             </Show>
