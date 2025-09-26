@@ -1,8 +1,6 @@
-import type { AppRouter } from '../../../api/src/trpc/router';
 import type { Locale } from '../i18n';
 import type { ResourceName } from '../services/data';
 import type { NamedRef, PokemonAbilityRef, PokemonDetailData, PokemonTypeRef } from '../types/pokeapi';
-import { createTRPCProxyClient, httpBatchLink } from '@trpc/client';
 import { createMemo, createResource, createSignal, For, Show } from 'solid-js';
 import Card from '../components/Card';
 import PokemonLearnset from '../components/PokemonLearnset';
@@ -12,7 +10,7 @@ import TypeBox from '../components/TypeBox';
 import { getLocale, t } from '../i18n';
 import { authClient } from '../services/authClient';
 import { formatName, loadGrowthRatesLite, loadItemById, loadList } from '../services/data';
-import { addLocalFavorite } from '../services/favorites';
+import { getLocal, pushToRemoteIfLoggedIn, setLocal } from '../services/userData';
 
 type Species = PokemonDetailData['species'];
 type PageData = PokemonDetailData;
@@ -364,14 +362,19 @@ export default function PokemonDetail(props: { id: number }) {
                                                 return;
                                             }
                                             await fetch(`${import.meta.env.VITE_API_BASE?.replace(/\/?$/, '') || 'http://localhost:8787'}/api/provision`, { method: 'POST', credentials: 'include' });
-                                            const trpc = createTRPCProxyClient<AppRouter>({
-                                                links: [httpBatchLink({ url: `${import.meta.env.VITE_API_BASE?.replace(/\/?$/, '') || 'http://localhost:8787'}/trpc`, fetch(url, opts) { return fetch(url, { ...opts, credentials: 'include' as const }); } })],
-                                            });
-                                            await trpc.favorites.add.mutate({ pokemonId: props.id });
+                                            const cur = getLocal();
+                                            if (!cur.favorites.includes(props.id)) {
+                                                const next = { ...cur, favorites: [...cur.favorites, props.id] };
+                                                setLocal(next);
+                                                await pushToRemoteIfLoggedIn();
+                                            }
                                             setAdded(true);
                                         }
                                         catch {
-                                            await addLocalFavorite(props.id);
+                                            const cur2 = getLocal();
+                                            if (!cur2.favorites.includes(props.id)) {
+                                                setLocal({ ...cur2, favorites: [...cur2.favorites, props.id] });
+                                            }
                                             setAdded(true);
                                         }
                                         finally {
