@@ -1,7 +1,7 @@
 import type { Context } from './trpc/context.js';
-import { createServer } from 'node:http';
 import { trpcServer } from '@hono/trpc-server';
 import { applyWSSHandler } from '@trpc/server/adapters/ws';
+import { serve } from '@hono/node-server';
 import { Hono } from 'hono';
 import { cors } from 'hono/cors';
 import { WebSocketServer } from 'ws';
@@ -52,42 +52,13 @@ app.use('/trpc/*', trpcServer({
     createContext: (_opts, c) => c.var.ctx,
 }));
 
-// Create a Node HTTP server so we can attach WebSocket upgrade handler
+// Start HTTP server (Hono)
 const port = env.PORT;
-const server = createServer((req, res) => {
-    // Delegate to Hono's fetch handler
-    app.fetch(req).then((resp) => {
-        res.statusCode = resp.status;
-        resp.headers.forEach((v, k) => res.setHeader(k, v));
-        (async () => {
-            const ab = await resp.arrayBuffer();
-            const { Buffer } = await import('node:buffer');
-            const buf = Buffer.from(ab);
-            res.end(buf);
-        })().catch((err) => {
-            res.statusCode = 500;
-            res.end(String(err?.message || err));
-        });
-    }).catch((err) => {
-        res.statusCode = 500;
-        res.end(String(err?.message || err));
-    });
-});
+serve({ fetch: app.fetch, port });
+console.warn(`[api] listening on http://localhost:${port}`);
 
-// tRPC WebSocket handler on the same server
-const wss = new WebSocketServer({ server });
-applyWSSHandler({
-    wss,
-    router: appRouter,
-    createContext: async ({ req }) => {
-        const headers = new Headers(Object.entries(req.headers).map(([k, v]) => [k, Array.isArray(v) ? v.join(',') : (v ?? '')]));
-        const sessionRes = await auth.api.getSession({ headers });
-        const session = sessionRes ? { user: { id: sessionRes.user.id, email: sessionRes.user.email } } : null;
-        const rootDb = getRootDb();
-        return { db: rootDb, rootDb, session } satisfies Context;
-    },
-});
-
-server.listen(port, () => {
-    console.warn(`[api] listening on http://localhost:${port}`);
-});
+// Start WebSocket server on a separate port (default: PORT+1)
+const wsPort = (env as any).WS_PORT ?? (port + 1);
+const wss = new WebSocketServer({ port: wsPort });
+applyWSSHandler({ wss, router: appRouter, createContext: async () => ({ db: getRootDb(), rootDb: getRootDb(), session: null }) });
+console.warn(`[api] ws listening on ws://localhost:${wsPort}/trpc`);
