@@ -10,7 +10,7 @@ const baseOptions: Array<{ value: Theme; labelKey: string; icon: string }> = [
     { value: 'dark', labelKey: 'theme.dark', icon: 'icon-[ph--moon-stars-duotone]' },
 ];
 
-export default function ThemeSwitcher() {
+export default function ThemeSwitcher(props: { iconOnly?: boolean } = {}) {
     const current = createMemo(() => getTheme());
     const options = createMemo(() =>
         baseOptions.map(opt => ({ value: opt.value, label: t(opt.labelKey), icon: opt.icon })),
@@ -23,6 +23,7 @@ export default function ThemeSwitcher() {
             options={options()}
             srLabel={t('theme.mode')}
             align="left"
+            iconOnly={props.iconOnly}
             onChange={next => setTheme(next as Theme)}
         />
     );

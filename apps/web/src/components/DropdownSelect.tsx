@@ -15,6 +15,7 @@ interface DropdownSelectProps<T extends string = string> {
     onChange: (value: T) => void;
     align?: 'left' | 'right';
     class?: string;
+    iconOnly?: boolean; // hide text label on small screens
 }
 
 export default function DropdownSelect<T extends string>(props: DropdownSelectProps<T>) {
@@ -152,7 +153,7 @@ export default function DropdownSelect<T extends string>(props: DropdownSelectPr
             <button
                 type="button"
                 ref={el => (triggerRef = el as HTMLButtonElement)}
-                class="flex h-9 w-full cursor-pointer items-center justify-between gap-2 rounded-md border border-gray-300 bg-white px-3 text-sm text-gray-900 shadow-sm outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20 dark:border-gray-700 dark:bg-gray-900 dark:text-gray-100"
+                class={`flex ${props.iconOnly ? 'h-9 w-9 justify-center px-0' : 'h-9 w-full justify-between px-3'} cursor-pointer items-center gap-2 rounded-md border border-gray-300 bg-white text-sm text-gray-900 shadow-sm outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20 dark:border-gray-700 dark:bg-gray-900 dark:text-gray-100 ${props.class ?? ''}`}
                 aria-haspopup="listbox"
                 aria-expanded={open()}
                 aria-labelledby={`${props.id}-label`}
@@ -210,9 +211,12 @@ export default function DropdownSelect<T extends string>(props: DropdownSelectPr
                     <Show when={currentOption()?.icon}>
                         <span aria-hidden="true" class={`text-lg ${currentOption()?.icon ?? ''}`} />
                     </Show>
-                    <span class="truncate">{currentOption()?.label ?? ''}</span>
+                    <span class={`truncate ${props.iconOnly ? 'hidden md:inline' : ''}`}>{currentOption()?.label ?? ''}</span>
                 </span>
-                <span aria-hidden="true" class="icon-[ph--caret-down] text-base text-gray-500 dark:text-gray-300" />
+                <span
+                    aria-hidden="true"
+                    class={`icon-[ph--caret-down] text-base text-gray-500 dark:text-gray-300 ${props.iconOnly ? 'hidden md:inline' : ''}`}
+                />
             </button>
             <Show when={open() && props.options.length > 0}>
                 <Portal>

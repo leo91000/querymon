@@ -6,6 +6,7 @@ import Card from '../components/Card';
 import PokemonLearnset from '../components/PokemonLearnset';
 import PokemonSpriteViewer from '../components/PokemonSpriteViewer';
 import Skeleton from '../components/Skeleton';
+import Tooltip from '../components/Tooltip';
 import TypeBox from '../components/TypeBox';
 import { getLocale, t } from '../i18n';
 import { authClient } from '../services/authClient';
@@ -300,7 +301,7 @@ export default function PokemonDetail(props: { id: number }) {
                         <Card>
                             <Skeleton class="mb-3 h-4 w-40" />
                             <div class="overflow-x-auto">
-                                <div class="flex min-w-[260px] items-start justify-center gap-8 pb-2">
+                                <div class="flex min-w-[260px] items-start justify-start gap-8 pb-2 px-2">
                                     <For each={[0, 1, 2]}>
                                         {() => (
                                             <div class="flex items-center gap-6">
@@ -334,7 +335,41 @@ export default function PokemonDetail(props: { id: number }) {
                     </>
                 )}
             >
-                <Card class="overflow-hidden p-0">
+                <Card class="relative overflow-hidden p-0">
+                    <div class="absolute right-3 top-3 z-10 md:right-4 md:top-4">
+                        <Tooltip content={isFavorited() ? (t('common.removeFavorite') || 'Remove favorite') : (t('common.addFavorite') || 'Add favorite')}>
+                            <button
+                                class={`inline-flex h-9 w-9 items-center justify-center rounded-full border border-gray-200 text-lg transition hover:bg-gray-50 dark:border-gray-700 dark:hover:bg-gray-700/50 cursor-pointer ${isFavorited() ? 'text-rose-600 dark:text-rose-400' : 'text-gray-500 dark:text-gray-300'}`}
+                                aria-pressed={isFavorited()}
+                                aria-label={isFavorited() ? 'Remove from favorites' : 'Add to favorites'}
+                                onClick={async () => {
+                                    if (adding())
+                                        return;
+                                    setAdding(true);
+                                    try {
+                                        const sess = await authClient.getSession();
+                                        const user = (sess as any)?.user || (sess as any)?.data?.user;
+                                        const cur = getLocal();
+                                        const nextFavs = isFavorited()
+                                            ? cur.favorites.filter(id => id !== props.id)
+                                            : (cur.favorites.includes(props.id) ? cur.favorites : [...cur.favorites, props.id]);
+                                        const next = { ...cur, favorites: nextFavs };
+                                        setLocal(next);
+                                        setFavorites(nextFavs);
+                                        if (user)
+                                            await pushToRemoteIfLoggedIn();
+                                    }
+                                    finally {
+                                        setAdding(false);
+                                    }
+                                }}
+                                disabled={adding()}
+                                aria-disabled={adding()}
+                            >
+                                <span class={`${isFavorited() ? 'icon-[ph--heart-fill]' : 'icon-[ph--heart]'} text-xl`} />
+                            </button>
+                        </Tooltip>
+                    </div>
                     <div class="grid grid-cols-1 md:grid-cols-[1fr_320px]">
                         <div class="p-6">
                             <div class="flex items-center gap-3">
@@ -352,34 +387,6 @@ export default function PokemonDetail(props: { id: number }) {
                                         )}
                                     </For>
                                 </div>
-                                <button
-                                    class="ml-auto rounded-full border border-gray-200 px-3 py-1 text-sm hover:bg-gray-50 dark:border-gray-700 dark:hover:bg-gray-700/50 cursor-pointer"
-                                    onClick={async () => {
-                                        if (adding())
-                                            return;
-                                        setAdding(true);
-                                        try {
-                                            const sess = await authClient.getSession();
-                                            const user = (sess as any)?.user || (sess as any)?.data?.user;
-                                            const cur = getLocal();
-                                            const nextFavs = isFavorited()
-                                                ? cur.favorites.filter(id => id !== props.id)
-                                                : (cur.favorites.includes(props.id) ? cur.favorites : [...cur.favorites, props.id]);
-                                            const next = { ...cur, favorites: nextFavs };
-                                            setLocal(next);
-                                            setFavorites(nextFavs);
-                                            if (user)
-                                                await pushToRemoteIfLoggedIn();
-                                        }
-                                        finally {
-                                            setAdding(false);
-                                        }
-                                    }}
-                                    disabled={adding()}
-                                    aria-disabled={adding()}
-                                >
-                                    {adding() ? 'Saving…' : (isFavorited() ? '− Favorite' : '+ Favorite')}
-                                </button>
                             </div>
                             <p class="mt-3 max-w-prose text-gray-600 dark:text-gray-300">{flavorText()}</p>
 
@@ -567,7 +574,7 @@ export default function PokemonDetail(props: { id: number }) {
                     <Card>
                         <h3 class="mb-3 text-sm font-semibold tracking-wide text-gray-500">{t('pokemon.evolutions')}</h3>
                         <div class="overflow-x-auto">
-                            <div class="flex min-w-[260px] items-start justify-center gap-8 pb-2">
+                            <div class="flex min-w-[260px] items-start justify-start gap-8 pb-2 px-2">
                                 <For each={evolutionStages()}>
                                     {(stage, idx) => (
                                         <div class="flex items-center gap-6">

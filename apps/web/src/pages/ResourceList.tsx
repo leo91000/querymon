@@ -6,14 +6,31 @@ import Card from '../components/Card';
 import Input from '../components/Input';
 import PokemonCard from '../components/PokemonCard';
 import ResourceTabs from '../components/ResourceTabs';
+import Tooltip from '../components/Tooltip';
 import { getLocale, t } from '../i18n';
 import { formatName, loadList, resourceLabel } from '../services/data';
+import { getLocal, onUserDataUpdate, pushToRemoteIfLoggedIn, setLocal } from '../services/userData';
 
 export default function ResourceList(props: { resource: ResourceName }) {
     const [items] = createResource(
         () => ({ res: props.resource, loc: getLocale() }),
         key => loadList(key.res as ResourceName),
     );
+    const [favorites, setFavorites] = createSignal<number[]>(getLocal().favorites || []);
+    onMount(() => {
+        const off = onUserDataUpdate(d => setFavorites(d.favorites || []));
+        onCleanup(() => off());
+    });
+
+    async function toggleFavorite(id: number) {
+        const cur = getLocal();
+        const next = cur.favorites.includes(id)
+            ? cur.favorites.filter(x => x !== id)
+            : [...cur.favorites, id];
+        setLocal({ ...cur, favorites: next });
+        setFavorites(next);
+        void pushToRemoteIfLoggedIn();
+    }
     // Aliases removed in new layout to avoid extra fetches; simple name filtering only.
     const [q, setQ] = createSignal('');
     function normalize(s: string) {
@@ -41,6 +58,47 @@ export default function ResourceList(props: { resource: ResourceName }) {
     return (
         <div class="space-y-4">
             <ResourceTabs current={props.resource} />
+            <Show when={props.resource === 'pokemon'}>
+                <Card>
+                    <div class="mb-2 flex items-center justify-between">
+                        <h3 class="text-sm font-semibold tracking-wide text-gray-500">{t('pokemon.favorites') || 'Favorites'}</h3>
+                        <span class="text-xs text-gray-400">{favorites().length}</span>
+                    </div>
+                    <div class="flex flex-wrap gap-3 px-0 py-1 overflow-visible">
+                        <For each={(items() || []).filter(it => favorites().includes(it.id))}>
+                            {p => (
+                                <A
+                                    href={`/pokemon/${p.id}`}
+                                    class="group relative flex min-w-[200px] items-center gap-2 rounded-lg border border-gray-200 bg-white px-3 py-2 shadow-sm transition duration-150 hover:-translate-y-0.5 hover:shadow-md hover:border-gray-300 dark:border-gray-700 dark:bg-gray-800 dark:hover:border-gray-600"
+                                >
+                                    <div class="absolute right-1 top-1 z-10 md:right-2 md:top-2">
+                                        <Tooltip content={favorites().includes(p.id) ? 'Remove favorite' : 'Add favorite'}>
+                                            <button
+                                                type="button"
+                                                class={`inline-flex h-7 w-7 items-center justify-center rounded-full transition hover:bg-gray-100 dark:hover:bg-gray-700/60 cursor-pointer ${favorites().includes(p.id) ? 'text-rose-600 dark:text-rose-400' : 'text-gray-500 dark:text-gray-300'}`}
+                                                aria-pressed={favorites().includes(p.id)}
+                                                aria-label={favorites().includes(p.id) ? 'Remove from favorites' : 'Add to favorites'}
+                                                onClick={(e) => {
+                                                    e.preventDefault();
+                                                    e.stopPropagation();
+                                                    toggleFavorite(p.id);
+                                                }}
+                                            >
+                                                <span class={`${favorites().includes(p.id) ? 'icon-[ph--heart-fill]' : 'icon-[ph--heart]'} text-lg`} />
+                                            </button>
+                                        </Tooltip>
+                                    </div>
+                                    <img src={p.sprite || ''} alt={p.name} width={40} height={40} class="h-10 w-10 rounded bg-gray-100 object-contain dark:bg-gray-700" loading="lazy" />
+                                    <span class="truncate pr-6 font-medium group-hover:underline">{formatName(p.name)}</span>
+                                </A>
+                            )}
+                        </For>
+                        <Show when={(items() || []).filter(it => favorites().includes(it.id)).length === 0}>
+                            <div class="text-sm text-gray-400">{t('pokemon.noFavorites') || 'No favorites yet'}</div>
+                        </Show>
+                    </div>
+                </Card>
+            </Show>
             <div class="flex items-end justify-between gap-4">
                 <h2 class="text-xl font-semibold">{resourceLabel(props.resource)}</h2>
                 <div class="w-72">
@@ -90,13 +148,13 @@ export default function ResourceList(props: { resource: ResourceName }) {
                     </Card>
                 )}
             >
-                <PokemonGrid items={filtered()} />
+                <PokemonGrid items={filtered()} favorites={favorites()} onToggleFavorite={toggleFavorite} />
             </Show>
         </div>
     );
 }
 
-function PokemonGrid(props: { items: Array<{ id: number; name: string; types?: string[]; sprite?: string }> }) {
+function PokemonGrid(props: { items: Array<{ id: number; name: string; types?: string[]; sprite?: string }>; favorites: number[]; onToggleFavorite: (id: number) => void }) {
     function typesOf(it: { types?: string[] }): PokemonType[] {
         return (it.types || [])
             .map(s => String(s))
@@ -156,7 +214,7 @@ function PokemonGrid(props: { items: Array<{ id: number; name: string; types?: s
                 <For each={visible()}>
                     {(p, i) => (
                         <A href={`/pokemon/${p.id}`} class="block h-full motion-safe:animate-[fade-in-up_0.35s_ease-out] [animation-delay:calc(var(--i)*15ms)]" style={{ '--i': String(i()) }}>
-                            <PokemonCard pokemon={p} />
+                            <PokemonCard pokemon={p} isFavorited={props.favorites.includes(p.id)} onToggleFavorite={props.onToggleFavorite} />
                         </A>
                     )}
                 </For>
