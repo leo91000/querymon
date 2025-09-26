@@ -9,7 +9,7 @@ const baseOptions: Array<{ value: Locale; labelKey: string; icon: string }> = [
     { value: 'jp', labelKey: 'lang.jp', icon: 'icon-[circle-flags--jp]' },
 ];
 
-export default function LanguageSwitcher() {
+export default function LanguageSwitcher(props: { iconOnly?: boolean } = {}) {
     const current = createMemo(() => getLocale());
     const options = createMemo(() =>
         baseOptions.map(opt => ({ value: opt.value, label: t(opt.labelKey), icon: opt.icon })),
@@ -22,6 +22,7 @@ export default function LanguageSwitcher() {
             options={options()}
             srLabel={t('lang.select')}
             align="left"
+            iconOnly={props.iconOnly}
             onChange={next => changeLocale(next as Locale)}
         />
     );

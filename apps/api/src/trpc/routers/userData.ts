@@ -3,7 +3,6 @@ import { TRPCError } from '@trpc/server';
 import { eq, sql } from 'drizzle-orm';
 import { z } from 'zod';
 import { userData } from '../../db/schema.js';
-import { emitUserUpdate } from '../../events/userStreams.js';
 import { procedure, router } from '../init.js';
 
 export interface UserData {
@@ -45,7 +44,6 @@ export const userDataRouter = router({
                         updatedAt: sql`(strftime('%s','now'))`,
                     },
                 });
-            emitUserUpdate(uid, payload);
             return payload;
         }),
 

@@ -13,8 +13,6 @@ const EnvSchema = z.object({
     BETTER_AUTH_URL: z.string().optional(),
     GOOGLE_CLIENT_ID: z.string().optional(),
     GOOGLE_CLIENT_SECRET: z.string().optional(),
-    // tRPC WebSocket (optional separate port). Default 8790 in dev
-    WS_PORT: z.coerce.number().int().positive().optional(),
 });
 
 export type Env = z.infer<typeof EnvSchema>;

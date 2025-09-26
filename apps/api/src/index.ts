@@ -3,7 +3,6 @@ import { serve } from '@hono/node-server';
 import { trpcServer } from '@hono/trpc-server';
 import { Hono } from 'hono';
 import { cors } from 'hono/cors';
-import { WebSocketServer } from 'ws';
 import { auth } from './auth/index.js';
 import { getRootDb } from './db/client.js';
 import { loadEnv } from './env.js';
@@ -56,8 +55,4 @@ const port = env.PORT;
 serve({ fetch: app.fetch, port });
 console.warn(`[api] listening on http://localhost:${port}`);
 
-// Start WebSocket server on a separate port (default: PORT+1)
-const wsPort = (env as any).WS_PORT ?? (port + 1);
-const wss = new WebSocketServer({ port: wsPort });
-applyWSSHandler({ wss, router: appRouter, createContext: async () => ({ db: getRootDb(), rootDb: getRootDb(), session: null }) });
-console.warn(`[api] ws listening on ws://localhost:${wsPort}/trpc`);
+// WebSockets/subscriptions removed; clients poll periodically instead

@@ -1,13 +1,16 @@
 import type { Pokemon } from '../types/pokemon';
-import { For } from 'solid-js';
+import { For, Show } from 'solid-js';
 import Badge from './Badge';
 import Card from './Card';
+import Tooltip from './Tooltip';
 import TypeBox from './TypeBox';
 
-export default function PokemonCard(props: { pokemon: Pokemon }) {
+interface CardProps { pokemon: Pokemon; isFavorited?: boolean; onToggleFavorite?: (id: number) => void }
+
+export default function PokemonCard(props: CardProps) {
     const p = () => props.pokemon;
     return (
-        <Card class="group relative flex h-full items-center gap-4 p-4">
+        <Card class="group relative flex h-full min-h-[120px] items-center gap-4 p-4 transition duration-150 hover:-translate-y-0.5 hover:shadow-md">
             <img
                 src={p().sprite}
                 alt={p().name}
@@ -33,6 +36,25 @@ export default function PokemonCard(props: { pokemon: Pokemon }) {
                     {p().id.toString().padStart(3, '0')}
                 </Badge>
             </span>
+            <Show when={typeof props.onToggleFavorite === 'function'}>
+                <div class="absolute right-1 top-1 z-0 md:right-2 md:top-2">
+                    <Tooltip content={props.isFavorited ? 'Remove favorite' : 'Add favorite'}>
+                        <button
+                            type="button"
+                            class={`inline-flex h-8 w-8 items-center justify-center rounded-full border border-transparent text-lg transition hover:bg-gray-100 dark:hover:bg-gray-700/60 cursor-pointer ${props.isFavorited ? 'text-rose-600 dark:text-rose-400' : 'text-gray-500 dark:text-gray-300'}`}
+                            aria-pressed={!!props.isFavorited}
+                            aria-label={props.isFavorited ? 'Remove from favorites' : 'Add to favorites'}
+                            onClick={(e) => {
+                                e.preventDefault();
+                                e.stopPropagation();
+                                props.onToggleFavorite?.(p().id);
+                            }}
+                        >
+                            <span class={`${props.isFavorited ? 'icon-[ph--heart-fill]' : 'icon-[ph--heart]'} text-xl`} />
+                        </button>
+                    </Tooltip>
+                </div>
+            </Show>
         </Card>
     );
 }

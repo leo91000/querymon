@@ -4,6 +4,7 @@ import { changeLocale } from '../i18n';
 import { authClient } from '../services/authClient';
 import { onUserDataUpdate, pullFromRemoteIfLoggedIn, pushToRemoteIfLoggedIn, startUserDataPoll } from '../services/userData';
 import { setTheme } from '../theme';
+import Tooltip from './Tooltip';
 
 export default function AuthButton() {
     const [session, setSession] = createSignal<Session | null>(null);
@@ -52,26 +53,32 @@ export default function AuthButton() {
                 <Show
                     when={(session() as any)?.user || (session() as any)?.data?.user}
                     fallback={(
-                        <button
-                            class="rounded-full border border-gray-200 px-3 py-1 text-sm hover:bg-gray-50 dark:border-gray-700 dark:hover:bg-gray-700/50"
-                            onClick={() => {
-                                const appBase = (import.meta.env.VITE_APP_BASE?.replace(/\/?$/, '') || window.location.origin);
-                                authClient.signIn.social({ provider: 'google', callbackURL: `${appBase}/` });
-                            }}
-                        >
-                            Sign in
-                        </button>
+                        <Tooltip content="Sign in">
+                            <button
+                                aria-label="Sign in"
+                                class="inline-flex h-9 w-9 cursor-pointer items-center justify-center rounded-full border border-gray-200 text-lg hover:bg-gray-50 dark:border-gray-700 dark:hover:bg-gray-700/50"
+                                onClick={() => {
+                                    const appBase = (import.meta.env.VITE_APP_BASE?.replace(/\/?$/, '') || window.location.origin);
+                                    authClient.signIn.social({ provider: 'google', callbackURL: `${appBase}/` });
+                                }}
+                            >
+                                <span class="icon-[ph--sign-in]" />
+                            </button>
+                        </Tooltip>
                     )}
                 >
-                    <button
-                        class="rounded-full border border-gray-200 px-3 py-1 text-sm hover:bg-gray-50 dark:border-gray-700 dark:hover:bg-gray-700/50"
-                        onClick={async () => {
-                            await authClient.signOut();
-                            setSession(null);
-                        }}
-                    >
-                        Sign out
-                    </button>
+                    <Tooltip content="Sign out">
+                        <button
+                            aria-label="Sign out"
+                            class="inline-flex h-9 w-9 cursor-pointer items-center justify-center rounded-full border border-gray-200 text-lg hover:bg-gray-50 dark:border-gray-700 dark:hover:bg-gray-700/50"
+                            onClick={async () => {
+                                await authClient.signOut();
+                                setSession(null);
+                            }}
+                        >
+                            <span class="icon-[ph--sign-out]" />
+                        </button>
+                    </Tooltip>
                 </Show>
             </Show>
         </div>
