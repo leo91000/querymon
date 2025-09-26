@@ -1,26 +1,17 @@
 import { sql } from 'drizzle-orm';
 import { integer, sqliteTable, text } from 'drizzle-orm/sqlite-core';
 
-export const favorites = sqliteTable('favorites', {
-    id: integer('id').primaryKey({ autoIncrement: true }),
-    pokemonId: integer('pokemon_id').notNull(),
-    // optional nickname for the favorite
-    nickname: text('nickname'),
-    createdAt: integer('created_at', { mode: 'timestamp' })
+// Single JSON blob per user for app state (lang/theme/favorites)
+export const userData = sqliteTable('user_data', {
+    userId: text('user_id').primaryKey(),
+    // simple strings for lang/theme
+    lang: text('lang'), // 'en' | 'fr' | 'jp'
+    theme: text('theme'), // 'system' | 'light' | 'dark'
+    // favorites as JSON string (array of numbers)
+    favorites: text('favorites_json'),
+    updatedAt: integer('updated_at', { mode: 'timestamp' })
         .notNull()
         .default(sql`(strftime('%s','now'))`),
-});
-
-export type Favorite = typeof favorites.$inferSelect;
-export type FavoriteInsert = typeof favorites.$inferInsert;
-
-// Per-user metadata (DB name/url recorded after provisioning)
-export const userMeta = sqliteTable('user_meta', {
-    userId: text('user_id').primaryKey(),
-    dbName: text('db_name'),
-    dbUrl: text('db_url'),
-    dbHost: text('db_host'),
-    provisionedAt: integer('provisioned_at', { mode: 'timestamp' }).default(sql`(strftime('%s','now'))`),
 });
 
 // Include Better Auth tables for migrations

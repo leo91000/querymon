@@ -1,9 +1,9 @@
 import { procedure, router } from './init.js';
-import { favoritesRouter } from './routers/favorites.js';
+import { userDataRouter } from './routers/userData.js';
 
 export const appRouter = router({
     health: procedure.query(() => ({ ok: true } as const)),
-    favorites: favoritesRouter,
+    userData: userDataRouter,
 });
 
 export type AppRouter = typeof appRouter;

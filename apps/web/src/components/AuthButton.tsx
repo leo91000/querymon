@@ -1,7 +1,7 @@
 import type { Session } from '../services/authClient';
-import { createSignal, onMount, Show } from 'solid-js';
+import { createSignal, onCleanup, onMount, Show } from 'solid-js';
 import { authClient } from '../services/authClient';
-import { syncLocalFavoritesToRemote } from '../services/favoriteSync';
+import { pushToRemoteIfLoggedIn, subscribeRemote } from '../services/userData';
 
 export default function AuthButton() {
     const [session, setSession] = createSignal<Session | null>(null);
@@ -20,20 +20,14 @@ export default function AuthButton() {
     onMount(() => {
         void refresh();
     });
-    // On initial authenticated load, try to push any local favorites to remote
+    // When authenticated, push current local data and subscribe for remote changes
     onMount(async () => {
         const s = await authClient.getSession();
         const hasUser = Boolean((s as any)?.user || (s as any)?.data?.user);
         if (hasUser) {
-            // ensure per-user DB exists
-            try {
-                await fetch(`${import.meta.env.VITE_API_BASE?.replace(/\/?$/, '') || 'http://localhost:8787'}/api/provision`, {
-                    method: 'POST',
-                    credentials: 'include',
-                });
-            }
-            catch { }
-            void syncLocalFavoritesToRemote();
+            const sub = subscribeRemote(() => {});
+            onCleanup(() => sub?.unsubscribe?.());
+            void pushToRemoteIfLoggedIn();
         }
     });
 
