@@ -210,7 +210,7 @@ function PokemonGrid(props: { items: Array<{ id: number; name: string; types?: s
 
     return (
         <>
-            <div class="grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5">
+            <div class="grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
                 <For each={visible()}>
                     {(p, i) => (
                         <A href={`/pokemon/${p.id}`} class="block h-full motion-safe:animate-[fade-in-up_0.35s_ease-out] [animation-delay:calc(var(--i)*15ms)]" style={{ '--i': String(i()) }}>
