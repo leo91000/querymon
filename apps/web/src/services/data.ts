@@ -145,7 +145,32 @@ export async function loadAliases(resource: 'pokemon' | 'move' | 'ability' | 'ty
 }
 
 export function formatName(name: string): string {
-    return String(name || '').replace(/[-_]/g, ' ').replace(/\b\w/g, m => m.toUpperCase());
+    const normalized = String(name || '')
+        .replace(/[-_]/g, ' ')
+        .replace(/\s+/g, ' ')
+        .trim();
+    if (!normalized)
+        return '';
+
+    const letter = /\p{L}/u;
+    const whitespace = /\s/;
+    let shouldCapitalize = true;
+    let result = '';
+
+    for (const char of normalized) {
+        if (shouldCapitalize && letter.test(char)) {
+            result += char.toLocaleUpperCase();
+            shouldCapitalize = false;
+        }
+        else {
+            result += char;
+        }
+
+        if (whitespace.test(char))
+            shouldCapitalize = true;
+    }
+
+    return result;
 }
 
 // Convenience loaders for common datasets used across pages
