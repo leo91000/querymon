@@ -24,8 +24,10 @@ export const auth = betterAuth({
     secret: process.env.BETTER_AUTH_SECRET,
     cookies: {
         session: {
-            sameSite: process.env.NODE_ENV === 'production' ? 'none' : 'lax',
-            secure: process.env.NODE_ENV === 'production',
+            // Ensure cross-site cookies work on Vercel (preview/prod)
+            // Vercel sets VERCEL=1; treat as production-like
+            sameSite: (process.env.VERCEL === '1' || process.env.NODE_ENV === 'production') ? 'none' : 'lax',
+            secure: (process.env.VERCEL === '1' || process.env.NODE_ENV === 'production'),
         },
     },
     session: {
