@@ -45,7 +45,7 @@ export const userDataRouter = router({
                         theme: payload.theme,
                         favorites: JSON.stringify(payload.favorites),
                         spritePref: payload.sprite ? JSON.stringify(payload.sprite) : null,
-                        updatedAt: sql`(strftime('%s','now'))`,
+                        updatedAt: sql`now()`,
                     },
                 });
             return payload;

@@ -41,7 +41,7 @@ export const auth = betterAuth({
         },
     },
     database: drizzleAdapter(getRootDb(), {
-        provider: 'sqlite',
+        provider: 'pg',
         usePlural: true,
         schema: { users, sessions, accounts, verifications },
     }),

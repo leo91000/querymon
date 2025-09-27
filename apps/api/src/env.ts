@@ -5,9 +5,19 @@ import 'dotenv/config';
 const EnvSchema = z.object({
     NODE_ENV: z.enum(['development', 'test', 'production']).default('development'),
     PORT: z.coerce.number().int().positive().default(8787),
-    // Turso (libSQL) for production/staging
-    TURSO_DATABASE_URL: z.string().url().optional(),
-    TURSO_AUTH_TOKEN: z.string().optional(),
+    // Database
+    DB_DRIVER: z.enum(['pg', 'neon']).default('pg'),
+    DATABASE_URL: z.string().url(),
+    MIGRATE_ON_BOOT: z.preprocess((v) => {
+        if (typeof v === 'string') {
+            const s = v.trim().toLowerCase();
+            if (s === '1' || s === 'true' || s === 'yes' || s === 'on')
+                return true;
+            if (s === '0' || s === 'false' || s === 'no' || s === 'off')
+                return false;
+        }
+        return v;
+    }, z.boolean().default(false)),
     // Better Auth
     BETTER_AUTH_SECRET: z.string().optional(),
     BETTER_AUTH_URL: z.string().optional(),

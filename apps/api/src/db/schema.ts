@@ -1,8 +1,8 @@
 import { sql } from 'drizzle-orm';
-import { integer, sqliteTable, text } from 'drizzle-orm/sqlite-core';
+import { pgTable, text, timestamp } from 'drizzle-orm/pg-core';
 
 // Single JSON blob per user for app state (lang/theme/favorites)
-export const userData = sqliteTable('user_data', {
+export const userData = pgTable('user_data', {
     userId: text('user_id').primaryKey(),
     // simple strings for lang/theme
     lang: text('lang'), // 'en' | 'fr' | 'jp'
@@ -11,10 +11,12 @@ export const userData = sqliteTable('user_data', {
     favorites: text('favorites_json'),
     // preferred sprite selection as JSON: { gen: string, variant: string }
     spritePref: text('sprite_pref'),
-    updatedAt: integer('updated_at', { mode: 'timestamp' })
+    updatedAt: timestamp('updated_at', { mode: 'date' })
         .notNull()
-        .default(sql`(strftime('%s','now'))`),
+        .default(sql`now()`),
 });
 
 // Include Better Auth tables for migrations
-export * from '../auth/schema.js';
+// eslint-disable-next-line ts/ban-ts-comment
+// @ts-ignore - Extensionless import lets drizzle-kit (CJS) load TS during CLI; app runtime uses compiled JS
+export * from '../auth/schema';

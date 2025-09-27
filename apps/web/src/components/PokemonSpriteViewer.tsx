@@ -1,5 +1,5 @@
 import type { PokemonSprites } from '../types/pokeapi';
-import { createEffect, createMemo, createSignal, For, Show } from 'solid-js';
+import { createEffect, createMemo, createSignal, For, onCleanup, Show } from 'solid-js';
 import { t } from '../i18n';
 import { getLocal, onUserDataUpdate, pushToRemoteIfLoggedIn, setLocal } from '../services/userData';
 import DropdownSelect from './DropdownSelect';
@@ -217,18 +217,21 @@ export default function PokemonSpriteViewer(props: Props) {
     });
 
     // React to external updates (e.g., polling or another tab)
-    createEffect(() => onUserDataUpdate((d) => {
-        if (d.sprite) {
-            const map = variantsByGen();
-            const gen = d.sprite.gen as GenerationSlug;
-            if (map.has(gen)) {
-                const list = map.get(gen)!;
-                const match = list.find(v => v.key === d.sprite!.variant) || list[0];
-                setSelectedGen(gen);
-                setSelectedVariant(match?.key || list[0]?.key || '');
+    createEffect(() => {
+        const map = variantsByGen();
+        const off = onUserDataUpdate((d) => {
+            if (d.sprite) {
+                const gen = d.sprite.gen as GenerationSlug;
+                if (map.has(gen)) {
+                    const list = map.get(gen)!;
+                    const match = list.find(v => v.key === d.sprite!.variant) || list[0];
+                    setSelectedGen(gen);
+                    setSelectedVariant(match?.key || list[0]?.key || '');
+                }
             }
-        }
-    }));
+        });
+        onCleanup(off);
+    });
 
     const currentUrl = createMemo(() => {
         const list = variantsByGen().get(selectedGen());
