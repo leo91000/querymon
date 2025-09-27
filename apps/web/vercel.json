@@ -3,6 +3,8 @@
   "buildCommand": "pnpm build",
   "outputDirectory": "dist",
   "rewrites": [
+    { "source": "/trpc", "destination": "https://querymon-api.vercel.app/trpc" },
+    { "source": "/trpc/:path*", "destination": "https://querymon-api.vercel.app/trpc/:path*" },
     { "source": "/api/:path*", "destination": "https://querymon-api.vercel.app/api/:path*" },
     { "source": "/(.*)", "destination": "/" }
   ],
