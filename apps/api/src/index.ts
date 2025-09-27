@@ -28,7 +28,7 @@ if (env.WEB_ORIGIN)
 app.use('*', cors({
     origin: (origin) => {
         if (!origin)
-            return 'http://localhost:5173';
+            return '';
         if (allowlist.has(origin))
             return origin;
         // Allow Vercel preview deployments by reflecting their origin
