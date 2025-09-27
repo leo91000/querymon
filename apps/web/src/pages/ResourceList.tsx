@@ -1,6 +1,5 @@
 import type { ResourceName } from '../services/data';
 import type { Pokemon, PokemonType } from '../types/pokemon';
-import { createAutoAnimate } from '@formkit/auto-animate/solid';
 import { A } from '@solidjs/router';
 import { createEffect, createMemo, createResource, createSignal, For, onCleanup, onMount, Show } from 'solid-js';
 import Card from '../components/Card';
@@ -18,8 +17,6 @@ export default function ResourceList(props: { resource: ResourceName }) {
         key => loadList(key.res as ResourceName),
     );
     const [favorites, setFavorites] = createSignal<number[]>(getLocal().favorites || []);
-    // Auto‑animate favorites list container
-    const [favParent] = createAutoAnimate();
     onMount(() => {
         const off = onUserDataUpdate(d => setFavorites(d.favorites || []));
         onCleanup(() => off());
@@ -67,7 +64,7 @@ export default function ResourceList(props: { resource: ResourceName }) {
                         <h3 class="text-sm font-semibold tracking-wide text-gray-500">{t('pokemon.favorites') || 'Favorites'}</h3>
                         <span class="text-xs text-gray-400">{favorites().length}</span>
                     </div>
-                    <div class="flex flex-wrap gap-3 px-0 py-1 overflow-visible" ref={favParent}>
+                    <div class="flex flex-wrap gap-3 px-0 py-1 overflow-visible">
                         <For each={(items() || []).filter(it => favorites().includes(it.id))}>
                             {p => (
                                 <A
