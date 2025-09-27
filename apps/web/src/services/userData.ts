@@ -1,5 +1,6 @@
 import type { AppRouter } from '../../../api/src/trpc/router';
 import { createTRPCProxyClient, httpBatchLink } from '@trpc/client';
+import { getApiBase } from './apiBase';
 
 export type Lang = 'en' | 'fr' | 'jp';
 export type Theme = 'system' | 'light' | 'dark';
@@ -43,8 +44,7 @@ export function updateLocal(partial: Partial<UserData>): UserData {
 }
 
 function createClient() {
-    const base = (import.meta.env.VITE_API_BASE?.replace(/\/?$/, '')
-        || (typeof window !== 'undefined' ? window.location.origin : ''));
+    const base = getApiBase() || (typeof window !== 'undefined' ? window.location.origin : '');
     const http = httpBatchLink({
         url: `${base}/trpc`,
         fetch(url, opts) {

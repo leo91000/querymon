@@ -4,6 +4,7 @@ import MainLayout from './layouts/MainLayout';
 import Home from './pages/Home';
 import ResourceDetail from './pages/ResourceDetail';
 import ResourceList from './pages/ResourceList';
+import ShinyHunt from './pages/ShinyHunt';
 
 const App: Component = () => {
     return (
@@ -19,6 +20,7 @@ const App: Component = () => {
                 <Route path="ability/:id" component={() => <ResourceDetail resource="ability" />} />
                 <Route path="type" component={() => <ResourceList resource="type" />} />
                 <Route path="type/:id" component={() => <ResourceDetail resource="type" />} />
+                <Route path="shiny-hunt" component={ShinyHunt} />
             </Route>
         </>
     );
