@@ -16,7 +16,5 @@ export const userData = pgTable('user_data', {
         .default(sql`now()`),
 });
 
-// Include Better Auth tables for migrations
-// eslint-disable-next-line ts/ban-ts-comment
-// @ts-ignore - Extensionless import lets drizzle-kit (CJS) load TS during CLI; app runtime uses compiled JS
-export * from '../auth/schema';
+// Include Better Auth tables for runtime (ESM). Use .js extension so Node can resolve compiled file.
+export * from '../auth/schema.js';
