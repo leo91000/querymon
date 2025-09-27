@@ -43,7 +43,8 @@ export function updateLocal(partial: Partial<UserData>): UserData {
 }
 
 function createClient() {
-    const base = (import.meta.env.VITE_API_BASE?.replace(/\/?$/, '') || 'http://localhost:8787');
+    const base = (import.meta.env.VITE_API_BASE?.replace(/\/?$/, '')
+        || (typeof window !== 'undefined' ? window.location.origin : ''));
     const http = httpBatchLink({
         url: `${base}/trpc`,
         fetch(url, opts) {
