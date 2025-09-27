@@ -36,6 +36,15 @@ export default function Home() {
                     )}
                 </For>
             </div>
+            <A href="/shiny-hunt">
+                <Card class="flex items-center justify-between gap-4 bg-gradient-to-r from-amber-100 via-orange-100 to-rose-100 p-5 transition hover:-translate-y-0.5 hover:shadow-lg dark:from-amber-900/40 dark:via-orange-900/40 dark:to-rose-900/40">
+                    <div>
+                        <div class="text-xs font-semibold uppercase tracking-wide text-amber-600 dark:text-amber-300">{t('shinyHunt.title') || 'Shiny Hunt Tracker'}</div>
+                        <p class="mt-1 max-w-xl text-sm text-gray-700 dark:text-gray-200">{t('shinyHunt.subtitle') || 'Plan your shiny hunts, count encounters, and celebrate your catches.'}</p>
+                    </div>
+                    <span class="icon-[ph--sparkle] text-3xl text-amber-500 drop-shadow" aria-hidden="true" />
+                </Card>
+            </A>
         </div>
     );
 }

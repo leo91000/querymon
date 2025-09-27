@@ -1,11 +1,12 @@
 import { createAuthClient } from 'better-auth/client';
+import { getApiBase } from './apiBase';
 
-// Point the client at the API auth routes (same-origin by default; Vercel rewrites /api/* to the API)
-const apiBase = (import.meta.env.VITE_API_BASE?.replace(/\/?$/, '')
-    || (typeof window !== 'undefined' ? window.location.origin : ''));
+// Point the client at the API auth routes (defaults to local API during dev, falls back to same-origin elsewhere)
+const apiBase = getApiBase();
+const resolvedBase = apiBase || (typeof window !== 'undefined' ? window.location.origin : '');
 
 export const authClient = createAuthClient({
-    baseURL: `${apiBase}/api/auth`,
+    baseURL: `${resolvedBase}/api/auth`,
     fetchOptions: { credentials: 'include' },
 });
 
