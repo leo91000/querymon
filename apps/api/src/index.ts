@@ -29,7 +29,17 @@ app.use('*', cors({
     origin: (origin) => {
         if (!origin)
             return 'http://localhost:5173';
-        return allowlist.has(origin) ? origin : '';
+        if (allowlist.has(origin))
+            return origin;
+        // Allow Vercel preview deployments by reflecting their origin
+        // so credentialed requests succeed (Access-Control-Allow-Origin cannot be '*').
+        try {
+            const u = new URL(origin);
+            if (u.protocol === 'https:' && u.hostname.endsWith('.vercel.app'))
+                return origin;
+        }
+        catch {}
+        return '';
     },
     credentials: true,
     allowHeaders: ['Content-Type', 'Authorization', 'trpc-accept'],
