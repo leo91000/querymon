@@ -166,44 +166,44 @@ export default function PokemonDetail(props: { id: number }) {
         const source = details[0] || {};
         const labels: string[] = [];
         if (source.min_level != null) {
-            labels.push(fmt(t('evolution.level'), { level: source.min_level }));
+            labels.push(t('evolution.level', { level: source.min_level }));
         }
         if (source.trigger?.name === 'trade') {
             labels.push(t('evolution.trade'));
         }
         if (source.item?.name) {
-            labels.push(fmt(t('evolution.item'), { item: formatName(source.item.name) }));
+            labels.push(t('evolution.item', { item: formatName(source.item.name) }));
         }
         if (source.held_item?.name) {
-            labels.push(fmt(t('evolution.heldItem'), { item: formatName(source.held_item.name) }));
+            labels.push(t('evolution.heldItem', { item: formatName(source.held_item.name) }));
         }
         if (source.time_of_day) {
-            labels.push(fmt(t('evolution.time'), { time: formatName(source.time_of_day) }));
+            labels.push(t('evolution.time', { time: formatName(source.time_of_day) }));
         }
         if (source.location?.name) {
-            labels.push(fmt(t('evolution.location'), { location: formatName(source.location.name) }));
+            labels.push(t('evolution.location', { location: formatName(source.location.name) }));
         }
         if (source.min_happiness != null) {
-            labels.push(fmt(t('evolution.happiness'), { value: source.min_happiness }));
+            labels.push(t('evolution.happiness', { value: source.min_happiness }));
         }
         if (source.min_affection != null) {
-            labels.push(fmt(t('evolution.affection'), { value: source.min_affection }));
+            labels.push(t('evolution.affection', { value: source.min_affection }));
         }
         if (source.min_beauty != null) {
-            labels.push(fmt(t('evolution.beauty'), { value: source.min_beauty }));
+            labels.push(t('evolution.beauty', { value: source.min_beauty }));
         }
         if (source.gender === 1)
             labels.push(t('evolution.genderFemale'));
         if (source.gender === 2)
             labels.push(t('evolution.genderMale'));
         if (source.known_move?.name) {
-            labels.push(fmt(t('evolution.move'), { move: formatName(source.known_move.name) }));
+            labels.push(t('evolution.move', { move: formatName(source.known_move.name) }));
         }
         if (source.known_move_type?.name) {
-            labels.push(fmt(t('evolution.moveType'), { type: formatName(source.known_move_type.name) }));
+            labels.push(t('evolution.moveType', { type: formatName(source.known_move_type.name) }));
         }
         if (source.trade_species?.name) {
-            labels.push(fmt(t('evolution.tradeFor'), { pokemon: formatName(source.trade_species.name) }));
+            labels.push(t('evolution.tradeFor', { pokemon: formatName(source.trade_species.name) }));
         }
         if (source.needs_overworld_rain) {
             labels.push(t('evolution.rain'));
@@ -483,7 +483,7 @@ export default function PokemonDetail(props: { id: number }) {
                                         const totalIn = Math.round((hdm / 10) / 0.0254);
                                         const ft = Math.floor(totalIn / 12);
                                         const inches = totalIn - ft * 12;
-                                        return fmt(t('pokemon.heightWithImperial'), { m, ft, in: inches });
+                                        return t('pokemon.heightWithImperial', { m, ft, in: inches });
                                     })()}
                                 </div>
                             </div>
@@ -494,7 +494,7 @@ export default function PokemonDetail(props: { id: number }) {
                                         const hg = pokemon()?.weight ?? 0;
                                         const kg = (hg / 10).toFixed(1);
                                         const lb = (Number.parseFloat(kg) * 2.20462).toFixed(1);
-                                        return fmt(t('pokemon.weightWithImperial'), { kg, lb });
+                                        return t('pokemon.weightWithImperial', { kg, lb });
                                     })()}
                                 </div>
                             </div>
@@ -580,7 +580,7 @@ export default function PokemonDetail(props: { id: number }) {
                                         <div class="flex items-center gap-6">
                                             <div class="flex min-w-[180px] flex-col items-center gap-4">
                                                 <div class="text-xs uppercase tracking-wide text-gray-400 dark:text-gray-500">
-                                                    {fmt(t('pokemon.evolutionStage'), { stage: idx() + 1 })}
+                                                    {t('pokemon.evolutionStage', { stage: idx() + 1 })}
                                                 </div>
                                                 <div class="flex flex-col items-center gap-4">
                                                     <For each={stage}>
@@ -640,7 +640,4 @@ export default function PokemonDetail(props: { id: number }) {
             </Show>
         </div>
     );
-}
-function fmt(tpl: string, params: Record<string, string | number>): string {
-    return String(tpl).replace(/\{(\w+)\}/g, (_, k) => (params[k] != null ? String(params[k]) : `{${k}}`));
 }

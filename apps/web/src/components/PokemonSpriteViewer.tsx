@@ -50,8 +50,7 @@ function genLabel(slug: GenerationSlug) {
     if (slug === 'modern')
         return 'Modern';
     const roman = GEN_ROMAN[slug as Exclude<GenerationSlug, 'modern'>];
-    const tmpl = t('learnset.genShort');
-    return typeof tmpl === 'string' && tmpl.includes('{roman}') ? tmpl.replace('{roman}', roman) : `Gen ${roman}`;
+    return t('learnset.genShort', { roman });
 }
 
 interface Variant { key: string; label: string; url: string }
