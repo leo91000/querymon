@@ -249,11 +249,15 @@ interface ShinyHuntCardProps {
 
 function ShinyHuntCard(props: ShinyHuntCardProps) {
     const [detail] = createResource(
-        () => props.entry.pokemonId,
-        id => loadItemById<PokemonDetailData>('pokemon' as ResourceName, id),
+        () => ({ id: props.entry.pokemonId, locale: getLocale() }),
+        ({ id }) => loadItemById<PokemonDetailData>('pokemon' as ResourceName, id),
     );
 
     const locale = createMemo(() => getLocale());
+
+    const pokemonName = createMemo(() => {
+        return formatName(detail()?.name || '');
+    });
 
     const spriteOptions = createMemo(() => {
         locale();
@@ -317,7 +321,7 @@ function ShinyHuntCard(props: ShinyHuntCardProps) {
                     <div class="relative">
                         <img
                             src={displayUrl() || props.entry.spriteUrl || 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/0.png'}
-                            alt={formatName(props.entry.pokemonName)}
+                            alt={pokemonName()}
                             width={120}
                             height={120}
                             class="h-28 w-28 rounded-xl bg-gray-100 object-contain ring-1 ring-gray-200 dark:bg-gray-900 dark:ring-gray-700"
@@ -337,7 +341,7 @@ function ShinyHuntCard(props: ShinyHuntCardProps) {
                 <div class="flex-1 space-y-4">
                     <div class="flex flex-col gap-2 md:flex-row md:items-start md:justify-between">
                         <div>
-                            <h3 class="text-lg font-semibold text-gray-900 dark:text-gray-100">{formatName(props.entry.pokemonName)}</h3>
+                            <h3 class="text-lg font-semibold text-gray-900 dark:text-gray-100">{pokemonName()}</h3>
                             <Show when={selectedOption()}>
                                 {opt => (
                                     <p class="text-sm text-gray-500 dark:text-gray-400">{opt().label}</p>
@@ -532,7 +536,7 @@ export default function ShinyHunt() {
 
     function addPokemon(item: ListItem) {
         const sprite = String((item as Record<string, unknown>).sprite || '') || null;
-        const base = createHuntBase(item.id, String(item.name || ''), sprite);
+        const base = createHuntBase(item.id, sprite);
         commit(current => [...current, base]);
     }
 

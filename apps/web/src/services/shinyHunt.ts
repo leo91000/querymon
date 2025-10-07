@@ -3,7 +3,6 @@ export type ShinyHuntStatus = 'active' | 'completed';
 export interface ShinyHuntEntry {
     id: string;
     pokemonId: number;
-    pokemonName: string;
     startDate: string;
     encounterCount: number;
     status: ShinyHuntStatus;
@@ -49,9 +48,6 @@ function parse(raw: unknown): ShinyHuntEntry[] {
         const pokemonId = Number((item as any).pokemonId);
         if (!Number.isInteger(pokemonId) || pokemonId <= 0)
             continue;
-        const pokemonName = String((item as any).pokemonName || '');
-        if (!pokemonName)
-            continue;
         const startDate = typeof (item as any).startDate === 'string' ? (item as any).startDate : new Date().toISOString().slice(0, 10);
         const encounterCountRaw = Number((item as any).encounterCount);
         const encounterCount = Number.isFinite(encounterCountRaw) && encounterCountRaw >= 0 ? Math.floor(encounterCountRaw) : 0;
@@ -61,7 +57,7 @@ function parse(raw: unknown): ShinyHuntEntry[] {
         const caughtEncountersRaw = Number((item as any).caughtEncounters);
         const caughtEncounters = Number.isFinite(caughtEncountersRaw) && caughtEncountersRaw >= 0 ? Math.floor(caughtEncountersRaw) : undefined;
         const spriteUrl = typeof (item as any).spriteUrl === 'string' ? (item as any).spriteUrl : null;
-        out.push({ id, pokemonId, pokemonName, startDate, encounterCount, status, selectedSpriteId, completedAt, caughtEncounters, spriteUrl });
+        out.push({ id, pokemonId, startDate, encounterCount, status, selectedSpriteId, completedAt, caughtEncounters, spriteUrl });
     }
     return out;
 }
@@ -108,11 +104,10 @@ export function onHuntsUpdate(fn: (entries: ShinyHuntEntry[]) => void): () => vo
     return () => window.removeEventListener(EVENT, handler);
 }
 
-export function createHuntBase(pokemonId: number, pokemonName: string, spriteUrl?: string | null): ShinyHuntEntry {
+export function createHuntBase(pokemonId: number, spriteUrl?: string | null): ShinyHuntEntry {
     return {
         id: newId(),
         pokemonId,
-        pokemonName,
         startDate: new Date().toISOString().slice(0, 10),
         encounterCount: 0,
         status: 'active',
