@@ -81,10 +81,7 @@ function normalizeText(value: string): string {
 function generationLabel(gen: string): string {
     if ((gen as GenerationSlug) in GENERATION_ROMAN) {
         const roman = GENERATION_ROMAN[gen as GenerationSlug];
-        const tmpl = t('learnset.genShort');
-        if (typeof tmpl === 'string' && tmpl.includes('{roman}'))
-            return tmpl.replace('{roman}', roman);
-        return `Gen ${roman}`;
+        return t('learnset.genShort', { roman });
     }
     return formatName(gen.replace(/-/g, ' '));
 }

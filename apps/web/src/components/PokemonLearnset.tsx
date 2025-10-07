@@ -392,8 +392,7 @@ export default function PokemonLearnset(props: PokemonLearnsetProps) {
                                 >
                                     {(() => {
                                         const roman = GEN_ROMAN[section.generation];
-                                        const tmpl = t('learnset.genShort' as any) as unknown as string;
-                                        return typeof tmpl === 'string' && tmpl.includes('{roman}') ? tmpl.replace('{roman}', roman) : `Gen ${roman}`;
+                                        return t('learnset.genShort', { roman });
                                     })()}
                                     <span
                                         aria-hidden="true"

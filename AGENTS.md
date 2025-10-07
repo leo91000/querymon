@@ -127,6 +127,10 @@ This file guides agents and contributors working in this repository. It applies 
   - Order: localStorage → navigator (`fr*`→`fr`, `ja*`→`jp`) → fallback `en`.
   - Updates `<html lang>`.
 - Use `t('key')` everywhere for strings; templates like `t('list.filter', { name: 'Pokémon' })`.
+- **Important**: Placeholders in JSON files must use **double braces** `{{placeholder}}`, not single braces:
+  - ✅ Correct: `"list.filter": "Filter {{name}}…"`
+  - ❌ Wrong: `"list.filter": "Filter {name}…"`
+  - Code usage: `t('list.filter', { name: 'Pokémon' })` → renders "Filter Pokémon…"
 - Language switcher: `apps/web/src/components/LanguageSwitcher.tsx`.
   - To add languages: add `public/locales/<code>/common.json` and update switcher options.
 - For localized content from PokeAPI, prefer localized fields (future work in scraper/indexer).

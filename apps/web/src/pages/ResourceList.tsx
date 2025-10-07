@@ -103,11 +103,8 @@ export default function ResourceList(props: { resource: ResourceName }) {
                 <h2 class="text-xl font-semibold">{resourceLabel(props.resource)}</h2>
                 <div class="w-72">
                     {(() => {
-                        const ph = (() => {
-                            const base = t('list.filter') as unknown as string;
-                            const name = resourceLabel(props.resource);
-                            return typeof base === 'string' ? base.replace('{name}', name) : name;
-                        })();
+                        const name = resourceLabel(props.resource);
+                        const ph = t('list.filter', { name });
                         return (
                             <Input
                                 id="filter"
