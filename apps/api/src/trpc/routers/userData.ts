@@ -11,6 +11,7 @@ export interface UserData {
     theme: 'system' | 'light' | 'dark';
     favorites: number[];
     sprite?: SpritePref;
+    shinyCustomDelta?: number;
 }
 
 const DefaultData: UserData = { lang: 'en', theme: 'system', favorites: [] };
@@ -30,14 +31,15 @@ export const userDataRouter = router({
             theme: z.enum(['system', 'light', 'dark']),
             favorites: z.array(z.number().int().positive()),
             sprite: z.object({ gen: z.string(), variant: z.string() }).optional(),
+            shinyCustomDelta: z.number().int().positive().optional(),
         }))
         .mutation(async ({ ctx, input }) => {
             const uid = requireUser(ctx);
-            const payload: UserData = { lang: input.lang, theme: input.theme, favorites: input.favorites, sprite: input.sprite };
+            const payload: UserData = { lang: input.lang, theme: input.theme, favorites: input.favorites, sprite: input.sprite, shinyCustomDelta: input.shinyCustomDelta };
             // upsert via Drizzle
             await ctx.rootDb
                 .insert(userData)
-                .values({ userId: uid, lang: payload.lang, theme: payload.theme, favorites: JSON.stringify(payload.favorites), spritePref: payload.sprite ? JSON.stringify(payload.sprite) : null })
+                .values({ userId: uid, lang: payload.lang, theme: payload.theme, favorites: JSON.stringify(payload.favorites), spritePref: payload.sprite ? JSON.stringify(payload.sprite) : null, shinyCustomDelta: payload.shinyCustomDelta ?? null })
                 .onConflictDoUpdate({
                     target: userData.userId,
                     set: {
@@ -45,6 +47,7 @@ export const userDataRouter = router({
                         theme: payload.theme,
                         favorites: JSON.stringify(payload.favorites),
                         spritePref: payload.sprite ? JSON.stringify(payload.sprite) : null,
+                        shinyCustomDelta: payload.shinyCustomDelta ?? null,
                         updatedAt: sql`now()`,
                     },
                 });
@@ -61,7 +64,7 @@ function requireUser(ctx: Context): string {
     return id;
 }
 
-function normalizeRow(row: { lang: string | null; theme: string | null; favorites: string | null; spritePref?: string | null } & { [k: string]: any }): UserData {
+function normalizeRow(row: { lang: string | null; theme: string | null; favorites: string | null; spritePref?: string | null; shinyCustomDelta?: number | null } & { [k: string]: any }): UserData {
     let fav: number[] = [];
     try {
         fav = row.favorites ? JSON.parse(row.favorites) : [];
@@ -81,5 +84,6 @@ function normalizeRow(row: { lang: string | null; theme: string | null; favorite
     catch {}
     const lang = (row.lang === 'en' || row.lang === 'fr' || row.lang === 'jp') ? row.lang : 'en';
     const theme = (row.theme === 'system' || row.theme === 'light' || row.theme === 'dark') ? row.theme : 'system';
-    return { lang, theme, favorites: Array.isArray(fav) ? fav.filter(n => Number.isInteger(n) && n > 0) : [], sprite };
+    const shinyCustomDelta = (typeof row.shinyCustomDelta === 'number' && row.shinyCustomDelta > 0) ? row.shinyCustomDelta : undefined;
+    return { lang, theme, favorites: Array.isArray(fav) ? fav.filter(n => Number.isInteger(n) && n > 0) : [], sprite, shinyCustomDelta };
 }

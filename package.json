@@ -3,6 +3,7 @@
   "version": "0.0.0",
   "description": "",
   "type": "module",
+  "packageManager": "pnpm@10.18.2",
   "scripts": {
     "scrape": "node scripts/scrape.mjs",
     "dev:web": "concurrently -k -n API,WEB -c blue,green \"pnpm --filter @querymon/api dev\" \"pnpm --filter @querymon/web dev\"",
@@ -21,30 +22,38 @@
   "license": "MIT",
   "private": true,
   "dependencies": {
-    "@hono/node-server": "^1.19.4",
+    "@hono/node-server": "^1.19.5",
     "@hono/trpc-server": "^0.4.0",
     "@trpc/client": "^11.6.0",
     "@trpc/server": "^11.6.0",
     "@types/lodash-es": "^4.17.12",
-    "dotenv": "^17.2.2",
-    "drizzle-orm": "^0.44.5",
-    "hono": "^4.9.9",
+    "dotenv": "^17.2.3",
+    "drizzle-orm": "^0.44.6",
+    "hono": "^4.9.10",
     "lodash-es": "^4.17.21",
     "ws": "^8.18.3",
-    "zod": "^4.1.11"
+    "zod": "^4.1.12"
   },
   "devDependencies": {
     "@antfu/eslint-config": "^5.4.1",
-    "@better-auth/cli": "^1.3.18",
-    "@types/node": "^24.5.2",
+    "@better-auth/cli": "^1.3.27",
+    "@types/node": "^24.7.1",
     "concurrently": "^9.2.1",
     "drizzle-kit": "^0.31.5",
-    "eslint": "^9.36.0",
+    "eslint": "^9.37.0",
     "eslint-plugin-solid": "^0.14.5",
     "tsx": "^4.20.6",
-    "typescript": "^5.9.2"
+    "typescript": "^5.9.3"
   },
   "pnpm": {
-    "overrides": {}
+    "overrides": {},
+    "onlyBuiltDependencies": [
+      "@prisma/client",
+      "@prisma/engines",
+      "@tailwindcss/oxide",
+      "better-sqlite3",
+      "esbuild",
+      "prisma"
+    ]
   }
 }

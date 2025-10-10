@@ -1,15 +1,17 @@
-import type { ListItem, PokemonDetailData, PokemonSprites } from '../types/pokeapi';
 import type { ResourceName } from '../services/data';
+import type { ShinyHuntEntry } from '../services/shinyHunt';
+import type { ListItem, PokemonDetailData, PokemonSprites } from '../types/pokeapi';
 import { A } from '@solidjs/router';
-import { createEffect, createMemo, createResource, createSignal, For, Show, onCleanup, onMount } from 'solid-js';
+import { createEffect, createMemo, createResource, createSignal, For, onCleanup, onMount, Show } from 'solid-js';
 import Button from '../components/Button';
 import Card from '../components/Card';
 import Input from '../components/Input';
+import ResourceTabs from '../components/ResourceTabs';
 import Select from '../components/Select';
 import { getLocale, t } from '../i18n';
 import { formatName, loadItemById, loadList } from '../services/data';
-import { createHuntBase, loadHunts, onHuntsUpdate, saveHunts, type ShinyHuntEntry } from '../services/shinyHunt';
-import ResourceTabs from '../components/ResourceTabs';
+import { createHuntBase, loadHunts, onHuntsUpdate, saveHunts } from '../services/shinyHunt';
+import { getLocal, onUserDataUpdate, pushToRemoteIfLoggedIn, updateLocal } from '../services/userData';
 
 interface SpriteOption {
     id: string;
@@ -218,10 +220,10 @@ function buildSpriteOptions(sprites: PokemonSprites | undefined): SpriteOption[]
     }
 
     generationOptions.sort((a, b) => {
-        const rankA = a.generation && (GENERATION_ORDER.indexOf(a.generation as GenerationSlug) >= 0)
+        const rankA = a.generation && (GENERATION_ORDER.includes(a.generation as GenerationSlug))
             ? GENERATION_ORDER.indexOf(a.generation as GenerationSlug)
             : GENERATION_ORDER.length + 1;
-        const rankB = b.generation && (GENERATION_ORDER.indexOf(b.generation as GenerationSlug) >= 0)
+        const rankB = b.generation && (GENERATION_ORDER.includes(b.generation as GenerationSlug))
             ? GENERATION_ORDER.indexOf(b.generation as GenerationSlug)
             : GENERATION_ORDER.length + 1;
         if (rankA !== rankB)
@@ -305,14 +307,49 @@ function ShinyHuntCard(props: ShinyHuntCardProps) {
     });
 
     const buttons = [
-        { label: '-10', delta: -10 },
+        { label: '-5', delta: -5 },
+        { label: '-2', delta: -2 },
         { label: '-1', delta: -1 },
         { label: '+1', delta: 1 },
-        { label: '+10', delta: 10 },
-        { label: '+50', delta: 50 },
+        { label: '+2', delta: 2 },
+        { label: '+5', delta: 5 },
     ];
 
+    const [showCustomInput, setShowCustomInput] = createSignal(false);
+    const [customValue, setCustomValue] = createSignal('');
+
+    // Load custom delta from userData or default to 10
+    const loadCustomDelta = () => {
+        const userData = getLocal();
+        return userData.shinyCustomDelta ?? 10;
+    };
+
+    const [customDelta, setCustomDelta] = createSignal(loadCustomDelta());
+
+    // Listen to userData changes to sync customDelta across devices
+    onMount(() => {
+        const off = onUserDataUpdate((data) => {
+            if (data.shinyCustomDelta !== undefined) {
+                setCustomDelta(data.shinyCustomDelta);
+            }
+        });
+        onCleanup(() => off());
+    });
+
     const disableControls = () => props.entry.status === 'completed';
+
+    function handleCustomSubmit() {
+        const val = Number(customValue());
+        if (Number.isFinite(val) && val !== 0) {
+            const newDelta = Math.abs(Math.floor(val));
+            setCustomDelta(newDelta);
+            // Save to userData and sync
+            updateLocal({ shinyCustomDelta: newDelta });
+            void pushToRemoteIfLoggedIn();
+            setCustomValue('');
+            setShowCustomInput(false);
+        }
+    }
 
     return (
         <Card class="p-5">
@@ -335,7 +372,8 @@ function ShinyHuntCard(props: ShinyHuntCardProps) {
                         </Show>
                     </div>
                     <div class="text-center text-xs text-gray-500 dark:text-gray-400">
-                        #{props.entry.pokemonId.toString().padStart(3, '0')}
+                        #
+                        {props.entry.pokemonId.toString().padStart(3, '0')}
                     </div>
                 </div>
                 <div class="flex-1 space-y-4">
@@ -379,7 +417,7 @@ function ShinyHuntCard(props: ShinyHuntCardProps) {
                             label={translateWithFallback('shinyHunt.gameLabel', 'Game / Sprite')}
                             disabled={spriteOptions().length === 0 || disableControls()}
                             value={selectedOption()?.id || ''}
-                            onChange={event => {
+                            onChange={(event) => {
                                 const opts = spriteOptions();
                                 const next = opts.find(opt => opt.id === event.currentTarget.value);
                                 if (next)
@@ -404,7 +442,7 @@ function ShinyHuntCard(props: ShinyHuntCardProps) {
                                     class="h-10 w-full flex-1 rounded-md border border-gray-300 bg-white px-3 text-sm text-gray-900 shadow-sm outline-none transition focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20 dark:border-gray-700 dark:bg-gray-900 dark:text-gray-100"
                                     value={props.entry.encounterCount}
                                     disabled={disableControls()}
-                                    onInput={event => {
+                                    onInput={(event) => {
                                         const value = Number(event.currentTarget.value);
                                         if (Number.isFinite(value))
                                             props.onEncounterSet(props.entry.id, Math.max(0, Math.floor(value)));
@@ -413,7 +451,7 @@ function ShinyHuntCard(props: ShinyHuntCardProps) {
                             </div>
                         </div>
                     </div>
-                    <div class="flex flex-wrap gap-2">
+                    <div class="flex flex-wrap items-center gap-2">
                         <For each={buttons}>
                             {btn => (
                                 <Button
@@ -427,6 +465,74 @@ function ShinyHuntCard(props: ShinyHuntCardProps) {
                                 </Button>
                             )}
                         </For>
+                        <Show
+                            when={showCustomInput()}
+                            fallback={(
+                                <div class="relative">
+                                    <Button
+                                        type="button"
+                                        variant="secondary"
+                                        size="sm"
+                                        disabled={disableControls()}
+                                        onClick={() => props.onEncounterDelta(props.entry.id, customDelta())}
+                                    >
+                                        +
+                                        {customDelta()}
+                                    </Button>
+                                    <button
+                                        type="button"
+                                        class="absolute -bottom-1 -right-1 flex h-4 w-4 items-center justify-center rounded-full bg-blue-500 text-white shadow-sm transition hover:cursor-pointer hover:bg-blue-600 disabled:opacity-50"
+                                        disabled={disableControls()}
+                                        onClick={(e) => {
+                                            e.stopPropagation();
+                                            setShowCustomInput(true);
+                                        }}
+                                        title="Customize increment value"
+                                    >
+                                        <span class="icon-[ph--pencil-simple] text-[10px]" aria-hidden="true" />
+                                    </button>
+                                </div>
+                            )}
+                        >
+                            <div class="flex items-center gap-1">
+                                <input
+                                    type="number"
+                                    min="1"
+                                    placeholder="10"
+                                    class="h-8 w-20 rounded-md border border-gray-300 bg-white px-2 text-sm text-gray-900 shadow-sm outline-none transition focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20 dark:border-gray-700 dark:bg-gray-900 dark:text-gray-100"
+                                    value={customValue()}
+                                    onInput={e => setCustomValue(e.currentTarget.value)}
+                                    onKeyDown={(e) => {
+                                        if (e.key === 'Enter') {
+                                            handleCustomSubmit();
+                                        }
+                                        else if (e.key === 'Escape') {
+                                            setCustomValue('');
+                                            setShowCustomInput(false);
+                                        }
+                                    }}
+                                />
+                                <Button
+                                    type="button"
+                                    variant="secondary"
+                                    size="sm"
+                                    onClick={handleCustomSubmit}
+                                >
+                                    ✓
+                                </Button>
+                                <Button
+                                    type="button"
+                                    variant="ghost"
+                                    size="sm"
+                                    onClick={() => {
+                                        setCustomValue('');
+                                        setShowCustomInput(false);
+                                    }}
+                                >
+                                    ✕
+                                </Button>
+                            </div>
+                        </Show>
                     </div>
                     <Show when={props.entry.status === 'active'}>
                         <Button
@@ -553,7 +659,7 @@ export default function ShinyHunt() {
     }
 
     function changeEncounters(id: string, delta: number) {
-        commit(current => current.map(entry => {
+        commit(current => current.map((entry) => {
             if (entry.id !== id)
                 return entry;
             const next = Math.max(0, entry.encounterCount + delta);
@@ -567,7 +673,7 @@ export default function ShinyHunt() {
 
     function completeHunt(id: string, option: SpriteOption | undefined) {
         const stamp = new Date().toISOString();
-        commit(current => current.map(entry => {
+        commit(current => current.map((entry) => {
             if (entry.id !== id)
                 return entry;
             return {
@@ -608,7 +714,7 @@ export default function ShinyHunt() {
                 <Show when={filteredPokemon().length} fallback={<div class="rounded-lg bg-gray-50 p-4 text-sm text-gray-500 dark:bg-gray-900 dark:text-gray-400">{labels().noMatches}</div>}>
                     <div class="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
                         <For each={filteredPokemon()}>
-                            {item => {
+                            {(item) => {
                                 const sprite = String((item as Record<string, unknown>).sprite || '') || '';
                                 const nameLabel = formatName(String(item.name || ''));
                                 const already = activeIds().has(item.id);
@@ -625,7 +731,10 @@ export default function ShinyHunt() {
                                             />
                                             <div>
                                                 <div class="text-sm font-semibold text-gray-900 dark:text-gray-100">{nameLabel}</div>
-                                                <div class="text-xs text-gray-500 dark:text-gray-400">#{item.id.toString().padStart(3, '0')}</div>
+                                                <div class="text-xs text-gray-500 dark:text-gray-400">
+                                                    #
+                                                    {item.id.toString().padStart(3, '0')}
+                                                </div>
                                             </div>
                                         </div>
                                         <Button

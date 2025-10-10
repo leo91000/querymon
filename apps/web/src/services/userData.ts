@@ -5,7 +5,7 @@ import { getApiBase } from './apiBase';
 export type Lang = 'en' | 'fr' | 'jp';
 export type Theme = 'system' | 'light' | 'dark';
 export interface SpritePref { gen: string; variant: string }
-export interface UserData { lang: Lang; theme: Theme; favorites: number[]; sprite?: SpritePref }
+export interface UserData { lang: Lang; theme: Theme; favorites: number[]; sprite?: SpritePref; shinyCustomDelta?: number }
 
 const KEY = 'userData';
 
@@ -21,7 +21,10 @@ export function getLocal(): UserData {
         const sprite: SpritePref | undefined = (parsed.sprite && typeof parsed.sprite === 'object' && typeof parsed.sprite.gen === 'string' && typeof parsed.sprite.variant === 'string')
             ? { gen: parsed.sprite.gen, variant: parsed.sprite.variant }
             : undefined;
-        return { lang, theme, favorites, sprite };
+        const shinyCustomDelta: number | undefined = (typeof parsed.shinyCustomDelta === 'number' && parsed.shinyCustomDelta > 0)
+            ? Math.floor(parsed.shinyCustomDelta)
+            : undefined;
+        return { lang, theme, favorites, sprite, shinyCustomDelta };
     }
     catch {
         return { lang: 'en', theme: 'system', favorites: [] };

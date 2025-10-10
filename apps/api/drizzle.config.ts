@@ -7,7 +7,7 @@ import { defineConfig } from 'drizzle-kit';
 const DATABASE_URL = process.env.DATABASE_URL || 'postgres://postgres:postgres@localhost:5432/querymon';
 
 export default defineConfig({
-    schema: './src/db/schema.cli.ts',
+    schema: './src/db/schema.ts',
     out: './drizzle',
     dialect: 'postgresql',
     dbCredentials: { url: DATABASE_URL },
