@@ -1,6 +1,6 @@
 import type { ResourceName } from '../services/data';
 import { A } from '@solidjs/router';
-import { For, createMemo } from 'solid-js';
+import { createMemo, For } from 'solid-js';
 import { getLocale, t } from '../i18n';
 
 type TabKey = ResourceName | 'shiny-hunt';

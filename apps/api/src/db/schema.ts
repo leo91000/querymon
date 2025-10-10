@@ -1,5 +1,5 @@
 import { sql } from 'drizzle-orm';
-import { pgTable, text, timestamp } from 'drizzle-orm/pg-core';
+import { integer, pgTable, text, timestamp } from 'drizzle-orm/pg-core';
 
 // Single JSON blob per user for app state (lang/theme/favorites)
 export const userData = pgTable('user_data', {
@@ -11,10 +11,12 @@ export const userData = pgTable('user_data', {
     favorites: text('favorites_json'),
     // preferred sprite selection as JSON: { gen: string, variant: string }
     spritePref: text('sprite_pref'),
+    // custom increment delta for shiny hunt tracker
+    shinyCustomDelta: integer('shiny_custom_delta'),
     updatedAt: timestamp('updated_at', { mode: 'date' })
         .notNull()
         .default(sql`now()`),
 });
 
-// Include Better Auth tables for runtime (ESM). Use .js extension so Node can resolve compiled file.
-export * from '../auth/schema.js';
+// Include Better Auth tables
+export * from '../auth/schema';
