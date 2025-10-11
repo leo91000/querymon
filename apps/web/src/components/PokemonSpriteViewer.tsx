@@ -1,7 +1,7 @@
 import type { PokemonSprites } from '../types/pokeapi';
-import { createEffect, createMemo, createSignal, For, onCleanup, Show } from 'solid-js';
+import { createEffect, createMemo, createSignal, For, Show } from 'solid-js';
 import { t } from '../i18n';
-import { getLocal, onUserDataUpdate, pushToRemoteIfLoggedIn, setLocal } from '../services/userData';
+import { userDataStore } from '../stores/userData';
 import DropdownSelect from './DropdownSelect';
 
 type SpriteLike = PokemonSprites & { versions?: Record<string, unknown>; other?: Record<string, unknown> };
@@ -171,7 +171,7 @@ export default function PokemonSpriteViewer(props: Props) {
     function selectDefaults() {
         const map = variantsByGen();
         // Try saved in userData
-        const saved = getLocal().sprite;
+        const saved = userDataStore.data.sprite;
         if (saved && typeof saved.gen === 'string' && typeof saved.variant === 'string') {
             const gen = saved.gen as GenerationSlug;
             if (map.has(gen)) {
@@ -209,27 +209,22 @@ export default function PokemonSpriteViewer(props: Props) {
         const varKey = selectedVariant();
         if (!gen || !varKey)
             return;
-        const cur = getLocal();
-        const next = { ...cur, sprite: { gen, variant: varKey } };
-        setLocal(next);
-        void pushToRemoteIfLoggedIn();
+        userDataStore.update({ sprite: { gen, variant: varKey } });
     });
 
-    // React to external updates (e.g., polling or another tab)
+    // React to userData store updates (e.g., from server sync)
     createEffect(() => {
         const map = variantsByGen();
-        const off = onUserDataUpdate((d) => {
-            if (d.sprite) {
-                const gen = d.sprite.gen as GenerationSlug;
-                if (map.has(gen)) {
-                    const list = map.get(gen)!;
-                    const match = list.find(v => v.key === d.sprite!.variant) || list[0];
-                    setSelectedGen(gen);
-                    setSelectedVariant(match?.key || list[0]?.key || '');
-                }
+        const sprite = userDataStore.data.sprite;
+        if (sprite) {
+            const gen = sprite.gen as GenerationSlug;
+            if (map.has(gen) && (selectedGen() !== gen || selectedVariant() !== sprite.variant)) {
+                const list = map.get(gen)!;
+                const match = list.find(v => v.key === sprite.variant) || list[0];
+                setSelectedGen(gen);
+                setSelectedVariant(match?.key || list[0]?.key || '');
             }
-        });
-        onCleanup(off);
+        }
     });
 
     const currentUrl = createMemo(() => {

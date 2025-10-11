@@ -11,7 +11,7 @@ import Select from '../components/Select';
 import { getLocale, t } from '../i18n';
 import { formatName, loadItemById, loadList } from '../services/data';
 import { createHuntBase, loadHunts, onHuntsUpdate, saveHunts } from '../services/shinyHunt';
-import { getLocal, onUserDataUpdate, pushToRemoteIfLoggedIn, updateLocal } from '../services/userData';
+import { userDataStore } from '../stores/userData';
 
 interface SpriteOption {
     id: string;
@@ -318,23 +318,8 @@ function ShinyHuntCard(props: ShinyHuntCardProps) {
     const [showCustomInput, setShowCustomInput] = createSignal(false);
     const [customValue, setCustomValue] = createSignal('');
 
-    // Load custom delta from userData or default to 10
-    const loadCustomDelta = () => {
-        const userData = getLocal();
-        return userData.shinyCustomDelta ?? 10;
-    };
-
-    const [customDelta, setCustomDelta] = createSignal(loadCustomDelta());
-
-    // Listen to userData changes to sync customDelta across devices
-    onMount(() => {
-        const off = onUserDataUpdate((data) => {
-            if (data.shinyCustomDelta !== undefined) {
-                setCustomDelta(data.shinyCustomDelta);
-            }
-        });
-        onCleanup(() => off());
-    });
+    // Custom delta from userData store (reactive)
+    const customDelta = () => userDataStore.data.shinyCustomDelta ?? 10;
 
     const disableControls = () => props.entry.status === 'completed';
 
@@ -342,10 +327,7 @@ function ShinyHuntCard(props: ShinyHuntCardProps) {
         const val = Number(customValue());
         if (Number.isFinite(val) && val !== 0) {
             const newDelta = Math.abs(Math.floor(val));
-            setCustomDelta(newDelta);
-            // Save to userData and sync
-            updateLocal({ shinyCustomDelta: newDelta });
-            void pushToRemoteIfLoggedIn();
+            userDataStore.update({ shinyCustomDelta: newDelta });
             setCustomValue('');
             setShowCustomInput(false);
         }

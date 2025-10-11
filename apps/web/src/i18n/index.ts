@@ -1,7 +1,7 @@
 import { flatten, resolveTemplate, translator } from '@solid-primitives/i18n';
-import { createResource, createRoot, createSignal } from 'solid-js';
+import { createEffect, createResource, createRoot, createSignal } from 'solid-js';
 import { queryClient } from '../queryClient';
-import { getLocal, pushToRemoteIfLoggedIn, updateLocal } from '../services/userData';
+import { userDataStore } from '../stores/userData';
 
 export type Locale = 'en' | 'fr' | 'jp';
 
@@ -23,20 +23,27 @@ const i18n = createRoot(() => {
 
     const translate = translator(dict, resolveTemplate);
 
-    const changeLocale = async (next: Locale, opts?: { skipSync?: boolean }) => {
+    const changeLocale = async (next: Locale) => {
         setLocale(next);
         document.documentElement.lang = next === 'jp' ? 'ja' : next;
-        if (!opts?.skipSync) {
-            updateLocal({ lang: next });
-            void pushToRemoteIfLoggedIn();
-        }
+        userDataStore.update({ lang: next });
     };
 
     const init = () => {
-        const fromUser = getLocal().lang;
+        const fromUser = userDataStore.data.lang;
         const initial: Locale = fromUser || ((navigator?.language || 'en').startsWith('fr') ? 'fr' : (navigator?.language || 'en').startsWith('ja') ? 'jp' : 'en');
-        void changeLocale(initial, { skipSync: true });
+        setLocale(initial);
+        document.documentElement.lang = initial === 'jp' ? 'ja' : initial;
     };
+
+    // Sync locale when userData store changes (e.g., from server)
+    createEffect(() => {
+        const serverLang = userDataStore.data.lang;
+        if (serverLang && serverLang !== locale()) {
+            setLocale(serverLang);
+            document.documentElement.lang = serverLang === 'jp' ? 'ja' : serverLang;
+        }
+    });
 
     return {
         t: translate,
@@ -54,8 +61,8 @@ export function getLocale() {
     return i18n.getLocale();
 }
 
-export function changeLocale(next: Locale, opts?: { skipSync?: boolean }) {
-    return i18n.changeLocale(next, opts);
+export function changeLocale(next: Locale) {
+    return i18n.changeLocale(next);
 }
 
 export function initI18n() {

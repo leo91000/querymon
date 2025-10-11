@@ -1,5 +1,5 @@
-import { createRoot, createSignal } from 'solid-js';
-import { getLocal, pushToRemoteIfLoggedIn, updateLocal } from '../services/userData';
+import { createEffect, createRoot, createSignal } from 'solid-js';
+import { userDataStore } from '../stores/userData';
 
 export type Theme = 'system' | 'light' | 'dark';
 
@@ -15,17 +15,14 @@ const themeStore = createRoot(() => {
         root.setAttribute('data-theme', dark ? 'dark' : 'light');
     };
 
-    const setTheme = (next: Theme, opts?: { skipSync?: boolean }) => {
+    const setTheme = (next: Theme) => {
         setThemeSignal(next);
         apply(next);
-        if (!opts?.skipSync) {
-            updateLocal({ theme: next });
-            void pushToRemoteIfLoggedIn();
-        }
+        userDataStore.update({ theme: next });
     };
 
     const init = () => {
-        const saved = (getLocal().theme ?? 'system') as Theme;
+        const saved = (userDataStore.data.theme ?? 'system') as Theme;
         setThemeSignal(saved);
         apply(saved);
         if (mq) {
@@ -37,6 +34,15 @@ const themeStore = createRoot(() => {
         }
     };
 
+    // Sync theme when userData store changes (e.g., from server)
+    createEffect(() => {
+        const serverTheme = userDataStore.data.theme;
+        if (serverTheme && serverTheme !== theme()) {
+            setThemeSignal(serverTheme);
+            apply(serverTheme);
+        }
+    });
+
     return {
         getTheme: () => theme(),
         setTheme,
@@ -44,8 +50,8 @@ const themeStore = createRoot(() => {
     };
 });
 
-export function setTheme(next: Theme, opts?: { skipSync?: boolean }) {
-    return themeStore.setTheme(next, opts);
+export function setTheme(next: Theme) {
+    return themeStore.setTheme(next);
 }
 
 export function getTheme() {
