@@ -1,7 +1,7 @@
 import type { Locale } from '../i18n';
 import type { ResourceName } from '../services/data';
 import type { NamedRef, PokemonAbilityRef, PokemonDetailData, PokemonTypeRef } from '../types/pokeapi';
-import { createMemo, createResource, createSignal, For, onCleanup, onMount, Show } from 'solid-js';
+import { createMemo, createResource, For, Show } from 'solid-js';
 import Card from '../components/Card';
 import PokemonLearnset from '../components/PokemonLearnset';
 import PokemonSpriteViewer from '../components/PokemonSpriteViewer';
@@ -9,9 +9,8 @@ import Skeleton from '../components/Skeleton';
 import Tooltip from '../components/Tooltip';
 import TypeBox from '../components/TypeBox';
 import { getLocale, t } from '../i18n';
-import { authClient } from '../services/authClient';
 import { formatName, loadGrowthRatesLite, loadItemById, loadList } from '../services/data';
-import { getLocal, onUserDataUpdate, pushToRemoteIfLoggedIn, setLocal } from '../services/userData';
+import { userDataStore } from '../stores/userData';
 
 type Species = PokemonDetailData['species'];
 type PageData = PokemonDetailData;
@@ -67,13 +66,8 @@ export default function PokemonDetail(props: { id: number }) {
     const locale = () => getLocale();
     const localFlavor = createMemo(() => findLocalFlavor(speciesData(), locale()));
     const flavorText = createMemo(() => localFlavor()?.text);
-    const [adding, setAdding] = createSignal(false);
-    const [favorites, setFavorites] = createSignal<number[]>(getLocal().favorites || []);
-    const isFavorited = createMemo(() => favorites().includes(props.id));
-    onMount(() => {
-        const off = onUserDataUpdate(d => setFavorites(d.favorites || []));
-        onCleanup(() => off());
-    });
+
+    const isFavorited = () => (userDataStore.data.favorites || []).includes(props.id);
     // Locale-aware number formatter (JP uses native units: 億/万)
     const nf = createMemo(() => new Intl.NumberFormat(locale() === 'jp' ? 'ja' : locale()));
     function formatJaUnits(v: number): string {
@@ -342,29 +336,13 @@ export default function PokemonDetail(props: { id: number }) {
                                 class={`inline-flex h-9 w-9 items-center justify-center rounded-full border border-gray-200 text-lg transition hover:bg-gray-50 dark:border-gray-700 dark:hover:bg-gray-700/50 cursor-pointer ${isFavorited() ? 'text-rose-600 dark:text-rose-400' : 'text-gray-500 dark:text-gray-300'}`}
                                 aria-pressed={isFavorited()}
                                 aria-label={isFavorited() ? 'Remove from favorites' : 'Add to favorites'}
-                                onClick={async () => {
-                                    if (adding())
-                                        return;
-                                    setAdding(true);
-                                    try {
-                                        const sess = await authClient.getSession();
-                                        const user = (sess as any)?.user || (sess as any)?.data?.user;
-                                        const cur = getLocal();
-                                        const nextFavs = isFavorited()
-                                            ? cur.favorites.filter(id => id !== props.id)
-                                            : (cur.favorites.includes(props.id) ? cur.favorites : [...cur.favorites, props.id]);
-                                        const next = { ...cur, favorites: nextFavs };
-                                        setLocal(next);
-                                        setFavorites(nextFavs);
-                                        if (user)
-                                            await pushToRemoteIfLoggedIn();
-                                    }
-                                    finally {
-                                        setAdding(false);
-                                    }
+                                onClick={() => {
+                                    const current = userDataStore.data.favorites || [];
+                                    const next = isFavorited()
+                                        ? current.filter(id => id !== props.id)
+                                        : [...current, props.id];
+                                    userDataStore.update({ favorites: next });
                                 }}
-                                disabled={adding()}
-                                aria-disabled={adding()}
                             >
                                 <span class={`${isFavorited() ? 'icon-[ph--heart-fill]' : 'icon-[ph--heart]'} text-xl`} />
                             </button>

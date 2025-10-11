@@ -37,17 +37,17 @@ function pickFlavorText(ability: AbilityDetailData | undefined, lang: Locale) {
     return latest?.flavor_text?.replace(/[\n\f]/g, ' ');
 }
 
-// Localized Pokémon names for carriers (robust even if ability JSON had fallback names)
-const [pokemonList] = createResource(() => getLocale(), () => loadList('pokemon' as any));
-const pokemonNameMap = createMemo(() => {
-    const list = pokemonList() || [];
-    const map: Record<string, string> = {};
-    for (const p of list) map[String(p.id)] = p.name;
-    return map;
-});
-
 export default function AbilityDetail(props: { id: number }) {
     const [data] = createResource(() => ({ id: props.id, loc: getLocale() }), key => loadItemById<AbilityDetailData>('ability' as ResourceName, key.id));
+
+    // Localized Pokémon names for carriers (robust even if ability JSON had fallback names)
+    const [pokemonList] = createResource(() => getLocale(), () => loadList('pokemon' as any));
+    const pokemonNameMap = createMemo(() => {
+        const list = pokemonList() || [];
+        const map: Record<string, string> = {};
+        for (const p of list) map[String(p.id)] = p.name;
+        return map;
+    });
 
     const ability = createMemo(() => data() as AbilityDetailData | undefined);
     const locale = () => getLocale() as 'en' | 'fr' | 'jp';

@@ -1,57 +1,23 @@
-import type { Session } from '../services/authClient';
-import { createSignal, onCleanup, onMount, Show } from 'solid-js';
-import { changeLocale } from '../i18n';
+import { onMount, Show } from 'solid-js';
 import { authClient } from '../services/authClient';
-import { onUserDataUpdate, pullFromRemoteIfLoggedIn, pushToRemoteIfLoggedIn, startUserDataPoll } from '../services/userData';
-import { setTheme } from '../theme';
+import { authStore } from '../stores/auth';
+import { useUserData } from '../stores/userData';
 import Tooltip from './Tooltip';
 
 export default function AuthButton() {
-    const [session, setSession] = createSignal<Session | null>(null);
-    const [loading, setLoading] = createSignal(true);
-
-    async function refresh() {
-        try {
-            const s = await authClient.getSession();
-            setSession((s as any) ?? null);
-        }
-        finally {
-            setLoading(false);
-        }
-    }
-
+    // Initialize auth store on mount
     onMount(() => {
-        void refresh();
+        void authStore.refresh();
     });
-    // When authenticated, push current local data and subscribe for remote changes
-    onMount(async () => {
-        const s = await authClient.getSession();
-        const hasUser = Boolean((s as any)?.user || (s as any)?.data?.user);
-        if (hasUser) {
-            // Pull remote snapshot first so a refresh applies server state
-            const snap = await pullFromRemoteIfLoggedIn();
-            if (snap) {
-                changeLocale(snap.lang, { skipSync: true });
-                setTheme(snap.theme, { skipSync: true });
-            }
-            const offEvt = onUserDataUpdate((data) => {
-                changeLocale(data.lang, { skipSync: true });
-                setTheme(data.theme, { skipSync: true });
-            });
-            const stop = startUserDataPoll(60000);
-            onCleanup(() => {
-                offEvt();
-                stop();
-            });
-            void pushToRemoteIfLoggedIn();
-        }
-    });
+
+    // Initialize userData sync (called for side effects)
+    useUserData();
 
     return (
         <div class="flex items-center gap-2">
-            <Show when={!loading()}>
+            <Show when={!authStore.loading()}>
                 <Show
-                    when={(session() as any)?.user || (session() as any)?.data?.user}
+                    when={authStore.isAuthenticated()}
                     fallback={(
                         <Tooltip placement="bottom" content="Sign in">
                             <button
@@ -72,8 +38,7 @@ export default function AuthButton() {
                             aria-label="Sign out"
                             class="inline-flex h-9 w-9 cursor-pointer items-center justify-center rounded-full border border-gray-200 text-lg hover:bg-gray-50 dark:border-gray-700 dark:hover:bg-gray-700/50"
                             onClick={async () => {
-                                await authClient.signOut();
-                                setSession(null);
+                                await authStore.signOut();
                             }}
                         >
                             <span class="icon-[ph--sign-out]" />

@@ -9,27 +9,22 @@ import ResourceTabs from '../components/ResourceTabs';
 import Tooltip from '../components/Tooltip';
 import { getLocale, t } from '../i18n';
 import { formatName, loadList, resourceLabel } from '../services/data';
-import { getLocal, onUserDataUpdate, pushToRemoteIfLoggedIn, setLocal } from '../services/userData';
+import { userDataStore } from '../stores/userData';
 
 export default function ResourceList(props: { resource: ResourceName }) {
     const [items] = createResource(
         () => ({ res: props.resource, loc: getLocale() }),
         key => loadList(key.res as ResourceName),
     );
-    const [favorites, setFavorites] = createSignal<number[]>(getLocal().favorites || []);
-    onMount(() => {
-        const off = onUserDataUpdate(d => setFavorites(d.favorites || []));
-        onCleanup(() => off());
-    });
 
-    async function toggleFavorite(id: number) {
-        const cur = getLocal();
-        const next = cur.favorites.includes(id)
-            ? cur.favorites.filter(x => x !== id)
-            : [...cur.favorites, id];
-        setLocal({ ...cur, favorites: next });
-        setFavorites(next);
-        void pushToRemoteIfLoggedIn();
+    const favorites = () => userDataStore.data.favorites || [];
+
+    function toggleFavorite(id: number) {
+        const current = userDataStore.data.favorites || [];
+        const next = current.includes(id)
+            ? current.filter(x => x !== id)
+            : [...current, id];
+        userDataStore.update({ favorites: next });
     }
     // Aliases removed in new layout to avoid extra fetches; simple name filtering only.
     const [q, setQ] = createSignal('');
