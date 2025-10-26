@@ -1,3 +1,4 @@
+import type { ShinyHuntEntry } from '../services/shinyHunt';
 import { createEffect, createRoot } from 'solid-js';
 import { createStore, reconcile } from 'solid-js/store';
 import { trpc } from '../services/trpcClient';
@@ -12,6 +13,7 @@ export interface UserData {
     favorites: number[];
     sprite?: SpritePref;
     shinyCustomDelta?: number;
+    shinyHunts?: ShinyHuntEntry[];
 }
 
 const STORAGE_KEY = 'userData';
@@ -23,6 +25,7 @@ function loadFromStorage(): UserData {
         const raw = localStorage.getItem(STORAGE_KEY);
         if (!raw)
             return DEFAULT_DATA;
+
         const parsed = JSON.parse(raw);
         const lang: Lang = parsed.lang ?? 'en';
         const theme: Theme = parsed.theme ?? 'system';
@@ -33,7 +36,8 @@ function loadFromStorage(): UserData {
         const shinyCustomDelta: number | undefined = (typeof parsed.shinyCustomDelta === 'number' && parsed.shinyCustomDelta > 0)
             ? Math.floor(parsed.shinyCustomDelta)
             : undefined;
-        return { lang, theme, favorites, sprite, shinyCustomDelta };
+        const shinyHunts: ShinyHuntEntry[] | undefined = Array.isArray(parsed.shinyHunts) ? parsed.shinyHunts : undefined;
+        return { lang, theme, favorites, sprite, shinyCustomDelta, shinyHunts };
     }
     catch {
         return DEFAULT_DATA;

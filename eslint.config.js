@@ -17,5 +17,7 @@ export default antfu({
         'var/**',
         'pnpm-workspace.yaml',
         '**/*.json',
+        '**/*.yml',
+        '**/*.yaml',
     ],
 });

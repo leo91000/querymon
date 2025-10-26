@@ -10,6 +10,12 @@ export interface ShinyHuntEntry {
     completedAt?: string;
     caughtEncounters?: number;
     spriteUrl?: string | null;
+    // Track selected sprite generation and variant key
+    selectedGeneration?: string | null;
+    selectedVariantKey?: string | null;
+    // Shiny odds (e.g., 1/4096 stored as numerator=1, denominator=4096)
+    oddsNumerator?: number;
+    oddsDenominator?: number;
 }
 
 const KEY = 'shinyHunts';
@@ -113,5 +119,8 @@ export function createHuntBase(pokemonId: number, spriteUrl?: string | null): Sh
         status: 'active',
         selectedSpriteId: null,
         spriteUrl: spriteUrl ?? null,
+        // Default to standard shiny odds (Gen 6+)
+        oddsNumerator: 1,
+        oddsDenominator: 4096,
     };
 }

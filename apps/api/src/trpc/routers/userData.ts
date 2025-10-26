@@ -6,15 +6,58 @@ import { userData } from '../../db/schema.js';
 import { procedure, router } from '../init.js';
 
 export interface SpritePref { gen: string; variant: string }
+
+export interface ShinyHuntEntry {
+    id: string;
+    pokemonId: number;
+    startDate: string;
+    encounterCount: number;
+    status: 'active' | 'completed';
+    selectedSpriteId?: string | null;
+    completedAt?: string;
+    caughtEncounters?: number;
+    spriteUrl?: string | null;
+    selectedGeneration?: string | null;
+    selectedVariantKey?: string | null;
+    oddsNumerator?: number;
+    oddsDenominator?: number;
+}
+
 export interface UserData {
     lang: 'en' | 'fr' | 'jp';
     theme: 'system' | 'light' | 'dark';
     favorites: number[];
     sprite?: SpritePref;
     shinyCustomDelta?: number;
+    shinyHunts?: ShinyHuntEntry[];
 }
 
 const DefaultData: UserData = { lang: 'en', theme: 'system', favorites: [] };
+
+const shinyHuntEntrySchema = z.object({
+    id: z.string(),
+    pokemonId: z.number().int().positive(),
+    startDate: z.string(),
+    encounterCount: z.number().int().nonnegative(),
+    status: z.enum(['active', 'completed']),
+    selectedSpriteId: z.string().nullable().optional(),
+    completedAt: z.string().optional(),
+    caughtEncounters: z.number().int().nonnegative().optional(),
+    spriteUrl: z.string().nullable().optional(),
+    selectedGeneration: z.string().nullable().optional(),
+    selectedVariantKey: z.string().nullable().optional(),
+    oddsNumerator: z.number().int().positive().optional(),
+    oddsDenominator: z.number().int().positive().optional(),
+});
+
+const userDataSchema = z.object({
+    lang: z.enum(['en', 'fr', 'jp']),
+    theme: z.enum(['system', 'light', 'dark']),
+    favorites: z.array(z.number().int().positive()),
+    sprite: z.object({ gen: z.string(), variant: z.string() }).optional(),
+    shinyCustomDelta: z.number().int().positive().optional(),
+    shinyHunts: z.array(shinyHuntEntrySchema).optional(),
+});
 
 export const userDataRouter = router({
     get: procedure.query(async ({ ctx }) => {
@@ -22,32 +65,31 @@ export const userDataRouter = router({
         const row = (await ctx.rootDb.select().from(userData).where(eq(userData.userId, uid)).limit(1))[0];
         if (!row)
             return DefaultData;
-        return normalizeRow(row);
+        // Parse JSON blob
+        const data = (row.data as any) || {};
+        return normalizeData(data);
     }),
 
     set: procedure
-        .input(z.object({
-            lang: z.enum(['en', 'fr', 'jp']),
-            theme: z.enum(['system', 'light', 'dark']),
-            favorites: z.array(z.number().int().positive()),
-            sprite: z.object({ gen: z.string(), variant: z.string() }).optional(),
-            shinyCustomDelta: z.number().int().positive().optional(),
-        }))
+        .input(userDataSchema)
         .mutation(async ({ ctx, input }) => {
             const uid = requireUser(ctx);
-            const payload: UserData = { lang: input.lang, theme: input.theme, favorites: input.favorites, sprite: input.sprite, shinyCustomDelta: input.shinyCustomDelta };
-            // upsert via Drizzle
+            const payload: UserData = {
+                lang: input.lang,
+                theme: input.theme,
+                favorites: input.favorites,
+                sprite: input.sprite,
+                shinyCustomDelta: input.shinyCustomDelta,
+                shinyHunts: input.shinyHunts,
+            };
+            // Upsert: store entire payload as JSON
             await ctx.rootDb
                 .insert(userData)
-                .values({ userId: uid, lang: payload.lang, theme: payload.theme, favorites: JSON.stringify(payload.favorites), spritePref: payload.sprite ? JSON.stringify(payload.sprite) : null, shinyCustomDelta: payload.shinyCustomDelta ?? null })
+                .values({ userId: uid, data: payload as any })
                 .onConflictDoUpdate({
                     target: userData.userId,
                     set: {
-                        lang: payload.lang,
-                        theme: payload.theme,
-                        favorites: JSON.stringify(payload.favorites),
-                        spritePref: payload.sprite ? JSON.stringify(payload.sprite) : null,
-                        shinyCustomDelta: payload.shinyCustomDelta ?? null,
+                        data: payload as any,
                         updatedAt: sql`now()`,
                     },
                 });
@@ -64,26 +106,15 @@ function requireUser(ctx: Context): string {
     return id;
 }
 
-function normalizeRow(row: { lang: string | null; theme: string | null; favorites: string | null; spritePref?: string | null; shinyCustomDelta?: number | null } & { [k: string]: any }): UserData {
-    let fav: number[] = [];
-    try {
-        fav = row.favorites ? JSON.parse(row.favorites) : [];
+function normalizeData(data: any): UserData {
+    // Validate with Zod - throw on invalid data
+    const result = userDataSchema.safeParse(data);
+    if (!result.success) {
+        console.error('[userData] Invalid data from DB:', result.error);
+        throw new TRPCError({
+            code: 'INTERNAL_SERVER_ERROR',
+            message: 'Invalid user data in database',
+        });
     }
-    catch {
-        fav = [];
-    }
-    let sprite: SpritePref | undefined;
-    try {
-        const raw = row.spritePref;
-        if (raw) {
-            const obj = JSON.parse(raw);
-            if (obj && typeof obj.gen === 'string' && typeof obj.variant === 'string')
-                sprite = { gen: obj.gen, variant: obj.variant };
-        }
-    }
-    catch {}
-    const lang = (row.lang === 'en' || row.lang === 'fr' || row.lang === 'jp') ? row.lang : 'en';
-    const theme = (row.theme === 'system' || row.theme === 'light' || row.theme === 'dark') ? row.theme : 'system';
-    const shinyCustomDelta = (typeof row.shinyCustomDelta === 'number' && row.shinyCustomDelta > 0) ? row.shinyCustomDelta : undefined;
-    return { lang, theme, favorites: Array.isArray(fav) ? fav.filter(n => Number.isInteger(n) && n > 0) : [], sprite, shinyCustomDelta };
+    return result.data;
 }

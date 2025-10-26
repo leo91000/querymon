@@ -8,3 +8,5 @@
 - [ ] Add live odds calculator
 
 - [ ] Gen V sprite are not moving
+
+- [ ] Remove claude dumb comments

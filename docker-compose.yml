@@ -1,0 +1,15 @@
+services:
+    postgres:
+        image: postgres:18-alpine
+        restart: unless-stopped
+        environment:
+            POSTGRES_USER: querymon
+            POSTGRES_PASSWORD: querymon
+            POSTGRES_DB: querymon
+        ports:
+            -   '54732:5432'
+        volumes:
+            -   postgres_data:/var/lib/postgresql/data
+
+volumes:
+    postgres_data:

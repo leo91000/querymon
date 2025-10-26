@@ -28,17 +28,60 @@ export interface PokemonTypeRef {
     name?: string;
 }
 
+// Sprite URLs for each generation (varies by generation)
+export interface GenerationSprites {
+    front_default?: string;
+    back_default?: string;
+    front_shiny?: string;
+    back_shiny?: string;
+    front_female?: string;
+    back_female?: string;
+    front_shiny_female?: string;
+    back_shiny_female?: string;
+}
+
 export interface PokemonSprites {
+    // Top-level small pixel sprites (96x96)
     front_default?: string;
     front_shiny?: string;
-    other?: {
-        ['official-artwork']?: { front_default?: string };
-        home?: { front_default?: string; front_shiny?: string };
-        ['dream_world']?: { front_default?: string };
-        versions?: Record<string, unknown>;
-        [k: string]: unknown;
+
+    // High-quality official artwork (large PNG)
+    ['official-artwork']?: {
+        front_default?: string;
+        front_shiny?: string;
     };
-    versions?: Record<string, unknown>;
+
+    // HOME sprites (various sizes and variants)
+    home?: {
+        front_default?: string;
+        front_shiny?: string;
+        front_female?: string;
+        front_shiny_female?: string;
+        back_default?: string;
+        back_shiny?: string;
+        back_female?: string;
+        back_shiny_female?: string;
+    };
+
+    // Dream World sprites (SVG format, no shiny)
+    dream_world?: {
+        front_default?: string;
+    };
+
+    // Showdown sprites (animated GIFs)
+    showdown?: {
+        front_default?: string;
+        front_shiny?: string;
+        front_female?: string;
+        front_shiny_female?: string;
+        back_default?: string;
+        back_shiny?: string;
+        back_female?: string;
+        back_shiny_female?: string;
+    };
+
+    // Sprites by generation (structure varies by generation)
+    versions?: Record<string, GenerationSprites>;
 }
 
 export interface SpeciesNamesEntry { language?: NamedRef; name?: string }

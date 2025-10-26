@@ -1,55 +1,22 @@
+import type { GenerationSlug as BaseGenerationSlug } from '../types/generations';
 import type { PokemonSprites } from '../types/pokeapi';
 import { createEffect, createMemo, createSignal, For, Show } from 'solid-js';
 import { t } from '../i18n';
 import { userDataStore } from '../stores/userData';
+import { GENERATION_ORDER, GENERATION_ROMAN } from '../types/generations';
 import DropdownSelect from './DropdownSelect';
 
-type SpriteLike = PokemonSprites & { versions?: Record<string, unknown>; other?: Record<string, unknown> };
 interface Props {
-    sprites: SpriteLike | undefined;
+    sprites: PokemonSprites | undefined;
     name: string;
 }
 
-type GenerationSlug
-    = | 'modern'
-        | 'generation-i'
-        | 'generation-ii'
-        | 'generation-iii'
-        | 'generation-iv'
-        | 'generation-v'
-        | 'generation-vi'
-        | 'generation-vii'
-        | 'generation-viii'
-        | 'generation-ix';
-
-const GEN_ORDER: GenerationSlug[] = [
-    'generation-i',
-    'generation-ii',
-    'generation-iii',
-    'generation-iv',
-    'generation-v',
-    'generation-vi',
-    'generation-vii',
-    'generation-viii',
-    'generation-ix',
-];
-
-const GEN_ROMAN: Record<Exclude<GenerationSlug, 'modern'>, string> = {
-    'generation-i': 'I',
-    'generation-ii': 'II',
-    'generation-iii': 'III',
-    'generation-iv': 'IV',
-    'generation-v': 'V',
-    'generation-vi': 'VI',
-    'generation-vii': 'VII',
-    'generation-viii': 'VIII',
-    'generation-ix': 'IX',
-};
+type GenerationSlug = 'modern' | BaseGenerationSlug;
 
 function genLabel(slug: GenerationSlug) {
     if (slug === 'modern')
         return 'Modern';
-    const roman = GEN_ROMAN[slug as Exclude<GenerationSlug, 'modern'>];
+    const roman = GENERATION_ROMAN[slug as Exclude<GenerationSlug, 'modern'>];
     return t('learnset.genShort', { roman });
 }
 
@@ -63,25 +30,78 @@ export default function PokemonSpriteViewer(props: Props) {
 
     const variantsByGen = createMemo(() => {
         const out = new Map<GenerationSlug, Variant[]>();
-        const s = (props.sprites || {}) as SpriteLike;
+        const s = props.sprites || {} as PokemonSprites;
         // Access helpers no longer needed; types include nested optional keys.
 
         // Modern
         const modern: Variant[] = [];
-        const other = s?.other || {};
-        const oaFront = other?.['official-artwork']?.front_default;
+
+        // Official Artwork (high-quality PNG)
+        const oaFront = s?.['official-artwork']?.front_default;
         if (oaFront)
             modern.push({ key: 'official-artwork', label: 'Official Artwork', url: oaFront });
-        const homeFront = other?.home?.front_default;
+        const oaShiny = s?.['official-artwork']?.front_shiny;
+        if (oaShiny)
+            modern.push({ key: 'official-artwork_shiny', label: 'Official Artwork Shiny', url: oaShiny });
+
+        // HOME sprites (all variants)
+        const homeFront = s?.home?.front_default;
         if (homeFront)
-            modern.push({ key: 'home_front', label: 'HOME', url: homeFront });
-        const homeShiny = other?.home?.front_shiny;
+            modern.push({ key: 'home_front', label: 'HOME Front', url: homeFront });
+        const homeShiny = s?.home?.front_shiny;
         if (homeShiny)
-            modern.push({ key: 'home_front_shiny', label: 'HOME Shiny', url: homeShiny });
-        const dwFront = other?.dream_world?.front_default;
+            modern.push({ key: 'home_front_shiny', label: 'HOME Front Shiny', url: homeShiny });
+        const homeFrontFemale = s?.home?.front_female;
+        if (homeFrontFemale)
+            modern.push({ key: 'home_front_female', label: 'HOME Front Female', url: homeFrontFemale });
+        const homeFrontShinyFemale = s?.home?.front_shiny_female;
+        if (homeFrontShinyFemale)
+            modern.push({ key: 'home_front_shiny_female', label: 'HOME Front Shiny Female', url: homeFrontShinyFemale });
+        const homeBack = s?.home?.back_default;
+        if (homeBack)
+            modern.push({ key: 'home_back', label: 'HOME Back', url: homeBack });
+        const homeBackShiny = s?.home?.back_shiny;
+        if (homeBackShiny)
+            modern.push({ key: 'home_back_shiny', label: 'HOME Back Shiny', url: homeBackShiny });
+        const homeBackFemale = s?.home?.back_female;
+        if (homeBackFemale)
+            modern.push({ key: 'home_back_female', label: 'HOME Back Female', url: homeBackFemale });
+        const homeBackShinyFemale = s?.home?.back_shiny_female;
+        if (homeBackShinyFemale)
+            modern.push({ key: 'home_back_shiny_female', label: 'HOME Back Shiny Female', url: homeBackShinyFemale });
+
+        // Dream World (SVG)
+        const dwFront = s?.dream_world?.front_default;
         if (dwFront)
             modern.push({ key: 'dream_world', label: 'Dream World', url: dwFront });
-        // Flat fallback removed; we rely on nested 'other' entries and top-level front_default only.
+
+        // Showdown (animated GIFs)
+        const showdownFront = s?.showdown?.front_default;
+        if (showdownFront)
+            modern.push({ key: 'showdown_front', label: 'Showdown Front', url: showdownFront });
+        const showdownShiny = s?.showdown?.front_shiny;
+        if (showdownShiny)
+            modern.push({ key: 'showdown_front_shiny', label: 'Showdown Front Shiny', url: showdownShiny });
+        const showdownFrontFemale = s?.showdown?.front_female;
+        if (showdownFrontFemale)
+            modern.push({ key: 'showdown_front_female', label: 'Showdown Front Female', url: showdownFrontFemale });
+        const showdownFrontShinyFemale = s?.showdown?.front_shiny_female;
+        if (showdownFrontShinyFemale)
+            modern.push({ key: 'showdown_front_shiny_female', label: 'Showdown Front Shiny Female', url: showdownFrontShinyFemale });
+        const showdownBack = s?.showdown?.back_default;
+        if (showdownBack)
+            modern.push({ key: 'showdown_back', label: 'Showdown Back', url: showdownBack });
+        const showdownBackShiny = s?.showdown?.back_shiny;
+        if (showdownBackShiny)
+            modern.push({ key: 'showdown_back_shiny', label: 'Showdown Back Shiny', url: showdownBackShiny });
+        const showdownBackFemale = s?.showdown?.back_female;
+        if (showdownBackFemale)
+            modern.push({ key: 'showdown_back_female', label: 'Showdown Back Female', url: showdownBackFemale });
+        const showdownBackShinyFemale = s?.showdown?.back_shiny_female;
+        if (showdownBackShinyFemale)
+            modern.push({ key: 'showdown_back_shiny_female', label: 'Showdown Back Shiny Female', url: showdownBackShinyFemale });
+
+        // Fallback to top-level sprite if no modern sprites available
         if (!modern.length && s.front_default)
             modern.push({ key: 'front_default', label: 'Front', url: s.front_default });
         if (modern.length)
@@ -99,7 +119,7 @@ export default function PokemonSpriteViewer(props: Props) {
             { key: 'back_shiny_female', label: 'Back Shiny F' },
         ] as const;
 
-        for (const gen of GEN_ORDER) {
+        for (const gen of GENERATION_ORDER) {
             const gobj = (versions as Record<string, unknown>)?.[gen] as Record<string, unknown> | undefined;
             if (!gobj)
                 continue;
@@ -163,7 +183,7 @@ export default function PokemonSpriteViewer(props: Props) {
                 return -1;
             if (b.value === 'modern' && a.value !== 'modern')
                 return 1;
-            return GEN_ORDER.indexOf(a.value as Exclude<GenerationSlug, 'modern'> & GenerationSlug) - GEN_ORDER.indexOf(b.value as Exclude<GenerationSlug, 'modern'> & GenerationSlug);
+            return GENERATION_ORDER.indexOf(a.value as Exclude<GenerationSlug, 'modern'> & GenerationSlug) - GENERATION_ORDER.indexOf(b.value as Exclude<GenerationSlug, 'modern'> & GenerationSlug);
         });
         return arr;
     });
@@ -183,8 +203,8 @@ export default function PokemonSpriteViewer(props: Props) {
             }
         }
         // Default latest available generation (descending order), else modern
-        for (let i = GEN_ORDER.length - 1; i >= 0; i--) {
-            const g = GEN_ORDER[i] as GenerationSlug;
+        for (let i = GENERATION_ORDER.length - 1; i >= 0; i--) {
+            const g = GENERATION_ORDER[i] as GenerationSlug;
             if (map.has(g) && (map.get(g)?.length || 0) > 0) {
                 setSelectedGen(g);
                 setSelectedVariant(map.get(g)![0].key);

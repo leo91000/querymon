@@ -233,12 +233,34 @@ function flavorTextFor(species, loc) {
 function spritePack(p) {
     const other = p?.sprites?.other || {};
     const pack = {
-        front_default: p?.sprites?.front_default || null,
-        front_shiny: p?.sprites?.front_shiny || null,
-        other: {
-            'official-artwork': { front_default: other?.['official-artwork']?.front_default || null },
-            'home': { front_default: other?.home?.front_default || null, front_shiny: other?.home?.front_shiny || null },
-            'dream_world': { front_default: other?.dream_world?.front_default || null },
+        'front_default': p?.sprites?.front_default || null,
+        'front_shiny': p?.sprites?.front_shiny || null,
+        'official-artwork': {
+            front_default: other?.['official-artwork']?.front_default || null,
+            front_shiny: other?.['official-artwork']?.front_shiny || null,
+        },
+        'home': {
+            front_default: other?.home?.front_default || null,
+            front_shiny: other?.home?.front_shiny || null,
+            front_female: other?.home?.front_female || null,
+            front_shiny_female: other?.home?.front_shiny_female || null,
+            back_default: other?.home?.back_default || null,
+            back_shiny: other?.home?.back_shiny || null,
+            back_female: other?.home?.back_female || null,
+            back_shiny_female: other?.home?.back_shiny_female || null,
+        },
+        'dream_world': {
+            front_default: other?.dream_world?.front_default || null,
+        },
+        'showdown': {
+            front_default: other?.showdown?.front_default || null,
+            front_shiny: other?.showdown?.front_shiny || null,
+            front_female: other?.showdown?.front_female || null,
+            front_shiny_female: other?.showdown?.front_shiny_female || null,
+            back_default: other?.showdown?.back_default || null,
+            back_shiny: other?.showdown?.back_shiny || null,
+            back_female: other?.showdown?.back_female || null,
+            back_shiny_female: other?.showdown?.back_shiny_female || null,
         },
     };
     return pack;
