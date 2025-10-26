@@ -1,75 +1,17 @@
 import type { ResourceName } from '../services/data';
 import type { ShinyHuntEntry } from '../services/shinyHunt';
-import type { ListItem, PokemonDetailData, PokemonSprites } from '../types/pokeapi';
+import type { ListItem, PokemonDetailData } from '../types/pokeapi';
 import { A } from '@solidjs/router';
-import { createEffect, createMemo, createResource, createSignal, For, onCleanup, onMount, Show } from 'solid-js';
+import { createEffect, createMemo, createResource, createSignal, For, Show } from 'solid-js';
 import Button from '../components/Button';
 import Card from '../components/Card';
 import Input from '../components/Input';
 import ResourceTabs from '../components/ResourceTabs';
-import Select from '../components/Select';
+import ShinySpritePicker from '../components/ShinySpritePicker';
 import { getLocale, t } from '../i18n';
 import { formatName, loadItemById, loadList } from '../services/data';
-import { createHuntBase, loadHunts, onHuntsUpdate, saveHunts } from '../services/shinyHunt';
+import { createHuntBase } from '../services/shinyHunt';
 import { userDataStore } from '../stores/userData';
-
-interface SpriteOption {
-    id: string;
-    label: string;
-    defaultUrl: string;
-    shinyUrl: string | null;
-    generation?: string | null;
-    versionKey?: string | null;
-}
-
-type GenerationSlug
-    = | 'generation-i'
-        | 'generation-ii'
-        | 'generation-iii'
-        | 'generation-iv'
-        | 'generation-v'
-        | 'generation-vi'
-        | 'generation-vii'
-        | 'generation-viii'
-        | 'generation-ix';
-
-const GENERATION_ORDER: GenerationSlug[] = [
-    'generation-i',
-    'generation-ii',
-    'generation-iii',
-    'generation-iv',
-    'generation-v',
-    'generation-vi',
-    'generation-vii',
-    'generation-viii',
-    'generation-ix',
-];
-
-const GENERATION_ROMAN: Record<GenerationSlug, string> = {
-    'generation-i': 'I',
-    'generation-ii': 'II',
-    'generation-iii': 'III',
-    'generation-iv': 'IV',
-    'generation-v': 'V',
-    'generation-vi': 'VI',
-    'generation-vii': 'VII',
-    'generation-viii': 'VIII',
-    'generation-ix': 'IX',
-};
-
-function isRecord(value: unknown): value is Record<string, unknown> {
-    return typeof value === 'object' && value !== null;
-}
-
-function getString(record: Record<string, unknown>, key: string): string {
-    const value = record[key];
-    return typeof value === 'string' ? value : '';
-}
-
-function getNullableString(record: Record<string, unknown>, key: string): string | null {
-    const value = record[key];
-    return typeof value === 'string' ? value : null;
-}
 
 function normalizeText(value: string): string {
     return value
@@ -78,29 +20,6 @@ function normalizeText(value: string): string {
         .replace(/[\u0300-\u036F]/g, '')
         .replace(/\s+/g, ' ')
         .trim();
-}
-
-function generationLabel(gen: string): string {
-    if ((gen as GenerationSlug) in GENERATION_ROMAN) {
-        const roman = GENERATION_ROMAN[gen as GenerationSlug];
-        return t('learnset.genShort', { roman });
-    }
-    return formatName(gen.replace(/-/g, ' '));
-}
-
-function versionGroupLabel(key: string): string {
-    const raw = t(`versionGroupName.${key}`);
-    if (typeof raw === 'string' && raw !== `versionGroupName.${key}`)
-        return raw;
-    return formatName(key.replace(/-/g, ' '));
-}
-
-function spriteLabel(id: string, fallback: string): string {
-    getLocale();
-    const raw = t(`shinyHunt.sprite.${id}`);
-    if (typeof raw === 'string' && raw !== `shinyHunt.sprite.${id}`)
-        return raw;
-    return fallback;
 }
 
 function translateWithFallback(key: string, fallback: string, params?: Record<string, string | number>): string {
@@ -114,138 +33,14 @@ function translateWithFallback(key: string, fallback: string, params?: Record<st
     return fallback;
 }
 
-function pushOption(list: SpriteOption[], seen: Set<string>, option: SpriteOption) {
-    if (seen.has(option.id))
-        return;
-    if (!option.defaultUrl && !option.shinyUrl)
-        return;
-    if (!option.defaultUrl && option.shinyUrl)
-        option.defaultUrl = option.shinyUrl;
-    if (!option.defaultUrl)
-        return;
-    list.push(option);
-    seen.add(option.id);
-}
-
-function buildSpriteOptions(sprites: PokemonSprites | undefined): SpriteOption[] {
-    if (!sprites)
-        return [];
-    const options: SpriteOption[] = [];
-    const seen = new Set<string>();
-
-    const other = isRecord(sprites.other) ? sprites.other : {};
-    const modern: SpriteOption[] = [];
-    const officialArt = isRecord(other['official-artwork']) ? other['official-artwork'] as Record<string, unknown> : {};
-    pushOption(modern, seen, {
-        id: 'modern:official-artwork',
-        label: spriteLabel('officialArtwork', 'Official Artwork'),
-        defaultUrl: getString(officialArt, 'front_default'),
-        shinyUrl: getNullableString(officialArt, 'front_shiny'),
-        generation: null,
-        versionKey: null,
-    });
-    const home = isRecord(other.home) ? other.home as Record<string, unknown> : {};
-    pushOption(modern, seen, {
-        id: 'modern:home',
-        label: spriteLabel('home', 'HOME'),
-        defaultUrl: getString(home, 'front_default'),
-        shinyUrl: getNullableString(home, 'front_shiny'),
-        generation: null,
-        versionKey: null,
-    });
-    const dream = isRecord(other.dream_world) ? other.dream_world as Record<string, unknown> : {};
-    pushOption(modern, seen, {
-        id: 'modern:dream-world',
-        label: spriteLabel('dreamWorld', 'Dream World'),
-        defaultUrl: getString(dream, 'front_default'),
-        shinyUrl: null,
-        generation: null,
-        versionKey: null,
-    });
-    pushOption(modern, seen, {
-        id: 'modern:front',
-        label: spriteLabel('default', 'Default Sprite'),
-        defaultUrl: typeof sprites.front_default === 'string' ? sprites.front_default : '',
-        shinyUrl: typeof sprites.front_shiny === 'string' ? sprites.front_shiny : null,
-        generation: null,
-        versionKey: null,
-    });
-
-    const generationOptions: SpriteOption[] = [];
-    const versions = isRecord(sprites.versions) ? sprites.versions : (isRecord(other.versions) ? other.versions as Record<string, unknown> : undefined);
-    if (versions) {
-        for (const gen of Object.keys(versions)) {
-            const genObjRaw = versions[gen];
-            if (!isRecord(genObjRaw))
-                continue;
-            const genObj = genObjRaw as Record<string, unknown>;
-            const genName = generationLabel(gen);
-            const directFront = getString(genObj, 'front_default');
-            const directShiny = getNullableString(genObj, 'front_shiny');
-            pushOption(generationOptions, seen, {
-                id: `gen:${gen}`,
-                label: genName,
-                defaultUrl: directFront,
-                shinyUrl: directShiny,
-                generation: gen,
-                versionKey: null,
-            });
-            for (const versionKey of Object.keys(genObj)) {
-                if (versionKey === 'front_default' || versionKey === 'front_shiny')
-                    continue;
-                const groupRaw = genObj[versionKey];
-                if (!isRecord(groupRaw))
-                    continue;
-                const group = groupRaw as Record<string, unknown>;
-                let front = getString(group, 'front_default');
-                let shiny = getNullableString(group, 'front_shiny');
-                if (!front && !shiny && isRecord(group.animated)) {
-                    const animated = group.animated as Record<string, unknown>;
-                    front = getString(animated, 'front_default');
-                    if (!shiny)
-                        shiny = getNullableString(animated, 'front_shiny');
-                }
-                if (!front && !shiny)
-                    continue;
-                pushOption(generationOptions, seen, {
-                    id: `vg:${gen}:${versionKey}`,
-                    label: `${genName} • ${versionGroupLabel(versionKey)}`,
-                    defaultUrl: front,
-                    shinyUrl: shiny,
-                    generation: gen,
-                    versionKey,
-                });
-            }
-        }
-    }
-
-    generationOptions.sort((a, b) => {
-        const rankA = a.generation && (GENERATION_ORDER.includes(a.generation as GenerationSlug))
-            ? GENERATION_ORDER.indexOf(a.generation as GenerationSlug)
-            : GENERATION_ORDER.length + 1;
-        const rankB = b.generation && (GENERATION_ORDER.includes(b.generation as GenerationSlug))
-            ? GENERATION_ORDER.indexOf(b.generation as GenerationSlug)
-            : GENERATION_ORDER.length + 1;
-        if (rankA !== rankB)
-            return rankA - rankB;
-        return a.label.localeCompare(b.label);
-    });
-
-    for (const opt of modern)
-        options.push(opt);
-    for (const opt of generationOptions)
-        options.push(opt);
-
-    return options;
-}
-
 interface ShinyHuntCardProps {
     entry: ShinyHuntEntry;
-    onSelectSprite: (id: string, option: SpriteOption) => void;
+    onSpriteChange: (id: string, url: string, generation: string, variantKey: string) => void;
     onChangeStartDate: (id: string, value: string) => void;
     onEncounterDelta: (id: string, delta: number) => void;
     onEncounterSet: (id: string, value: number) => void;
-    onComplete: (id: string, option: SpriteOption | undefined) => void;
+    onOddsChange: (id: string, numerator: number, denominator: number) => void;
+    onComplete: (id: string) => void;
     onRemove: (id: string) => void;
 }
 
@@ -259,35 +54,6 @@ function ShinyHuntCard(props: ShinyHuntCardProps) {
 
     const pokemonName = createMemo(() => {
         return formatName(detail()?.name || '');
-    });
-
-    const spriteOptions = createMemo(() => {
-        locale();
-        return buildSpriteOptions(detail()?.sprites);
-    });
-
-    const selectedOption = createMemo(() => {
-        const opts = spriteOptions();
-        if (!opts.length)
-            return undefined;
-        const wanted = opts.find(opt => opt.id === props.entry.selectedSpriteId);
-        return wanted ?? opts[0];
-    });
-
-    createEffect(() => {
-        const opts = spriteOptions();
-        if (!opts.length)
-            return;
-        const match = opts.find(opt => opt.id === props.entry.selectedSpriteId);
-        if (!match)
-            props.onSelectSprite(props.entry.id, opts[0]);
-    });
-
-    const displayUrl = createMemo(() => {
-        const option = selectedOption();
-        if (props.entry.status === 'completed' && option?.shinyUrl)
-            return option.shinyUrl;
-        return option?.defaultUrl || props.entry.spriteUrl || '';
     });
 
     const formattedCompletedAt = createMemo(() => {
@@ -323,6 +89,20 @@ function ShinyHuntCard(props: ShinyHuntCardProps) {
 
     const disableControls = () => props.entry.status === 'completed';
 
+    const probability = createMemo(() => {
+        const encounters = props.entry.encounterCount;
+        const num = props.entry.oddsNumerator ?? 1;
+        const denom = props.entry.oddsDenominator ?? 4096;
+
+        if (encounters === 0 || denom === 0)
+            return 0;
+
+        // P(at least one shiny) = 1 - (1 - p)^n
+        const p = num / denom;
+        const prob = 1 - (1 - p) ** encounters;
+        return prob * 100; // as percentage
+    });
+
     function handleCustomSubmit() {
         const val = Number(customValue());
         if (Number.isFinite(val) && val !== 0) {
@@ -336,22 +116,23 @@ function ShinyHuntCard(props: ShinyHuntCardProps) {
     return (
         <Card class="p-5">
             <div class="flex flex-col gap-5 md:flex-row">
-                <div class="flex flex-col items-center gap-3 md:w-36">
+                <div class="flex flex-col items-center gap-3 md:w-64">
                     <div class="relative">
-                        <img
-                            src={displayUrl() || props.entry.spriteUrl || 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/0.png'}
-                            alt={pokemonName()}
-                            width={120}
-                            height={120}
-                            class="h-28 w-28 rounded-xl bg-gray-100 object-contain ring-1 ring-gray-200 dark:bg-gray-900 dark:ring-gray-700"
-                            loading="lazy"
-                        />
                         <Show when={props.entry.status === 'completed'}>
-                            <span class="absolute -right-1 -top-1 inline-flex items-center gap-1 rounded-full bg-emerald-500 px-3 py-1 text-xs font-semibold text-white shadow">
+                            <span class="absolute -right-1 -top-1 z-10 inline-flex items-center gap-1 rounded-full bg-emerald-500 px-3 py-1 text-xs font-semibold text-white shadow">
                                 <span class="icon-[ph--sparkle]" aria-hidden="true" />
                                 {translateWithFallback('shinyHunt.completedBadge', 'Shiny!')}
                             </span>
                         </Show>
+                        <ShinySpritePicker
+                            sprites={detail()?.sprites}
+                            name={pokemonName()}
+                            selectedGeneration={props.entry.selectedGeneration}
+                            selectedVariantKey={props.entry.selectedVariantKey}
+                            onSpriteChange={(url, gen, variantKey) => {
+                                props.onSpriteChange(props.entry.id, url, gen, variantKey);
+                            }}
+                        />
                     </div>
                     <div class="text-center text-xs text-gray-500 dark:text-gray-400">
                         #
@@ -362,11 +143,6 @@ function ShinyHuntCard(props: ShinyHuntCardProps) {
                     <div class="flex flex-col gap-2 md:flex-row md:items-start md:justify-between">
                         <div>
                             <h3 class="text-lg font-semibold text-gray-900 dark:text-gray-100">{pokemonName()}</h3>
-                            <Show when={selectedOption()}>
-                                {opt => (
-                                    <p class="text-sm text-gray-500 dark:text-gray-400">{opt().label}</p>
-                                )}
-                            </Show>
                             <Show when={props.entry.status === 'completed'}>
                                 <div class="mt-2 text-sm font-medium text-emerald-600 dark:text-emerald-400">
                                     <span class="icon-[ph--confetti] mr-1" aria-hidden="true" />
@@ -393,20 +169,7 @@ function ShinyHuntCard(props: ShinyHuntCardProps) {
                             {translateWithFallback('shinyHunt.remove', 'Remove')}
                         </Button>
                     </div>
-                    <div class="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
-                        <Select
-                            id={`sprite-${props.entry.id}`}
-                            label={translateWithFallback('shinyHunt.gameLabel', 'Game / Sprite')}
-                            disabled={spriteOptions().length === 0 || disableControls()}
-                            value={selectedOption()?.id || ''}
-                            onChange={(event) => {
-                                const opts = spriteOptions();
-                                const next = opts.find(opt => opt.id === event.currentTarget.value);
-                                if (next)
-                                    props.onSelectSprite(props.entry.id, next);
-                            }}
-                            options={spriteOptions().map(opt => ({ value: opt.id, label: opt.label }))}
-                        />
+                    <div class="grid gap-4 md:grid-cols-3">
                         <Input
                             id={`start-${props.entry.id}`}
                             label={translateWithFallback('shinyHunt.startDate', 'Start date')}
@@ -432,7 +195,77 @@ function ShinyHuntCard(props: ShinyHuntCardProps) {
                                 />
                             </div>
                         </div>
+                        <div class="flex flex-col gap-1">
+                            <span class="text-xs font-medium text-gray-600 dark:text-gray-300">{translateWithFallback('shinyHunt.odds', 'Shiny Odds')}</span>
+                            <div class="flex items-center gap-1">
+                                <input
+                                    type="number"
+                                    min="1"
+                                    class="h-10 w-16 rounded-md border border-gray-300 bg-white px-2 text-center text-sm text-gray-900 shadow-sm outline-none transition focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20 dark:border-gray-700 dark:bg-gray-900 dark:text-gray-100"
+                                    value={props.entry.oddsNumerator ?? 1}
+                                    disabled={disableControls()}
+                                    onInput={(event) => {
+                                        const value = Number(event.currentTarget.value);
+                                        if (Number.isFinite(value) && value > 0)
+                                            props.onOddsChange(props.entry.id, Math.floor(value), props.entry.oddsDenominator ?? 4096);
+                                    }}
+                                />
+                                <span class="text-gray-500 dark:text-gray-400">/</span>
+                                <input
+                                    type="number"
+                                    min="1"
+                                    class="h-10 w-20 rounded-md border border-gray-300 bg-white px-2 text-center text-sm text-gray-900 shadow-sm outline-none transition focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20 dark:border-gray-700 dark:bg-gray-900 dark:text-gray-100"
+                                    value={props.entry.oddsDenominator ?? 4096}
+                                    disabled={disableControls()}
+                                    onInput={(event) => {
+                                        const value = Number(event.currentTarget.value);
+                                        if (Number.isFinite(value) && value > 0)
+                                            props.onOddsChange(props.entry.id, props.entry.oddsNumerator ?? 1, Math.floor(value));
+                                    }}
+                                />
+                            </div>
+                            <div class="flex flex-wrap items-center gap-1">
+                                <button
+                                    type="button"
+                                    class="cursor-pointer rounded border border-gray-200 px-1.5 py-0.5 text-[10px] text-gray-600 transition hover:bg-gray-50 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-800"
+                                    disabled={disableControls()}
+                                    onClick={() => props.onOddsChange(props.entry.id, 1, 4096)}
+                                >
+                                    1/4096
+                                </button>
+                                <span class="text-[10px] text-gray-400">|</span>
+                                <button
+                                    type="button"
+                                    class="cursor-pointer rounded border border-gray-200 px-1.5 py-0.5 text-[10px] text-gray-600 transition hover:bg-gray-50 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-800"
+                                    disabled={disableControls()}
+                                    onClick={() => props.onOddsChange(props.entry.id, 1, 512)}
+                                >
+                                    1/512
+                                </button>
+                                <span class="text-[10px] text-gray-400">|</span>
+                                <button
+                                    type="button"
+                                    class="cursor-pointer rounded border border-gray-200 px-1.5 py-0.5 text-[10px] text-gray-600 transition hover:bg-gray-50 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-800"
+                                    disabled={disableControls()}
+                                    onClick={() => props.onOddsChange(props.entry.id, 1, 100)}
+                                >
+                                    1/100
+                                </button>
+                            </div>
+                        </div>
                     </div>
+                    <Show when={props.entry.status === 'active' && probability() > 0}>
+                        <div class="rounded-lg bg-blue-50 px-3 py-2 text-sm dark:bg-blue-500/10">
+                            <span class="font-medium text-blue-900 dark:text-blue-100">
+                                {probability().toFixed(3)}
+                                % chance
+                            </span>
+                            <span class="text-blue-700 dark:text-blue-300">
+                                {' '}
+                                of encountering a shiny so far
+                            </span>
+                        </div>
+                    </Show>
                     <div class="flex flex-wrap items-center gap-2">
                         <For each={buttons}>
                             {btn => (
@@ -520,7 +353,7 @@ function ShinyHuntCard(props: ShinyHuntCardProps) {
                         <Button
                             type="button"
                             size="md"
-                            onClick={() => props.onComplete(props.entry.id, selectedOption())}
+                            onClick={() => props.onComplete(props.entry.id)}
                             class="bg-emerald-600 hover:bg-emerald-700 focus-visible:ring-emerald-600"
                         >
                             <span class="icon-[ph--sparkle] mr-2" aria-hidden="true" />
@@ -536,7 +369,9 @@ function ShinyHuntCard(props: ShinyHuntCardProps) {
 export default function ShinyHunt() {
     const [search, setSearch] = createSignal('');
     const [list] = createResource(() => getLocale(), () => loadList('pokemon'));
-    const [hunts, setHunts] = createSignal<ShinyHuntEntry[]>([]);
+
+    // Use userDataStore for synced storage
+    const hunts = createMemo(() => userDataStore.data.shinyHunts || []);
     const [labels, setLabels] = createSignal({
         title: translateWithFallback('shinyHunt.title', 'Shiny Hunt Tracker'),
         subtitle: translateWithFallback('shinyHunt.subtitle', 'Plan your shiny hunts, count encounters, and celebrate your catches.'),
@@ -575,15 +410,8 @@ export default function ShinyHunt() {
 
     function commit(builder: (current: readonly ShinyHuntEntry[]) => ShinyHuntEntry[]) {
         const next = builder(hunts());
-        setHunts(next);
-        saveHunts(next);
+        userDataStore.update({ shinyHunts: next });
     }
-
-    onMount(() => {
-        setHunts(loadHunts());
-        const off = onHuntsUpdate(entries => setHunts(entries));
-        onCleanup(() => off());
-    });
 
     const filteredPokemon = createMemo(() => {
         const listItems = list() ?? [];
@@ -636,8 +464,10 @@ export default function ShinyHunt() {
         commit(current => current.map(entry => entry.id === id ? { ...entry, startDate: value || entry.startDate } : entry));
     }
 
-    function changeSprite(id: string, option: SpriteOption) {
-        commit(current => current.map(entry => entry.id === id ? { ...entry, selectedSpriteId: option.id, spriteUrl: option.defaultUrl } : entry));
+    function changeSprite(id: string, url: string, generation: string, variantKey: string) {
+        commit(current => current.map(entry => entry.id === id
+            ? { ...entry, spriteUrl: url, selectedGeneration: generation, selectedVariantKey: variantKey }
+            : entry));
     }
 
     function changeEncounters(id: string, delta: number) {
@@ -653,7 +483,13 @@ export default function ShinyHunt() {
         commit(current => current.map(entry => entry.id === id ? { ...entry, encounterCount: Math.max(0, value) } : entry));
     }
 
-    function completeHunt(id: string, option: SpriteOption | undefined) {
+    function changeOdds(id: string, numerator: number, denominator: number) {
+        commit(current => current.map(entry => entry.id === id
+            ? { ...entry, oddsNumerator: numerator, oddsDenominator: denominator }
+            : entry));
+    }
+
+    function completeHunt(id: string) {
         const stamp = new Date().toISOString();
         commit(current => current.map((entry) => {
             if (entry.id !== id)
@@ -663,7 +499,6 @@ export default function ShinyHunt() {
                 status: 'completed',
                 completedAt: stamp,
                 caughtEncounters: entry.encounterCount,
-                spriteUrl: option?.shinyUrl || option?.defaultUrl || entry.spriteUrl || null,
             };
         }));
     }
@@ -746,10 +581,11 @@ export default function ShinyHunt() {
                             {entry => (
                                 <ShinyHuntCard
                                     entry={entry}
-                                    onSelectSprite={changeSprite}
+                                    onSpriteChange={changeSprite}
                                     onChangeStartDate={changeStartDate}
                                     onEncounterDelta={changeEncounters}
                                     onEncounterSet={setEncounters}
+                                    onOddsChange={changeOdds}
                                     onComplete={completeHunt}
                                     onRemove={removeHunt}
                                 />
@@ -770,10 +606,11 @@ export default function ShinyHunt() {
                             {entry => (
                                 <ShinyHuntCard
                                     entry={entry}
-                                    onSelectSprite={changeSprite}
+                                    onSpriteChange={changeSprite}
                                     onChangeStartDate={changeStartDate}
                                     onEncounterDelta={changeEncounters}
                                     onEncounterSet={setEncounters}
+                                    onOddsChange={changeOdds}
                                     onComplete={completeHunt}
                                     onRemove={removeHunt}
                                 />

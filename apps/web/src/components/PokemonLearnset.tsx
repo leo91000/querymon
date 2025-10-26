@@ -1,7 +1,9 @@
 import type { ResourceName } from '../services/data';
+import type { GenerationSlug } from '../types/generations';
 import { createEffect, createMemo, createResource, createSignal, For, onMount, Show } from 'solid-js';
 import { getLocale, t } from '../i18n';
 import { formatName, loadItemById } from '../services/data';
+import { GENERATION_ORDER, GENERATION_ROMAN } from '../types/generations';
 import Card from './Card';
 import TypeBox from './TypeBox';
 
@@ -69,17 +71,6 @@ interface VersionGroupInfo {
     order: number;
 }
 
-type GenerationSlug
-    = | 'generation-i'
-        | 'generation-ii'
-        | 'generation-iii'
-        | 'generation-iv'
-        | 'generation-v'
-        | 'generation-vi'
-        | 'generation-vii'
-        | 'generation-viii'
-        | 'generation-ix';
-
 const VERSION_GROUP_TO_GENERATION: Record<string, VersionGroupInfo> = {
     'red-blue': { generation: 'generation-i', order: 1 },
     'yellow': { generation: 'generation-i', order: 2 },
@@ -104,29 +95,7 @@ const VERSION_GROUP_TO_GENERATION: Record<string, VersionGroupInfo> = {
     'scarlet-violet': { generation: 'generation-ix', order: 21 },
 };
 
-const GENERATION_ORDER: GenerationSlug[] = [
-    'generation-i',
-    'generation-ii',
-    'generation-iii',
-    'generation-iv',
-    'generation-v',
-    'generation-vi',
-    'generation-vii',
-    'generation-viii',
-    'generation-ix',
-];
-
-const GEN_ROMAN: Record<GenerationSlug, string> = {
-    'generation-i': 'I',
-    'generation-ii': 'II',
-    'generation-iii': 'III',
-    'generation-iv': 'IV',
-    'generation-v': 'V',
-    'generation-vi': 'VI',
-    'generation-vii': 'VII',
-    'generation-viii': 'VIII',
-    'generation-ix': 'IX',
-};
+const GEN_ROMAN = GENERATION_ROMAN;
 
 function idFromUrl(url?: string | null) {
     const match = url?.match(/\/(\d+)\/?$/);
