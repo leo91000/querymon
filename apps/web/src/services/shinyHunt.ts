@@ -16,6 +16,7 @@ export interface ShinyHuntEntry {
     // Shiny odds (e.g., 1/4096 stored as numerator=1, denominator=4096)
     oddsNumerator?: number;
     oddsDenominator?: number;
+    note?: string;
 }
 
 const KEY = 'shinyHunts';

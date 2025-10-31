@@ -40,6 +40,7 @@ interface ShinyHuntCardProps {
     onEncounterDelta: (id: string, delta: number) => void;
     onEncounterSet: (id: string, value: number) => void;
     onOddsChange: (id: string, numerator: number, denominator: number) => void;
+    onNoteChange: (id: string, value: string) => void;
     onComplete: (id: string) => void;
     onRemove: (id: string) => void;
 }
@@ -253,6 +254,18 @@ function ShinyHuntCard(props: ShinyHuntCardProps) {
                                 </button>
                             </div>
                         </div>
+                    </div>
+                    <div class="flex flex-col gap-1">
+                        <label for={`note-${props.entry.id}`} class="text-xs font-medium text-gray-600 dark:text-gray-300">
+                            {translateWithFallback('shinyHunt.note', 'Notes')}
+                        </label>
+                        <textarea
+                            id={`note-${props.entry.id}`}
+                            class="min-h-20 w-full rounded-md border border-gray-300 bg-white px-3 py-2 text-sm text-gray-900 shadow-sm outline-none transition focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20 dark:border-gray-700 dark:bg-gray-900 dark:text-gray-100"
+                            placeholder={translateWithFallback('shinyHunt.notePlaceholder', 'Add notes about your hunt (method, location, etc.)')}
+                            value={props.entry.note ?? ''}
+                            onInput={event => props.onNoteChange(props.entry.id, event.currentTarget.value)}
+                        />
                     </div>
                     <Show when={props.entry.status === 'active' && probability() > 0}>
                         <div class="rounded-lg bg-blue-50 px-3 py-2 text-sm dark:bg-blue-500/10">
@@ -489,6 +502,10 @@ export default function ShinyHunt() {
             : entry));
     }
 
+    function changeNote(id: string, value: string) {
+        commit(current => current.map(entry => entry.id === id ? { ...entry, note: value } : entry));
+    }
+
     function completeHunt(id: string) {
         const stamp = new Date().toISOString();
         commit(current => current.map((entry) => {
@@ -586,6 +603,7 @@ export default function ShinyHunt() {
                                     onEncounterDelta={changeEncounters}
                                     onEncounterSet={setEncounters}
                                     onOddsChange={changeOdds}
+                                    onNoteChange={changeNote}
                                     onComplete={completeHunt}
                                     onRemove={removeHunt}
                                 />
@@ -611,6 +629,7 @@ export default function ShinyHunt() {
                                     onEncounterDelta={changeEncounters}
                                     onEncounterSet={setEncounters}
                                     onOddsChange={changeOdds}
+                                    onNoteChange={changeNote}
                                     onComplete={completeHunt}
                                     onRemove={removeHunt}
                                 />

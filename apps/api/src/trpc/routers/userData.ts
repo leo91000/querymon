@@ -21,6 +21,7 @@ export interface ShinyHuntEntry {
     selectedVariantKey?: string | null;
     oddsNumerator?: number;
     oddsDenominator?: number;
+    note?: string;
 }
 
 export interface UserData {
@@ -48,6 +49,7 @@ const shinyHuntEntrySchema = z.object({
     selectedVariantKey: z.string().nullable().optional(),
     oddsNumerator: z.number().int().positive().optional(),
     oddsDenominator: z.number().int().positive().optional(),
+    note: z.string().optional(),
 });
 
 const userDataSchema = z.object({
