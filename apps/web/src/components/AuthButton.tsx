@@ -2,6 +2,7 @@ import { onMount, Show } from 'solid-js';
 import { authClient } from '../services/authClient';
 import { authStore } from '../stores/auth';
 import { useUserData } from '../stores/userData';
+import ProfileDropdown from './ProfileDropdown';
 import Tooltip from './Tooltip';
 
 export default function AuthButton() {
@@ -33,17 +34,7 @@ export default function AuthButton() {
                         </Tooltip>
                     )}
                 >
-                    <Tooltip placement="bottom" content="Sign out">
-                        <button
-                            aria-label="Sign out"
-                            class="inline-flex h-9 w-9 cursor-pointer items-center justify-center rounded-full border border-gray-200 text-lg hover:bg-gray-50 dark:border-gray-700 dark:hover:bg-gray-700/50"
-                            onClick={async () => {
-                                await authStore.signOut();
-                            }}
-                        >
-                            <span class="icon-[ph--sign-out]" />
-                        </button>
-                    </Tooltip>
+                    <ProfileDropdown />
                 </Show>
             </Show>
         </div>
