@@ -4,8 +4,6 @@ import { createHash } from 'node:crypto';
 import { sql } from 'drizzle-orm';
 import journal from './migrations/meta/_journal.json';
 
-type DrizzleTx = Parameters<Parameters<DB['transaction']>[0]>[0];
-
 function getMigrationJournal() {
     return journal;
 }
@@ -19,7 +17,7 @@ function getMigrationByTag(tag: string) {
 const migrationsSchema = 'public';
 const migrationsTable = '_migrations';
 
-async function createMigrationTable(tx: DrizzleTx) {
+async function createMigrationTable(db: DB) {
     const migrationTableCreate = sql`
     CREATE TABLE IF NOT EXISTS ${sql.identifier(migrationsSchema)}.${sql.identifier(migrationsTable)} (
       id SERIAL PRIMARY KEY,
@@ -27,18 +25,18 @@ async function createMigrationTable(tx: DrizzleTx) {
       created_at bigint
     )
   `;
-    await tx.execute(migrationTableCreate);
+    await db.execute(migrationTableCreate);
 }
 
-async function insertMigration(tx: DrizzleTx, hash: string, createdAt: number) {
-    await tx.execute(
+async function insertMigration(db: DB, hash: string, createdAt: number) {
+    await db.execute(
         sql`INSERT INTO ${sql.identifier(migrationsSchema)}.${sql.identifier(migrationsTable)} ("hash", "created_at")
       VALUES (${hash}, ${createdAt})`,
     );
 }
 
-async function customMigrate(tx: DrizzleTx) {
-    const dbMigrations = await tx.execute<{ id: number; hash: string; created_at: string }>(
+async function customMigrate(db: DB) {
+    const dbMigrations = await db.execute<{ id: number; hash: string; created_at: string }>(
         sql`SELECT id, hash, created_at FROM ${sql.identifier(migrationsSchema)}.${sql.identifier(migrationsTable)}
       ORDER BY created_at DESC LIMIT 1`,
     );
@@ -58,11 +56,11 @@ async function customMigrate(tx: DrizzleTx) {
 
                 for (const stmt of sqlStatements.split('--> statement-breakpoint')) {
                     if (stmt.trim()) {
-                        await tx.execute(sql.raw(stmt));
+                        await db.execute(sql.raw(stmt));
                     }
                 }
 
-                await insertMigration(tx, hash, migration.when);
+                await insertMigration(db, hash, migration.when);
             }
             else {
                 console.warn(`[MIGRATION] Migration file ${migration.tag} not found.`);
@@ -80,10 +78,10 @@ function generateHash(content: string) {
 export async function migrate(db: DB) {
     console.warn('[MIGRATION] Starting migrations');
 
-    const migrationCount = await db.transaction(async (tx) => {
-        await createMigrationTable(tx);
-        return await customMigrate(tx);
-    });
+    // Note: neon-http driver doesn't support transactions
+    // Running migrations sequentially without transaction
+    await createMigrationTable(db);
+    const migrationCount = await customMigrate(db);
 
     if (migrationCount > 0) {
         console.warn(`[MIGRATION] ${migrationCount} migrations applied`);
