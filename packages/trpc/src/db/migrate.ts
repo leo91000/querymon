@@ -44,20 +44,13 @@ async function customMigrate(db: DB) {
     const lastDbMigration = dbMigrations.rows[0];
     const migrationJournal = getMigrationJournal();
 
-    console.warn(`[MIGRATION] Found ${migrationJournal.entries.length} migrations in journal`);
-    console.warn(`[MIGRATION] Last DB migration: ${lastDbMigration?.created_at || 'none'}`);
-
     let migrationCount = 0;
     for (const migration of migrationJournal.entries) {
-        console.warn(`[MIGRATION] Checking migration ${migration.tag} (${migration.when})`);
         if (!lastDbMigration || Number(lastDbMigration.created_at) < migration.when) {
             migrationCount++;
-            console.warn(`[MIGRATION] Applying migration ${migration.tag}`);
             const migrationFile = getMigrationByTag(migration.tag);
-            console.warn(`[MIGRATION] Migration file found: ${!!migrationFile}`);
             if (migrationFile) {
                 const sqlStatements = await migrationFile();
-                console.warn(`[MIGRATION] SQL length: ${sqlStatements.length} chars`);
                 const hash = generateHash(sqlStatements);
 
                 for (const stmt of sqlStatements.split('--> statement-breakpoint')) {
@@ -67,10 +60,9 @@ async function customMigrate(db: DB) {
                 }
 
                 await insertMigration(db, hash, migration.when);
-                console.warn(`[MIGRATION] ✅ Applied ${migration.tag}`);
             }
             else {
-                console.warn(`[MIGRATION] Migration file ${migration.tag} not found.`);
+                console.warn(`[MIGRATION] Migration file ${migration.tag} not found`);
             }
         }
     }

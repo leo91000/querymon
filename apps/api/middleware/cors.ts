@@ -16,16 +16,16 @@ export default defineHandler((event) => {
         origin(origin) {
             // Allow localhost origins in development
             if (!isProduction && ALLOWED_DEV_ORIGINS.includes(origin))
-                return origin;
+                return true;
 
             // Allow configured web origin
             if (env.WEB_ORIGIN && origin === env.WEB_ORIGIN)
-                return origin;
+                return true;
 
             // Allow Vercel preview deployments
             const { host } = parseURL(origin);
             if (process.env.VERCEL === '1' && host?.endsWith('.vercel.app'))
-                return origin;
+                return true;
 
             return false;
         },
