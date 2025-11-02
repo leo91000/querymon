@@ -85,15 +85,25 @@ function generateHash(content: string) {
 export async function migrate(db: DB) {
     console.warn('[MIGRATION] Starting migrations');
 
-    // Note: neon-http driver doesn't support transactions
-    // Running migrations sequentially without transaction
-    await createMigrationTable(db);
-    const migrationCount = await customMigrate(db);
+    try {
+        // Note: neon-http driver doesn't support transactions
+        // Running migrations sequentially without transaction
+        console.warn('[MIGRATION] Creating migration table...');
+        await createMigrationTable(db);
+        console.warn('[MIGRATION] Migration table created');
 
-    if (migrationCount > 0) {
-        console.warn(`[MIGRATION] ${migrationCount} migrations applied`);
+        console.warn('[MIGRATION] Running custom migrate...');
+        const migrationCount = await customMigrate(db);
+
+        if (migrationCount > 0) {
+            console.warn(`[MIGRATION] ${migrationCount} migrations applied`);
+        }
+        else {
+            console.warn('[MIGRATION] No migrations applied');
+        }
     }
-    else {
-        console.warn('[MIGRATION] No migrations applied');
+    catch (error) {
+        console.error('[MIGRATION] Failed:', error);
+        throw error;
     }
 }
