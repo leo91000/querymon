@@ -12,6 +12,8 @@ export default antfu({
         '**/node_modules/**',
         '**/dist/**',
         '**/build/**',
+        '**/.nitro/**',
+        '**/.output/**',
         'apps/web/public/**',
         'apps/desktop/src-tauri/target/**',
         'var/**',

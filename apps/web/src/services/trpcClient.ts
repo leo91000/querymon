@@ -1,4 +1,4 @@
-import type { AppRouter } from '../../../api/src/trpc/router';
+import type { AppRouter } from '@querymon/trpc';
 import { createTRPCProxyClient, httpBatchLink } from '@trpc/client';
 import { getApiBase } from './apiBase';
 

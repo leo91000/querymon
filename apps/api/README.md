@@ -1,32 +1,18 @@
-@querymon/api
-=================
+# Nitro starter with CLI
 
-Hono + tRPC + Drizzle API service.
+Create your API and deploy it anywhere with this Nitro starter.
 
-- Framework: Hono (Node adapter)
-- RPC: tRPC (mounted at `/trpc`)
-- ORM: Drizzle ORM (PostgreSQL)
-  - Drivers: `pg` (node-postgres) or `neon` (HTTP). Select via `DB_DRIVER`.
+## Getting started
 
-Scripts
--------
+```bash
+npm install
+npm run dev
+```
 
-- `pnpm --filter @querymon/api dev` – start dev server with tsx
-- `pnpm --filter @querymon/api build && pnpm --filter @querymon/api start` – build + run
-- `pnpm --filter @querymon/api db:generate` – generate migrations from schema
-- `pnpm --filter @querymon/api db:push` – push schema to DB
+## Deploying
 
-Env
----
+```bash
+npm run build
+```
 
-Copy `.env.example` to `.env` and set:
-
-- `DATABASE_URL=postgres://user:pass@host:port/db` (used for both drivers)
-- `DB_DRIVER=pg | neon` (defaults to `pg`)
-- `PORT` defaults to 8787
-
-Endpoints
----------
-
-- `GET /healthz` → `{ ok: true }`
-- tRPC at `/trpc`.
+Then checkout the [Nitro documentation](https://v3.nitro.build/deploy) to learn more about the different deployment presets.

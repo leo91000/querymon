@@ -1,1 +1,0 @@
-ALTER TABLE "user_data" ADD COLUMN "shiny_custom_delta" integer;

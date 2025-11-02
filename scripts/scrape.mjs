@@ -231,14 +231,33 @@ function flavorTextFor(species, loc) {
 }
 
 function spritePack(p) {
-    const other = p?.sprites?.other || {};
+    const sprites = p?.sprites || {};
+    const other = sprites?.other || {};
+    const versions = sprites?.versions || {};
+
+    // Extract animated sprites from generation-v
+    const genV = versions?.['generation-v'] || {};
+    const blackWhite = genV?.['black-white'] || {};
+    const blackWhiteAnimated = blackWhite?.animated || {};
+
     const pack = {
-        'front_default': p?.sprites?.front_default || null,
-        'front_shiny': p?.sprites?.front_shiny || null,
+        // Top-level default sprites
+        'front_default': sprites?.front_default || null,
+        'front_shiny': sprites?.front_shiny || null,
+        'front_female': sprites?.front_female || null,
+        'front_shiny_female': sprites?.front_shiny_female || null,
+        'back_default': sprites?.back_default || null,
+        'back_shiny': sprites?.back_shiny || null,
+        'back_female': sprites?.back_female || null,
+        'back_shiny_female': sprites?.back_shiny_female || null,
+
+        // Official artwork
         'official-artwork': {
             front_default: other?.['official-artwork']?.front_default || null,
             front_shiny: other?.['official-artwork']?.front_shiny || null,
         },
+
+        // Home sprites
         'home': {
             front_default: other?.home?.front_default || null,
             front_shiny: other?.home?.front_shiny || null,
@@ -249,9 +268,14 @@ function spritePack(p) {
             back_female: other?.home?.back_female || null,
             back_shiny_female: other?.home?.back_shiny_female || null,
         },
+
+        // Dream World sprites
         'dream_world': {
             front_default: other?.dream_world?.front_default || null,
+            front_female: other?.dream_world?.front_female || null,
         },
+
+        // Showdown sprites
         'showdown': {
             front_default: other?.showdown?.front_default || null,
             front_shiny: other?.showdown?.front_shiny || null,
@@ -261,6 +285,18 @@ function spritePack(p) {
             back_shiny: other?.showdown?.back_shiny || null,
             back_female: other?.showdown?.back_female || null,
             back_shiny_female: other?.showdown?.back_shiny_female || null,
+        },
+
+        // Animated sprites (primarily from Generation V)
+        'animated': {
+            front_default: blackWhiteAnimated?.front_default || null,
+            front_shiny: blackWhiteAnimated?.front_shiny || null,
+            front_female: blackWhiteAnimated?.front_female || null,
+            front_shiny_female: blackWhiteAnimated?.front_shiny_female || null,
+            back_default: blackWhiteAnimated?.back_default || null,
+            back_shiny: blackWhiteAnimated?.back_shiny || null,
+            back_female: blackWhiteAnimated?.back_female || null,
+            back_shiny_female: blackWhiteAnimated?.back_shiny_female || null,
         },
     };
     return pack;

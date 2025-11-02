@@ -6,7 +6,7 @@
   "packageManager": "pnpm@10.18.2",
   "scripts": {
     "scrape": "node scripts/scrape.mjs",
-    "dev:web": "concurrently -k -n API,WEB -c blue,green \"pnpm --filter @querymon/api dev\" \"pnpm --filter @querymon/web dev\"",
+    "dev:web": "pnpm --filter './packages/*' build && concurrently -k -n API,WEB,TRPC -c blue,green,cyan \"pnpm --filter @querymon/api dev\" \"pnpm --filter @querymon/web dev\" \"pnpm --filter @querymon/trpc dev\"",
     "build:web": "pnpm --filter @querymon/web build",
     "serve:web": "pnpm --filter @querymon/web serve",
     "dev:api": "pnpm --filter @querymon/api dev",
@@ -14,24 +14,19 @@
     "start:api": "pnpm --filter @querymon/api start",
     "dev:desktop": "pnpm --filter @querymon/desktop dev",
     "build:desktop": "pnpm --filter @querymon/desktop build",
-    "typecheck": "pnpm --filter @querymon/api typecheck && pnpm --filter @querymon/web typecheck && pnpm --filter @querymon/desktop typecheck",
-    "typecheck:all": "concurrently -k -n API,WEB,DESK -c blue,green,magenta \"pnpm --filter @querymon/api typecheck\" \"pnpm --filter @querymon/web typecheck\" \"pnpm --filter @querymon/desktop typecheck\"",
+    "typecheck": "pnpm --filter './packages/*' build && concurrently -n TRPC,API,WEB,DESK -c cyan,blue,green,magenta \"pnpm --filter @querymon/trpc typecheck\" \"pnpm --filter @querymon/api typecheck\" \"pnpm --filter @querymon/web typecheck\" \"pnpm --filter @querymon/desktop typecheck\"",
     "lint": "eslint .",
     "lint:fix": "eslint . --fix"
   },
   "license": "MIT",
   "private": true,
   "dependencies": {
-    "@hono/node-server": "^1.19.5",
-    "@hono/trpc-server": "^0.4.0",
     "@trpc/client": "^11.6.0",
     "@trpc/server": "^11.6.0",
     "@types/lodash-es": "^4.17.12",
     "dotenv": "^17.2.3",
     "drizzle-orm": "^0.44.6",
-    "hono": "^4.9.10",
     "lodash-es": "^4.17.21",
-    "ws": "^8.18.3",
     "zod": "^4.1.12"
   },
   "devDependencies": {
